@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, ChevronRight, Database, FilePenLine, FileText } from 'lucide-react';
+import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText } from 'lucide-react';
 
 const cards = [
   {
@@ -37,6 +37,18 @@ const cards = [
     iconWrap: 'bg-amber-100 text-amber-700',
     badge: 'SQLD 시험',
     badgeClass: 'bg-amber-100 text-amber-800',
+  },
+  {
+    href: '/aiprompt',
+    title: 'AI 프롬프트엔지니어링 2급',
+    subtitle: '객관식 CBT',
+    description: '프롬프트 설계, 평가, 안전성, 운영 기초를 20문항으로 연습합니다.',
+    icon: Bot,
+    classes:
+      'border-rose-200 bg-gradient-to-br from-white via-rose-50 to-pink-50 hover:border-rose-400 hover:shadow-rose-100',
+    iconWrap: 'bg-rose-100 text-rose-700',
+    badge: 'AI 자격',
+    badgeClass: 'bg-rose-100 text-rose-800',
   },
 ];
 
