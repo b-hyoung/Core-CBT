@@ -2890,13 +2890,18 @@ export default function PracticalQuiz({
               </div>
             )}
 
-            {currentProblem.examples && (
+            {(currentProblem.examples || currentProblem.image_url) && (
               <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
                 <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
                   <span className="text-sm font-bold text-sky-800">보기</span>
                 </div>
                 <div className="p-4">
-                  {(() => {
+                  {currentProblem.image_url && (
+                    <div className={`${currentProblem.examples ? 'mb-4' : ''} flex justify-center`}>
+                      <img src={currentProblem.image_url} alt="보조 이미지" className="max-w-full rounded-md shadow-sm border border-gray-200" />
+                    </div>
+                  )}
+                  {currentProblem.examples && (() => {
                     const lines = currentProblem.examples.split('\n');
                     const nonEmpty = lines.filter((l) => l.trim());
                     const isTable = nonEmpty.length > 1 && nonEmpty.every((l) => l.includes('|'));

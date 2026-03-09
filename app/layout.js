@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "정보처리산업기사 CBT 모의시험",
+  title: "정보처리산업기사  CBT 모의시험",
   description: "정보처리산업기사 필기 기출문제를 CBT 형식으로 학습하는 웹 서비스",
 };
 

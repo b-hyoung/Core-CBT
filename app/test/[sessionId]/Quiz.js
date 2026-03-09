@@ -1890,6 +1890,22 @@ export default function Quiz({
               </div>
             )}
 
+            {currentProblem.image_url && (
+              <div className="mb-6 space-y-4">
+                {currentProblem.image_url.split(',').map((u) => {
+                  const src = String(u || '').trim();
+                  if (!src) return null;
+                  return (
+                    <img
+                      key={src}
+                      src={src}
+                      alt="보조 이미지"
+                      className="max-w-full rounded-md shadow-sm border border-gray-200"
+                    />
+                  );
+                })}
+              </div>
+            )}
             {currentProblem.examples && (
               <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
                 <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
