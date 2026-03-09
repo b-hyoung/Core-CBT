@@ -2,6 +2,7 @@ import { auth } from '@/auth';
 import { isAllowedAdminEmail } from '@/lib/adminAccess';
 
 const protectedPrefixes = ['/exam', '/test', '/practical', '/sqld', '/aiprompt', '/mypage'];
+const requireLoginForProtectedRoutes = String(process.env.REQUIRE_LOGIN_FOR_PROTECTED_ROUTES || '0') === '1';
 
 export default auth((req) => {
   const { pathname, origin } = req.nextUrl;
@@ -17,6 +18,7 @@ export default auth((req) => {
   const isSignedIn = Boolean(email);
 
   if (isProtected) {
+    if (!requireLoginForProtectedRoutes) return;
     if (isSignedIn) return;
     return Response.redirect(new URL('/', origin));
   }
