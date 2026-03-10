@@ -136,6 +136,34 @@
   - 신고 시간(월/일 시/분), 회차, 문항, 사유, 문제 요약
   - 관리자 페이지 바로가기 링크
 
+### GitHub PR 기반 문제 데이터 반영
+
+- 신고 정보 예시
+
+```json
+{
+  "problem_id": "problem2024_first_q012",
+  "type": "typo",
+  "message": "보기 3번 문장이 이상합니다"
+}
+```
+
+- AI 제안 변경 예시
+
+```json
+{
+  "file": "datasets/problem2024/first/problem1.json",
+  "changes": {
+    "problems[11].options[2]": "수정된 보기 문장"
+  }
+}
+```
+
+- 브랜치/PR 예시
+  - branch: `fix/problem2024-first-q012-typo`
+  - PR에는 `신고 정보`, `before/after`, `정답 영향 여부` 체크리스트 포함
+  - AI는 DB를 직접 수정하지 않고 PR만 생성, 최종 반영은 관리자 승인 후 진행
+
 ## 비용/운영 효율 개선 효과 (추정)
 
 아래 수치는 현재 구현(캐시 재사용, 무료 티어, 중복 집계) 기준의 **운영 체감 추정치**입니다.

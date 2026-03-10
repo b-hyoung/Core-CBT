@@ -13,3 +13,32 @@ node scripts/build_problem100_from_txt.js
 - `datasets/problem100/first/comment1.json`
 
 4. `/test/100` 접속 시 고정 100문제 모드로 로드됩니다.
+
+## 신고/수정 제안 예시 (problem100)
+
+신고 정보:
+
+```json
+{
+  "problem_id": "problem100_first_q037",
+  "type": "typo",
+  "message": "문항 지문 오탈자 확인 필요"
+}
+```
+
+AI 제안 변경:
+
+```json
+{
+  "file": "datasets/problem100/first/problem1.json",
+  "changes": {
+    "problems[36].question_text": "수정된 문항 지문"
+  }
+}
+```
+
+브랜치 예시:
+
+```text
+fix/problem100-first-q037-typo
+```
