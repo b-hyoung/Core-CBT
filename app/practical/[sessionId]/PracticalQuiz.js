@@ -61,6 +61,91 @@ const GPT_MAX_TURNS = 3;
 const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
 const UNKNOWN_OPTION = '__UNKNOWN_OPTION__';
 const QUIZ_DURATION_SECONDS = 60 * 60;
+const GPT_LOCAL_STATE_SOFT_LIMIT_BYTES = 3_500_000;
+const GPT_LOCAL_STATE_HARD_LIMIT_BYTES = 4_500_000;
+
+function estimateLocalStorageBytes(text) {
+  return String(text || '').length * 2;
+}
+
+function isQuotaExceededError(error) {
+  return (
+    error?.name === 'QuotaExceededError' ||
+    error?.name === 'NS_ERROR_DOM_QUOTA_REACHED' ||
+    error?.code === 22 ||
+    error?.code === 1014
+  );
+}
+
+function buildGptStatePayloadWithPrune({
+  usedProblems,
+  conversations,
+  softLimitBytes = GPT_LOCAL_STATE_SOFT_LIMIT_BYTES,
+}) {
+  const nextUsed = { ...(usedProblems && typeof usedProblems === 'object' ? usedProblems : {}) };
+  const nextConversations = { ...(conversations && typeof conversations === 'object' ? conversations : {}) };
+  let payload = { usedProblems: nextUsed, conversations: nextConversations };
+  let serialized = JSON.stringify(payload);
+  if (estimateLocalStorageBytes(serialized) <= softLimitBytes) {
+    return { payload, serialized, prunedCount: 0 };
+  }
+
+  // Object key insertion order is used as a lightweight "oldest first" fallback.
+  let prunedCount = 0;
+  for (const key of Object.keys(nextConversations)) {
+    delete nextConversations[key];
+    delete nextUsed[key];
+    prunedCount += 1;
+    payload = { usedProblems: nextUsed, conversations: nextConversations };
+    serialized = JSON.stringify(payload);
+    if (estimateLocalStorageBytes(serialized) <= softLimitBytes) {
+      return { payload, serialized, prunedCount };
+    }
+  }
+
+  for (const key of Object.keys(nextUsed)) {
+    delete nextUsed[key];
+    prunedCount += 1;
+    payload = { usedProblems: nextUsed, conversations: nextConversations };
+    serialized = JSON.stringify(payload);
+    if (estimateLocalStorageBytes(serialized) <= softLimitBytes) break;
+  }
+
+  return { payload, serialized, prunedCount };
+}
+
+function saveGptStateToLocalStorage(storageKey, { usedProblems, conversations }) {
+  const firstPass = buildGptStatePayloadWithPrune({
+    usedProblems,
+    conversations,
+    softLimitBytes: GPT_LOCAL_STATE_HARD_LIMIT_BYTES,
+  });
+
+  try {
+    window.localStorage.setItem(storageKey, firstPass.serialized);
+    return {
+      ...firstPass,
+      usedProblems: firstPass.payload.usedProblems,
+      conversations: firstPass.payload.conversations,
+      pruned: firstPass.prunedCount > 0,
+    };
+  } catch (e) {
+    if (!isQuotaExceededError(e)) throw e;
+
+    const secondPass = buildGptStatePayloadWithPrune({
+      usedProblems,
+      conversations,
+      softLimitBytes: GPT_LOCAL_STATE_SOFT_LIMIT_BYTES,
+    });
+    window.localStorage.setItem(storageKey, secondPass.serialized);
+    return {
+      ...secondPass,
+      usedProblems: secondPass.payload.usedProblems,
+      conversations: secondPass.payload.conversations,
+      pruned: secondPass.prunedCount > 0,
+    };
+  }
+}
 
 function getSequenceMeta(problem, correctAnswer = '') {
   const explicitInputType = String(problem?.input_type || '');
@@ -921,13 +1006,14 @@ export default function PracticalQuiz({
 
   useEffect(() => {
     try {
-      window.localStorage.setItem(
-        gptStateStorageKey,
-        JSON.stringify({
-          usedProblems: gptUsedProblems,
-          conversations: gptConversationsByProblem,
-        })
-      );
+      const saved = saveGptStateToLocalStorage(gptStateStorageKey, {
+        usedProblems: gptUsedProblems,
+        conversations: gptConversationsByProblem,
+      });
+      if (saved?.pruned) {
+        if (saved.conversations !== gptConversationsByProblem) setGptConversationsByProblem(saved.conversations);
+        if (saved.usedProblems !== gptUsedProblems) setGptUsedProblems(saved.usedProblems);
+      }
     } catch {}
   }, [gptConversationsByProblem, gptStateStorageKey, gptUsedProblems]);
 
@@ -1702,10 +1788,12 @@ export default function PracticalQuiz({
 
     const nextMessages = [...gptMessages, { role: 'user', content: userText }];
     setGptMessages(nextMessages);
-    setGptConversationsByProblem((prev) => ({
-      ...prev,
-      [problemKey]: nextMessages,
-    }));
+    setGptConversationsByProblem((prev) => {
+      const next = { ...prev };
+      delete next[problemKey];
+      next[problemKey] = nextMessages;
+      return next;
+    });
     setGptQuestion('');
 
     try {
@@ -1747,10 +1835,12 @@ export default function PracticalQuiz({
         },
       ];
       setGptMessages(finalMessages);
-      setGptConversationsByProblem((prev) => ({
-        ...prev,
-        [problemKey]: finalMessages,
-      }));
+      setGptConversationsByProblem((prev) => {
+        const next = { ...prev };
+        delete next[problemKey];
+        next[problemKey] = finalMessages;
+        return next;
+      });
       setGptChatOpen(true);
     } catch (e) {
       setGptError(String(e?.message || e));
@@ -1906,10 +1996,12 @@ export default function PracticalQuiz({
         };
       });
       setGptMessages(nextMessages);
-      setGptConversationsByProblem((prev) => ({
-        ...prev,
-        [currentGptProblemKey]: nextMessages,
-      }));
+      setGptConversationsByProblem((prev) => {
+        const next = { ...prev };
+        delete next[currentGptProblemKey];
+        next[currentGptProblemKey] = nextMessages;
+        return next;
+      });
       setGptVoteMap((prev) => ({ ...prev, [cacheKey]: vote }));
     } catch (e) {
       setGptError(String(e?.message || e));
@@ -2871,13 +2963,18 @@ export default function PracticalQuiz({
               </div>
             )}
 
-            {currentProblem.examples && (
+            {(currentProblem.examples || currentProblem.image_url) && (
               <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
                 <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
                   <span className="text-sm font-bold text-sky-800">보기</span>
                 </div>
                 <div className="p-4">
-                  {(() => {
+                  {currentProblem.image_url && (
+                    <div className={`${currentProblem.examples ? 'mb-4' : ''} flex justify-center`}>
+                      <img src={currentProblem.image_url} alt="보조 이미지" className="max-w-full rounded-md shadow-sm border border-gray-200" />
+                    </div>
+                  )}
+                  {currentProblem.examples && (() => {
                     const lines = currentProblem.examples.split('\n');
                     const nonEmpty = lines.filter((l) => l.trim());
                     const isTable = nonEmpty.length > 1 && nonEmpty.every((l) => l.includes('|'));

@@ -1,6 +1,7 @@
 ﻿import fs from 'fs/promises';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import { getAdminSession } from '@/lib/adminAccess';
 
 export const dynamic = 'force-dynamic';
 
@@ -146,6 +147,11 @@ async function loadSessionData(sessionId) {
 }
 
 export async function GET(request) {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return NextResponse.json({ ok: false, message: 'forbidden' }, { status: 403 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const sessionId = String(searchParams.get('sessionId') || '').trim();

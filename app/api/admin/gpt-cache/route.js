@@ -1,4 +1,6 @@
 ﻿import { NextResponse } from 'next/server';
+import { getAdminSession } from '@/lib/adminAccess';
+import { classifySessionId, normalizeExamType } from '@/lib/examType';
 
 export const dynamic = 'force-dynamic';
 
@@ -7,22 +9,6 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const SUPABASE_GPT_CACHE_TABLE = process.env.SUPABASE_GPT_CACHE_TABLE || 'gpt_objection_cache';
 const PAGE_SIZE_DEFAULT = 20;
 const PAGE_SIZE_MAX = 100;
-
-function normalizeExamType(v) {
-  const x = String(v || 'all').toLowerCase();
-  if (x === 'written') return 'written';
-  if (x === 'practical') return 'practical';
-  if (x === 'sqld') return 'sqld';
-  return 'all';
-}
-
-function classifySessionId(sessionId) {
-  const sid = String(sessionId || '').trim();
-  if (!sid) return '';
-  if (sid.startsWith('sqld-') || sid === 'sqld-index') return 'sqld';
-  if (sid.startsWith('practical-')) return 'practical';
-  return 'written';
-}
 
 function hasSupabaseConfig() {
   return Boolean(SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY);
@@ -100,6 +86,11 @@ async function readAllGptCacheRows() {
 }
 
 export async function GET(request) {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return NextResponse.json({ ok: false, message: 'forbidden' }, { status: 403 });
+  }
+
   try {
     if (!hasSupabaseConfig()) {
       return NextResponse.json({
@@ -282,5 +273,3 @@ export async function GET(request) {
     );
   }
 }
-
-

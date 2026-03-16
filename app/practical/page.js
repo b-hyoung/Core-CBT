@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, Book, ChevronRight, Shuffle } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import { PRACTICAL_SESSIONS_BY_YEAR } from './_lib/practicalSessions';
+import UserQuickActions from '@/app/_components/UserQuickActions';
 
 const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
 
@@ -51,6 +52,7 @@ export default function PracticalSelectionPage() {
     <div className="min-h-screen w-full bg-gradient-to-br from-white via-emerald-50 to-teal-100 text-gray-800">
       <main className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
+          <UserQuickActions className="mb-4" />
           <div className="text-center mb-12">
             <Link
               href="/exam"

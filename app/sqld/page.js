@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight, Database } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
+import UserQuickActions from '@/app/_components/UserQuickActions';
 
 const sessionsByYear = [
   {
@@ -32,6 +33,7 @@ export default function SqldSelectionPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-100 px-4 py-10">
       <div className="mx-auto max-w-5xl">
+        <UserQuickActions className="mb-4" />
         <div className="mb-8 rounded-3xl border border-amber-200 bg-white/90 p-6 shadow-sm md:p-8">
           <Link
             href="/exam"

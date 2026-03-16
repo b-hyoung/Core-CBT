@@ -1,6 +1,8 @@
 ﻿'use client';
 
 import { Fragment, useEffect, useMemo, useState } from 'react';
+import { getSession, signOut } from 'next-auth/react';
+import { ADMIN_EXAM_TYPE_OPTIONS, classifySessionId, examTypeLabel } from '@/lib/examType';
 import {
   Bar,
   BarChart,
@@ -16,6 +18,8 @@ import {
 const emptyMetrics = {
   kpis: {
     visitors: 0,
+    googleUsers: 0,
+    visitorsPlusGoogle: 0,
     completedUsers: 0,
     completionRate: 0,
     passRate: 0,
@@ -34,24 +38,14 @@ const emptyMetrics = {
   },
 };
 
-const ADMIN_PASSWORD = 'testbob';
-const ADMIN_AUTH_KEY = 'admin_auth_ok';
-
 const LIST_TABS = [
   { key: 'kpi', label: '요약 리스트' },
   { key: 'daily', label: '일자별 리스트' },
   { key: 'session', label: '회차별 리스트' },
   { key: 'subject', label: '과목별 리스트' },
-  { key: 'ipSearch', label: 'IP 조회' },
+  { key: 'ipSearch', label: '사용자 조회' },
   { key: 'gptCache', label: 'GPT 캐시 조회' },
   { key: 'reports', label: '신고 리스트' },
-];
-
-const ADMIN_EXAM_TYPE_OPTIONS = [
-  { value: 'all', label: '전체' },
-  { value: 'written', label: '필기' },
-  { value: 'practical', label: '실기' },
-  { value: 'sqld', label: 'SQLD' },
 ];
 
 const SESSION_LABELS = {
@@ -101,7 +95,10 @@ function sessionLabel(sessionId) {
   if (random22Year) return `랜덤보기22 (${random22Year[1]}년)`;
 
   const industrial2025 = key.match(/^pdfpack-industrial-2025-(\d)$/);
-  if (industrial2025) return `2025년 ${industrial2025[1]}회 정보처리산업기사 필기`;
+  if (industrial2025) return `2025년 ${industrial2025[1]}회차`;
+  const aiPrompt = key.match(/^aiprompt-(\d+)-(\d+)$/);
+  if (aiPrompt) return `AI 프롬프트엔지니어링 ${aiPrompt[1]}급 ${aiPrompt[2]}회`;
+  if (key === 'aiprompt-index') return 'AI 프롬프트 회차 선택';
 
   return SESSION_LABELS[key] || key || '-';
 }
@@ -150,7 +147,7 @@ const emptyIpSearchAdmin = {
     totalEvents: 0,
     totalEventsWithIp: 0,
     matchedRows: 0,
-    entity: 'ip',
+    entity: 'email',
     scope: 'all',
     estimatedExternalUniqueClients: 0,
     estimatedExternalUniqueIps: 0,
@@ -163,13 +160,13 @@ const emptyIpSearchAdmin = {
   totalPages: 1,
   sortBy: 'lastSeen',
   sortDir: 'desc',
-  filters: { q: '', entity: 'ip', scope: 'all' },
+  filters: { q: '', entity: 'email', scope: 'all' },
 };
 
 export default function AdminPage() {
   const [unlocked, setUnlocked] = useState(false);
-  const [passwordInput, setPasswordInput] = useState('');
-  const [authError, setAuthError] = useState('');
+  const [authChecking, setAuthChecking] = useState(true);
+  const [adminEmail, setAdminEmail] = useState('');
   const [metrics, setMetrics] = useState(emptyMetrics);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -196,6 +193,9 @@ export default function AdminPage() {
   const [gptCacheSessionFilter, setGptCacheSessionFilter] = useState('');
   const [gptCacheProblemFilter, setGptCacheProblemFilter] = useState('');
   const [gptCacheFeedbackFilter, setGptCacheFeedbackFilter] = useState('all');
+  const [gptTopTypeView, setGptTopTypeView] = useState('all');
+  const [gptDetailTypeView, setGptDetailTypeView] = useState('all');
+  const [gptSectionView, setGptSectionView] = useState('top');
   const [gptTopSortBy, setGptTopSortBy] = useState('hits');
   const [gptTopSortDir, setGptTopSortDir] = useState('desc');
   const [selectedGptCacheRow, setSelectedGptCacheRow] = useState(null);
@@ -203,7 +203,7 @@ export default function AdminPage() {
   const [ipSearchLoading, setIpSearchLoading] = useState(false);
   const [ipSearchError, setIpSearchError] = useState('');
   const [ipSearchQuery, setIpSearchQuery] = useState('');
-  const [ipSearchEntity, setIpSearchEntity] = useState('client');
+  const [ipSearchEntity, setIpSearchEntity] = useState('email');
   const [ipSearchScope, setIpSearchScope] = useState('today');
   const [ipSearchSortBy, setIpSearchSortBy] = useState('lastSeen');
   const [ipSearchSortDir, setIpSearchSortDir] = useState('desc');
@@ -213,6 +213,8 @@ export default function AdminPage() {
   const [ipExcludeLocal, setIpExcludeLocal] = useState(true);
   const [ipExcludeWhitelistText, setIpExcludeWhitelistText] = useState('');
   const [adminExamTypeFilter, setAdminExamTypeFilter] = useState('all');
+  const [sessionTypeView, setSessionTypeView] = useState('all');
+  const [subjectTypeView, setSubjectTypeView] = useState('all');
 
   const toggleReportSort = (column) => {
     if (reportSortBy === column) {
@@ -381,21 +383,40 @@ export default function AdminPage() {
       if (!data?.ok) throw new Error(data?.message || 'failed');
       setIpSearchData({ ...emptyIpSearchAdmin, ...data });
     } catch {
-      setIpSearchError('IP 조회 데이터를 불러오지 못했습니다.');
+      setIpSearchError('사용자 조회 데이터를 불러오지 못했습니다.');
     } finally {
       setIpSearchLoading(false);
     }
   };
 
   useEffect(() => {
-    const ok = window.sessionStorage.getItem(ADMIN_AUTH_KEY) === '1';
-    if (ok) {
-      setUnlocked(true);
-      load();
-    } else {
-      setLoading(false);
-    }
+    const bootstrap = async () => {
+      try {
+        const session = await getSession();
+        const email = String(session?.user?.email || '').trim();
+        if (!email) {
+          window.location.href = '/';
+          return;
+        }
+        setAdminEmail(email);
+        setUnlocked(true);
+        load();
+      } finally {
+        setAuthChecking(false);
+      }
+    };
+
+    bootstrap();
   }, []);
+
+  useEffect(() => {
+    if (!unlocked) {
+      setLoading(false);
+      return;
+    }
+    if (tab === 'gptCache' || tab === 'ipSearch') return;
+    load();
+  }, [unlocked, tab, adminExamTypeFilter]);
 
   useEffect(() => {
     if (!unlocked) return;
@@ -431,17 +452,18 @@ export default function AdminPage() {
     adminExamTypeFilter,
   ]);
 
-  useEffect(() => {
-    if (!unlocked) return;
-    if (tab === 'gptCache' || tab === 'ipSearch') return;
-    load();
-  }, [unlocked, tab, adminExamTypeFilter]);
-
   const kpis = useMemo(() => metrics.kpis ?? emptyMetrics.kpis, [metrics]);
-  const ipEntityLabel = ipSearchEntity === 'client' ? 'clientId (사람 추정)' : 'IP';
-  const ipCounterpartLabel = ipSearchEntity === 'client' ? '고유 IP' : '고유 clientId';
-  const ipTodayCounterpartLabel = ipSearchEntity === 'client' ? '오늘 고유 IP' : '오늘 고유 clientId';
-  const ipRowsLabel = ipSearchEntity === 'client' ? '명' : '개 IP';
+  const ipEntityLabel =
+    ipSearchEntity === 'email' ? '이메일' : ipSearchEntity === 'client' ? 'clientId (사람 추정)' : 'IP';
+  const ipCounterpartLabel =
+    ipSearchEntity === 'email' ? '고유 clientId' : ipSearchEntity === 'client' ? '고유 IP' : '고유 clientId';
+  const ipTodayCounterpartLabel =
+    ipSearchEntity === 'email'
+      ? '오늘 고유 clientId'
+      : ipSearchEntity === 'client'
+        ? '오늘 고유 IP'
+        : '오늘 고유 clientId';
+  const ipRowsLabel = ipSearchEntity === 'ip' ? '개 IP' : '명';
   const ipFilterExcludedIps = Array.isArray(ipSearchData?.summary?.excludeIps) ? ipSearchData.summary.excludeIps : [];
   const sortedGptTopProblems = useMemo(() => {
     const rows = [...(gptCacheData?.topProblems || [])];
@@ -481,6 +503,20 @@ export default function AdminPage() {
     });
     return rows;
   }, [gptCacheData?.topProblems, gptTopSortBy, gptTopSortDir]);
+  const filteredGptTopProblems = useMemo(
+    () =>
+      sortedGptTopProblems.filter(
+        (r) => gptTopTypeView === 'all' || classifySessionId(r.sourceSessionId) === gptTopTypeView
+      ),
+    [sortedGptTopProblems, gptTopTypeView]
+  );
+  const filteredGptCacheRows = useMemo(
+    () =>
+      (gptCacheData?.rows || []).filter(
+        (r) => gptDetailTypeView === 'all' || classifySessionId(r.sourceSessionId) === gptDetailTypeView
+      ),
+    [gptCacheData?.rows, gptDetailTypeView]
+  );
 
   const groupedReports = useMemo(() => {
     const rows = Array.isArray(metrics.recentReports) ? metrics.recentReports : [];
@@ -555,18 +591,6 @@ export default function AdminPage() {
     return [...new Set(ids)];
   }, [sortedGroupedReports, selectedReportGroups]);
   const isAllSelected = allGroupKeys.length > 0 && selectedGroupKeys.length === allGroupKeys.length;
-
-  const handleUnlock = (e) => {
-    e.preventDefault();
-    if (passwordInput === ADMIN_PASSWORD) {
-      window.sessionStorage.setItem(ADMIN_AUTH_KEY, '1');
-      setUnlocked(true);
-      setAuthError('');
-      load();
-      return;
-    }
-    setAuthError('비밀번호가 올바르지 않습니다.');
-  };
 
   const closeDetail = () => {
     setSelectedReport(null);
@@ -709,29 +733,16 @@ export default function AdminPage() {
     }
   };
 
-  if (!unlocked) {
+  if (authChecking) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-        <form onSubmit={handleUnlock} className="w-full max-w-sm rounded-xl bg-white border border-slate-200 p-6 shadow-sm">
-          <h1 className="text-xl font-extrabold text-slate-900">어드민 로그인</h1>
-          <p className="mt-2 text-sm text-slate-600">비밀번호를 입력하세요.</p>
-          <input
-            type="password"
-            value={passwordInput}
-            onChange={(e) => setPasswordInput(e.target.value)}
-            placeholder="비밀번호"
-            className="mt-4 w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-sky-500"
-          />
-          {authError && <p className="mt-2 text-sm text-red-600">{authError}</p>}
-          <button
-            type="submit"
-            className="mt-4 w-full rounded-lg bg-sky-600 text-white font-semibold py-2.5 hover:bg-sky-700"
-          >
-            들어가기
-          </button>
-        </form>
+        <div className="text-slate-600">어드민 권한 확인 중...</div>
       </div>
     );
+  }
+
+  if (!unlocked) {
+    return null;
   }
 
   return (
@@ -740,6 +751,15 @@ export default function AdminPage() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">어드민 대시보드</h1>
           <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-600">
+              {adminEmail}
+            </span>
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              className="px-4 py-2 rounded-lg border border-rose-200 bg-rose-50 text-rose-700 font-semibold hover:bg-rose-100"
+            >
+              로그아웃
+            </button>
             <label className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
               <span className="text-slate-600">구분 필터</span>
               <select
@@ -800,9 +820,6 @@ export default function AdminPage() {
         {tab === 'kpi' && (
           <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
             <h2 className="font-bold text-slate-900 mb-3">요약 리스트</h2>
-            <div className="mb-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
-              방문자 수는 <span className="font-semibold">전체 누적 clientId 기준</span>입니다. 같은 사람이 여러 번 들어와도 같은 clientId면 방문자 수는 늘지 않고, <span className="font-semibold">일자별 방문</span>은 <span className="font-semibold">visit_test 이벤트 건수</span>라서 같은 사람이 여러 번 들어오면 증가합니다.
-            </div>
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm">
                 <thead>
@@ -812,7 +829,10 @@ export default function AdminPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <Row k="방문자 수" v={kpis.visitors} />
+                  <Row
+                    k="방문자 수"
+                    v={Number(kpis.visitors || 0) + Number(kpis.googleUsers || 0)}
+                  />
                   <Row k="완주 사용자" v={kpis.completedUsers} />
                   <Row k="완주율" v={`${kpis.completionRate}%`} />
                   <Row k="전체 합격률" v={`${kpis.passRate}%`} />
@@ -835,30 +855,121 @@ export default function AdminPage() {
         )}
 
         {tab === 'session' && (
-          <ListTable
-            title="회차별 리스트"
-            loading={loading}
-            emptyText="데이터가 없습니다."
-            headers={['회차', '시작', '완료', '합격률']}
-            rows={metrics.sessionStats.map((r) => [sessionLabelWithCode(r.session), r.시작, r.완료, `${r.합격률}%`])}
-          />
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-bold text-slate-900">회차별 리스트</h2>
+              <div className="flex flex-wrap gap-2">
+                {ADMIN_EXAM_TYPE_OPTIONS.map((opt) => (
+                  <button
+                    key={`session-type-${opt.value}`}
+                    onClick={() => setSessionTypeView(opt.value)}
+                    className={`rounded-full border px-3 py-1 text-xs font-bold ${
+                      sessionTypeView === opt.value
+                        ? 'border-sky-600 bg-sky-600 text-white'
+                        : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {loading ? (
+              <div className="text-slate-500">로딩 중...</div>
+            ) : (metrics.sessionStats || []).length === 0 ? (
+              <div className="text-slate-500">데이터가 없습니다.</div>
+            ) : (
+              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                <table className="min-w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200 text-left text-slate-600">
+                      <th className="px-3 py-2">구분</th>
+                      <th className="px-3 py-2">회차</th>
+                      <th className="px-3 py-2">시작</th>
+                      <th className="px-3 py-2">완료</th>
+                      <th className="px-3 py-2">합격률</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(metrics.sessionStats || [])
+                      .filter((r) => sessionTypeView === 'all' || String(r.examType || '') === sessionTypeView)
+                      .map((r, idx) => (
+                        <tr key={`session-row:${r.session}:${idx}`} className="border-b border-slate-100 last:border-b-0">
+                          <td className="px-3 py-2">{examTypeLabel(r.examType)}</td>
+                          <td className="px-3 py-2">{sessionLabelWithCode(r.session)}</td>
+                          <td className="px-3 py-2">{r.시작}</td>
+                          <td className="px-3 py-2">{r.완료}</td>
+                          <td className="px-3 py-2 font-semibold text-sky-700">{r.합격률}%</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
         )}
 
         {tab === 'subject' && (
-          <ListTable
-            title="과목별 리스트"
-            loading={loading}
-            emptyText="데이터가 없습니다."
-            headers={['과목', '평균 정답률']}
-            rows={metrics.subjectAverages.map((r) => [r.subject, `${r.정답률}%`])}
-          />
+          <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-bold text-slate-900">과목별 리스트</h2>
+              <div className="flex flex-wrap gap-2">
+                {ADMIN_EXAM_TYPE_OPTIONS.map((opt) => (
+                  <button
+                    key={`subject-type-${opt.value}`}
+                    onClick={() => setSubjectTypeView(opt.value)}
+                    className={`rounded-full border px-3 py-1 text-xs font-bold ${
+                      subjectTypeView === opt.value
+                        ? 'border-sky-600 bg-sky-600 text-white'
+                        : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {loading ? (
+              <div className="text-slate-500">로딩 중...</div>
+            ) : (metrics.subjectAverages || []).length === 0 ? (
+              <div className="text-slate-500">데이터가 없습니다.</div>
+            ) : (
+              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                <table className="min-w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200 text-left text-slate-600">
+                      <th className="px-3 py-2">구분</th>
+                      <th className="px-3 py-2">과목</th>
+                      <th className="px-3 py-2">평균 정답률</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(metrics.subjectAverages || [])
+                      .filter((r) => subjectTypeView === 'all' || String(r.examType || '') === subjectTypeView)
+                      .sort((a, b) => {
+                        const typeCmp = String(a.examType || '').localeCompare(String(b.examType || ''), 'ko');
+                        if (typeCmp !== 0) return typeCmp;
+                        return String(a.subject || '').localeCompare(String(b.subject || ''), 'ko');
+                      })
+                      .map((r, idx) => (
+                        <tr key={`subject-row:${r.examType}:${r.subject}:${idx}`} className="border-b border-slate-100 last:border-b-0">
+                          <td className="px-3 py-2">{examTypeLabel(r.examType)}</td>
+                          <td className="px-3 py-2">{r.subject}</td>
+                          <td className="px-3 py-2 font-semibold text-sky-700">{r.정답률}%</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
         )}
 
         {tab === 'ipSearch' && (
           <div className="space-y-4">
             <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <h2 className="font-bold text-slate-900">접속 IP 조회</h2>
+                <h2 className="font-bold text-slate-900">사용자 조회</h2>
                 <button
                   onClick={loadIpSearch}
                   className="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-sm font-semibold"
@@ -868,7 +979,7 @@ export default function AdminPage() {
               </div>
 
               <div className="mb-3 rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900">
-                Netlify 배포 환경에서는 요청 헤더에서 IP를 읽어 analytics 이벤트 payload에 저장합니다. 기존 이벤트(기능 추가 전)는 IP가 비어 있을 수 있습니다.
+                로그인한 사용자는 이벤트에 이메일이 기록됩니다. 과거 데이터는 이메일이 비어 있어 검색 결과에 나타나지 않을 수 있습니다.
               </div>
 
               <div className="flex flex-wrap items-end gap-2 mb-3">
@@ -883,6 +994,7 @@ export default function AdminPage() {
                     }}
                     className="rounded border border-slate-300 px-2 py-1.5 text-sm"
                   >
+                    <option value="email">이메일</option>
                     <option value="client">사람(clientId)</option>
                     <option value="ip">IP</option>
                   </select>
@@ -906,11 +1018,19 @@ export default function AdminPage() {
                   </select>
                 </label>
                 <label className="flex items-center gap-2">
-                  <span className="text-sm text-slate-600">{ipSearchEntity === 'client' ? 'clientId 검색' : 'IP 검색'}</span>
+                  <span className="text-sm text-slate-600">
+                    {ipSearchEntity === 'email' ? '이메일 검색' : ipSearchEntity === 'client' ? 'clientId 검색' : 'IP 검색'}
+                  </span>
                   <input
                     value={ipSearchQuery}
                     onChange={(e) => setIpSearchQuery(e.target.value)}
-                    placeholder={ipSearchEntity === 'client' ? '예: anon_ 또는 clientId 일부' : '예: 123.45 또는 192.168'}
+                    placeholder={
+                      ipSearchEntity === 'email'
+                        ? '예: example@gmail.com'
+                        : ipSearchEntity === 'client'
+                          ? '예: anon_ 또는 clientId 일부'
+                          : '예: 123.45 또는 192.168'
+                    }
                     className="w-56 rounded border border-slate-300 px-2 py-1.5 text-sm"
                   />
                 </label>
@@ -977,7 +1097,12 @@ export default function AdminPage() {
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-5">
                 <Info label="전체 이벤트" value={ipSearchData?.summary?.totalEvents ?? 0} />
                 <Info label="IP 포함 이벤트" value={ipSearchData?.summary?.totalEventsWithIp ?? 0} />
-                <Info label={`검색된 ${ipSearchEntity === 'client' ? '사람(clientId)' : 'IP'} 수`} value={ipSearchData?.summary?.matchedRows ?? ipSearchData?.summary?.matchedIps ?? 0} />
+                <Info
+                  label={`검색된 ${
+                    ipSearchEntity === 'email' ? '이메일 사용자' : ipSearchEntity === 'client' ? '사람(clientId)' : 'IP'
+                  } 수`}
+                  value={ipSearchData?.summary?.matchedRows ?? ipSearchData?.summary?.matchedIps ?? 0}
+                />
                 <Info label="외부 추정 사용자 수" value={ipSearchData?.summary?.estimatedExternalUniqueClients ?? 0} />
                 <Info label="검색어" value={ipSearchData?.summary?.query || '전체'} />
               </div>
@@ -997,7 +1122,7 @@ export default function AdminPage() {
               {ipSearchLoading ? (
                 <div className="text-slate-500">로딩 중...</div>
               ) : (ipSearchData?.rows || []).length === 0 ? (
-                <div className="text-slate-500">IP 데이터가 없습니다.</div>
+                <div className="text-slate-500">사용자 데이터가 없습니다.</div>
               ) : (
                 <>
                   <div className="overflow-x-auto">
@@ -1010,6 +1135,7 @@ export default function AdminPage() {
                               <span>{ipEntityLabel}</span><span>{ipSortMark('identifier')}</span>
                             </button>
                           </th>
+                          <th className="py-2 pr-3">주요 구분</th>
                           <th className="py-2 pr-3">
                             <button onClick={() => toggleIpSort('totalEvents')} className="flex w-full items-center justify-between font-semibold hover:text-slate-900">
                               <span>총 이벤트</span><span>{ipSortMark('totalEvents')}</span>
@@ -1055,18 +1181,30 @@ export default function AdminPage() {
                                   </button>
                                 </td>
                                 <td className="py-2 pr-3 font-mono text-xs md:text-sm">{r.identifier || '-'}</td>
+                                <td className="py-2 pr-3">{examTypeLabel(r.majorExamType)}</td>
                                 <td className="py-2 pr-3 font-semibold">{r.totalEvents}</td>
                                 <td className="py-2 pr-3">{r.todayEventCount}</td>
                                 <td className="py-2 pr-3">{r.todayVisitCount}</td>
-                                <td className="py-2 pr-3">{ipSearchEntity === 'client' ? r.uniqueIpCount : r.uniqueClientCount}</td>
-                                <td className="py-2 pr-3">{ipSearchEntity === 'client' ? r.todayUniqueIpCount : r.todayUniqueClientCount}</td>
+                                <td className="py-2 pr-3">
+                                  {ipSearchEntity === 'client' ? r.uniqueIpCount : r.uniqueClientCount}
+                                </td>
+                                <td className="py-2 pr-3">
+                                  {ipSearchEntity === 'client' ? r.todayUniqueIpCount : r.todayUniqueClientCount}
+                                </td>
                                 <td className="py-2 pr-3">{r.uniqueSessionCount}</td>
                                 <td className="py-2 pr-3 whitespace-nowrap">{fmtTime(r.lastSeen)}</td>
                               </tr>
                               {isOpen && (
                                 <tr className="bg-slate-50">
-                                  <td colSpan={9} className="px-3 pb-3">
+                                  <td colSpan={10} className="px-3 pb-3">
                                     <div className="rounded-lg border border-slate-200 bg-white p-3 mt-2">
+                                      <div className="mb-3 flex flex-wrap gap-2 text-xs">
+                                        {['written', 'practical', 'sqld', 'aiprompt'].map((type) => (
+                                          <span key={type} className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
+                                            {examTypeLabel(type)} {(r.typeCounts?.[type] || 0)}
+                                          </span>
+                                        ))}
+                                      </div>
                                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                                         <div className="rounded border border-slate-200 p-2">
                                           <p className="text-xs text-slate-500">첫 접속</p>
@@ -1079,7 +1217,11 @@ export default function AdminPage() {
                                       </div>
                                       <div className="mb-3">
                                         <p className="text-xs font-semibold text-slate-600 mb-1">
-                                          {ipSearchEntity === 'client' ? 'IP 미리보기 (최대 5개)' : 'clientId 미리보기 (최대 5개)'}
+                                          {ipSearchEntity === 'email'
+                                            ? 'clientId 미리보기 (최대 5개)'
+                                            : ipSearchEntity === 'client'
+                                              ? 'IP 미리보기 (최대 5개)'
+                                              : 'clientId 미리보기 (최대 5개)'}
                                         </p>
                                         <div className="flex flex-wrap gap-1">
                                           {(ipSearchEntity === 'client' ? r.ipAddressesPreview : r.clientIdsPreview || []).length > 0 ? (
@@ -1100,7 +1242,13 @@ export default function AdminPage() {
                                               <th className="px-2 py-1">시간</th>
                                               <th className="px-2 py-1">타입</th>
                                               <th className="px-2 py-1">세션</th>
-                                              <th className="px-2 py-1">{ipSearchEntity === 'client' ? 'IP' : 'clientId'}</th>
+                                              <th className="px-2 py-1">
+                                                {ipSearchEntity === 'email'
+                                                  ? '이메일'
+                                                  : ipSearchEntity === 'client'
+                                                    ? 'IP'
+                                                    : 'clientId'}
+                                              </th>
                                               <th className="px-2 py-1">path</th>
                                             </tr>
                                           </thead>
@@ -1110,7 +1258,13 @@ export default function AdminPage() {
                                                 <td className="px-2 py-1 whitespace-nowrap">{fmtTime(ev.timestamp)}</td>
                                                 <td className="px-2 py-1">{ev.type || '-'}</td>
                                                 <td className="px-2 py-1">{sessionLabel(ev.sessionId)}</td>
-                                                <td className="px-2 py-1 font-mono">{ipSearchEntity === 'client' ? (ev.ipAddress || '-') : (ev.clientId || '-')}</td>
+                                                <td className="px-2 py-1 font-mono">
+                                                  {ipSearchEntity === 'email'
+                                                    ? (ev.email || '-')
+                                                    : ipSearchEntity === 'client'
+                                                      ? (ev.ipAddress || '-')
+                                                      : (ev.clientId || '-')}
+                                                </td>
                                                 <td className="px-2 py-1">{ev.path || '-'}</td>
                                               </tr>
                                             ))}
@@ -1168,6 +1322,29 @@ export default function AdminPage() {
                 </button>
               </div>
 
+              <div className="mb-3 flex flex-wrap gap-2">
+                <button
+                  onClick={() => setGptSectionView('top')}
+                  className={`rounded-full border px-3 py-1 text-xs font-bold ${
+                    gptSectionView === 'top'
+                      ? 'border-sky-600 bg-sky-600 text-white'
+                      : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  가장 많이 조회된 문제
+                </button>
+                <button
+                  onClick={() => setGptSectionView('detail')}
+                  className={`rounded-full border px-3 py-1 text-xs font-bold ${
+                    gptSectionView === 'detail'
+                      ? 'border-sky-600 bg-sky-600 text-white'
+                      : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  캐시 상세 목록
+                </button>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mb-3">
                 <Info label="전체 캐시 행" value={gptCacheData?.summary?.totalRows ?? 0} />
                 <Info label="전체 캐시 조회수" value={gptCacheData?.summary?.totalHits ?? 0} />
@@ -1191,11 +1368,29 @@ export default function AdminPage() {
               )}
             </div>
 
-            <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
-              <h3 className="font-bold text-slate-900 mb-3">가장 많이 조회된 문제 (캐시 기준)</h3>
+            {gptSectionView === 'top' && (
+              <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-bold text-slate-900">가장 많이 조회된 문제 (캐시 기준)</h3>
+                <div className="flex flex-wrap gap-2">
+                  {ADMIN_EXAM_TYPE_OPTIONS.map((opt) => (
+                    <button
+                      key={`gpt-top-type-${opt.value}`}
+                      onClick={() => setGptTopTypeView(opt.value)}
+                      className={`rounded-full border px-3 py-1 text-xs font-bold ${
+                        gptTopTypeView === opt.value
+                          ? 'border-sky-600 bg-sky-600 text-white'
+                          : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
               {gptCacheLoading ? (
                 <div className="text-slate-500">로딩 중...</div>
-              ) : (gptCacheData?.topProblems || []).length === 0 ? (
+              ) : filteredGptTopProblems.length === 0 ? (
                 <div className="text-slate-500">캐시 데이터가 없습니다.</div>
               ) : (
                 <div className="overflow-x-auto">
@@ -1246,7 +1441,7 @@ export default function AdminPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {sortedGptTopProblems.slice(0, 30).map((r) => (
+                      {filteredGptTopProblems.slice(0, 30).map((r) => (
                         <tr key={r.key} className="border-b border-slate-100">
                           <td className="py-2 pr-3">{r.subject ? `${r.subject}과목` : '-'}</td>
                           <td className="py-2 pr-3 whitespace-nowrap">{sessionLabel(r.sourceSessionId)}</td>
@@ -1263,12 +1458,32 @@ export default function AdminPage() {
                   </table>
                 </div>
               )}
-            </div>
+              </div>
+            )}
 
-            <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
+            {gptSectionView === 'detail' && (
+              <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <h3 className="font-bold text-slate-900">캐시 상세 목록 (페이지네이션)</h3>
                 <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <label className="flex items-center gap-1">
+                    <span className="text-slate-600">구분</span>
+                    <div className="flex flex-wrap gap-1">
+                      {ADMIN_EXAM_TYPE_OPTIONS.map((opt) => (
+                        <button
+                          key={`gpt-detail-type-${opt.value}`}
+                          onClick={() => setGptDetailTypeView(opt.value)}
+                          className={`rounded-full border px-2 py-0.5 text-xs font-bold ${
+                            gptDetailTypeView === opt.value
+                              ? 'border-sky-600 bg-sky-600 text-white'
+                              : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </label>
                   <label className="flex items-center gap-1">
                     <span className="text-slate-600">회차</span>
                     <select
@@ -1339,7 +1554,7 @@ export default function AdminPage() {
 
               {gptCacheLoading ? (
                 <div className="text-slate-500">로딩 중...</div>
-              ) : (gptCacheData?.rows || []).length === 0 ? (
+              ) : filteredGptCacheRows.length === 0 ? (
                 <div className="text-slate-500">캐시 데이터가 없습니다.</div>
               ) : (
                 <>
@@ -1378,7 +1593,7 @@ export default function AdminPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        {(gptCacheData.rows || []).map((r) => (
+                        {filteredGptCacheRows.map((r) => (
                           <tr
                             key={r.cacheKey}
                             className="border-b border-slate-100 cursor-pointer hover:bg-slate-50"
@@ -1404,7 +1619,7 @@ export default function AdminPage() {
 
                   <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm">
                     <div className="text-slate-600">
-                      페이지 {gptCacheData.page} / {gptCacheData.totalPages} · 현재 {gptCacheData.rows.length}건 표시
+                      페이지 {gptCacheData.page} / {gptCacheData.totalPages} · 현재 {filteredGptCacheRows.length}건 표시
                     </div>
                     <div className="flex items-center gap-2">
                       <button
@@ -1425,7 +1640,8 @@ export default function AdminPage() {
                   </div>
                 </>
               )}
-            </div>
+              </div>
+            )}
           </div>
         )}
 

@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server';
 import { deleteReportEvents } from '@/lib/analyticsStore';
+import { getAdminSession } from '@/lib/adminAccess';
 
 export const dynamic = 'force-dynamic';
 
 export async function DELETE(request) {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return NextResponse.json({ ok: false, message: 'forbidden' }, { status: 403 });
+  }
+
   try {
     const body = await request.json().catch(() => ({}));
     const all = Boolean(body?.all);
@@ -19,4 +25,3 @@ export async function DELETE(request) {
     return NextResponse.json({ ok: false, message: 'failed to delete reports' }, { status: 500 });
   }
 }
-

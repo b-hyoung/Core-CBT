@@ -2,24 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Book, ChevronRight, Gift, Shuffle } from 'lucide-react';
+import { Book, ChevronRight, Shuffle } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import { readUnknownProblems } from '@/lib/unknownProblemsStore';
+import UserQuickActions from '@/app/_components/UserQuickActions';
 
 const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
-const PATCH_REWARD_VERSION = '2025-industrial-fix-reward-v1';
-const PATCH_REWARD_STORAGE_KEY = `patch_reward_claimed_${PATCH_REWARD_VERSION}`;
-
-const patchRewardFireworks = Array.from({ length: 42 }, (_, i) => ({
-  id: i,
-  left: 4 + ((i * 11) % 92),
-  drift: (i % 2 === 0 ? 1 : -1) * (14 + ((i * 7) % 36)),
-  rise: 180 + ((i * 17) % 260),
-  delay: (i % 12) * 0.07,
-  duration: 1.3 + ((i * 13) % 10) * 0.07,
-  size: 5 + (i % 5),
-  color: ['#38bdf8', '#22c55e', '#f59e0b', '#f43f5e', '#a855f7', '#14b8a6'][i % 6],
-}));
 
 const sessionsByYear = [
   {
@@ -117,9 +105,6 @@ const writtenSessionsByYear = sessionsByYear.filter((group) => group.year !== '�
 export default function TestSelectionPage() {
   const [resumeMap, setResumeMap] = useState({});
   const [unknownProblems, setUnknownProblems] = useState([]);
-  const [showPatchRewardModal, setShowPatchRewardModal] = useState(false);
-  const [showPatchRewardToast, setShowPatchRewardToast] = useState(false);
-  const [showPatchFireworks, setShowPatchFireworks] = useState(false);
 
   const refreshClientStoredState = () => {
     const allSessionIds = [
@@ -173,99 +158,11 @@ export default function TestSelectionPage() {
     };
   }, []);
 
-  useEffect(() => {
-    try {
-      if (!window.localStorage.getItem(PATCH_REWARD_STORAGE_KEY)) {
-        window.setTimeout(() => setShowPatchRewardModal(true), 0);
-      }
-    } catch {}
-  }, []);
-
-  // 패치 보상 1회 수령 처리 후 축하 토스트/폭죽 애니메이션 실행
-  const handleClaimPatchReward = () => {
-    try {
-      window.localStorage.setItem(PATCH_REWARD_STORAGE_KEY, new Date().toISOString());
-    } catch {}
-    setShowPatchRewardModal(false);
-    setShowPatchRewardToast(true);
-    setShowPatchFireworks(true);
-    window.setTimeout(() => setShowPatchRewardToast(false), 2200);
-    window.setTimeout(() => setShowPatchFireworks(false), 5000);
-  };
-
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-white via-sky-50 to-sky-100 text-gray-800">
-      {showPatchRewardModal && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-900/55 px-4">
-          <div className="w-full max-w-md rounded-2xl border border-sky-100 bg-white p-6 shadow-2xl">
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
-                <Gift className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-sky-700">패치 보상 안내</p>
-                <h2 className="text-lg font-extrabold text-slate-900">2025년도 기출문제 패치</h2>
-              </div>
-            </div>
-
-            <p className="text-sm leading-6 text-slate-700">
-              2025년도 기출문제 패치 기다려주신 여러분 감사합니다
-            </p>
-
-            <div className="my-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-4 border-amber-300 bg-gradient-to-br from-yellow-200 via-amber-300 to-amber-500 shadow-inner">
-                  <span className="text-xs font-black tracking-wide text-amber-900">TOKEN</span>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-amber-700">패치 보상</p>
-                  <p className="text-xl font-extrabold text-amber-900">+ 2000 Token 지급 !</p>
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleClaimPatchReward}
-              className="w-full rounded-xl bg-sky-600 px-4 py-3 text-sm font-extrabold text-white transition hover:bg-sky-700"
-            >
-              받기
-            </button>
-          </div>
-        </div>
-      )}
-
-      {showPatchRewardToast && (
-        <div className="pointer-events-none fixed inset-x-0 top-5 z-[130] flex justify-center px-4">
-          <div className="rounded-full border border-emerald-200 bg-white px-5 py-3 shadow-xl">
-            <p className="text-sm font-extrabold text-emerald-700">포인트획득 !</p>
-          </div>
-        </div>
-      )}
-
-      {showPatchFireworks && (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[125] h-80 overflow-hidden">
-          {patchRewardFireworks.map((particle) => (
-            <span
-              key={particle.id}
-              className="patch-firework-particle"
-              style={{
-                left: `${particle.left}%`,
-                width: `${particle.size}px`,
-                height: `${particle.size * 2.6}px`,
-                background: `linear-gradient(to top, ${particle.color}, rgba(255,255,255,0.95))`,
-                '--drift': `${particle.drift}px`,
-                '--rise': `${particle.rise}px`,
-                '--delay': `${particle.delay}s`,
-                '--dur': `${particle.duration}s`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-
       <main className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
+          <UserQuickActions className="mb-4" />
           <div className="text-center mb-12">
             <div className="mb-4">
               <Link
@@ -464,33 +361,6 @@ export default function TestSelectionPage() {
         </div>
       </main>
 
-      <style jsx>{`
-        .patch-firework-particle {
-          position: absolute;
-          bottom: -16px;
-          border-radius: 9999px;
-          opacity: 0;
-          filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.75));
-          animation: patch-firework-rise var(--dur) ease-out var(--delay) forwards;
-        }
-
-        @keyframes patch-firework-rise {
-          0% {
-            transform: translate3d(0, 0, 0) scale(0.65);
-            opacity: 0;
-          }
-          12% {
-            opacity: 1;
-          }
-          70% {
-            opacity: 1;
-          }
-          100% {
-            transform: translate3d(var(--drift), calc(var(--rise) * -1), 0) scale(1.05);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </div>
   );
 }

@@ -157,6 +157,15 @@ const sessionConfig = {
       },
     },
   },
+  'aiprompt-2-1': {
+    title: 'AI 프롬프트엔지니어링 2급 1회',
+    basePath: ['datasets', 'aiPromptEngineering', 'grade2-first'],
+    sessionProps: {
+      backHref: '/aiprompt',
+      lobbySubtitle: '총 20문항 / AI 프롬프트엔지니어링 2급',
+      durationSeconds: 40 * 60,
+    },
+  },
 };
 
 export default async function TestPage({ params: paramsPromise, searchParams: searchParamsPromise }) {

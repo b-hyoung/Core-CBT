@@ -1,5 +1,6 @@
 ﻿import { NextResponse } from 'next/server';
 import { appendEvent } from '@/lib/analyticsStore';
+import { auth } from '@/auth';
 
 export const dynamic = 'force-dynamic';
 
@@ -103,6 +104,9 @@ async function sendDiscordReport(event) {
 
 export async function POST(request) {
   try {
+    const session = await auth();
+    const userEmail = String(session?.user?.email || '').trim();
+    const userName = String(session?.user?.name || '').trim();
     const body = await request.json();
     if (!body?.type || !body?.clientId) {
       return NextResponse.json({ ok: false, message: 'type and clientId are required' }, { status: 400 });
@@ -119,6 +123,8 @@ export async function POST(request) {
         ...(basePayload.__meta && typeof basePayload.__meta === 'object' ? basePayload.__meta : {}),
         ...(ipAddress ? { ipAddress } : {}),
         ...(ipSource ? { ipSource } : {}),
+        ...(userEmail ? { userEmail } : {}),
+        ...(userName ? { userName } : {}),
       },
     };
 

@@ -1,46 +1,13 @@
 ﻿import { NextResponse } from 'next/server';
 import { aggregateMetrics, readEvents } from '@/lib/analyticsStore';
+import { getAdminSession } from '@/lib/adminAccess';
+import { classifyEventCategory, classifySessionId, normalizeExamType } from '@/lib/examType';
 
 export const dynamic = 'force-dynamic';
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const SUPABASE_GPT_CACHE_TABLE = process.env.SUPABASE_GPT_CACHE_TABLE || 'gpt_objection_cache';
-
-function normalizeExamType(v) {
-  const x = String(v || 'all').toLowerCase();
-  if (x === 'written') return 'written';
-  if (x === 'practical') return 'practical';
-  if (x === 'sqld') return 'sqld';
-  return 'all';
-}
-
-function classifySessionId(sessionId) {
-  const sid = String(sessionId || '').trim();
-  if (!sid) return '';
-  if (sid.startsWith('sqld-') || sid === 'sqld-index') return 'sqld';
-  if (sid.startsWith('practical-')) return 'practical';
-  return 'written';
-}
-
-function classifyEventCategory(event) {
-  const direct = classifySessionId(event?.sessionId);
-  if (direct) return direct;
-
-  const path = String(event?.path || '').trim();
-  if (path.startsWith('/sqld')) return 'sqld';
-  if (path.startsWith('/practical')) return 'practical';
-  if (path.startsWith('/test')) return 'written';
-
-  const originSessionId = String(event?.payload?.originSessionId || '').trim();
-  if (originSessionId) return classifySessionId(originSessionId);
-
-  const outcomes = Array.isArray(event?.payload?.problemOutcomes) ? event.payload.problemOutcomes : [];
-  const sourceSessionId = String(outcomes[0]?.sessionId || '').trim();
-  if (sourceSessionId) return classifySessionId(sourceSessionId);
-
-  return '';
-}
 
 function filterEventsByExamType(events, examType) {
   if (examType === 'all') return Array.isArray(events) ? events : [];
@@ -106,6 +73,11 @@ async function readGptFeedbackMetrics(examType = 'all') {
 }
 
 export async function GET(request) {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return NextResponse.json({ ok: false, message: 'forbidden' }, { status: 403 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const examType = normalizeExamType(searchParams.get('examType'));

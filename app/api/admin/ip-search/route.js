@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { readEvents } from '@/lib/analyticsStore';
+import { getAdminSession } from '@/lib/adminAccess';
+import { classifyEventCategory, normalizeExamType } from '@/lib/examType';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,14 +24,6 @@ function normalizeIpList(raw) {
     .filter(Boolean);
 }
 
-function normalizeExamType(v) {
-  const x = String(v || 'all').toLowerCase();
-  if (x === 'written') return 'written';
-  if (x === 'practical') return 'practical';
-  if (x === 'sqld') return 'sqld';
-  return 'all';
-}
-
 function isLocalhostIp(ip) {
   const v = normalizeIp(ip).toLowerCase();
   return v === '::1' || v === '127.0.0.1' || v === '::ffff:127.0.0.1' || v === 'localhost';
@@ -43,31 +37,8 @@ function getEventClientId(event) {
   return String(event?.clientId || '').trim();
 }
 
-function classifySessionId(sessionId) {
-  const sid = String(sessionId || '').trim();
-  if (!sid) return '';
-  if (sid.startsWith('sqld-') || sid === 'sqld-index') return 'sqld';
-  if (sid.startsWith('practical-')) return 'practical';
-  return 'written';
-}
-
-function classifyEventCategory(event) {
-  const direct = classifySessionId(event?.sessionId);
-  if (direct) return direct;
-
-  const path = String(event?.path || '').trim();
-  if (path.startsWith('/sqld')) return 'sqld';
-  if (path.startsWith('/practical')) return 'practical';
-  if (path.startsWith('/test')) return 'written';
-
-  const originSessionId = String(event?.payload?.originSessionId || '').trim();
-  if (originSessionId) return classifySessionId(originSessionId);
-
-  const outcomes = Array.isArray(event?.payload?.problemOutcomes) ? event.payload.problemOutcomes : [];
-  const sourceSessionId = String(outcomes[0]?.sessionId || '').trim();
-  if (sourceSessionId) return classifySessionId(sourceSessionId);
-
-  return '';
+function getEventEmail(event) {
+  return String(event?.payload?.__meta?.userEmail || event?.payload?.userEmail || '').trim().toLowerCase();
 }
 
 function dateKey(iso) {
@@ -92,6 +63,11 @@ function isWithinDays(ts, days) {
 }
 
 export async function GET(request) {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return NextResponse.json({ ok: false, message: 'forbidden' }, { status: 403 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const q = normalizeIp(searchParams.get('q'));
@@ -100,7 +76,8 @@ export async function GET(request) {
     const sortByRaw = String(searchParams.get('sortBy') || 'lastSeen');
     const sortBy = sortByRaw === 'ip' ? 'identifier' : sortByRaw;
     const sortDir = String(searchParams.get('sortDir') || 'desc').toLowerCase() === 'asc' ? 'asc' : 'desc';
-    const entity = String(searchParams.get('entity') || 'ip') === 'client' ? 'client' : 'ip';
+    const entityRaw = String(searchParams.get('entity') || 'email').toLowerCase();
+    const entity = entityRaw === 'client' || entityRaw === 'ip' ? entityRaw : 'email';
     const scope = String(searchParams.get('scope') || 'all');
     const examType = normalizeExamType(searchParams.get('examType'));
     const excludeLocal = String(searchParams.get('excludeLocal') ?? '1') !== '0';
@@ -120,8 +97,10 @@ export async function GET(request) {
       if (excludeLocal && isLocalhostIp(ip)) continue;
       if (ip && excludeIpSet.has(String(ip).toLowerCase())) continue;
       const clientId = getEventClientId(e);
-      const identifier = entity === 'ip' ? ip : clientId;
+      const email = getEventEmail(e);
+      const identifier = entity === 'ip' ? ip : entity === 'client' ? clientId : email;
       if (entity === 'ip' && !ip) continue;
+      if (entity === 'email' && !email) continue;
       if (ip) totalWithIp += 1;
       if (!identifier) continue;
       if (!matchIp(identifier, q)) continue;
@@ -132,6 +111,7 @@ export async function GET(request) {
           entityType: entity,
           ipAddress: entity === 'ip' ? identifier : '',
           clientIdKey: entity === 'client' ? identifier : '',
+          email: entity === 'email' ? identifier : '',
           totalEvents: 0,
           visitEvents: 0,
           startEvents: 0,
@@ -154,10 +134,17 @@ export async function GET(request) {
           _todayClientIds: new Set(),
           _ipAddresses: new Set(),
           _todayIpAddresses: new Set(),
+          _emails: new Set(),
+          _todayEmails: new Set(),
+          _typeCounts: { written: 0, practical: 0, sqld: 0, aiprompt: 0 },
         });
       }
 
       const row = groups.get(identifier);
+      const eventType = classifyEventCategory(e);
+      if (eventType && row._typeCounts[eventType] != null) {
+        row._typeCounts[eventType] += 1;
+      }
       row.totalEvents += 1;
       if (e.type === 'visit_test') row.visitEvents += 1;
       if (e.type === 'start_exam') row.startEvents += 1;
@@ -165,6 +152,7 @@ export async function GET(request) {
       if (e.type === 'report_problem') row.reportEvents += 1;
 
       const cid = clientId;
+      if (email) row._emails.add(email);
       if (cid) row._clientIds.add(cid);
       if (ip) row._ipAddresses.add(ip);
       const sid = String(e?.sessionId || '').trim();
@@ -177,6 +165,7 @@ export async function GET(request) {
       if (dateKey(ts) === today) {
         row.todayEventCount += 1;
         if (e.type === 'visit_test') row.todayVisitCount += 1;
+        if (email) row._todayEmails.add(email);
         if (cid) row._todayClientIds.add(cid);
         if (ip) row._todayIpAddresses.add(ip);
       }
@@ -196,6 +185,7 @@ export async function GET(request) {
         type: String(e?.type || ''),
         clientId: cid,
         ipAddress: ip,
+        email,
         sessionId: sid,
         path: String(e?.path || ''),
       });
@@ -208,12 +198,27 @@ export async function GET(request) {
       r._clientIds.forEach((v) => v && filteredClientIdUnion.add(String(v)));
       r._ipAddresses.forEach((v) => v && filteredIpUnion.add(String(v)));
       r.uniqueClientCount = r._clientIds.size;
+      r.uniqueEmailCount = r._emails.size;
       r.uniqueSessionCount = r._sessionIds.size;
       r.todayUniqueClientCount = r._todayClientIds.size;
+      r.todayUniqueEmailCount = r._todayEmails.size;
       r.uniqueIpCount = r._ipAddresses.size;
       r.todayUniqueIpCount = r._todayIpAddresses.size;
       r.clientIdsPreview = Array.from(r._clientIds).slice(0, 5);
+      r.emailsPreview = Array.from(r._emails).slice(0, 5);
       r.ipAddressesPreview = Array.from(r._ipAddresses).slice(0, 5);
+      r.typeCounts = { ...r._typeCounts };
+      const typeEntries = Object.entries(r._typeCounts || {});
+      let majorExamType = '';
+      let majorCount = -1;
+      for (const [k, cnt] of typeEntries) {
+        const n = Number(cnt || 0);
+        if (n > majorCount) {
+          majorCount = n;
+          majorExamType = k;
+        }
+      }
+      r.majorExamType = majorExamType || '';
       r.recentEvents = r.recentEvents
         .sort((a, b) => String(b.timestamp || '').localeCompare(String(a.timestamp || '')))
         .slice(0, 20);
@@ -222,6 +227,9 @@ export async function GET(request) {
       delete r._todayClientIds;
       delete r._ipAddresses;
       delete r._todayIpAddresses;
+      delete r._emails;
+      delete r._todayEmails;
+      delete r._typeCounts;
       return r;
     });
 
@@ -236,7 +244,7 @@ export async function GET(request) {
     }
 
     const estimatedExternalUniqueClients =
-      entity === 'client'
+      entity === 'client' || entity === 'email'
         ? rows.length
         : filteredClientIdUnion.size;
 
@@ -250,8 +258,18 @@ export async function GET(request) {
         if (d !== 0) return d;
       }
       if (sortBy === 'uniqueClients') {
-        const av = entity === 'client' ? (a.uniqueIpCount || 0) : (a.uniqueClientCount || 0);
-        const bv = entity === 'client' ? (b.uniqueIpCount || 0) : (b.uniqueClientCount || 0);
+        const av =
+          entity === 'client'
+            ? (a.uniqueIpCount || 0)
+            : entity === 'email'
+              ? (a.uniqueClientCount || 0)
+              : (a.uniqueClientCount || 0);
+        const bv =
+          entity === 'client'
+            ? (b.uniqueIpCount || 0)
+            : entity === 'email'
+              ? (b.uniqueClientCount || 0)
+              : (b.uniqueClientCount || 0);
         const d = (av - bv) * dir;
         if (d !== 0) return d;
       }
