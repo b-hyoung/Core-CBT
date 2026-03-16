@@ -20,6 +20,18 @@ const industrialTracks = [
     borderClass: 'border-emerald-200 hover:border-emerald-400',
     iconClass: 'bg-emerald-100 text-emerald-700',
   },
+  {
+    href: '/aiprompt',
+    title: 'AI 프롬프트엔지니어링 2급',
+    subtitle: '객관식 CBT',
+    description: '프롬프트 설계, 평가, 안전성, 운영 기초를 20문항으로 연습합니다.',
+    icon: Bot,
+    classes:
+      'border-rose-200 bg-gradient-to-br from-white via-rose-50 to-pink-50 hover:border-rose-400 hover:shadow-rose-100',
+    iconWrap: 'bg-rose-100 text-rose-700',
+    badge: 'AI 자격',
+    badgeClass: 'bg-rose-100 text-rose-800',
+  },
 ];
 
 const extraTracks = [
