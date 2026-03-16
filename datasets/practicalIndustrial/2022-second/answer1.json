@@ -28,6 +28,11 @@
         "correct_answer_text": "1)-d, 2)-c, 3)-a, 4)-b"
       },
       {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "라운드 로빈(RR)"
+      },
+      {
         "problem_number": 7,
         "correct_answer_index": 0,
         "correct_answer_text": "41"
@@ -81,6 +86,11 @@
         "problem_number": 17,
         "correct_answer_index": 0,
         "correct_answer_text": "개체"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT FNAME, LNAME, SALARY FROM EMP WHERE DNO=1005;"
       },
       {
         "problem_number": 19,

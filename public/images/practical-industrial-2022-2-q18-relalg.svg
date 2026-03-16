@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="132" viewBox="0 0 980 132" role="img" aria-label="relational algebra expression">
+  <rect width="980" height="132" fill="#ffffff"/>
+
+  <text x="20" y="88" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#1f5fbf" opacity="0.7">&#960;</text>
+  <text x="18" y="86" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#000000">&#960;</text>
+
+  <text x="58" y="86" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="600" fill="#000000">FNAME, LNAME, SALARY</text>
+
+  <text x="472" y="88" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#000000">(</text>
+  <text x="510" y="88" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#1f5fbf" opacity="0.7">&#963;</text>
+  <text x="508" y="86" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#000000">&#963;</text>
+  <text x="560" y="86" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="600" fill="#000000">DNO=1005</text>
+  <text x="790" y="88" font-family="Cambria Math, Times New Roman, serif" font-size="62" font-weight="700" fill="#000000">)</text>
+  <text x="828" y="86" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#000000">EMP</text>
+</svg>

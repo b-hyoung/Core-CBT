@@ -29,7 +29,7 @@ export default auth((req) => {
     if (isAdminApi) {
       return Response.json({ ok: false, message: 'forbidden' }, { status: 403 });
     }
-    return Response.redirect(new URL('/', origin));
+    return Response.redirect(new URL(`/api/auth/signin?callbackUrl=${encodeURIComponent(req.nextUrl.pathname)}`, origin));
   }
 
   return;

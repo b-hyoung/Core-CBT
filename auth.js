@@ -7,18 +7,34 @@ const hasGoogleOAuthConfig = Boolean(
   String(process.env.GOOGLE_CLIENT_SECRET || '').trim()
 );
 
-const providers = hasGoogleOAuthConfig
-  ? [Google]
-  : [
-      // Keep auth initialization alive even when .env is missing on shared test setups.
-      Credentials({
-        name: 'Disabled',
-        credentials: {},
-        async authorize() {
-          return null;
-        },
-      }),
-    ];
+const allProviders = [
+  Credentials({
+    id: 'admin-login',
+    name: 'Admin Login',
+    credentials: {
+      username: { label: '아이디', type: 'text' },
+      password: { label: '비밀번호', type: 'password' }
+    },
+    async authorize(credentials) {
+      if (
+        credentials?.username === 'admin' &&
+        credentials?.password === process.env.ADMIN_PW
+      ) {
+        return { id: 'admin', name: '관리자', email: 'admin@example.com', role: 'admin' };
+      }
+      return null;
+    },
+  }),
+];
+
+if (hasGoogleOAuthConfig) {
+  allProviders.push(Google({
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  }));
+}
+
+const providers = allProviders;
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: true,
@@ -31,7 +47,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     // refresh JWT age every 24 hours when active
     updateAge: 24 * 60 * 60,
   },
-  pages: {
-    signIn: '/',
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role || (user.id === 'admin' ? 'admin' : 'user');
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token?.role) {
+        session.user.role = token.role;
+      }
+      return session;
+    }
   },
 });

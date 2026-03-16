@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText } from 'lucide-react';
 import ExamBackGuard from '@/app/_components/ExamBackGuard';
@@ -19,6 +20,18 @@ const industrialTracks = [
     icon: FileText,
     borderClass: 'border-emerald-200 hover:border-emerald-400',
     iconClass: 'bg-emerald-100 text-emerald-700',
+  },
+  {
+    href: '/aiprompt',
+    title: 'AI 프롬프트엔지니어링 2급',
+    subtitle: '객관식 CBT',
+    description: '프롬프트 설계, 평가, 안전성, 운영 기초를 20문항으로 연습합니다.',
+    icon: Bot,
+    classes:
+      'border-rose-200 bg-gradient-to-br from-white via-rose-50 to-pink-50 hover:border-rose-400 hover:shadow-rose-100',
+    iconWrap: 'bg-rose-100 text-rose-700',
+    badge: 'AI 자격',
+    badgeClass: 'bg-rose-100 text-rose-800',
   },
 ];
 
@@ -59,7 +72,9 @@ function MoveLink() {
 export default function ExamTypeSelectionPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100 px-4 py-6 md:py-10">
-      <ExamBackGuard />
+      <Suspense fallback={null}>
+        <ExamBackGuard />
+      </Suspense>
       <div className="mx-auto max-w-5xl">
         <UserQuickActions className="mb-3" />
         <Link

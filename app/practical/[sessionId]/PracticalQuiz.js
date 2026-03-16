@@ -306,70 +306,6 @@ function parsePracticalSymbolChoices(problem) {
   return choices.length >= 2 ? choices : [];
 }
 
-function renderExamplesRichText(examples) {
-  const lines = String(examples ?? '').split(/\r?\n/);
-  const nodes = [];
-  let key = 0;
-
-  for (const line of lines) {
-    if (!line.trim()) {
-      nodes.push(<div key={`ex-sp-${key++}`} className="h-3" aria-hidden="true" />);
-      continue;
-    }
-
-    if (!/<img\s/i.test(line)) {
-      nodes.push(
-        <p key={`ex-t-${key++}`} className="text-gray-800 whitespace-pre-wrap leading-relaxed font-mono text-sm">
-          {line}
-        </p>
-      );
-      continue;
-    }
-
-    const imgRegex = /<img\s+[^>]*src=(\"|')(.*?)\1[^>]*>/gi;
-    let lastIndex = 0;
-    let match;
-    while ((match = imgRegex.exec(line)) !== null) {
-      const before = line.slice(lastIndex, match.index);
-      if (before.trim()) {
-        nodes.push(
-          <p key={`ex-t-${key++}`} className="text-gray-800 whitespace-pre-wrap leading-relaxed font-mono text-sm">
-            {before}
-          </p>
-        );
-      }
-      const tag = match[0];
-      const src = match[2] || '';
-      const altMatch = tag.match(/alt=(\"|')(.*?)\1/i);
-      const alt = altMatch ? altMatch[2] : 'image';
-      if (src.startsWith('/')) {
-        nodes.push(
-          <div key={`ex-img-${key++}`} className="my-2">
-            <img src={src} alt={alt} className="max-w-full h-auto rounded-md border border-sky-200" />
-          </div>
-        );
-      } else {
-        nodes.push(
-          <p key={`ex-t-${key++}`} className="text-gray-800 whitespace-pre-wrap leading-relaxed font-mono text-sm">
-            [이미지: {src}]
-          </p>
-        );
-      }
-      lastIndex = match.index + match[0].length;
-    }
-    const after = line.slice(lastIndex);
-    if (after.trim()) {
-      nodes.push(
-        <p key={`ex-t-${key++}`} className="text-gray-800 whitespace-pre-wrap leading-relaxed font-mono text-sm">
-          {after}
-        </p>
-      );
-    }
-  }
-
-  return nodes;
-}
-
 function splitSequenceDraft(value, count) {
   const tokens = String(value ?? '')
     .split(/\s*(?:->|→|-|,|\/)\s*/g)
@@ -2954,27 +2890,29 @@ export default function PracticalQuiz({
               </div>
             )}
 
-            {(currentProblem.examples || currentProblem.image_url) && (
-              <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
+            {(currentProblem.examples || currentProblem.image_url || currentProblem.example_image_url) && (              <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
                 <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
                   <span className="text-sm font-bold text-sky-800">보기</span>
                 </div>
                 <div className="p-4">
-                  {currentProblem.image_url && (
-                    <div className={`${currentProblem.examples ? 'mb-4' : ''} flex justify-center`}>
-                      <img src={currentProblem.image_url} alt="보조 이미지" className="max-w-full rounded-md shadow-sm border border-gray-200" />
-                    </div>
-                  )}
-                  {currentProblem.examples && (() => {
+                  {(() => {
+                    if (currentProblem.example_image_url) {
+                      return (
+                        <div className="overflow-x-auto rounded-md border border-sky-200 bg-white p-3">
+                          <img
+                            src={String(currentProblem.example_image_url)}
+                            alt="문제 보기 이미지"
+                            className="block h-auto max-w-full"
+                            loading="lazy"
+                          />
+                        </div>
+                      );
+                    }
                     const lines = currentProblem.examples.split('\n');
                     const nonEmpty = lines.filter((l) => l.trim());
                     const isTable = nonEmpty.length > 1 && nonEmpty.every((l) => l.includes('|'));
                     const isCodeLike = !isTable && isCodeLikeText(currentProblem.examples);
-                    const hasImageTag = /<img\s/i.test(currentProblem.examples);
                     if (!isTable) {
-                      if (hasImageTag) {
-                        return <div className="space-y-2">{renderExamplesRichText(currentProblem.examples)}</div>;
-                      }
                       if (isCodeLike) {
                         return (
                           <div className="overflow-x-auto rounded-md border border-sky-200 bg-white">
