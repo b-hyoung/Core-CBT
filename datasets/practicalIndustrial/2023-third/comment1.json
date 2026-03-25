@@ -4,19 +4,19 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": ""
+        "comment": "IPv6은 총 128비트로 구성되어 있고, 서비스의 질을 의미하는 일정 기준 이하의 지연 시간이나 데이터 손실률 등을 보증하기 위한 서비스 규격은 QoS(Quality of Service)입니다."
       },
       {
         "problem_number": 2,
-        "comment": ""
+        "comment": "보기의 코드는 함수 안에서 다시 자신을 호출하는 재귀 함수를 활용한 문제입니다. 처음에 main함수에서 prin(MAX)를 실행하면 prin(4)가 호출되면서 매개변수 a가 1보다 크면 prin(a-1)을 호출하는 if조건문에 걸려 printf(\"%d\",a); 의 실행이 임시 보류됩니다. 같은 원리로 a가 1이 될때까지 반복하며 호출 스택에 printf(\"%d\",a);의 실행 상태가 저장되고 , a가 1이 되었을 때는 a가 1보다 크지 않으므로 조건문을 건너뛰고 printf(\"%d\",a);가 실행되어 1이 출력됩니다. 그 이후 보류되어있던 실행 상태가 저장된 순서의 역순으로 출력이 되며(스택에 저장되었기 때문에) 1234가 출력이 됩니다."
       },
       {
         "problem_number": 3,
-        "comment": ""
+        "comment": "보기의 처리 조건에 맞는 SQL문은 SELECT DISTINCT grade from customer; 입니다.\n\t**중복없이 검색하는 SQL문 예약어는 SELECT DISTINCT입니다."
       },
       {
         "problem_number": 4,
-        "comment": ""
+        "comment": "IP 주소를 물리적 네트워크 주소로 대응시키기 위해 사용되는 프로토콜은 ARP입니다."
       },
       {
         "problem_number": 5,
