@@ -82,7 +82,7 @@
       {
         "problem_number": 13,
         "question_text": "(가), (나)에 적절한 것을 쓰시오",
-        "examples": "#include <stdio.h>\nint compare(int i, int j, int *ma, int *in) {\n  if(i>j) {\n    *ma = i;\n    *in = j;\n  }\n  else {\n    *ma = i;\n    *in = j;\n  }\n}\nint main() {\n  int max = 0;\n  int min = 0;\n  compare(3, 7, (가), (나));\n  printf(\"작은수:%d 큰수:%d\", max, min);\n}",
+        "examples": "#include <stdio.h>\nint compare(int i, int j, int *ma, int *in) {\n  if(i>j) {\n    *ma = i;\n    *in = j;\n  }\n  else {\n    *ma = j;\n    *in = i;\n  }\n}\nint main() {\n  int max = 0;\n  int min = 0;\n  compare(3, 7, (가), (나));\n  printf(\"작은수:%d 큰수:%d\", max, min);\n}",
         "input_type": "multi_blank",
         "answer_format_hint": "예: (가) 값 / (나) 값"
       },
@@ -114,7 +114,7 @@
       {
         "problem_number": 18,
         "question_text": "아래 보기를 통해 알맞은 기호를 쓰시오",
-        "examples": "Unique Integrity\nDomain Integrity\nReferential Integrity\nEntity Integrity\n\nㄱ. 튜플의 모든 속성 값이 각 속성의 도메인에 속한 값만을 가져야 한다는 제약조건\nㄴ. 특정 속성의 값은 중복 없이 유일해야 한다는 제약 조건\nㄷ. 기본키는 NULL값을 가져서는 안되며 릴레이션 내에 오직 하나의 값만 존재해야 한다는 제약 조건\nㄹ. 외래키 제약 조건으로 개체의 참조 관계를 선언하는 제약 조건",
+        "examples": "1. Unique Integrity\n2. Domain Integrity\n3. Referential Integrity\n4. Entity Integrity\n\nㄱ. 튜플의 모든 속성 값이 각 속성의 도메인에 속한 값만을 가져야 한다는 제약조건\nㄴ. 특정 속성의 값은 중복 없이 유일해야 한다는 제약 조건\nㄷ. 기본키는 NULL값을 가져서는 안되며 릴레이션 내에 오직 하나의 값만 존재해야 한다는 제약 조건\nㄹ. 외래키 제약 조건으로 개체의 참조 관계를 선언하는 제약 조건",
         "input_type": "multi_blank",
         "answer_format_hint": "예: 1) 값 / 2) 값"
       },
