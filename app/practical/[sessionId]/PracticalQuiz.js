@@ -190,7 +190,7 @@ function getSequenceMeta(problem, correctAnswer = '') {
         : 'ordered';
 
   return {
-    count: Math.min(Math.max(explicitInputLabels.length || markers.length || 4, 2), 10),
+    count: mode === 'unordered_symbol_set' ? 1 : Math.min(Math.max(explicitInputLabels.length || markers.length || 4, 2), 10),
     kind,
     mode,
     markersCount: markers.length,
@@ -1187,8 +1187,21 @@ export default function PracticalQuiz({
 
   const handleSequenceSlotInput = (problemNumber, slotIndex, rawValue) => {
     if (!sequenceMeta) return;
+
+    // Allow pasting a full sequence (e.g. "ㄷ-ㄴ-ㄹ-ㅁ-ㄱ") into a single slot
+    // by splitting it into tokens and populating the draft accordingly.
+    if (sequenceMeta.mode !== 'unordered_symbol_set') {
+      const pastedTokens = splitSequenceDraft(rawValue, sequenceMeta.count).filter(Boolean);
+      if (pastedTokens.length > 1) {
+        const next = Array.from({ length: sequenceMeta.count }, (_, idx) => pastedTokens[idx] || '');
+        const combined = next.filter(Boolean).join('-');
+        handleSubjectiveInput(problemNumber, combined);
+        return pastedTokens[0] || '';
+      }
+    }
+
     const next = [...sequenceDraft];
-    const sanitized = sanitizeSequenceToken(rawValue, sequenceMeta.kind);
+    const sanitized = sequenceMeta.mode === 'unordered_symbol_set' ? rawValue : sanitizeSequenceToken(rawValue, sequenceMeta.kind);
     next[slotIndex] = sanitized;
     const combined = next.filter(Boolean).join('-');
     handleSubjectiveInput(problemNumber, combined);
@@ -1217,7 +1230,7 @@ export default function PracticalQuiz({
     }
 
     // 이미 값이 있는 칸에서 입력 시 현재 칸을 대체하고 다음 칸으로 이동
-    if (e.key.length === 1 && currentToken) {
+    if (e.key.length === 1 && currentToken && sequenceMeta.mode !== 'unordered_symbol_set') {
       const sanitized = sanitizeSequenceToken(e.key, sequenceMeta.kind);
       if (!sanitized) return;
       e.preventDefault();
@@ -1435,10 +1448,6 @@ export default function PracticalQuiz({
       ? 'sequence'
       : practicalInputTypeRaw === 'sequence' && (!sequenceHasEvidence || looksLikeSimpleWordAnswer)
       ? 'single'
-      : practicalInputTypeRaw === 'single' &&
-          sequenceMetaRaw?.mode === 'unordered_symbol_set' &&
-          !!normalizeUnorderedSymbolSetAnswer(correctAnswer)
-        ? 'sequence'
       : practicalInputTypeRaw === 'single' && (hasExplicitMultiBlankLabelsInAnswer || inferredNamedPairLabels.length >= 2)
         ? 'multi_blank'
         : practicalInputTypeRaw;
@@ -2987,9 +2996,9 @@ export default function PracticalQuiz({
                                   }
                                   onFocus={(e) => e.target.select()}
                                   disabled={isChecked}
-                                  className="h-11 w-14 rounded-lg border border-gray-300 bg-white text-center text-lg font-semibold text-gray-900 outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-400"
+                                  className={`h-11 rounded-lg border border-gray-300 bg-white text-lg font-semibold text-gray-900 outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-400 ${sequenceMeta.mode === 'unordered_symbol_set' ? 'w-full text-left' : 'w-14 text-center'}`}
                                   aria-label={`순서 입력 ${idx + 1}`}
-                                maxLength={sequenceMeta.kind === 'number' ? 2 : 2}
+                                maxLength={sequenceMeta.mode === 'unordered_symbol_set' ? 50 : sequenceMeta.kind === 'number' ? 2 : 2}
                               />
                               {idx < sequenceDraft.length - 1 && sequenceMeta.mode !== 'unordered_symbol_set' ? (
                                 <span className="text-gray-400 font-bold select-none">→</span>

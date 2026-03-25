@@ -7,7 +7,7 @@
         "question_text": "다음에서 데이터베이스의 특징을 모두 골라 기호 쓰시오",
         "examples": "ㄱ-실시간 접근성\tㄴ-계속적인 변화\tㄷ-동시 공용\nㄹ-주소 기반 참조\tㅁ-내용에 의한 참조",
         "input_type": "unordered_symbol_set",
-        "input_labels": ["ㄱ", "ㄴ", "ㄷ", "ㄹ"]
+        "input_labels": ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ"]
       },
       {
         "problem_number": 2,

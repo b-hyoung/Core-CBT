@@ -29,11 +29,13 @@ export async function loadPracticalDatasetMaps(sessionId) {
   const answerRecordsMap = new Map();
   for (const section of answerData || []) {
     for (const a of section?.answers || []) {
+      const correctText = Array.isArray(a.correct_answer_text) ? a.correct_answer_text : [String(a.correct_answer_text ?? '')];
       answerRecordsMap.set(Number(a.problem_number), {
-        correct_answer_text: String(a.correct_answer_text ?? ''),
-        accepted_answers: Array.isArray(a.accepted_answers)
-          ? a.accepted_answers.map((v) => String(v ?? '')).filter(Boolean)
-          : [],
+        correct_answer_text: correctText[0],
+        accepted_answers: [
+          ...correctText,
+          ...(Array.isArray(a.accepted_answers) ? a.accepted_answers.map(String) : [])
+        ].filter(Boolean),
       });
     }
   }
