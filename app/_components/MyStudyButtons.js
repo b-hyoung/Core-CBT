@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { getSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { BookMarked, ChevronRight, HelpCircle, LoaderCircle } from 'lucide-react';
 
 const BLOCK_MESSAGE = '아직 데이터가 모자랍니다';
@@ -10,7 +11,7 @@ const BLOCK_MESSAGE = '아직 데이터가 모자랍니다';
 function AvailabilityOverlay({ loading, message = BLOCK_MESSAGE }) {
   return (
     <div className="absolute inset-0 z-10 flex items-center justify-center rounded-[1rem] bg-white/70 px-4 backdrop-blur-[3px] dark:bg-slate-950/70">
-      <div className="inline-flex items-center gap-2 rounded-full border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/90 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200">
+      <div className={`inline-flex items-center gap-2 rounded-full border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/90 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200 ${loading ? 'animate-pulse' : ''}`}>
         {loading ? <LoaderCircle className="h-3.5 w-3.5 animate-spin" /> : null}
         <span>{loading ? '불러오는 중' : message}</span>
       </div>
@@ -49,8 +50,8 @@ function PersonalRow({ href, icon, title, desc, status }) {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none blur-[1.5px] opacity-65">
-        <div className={cardClassName}>
+      <div className={`pointer-events-none transition duration-300 ${status === 'loading' ? 'scale-[0.995] blur-[1.5px] opacity-60 saturate-[0.88]' : 'blur-[1px] opacity-65 grayscale-[0.12]'}`}>
+        <div className={`${cardClassName} ${status === 'loading' ? 'animate-pulse' : ''}`}>
           <PersonalCardInner icon={icon} title={title} desc={desc} />
         </div>
       </div>
@@ -66,6 +67,8 @@ function ResumeSlot({ children }) {
 export default function MyStudyButtons({
   resumeMap = {},
   examType = 'written',
+  initialIsLoggedIn = null,
+  initialAvailability = null,
   sectionTitle = '내가 틀린 문제 모아보기',
   wrongHref = '/test/my-wrong',
   wrongResumeKey = 'my-wrong',
@@ -76,27 +79,22 @@ export default function MyStudyButtons({
   unknownTitle = '모르겠어요',
   unknownDescription = '모르겠어요 누른 문제만 다시 모아 점검합니다.',
 }) {
-  const [show, setShow] = useState(false);
+  const router = useRouter();
+  const { status } = useSession();
+  const hasInitialAuth = initialIsLoggedIn !== null;
+  const authState = hasInitialAuth
+    ? initialIsLoggedIn
+      ? 'authenticated'
+      : 'unauthenticated'
+    : status;
   const [availability, setAvailability] = useState({
-    wrong: 'loading',
-    unknown: 'loading',
+    wrong: initialAvailability?.wrongAvailable ? 'ready' : initialAvailability ? 'blocked' : 'loading',
+    unknown: initialAvailability?.unknownAvailable ? 'ready' : initialAvailability ? 'blocked' : 'loading',
   });
 
   useEffect(() => {
-    let active = true;
-
-    getSession().then((session) => {
-      if (!active) return;
-      setShow(Boolean(session?.user));
-    });
-
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!show) return;
+    if (authState !== 'authenticated') return;
+    if (initialAvailability) return;
 
     let active = true;
 
@@ -122,9 +120,17 @@ export default function MyStudyButtons({
     return () => {
       active = false;
     };
-  }, [examType, show]);
+  }, [authState, examType, initialAvailability]);
 
-  if (!show) return null;
+  useEffect(() => {
+    if (authState !== 'authenticated') return;
+    if (availability.wrong === 'ready') router.prefetch(wrongHref);
+    if (availability.unknown === 'ready') router.prefetch(unknownHref);
+  }, [authState, availability.unknown, availability.wrong, router, unknownHref, wrongHref]);
+
+  if (authState === 'unauthenticated') return null;
+
+  const rowStatus = authState === 'loading' ? { wrong: 'loading', unknown: 'loading' } : availability;
 
   return (
     <section className="rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/92 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/88">
@@ -136,10 +142,10 @@ export default function MyStudyButtons({
             icon={BookMarked}
             title={wrongTitle}
             desc={wrongDescription}
-            status={availability.wrong}
+            status={rowStatus.wrong}
           />
           <ResumeSlot>
-            {availability.wrong === 'ready' && resumeMap[wrongResumeKey]?.problemNumber ? (
+            {rowStatus.wrong === 'ready' && resumeMap[wrongResumeKey]?.problemNumber ? (
               <Link
                 href={`${wrongHref}?p=${resumeMap[wrongResumeKey].problemNumber}&resume=1`}
                 className="inline-flex items-center gap-2 rounded-lg border border-rose-200 bg-rose-50 px-4 py-1.5 text-xs font-bold text-rose-700 transition hover:bg-rose-100 dark:border-rose-900/70 dark:bg-rose-950/40 dark:text-rose-200 dark:hover:bg-rose-950/60"
@@ -156,10 +162,10 @@ export default function MyStudyButtons({
             icon={HelpCircle}
             title={unknownTitle}
             desc={unknownDescription}
-            status={availability.unknown}
+            status={rowStatus.unknown}
           />
           <ResumeSlot>
-            {availability.unknown === 'ready' && resumeMap[unknownResumeKey]?.problemNumber ? (
+            {rowStatus.unknown === 'ready' && resumeMap[unknownResumeKey]?.problemNumber ? (
               <Link
                 href={`${unknownHref}?p=${resumeMap[unknownResumeKey].problemNumber}&resume=1`}
                 className="inline-flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-1.5 text-xs font-bold text-amber-700 transition hover:bg-amber-100 dark:border-amber-900/70 dark:bg-amber-950/40 dark:text-amber-200 dark:hover:bg-amber-950/60"

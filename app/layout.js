@@ -1,5 +1,7 @@
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import { auth } from '@/auth';
+import Providers from './providers';
 
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-sans",
@@ -31,14 +33,16 @@ const themeScript = `
 })();
 `;
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await auth();
+
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${notoSansKR.variable} antialiased`}>
-        {children}
+        <Providers session={session}>{children}</Providers>
       </body>
     </html>
   );

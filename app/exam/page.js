@@ -4,6 +4,7 @@ import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText } from 'l
 import ExamBackGuard from '@/app/_components/ExamBackGuard';
 import ThemeControls from '@/app/_components/ThemeControls';
 import UserQuickActions from '@/app/_components/UserQuickActions';
+import ExamTrackLink from './ExamTrackLink';
 
 const industrialTracks = [
   {
@@ -105,7 +106,7 @@ export default function ExamTypeSelectionPage() {
             {industrialTracks.map((track, i) => {
               const Icon = track.icon;
               return (
-                <Link
+                <ExamTrackLink
                   key={track.href}
                   href={track.href}
                   style={{ animationDelay: `${160 + i * 60}ms` }}
@@ -121,7 +122,7 @@ export default function ExamTypeSelectionPage() {
                     </div>
                   </div>
                   <CardArrow />
-                </Link>
+                </ExamTrackLink>
               );
             })}
           </div>
@@ -143,7 +144,7 @@ export default function ExamTypeSelectionPage() {
             {extraTracks.map((track, i) => {
               const Icon = track.icon;
               return (
-                <Link
+                <ExamTrackLink
                   key={track.href}
                   href={track.href}
                   style={{ animationDelay: `${400 + i * 60}ms` }}
@@ -162,7 +163,7 @@ export default function ExamTypeSelectionPage() {
                     </div>
                   </div>
                   <CardArrow />
-                </Link>
+                </ExamTrackLink>
               );
             })}
           </div>
