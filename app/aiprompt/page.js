@@ -21,7 +21,7 @@ function SectionShell({ eyebrow, children }) {
 }
 
 function ResumeSlot({ children }) {
-  return <div className="min-h-8">{children}</div>;
+  return children ?? null;
 }
 
 export default function AiPromptSelectionPage() {
@@ -94,6 +94,7 @@ export default function AiPromptSelectionPage() {
         <div className="space-y-4">
           <MyStudyButtons
             resumeMap={resumeMap}
+            examType="aiprompt"
             sectionTitle="내가 틀린 AI 프롬프트 문제 모아보기"
             wrongHref="/aiprompt/my-wrong"
             wrongResumeKey="aiprompt-my-wrong"

@@ -21,7 +21,7 @@ function SectionShell({ eyebrow, children }) {
 }
 
 function ResumeSlot({ children }) {
-  return <div className="min-h-8">{children}</div>;
+  return children ?? null;
 }
 
 export default function SqldSelectionPage() {
@@ -98,6 +98,7 @@ export default function SqldSelectionPage() {
         <div className="space-y-4">
           <MyStudyButtons
             resumeMap={resumeMap}
+            examType="sqld"
             sectionTitle="내가 틀린 SQLD 문제 모아보기"
             wrongHref="/sqld/my-wrong"
             wrongResumeKey="sqld-my-wrong"

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Book, ChevronRight, Shuffle } from 'lucide-react';
+import { ArrowLeft, Book, ChevronRight, LoaderCircle, Shuffle } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import { PRACTICAL_SESSIONS_BY_YEAR } from './_lib/practicalSessions';
 import UserQuickActions from '@/app/_components/UserQuickActions';
@@ -26,6 +26,7 @@ const utilityModes = [
     colorClass: 'bg-rose-50 text-rose-700 dark:bg-slate-800 dark:text-slate-300',
     resumeKey: 'practical-high-wrong',
     resumeColor: 'rose',
+    availabilityKey: 'highWrong',
     buildResumeHref: (resume) => `/practical/high-wrong?p=${resume.problemNumber}&resume=1`,
   },
   {
@@ -35,6 +36,7 @@ const utilityModes = [
     colorClass: 'bg-violet-50 text-violet-700 dark:bg-slate-800 dark:text-slate-300',
     resumeKey: 'practical-high-unknown',
     resumeColor: 'violet',
+    availabilityKey: 'highUnknown',
     buildResumeHref: (resume) => `/practical/high-unknown?p=${resume.problemNumber}&resume=1`,
   },
   {
@@ -62,7 +64,18 @@ function ResumeChip({ href, color = 'indigo', children }) {
 }
 
 function ResumeSlot({ children }) {
-  return <div className="min-h-8">{children}</div>;
+  return children ?? null;
+}
+
+function AvailabilityOverlay({ loading }) {
+  return (
+    <div className="absolute inset-0 z-10 flex items-center justify-center rounded-[1rem] bg-white/70 px-4 backdrop-blur-[3px] dark:bg-slate-950/70">
+      <div className="inline-flex items-center gap-2 rounded-full border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/90 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200">
+        {loading ? <LoaderCircle className="h-3.5 w-3.5 animate-spin" /> : null}
+        <span>{loading ? '불러오는 중' : '아직 데이터가 모자랍니다'}</span>
+      </div>
+    </div>
+  );
 }
 
 function SectionShell({ eyebrow, children }) {
@@ -96,9 +109,39 @@ function LedgerRow({ href, title, desc, colorClass }) {
 
 export default function PracticalSelectionPage() {
   const [resumeMap, setResumeMap] = useState({});
+  const [utilityAvailability, setUtilityAvailability] = useState({
+    highWrong: 'loading',
+    highUnknown: 'loading',
+  });
 
   useEffect(() => {
     trackEvent('visit_test', { path: '/practical', sessionId: 'practical-index' });
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    fetch('/api/user/review-availability?examType=practical', { cache: 'no-store' })
+      .then(async (response) => {
+        if (response.status === 401) throw new Error('unauthorized');
+        if (!response.ok) throw new Error('availability fetch failed');
+        return response.json();
+      })
+      .then((payload) => {
+        if (!active) return;
+        setUtilityAvailability({
+          highWrong: payload?.utility?.highWrongAvailable ? 'ready' : 'blocked',
+          highUnknown: payload?.utility?.highUnknownAvailable ? 'ready' : 'blocked',
+        });
+      })
+      .catch(() => {
+        if (!active) return;
+        setUtilityAvailability({ highWrong: 'ready', highUnknown: 'ready' });
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -111,6 +154,7 @@ export default function PracticalSelectionPage() {
         'practical-random',
         ...PRACTICAL_SESSIONS_BY_YEAR.flatMap((group) => group.sessions.map((session) => session.id)),
       ];
+
       const next = {};
       for (const id of ids) {
         try {
@@ -166,6 +210,7 @@ export default function PracticalSelectionPage() {
         <div className="space-y-4">
           <MyStudyButtons
             resumeMap={resumeMap}
+            examType="practical"
             sectionTitle="내가 틀린 실기 문제 모아보기"
             wrongHref="/practical/my-wrong"
             wrongResumeKey="practical-my-wrong"
@@ -178,15 +223,26 @@ export default function PracticalSelectionPage() {
               {utilityModes.map((mode) => {
                 const resume = resumeMap[mode.resumeKey];
                 const canResume = resume && (!mode.needsResumeToken || resume.resumeToken);
+                const status = mode.availabilityKey ? utilityAvailability[mode.availabilityKey] : 'ready';
+
                 return (
                   <div key={mode.href} className="space-y-1.5">
-                    <LedgerRow href={mode.href} title={mode.title} desc={mode.desc} colorClass={mode.colorClass} />
+                    {status === 'ready' ? (
+                      <LedgerRow href={mode.href} title={mode.title} desc={mode.desc} colorClass={mode.colorClass} />
+                    ) : (
+                      <div className="relative">
+                        <div className="pointer-events-none blur-[1.5px] opacity-65">
+                          <LedgerRow href={mode.href} title={mode.title} desc={mode.desc} colorClass={mode.colorClass} />
+                        </div>
+                        <AvailabilityOverlay loading={status === 'loading'} />
+                      </div>
+                    )}
                     <ResumeSlot>
-                      {canResume && (
+                      {status === 'ready' && canResume ? (
                         <ResumeChip href={mode.buildResumeHref(resume)} color={mode.resumeColor}>
                           {mode.title} 이어풀기 {resume.problemNumber}번
                         </ResumeChip>
-                      )}
+                      ) : null}
                     </ResumeSlot>
                   </div>
                 );
@@ -230,11 +286,11 @@ export default function PracticalSelectionPage() {
                             <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover/item:translate-x-0.5 dark:text-slate-500" />
                           </Link>
                           <ResumeSlot>
-                            {resume && (
+                            {resume ? (
                               <ResumeChip href={`/practical/${session.id}?resume=1`} color="amber">
                                 이어풀기 {resume.problemNumber}번
                               </ResumeChip>
-                            )}
+                            ) : null}
                           </ResumeSlot>
                         </div>
                       );
