@@ -1,91 +1,138 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight, Database } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import UserQuickActions from '@/app/_components/UserQuickActions';
+import MyStudyButtons from '@/app/_components/MyStudyButtons';
+import ThemeControls from '@/app/_components/ThemeControls';
+import { SQLD_SESSIONS_BY_YEAR } from '@/lib/objectiveSessionCatalog';
 
-const sessionsByYear = [
-  {
-    year: 2025,
-    sessions: [
-      { id: 'sqld-2025-1', round: '1회', description: 'SQLD 2025년 1회 객관식 50문항' },
-      { id: 'sqld-2025-2', round: '2회', description: 'SQLD 2025년 2회 객관식 50문항' },
-      { id: 'sqld-2025-3', round: '3회', description: 'SQLD 2025년 3회 객관식 50문항' },
-    ],
-  },
-  {
-    year: 2024,
-    sessions: [
-      { id: 'sqld-2024-1', round: '1회', description: 'SQLD 2024년 1회 객관식 50문항' },
-      { id: 'sqld-2024-2', round: '2회', description: 'SQLD 2024년 2회 객관식 50문항' },
-      { id: 'sqld-2024-3', round: '3회', description: 'SQLD 2024년 3회 객관식 50문항' },
-    ],
-  },
-];
+const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
+
+function SectionShell({ eyebrow, children }) {
+  return (
+    <section className="rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/92 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/88">
+      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">{eyebrow}</p>
+      {children}
+    </section>
+  );
+}
 
 export default function SqldSelectionPage() {
+  const [resumeMap, setResumeMap] = useState({});
+
   useEffect(() => {
     trackEvent('visit_test', { path: '/sqld', sessionId: 'sqld-index' });
   }, []);
 
+  useEffect(() => {
+    const refresh = () => {
+      const ids = [
+        'sqld-my-wrong',
+        'sqld-my-unknown',
+        ...SQLD_SESSIONS_BY_YEAR.flatMap((group) => group.sessions.map((session) => session.id)),
+      ];
+      const next = {};
+      for (const id of ids) {
+        try {
+          const raw = window.localStorage.getItem(`${RESUME_STATE_KEY_PREFIX}${id}`);
+          if (!raw) continue;
+          const parsed = JSON.parse(raw);
+          const problemNumber = Number(parsed?.problemNumber);
+          if (!Number.isFinite(problemNumber) || problemNumber <= 0) continue;
+          next[id] = { problemNumber, resumeToken: String(parsed?.resumeToken || '') };
+        } catch {}
+      }
+      setResumeMap(next);
+    };
+
+    const timerId = window.setTimeout(refresh, 0);
+    window.addEventListener('focus', refresh);
+    window.addEventListener('storage', refresh);
+    return () => {
+      window.clearTimeout(timerId);
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('storage', refresh);
+    };
+  }, []);
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-100 px-4 py-10">
+    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-50 px-4 py-8 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
       <div className="mx-auto max-w-5xl">
-        <UserQuickActions className="mb-4" />
-        <div className="mb-8 rounded-3xl border border-amber-200 bg-white/90 p-6 shadow-sm md:p-8">
-          <Link
-            href="/exam"
-            className="mb-5 inline-flex items-center rounded-full border border-amber-200 bg-white px-4 py-2 text-sm font-semibold text-amber-900 hover:bg-amber-50"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            필기/실기/SQLD 선택으로 돌아가기
-          </Link>
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
-              <Database className="h-6 w-6" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-amber-700">SQLD 모의시험</p>
-              <h1 className="mt-1 text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
-                SQLD 회차 선택 (2024~2025)
-              </h1>
-              <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base">
-                `SQL.MD` 기준으로 정리한 회차별 SQLD 객관식 데이터셋입니다. 각 회차는 50문항 / 2과목 구조로
-                구성되어 있습니다.
-              </p>
-            </div>
-          </div>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <UserQuickActions className="mb-0" />
+          <ThemeControls />
         </div>
 
-        <div className="space-y-8">
-          {sessionsByYear.map((group) => (
-            <section key={group.year} className="rounded-2xl border border-white/60 bg-white/80 p-5 shadow-sm md:p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-2xl font-extrabold text-slate-900">{group.year}년</h2>
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-800">
-                  {group.sessions.length}개 회차
-                </span>
+        <section className="mb-6 rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-sky-50/70 p-5 dark:border-slate-800 dark:bg-slate-900/70 md:p-7">
+          <div className="max-w-2xl">
+            <Link
+              href="/exam"
+              className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              시험 종류 선택으로 돌아가기
+            </Link>
+            <div className="mt-5 flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300">
+                <Database className="h-5 w-5" />
               </div>
-              <div className="grid gap-4 md:grid-cols-3">
+              <div>
+                <h1 className="text-3xl font-black tracking-tight text-sky-900 dark:text-sky-100 md:text-[2.5rem]">
+                  SQLD 회차 선택
+                </h1>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  SQLD 기출 회차와 개인화 복습 흐름을 한 곳에서 이어서 풀 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="space-y-4">
+          <MyStudyButtons
+            resumeMap={resumeMap}
+            sectionTitle="내가 틀린 SQLD 문제 모아보기"
+            wrongHref="/sqld/my-wrong"
+            wrongResumeKey="sqld-my-wrong"
+            unknownHref="/sqld/my-unknown"
+            unknownResumeKey="sqld-my-unknown"
+          />
+
+          {SQLD_SESSIONS_BY_YEAR.map((group) => (
+            <SectionShell key={group.year} eyebrow={`${group.year}년`}>
+              <div className="space-y-2">
                 {group.sessions.map((session) => (
-                  <Link
-                    key={session.id}
-                    href={`/test/${session.id}`}
-                    className="group rounded-2xl border border-amber-200 bg-gradient-to-br from-white to-amber-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-amber-400 hover:shadow-md"
-                  >
-                    <p className="text-xs font-bold text-amber-700">SQLD {group.year}</p>
-                    <h3 className="mt-2 text-xl font-extrabold text-slate-900">{session.round}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{session.description}</p>
-                    <div className="mt-4 inline-flex items-center text-sm font-bold text-slate-800">
-                      모의시험 시작
-                      <ChevronRight className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5" />
-                    </div>
-                  </Link>
+                  <div key={session.id} className="space-y-1.5">
+                    <Link
+                      href={`/test/${session.id}`}
+                      className="group flex items-center justify-between rounded-[1rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white px-4 py-3 transition hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700 dark:bg-slate-800 dark:text-slate-300">
+                          <Database className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900 dark:text-slate-100">{session.round}</p>
+                          <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{session.description}</p>
+                        </div>
+                      </div>
+                      <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
+                    </Link>
+                    {resumeMap[session.id]?.problemNumber && (
+                      <Link
+                        href={`/test/${session.id}?p=${resumeMap[session.id].problemNumber}&resume=1`}
+                        className="inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-bold text-sky-700 transition hover:bg-sky-100 dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-200 dark:hover:bg-sky-950/60"
+                      >
+                        이어풀기 {resumeMap[session.id].problemNumber}번
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </div>
-            </section>
+            </SectionShell>
           ))}
         </div>
       </div>

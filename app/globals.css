@@ -1,21 +1,155 @@
 @import 'tailwindcss';
 
+/* class 기반 dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(98.5% 0.006 220);
+  --foreground: oklch(14% 0.02 220);
+  --surface: oklch(100% 0 0);
+  --surface-muted: oklch(96.5% 0.008 220);
+  --border: oklch(89% 0.01 220);
+  --text-muted: oklch(50% 0.015 220);
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: oklch(13% 0.015 220);
+  --foreground: oklch(95% 0.008 220);
+  --surface: oklch(18% 0.015 220);
+  --surface-muted: oklch(22% 0.015 220);
+  --border: oklch(28% 0.015 220);
+  --text-muted: oklch(60% 0.01 220);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Type scale tokens */
+:root {
+  --text-caption: 0.75rem;
+  --text-secondary: 0.8125rem;
+  --text-body: 0.9375rem;
+  --text-ui: 1rem;
+  --text-subhead: 1.125rem;
+  --text-heading: 1.375rem;
+  --text-display: 1.75rem;
+}
+
+/* ── Color Themes ─────────────────────────────────────
+   Tailwind v4는 색상을 CSS 변수로 노출합니다.
+   sky-* 변수를 테마별로 교체하면 모든 sky-* 유틸리티가
+   자동으로 해당 색상을 사용합니다.
+───────────────────────────────────────────────────── */
+
+/* sky (default) — 별도 오버라이드 불필요 */
+
+[data-color-theme="violet"] {
+  --color-sky-50:  oklch(97%  0.015 280);
+  --color-sky-100: oklch(93%  0.04  280);
+  --color-sky-200: oklch(87%  0.08  280);
+  --color-sky-300: oklch(78%  0.14  280);
+  --color-sky-400: oklch(67%  0.20  280);
+  --color-sky-500: oklch(56%  0.25  280);
+  --color-sky-600: oklch(47%  0.25  280);
+  --color-sky-700: oklch(38%  0.22  280);
+  --color-sky-800: oklch(29%  0.18  280);
+  --color-sky-900: oklch(21%  0.13  280);
+  --color-sky-950: oklch(14%  0.09  280);
+}
+
+[data-color-theme="amber"] {
+  --color-sky-50:  oklch(98%  0.015  60);
+  --color-sky-100: oklch(94%  0.04   60);
+  --color-sky-200: oklch(88%  0.08   60);
+  --color-sky-300: oklch(80%  0.14   60);
+  --color-sky-400: oklch(70%  0.19   60);
+  --color-sky-500: oklch(60%  0.22   60);
+  --color-sky-600: oklch(50%  0.21   60);
+  --color-sky-700: oklch(40%  0.18   60);
+  --color-sky-800: oklch(30%  0.14   60);
+  --color-sky-900: oklch(22%  0.10   60);
+  --color-sky-950: oklch(14%  0.07   60);
+}
+
+[data-color-theme="teal"] {
+  --color-sky-50:  oklch(97%  0.015 188);
+  --color-sky-100: oklch(93%  0.04  188);
+  --color-sky-200: oklch(87%  0.07  188);
+  --color-sky-300: oklch(78%  0.12  188);
+  --color-sky-400: oklch(66%  0.16  188);
+  --color-sky-500: oklch(55%  0.18  188);
+  --color-sky-600: oklch(46%  0.17  188);
+  --color-sky-700: oklch(37%  0.15  188);
+  --color-sky-800: oklch(28%  0.12  188);
+  --color-sky-900: oklch(20%  0.09  188);
+  --color-sky-950: oklch(13%  0.06  188);
+}
+
+[data-color-theme="rose"] {
+  --color-sky-50:  oklch(97%  0.015 355);
+  --color-sky-100: oklch(93%  0.04  355);
+  --color-sky-200: oklch(87%  0.08  355);
+  --color-sky-300: oklch(78%  0.14  355);
+  --color-sky-400: oklch(67%  0.20  355);
+  --color-sky-500: oklch(56%  0.24  355);
+  --color-sky-600: oklch(47%  0.24  355);
+  --color-sky-700: oklch(38%  0.20  355);
+  --color-sky-800: oklch(29%  0.16  355);
+  --color-sky-900: oklch(21%  0.12  355);
+  --color-sky-950: oklch(14%  0.08  355);
+}
+
+[data-color-theme="custom"] {
+  --color-sky-50: color-mix(in oklab, white 92%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-100: color-mix(in oklab, white 84%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-200: color-mix(in oklab, white 72%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-300: color-mix(in oklab, white 56%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-400: color-mix(in oklab, white 34%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-500: var(--custom-theme-color, oklch(60% 0.18 210));
+  --color-sky-600: color-mix(in oklab, black 12%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-700: color-mix(in oklab, black 28%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-800: color-mix(in oklab, black 46%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-900: color-mix(in oklab, black 64%, var(--custom-theme-color, oklch(60% 0.18 210)));
+  --color-sky-950: color-mix(in oklab, black 78%, var(--custom-theme-color, oklch(60% 0.18 210)));
+}
+
+/* ── Entrance animation ───────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s var(--ease-out-expo) both;
+}
+
+@media (min-width: 1280px) {
+  .exam-scale {
+    font-size: 85%;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

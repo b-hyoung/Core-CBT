@@ -49,7 +49,7 @@ export default function UserQuickActions({ className = '' }) {
     <div className={`flex items-center justify-end gap-2 ${className}`}>
       <Link
         href="/mypage"
-        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50"
+        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
       >
         <UserRound className="h-3.5 w-3.5" />
         마이페이지
@@ -57,7 +57,7 @@ export default function UserQuickActions({ className = '' }) {
       {isAdmin && (
         <Link
           href="/admin"
-          className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700 shadow-sm hover:bg-sky-100"
+          className="inline-flex items-center gap-1.5 rounded-full border border-sky-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50 dark:border-sky-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
         >
           어드민페이지
         </Link>
@@ -65,7 +65,7 @@ export default function UserQuickActions({ className = '' }) {
       <button
         type="button"
         onClick={() => signOut({ callbackUrl: '/' })}
-        className="inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-bold text-rose-700 shadow-sm hover:bg-rose-100"
+        className="inline-flex items-center gap-1.5 rounded-full border border-rose-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50 dark:border-rose-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
       >
         <LogOut className="h-3.5 w-3.5" />
         로그아웃

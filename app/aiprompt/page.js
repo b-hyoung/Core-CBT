@@ -1,87 +1,134 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Bot, ChevronRight } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import UserQuickActions from '@/app/_components/UserQuickActions';
+import MyStudyButtons from '@/app/_components/MyStudyButtons';
+import ThemeControls from '@/app/_components/ThemeControls';
+import { AIPROMPT_SESSIONS } from '@/lib/objectiveSessionCatalog';
 
-const sessions = [
-  {
-    id: 'aiprompt-2-1',
-    round: '2급 기출문제 A형',
-    description: 'AI 프롬프트엔지니어링 2급 객관식 20문항 + 주관식 20문항',
-  },
-  {
-    id: 'aiprompt-2-b',
-    round: '2급 기출문제 B형',
-    description: 'AI 프롬프트엔지니어링 2급 객관식 30문항 + 주관식 10문항 (총 40문항)',
-  },
-  {
-    id: 'quiz-round-3',
-    round: '누군가의 노션 정리',
-    description: 'AI 기초, NLP, 클러스터링, 프롬프트 엔지니어링 총 25문항 (챕터 1~5)',
-  },
-];
+const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
+
+function SectionShell({ eyebrow, children }) {
+  return (
+    <section className="rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/92 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/88">
+      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">{eyebrow}</p>
+      {children}
+    </section>
+  );
+}
 
 export default function AiPromptSelectionPage() {
+  const [resumeMap, setResumeMap] = useState({});
+
   useEffect(() => {
     trackEvent('visit_test', { path: '/aiprompt', sessionId: 'aiprompt-index' });
   }, []);
 
+  useEffect(() => {
+    const refresh = () => {
+      const ids = ['aiprompt-my-wrong', 'aiprompt-my-unknown', ...AIPROMPT_SESSIONS.map((session) => session.id)];
+      const next = {};
+      for (const id of ids) {
+        try {
+          const raw = window.localStorage.getItem(`${RESUME_STATE_KEY_PREFIX}${id}`);
+          if (!raw) continue;
+          const parsed = JSON.parse(raw);
+          const problemNumber = Number(parsed?.problemNumber);
+          if (!Number.isFinite(problemNumber) || problemNumber <= 0) continue;
+          next[id] = { problemNumber, resumeToken: String(parsed?.resumeToken || '') };
+        } catch {}
+      }
+      setResumeMap(next);
+    };
+
+    const timerId = window.setTimeout(refresh, 0);
+    window.addEventListener('focus', refresh);
+    window.addEventListener('storage', refresh);
+    return () => {
+      window.clearTimeout(timerId);
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('storage', refresh);
+    };
+  }, []);
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-100 px-4 py-10">
+    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-50 px-4 py-8 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
       <div className="mx-auto max-w-5xl">
-        <UserQuickActions className="mb-4" />
-        <div className="mb-8 rounded-3xl border border-rose-200 bg-white/90 p-6 shadow-sm md:p-8">
-          <Link
-            href="/exam"
-            className="mb-5 inline-flex items-center rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-semibold text-rose-900 hover:bg-rose-50"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            시험 종류 선택으로 돌아가기
-          </Link>
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-rose-100 text-rose-700">
-              <Bot className="h-6 w-6" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-rose-700">AI 프롬프트엔지니어링</p>
-              <h1 className="mt-1 text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
-                2급 회차 선택
-              </h1>
-              <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base">
-                프롬프트 작성 원칙, Few-shot, RAG, 보안, 운영 개선 루프 기초를 중심으로 구성된 문제 세트입니다.
-              </p>
-            </div>
-          </div>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <UserQuickActions className="mb-0" />
+          <ThemeControls />
         </div>
 
-        <section className="rounded-2xl border border-white/60 bg-white/80 p-5 shadow-sm md:p-6">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-2xl font-extrabold text-slate-900">AI 프롬프트엔지니어링 2급</h2>
-            <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-bold text-rose-800">
-              {sessions.length}개 회차
-            </span>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {sessions.map((session) => (
-              <Link
-                key={session.id}
-                href={`/test/${session.id}`}
-                className="group rounded-2xl border border-rose-200 bg-gradient-to-br from-white to-rose-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-rose-400 hover:shadow-md"
-              >
-                <p className="text-xs font-bold text-rose-700">AI Prompt Engineering</p>
-                <h3 className="mt-2 text-xl font-extrabold text-slate-900">{session.round}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{session.description}</p>
-                <div className="mt-4 inline-flex items-center text-sm font-bold text-slate-800">
-                  모의시험 시작
-                  <ChevronRight className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            ))}
+        <section className="mb-6 rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-sky-50/70 p-5 dark:border-slate-800 dark:bg-slate-900/70 md:p-7">
+          <div className="max-w-2xl">
+            <Link
+              href="/exam"
+              className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              시험 종류 선택으로 돌아가기
+            </Link>
+            <div className="mt-5 flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300">
+                <Bot className="h-5 w-5" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-black tracking-tight text-sky-900 dark:text-sky-100 md:text-[2.5rem]">
+                  AI 프롬프트엔지니어링 문제 선택
+                </h1>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  기출형 세트와 개념 정리 세트를 개인화 복습 흐름과 함께 바로 이어서 풀 수 있습니다.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
+
+        <div className="space-y-4">
+          <MyStudyButtons
+            resumeMap={resumeMap}
+            sectionTitle="내가 틀린 AI 프롬프트 문제 모아보기"
+            wrongHref="/aiprompt/my-wrong"
+            wrongResumeKey="aiprompt-my-wrong"
+            unknownHref="/aiprompt/my-unknown"
+            unknownResumeKey="aiprompt-my-unknown"
+          />
+
+          <SectionShell eyebrow="문제 세트 / 개념 정리">
+            <div className="space-y-2">
+              {AIPROMPT_SESSIONS.map((session) => (
+                <div key={session.id} className="space-y-1.5">
+                  <Link
+                    href={`/test/${session.id}`}
+                    className="group flex items-center justify-between rounded-[1rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white px-4 py-3 transition hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700 dark:bg-slate-800 dark:text-slate-300">
+                        <Bot className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-slate-900 dark:text-slate-100">{session.round}</p>
+                        <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{session.description}</p>
+                      </div>
+                    </div>
+                    <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
+                  </Link>
+                  {resumeMap[session.id]?.problemNumber && (
+                    <Link
+                      href={`/test/${session.id}?p=${resumeMap[session.id].problemNumber}&resume=1`}
+                      className="inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-bold text-sky-700 transition hover:bg-sky-100 dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-200 dark:hover:bg-sky-950/60"
+                    >
+                      이어풀기 {resumeMap[session.id].problemNumber}번
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </SectionShell>
+        </div>
       </div>
     </main>
   );

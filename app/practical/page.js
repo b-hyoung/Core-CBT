@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -6,8 +6,89 @@ import { ArrowLeft, Book, ChevronRight, Shuffle } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import { PRACTICAL_SESSIONS_BY_YEAR } from './_lib/practicalSessions';
 import UserQuickActions from '@/app/_components/UserQuickActions';
+import MyStudyButtons from '@/app/_components/MyStudyButtons';
+import ThemeControls from '@/app/_components/ThemeControls';
 
 const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
+
+const resumeChipColors = {
+  rose: 'border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100 dark:border-rose-900/70 dark:bg-rose-950/40 dark:text-rose-200 dark:hover:bg-rose-950/60',
+  violet: 'border border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100 dark:border-violet-900/70 dark:bg-violet-950/40 dark:text-violet-200 dark:hover:bg-violet-950/60',
+  indigo: 'border border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100 dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-200 dark:hover:bg-sky-950/60',
+  amber: 'border border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100 dark:border-amber-900/70 dark:bg-amber-950/40 dark:text-amber-200 dark:hover:bg-amber-950/60',
+};
+
+const utilityModes = [
+  {
+    href: '/practical/high-wrong',
+    title: '오답률 높은 문제 풀기',
+    desc: '전체 통계 기반 오답률 상위 실기 문제 모음',
+    colorClass: 'bg-rose-50 text-rose-700 dark:bg-slate-800 dark:text-slate-300',
+    resumeKey: 'practical-high-wrong',
+    resumeColor: 'rose',
+    buildResumeHref: (resume) => `/practical/high-wrong?p=${resume.problemNumber}&resume=1`,
+  },
+  {
+    href: '/practical/high-unknown',
+    title: '모르겠어요 많은 문제 풀기',
+    desc: '전체 통계 기반 모르겠어요 비율 상위 실기 문제 모음',
+    colorClass: 'bg-violet-50 text-violet-700 dark:bg-slate-800 dark:text-slate-300',
+    resumeKey: 'practical-high-unknown',
+    resumeColor: 'violet',
+    buildResumeHref: (resume) => `/practical/high-unknown?p=${resume.problemNumber}&resume=1`,
+  },
+  {
+    href: '/practical/random',
+    title: '랜덤 풀기',
+    desc: '실기 전체 회차에서 무작위로 출제',
+    colorClass: 'bg-sky-50 text-sky-700 dark:bg-slate-800 dark:text-slate-300',
+    resumeKey: 'practical-random',
+    resumeColor: 'indigo',
+    buildResumeHref: (resume) =>
+      `/practical/random?p=${resume.problemNumber}&resume=1&seed=${encodeURIComponent(resume.resumeToken)}`,
+    needsResumeToken: true,
+  },
+];
+
+function ResumeChip({ href, color = 'indigo', children }) {
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-bold transition ${resumeChipColors[color]}`}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SectionShell({ eyebrow, children }) {
+  return (
+    <section className="rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white/92 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/88">
+      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">{eyebrow}</p>
+      {children}
+    </section>
+  );
+}
+
+function LedgerRow({ href, title, desc, colorClass }) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-center justify-between rounded-[1rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white px-4 py-3 transition hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900"
+    >
+      <div className="flex items-center gap-3">
+        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${colorClass}`}>
+          <Shuffle className="h-4 w-4" />
+        </div>
+        <div>
+          <p className="text-sm font-bold text-slate-900 dark:text-slate-100">{title}</p>
+          <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{desc}</p>
+        </div>
+      </div>
+      <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
+    </Link>
+  );
+}
 
 export default function PracticalSelectionPage() {
   const [resumeMap, setResumeMap] = useState({});
@@ -19,10 +100,12 @@ export default function PracticalSelectionPage() {
   useEffect(() => {
     const refresh = () => {
       const ids = [
+        'practical-my-wrong',
+        'practical-my-unknown',
         'practical-high-wrong',
         'practical-high-unknown',
         'practical-random',
-        ...PRACTICAL_SESSIONS_BY_YEAR.flatMap((g) => g.sessions.map((s) => s.id)),
+        ...PRACTICAL_SESSIONS_BY_YEAR.flatMap((group) => group.sessions.map((session) => session.id)),
       ];
       const next = {};
       for (const id of ids) {
@@ -49,149 +132,112 @@ export default function PracticalSelectionPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-white via-emerald-50 to-teal-100 text-gray-800">
-      <main className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto">
-          <UserQuickActions className="mb-4" />
-          <div className="text-center mb-12">
+    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-50 px-4 py-8 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <UserQuickActions className="mb-0" />
+          <ThemeControls />
+        </div>
+
+        <section className="mb-6 rounded-[1.5rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-sky-50/70 p-5 dark:border-slate-800 dark:bg-slate-900/70 md:p-7">
+          <div className="max-w-2xl">
             <Link
               href="/exam"
-              className="mb-5 inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50"
+              className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="h-3.5 w-3.5" />
               필기/실기 선택으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 tracking-tight">실기 모의시험 회차 선택</h1>
-            <p className="mt-4 text-lg text-gray-600">실기 주관식 입력형 CBT를 회차별/모드별로 연습하세요.</p>
+            <div className="mt-5">
+              <h1 className="text-3xl font-black tracking-tight text-sky-900 dark:text-sky-100 md:text-[2.5rem]">
+                실기 모의시험 회차 선택
+              </h1>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                실기 주관식 입력형 CBT를 회차별, 개인화 복습, 통계 모드로 바로 이어서 풀 수 있습니다.
+              </p>
+            </div>
           </div>
+        </section>
 
-          <div className="mb-6 space-y-2">
-            <Link
-              href="/practical/high-wrong"
-              className="block p-5 bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-2xl shadow-lg hover:opacity-95 transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Shuffle className="w-6 h-6" />
-                  <div>
-                    <h2 className="text-lg font-bold">오답률 높은 문제 풀기 (실기)</h2>
-                    <p className="text-sm text-white/90">실기 문항 오답률 집계 기반 재풀이 모드</p>
+        <div className="space-y-4">
+          <MyStudyButtons
+            resumeMap={resumeMap}
+            sectionTitle="내가 틀린 실기 문제 모아보기"
+            wrongHref="/practical/my-wrong"
+            wrongResumeKey="practical-my-wrong"
+            unknownHref="/practical/my-unknown"
+            unknownResumeKey="practical-my-unknown"
+          />
+
+          <SectionShell eyebrow="특수 모드 / 종합">
+            <div className="space-y-2">
+              {utilityModes.map((mode) => {
+                const resume = resumeMap[mode.resumeKey];
+                const canResume = resume && (!mode.needsResumeToken || resume.resumeToken);
+                return (
+                  <div key={mode.href} className="space-y-1.5">
+                    <LedgerRow href={mode.href} title={mode.title} desc={mode.desc} colorClass={mode.colorClass} />
+                    {canResume && (
+                      <ResumeChip href={mode.buildResumeHref(resume)} color={mode.resumeColor}>
+                        {mode.title} 이어풀기 {resume.problemNumber}번
+                      </ResumeChip>
+                    )}
                   </div>
-                </div>
-                <ChevronRight className="w-6 h-6" />
-              </div>
-            </Link>
-            {resumeMap['practical-high-wrong']?.problemNumber && (
-              <Link
-                href={`/practical/high-wrong?p=${resumeMap['practical-high-wrong'].problemNumber}&resume=1`}
-                className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50 px-4 py-1 text-sm font-bold text-rose-800 hover:bg-rose-100"
-              >
-                오답률 모드 이어풀기 {resumeMap['practical-high-wrong'].problemNumber}번
-              </Link>
-            )}
+                );
+              })}
+            </div>
+          </SectionShell>
 
-            <Link
-              href="/practical/high-unknown"
-              className="block p-5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-2xl shadow-lg hover:opacity-95 transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Shuffle className="w-6 h-6" />
-                  <div>
-                    <h2 className="text-lg font-bold">모르겠어요 많이 누른 문제 풀기 (실기)</h2>
-                    <p className="text-sm text-white/90">실기 문항 모르겠어요 비율 집계 기반 재풀이 모드</p>
-                  </div>
-                </div>
-                <ChevronRight className="w-6 h-6" />
-              </div>
-            </Link>
-            {resumeMap['practical-high-unknown']?.problemNumber && (
-              <Link
-                href={`/practical/high-unknown?p=${resumeMap['practical-high-unknown'].problemNumber}&resume=1`}
-                className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-1 text-sm font-bold text-violet-800 hover:bg-violet-100"
-              >
-                모르겠어요 모드 이어풀기 {resumeMap['practical-high-unknown'].problemNumber}번
-              </Link>
-            )}
-
-            <Link
-              href="/practical/random"
-              className="block p-5 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-2xl shadow-lg hover:opacity-95 transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Shuffle className="w-6 h-6" />
-                  <div>
-                    <h2 className="text-lg font-bold">랜덤풀기 (실기)</h2>
-                    <p className="text-sm text-white/90">실기 전체 회차에서 랜덤 추출</p>
-                  </div>
-                </div>
-                <ChevronRight className="w-6 h-6" />
-              </div>
-            </Link>
-            {resumeMap['practical-random']?.problemNumber && resumeMap['practical-random']?.resumeToken && (
-              <Link
-                href={`/practical/random?p=${resumeMap['practical-random'].problemNumber}&resume=1&seed=${encodeURIComponent(resumeMap['practical-random'].resumeToken)}`}
-                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1 text-sm font-bold text-indigo-800 hover:bg-indigo-100"
-              >
-                랜덤 모드 이어풀기 {resumeMap['practical-random'].problemNumber}번
-              </Link>
-            )}
-          </div>
-
-          <div className="space-y-4">
-            {PRACTICAL_SESSIONS_BY_YEAR.map((yearGroup) => (
-              <details
-                key={yearGroup.year}
-                className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 open:border-emerald-300"
-                open={yearGroup.year === 2025 || yearGroup.year === 2024}
-              >
-                <summary className="list-none cursor-pointer p-6 md:p-7 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-xl">
-                      <Book className="w-6 h-6 text-emerald-600" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-emerald-900">{yearGroup.year}년</h2>
-                  </div>
-                  <ChevronRight className="w-7 h-7 text-gray-400" />
-                </summary>
-
-                <div className="px-4 pb-4 md:px-6 md:pb-6 space-y-3">
-                  {yearGroup.sessions.map((session) => {
-                    const resume = resumeMap[String(session.id)];
-                    const targetHref = `/practical/${session.id}`;
-                    const resumeHref = `/practical/${session.id}?resume=1`;
-                    return (
-                      <div key={session.id} className="space-y-2">
-                        <Link
-                          href={targetHref}
-                          className="block p-5 bg-white rounded-xl border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50/60 transition-all"
-                        >
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <h3 className="text-lg font-bold text-emerald-900">{yearGroup.year}년 {session.title}</h3>
-                              <p className="text-gray-600 mt-1">실기 주관식 입력형 CBT</p>
-                            </div>
-                            <ChevronRight className="w-6 h-6 text-gray-400" />
-                          </div>
-                        </Link>
-                        {resume && (
-                          <Link
-                            href={resumeHref}
-                            className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-1 text-sm font-bold text-amber-800 hover:bg-amber-100"
-                          >
-                            이어풀기 {resume.problemNumber}번
-                          </Link>
-                        )}
+          <SectionShell eyebrow="연도별 기출">
+            <div className="space-y-3">
+              {PRACTICAL_SESSIONS_BY_YEAR.map((yearGroup) => (
+                <details
+                  key={yearGroup.year}
+                  className="group rounded-[1.25rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-slate-50/70 p-3 dark:border-slate-800 dark:bg-slate-950/35"
+                  open={yearGroup.year === 2025 || yearGroup.year === 2024}
+                >
+                  <summary className="mb-2 flex list-none cursor-pointer items-center justify-between rounded-[1rem] bg-sky-50/80 px-3 py-3 transition-colors hover:bg-sky-50 dark:bg-slate-800/70 dark:hover:bg-slate-800">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-950/60">
+                        <Book className="h-4 w-4 text-sky-600 dark:text-sky-300" />
                       </div>
-                    );
-                  })}
-                </div>
-              </details>
-            ))}
-          </div>
+                      <span className="text-sm font-bold text-sky-900 dark:text-sky-100">{yearGroup.year}년</span>
+                    </div>
+                    <ChevronRight className="h-4 w-4 text-slate-400 transition-transform duration-200 group-open:rotate-90 dark:text-slate-500" />
+                  </summary>
+
+                  <div className="space-y-2">
+                    {yearGroup.sessions.map((session) => {
+                      const resume = resumeMap[String(session.id)];
+                      return (
+                        <div key={session.id} className="space-y-1.5">
+                          <Link
+                            href={`/practical/${session.id}`}
+                            className="group/item flex items-center justify-between rounded-[1rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white px-4 py-3 transition hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900"
+                          >
+                            <div>
+                              <p className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                                {yearGroup.year}년 {session.title}
+                              </p>
+                              <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">실기 주관식 CBT</p>
+                            </div>
+                            <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover/item:translate-x-0.5 dark:text-slate-500" />
+                          </Link>
+                          {resume && (
+                            <ResumeChip href={`/practical/${session.id}?resume=1`} color="amber">
+                              이어풀기 {resume.problemNumber}번
+                            </ResumeChip>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </SectionShell>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

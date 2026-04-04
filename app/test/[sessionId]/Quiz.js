@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Settings } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
+import ThemeControls from '@/app/_components/ThemeControls';
 import { removeUnknownProblem, upsertUnknownProblem } from '@/lib/unknownProblemsStore';
 import { QuizResults, TestLobby, UpdateNoticeModal } from './components/QuizShellParts';
 import {
@@ -1740,17 +1741,18 @@ export default function Quiz({
   }
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 flex flex-col">
+    <div className="exam-scale min-h-screen w-full bg-gray-50 flex flex-col">
       <header className="bg-white shadow-md p-4 flex justify-between items-center relative z-10">
         <div className="flex items-center gap-4 min-w-0">
-          <h1 className="text-xl font-bold text-indigo-900 hidden md:block">{session.title}</h1>
-          <h1 className="text-xl font-bold text-indigo-900 md:hidden">{session.title.split(' ')[0]}...</h1>
+          <h1 className="text-xl font-bold text-sky-900 hidden md:block">{session.title}</h1>
+          <h1 className="text-xl font-bold text-sky-900 md:hidden">{session.title.split(' ')[0]}...</h1>
         </div>
         <div className="text-lg font-semibold text-gray-900 whitespace-nowrap">
           {T.problem} {currentProblemIndex + 1} / {quizProblems.length}
         </div>
         <div className="flex items-center gap-3">
-          <div className="hidden sm:flex items-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm font-bold text-indigo-700 tabular-nums">
+          <ThemeControls />
+          <div className="hidden sm:flex items-center rounded-lg border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700 tabular-nums">
             {timerMinutes}:{timerSeconds}
           </div>
           <button
@@ -1816,7 +1818,7 @@ export default function Quiz({
                   <button
                     key={problem.problem_number}
                     onClick={() => goToProblem(index)}
-                    className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-indigo-500' : ''}`}
+                    className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-sky-500' : ''}`}
                     title={`${T.problem} ${problem.problem_number} (${status})`}
                   >
                     {problem.problem_number} {status}
@@ -1833,7 +1835,7 @@ export default function Quiz({
           </aside>
 
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-            <p className="text-sm font-semibold text-indigo-600 mb-2">{currentProblem.sectionTitle}</p>
+            <p className="text-sm font-semibold text-sky-600 mb-2">{currentProblem.sectionTitle}</p>
             {(typeof currentProblem?.wrongRatePercent === 'number' || typeof currentProblem?.unknownRatePercent === 'number') && (
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 {typeof currentProblem?.wrongRatePercent === 'number' && (
@@ -2049,23 +2051,23 @@ export default function Quiz({
 
             <div className="space-y-4">
               {isSubjectiveProblem ? (
-                <div className="rounded-lg border-2 border-indigo-200 bg-white p-4">
-                  <p className="text-sm font-semibold text-indigo-700 mb-2">주관식 답안 입력</p>
+                <div className="rounded-lg border-2 border-sky-200 bg-white p-4">
+                  <p className="text-sm font-semibold text-sky-700 mb-2">주관식 답안 입력</p>
                   <textarea
                     value={String(selectedAnswer || '')}
                     onChange={(e) => handleSelectOption(currentProblem.problem_number, e.target.value)}
                     disabled={isChecked}
                     placeholder="정답을 입력하세요."
-                    className="w-full min-h-[96px] rounded-md border border-indigo-200 px-3 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-100 disabled:text-gray-600"
+                    className="w-full min-h-[96px] rounded-md border border-sky-200 px-3 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-600"
                   />
                 </div>
               ) : (
                 getOptionList(currentProblem).map((option, index) => {
-                  let buttonClass = 'bg-white hover:bg-indigo-50 border-indigo-200 text-gray-800';
+                  let buttonClass = 'bg-white hover:bg-sky-50 border-sky-200 text-gray-800';
                   const optionIsCode = isCodeLikeText(option);
                   const isUnknownOption = option === UNKNOWN_OPTION;
                   if (selectedAnswer === option) {
-                    buttonClass = 'bg-indigo-100 text-indigo-700 border-indigo-500 ring-2 ring-indigo-500 font-bold';
+                    buttonClass = 'bg-sky-100 text-sky-700 border-sky-500 ring-2 ring-sky-500 font-bold';
                     if (showResult) {
                       buttonClass = isCorrect
                         ? 'bg-green-100 text-green-800 border-green-500 ring-2 ring-green-500'
@@ -2091,7 +2093,7 @@ export default function Quiz({
                       ) : optionIsCode ? (
                         <div className="space-y-2">
                           <div className="font-semibold">{index + 1}.</div>
-                          <div className="overflow-x-auto rounded-md border border-indigo-200 bg-white/80">
+                          <div className="overflow-x-auto rounded-md border border-sky-200 bg-white/80">
                             <pre className="m-0 p-3 text-sm leading-6 text-gray-900 whitespace-pre-wrap">
                               {formatCodeForDisplay(option)}
                             </pre>
@@ -2111,7 +2113,7 @@ export default function Quiz({
                 <h3 className={`text-lg font-bold mb-1 ${isCorrect ? 'text-blue-800' : 'text-red-800'}`}>
                   {isCorrect ? T.correct : T.wrong}
                 </h3>
-                <p className="text-lg font-semibold text-indigo-900 mb-3">
+                <p className="text-lg font-semibold text-sky-900 mb-3">
                   {T.answer}: {isSubjectiveProblem ? (String(correctAnswer || '').trim() || '-') : `${correctAnswerIndex + 1}${T.numberSuffix}`}
                 </p>
                 {explanationText && (
@@ -2171,7 +2173,7 @@ export default function Quiz({
               <button
                 onClick={handlePrimaryClick}
                 disabled={primaryDisabled}
-                className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed inline-flex items-center"
+                className="px-8 py-3 bg-sky-600 text-white font-bold rounded-lg hover:bg-sky-700 disabled:bg-sky-300 disabled:cursor-not-allowed inline-flex items-center"
               >
                 {primaryLabel}
                 {(isDirectProgressMode ? !isLast : (isChecked && !isLast)) && <ChevronRight className="ml-2 w-5 h-5" />}
@@ -2181,13 +2183,13 @@ export default function Quiz({
             </div>
 
             {!reportedProblems[currentProblem.problem_number] && (
-              <div className="mt-4 border-t pt-4">
-                <p className="text-sm font-semibold text-gray-700 mb-2">문제 신고하기</p>
+              <div className="mt-4 pt-4">
+                <p className="mb-2 text-sm font-semibold text-gray-700">문제 신고하기</p>
                 <div className="flex flex-col sm:flex-row gap-2">
                   <select
                     value={reportReason}
                     onChange={(e) => setReportReason(e.target.value)}
-                    className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     style={{ color: '#111827', backgroundColor: '#ffffff' }}
                   >
                     <option value="" style={{ color: '#6b7280', backgroundColor: '#ffffff' }}>
@@ -2205,7 +2207,7 @@ export default function Quiz({
                       value={reportEtcText}
                       onChange={(e) => setReportEtcText(e.target.value)}
                       placeholder="신고 사유를 입력해주세요"
-                      className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   )}
                   <button
