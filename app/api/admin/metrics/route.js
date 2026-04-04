@@ -82,7 +82,8 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const examType = normalizeExamType(searchParams.get('examType'));
     const events = await readEvents();
-    const metrics = aggregateMetrics(filterEventsByExamType(events, examType));
+    const filteredEvents = filterEventsByExamType(events, examType);
+    const metrics = aggregateMetrics(filteredEvents, { allEvents: events });
 
     let gptFeedback = { summary: { total: 0, liked: 0, disliked: 0, netLikeRatio: 0 }, items: [] };
     try {

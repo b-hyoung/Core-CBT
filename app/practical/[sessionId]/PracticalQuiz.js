@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChevronLeft, ChevronRight, Settings } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Settings } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import ThemeControls from '@/app/_components/ThemeControls';
 import { removeUnknownProblem, upsertUnknownProblem } from '@/lib/unknownProblemsStore';
@@ -886,6 +886,8 @@ export default function PracticalQuiz({
   const [gptConversationsByProblem, setGptConversationsByProblem] = useState({});
   const [gptVoteMap, setGptVoteMap] = useState({});
   const [initialJumpApplied, setInitialJumpApplied] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [themeControlsOpen, setThemeControlsOpen] = useState(false);
   const sequenceInputRefs = useRef([]);
   const multiBlankInputRefs = useRef([]);
   const multiBlankDraftsRef = useRef({});
@@ -1964,10 +1966,10 @@ export default function PracticalQuiz({
   };
 
   const getStatusClass = (status) => {
-    if (status === 'O') return 'bg-green-100 text-green-700 border-green-300';
-    if (status === 'X') return 'bg-red-100 text-red-700 border-red-300';
-    if (status === '●') return 'bg-blue-100 text-blue-700 border-blue-300';
-    return 'bg-gray-100 text-gray-700 border-gray-300';
+    if (status === 'O') return 'bg-green-100 text-green-700 border-green-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800';
+    if (status === 'X') return 'bg-red-100 text-red-700 border-red-300 dark:bg-rose-950/60 dark:text-rose-300 dark:border-rose-800';
+    if (status === '●') return 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-sky-950/60 dark:text-sky-300 dark:border-sky-800';
+    return 'bg-gray-100 text-gray-700 border-gray-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700';
   };
   const timerMinutes = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
   const timerSeconds = String(Math.floor(remainingSeconds % 60)).padStart(2, '0');
@@ -2680,46 +2682,56 @@ export default function PracticalQuiz({
   }
 
   return (
-    <div className="exam-scale min-h-screen w-full bg-gray-50 flex flex-col">
-      <header className="bg-white shadow-md p-4 flex justify-between items-center relative z-10">
-        <div className="flex items-center gap-4 min-w-0">
-          <h1 className="text-xl font-bold text-sky-900 hidden md:block">{session.title}</h1>
-          <h1 className="text-xl font-bold text-sky-900 md:hidden">{session.title.split(' ')[0]}...</h1>
-        </div>
-        <div className="text-lg font-semibold text-gray-900 whitespace-nowrap">
+    <div className="exam-scale min-h-screen w-full bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col">
+      <header className="bg-white shadow-md dark:bg-slate-900 dark:border-b dark:border-slate-800 dark:shadow-none p-4 relative z-10">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex items-start justify-between gap-3 min-w-0">
+          <div className="min-w-0 flex-1">
+            <h1 className="hidden text-xl font-bold text-sky-900 dark:text-sky-200 md:block">{session.title}</h1>
+            <h1 className="truncate text-base font-bold text-sky-900 dark:text-sky-200 md:hidden">{session.title}</h1>
+          </div>
+        <div className="shrink-0 text-sm sm:text-lg font-semibold text-gray-900 dark:text-slate-100 whitespace-nowrap">
           {T.problem} {currentProblemIndex + 1} / {quizProblems.length}
         </div>
-        <div className="flex items-center gap-3">
-          <ThemeControls />
-          <div className="hidden sm:flex items-center rounded-lg border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700 tabular-nums">
+        </div>
+        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+          <ThemeControls onOpenChange={setThemeControlsOpen} />
+          <div className="hidden sm:flex items-center rounded-lg border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700 tabular-nums dark:border-sky-900 dark:bg-slate-950 dark:text-sky-300">
             {timerMinutes}:{timerSeconds}
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              if (isExamLikePreset) {
-                setEnableAnswerCheck(true);
-                setShowExplanationWhenCorrect(true);
-                setShowExplanationWhenIncorrect(true);
-              } else {
-                setEnableAnswerCheck(false);
-                setShowExplanationWhenCorrect(false);
-                setShowExplanationWhenIncorrect(false);
-              }
-              setIsSettingsOpen(false);
-            }}
-            className={`px-3 py-2 rounded-lg text-xs md:text-sm font-bold text-white ${
-              isExamLikePreset
-                ? 'bg-emerald-600 hover:bg-emerald-700'
-                : 'bg-slate-700 hover:bg-slate-800'
+          <div
+            className={`overflow-hidden transition-[max-width,opacity,margin] duration-300 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] sm:max-w-none sm:opacity-100 ${
+              themeControlsOpen ? 'pointer-events-none max-w-0 opacity-0 sm:pointer-events-auto' : 'max-w-32 opacity-100'
             }`}
           >
-            {isExamLikePreset ? '해설 및 정답 다시 보기' : T.realStart}
-          </button>
+            <button
+              type="button"
+              onClick={() => {
+                if (isExamLikePreset) {
+                  setEnableAnswerCheck(true);
+                  setShowExplanationWhenCorrect(true);
+                  setShowExplanationWhenIncorrect(true);
+                } else {
+                  setEnableAnswerCheck(false);
+                  setShowExplanationWhenCorrect(false);
+                  setShowExplanationWhenIncorrect(false);
+                }
+                setIsSettingsOpen(false);
+              }}
+              className={`min-h-[44px] whitespace-nowrap px-3 py-2 rounded-lg text-xs md:text-sm font-bold text-white ${
+                isExamLikePreset
+                  ? 'bg-emerald-600 hover:bg-emerald-700'
+                  : 'bg-slate-700 hover:bg-slate-800'
+              }`}
+            >
+              <span className="hidden sm:inline">{isExamLikePreset ? '해설 및 정답 다시 보기' : T.realStart}</span>
+              <span className="sm:hidden">{isExamLikePreset ? '해설 보기' : '실전 모드'}</span>
+            </button>
+          </div>
           <div className="relative">
             <button
               onClick={() => setIsSettingsOpen((prev) => !prev)}
-              className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              className="inline-flex h-11 w-11 items-center justify-center text-gray-600 hover:bg-gray-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded-full transition-colors"
               aria-label="Settings"
             >
               <Settings className="w-6 h-6" />
@@ -2736,45 +2748,107 @@ export default function PracticalQuiz({
               onChangeShowExplanationWhenIncorrect={setShowExplanationWhenIncorrect}
             />
           </div>
-          <button
-            onClick={handleEndQuiz}
-            className="px-4 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 text-sm md:text-base"
+          <div
+            className={`overflow-hidden transition-[max-width,opacity,margin] duration-300 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] sm:max-w-none sm:opacity-100 ${
+              themeControlsOpen ? 'pointer-events-none max-w-0 opacity-0 sm:pointer-events-auto' : 'max-w-20 opacity-100'
+            }`}
           >
-            {T.end}
-          </button>
+            <button
+              onClick={handleEndQuiz}
+              className="min-h-[44px] whitespace-nowrap px-4 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 text-sm md:text-base"
+            >
+              {T.end}
+            </button>
+          </div>
+        </div>
         </div>
       </header>
 
       <main className="flex-grow container mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-4 md:gap-6">
-          <aside className="bg-white rounded-xl shadow-lg p-4 h-fit lg:sticky lg:top-24">
-            <h3 className="text-sm font-bold text-gray-700 mb-3">{T.navTitle}</h3>
-            <div className="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-4 gap-2">
-              {quizProblems.map((problem, index) => {
-                const status = getProblemStatus(problem);
-                const isCurrent = index === currentProblemIndex;
-                return (
-                  <button
-                    key={problem.problem_number}
-                    onClick={() => goToProblem(index)}
-                    className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-sky-500' : ''}`}
-                    title={`${T.problem} ${problem.problem_number} (${status})`}
-                  >
-                    {problem.problem_number} {status}
-                  </button>
-                );
-              })}
+          <aside className="bg-white rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-slate-800 dark:shadow-none p-4 h-fit lg:sticky lg:top-24">
+            <div className="lg:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileNavOpen((prev) => !prev)}
+                aria-expanded={mobileNavOpen}
+                className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-left transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+              >
+                <div>
+                  <p className="text-sm font-bold text-gray-700 dark:text-slate-200">{T.navTitle}</p>
+                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                    {currentProblemIndex + 1} / {quizProblems.length}
+                  </p>
+                </div>
+                <ChevronDown
+                  className={`h-4 w-4 text-slate-500 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] dark:text-slate-300 ${mobileNavOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <div
+                className={`grid overflow-hidden transition-[grid-template-rows,opacity,margin-top] duration-300 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] motion-reduce:transition-none ${
+                  mobileNavOpen ? 'mt-3 grid-rows-[1fr] opacity-100' : 'mt-0 grid-rows-[0fr] opacity-0'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-1 py-1">
+                  <div className="grid grid-cols-4 gap-2 sm:grid-cols-5">
+                    {quizProblems.map((problem, index) => {
+                      const status = getProblemStatus(problem);
+                      const isCurrent = index === currentProblemIndex;
+                      return (
+                        <button
+                          key={`mobile-${problem.problem_number}`}
+                          onClick={() => {
+                            goToProblem(index);
+                            setMobileNavOpen(false);
+                          }}
+                    className={`h-11 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-slate-300 dark:ring-slate-600' : ''}`}
+                          title={`${T.problem} ${problem.problem_number} (${status})`}
+                        >
+                          {problem.problem_number} {status}
+                        </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-600 dark:text-slate-400">
+                    <p><span className="font-bold text-green-700">O</span> {T.statusCorrect}</p>
+                    <p><span className="font-bold text-red-700">X</span> {T.statusWrong}</p>
+                    {isDirectProgressMode && <p><span className="font-bold text-blue-700">●</span> {T.statusSolved}</p>}
+                    <p><span className="font-bold text-gray-700 dark:text-slate-300">?</span> {T.statusUnsolved}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
-              <p><span className="font-bold text-green-700">O</span> {T.statusCorrect}</p>
-              <p><span className="font-bold text-red-700">X</span> {T.statusWrong}</p>
-              {isDirectProgressMode && <p><span className="font-bold text-blue-700">●</span> {T.statusSolved}</p>}
-              <p><span className="font-bold text-gray-700">?</span> {T.statusUnsolved}</p>
+            <div className="hidden lg:block">
+              <h3 className="text-sm font-bold text-gray-700 dark:text-slate-200 mb-3">{T.navTitle}</h3>
+              <div className="grid grid-cols-4 gap-2">
+                {quizProblems.map((problem, index) => {
+                  const status = getProblemStatus(problem);
+                  const isCurrent = index === currentProblemIndex;
+                  return (
+                    <button
+                      key={problem.problem_number}
+                      onClick={() => goToProblem(index)}
+                      className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-slate-300 dark:ring-slate-600' : ''}`}
+                      title={`${T.problem} ${problem.problem_number} (${status})`}
+                    >
+                      {problem.problem_number} {status}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="mt-4 text-xs text-gray-600 dark:text-slate-400 space-y-1">
+                <p><span className="font-bold text-green-700">O</span> {T.statusCorrect}</p>
+                <p><span className="font-bold text-red-700">X</span> {T.statusWrong}</p>
+                {isDirectProgressMode && <p><span className="font-bold text-blue-700">●</span> {T.statusSolved}</p>}
+                <p><span className="font-bold text-gray-700 dark:text-slate-300">?</span> {T.statusUnsolved}</p>
+              </div>
             </div>
           </aside>
 
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg">
-            <p className="text-sm font-semibold text-sky-600 mb-2">{currentProblem.sectionTitle}</p>
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-slate-800 dark:shadow-none">
+            <p className="text-sm font-semibold text-sky-600 dark:text-sky-300 mb-2">{currentProblem.sectionTitle}</p>
             {(typeof currentProblem?.wrongRatePercent === 'number' || typeof currentProblem?.unknownRatePercent === 'number') && (
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 {typeof currentProblem?.wrongRatePercent === 'number' && (
@@ -2799,7 +2873,7 @@ export default function PracticalQuiz({
                 )}
               </div>
             )}
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 leading-relaxed whitespace-pre-wrap">
+            <h2 className="mb-6 text-xl font-semibold leading-[1.55] text-gray-900 whitespace-pre-line break-keep [overflow-wrap:anywhere] dark:text-slate-100 md:text-2xl">
               {currentProblem.problem_number}. {formatQuestionTitle(questionTitle)}
             </h2>
 
@@ -2919,15 +2993,15 @@ export default function PracticalQuiz({
               </div>
             )}
 
-            {(currentProblem.examples || currentProblem.image_url || currentProblem.example_image_url) && (              <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
-                <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
-                  <span className="text-sm font-bold text-sky-800">보기</span>
+            {(currentProblem.examples || currentProblem.image_url || currentProblem.example_image_url) && (              <div className="mb-6 overflow-hidden rounded-xl border border-sky-200/80 bg-slate-50 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+                <div className="border-b border-sky-200/80 bg-sky-100/80 px-4 py-2 dark:border-slate-700 dark:bg-slate-800/95">
+                  <span className="text-sm font-bold text-sky-800 dark:text-sky-200">보기</span>
                 </div>
                 <div className="p-4">
                   {(() => {
                     if (currentProblem.example_image_url) {
                       return (
-                        <div className="overflow-x-auto rounded-md border border-sky-200 bg-white p-3">
+                        <div className="overflow-x-auto rounded-lg border border-sky-200/80 bg-white p-3 dark:border-slate-700 dark:bg-slate-950">
                           <img
                             src={String(currentProblem.example_image_url)}
                             alt="문제 보기 이미지"
@@ -2944,14 +3018,18 @@ export default function PracticalQuiz({
                     if (!isTable) {
                       if (isCodeLike) {
                         return (
-                          <div className="overflow-x-auto rounded-md border border-sky-200 bg-white">
-                            <pre className="m-0 p-3 text-sm leading-6 text-gray-900 whitespace-pre-wrap">
+                          <div className="overflow-x-auto rounded-lg border border-sky-200/80 bg-white dark:border-slate-700 dark:bg-slate-950">
+                            <pre className="m-0 whitespace-pre-wrap break-words p-3 text-xs leading-5 text-gray-900 dark:text-slate-100 sm:text-sm sm:leading-6">
                               {formatCodeForDisplay(currentProblem.examples)}
                             </pre>
                           </div>
                         );
                       }
-                      return <p className="text-gray-800 whitespace-pre-wrap leading-relaxed font-mono text-sm">{currentProblem.examples}</p>;
+                      return (
+                        <p className="text-sm leading-7 text-gray-800 whitespace-pre-line break-keep [overflow-wrap:anywhere] dark:text-slate-200 sm:text-[0.95rem]">
+                          {currentProblem.examples}
+                        </p>
+                      );
                     }
                     const tables = currentProblem.examples.split('\n\n').filter(Boolean);
                     return (
@@ -2963,9 +3041,9 @@ export default function PracticalQuiz({
                                 const cells = row.split('|').map((c) => c.trim());
                                 const Tag = ri === 0 ? 'th' : 'td';
                                 return (
-                                  <tr key={ri} className={ri === 0 ? 'bg-sky-100' : ri % 2 === 0 ? 'bg-sky-50' : 'bg-white'}>
+                                  <tr key={ri} className={ri === 0 ? 'bg-sky-100 dark:bg-slate-800' : ri % 2 === 0 ? 'bg-sky-50 dark:bg-slate-900' : 'bg-white dark:bg-slate-950'}>
                                     {cells.map((cell, ci) => (
-                                      <Tag key={ci} className="border border-sky-200 px-3 py-2 text-center text-gray-800 font-medium">
+                                      <Tag key={ci} className="border border-sky-200 px-3 py-2 text-center font-medium text-gray-800 dark:border-slate-700 dark:text-slate-200">
                                         {cell}
                                       </Tag>
                                     ))}
@@ -2983,8 +3061,8 @@ export default function PracticalQuiz({
             )}
 
                 <div className="space-y-4">
-                  <div className="rounded-lg border-2 border-sky-200 bg-white p-4">
-                    <label className="mb-2 block text-sm font-semibold text-gray-700">답안 입력</label>
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+                    <label className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">답안 입력</label>
                     {practicalInputType === 'sequence' && sequenceMeta ? (
                       <div className="space-y-3">
                         <div className="flex flex-wrap items-center gap-2">
@@ -3016,7 +3094,7 @@ export default function PracticalQuiz({
                                   }
                                   onFocus={(e) => e.target.select()}
                                   disabled={isChecked}
-                                  className={`h-11 rounded-lg border border-gray-300 bg-white text-lg font-semibold text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-400 ${sequenceMeta.mode === 'unordered_symbol_set' ? 'w-full text-left' : 'w-14 text-center'}`}
+                                  className={`h-11 rounded-lg border border-slate-300 bg-white text-lg font-semibold text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-400 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500 ${sequenceMeta.mode === 'unordered_symbol_set' ? 'w-full text-left' : 'w-14 text-center'}`}
                                   aria-label={`순서 입력 ${idx + 1}`}
                                 maxLength={sequenceMeta.mode === 'unordered_symbol_set' ? 50 : sequenceMeta.kind === 'number' ? 2 : 2}
                               />
@@ -3026,7 +3104,7 @@ export default function PracticalQuiz({
                             </div>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-500 dark:text-slate-400">
                           {sequenceMeta.mode === 'unordered_symbol_set'
                             ? '옳은 기호만 골라 입력하세요. (예: ㄱ, ㄴ)'
                             : '순서대로 기호를 입력하세요. (예: ㄱ, ㄴ, ㄷ ...)'}
@@ -3036,10 +3114,10 @@ export default function PracticalQuiz({
                         <div className="space-y-2">
                           {multiBlankMeta.labels.map((label, idx) => (
                             <div key={`multi-blank-${label}-${idx}`} className="flex items-center gap-2">
-                              <div className="w-14 shrink-0 rounded-md border border-gray-300 bg-gray-50 px-2 py-2 text-center text-sm font-semibold text-gray-700">
+                              <div className="w-14 shrink-0 rounded-md border border-gray-300 bg-white px-2 py-2 text-center text-sm font-semibold text-gray-700 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-200">
                                 {label}
                               </div>
-                              <span className="text-gray-400 select-none">-</span>
+                              <span className="select-none text-gray-400 dark:text-slate-500">-</span>
                               <input
                                 ref={(el) => {
                                   multiBlankInputRefs.current[idx] = el;
@@ -3066,7 +3144,7 @@ export default function PracticalQuiz({
                                 onFocus={(e) => e.target.select()}
                                 disabled={isChecked}
                                 placeholder="답 입력"
-                                className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500"
+                                className="flex-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
                               />
                             </div>
                           ))}
@@ -3078,17 +3156,17 @@ export default function PracticalQuiz({
                       disabled={isChecked}
                       placeholder={practicalInputPlaceholder}
                       rows={4}
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500 font-mono text-sm"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500 sm:font-mono"
                     />
                   ) : practicalInputType === 'single' && practicalSymbolChoices.length > 0 ? (
                     <div className="space-y-3">
-                      <div className="rounded-xl border border-sky-200 bg-gradient-to-b from-sky-50/80 to-white p-3">
+                      <div className="rounded-xl border border-sky-200 bg-gradient-to-b from-sky-50 to-white p-3 dark:border-slate-700 dark:from-slate-800 dark:to-slate-900">
                         <div className="mb-2 flex items-center justify-between">
                           <p className="text-xs font-extrabold tracking-wide text-sky-800">
                             답안 선택 (보기와 별개)
                           </p>
                           {selectedPracticalChoice && selectedAnswer !== UNKNOWN_OPTION ? (
-                            <span className="rounded-full border border-sky-300 bg-white px-2 py-0.5 text-[11px] font-semibold text-sky-700">
+                            <span className="rounded-full border border-sky-300 bg-white px-2 py-0.5 text-[11px] font-semibold text-sky-700 dark:border-slate-600 dark:bg-slate-950 dark:text-sky-200">
                               선택 완료
                             </span>
                           ) : null}
@@ -3110,13 +3188,13 @@ export default function PracticalQuiz({
                               className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
                                 isSelected
                                   ? 'border-sky-600 bg-gradient-to-r from-sky-100 to-blue-100 text-sky-900 ring-2 ring-sky-300 shadow-md shadow-sky-100'
-                                  : 'border-sky-200 bg-white text-gray-800 hover:border-sky-400 hover:bg-sky-50'
+                                  : 'border-slate-300 bg-white text-gray-800 hover:border-sky-300 hover:bg-sky-50 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900'
                               } ${isChecked ? 'cursor-not-allowed opacity-80' : ''}`}
                             >
                               <span className={`mr-2 inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-bold ${
                                 isSelected
                                   ? 'border-sky-500 bg-white text-sky-700'
-                                  : 'border-gray-300 bg-gray-50 text-gray-700'
+                                  : 'border-gray-300 bg-gray-50 text-gray-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300'
                               }`}>
                                 {choice.label}
                               </span>
@@ -3131,8 +3209,8 @@ export default function PracticalQuiz({
                         })}
                         </div>
                       </div>
-                      <div className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-3">
-                        <p className="mb-2 text-xs font-bold text-emerald-800">선택된 답안 / 직접 수정</p>
+                      <div className="rounded-lg border border-emerald-200 bg-emerald-50/60 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+                        <p className="mb-2 text-xs font-bold text-emerald-800 dark:text-slate-200">선택된 답안 / 직접 수정</p>
                         <input
                           type="text"
                           value={
@@ -3145,10 +3223,10 @@ export default function PracticalQuiz({
                           onChange={(e) => handleSubjectiveInput(currentProblem.problem_number, e.target.value)}
                           disabled={isChecked}
                           placeholder={practicalInputPlaceholder}
-                          className="w-full rounded-lg border border-emerald-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-gray-100 disabled:text-gray-500"
+                          className="w-full rounded-lg border border-emerald-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-gray-100 disabled:text-gray-500 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
                         />
                       </div>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-500 dark:text-slate-400">
                         보기에서 기호를 선택하면 답안이 자동 입력됩니다.
                       </p>
                     </div>
@@ -3159,15 +3237,15 @@ export default function PracticalQuiz({
                       onChange={(e) => handleSubjectiveInput(currentProblem.problem_number, e.target.value)}
                       disabled={isChecked}
                       placeholder={practicalInputPlaceholder}
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-500 dark:border-slate-600 dark:bg-slate-950 dark:text-slate-100 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
                     />
                   )}
                   {practicalAnswerFormatHintDisplay ? (
-                    <p className="mt-2 text-xs text-sky-700">
+                    <p className="mt-2 text-xs leading-5 text-sky-700 break-keep [overflow-wrap:anywhere] dark:text-sky-300">
                       정답 형식: {practicalAnswerFormatHintDisplay}
                     </p>
                   ) : null}
-                  <p className="mt-2 text-xs text-gray-500">
+                  <p className="mt-2 text-xs leading-5 text-gray-500 break-keep [overflow-wrap:anywhere] dark:text-slate-400">
                     영문/한글, 괄호 표기 차이는 일부 정규화해서 채점합니다.
                   </p>
                 </div>
@@ -3181,7 +3259,7 @@ export default function PracticalQuiz({
                     ? (showResult && !isCorrect
                         ? 'bg-red-100 text-red-800 border-red-500 ring-2 ring-red-500'
                         : 'bg-sky-100 text-sky-700 border-sky-500 ring-2 ring-sky-500 font-bold')
-                    : 'bg-white hover:bg-sky-50 border-sky-200 text-gray-800'
+                    : 'border-slate-200 bg-slate-50 text-gray-800 hover:bg-sky-50 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-900'
                 } ${isChecked ? 'cursor-not-allowed opacity-90' : ''}`}
               >
                 모르겠어요 (찍는건 시험장에서 ㅎ)
@@ -3253,7 +3331,7 @@ export default function PracticalQuiz({
               <button
                 onClick={handlePrimaryClick}
                 disabled={primaryDisabled}
-                className="px-8 py-3 bg-sky-600 text-white font-bold rounded-lg hover:bg-sky-700 disabled:bg-sky-300 disabled:cursor-not-allowed inline-flex items-center"
+                className="px-8 py-3 bg-sky-600 text-white dark:bg-sky-700 dark:text-sky-50 font-bold rounded-lg hover:bg-sky-700 dark:hover:bg-sky-800 disabled:bg-sky-300 dark:disabled:bg-sky-900/50 dark:disabled:text-sky-200/60 disabled:cursor-not-allowed inline-flex items-center"
               >
                 {primaryLabel}
                 {(isDirectProgressMode ? !isLast : (isChecked && !isLast)) && <ChevronRight className="ml-2 w-5 h-5" />}
@@ -3264,12 +3342,12 @@ export default function PracticalQuiz({
 
             {!reportedProblems[currentProblem.problem_number] && (
               <div className="mt-4 pt-4">
-                <p className="mb-2 text-sm font-semibold text-gray-700">문제 신고하기</p>
+                <p className="mb-2 text-sm font-semibold text-gray-700 dark:text-slate-300">문제 신고하기</p>
                 <div className="flex flex-col sm:flex-row gap-2">
                   <select
                     value={reportReason}
                     onChange={(e) => setReportReason(e.target.value)}
-                    className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                    className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     style={{ color: '#111827', backgroundColor: '#ffffff' }}
                   >
                     <option value="" style={{ color: '#6b7280', backgroundColor: '#ffffff' }}>
@@ -3287,7 +3365,7 @@ export default function PracticalQuiz({
                       value={reportEtcText}
                       onChange={(e) => setReportEtcText(e.target.value)}
                       placeholder="신고 사유를 입력해주세요"
-                      className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                      className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   )}
                   <button
@@ -3304,11 +3382,11 @@ export default function PracticalQuiz({
         </div>
       </main>
 
-      <footer className="bg-white shadow-t-md p-4 flex justify-between items-center">
+      <footer className="bg-white shadow-t-md dark:bg-slate-900 dark:border-t dark:border-slate-800 dark:shadow-none p-4 flex justify-between items-center">
         <button
           onClick={goToPreviousProblem}
           disabled={currentProblemIndex === 0}
-          className="px-8 py-3 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed inline-flex items-center"
+          className="px-8 py-3 bg-gray-200 text-gray-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 font-bold rounded-lg hover:bg-gray-200 disabled:bg-gray-100 disabled:text-gray-400 dark:disabled:bg-slate-900 dark:disabled:text-slate-600 disabled:cursor-not-allowed inline-flex items-center"
         >
           <ChevronLeft className="mr-2 w-5 h-5" />
           {T.prev}

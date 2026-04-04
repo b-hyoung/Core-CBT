@@ -36,6 +36,12 @@ const emptyMetrics = {
     summary: { total: 0, liked: 0, disliked: 0, netLikeRatio: 0 },
     items: [],
   },
+  themeUsage: {
+    totalThemeEvents: 0,
+    users: [],
+    currentThemes: [],
+    currentCustomColors: [],
+  },
 };
 
 const LIST_TABS = [
@@ -43,6 +49,7 @@ const LIST_TABS = [
   { key: 'daily', label: '일자별 리스트' },
   { key: 'session', label: '회차별 리스트' },
   { key: 'subject', label: '과목별 리스트' },
+  { key: 'themes', label: '색상 통계' },
   { key: 'ipSearch', label: '사용자 조회' },
   { key: 'gptCache', label: 'GPT 캐시 조회' },
   { key: 'reports', label: '신고 리스트' },
@@ -735,8 +742,8 @@ export default function AdminPage() {
 
   if (authChecking) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-        <div className="text-slate-600">어드민 권한 확인 중...</div>
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4">
+        <div className="text-slate-600 dark:text-slate-300">어드민 권한 확인 중...</div>
       </div>
     );
   }
@@ -746,22 +753,22 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-8">
+    <div className="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 p-4 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">어드민 대시보드</h1>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-50">어드민 대시보드</h1>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-600">
+            <span className="rounded-lg border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 px-3 py-2 text-xs font-semibold text-slate-600">
               {adminEmail}
             </span>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className="px-4 py-2 rounded-lg border border-rose-200 bg-rose-50 text-rose-700 font-semibold hover:bg-rose-100"
+              className="px-4 py-2 rounded-lg border border-rose-200 bg-rose-50 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300 text-rose-700 font-semibold hover:bg-rose-100 dark:hover:bg-rose-950/60"
             >
               로그아웃
             </button>
-            <label className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
-              <span className="text-slate-600">구분 필터</span>
+            <label className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900 px-3 py-2 text-sm">
+              <span className="text-slate-600 dark:text-slate-300">구분 필터</span>
               <select
                 value={adminExamTypeFilter}
                 onChange={(e) => {
@@ -770,7 +777,7 @@ export default function AdminPage() {
                   setIpSearchPage(1);
                   setExpandedIpRows({});
                 }}
-                className="rounded border border-slate-300 px-2 py-1"
+                className="rounded border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 px-2 py-1"
               >
                 {ADMIN_EXAM_TYPE_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -792,9 +799,9 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {error && <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-red-700">{error}</div>}
+        {error && <div className="rounded-lg border border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300 p-3 text-red-700">{error}</div>}
 
-        <div className="rounded-xl bg-white border border-slate-200 p-3 shadow-sm">
+        <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-3 shadow-sm dark:shadow-none">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex flex-wrap gap-2">
               {LIST_TABS.map((t) => (
@@ -804,18 +811,124 @@ export default function AdminPage() {
                   className={`px-3 py-2 rounded-lg text-sm font-semibold border ${
                     tab === t.key
                       ? 'bg-sky-600 text-white border-sky-600'
-                      : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
+                      : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50 dark:bg-slate-950 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800'
                   }`}
                 >
                   {t.label}
                 </button>
               ))}
             </div>
-            <div className="text-xs text-slate-500">
+            <div className="text-xs text-slate-500 dark:text-slate-400">
               현재 필터: {ADMIN_EXAM_TYPE_OPTIONS.find((o) => o.value === adminExamTypeFilter)?.label || '전체'}
             </div>
           </div>
         </div>
+
+        {tab === 'themes' && (
+          <div className="space-y-4">
+            <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                <h2 className="font-bold text-slate-900 dark:text-slate-50">색상 통계</h2>
+                <button onClick={load} className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-semibold">
+                  새로고침
+                </button>
+              </div>
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+                <Info label="누적 색 변경 이벤트" value={metrics?.themeUsage?.totalThemeEvents ?? 0} />
+                <Info label="현재 집계 사용자 수" value={(metrics?.themeUsage?.users || []).length} />
+                <Info label="현재 사용 테마 수" value={(metrics?.themeUsage?.currentThemes || []).length} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+              <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+                <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50">현재 사용 테마 순위</h3>
+                {(metrics?.themeUsage?.currentThemes || []).length === 0 ? (
+                  <div className="text-slate-500 dark:text-slate-400">아직 색상 데이터가 없습니다.</div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-200 dark:border-slate-700 text-left text-slate-600 dark:text-slate-300">
+                          <th className="py-2 pr-3">테마</th>
+                          <th className="py-2 pr-3">사용자 수</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {(metrics?.themeUsage?.currentThemes || []).map((row) => (
+                          <tr key={row.themeId} className="border-b border-slate-100 dark:border-slate-800">
+                            <td className="py-2 pr-3">{row.themeId}</td>
+                            <td className="py-2 pr-3 font-semibold">{row.count}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+
+              <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+                <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50">현재 custom 색상</h3>
+                {(metrics?.themeUsage?.currentCustomColors || []).length === 0 ? (
+                  <div className="text-slate-500 dark:text-slate-400">custom 색상 사용자가 없습니다.</div>
+                ) : (
+                  <div className="space-y-2">
+                    {(metrics?.themeUsage?.currentCustomColors || []).map((row) => (
+                      <div key={row.color} className="flex items-center justify-between rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2">
+                        <div className="flex items-center gap-3">
+                          <span className="h-5 w-5 rounded-full border border-slate-300 dark:border-slate-600" style={{ backgroundColor: row.color }} />
+                          <span className="font-mono text-sm">{row.color}</span>
+                        </div>
+                        <span className="text-sm font-semibold">{row.count}명</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+              <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50">사용자별 현재 색상</h3>
+              {(metrics?.themeUsage?.users || []).length === 0 ? (
+                <div className="text-slate-500 dark:text-slate-400">아직 색상 변경 이력이 없습니다.</div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-slate-200 dark:border-slate-700 text-left text-slate-600 dark:text-slate-300">
+                        <th className="py-2 pr-3">사용자</th>
+                        <th className="py-2 pr-3">clientId</th>
+                        <th className="py-2 pr-3">테마</th>
+                        <th className="py-2 pr-3">custom 색</th>
+                        <th className="py-2 pr-3">경로</th>
+                        <th className="py-2 pr-3">최근 변경</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(metrics?.themeUsage?.users || []).map((row) => (
+                        <tr key={row.userKey} className="border-b border-slate-100 dark:border-slate-800">
+                          <td className="py-2 pr-3">{row.email || row.userKey}</td>
+                          <td className="py-2 pr-3 font-mono text-xs">{row.clientId || '-'}</td>
+                          <td className="py-2 pr-3 font-semibold">{row.themeId}</td>
+                          <td className="py-2 pr-3">
+                            {row.themeId === 'custom' && row.customColor ? (
+                              <span className="inline-flex items-center gap-2">
+                                <span className="h-4 w-4 rounded-full border border-slate-300 dark:border-slate-600" style={{ backgroundColor: row.customColor }} />
+                                <span className="font-mono text-xs">{row.customColor}</span>
+                              </span>
+                            ) : '-'}
+                          </td>
+                          <td className="py-2 pr-3 text-xs">{row.path || '-'}</td>
+                          <td className="py-2 pr-3 whitespace-nowrap">{fmtTime(row.timestamp)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {tab === 'kpi' && (
           <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
@@ -2088,35 +2201,35 @@ export default function AdminPage() {
 
 function Row({ k, v }) {
   return (
-    <tr className="border-b border-slate-100">
+    <tr className="border-b border-slate-100 dark:border-slate-800">
       <td className="py-2 pr-3">{k}</td>
-      <td className="py-2 pr-3 font-semibold text-slate-900">{v}</td>
+      <td className="py-2 pr-3 font-semibold text-slate-900 dark:text-slate-100">{v}</td>
     </tr>
   );
 }
 
 function Info({ label, value }) {
   return (
-    <div className="rounded-lg border border-slate-200 p-2">
-      <p className="text-xs text-slate-500">{label}</p>
-      <p className="text-sm font-semibold text-slate-900">{value || '-'}</p>
+    <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-2">
+      <p className="text-xs text-slate-500 dark:text-slate-400">{label}</p>
+      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{value || '-'}</p>
     </div>
   );
 }
 
 function ListTable({ title, loading, emptyText, headers, rows }) {
   return (
-    <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
-      <h2 className="font-bold text-slate-900 mb-3">{title}</h2>
+    <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+      <h2 className="font-bold text-slate-900 dark:text-slate-50 mb-3">{title}</h2>
       {loading ? (
-        <div className="text-slate-500">로딩 중...</div>
+        <div className="text-slate-500 dark:text-slate-400">로딩 중...</div>
       ) : !rows || rows.length === 0 ? (
-        <div className="text-slate-500">{emptyText}</div>
+        <div className="text-slate-500 dark:text-slate-400">{emptyText}</div>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 text-left text-slate-600">
+              <tr className="border-b border-slate-200 dark:border-slate-700 text-left text-slate-600 dark:text-slate-300">
                 {headers.map((h) => (
                   <th key={h} className="py-2 pr-3">{h}</th>
                 ))}
@@ -2124,7 +2237,7 @@ function ListTable({ title, loading, emptyText, headers, rows }) {
             </thead>
             <tbody>
               {rows.map((r, i) => (
-                <tr key={i} className="border-b border-slate-100">
+                <tr key={i} className="border-b border-slate-100 dark:border-slate-800">
                   {r.map((cell, j) => (
                     <td key={j} className="py-2 pr-3">{cell}</td>
                   ))}
@@ -2140,9 +2253,9 @@ function ListTable({ title, loading, emptyText, headers, rows }) {
 
 function ChartCard({ title, loading, children }) {
   return (
-    <div className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
-      <h2 className="font-bold text-slate-900 mb-3">{title}</h2>
-      {loading ? <div className="h-[300px] flex items-center justify-center text-slate-500">로딩 중...</div> : children}
+    <div className="rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 p-4 shadow-sm dark:shadow-none">
+      <h2 className="font-bold text-slate-900 dark:text-slate-50 mb-3">{title}</h2>
+      {loading ? <div className="h-[300px] flex items-center justify-center text-slate-500 dark:text-slate-400">로딩 중...</div> : children}
     </div>
   );
 }
