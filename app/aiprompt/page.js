@@ -9,8 +9,18 @@ import UserQuickActions from '@/app/_components/UserQuickActions';
 const sessions = [
   {
     id: 'aiprompt-2-1',
-    round: '2급 1회',
-    description: 'AI 프롬프트엔지니어링 2급 객관식 20문항',
+    round: '2급 기출문제 A형',
+    description: 'AI 프롬프트엔지니어링 2급 객관식 20문항 + 주관식 20문항',
+  },
+  {
+    id: 'aiprompt-2-b',
+    round: '2급 기출문제 B형',
+    description: 'AI 프롬프트엔지니어링 2급 객관식 30문항 + 주관식 10문항 (총 40문항)',
+  },
+  {
+    id: 'quiz-round-3',
+    round: '누군가의 노션 정리',
+    description: 'AI 기초, NLP, 클러스터링, 프롬프트 엔지니어링 총 25문항 (챕터 1~5)',
   },
 ];
 

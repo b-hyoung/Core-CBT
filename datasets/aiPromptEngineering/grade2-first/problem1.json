@@ -61,7 +61,7 @@
         "question_text": "다음 중 자연어 처리의 특징으로 옳지 않은 것을 고르시오.",
         "options": [
           "인간의 언어를 컴퓨터가 해석하고 이해할 수 있다.",
-          "컴퓨터가 해석한 데이터를 토대로 새로운 문장을 생성한다",
+          "컴퓨터가 해석한 데이터를 토대로 새로운 문장을 생성한다.",
           "인간이 작성한 텍스트에서 감정을 식별하기 어렵다.",
           "단어 또는 문장이 사용된 문맥을 파악하여 의미를 추론한다."
         ]
@@ -80,7 +80,6 @@
       {
         "problem_number": 8,
         "question_text": "챗GPT의 효과적인 사용을 위한 질의 규칙에 대한 설명이다. 적합하지 않은 것을 고르시오.",
-        "examples": "",
         "options": [
           "질문의 범위를 한정하고, 구체적인 정보를 요청해야 함",
           "정확한 답변을 얻기 위해 최신 정보를 명시해야 함",
@@ -90,8 +89,8 @@
       },
       {
         "problem_number": 9,
-        "question_text": "다음 보기에서 설명하고 있는 것을 고르시오",
-        "examples": "자연어 문장을 의미 단위의 프로그램 코드로 변환하는 과정으로, 기계가 문장의 의미를 이해하고 \n해당 의미에 대한 작업을 수행할 수 있도록 하는 기법이다. ",
+        "question_text": "다음 보기에서 설명하고 있는 것을 고르시오.",
+        "examples": "자연어 문장을 의미 단위의 프로그램 코드로 변환하는 과정으로, 기계가 문장의 의미를 이해하고 해당 의미에 대한 작업을 수행할 수 있도록 하는 기법이다.",
         "options": [
           "의미 파싱(Semantic Parsing)",
           "의미 함축(Semantic Entailment)",
@@ -103,10 +102,9 @@
         "problem_number": 10,
         "question_text": "다음은 제미나이(Gemini)의 실행화면이다. 제미나이의 특징으로 올바르지 않은 것을 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/10.png",
-        "examples": "",
         "options": [
           "거대 멀티모달 모델(LMM : Large MultiModal Model) 이다.",
-          "바드(Bard)에서 명칭이 바뀌었다. ",
+          "바드(Bard)에서 명칭이 바뀌었다.",
           "텍스트, 그림, 영상, 소리등을 입력할수 있다.",
           "검색엔진 데이터를 사용하지 않는다."
         ]
@@ -125,19 +123,19 @@
         "problem_number": 12,
         "question_text": "다음은 미드저니를 사용하여 생성한 이미지이다. 왼쪽의 이미지를 오른쪽처럼 생성하려고 할 때 필요한 파라미터(㉠, ㉡)로 적합한 것을 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/12.png",
-        "examples": "",
+        "examples": "[파라미터 설명]\n㉠ : 이미지의 가로, 세로 비율을 지정하는 파라미터\n㉡ : 이미지가 서로 다른 스타일로 표현할 수 있도록 자유도를 주는 파라미터",
         "options": [
-          "--ar 16:9, --chaos",
-          "--aspect 16:9, --c",
-          "--ar 16:9, --c",
-          "--aspect 16:9, --chaos"
+          "㉠ : --stylize 750, ㉡ : --tile",
+          "㉠ : --ar 16:9, ㉡ : --chaos 35",
+          "㉠ : --repeat, ㉡ : --chaos 35",
+          "㉠ : --ar 9:16, ㉡ : --no"
         ]
       },
       {
         "problem_number": 13,
-        "question_text": "다음 중 LLM의 Temperature(온도) 파라미터에 대한 설명으로 옳은 것을 고르시오.",
+        "question_text": "다음 챗GPT 프롬프트에서 창의성을 제어하기 위해 ( ㉠ ) 에 들어갈 내용으로 옳은 것을 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/13.png",
-        "examples": "",
+        "examples": "프롬프트 | 미래의 스마트 홈에 대한 창의적인 아이디어를 작성해줘.\n( ㉠ : 2 )",
         "options": [
           "Top-p",
           "Writing Style",
@@ -157,7 +155,6 @@
         "problem_number": 14,
         "question_text": "다음에서 설명하는 프롬프트 엔지니어링 방법에 대해 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/14.png",
-        "examples": "",
         "options": [
           "멀티모달 프롬프트",
           "음성인식 프롬프트",
@@ -167,29 +164,28 @@
       },
       {
         "problem_number": 15,
-        "question_text": "다음에서 설명하는 프롬프트 엔지니어링 방법에 대해 고르시오.",
+        "question_text": "자연어 분석 시 단계별 자연어 처리 기술에 대한 설명 중 올바르지 않은 것은?",
         "options": [
           "단어 분리(Word Tokenization)는 문장이나 문서를 단어 단위로 분리하는 기법이다.",
           "형태소 분석(Morphological Analysis)은 단어를 형태소 단위로 분리하여 각 형태소의 의미를 파악하는 기법이다.",
-          "구문 분석(Parsing)은 단어의 다의성 문제를 해결하기 위해, 문맥을 고려하여 단어의 정확한 의미를 파악하는 기법이다",
-          "품사 태깅(Part-of-Speech Tagging)은 단어가 문장에서 어떤 역할을 하는지를 나타내는 품사(Part - of - Speech)를 지정하는 작업이다."
+          "구문 분석(Parsing)은 단어의 다의성 문제를 해결하기 위해, 문맥을 고려하여 단어의 정확한 의미를 파악하는 기법이다.",
+          "품사 태깅(Part-of-Speech Tagging)은 단어가 문장에서 어떤 역할을 하는지를 나타내는 품사(Part-of-Speech)를 지정하는 작업이다."
         ]
       },
       {
         "problem_number": 16,
-        "question_text": "챗GPT의 효과적 사용을 위한 질의 규칙에 대한 설명으로 적절하지 않은 것을 고르시오",
+        "question_text": "챗GPT의 효과적 사용을 위한 질의 규칙에 대한 설명으로 적절하지 않은 것을 고르시오.",
         "options": [
-          "질문에 필요한 배경 정보를 제공하면 챗GPT는 문맥을 이해하고 더 정확한 답변을 줄 수 있다",
+          "질문에 필요한 배경 정보를 제공하면 챗GPT는 문맥을 이해하고 더 정확한 답변을 줄 수 있다.",
           "질문의 목적과 의도를 명확히 표현하면 챗GPT는 목적과 의도에 맞춰 적절한 답변 제공한다.",
           "질문에 대한 다양한 답변을 위해 범위를 제한하지 않고 물어보면 더 좋은 답변을 얻을 수 있다.",
-          "최신 정보에 대한 한계가 있으므로 특정 연도를 명시하는 등 질문에 최신 정보를 명시해 주면 더 정확한답변을 얻을 수 있다."
+          "최신 정보에 대한 한계가 있으므로 특정 연도를 명시하는 등 질문에 최신 정보를 명시해 주면 더 정확한 답변을 얻을 수 있다."
         ]
       },
       {
         "problem_number": 17,
-        "question_text": "다음은 챗GPT에게 영어와 한글로 각각 키워드 3개씩을 입력하여 답변을 얻는 프롬프트 예시이다. 영어와 한글 프롬프트에서 각각 {키워드1}, {키워드2}, {키워드3}에 들어갈 내용으로 적절한 것을 고르시오.",
+        "question_text": "다음 챗GPT 응답을 보고, 프롬프트에서 ( ㉠ ) 에 들어갈 내용으로 옳은 것을 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/17.png",
-        "examples": "",
         "options": [
           "영문 : {바다}, {즐거움}, {화려함} \n한국어 : {바다}, {즐거움}, {화려함}",
           "영어 : {키워드1}, {키워드2}, {키워드3} \n한글 : {키워드1}, {키워드2}, {키워드3}",
@@ -201,79 +197,72 @@
         "problem_number": 18,
         "question_text": "다음 프롬프트에서 챗GPT에게 문맥(Context) 정보를 제공하기 위해 사용한 문장 부호를 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/18.png",
-        "examples": "",
         "options": [
-          "큰따옴표(“)",
-          "작은따옴표(‘)",
+          "큰따옴표(\")",
+          "작은따옴표(')",
           "샵(#)",
           "중괄호({})"
         ]
       },
       {
         "problem_number": 19,
-        "question_text": "다음 프롬프트에서 챗GPT에게 긍정적 이유와 부정적 이유를 설명하도록 요청하는 문장으로 적절한 것을 고르시오.",
+        "question_text": "다음 챗GPT 응답을 보고, 프롬프트에서 ( ㉠ ) 에 들어갈 내용으로 옳지 않은 것을 고르시오.",
         "image_url": "/images/ai-prompt/grade2-first/19.png",
-        "examples": "",
         "options": [
           "감정 분석을 위한 5가지 예시를 작성해줘.",
           "예시에서 긍정적과 부정적인 이유를 설명해줘.",
           "출력 형식은 다음 예시와 같은 형식을 사용해줘.",
           "예시는 긍정적과 부정적 둘 중 하나로 분류해줘."
         ]
-       },
-       {
-         "problem_number": 20,
-         "question_text": "다음 보기는 스테이블 디퓨전에서 설정한 값과 그에 따라 생성된 이미지이다. 보기로부터 알 수 있는 사실을 고르시오.",
-         "image_url": "/images/ai-prompt/grade2-first/20.png, /images/ai-prompt/grade2-first/20.1.png", 
-         "examples": "",
-         "options": [
-           "스테이블 디퓨전 기본 모델을 사용했다.",
-           "이미지를 생성할 때마다 매번 다른 이미지가 생성된다",
-           "이미지를 생성할 때 한 번에 4개의 이미지를 생성했다.",
-           "생성되는 이미지의 가로, 세로의 크기는 960 x 540 픽셀이다."
-         ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 보기는 스테이블 디퓨전에서 설정한 값과 그에 따라 생성된 이미지이다. 보기로부터 알 수 있는 사실을 고르시오.",
+        "image_url": "/images/ai-prompt/grade2-first/20.png",
+        "options": [
+          "스테이블 디퓨전 기본 모델을 사용했다.",
+          "이미지를 생성할 때마다 매번 다른 이미지가 생성된다.",
+          "이미지를 생성할 때 한 번에 4개의 이미지를 생성했다.",
+          "생성되는 이미지의 가로, 세로의 크기는 960 x 540 픽셀이다."
+        ]
       },
       {
         "problem_number": 21,
         "question_text": "다음은 챗GPT에서 미드저니 프롬프트를 생성해주는 확장프로그램에 대한 설명이다. 올바른 것을 고르시오.",
-        "image_url": "/images/ai-prompt/grade2-first/21.png", 
-        "examples": "",
+        "image_url": "/images/ai-prompt/grade2-first/21.png",
         "options": [
           "ArxivGPT",
           "DeepL 번역",
           "프롬프트지니",
           "AIPRM"
-         ]
+        ]
       },
       {
         "problem_number": 22,
-        "question_text": "다음은 크롬 브라우저의 확장 프로그램인 AIPRM을 사용하여 프롬프트를 연계하는 화면이다. 아래 결과를 생성하기 위한 Writing Style ㉠을 고르시오",
-        "image_url": "/images/ai-prompt/grade2-first/22.png", 
-        "examples": "",
+        "question_text": "다음은 크롬 브라우저의 확장 프로그램인 AIPRM을 사용하여 프롬프트를 연계하는 화면이다. 아래 결과를 생성하기 위한 Writing Style ㉠을 고르시오.",
+        "image_url": "/images/ai-prompt/grade2-first/22.png",
         "options": [
           "Default(기본)",
           "Emotional(감정적인)",
           "Dynamic(동적인)",
           "Poetic(시적인)"
-         ]
+        ]
       },
       {
         "problem_number": 23,
         "question_text": "다음 프롬프트에서 ㉠, ㉡, ㉢ 에 들어갈 내용으로 옳은 것을 고르시오.",
-        "image_url": "/images/ai-prompt/grade2-first/22.png", 
-        "examples": "",
+        "examples": "한국의 저널리즘 상황에 관해 설명해 주세요.\n( ㉠ ) : academic\n( ㉡ ) : cynical\n( ㉢ ) : 2048",
         "options": [
-          "ㄱ writing style, ㄱ Temperature, ㄱ Top_p",
-          "ㄱ tone, ㄴ Temperature, ㄷ Top_p",
-          "ㄱ writing style, ㄴ tone, ㄷ max_length",
-          "ㄱ tone, ㄴ writing style, ㄷ max_length"
-         ]
+          "㉠ writing style, ㉡ Temperature, ㉢ Top_p",
+          "㉠ tone, ㉡ Temperature, ㉢ Top_p",
+          "㉠ writing style, ㉡ tone, ㉢ max_length",
+          "㉠ tone, ㉡ writing style, ㉢ max_length"
+        ]
       },
       {
         "problem_number": 24,
         "question_text": "다음 챗GPT 응답을 보고, 프롬프트에서 ( ㉠ ) 에 들어갈 내용으로 옳지 않은 것을 고르시오.",
-        "image_url": "/images/ai-prompt/grade2-first/23.1.png, /images/ai-prompt/grade2-first/23.2.png", 
-        "examples": "",
+        "image_url": "/images/ai-prompt/grade2-first/23.1.png, /images/ai-prompt/grade2-first/24.png",
         "options": [
           "한글로 요약해 주세요.",
           "핵심내용을 7개로 구분지어 주고 첫글자만 두껍게 작성해 주세요.",
@@ -284,8 +273,7 @@
       {
         "problem_number": 25,
         "question_text": "다음 프롬프트는 챗GPT에 단축 메뉴 명령을 학습시키는 방법으로, 프롬프트 ( ㉠ ) 에 들어갈 내용으로 옳은 것을 고르시오.",
-        "image_url": "/images/ai-prompt/grade2-first/25.png", 
-        "examples": "",
+        "image_url": "/images/ai-prompt/grade2-first/25.png",
         "options": [
           "#맛집검색 : {주제}에 대한 음식 5개 작성하기",
           "#한식소개 : {주제}에 대한 음식 5개 작성하기",
@@ -296,7 +284,6 @@
       {
         "problem_number": 26,
         "question_text": "다음은 생성 AI의 학습 단계에서 발생할 수 있는 저작권 이슈에 대한 설명이다. 적절하지 않은 것을 고르시오.",
-        "examples": "",
         "options": [
           "소유자의 저작권 이슈",
           "사용 및 배포 동의",
@@ -307,18 +294,16 @@
       {
         "problem_number": 27,
         "question_text": "다음 중 인공지능 학습 데이터에 포함된 저작권 이슈가 아닌 것을 고르시오.",
-        "examples": "",
         "options": [
           "데이터 소유자의 저작권과 관련하여 이슈가 발생하였다.",
           "학습된 모델에 대해 사용 또는 배포에 동의하지 않은 모델을 사용하였다.",
-          "신경망 학습 시 저작권이 포함된 학습 데이터를 사용하였다. ",
+          "신경망 학습 시 저작권이 포함된 학습 데이터를 사용하였다.",
           "학습 데이터로 공공데이터 포털에 등록된 데이터를 사용하였다."
         ]
       },
       {
         "problem_number": 28,
         "question_text": "생성 AI의 저작권에 대한 설명으로 옳은 것을 고르시오.",
-        "examples": "",
         "options": [
           "생성 AI가 만든 작품은 항상 저작권 보호를 받지 않는다.",
           "생성 AI가 만든 작품은 무조건 AI 개발자가 저작권을 소유한다.",
@@ -329,8 +314,8 @@
       {
         "problem_number": 29,
         "question_text": "다음 보기에서 설명하고 있는 것을 고르시오.",
-        "image_url": "/images/ai-prompt/grade2-first/29.png", 
-        "examples": "",
+        "image_url": "/images/ai-prompt/grade2-first/29.png",
+        "examples": "생성 인공지능 기술을 기반으로 한 컴퓨팅 알고리즘 및 시뮬레이션을 통해 생성된 실제 데이터를 모방한 데이터이다.",
         "options": [
           "합성 데이터(Synthetic Data)",
           "결합 데이터(Coupling Data)",
@@ -340,8 +325,7 @@
       },
       {
         "problem_number": 30,
-        "question_text": "다음 보기에서 설명하고 있는 것을 고르시오.",
-        "examples": "",
+        "question_text": "다음 중 AI 학습용 데이터를 확보하는 방안으로 적절하지 않은 것을 고르시오.",
         "options": [
           "퍼블릭 도메인(Public Domain) 사용",
           "블로그 및 SNS에서 공개된 저작물 사용",
@@ -352,62 +336,67 @@
       {
         "problem_number": 31,
         "question_text": "다음 빈칸( ㉠ ) 에 들어갈 용어를 한글로 쓰시오. (단답형 주관식)",
-        "image_url": "/images/ai-prompt/grade2-first/31~35.1.png, /images/ai-prompt/grade2-first/31.png", 
+        "image_url": "/images/ai-prompt/grade2-first/31.png",
         "examples": "",
         "options": []
       },
       {
         "problem_number": 32,
-        "question_text": "임시 주관식 문제 32번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "다음 보기에서 설명하고 있는 것을 쓰시오. (단답형 주관식)",
+        "examples": "구분 | 설명\n연극 분야 | 연극이나 방송에서 배우에게 대사나 동작을 알려주는 일\n컴퓨터 분야 | 컴퓨터 시스템에서 사용자의 명령을 받아들일 준비가 되었다고 알려주는 기본 메시지\n인공지능 분야 | 언어 모델 기반의 생성 AI를 작동시키기 위해 이용자가 입력하는 입력값",
         "options": []
       },
       {
         "problem_number": 33,
-        "question_text": "임시 주관식 문제 33번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "미드저니로 생성된 이미지에서 특정 이미지와 유사한 이미지를 생성할 때 사용하는 프롬프트 ( ㉠ ) 에 들어갈 내용으로 옳은 것을 쓰시오. (단답형 주관식)",
+        "examples": "a woman wearing a blue shirt styuding on the desk -- ( ㉠ ) 378095648531",
         "options": []
       },
       {
         "problem_number": 34,
-        "question_text": "임시 주관식 문제 34번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "다음은 스테이블 디퓨전에서 이미지를 생성하는데 필요한 파라미터이다. ㉠에 들어갈 내용으로 알맞은 것을 쓰시오. (단답형 주관식)",
+        "examples": "파라미터 | 설명\n( ㉠ ) | 이미지를 생성하는데 반복할 횟수를 지정\n( 샘플링 메소드 ) | 이미지를 그리는 방법을 지정하는 파라미터이다. DPM++ 2M Karras 등의 알고리즘이 있다.",
         "options": []
       },
       {
         "problem_number": 35,
-        "question_text": "임시 주관식 문제 35번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "다음 보기에서 ( ㉠ ) 에 공통으로 들어갈 내용으로 옳은 것을 쓰시오. (단답형 주관식)",
+        "examples": "- ( ㉠ )은/는 기계 학습에서 사용되는 중요한 기술 중 하나로 모델을 특정한 작업이나 데이터셋에 맞게 조정하는 과정\n- ( ㉠ )을/를 통해 일반적인 특징을 이미 학습한 인공지능 모델을 사용하여 특정 작업에 더 잘 맞게 조정.",
         "options": []
       },
       {
         "problem_number": 36,
-        "question_text": "임시 주관식 문제 36번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "① 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-first/36-40.png, /images/ai-prompt/grade2-first/36-40-A.png",
+        "examples": "[제시문 A] @Gmail 제품 ( ① )와(과) 관련된 ( ② )을/를 찾아줘",
         "options": []
       },
       {
         "problem_number": 37,
-        "question_text": "임시 주관식 문제 37번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "② 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-first/36-40.png, /images/ai-prompt/grade2-first/36-40-A.png",
+        "examples": "[제시문 A] @Gmail 제품 ( ① )와(과) 관련된 ( ② )을/를 찾아줘",
         "options": []
       },
       {
         "problem_number": 38,
-        "question_text": "임시 주관식 문제 38번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "③ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-first/36-40.png, /images/ai-prompt/grade2-first/36-40-B.png",
+        "examples": "[제시문 B] TV와 관련된 블로그 ( ③ )용 게시글을 작성하려고 한다. 게시글을 ( ④ )자 내외로 작성해줘",
         "options": []
       },
       {
         "problem_number": 39,
-        "question_text": "임시 주관식 문제 39번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "④ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-first/36-40.png, /images/ai-prompt/grade2-first/36-40-B.png",
+        "examples": "[제시문 B] TV와 관련된 블로그 ( ③ )용 게시글을 작성하려고 한다. 게시글을 ( ④ )자 내외로 작성해줘",
         "options": []
       },
       {
         "problem_number": 40,
-        "question_text": "임시 주관식 문제 40번입니다. 실제 문제/이미지 확정 전 테스트용 문항입니다.",
-        "examples": "",
+        "question_text": "⑤ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-first/36-40.png, /images/ai-prompt/grade2-first/36-40-C.png",
+        "examples": "[제시문 C] 게시글을 핵심적으로 요약하는 ( ⑤ )를(을) 나열해줘",
         "options": []
       }
     ]

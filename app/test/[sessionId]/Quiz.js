@@ -889,6 +889,24 @@ export default function Quiz({
       });
       setGptChatOpen(true);
     } catch (e) {
+      // 실패 시 낙관적으로 추가했던 유저 메시지 롤백
+      setGptMessages(gptMessages);
+      setGptConversationsByProblem((prev) => {
+        const next = { ...prev };
+        if (gptMessages.length === 0) {
+          delete next[problemKey];
+        } else {
+          next[problemKey] = gptMessages;
+        }
+        return next;
+      });
+      if (userTurns === 0) {
+        setGptUsedProblems((prev) => {
+          const next = { ...prev };
+          delete next[problemKey];
+          return next;
+        });
+      }
       setGptError(String(e?.message || e));
     } finally {
       setGptLoading(false);

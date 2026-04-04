@@ -158,12 +158,30 @@ const sessionConfig = {
     },
   },
   'aiprompt-2-1': {
-    title: 'AI 프롬프트엔지니어링 2급 1회',
+    title: 'AI 프롬프트엔지니어링 2급 기출문제 A형',
     basePath: ['datasets', 'aiPromptEngineering', 'grade2-first'],
     sessionProps: {
       backHref: '/aiprompt',
-      lobbySubtitle: '총 20문항 / AI 프롬프트엔지니어링 2급',
-      durationSeconds: 40 * 60,
+      lobbySubtitle: '총 40문항 / AI 프롬프트엔지니어링 2급 (A형)',
+      durationSeconds: 60 * 60,
+    },
+  },
+  'quiz-round-3': {
+    title: '누군가의 노션 정리',
+    basePath: ['datasets', 'quizNow', 'round3'],
+    sessionProps: {
+      backHref: '/',
+      lobbySubtitle: '총 25문항 / 챕터 1~5 (AI 기초, NLP, 프롬프트 엔지니어링)',
+      durationSeconds: 30 * 60,
+    },
+  },
+  'aiprompt-2-b': {
+    title: 'AI 프롬프트엔지니어링 2급 기출문제 B형',
+    basePath: ['datasets', 'aiPromptEngineering', 'grade2-b'],
+    sessionProps: {
+      backHref: '/aiprompt',
+      lobbySubtitle: '총 40문항 / AI 프롬프트엔지니어링 2급 (B형)',
+      durationSeconds: 60 * 60,
     },
   },
 };

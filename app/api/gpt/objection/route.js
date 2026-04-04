@@ -275,7 +275,7 @@ export async function POST(req) {
       ok: true,
       answer: safeAnswer,
       cached: false,
-      cacheKey,
+      cacheKey: isFollowUp ? '' : cacheKey,
       feedback: { like: 0, dislike: 0 },
     });
   } catch (e) {
