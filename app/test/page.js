@@ -1,6 +1,7 @@
 import { auth } from '@/auth';
 import TestSelectionPageClient from './TestSelectionPageClient';
 import { getReviewAvailabilityForUser, getUtilityAvailability } from '@/lib/reviewAvailability';
+import { isAllowedAdminEmail } from '@/lib/adminAccess';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,7 +9,7 @@ export default async function TestSelectionPage() {
   const session = await auth();
   const userEmail = String(session?.user?.email || '').trim().toLowerCase();
   const initialIsLoggedIn = Boolean(session?.user);
-  const initialIsAdmin = session?.user?.role === 'admin';
+  const initialIsAdmin = isAllowedAdminEmail(userEmail);
 
   const [initialReviewAvailability, initialUtilityAvailability] = userEmail
     ? await Promise.all([

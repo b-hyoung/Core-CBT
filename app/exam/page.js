@@ -1,10 +1,12 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText } from 'lucide-react';
+import { auth } from '@/auth';
 import ExamBackGuard from '@/app/_components/ExamBackGuard';
 import ThemeControls from '@/app/_components/ThemeControls';
 import UserQuickActions from '@/app/_components/UserQuickActions';
 import ExamTrackLink from './ExamTrackLink';
+import { isAllowedAdminEmail } from '@/lib/adminAccess';
 
 const industrialTracks = [
   {
@@ -61,7 +63,12 @@ function CardArrow() {
   );
 }
 
-export default function ExamTypeSelectionPage() {
+export default async function ExamTypeSelectionPage() {
+  const session = await auth();
+  const userEmail = String(session?.user?.email || '').trim().toLowerCase();
+  const initialIsLoggedIn = Boolean(session?.user);
+  const initialIsAdmin = isAllowedAdminEmail(userEmail);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-100 px-4 py-6 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 md:py-10">
       <Suspense fallback={null}>
@@ -69,7 +76,7 @@ export default function ExamTypeSelectionPage() {
       </Suspense>
       <div className="mx-auto max-w-5xl">
         <div className="mb-3 flex items-center justify-between">
-          <UserQuickActions />
+          <UserQuickActions initialIsLoggedIn={initialIsLoggedIn} initialIsAdmin={initialIsAdmin} />
           <ThemeControls />
         </div>
         <Link
