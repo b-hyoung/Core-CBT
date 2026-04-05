@@ -16,8 +16,8 @@ export function QuizSettingsPopover({
   if (!isOpen) return null;
 
   return (
-    <div className="absolute right-0 top-12 z-20 w-64 rounded-lg border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-slate-900">
-      <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-2 dark:border-slate-800">
+    <div className="absolute right-0 top-12 z-20 w-64 rounded-lg border border-[color:var(--theme-border)] bg-white p-4 shadow-xl dark:bg-slate-800">
+      <div className="mb-3 flex items-center justify-between border-b border-[color:var(--theme-border)] pb-2">
         <h3 className="font-bold text-slate-900 dark:text-slate-100">{labels.settings}</h3>
         <button
           type="button"
@@ -77,7 +77,7 @@ export function GptHelpSection({
   gptMaxTurns,
 }) {
   return (
-    <div className="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700">
+    <div className="mt-4 border-t border-[color:var(--theme-border)] pt-4">
       <button
         type="button"
         onClick={onOpenGptView}
@@ -92,12 +92,12 @@ export function GptHelpSection({
       )}
 
       {showGptHelp && (
-        <div className="mt-3 space-y-3 rounded-lg border border-sky-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
+        <div className="mt-3 space-y-3 rounded-lg border border-[color:var(--theme-border)] bg-white p-3 dark:bg-slate-800">
           <textarea
             value={gptQuestion}
             onChange={(event) => onChangeGptQuestion(event.target.value)}
             placeholder="추가로 궁금한 점이 있으면 적어주세요. (선택)"
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            className="w-full rounded-md border border-[color:var(--theme-border)] px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] dark:bg-slate-800 dark:text-slate-100"
             rows={3}
           />
           <div className="flex justify-end">
@@ -122,7 +122,7 @@ export function GptHelpSection({
               <button
                 type="button"
                 onClick={onOpenGptChat}
-                className="rounded-lg border border-sky-300 bg-sky-50 px-4 py-2 text-sm font-bold text-sky-800 hover:bg-sky-100 dark:border-slate-700 dark:bg-slate-800 dark:text-sky-200 dark:hover:bg-slate-700"
+                className="rounded-lg border border-[color:var(--theme-border-strong)] bg-sky-50 px-4 py-2 text-sm font-bold text-sky-800 hover:bg-sky-100 dark:bg-slate-800 dark:text-sky-200 dark:hover:bg-slate-700"
               >
                 GPT 설명 보기
               </button>
@@ -152,10 +152,10 @@ export function GptChatModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4" onClick={onClose}>
       <div
-        className="w-full max-w-2xl rounded-2xl border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white p-4 shadow-2xl dark:border-slate-800 dark:bg-slate-900 md:p-5"
+        className="w-full max-w-2xl rounded-2xl border border-[color:var(--theme-border)] bg-white p-4 shadow-2xl dark:bg-slate-800 md:p-5"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-2 dark:border-slate-800">
+        <div className="mb-3 flex items-center justify-between border-b border-[color:var(--theme-border)] pb-2">
           <h3 className="text-base font-extrabold text-sky-900 dark:text-sky-100 md:text-lg">GPT 이의신청 대화</h3>
           <button
             type="button"
@@ -166,7 +166,7 @@ export function GptChatModal({
           </button>
         </div>
 
-        <div className="max-h-[48vh] space-y-2 overflow-y-auto rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-950/40">
+        <div className="max-h-[48vh] space-y-2 overflow-y-auto rounded-lg border border-[color:var(--theme-border)] bg-slate-50 p-3 dark:bg-slate-900/40">
           {gptMessages.length === 0 ? (
             <p className="text-sm text-slate-500 dark:text-slate-400">아직 대화가 없습니다.</p>
           ) : (
@@ -176,7 +176,7 @@ export function GptChatModal({
                 className={`rounded-lg px-3 py-2 text-sm leading-relaxed whitespace-pre-wrap ${
                   message.role === 'user'
                     ? 'ml-8 bg-sky-100 text-sky-900 dark:bg-sky-950/50 dark:text-sky-100'
-                    : 'mr-8 border border-slate-200 bg-white text-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200'
+                    : 'mr-8 border border-[color:var(--theme-border)] bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-200'
                 }`}
               >
                 <p className="mb-1 text-xs font-bold opacity-70">{message.role === 'user' ? '나' : 'GPT'}</p>
@@ -224,7 +224,7 @@ export function GptChatModal({
               value={gptQuestion}
               onChange={(event) => onChangeGptQuestion(event.target.value)}
               placeholder="추가 질문 입력"
-              className="flex-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+              className="flex-1 rounded-lg border border-[color:var(--theme-border)] bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] dark:bg-slate-800 dark:text-slate-100"
             />
             <button
               type="button"
@@ -247,8 +247,8 @@ export function GptLoadingOverlay({ isOpen }) {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/35 p-4">
-      <div className="w-full max-w-sm rounded-2xl border border-sky-200 bg-white/95 p-5 text-center shadow-2xl backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/95">
-        <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-sky-200 border-t-sky-600" />
+      <div className="w-full max-w-sm rounded-2xl border border-[color:var(--theme-border)] bg-white/95 p-5 text-center shadow-2xl backdrop-blur-sm dark:bg-slate-800/95">
+        <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-[color:var(--theme-border-soft)] border-t-sky-600" />
         <p className="text-base font-bold text-sky-900 dark:text-sky-100">GPT 해설 생성 중..</p>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">잠시만 기다려주세요.</p>
       </div>
@@ -261,7 +261,7 @@ export function ReportTipToast({ isOpen, countdown }) {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50 flex items-start justify-center p-4">
-      <div className="mt-4 w-full max-w-md rounded-2xl border border-amber-200 bg-white p-4 text-center shadow-2xl animate-in fade-in slide-in-from-top-2 duration-300 dark:border-slate-800 dark:bg-slate-900">
+      <div className="mt-4 w-full max-w-md rounded-2xl border border-[color:var(--theme-border)] bg-white p-4 text-center shadow-2xl animate-in fade-in slide-in-from-top-2 duration-300 dark:bg-slate-800">
         <p className="text-base font-bold leading-relaxed text-slate-800 dark:text-slate-100 md:text-lg">
           문제에 오류가 있다면 하단의
           <br />

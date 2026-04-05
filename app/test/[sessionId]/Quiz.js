@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ChevronDown, ChevronLeft, ChevronRight, Settings } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
+import ReportReasonPicker from '@/app/_components/ReportReasonPicker';
 import ThemeControls from '@/app/_components/ThemeControls';
 import { removeUnknownProblem, upsertUnknownProblem } from '@/lib/unknownProblemsStore';
 import { QuizResults, TestLobby, UpdateNoticeModal } from './components/QuizShellParts';
@@ -1744,20 +1745,31 @@ export default function Quiz({
 
   return (
     <div className="exam-scale min-h-screen w-full bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col">
-      <header className="bg-white shadow-md dark:bg-slate-900 dark:border-b dark:border-slate-800 dark:shadow-none p-4 relative z-10">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex items-start justify-between gap-3 min-w-0">
-          <div className="min-w-0 flex-1">
-            <h1 className="hidden text-xl font-bold text-sky-900 dark:text-sky-200 md:block">{session.title}</h1>
-            <h1 className="truncate text-base font-bold text-sky-900 dark:text-sky-200 md:hidden">{session.title}</h1>
+      <header className="bg-white shadow-md dark:bg-slate-900 dark:border-b dark:border-[color:var(--theme-border)] dark:shadow-none p-4 relative z-10">
+        <div className="flex flex-col gap-3 lg:gap-2 2xl:relative 2xl:min-h-[44px]">
+          <div className="flex items-start justify-between gap-3 lg:hidden">
+            <div className="min-w-0 flex-1">
+              <h1 className="truncate text-base font-bold text-sky-900 dark:text-sky-200">{session.title}</h1>
+            </div>
+            <div className="shrink-0 text-sm font-semibold whitespace-nowrap text-gray-900 dark:text-slate-100 sm:text-lg">
+              {T.problem} {currentProblemIndex + 1} / {quizProblems.length}
+            </div>
           </div>
-        <div className="shrink-0 text-sm sm:text-lg font-semibold text-gray-900 dark:text-slate-100 whitespace-nowrap">
-          {T.problem} {currentProblemIndex + 1} / {quizProblems.length}
-        </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+          <div className="hidden 2xl:absolute 2xl:left-1/2 2xl:top-1/2 2xl:block 2xl:w-full 2xl:max-w-[min(42rem,calc(100%-32rem))] 2xl:-translate-x-1/2 2xl:-translate-y-1/2 2xl:px-4 2xl:text-center">
+            <h1 className="truncate text-xl font-bold text-sky-900 dark:text-sky-200">{session.title}</h1>
+          </div>
+        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3 lg:justify-between lg:gap-4">
+          <div className="hidden min-w-0 items-center gap-4 lg:flex">
+            <div className="text-sm font-semibold whitespace-nowrap text-gray-900 dark:text-slate-100 sm:text-lg">
+              {T.problem} {currentProblemIndex + 1} / {quizProblems.length}
+            </div>
+            <div className="min-w-0 2xl:hidden">
+              <h1 className="truncate text-lg font-bold text-sky-900 dark:text-sky-200 xl:text-xl">{session.title}</h1>
+            </div>
+          </div>
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-2 sm:gap-3">
           <ThemeControls onOpenChange={setThemeControlsOpen} />
-          <div className="hidden sm:flex items-center rounded-lg border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700 tabular-nums dark:border-sky-900 dark:bg-slate-950 dark:text-sky-300">
+          <div className="hidden sm:flex items-center rounded-lg border border-[color:var(--theme-border)] bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700 tabular-nums dark:bg-slate-800 dark:text-sky-300">
             {timerMinutes}:{timerSeconds}
           </div>
           <div
@@ -1821,19 +1833,20 @@ export default function Quiz({
               {T.end}
             </button>
           </div>
+          </div>
         </div>
         </div>
       </header>
 
       <main className="flex-grow container mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-4 md:gap-6">
-          <aside className="bg-white rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-slate-800 dark:shadow-none p-4 h-fit lg:sticky lg:top-24">
+          <aside className="bg-white rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-[color:var(--theme-border)] dark:shadow-none p-4 h-fit lg:sticky lg:top-24">
             <div className="lg:hidden">
               <button
                 type="button"
                 onClick={() => setMobileNavOpen((prev) => !prev)}
                 aria-expanded={mobileNavOpen}
-                className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-left transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+                className="flex w-full items-center justify-between rounded-lg border border-[color:var(--theme-border)] bg-slate-50 px-3 py-2 text-left transition-colors hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700"
               >
                 <div>
                   <p className="text-sm font-bold text-gray-700 dark:text-slate-200">{T.navTitle}</p>
@@ -1863,7 +1876,7 @@ export default function Quiz({
                             goToProblem(index);
                             setMobileNavOpen(false);
                           }}
-                    className={`h-11 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-slate-300 dark:ring-slate-600' : ''}`}
+                    className={`h-11 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-[color:var(--theme-ring)]' : ''}`}
                           title={`${T.problem} ${problem.problem_number} (${status})`}
                         >
                           {problem.problem_number} {status}
@@ -1891,7 +1904,7 @@ export default function Quiz({
                     <button
                       key={problem.problem_number}
                       onClick={() => goToProblem(index)}
-                      className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-slate-300 dark:ring-slate-600' : ''}`}
+                      className={`h-10 rounded-md border text-xs font-semibold transition ${getStatusClass(status)} ${isCurrent ? 'ring-2 ring-[color:var(--theme-ring)]' : ''}`}
                       title={`${T.problem} ${problem.problem_number} (${status})`}
                     >
                       {problem.problem_number} {status}
@@ -1908,7 +1921,7 @@ export default function Quiz({
             </div>
           </aside>
 
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-slate-800 dark:shadow-none">
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg dark:bg-slate-900 dark:border dark:border-[color:var(--theme-border)] dark:shadow-none">
             <p className="text-sm font-semibold text-sky-600 dark:text-sky-300 mb-2">{currentProblem.sectionTitle}</p>
             {(typeof currentProblem?.wrongRatePercent === 'number' || typeof currentProblem?.unknownRatePercent === 'number') && (
               <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -2069,8 +2082,8 @@ export default function Quiz({
               </div>
             )}
             {currentProblem.examples && (
-              <div className="mb-6 rounded-lg border border-sky-200 bg-sky-50 overflow-hidden">
-                <div className="px-4 py-2 bg-sky-100 border-b border-sky-200">
+              <div className="mb-6 rounded-lg border border-[color:var(--theme-border)] bg-sky-50 overflow-hidden">
+                <div className="px-4 py-2 bg-sky-100 border-b border-[color:var(--theme-border)]">
                   <span className="text-sm font-bold text-sky-800">보기</span>
                 </div>
                 <div className="p-4">
@@ -2085,7 +2098,7 @@ export default function Quiz({
                       }
                       if (isCodeLike) {
                         return (
-                          <div className="overflow-x-auto rounded-md border border-sky-200 bg-white">
+                          <div className="overflow-x-auto rounded-md border border-[color:var(--theme-border)] bg-white">
                             <pre className="m-0 whitespace-pre-wrap break-words p-3 text-xs leading-5 text-gray-900 sm:text-sm sm:leading-6">
                               {formatCodeForDisplay(currentProblem.examples)}
                             </pre>
@@ -2110,7 +2123,7 @@ export default function Quiz({
                                 return (
                                   <tr key={ri} className={ri === 0 ? 'bg-sky-100' : ri % 2 === 0 ? 'bg-sky-50' : 'bg-white'}>
                                     {cells.map((cell, ci) => (
-                                      <Tag key={ci} className="border border-sky-200 px-3 py-2 text-center text-gray-800 font-medium">
+                                      <Tag key={ci} className="border border-[color:var(--theme-border)] px-3 py-2 text-center text-gray-800 font-medium">
                                         {cell}
                                       </Tag>
                                     ))}
@@ -2129,23 +2142,23 @@ export default function Quiz({
 
             <div className="space-y-4">
               {isSubjectiveProblem ? (
-                <div className="rounded-lg border border-slate-300 bg-white p-4 dark:border-slate-700">
+                <div className="rounded-lg border border-[color:var(--theme-border)] bg-white p-4">
                   <p className="text-sm font-semibold text-sky-700 dark:text-sky-300 mb-2">주관식 답안 입력</p>
                   <textarea
                     value={String(selectedAnswer || '')}
                     onChange={(e) => handleSelectOption(currentProblem.problem_number, e.target.value)}
                     disabled={isChecked}
                     placeholder="정답을 입력하세요."
-                    className="w-full min-h-[96px] rounded-md border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-950 px-3 py-2 text-sm text-gray-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-sky-500 disabled:bg-gray-100 disabled:text-gray-600 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
+                    className="w-full min-h-[96px] rounded-md border border-[color:var(--theme-border)] bg-white dark:bg-slate-900 px-3 py-2 text-sm text-gray-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] disabled:bg-gray-100 disabled:text-gray-600 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
                   />
                 </div>
               ) : (
                 getOptionList(currentProblem).map((option, index) => {
-                  let buttonClass = 'bg-white hover:bg-sky-50 border-slate-300 text-gray-800 dark:bg-slate-950 dark:hover:bg-slate-900 dark:border-slate-700 dark:text-slate-100';
+                  let buttonClass = 'bg-white hover:bg-sky-50 border-[color:var(--theme-border)] text-gray-800 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-100';
                   const optionIsCode = isCodeLikeText(option);
                   const isUnknownOption = option === UNKNOWN_OPTION;
                   if (selectedAnswer === option) {
-                    buttonClass = 'bg-sky-100 text-sky-700 border-sky-500 ring-2 ring-sky-500 font-bold';
+                    buttonClass = 'bg-sky-100 text-sky-700 border-[color:var(--theme-border-strong)] ring-2 ring-[color:var(--theme-ring)] font-bold';
                     if (showResult) {
                       buttonClass = isCorrect
                         ? 'bg-green-100 text-green-800 border-green-500 ring-2 ring-green-500'
@@ -2171,7 +2184,7 @@ export default function Quiz({
                       ) : optionIsCode ? (
                         <div className="space-y-2">
                           <div className="font-semibold">{index + 1}.</div>
-                          <div className="overflow-x-auto rounded-md border border-sky-200 bg-white/80">
+                          <div className="overflow-x-auto rounded-md border border-[color:var(--theme-border)] bg-white/80">
                             <pre className="m-0 p-3 text-sm leading-6 text-gray-900 whitespace-pre-wrap">
                               {formatCodeForDisplay(option)}
                             </pre>
@@ -2264,28 +2277,18 @@ export default function Quiz({
               <div className="mt-4 pt-4">
                 <p className="mb-2 text-sm font-semibold text-gray-700 dark:text-slate-300">문제 신고하기</p>
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <select
+                  <ReportReasonPicker
                     value={reportReason}
-                    onChange={(e) => setReportReason(e.target.value)}
-                    className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
-                    style={{ color: '#111827', backgroundColor: '#ffffff' }}
-                  >
-                    <option value="" style={{ color: '#6b7280', backgroundColor: '#ffffff' }}>
-                      선택해주세요
-                    </option>
-                    {REPORT_REASONS.map((reason) => (
-                      <option key={reason} value={reason} style={{ color: '#111827', backgroundColor: '#ffffff' }}>
-                        {reason}
-                      </option>
-                    ))}
-                  </select>
+                    onChange={setReportReason}
+                    options={REPORT_REASONS}
+                  />
                   {reportReason === '기타' && (
                     <input
                       type="text"
                       value={reportEtcText}
                       onChange={(e) => setReportEtcText(e.target.value)}
                       placeholder="신고 사유를 입력해주세요"
-                      className="flex-1 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                      className="flex-1 rounded-lg border border-[color:var(--theme-border)] bg-white text-gray-900 placeholder:text-gray-500 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)]"
                     />
                   )}
                   <button
@@ -2302,7 +2305,7 @@ export default function Quiz({
         </div>
       </main>
 
-      <footer className="bg-white shadow-t-md dark:bg-slate-900 dark:border-t dark:border-slate-800 dark:shadow-none p-4 flex justify-between items-center">
+      <footer className="bg-white shadow-t-md dark:bg-slate-900 dark:border-t dark:border-[color:var(--theme-border)] dark:shadow-none p-4 flex justify-between items-center">
         <button
           onClick={goToPreviousProblem}
           disabled={currentProblemIndex === 0}

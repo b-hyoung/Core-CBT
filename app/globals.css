@@ -9,6 +9,10 @@
   --surface: oklch(100% 0 0);
   --surface-muted: oklch(96.5% 0.008 220);
   --border: oklch(89% 0.01 220);
+  --theme-border: color-mix(in oklab, var(--color-sky-300) 54%, white 46%);
+  --theme-border-strong: color-mix(in oklab, var(--color-sky-500) 58%, white 42%);
+  --theme-border-soft: color-mix(in oklab, var(--color-sky-200) 44%, white 56%);
+  --theme-ring: color-mix(in oklab, var(--color-sky-400) 65%, white 35%);
   --text-muted: oklch(50% 0.015 220);
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -21,6 +25,10 @@
   --surface: oklch(18% 0.015 220);
   --surface-muted: oklch(22% 0.015 220);
   --border: oklch(28% 0.015 220);
+  --theme-border: color-mix(in oklab, var(--color-sky-700) 55%, black 45%);
+  --theme-border-strong: color-mix(in oklab, var(--color-sky-500) 58%, black 42%);
+  --theme-border-soft: color-mix(in oklab, var(--color-sky-800) 50%, black 50%);
+  --theme-ring: color-mix(in oklab, var(--color-sky-500) 70%, black 30%);
   --text-muted: oklch(60% 0.01 220);
 }
 
