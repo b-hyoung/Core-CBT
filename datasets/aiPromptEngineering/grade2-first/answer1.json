@@ -36,7 +36,7 @@
       { "problem_number": 32, "correct_answer_index": 0, "correct_answer_text": "프롬프트" },
       { "problem_number": 33, "correct_answer_index": 0, "correct_answer_text": "seed" },
       { "problem_number": 34, "correct_answer_index": 0, "correct_answer_text": "샘플링 스텝" },
-      { "problem_number": 35, "correct_answer_index": 0, "correct_answer_text": "미세조정" },
+      { "problem_number": 35, "correct_answer_index": 0, "correct_answer_text": "미세조정", "accepted_answers": ["미세조정", "파인튜닝"] },
       { "problem_number": 36, "correct_answer_index": 0, "correct_answer_text": "2" },
       { "problem_number": 37, "correct_answer_index": 0, "correct_answer_text": "9" },
       { "problem_number": 38, "correct_answer_index": 0, "correct_answer_text": "11" },

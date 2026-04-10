@@ -35,6 +35,15 @@ async function fetchQuizDataFromPath(basePath) {
       return accumulator;
     }, {});
 
+    const acceptedAnswersMap = answerData.reduce((accumulator, section) => {
+      section.answers.forEach((answer) => {
+        if (Array.isArray(answer.accepted_answers) && answer.accepted_answers.length > 0) {
+          accumulator[answer.problem_number] = answer.accepted_answers;
+        }
+      });
+      return accumulator;
+    }, {});
+
     const commentsMap = commentData.reduce((accumulator, section) => {
       section.comments.forEach((comment) => {
         accumulator[comment.problem_number] = comment.comment ?? comment.comment_text ?? '';
@@ -42,7 +51,7 @@ async function fetchQuizDataFromPath(basePath) {
       return accumulator;
     }, {});
 
-    return { problems, answersMap, commentsMap };
+    return { problems, answersMap, acceptedAnswersMap, commentsMap };
   } catch (error) {
     console.error('Failed to read quiz files:', error);
     return null;
@@ -83,6 +92,7 @@ export default async function TestPage({ params: paramsPromise, searchParams: se
     <Quiz
       problems={data.problems}
       answersMap={data.answersMap}
+      acceptedAnswersMap={data.acceptedAnswersMap}
       commentsMap={data.commentsMap}
       session={{ title: config.title, ...(config.sessionProps || {}) }}
       sessionId={sessionId}

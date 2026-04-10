@@ -152,6 +152,7 @@ export default function Quiz({
   problems,
   session,
   answersMap,
+  acceptedAnswersMap = {},
   commentsMap,
   sessionId,
   initialProblemNumber = null,
@@ -159,6 +160,12 @@ export default function Quiz({
   resumeToken = '',
 }) {
   const router = useRouter();
+  const checkCorrect = (problemNumber, userAnswer, correctAnswer) => {
+    if (userAnswer === correctAnswer) return true;
+    const accepted = acceptedAnswersMap[problemNumber];
+    if (Array.isArray(accepted) && accepted.includes(userAnswer)) return true;
+    return false;
+  };
   const isReviewOnlySession = Boolean(session?.reviewOnly);
   const backToSessionHref = String(session?.backHref || '/test');
   const quizDurationSeconds =
@@ -518,7 +525,7 @@ export default function Quiz({
       const correctAnswer = answersMap[problem.problem_number];
       if (userAnswer === UNKNOWN_OPTION) unknownCount++;
 
-      if (userAnswer === correctAnswer) {
+      if (checkCorrect(problem.problem_number, userAnswer, correctAnswer)) {
         totalCorrect++;
         if (!isReviewOnlySession) {
           const subjectId = findSubjectId(problemNum);
@@ -530,7 +537,7 @@ export default function Quiz({
     quizProblems.forEach((problem) => {
       const userAnswer = mergedAnswers[problem.problem_number];
       const correctAnswer = answersMap[problem.problem_number];
-      if (userAnswer === correctAnswer) currentSetCorrect++;
+      if (checkCorrect(problem.problem_number, userAnswer, correctAnswer)) currentSetCorrect++;
     });
 
     const subjectPassFail = isReviewOnlySession
@@ -564,7 +571,7 @@ export default function Quiz({
         localProblemNumber: problemNum,
         selectedAnswer: userAnswer == null ? '' : String(userAnswer),
         correctAnswer: correctAnswer == null ? '' : String(correctAnswer),
-        isCorrect: userAnswer === correctAnswer,
+        isCorrect: checkCorrect(problem.problem_number, userAnswer, correctAnswer),
         isUnknown: userAnswer === UNKNOWN_OPTION,
       };
     });
@@ -631,7 +638,7 @@ export default function Quiz({
   const selectedAnswer = currentProblemNumber ? answers[currentProblemNumber] : null;
   const correctAnswer = currentProblemNumber && answersMap ? answersMap[currentProblemNumber] : null;
   const currentGptProblemKey = getGptProblemKey(currentProblem, selectedAnswer);
-  const isCorrect = selectedAnswer === correctAnswer;
+  const isCorrect = checkCorrect(currentProblemNumber, selectedAnswer, correctAnswer);
   const isSubjectiveProblem = Array.isArray(currentProblem?.options) && currentProblem.options.length === 0;
   const isExamLikePreset =
     !enableAnswerCheck && !showExplanationWhenCorrect && !showExplanationWhenIncorrect;
