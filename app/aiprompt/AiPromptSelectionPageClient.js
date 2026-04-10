@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Bot, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Bot, ChevronRight, Shuffle } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import UserQuickActions from '@/app/_components/UserQuickActions';
 import MyStudyButtons from '@/app/_components/MyStudyButtons';
@@ -107,6 +107,24 @@ export default function AiPromptSelectionPageClient({
             unknownHref="/aiprompt/my-unknown"
             unknownResumeKey="aiprompt-my-unknown"
           />
+
+          <SectionShell eyebrow="랜덤 풀기">
+            <Link
+              href="/aiprompt/random"
+              className="group flex items-center justify-between rounded-[1rem] border border-[oklab(89.9%_-2.5%_-13.3%_/_0.8)] bg-white px-4 py-3 transition hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600 dark:bg-amber-950/60 dark:text-amber-300">
+                  <Shuffle className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-900 dark:text-slate-100">A+B 혼합 랜덤</p>
+                  <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">A형+B형 80문항 중 40문항 랜덤 추출 · 보기 셔플</p>
+                </div>
+              </div>
+              <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
+            </Link>
+          </SectionShell>
 
           <SectionShell eyebrow="문제 세트 / 개념 정리">
             <div className="space-y-2">
