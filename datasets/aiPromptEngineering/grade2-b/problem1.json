@@ -410,7 +410,7 @@
       {
         "problem_number": 40,
         "question_text": "⑤ 에 들어갈 내용을 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
-        "image_url": "/images/ai-prompt/grade2-b/36-40.png",
+        "image_url": "/images/ai-prompt/grade2-b/36-40.png, /images/ai-prompt/grade2-b/40.png",
         "examples": "[제시문 B] 이미지 파일을 업로드하고, 단축메뉴를 호출하여 이미지를 분석하는 프롬프트와 결과\n프롬프트: sample_image.png 파일 업로드 후 ( ⑤ ) 입력\n챗GPT 응답: 화려한 일몰 하늘 아래 다채로운 꽃밭 속 웅장한 나무가 있는 풍경입니다.",
         "options": []
       }
