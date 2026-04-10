@@ -9,6 +9,9 @@ export const dynamic = 'force-dynamic';
 const SOURCES = [
   { key: 'A형', sessionId: 'aiprompt-2-1', basePath: ['datasets', 'aiPromptEngineering', 'grade2-first'] },
   { key: 'B형', sessionId: 'aiprompt-2-b', basePath: ['datasets', 'aiPromptEngineering', 'grade2-b'] },
+  { key: '모의1', sessionId: 'aiprompt-mock-1', basePath: ['datasets', 'aiPromptEngineering', 'grade2-c'] },
+  { key: '모의2', sessionId: 'aiprompt-mock-2', basePath: ['datasets', 'aiPromptEngineering', 'mock-2'] },
+  { key: '모의3', sessionId: 'aiprompt-mock-3', basePath: ['datasets', 'aiPromptEngineering', 'mock-3'] },
 ];
 
 function createSeededRandom(seedValue) {
