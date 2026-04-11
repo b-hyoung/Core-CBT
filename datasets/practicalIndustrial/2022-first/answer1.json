@@ -55,7 +55,7 @@
       {
         "problem_number": 11,
         "correct_answer_index": 0,
-        "correct_answer_text": "<class 'int'>\\n<class 'str'>"
+        "correct_answer_text": "<class 'int'>\n<class 'str'>"
       },
       {
         "problem_number": 12,
