@@ -38,7 +38,10 @@
       {
         "problem_number": 6,
         "correct_answer_index": 0,
-        "correct_answer_text": "SELECT DISTINCT 과목 FROM 학생 WHERE 학년 >= 3;"
+        "correct_answer_text": "SELECT DISTINCT 과목 FROM 학생 WHERE 학년 >= 3;",
+        "accepted_answers": [
+          "SELECT DISTINCT 과목 FROM 학생 WHERE 학년 >= 3"
+        ]
       },
       {
         "problem_number": 7,

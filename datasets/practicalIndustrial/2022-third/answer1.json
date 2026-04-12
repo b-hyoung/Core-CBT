@@ -20,7 +20,10 @@
       {
         "problem_number": 4,
         "correct_answer_index": 0,
-        "correct_answer_text": "네트워크 계층(Network Layer)"
+        "correct_answer_text": "네트워크 계층(Network Layer)",
+        "accepted_answers": [
+          "네트워크계층"
+        ]
       },
       {
         "problem_number": 5,

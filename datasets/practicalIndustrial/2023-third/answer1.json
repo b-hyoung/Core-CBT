@@ -15,7 +15,12 @@
       {
         "problem_number": 3,
         "correct_answer_index": 0,
-        "correct_answer_text": "SELECT DISTINCT grade from customer;"
+        "correct_answer_text": "SELECT DISTINCT grade from customer;",
+        "accepted_answers": [
+          "SELECT DISTINCT grade from customer",
+          "SELECT DISTINCT grade FROM customer;",
+          "SELECT DISTINCT grade FROM customer"
+        ]
       },
       {
         "problem_number": 4,

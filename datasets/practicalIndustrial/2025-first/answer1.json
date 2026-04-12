@@ -12,7 +12,8 @@
         "correct_answer_index": 0,
         "correct_answer_text": "내장 SQL",
         "accepted_answers": [
-          "Embedded SQL"
+          "Embedded SQL",
+          "내장SQL"
         ]
       },
       {
@@ -35,7 +36,8 @@
         "correct_answer_text": "라운드 로빈",
         "accepted_answers": [
           "Round Robin",
-          "라운드로빈"
+          "라운드로빈",
+          "RR"
         ]
       },
       {

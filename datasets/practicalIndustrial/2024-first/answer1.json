@@ -15,7 +15,11 @@
       {
         "problem_number": 3,
         "correct_answer_index": 0,
-        "correct_answer_text": "FEC(전진 오류 수정)"
+        "correct_answer_text": "FEC(전진 오류 수정)",
+        "accepted_answers": [
+          "Forward Error Correction",
+          "전진오류수정"
+        ]
       },
       {
         "problem_number": 4,

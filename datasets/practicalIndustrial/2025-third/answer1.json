@@ -15,7 +15,10 @@
       {
         "problem_number": 3,
         "correct_answer_index": 0,
-        "correct_answer_text": "웹서버 (Web Server)"
+        "correct_answer_text": "웹서버 (Web Server)",
+        "accepted_answers": [
+          "웹 서버"
+        ]
       },
       {
         "problem_number": 4,
