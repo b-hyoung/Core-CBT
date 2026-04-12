@@ -60,17 +60,17 @@
       {
         "problem_number": 12,
         "correct_answer_index": 0,
-        "correct_answer_text": "(1) INTO / (2) VALUES / (3) SET"
+        "correct_answer_text": "① INTO ② VALUES ③ SET"
       },
       {
         "problem_number": 13,
         "correct_answer_index": 0,
-        "correct_answer_text": "(1) AND / (2) ASC / (3) NOT"
+        "correct_answer_text": "① AND ② ASC ③ NOT"
       },
       {
         "problem_number": 14,
         "correct_answer_index": 0,
-        "correct_answer_text": "(1) 멀티캐스트 / (2) 브로드캐스트 / (3) 유니캐스트"
+        "correct_answer_text": "① 멀티캐스트 ② 브로드캐스트 ③ 유니캐스트"
       },
       {
         "problem_number": 15,

@@ -51,9 +51,7 @@
         "problem_number": 10,
         "correct_answer_index": 0,
         "correct_answer_text": "(1) UNIQUE / (2) INDEX",
-        "correct_answer": "(1) UNIQUE / (2) INDEX",
         "accepted_answers": [
-          "(1) UNIQUE / (2) INDEX",
           "1) UNIQUE / 2) INDEX",
           "UNIQUE INDEX",
           "UNIQUE, INDEX",
@@ -69,14 +67,11 @@
         "problem_number": 12,
         "correct_answer_index": 0,
         "correct_answer_text": "패킷(Packet)",
-          "accepted_answers": [
-            "패킷",
-            "packet",
-            "PACKET",
-            "Packet",
-            "패킷(Packet)",
-            "Packet(패킷)"
-          ]
+        "accepted_answers": [
+          "패킷",
+          "Packet",
+          "Packet(패킷)"
+        ]
       },
         {
           "problem_number": 13,
@@ -84,10 +79,7 @@
           "correct_answer_text": "도커(Docker)",
           "accepted_answers": [
             "도커",
-            "docker",
             "Docker",
-            "DOCKER",
-            "도커(Docker)",
             "Docker(도커)"
           ]
         },
