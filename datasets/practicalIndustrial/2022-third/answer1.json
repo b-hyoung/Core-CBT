@@ -35,7 +35,12 @@
       {
         "problem_number": 7,
         "correct_answer_index": 0,
-        "correct_answer_text": "Integration Test"
+        "correct_answer_text": "Integration Test",
+        "accepted_answers": [
+          "통합 테스트",
+          "통합테스트",
+          "Integration Testing"
+        ]
       },
       {
         "problem_number": 8,
@@ -55,7 +60,14 @@
       {
         "problem_number": 11,
         "correct_answer_index": 0,
-        "correct_answer_text": "참조 무결성 제약 조건"
+        "correct_answer_text": "참조 무결성 제약 조건",
+        "accepted_answers": [
+          "참조",
+          "참조 무결성",
+          "참조무결성",
+          "Referential Integrity",
+          "Referential"
+        ]
       },
       {
         "problem_number": 12,
@@ -85,7 +97,15 @@
       {
         "problem_number": 17,
         "correct_answer_index": 0,
-        "correct_answer_text": "Equivalence Partitioning"
+        "correct_answer_text": "Equivalence Partitioning",
+        "accepted_answers": [
+          "동치 분할",
+          "동치분할",
+          "동치 분할 테스트",
+          "등가 분할",
+          "Equivalence Partitioning Testing",
+          "Equivalence Class Partitioning"
+        ]
       },
       {
         "problem_number": 18,

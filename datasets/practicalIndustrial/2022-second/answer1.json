@@ -40,12 +40,28 @@
       {
         "problem_number": 8,
         "correct_answer_index": 0,
-        "correct_answer_text": "온-프레미스"
+        "correct_answer_text": "온-프레미스",
+        "accepted_answers": [
+          "온프레미스",
+          "온 프레미스",
+          "on-premise",
+          "on-premises",
+          "On-Premise",
+          "On-Premises",
+          "On Premise"
+        ]
       },
       {
         "problem_number": 9,
         "correct_answer_index": 0,
-        "correct_answer_text": "단위"
+        "correct_answer_text": "단위",
+        "accepted_answers": [
+          "단위 테스트",
+          "단위테스트",
+          "Unit",
+          "Unit Test",
+          "Unit Testing"
+        ]
       },
       {
         "problem_number": 10,
@@ -55,7 +71,14 @@
       {
         "problem_number": 11,
         "correct_answer_index": 0,
-        "correct_answer_text": "알파"
+        "correct_answer_text": "알파",
+        "accepted_answers": [
+          "알파 테스트",
+          "알파테스트",
+          "Alpha",
+          "Alpha Test",
+          "Alpha Testing"
+        ]
       },
       {
         "problem_number": 12,
@@ -85,7 +108,12 @@
       {
         "problem_number": 17,
         "correct_answer_index": 0,
-        "correct_answer_text": "개체"
+        "correct_answer_text": "개체",
+        "accepted_answers": [
+          "개체 무결성",
+          "Entity",
+          "엔티티"
+        ]
       },
       {
         "problem_number": 18,

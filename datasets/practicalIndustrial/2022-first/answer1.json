@@ -40,7 +40,11 @@
       {
         "problem_number": 8,
         "correct_answer_index": 0,
-        "correct_answer_text": "스택"
+        "correct_answer_text": "스택",
+        "accepted_answers": [
+          "Stack",
+          "스택(Stack)"
+        ]
       },
       {
         "problem_number": 9,
@@ -50,7 +54,14 @@
       {
         "problem_number": 10,
         "correct_answer_index": 0,
-        "correct_answer_text": "데이터 링크"
+        "correct_answer_text": "데이터 링크",
+        "accepted_answers": [
+          "데이터링크",
+          "데이터 링크 계층",
+          "데이터링크 계층",
+          "Data Link",
+          "Data Link Layer"
+        ]
       },
       {
         "problem_number": 11,
@@ -65,7 +76,12 @@
       {
         "problem_number": 13,
         "correct_answer_index": 0,
-        "correct_answer_text": "Foreign Key"
+        "correct_answer_text": "Foreign Key",
+        "accepted_answers": [
+          "외래키",
+          "외래 키",
+          "FK"
+        ]
       },
       {
         "problem_number": 14,
@@ -84,7 +100,13 @@
       {
         "problem_number": 16,
         "correct_answer_index": 0,
-        "correct_answer_text": "제1 정규형"
+        "correct_answer_text": "제1 정규형",
+        "accepted_answers": [
+          "제1정규형",
+          "1정규형",
+          "1NF",
+          "First Normal Form"
+        ]
       },
       {
         "problem_number": 17,

@@ -15,7 +15,14 @@
       {
         "problem_number": 3,
         "correct_answer_index": 0,
-        "correct_answer_text": "데이터 링크 계층"
+        "correct_answer_text": "데이터 링크 계층",
+        "accepted_answers": [
+          "데이터링크 계층",
+          "데이터 링크",
+          "데이터링크",
+          "Data Link",
+          "Data Link Layer"
+        ]
       },
       {
         "problem_number": 4,
@@ -40,7 +47,10 @@
       {
         "problem_number": 8,
         "correct_answer_index": 0,
-        "correct_answer_text": "FTP"
+        "correct_answer_text": "FTP",
+        "accepted_answers": [
+          "File Transfer Protocol"
+        ]
       },
       {
         "problem_number": 9,

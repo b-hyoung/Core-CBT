@@ -23,7 +23,10 @@
       {
         "problem_number": 3,
         "correct_answer_index": 0,
-        "correct_answer_text": "NAT"
+        "correct_answer_text": "NAT",
+        "accepted_answers": [
+          "Network Address Translation"
+        ]
       },
       {
         "problem_number": 4,
@@ -53,7 +56,10 @@
       {
         "problem_number": 8,
         "correct_answer_index": 0,
-        "correct_answer_text": "TCP"
+        "correct_answer_text": "TCP",
+        "accepted_answers": [
+          "Transmission Control Protocol"
+        ]
       },
       {
         "problem_number": 9,

@@ -56,7 +56,13 @@
       {
         "problem_number": 9,
         "correct_answer_index": 0,
-        "correct_answer_text": "Integration test"
+        "correct_answer_text": "Integration test",
+        "accepted_answers": [
+          "통합 테스트",
+          "통합테스트",
+          "Integration Testing",
+          "Integration Test"
+        ]
       },
       {
         "problem_number": 10,
@@ -81,7 +87,13 @@
       {
         "problem_number": 14,
         "correct_answer_index": 0,
-        "correct_answer_text": "참조"
+        "correct_answer_text": "참조",
+        "accepted_answers": [
+          "참조 무결성",
+          "참조무결성",
+          "Referential",
+          "Referential Integrity"
+        ]
       },
       {
         "problem_number": 15,

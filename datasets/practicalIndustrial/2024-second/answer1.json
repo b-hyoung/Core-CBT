@@ -10,7 +10,13 @@
       {
         "problem_number": 2,
         "correct_answer_index": 0,
-        "correct_answer_text": "제2정규형"
+        "correct_answer_text": "제2정규형",
+        "accepted_answers": [
+          "제2 정규형",
+          "2정규형",
+          "2NF",
+          "Second Normal Form"
+        ]
       },
       {
         "problem_number": 3,
@@ -30,7 +36,11 @@
       {
         "problem_number": 6,
         "correct_answer_index": 0,
-        "correct_answer_text": "개체"
+        "correct_answer_text": "개체",
+        "accepted_answers": [
+          "Entity",
+          "엔티티"
+        ]
       },
       {
         "problem_number": 7,
@@ -75,7 +85,10 @@
       {
         "problem_number": 15,
         "correct_answer_index": 0,
-        "correct_answer_text": "SNMP"
+        "correct_answer_text": "SNMP",
+        "accepted_answers": [
+          "Simple Network Management Protocol"
+        ]
       },
       {
         "problem_number": 16,
@@ -107,7 +120,11 @@
       {
         "problem_number": 19,
         "correct_answer_index": 0,
-        "correct_answer_text": "드라이버"
+        "correct_answer_text": "드라이버",
+        "accepted_answers": [
+          "Driver",
+          "드라이버(Driver)"
+        ]
       },
       {
         "problem_number": 20,
