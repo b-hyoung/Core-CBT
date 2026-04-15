@@ -85,6 +85,59 @@ describe('P1 grading fixes', () => {
   });
 });
 
+describe('gradePracticalAnswer - fieldResults & diff', () => {
+  it('produces per-label results for multi_blank', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: '① 3 ② 5',
+      correctAnswer: '① 3 ② 4',
+      problem: { input_type: 'multi_blank', accepted_answers: [], input_labels: ['①', '②'], examples: '', question_text: '' },
+    });
+    expect(r.fieldResults).toHaveLength(2);
+    expect(r.fieldResults[0]).toMatchObject({ label: '①', matched: true });
+    expect(r.fieldResults[1]).toMatchObject({ label: '②', matched: false });
+  });
+
+  it('produces per-slot results for ordered_sequence', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: 'ㄱ, ㄷ, ㄴ',
+      correctAnswer: 'ㄱ, ㄴ, ㄷ',
+      problem: { input_type: 'ordered_sequence', accepted_answers: [], examples: '', question_text: '' },
+    });
+    expect(r.fieldResults).toHaveLength(3);
+    expect(r.fieldResults[0].matched).toBe(true);
+    expect(r.fieldResults[1].matched).toBe(false);
+    expect(r.fieldResults[2].matched).toBe(false);
+  });
+
+  it('includes diff for single', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: 'HTTPS',
+      correctAnswer: 'HTTP',
+      problem: { input_type: 'single', accepted_answers: [], examples: '', question_text: '' },
+    });
+    expect(r.diff).toBeDefined();
+    expect(r.diff.segments.some((s) => s.type !== 'equal')).toBe(true);
+  });
+
+  it('includes diff for textarea', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: 'result',
+      correctAnswer: 'result2',
+      problem: { input_type: 'textarea', accepted_answers: [], examples: '', question_text: '' },
+    });
+    expect(r.diff).toBeDefined();
+  });
+
+  it('omits diff for multi_blank', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: '가: 1 나: 2',
+      correctAnswer: '가: 1 나: 2',
+      problem: { input_type: 'multi_blank', accepted_answers: [], input_labels: ['가', '나'], examples: '', question_text: '' },
+    });
+    expect(r.diff).toBeUndefined();
+  });
+});
+
 describe('gradePracticalAnswer - unordered_symbol_set', () => {
   it('matches regardless of order', () => {
     const r = gradePracticalAnswer({

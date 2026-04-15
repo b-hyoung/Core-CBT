@@ -1,3 +1,5 @@
+import { computeDiff } from './computeDiff';
+
 const UNKNOWN_OPTION = '__UNKNOWN_OPTION__';
 
 function getSequenceMeta(problem, correctAnswer = '') {
@@ -810,8 +812,67 @@ function matchWithReasons(userAnswer, correctAnswer, problem) {
   return { matched: false, reasons: [] };
 }
 
+function computeFieldResults(userAnswer, correctAnswer, problem) {
+  const inputType = String(problem?.input_type || '');
+  if (inputType === 'multi_blank') {
+    const explicitLabels = Array.isArray(problem?.input_labels) && problem.input_labels.length
+      ? problem.input_labels.map((l) => String(l ?? '').trim()).filter(Boolean)
+      : [];
+    const labels = explicitLabels.length
+      ? explicitLabels
+      : getMultiBlankMeta(problem, correctAnswer)?.labels || [];
+    if (!labels.length) return undefined;
+    const userValues = parseLabeledMultiBlankValuesByKnownLabels(String(userAnswer || ''), labels);
+    const correctValues = parseLabeledMultiBlankValuesByKnownLabels(String(correctAnswer || ''), labels);
+    if (!userValues && !correctValues) return undefined;
+    return labels.map((label, idx) => {
+      const u = String((userValues || [])[idx] ?? '').trim();
+      const c = String((correctValues || [])[idx] ?? '').trim();
+      const sub = matchWithReasons(u, c, { input_type: 'single', accepted_answers: [] });
+      return { label, userValue: u, correctValue: c, matched: sub.matched, reasons: sub.reasons };
+    });
+  }
+  if (inputType === 'ordered_sequence') {
+    const splitSeq = (v) => {
+      const normalized = normalizeSequenceLikeAnswer(String(v || ''));
+      if (normalized) return normalized.split('-').map((s) => s.trim()).filter(Boolean);
+      // Fallback: raw token split if normalization returned null
+      return String(v || '')
+        .split(/[,\s→/\-]+/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+    };
+    const userTokens = splitSeq(userAnswer);
+    const correctTokens = splitSeq(correctAnswer);
+    const count = Math.max(userTokens.length, correctTokens.length);
+    if (count === 0) return undefined;
+    return Array.from({ length: count }).map((_, idx) => {
+      const u = userTokens[idx] || '';
+      const c = correctTokens[idx] || '';
+      const matched = u !== '' && u === c;
+      return {
+        label: String(idx + 1),
+        userValue: u,
+        correctValue: c,
+        matched,
+        reasons: matched ? ['exact'] : [],
+      };
+    });
+  }
+  return undefined;
+}
+
+function computeMaybeDiff(userAnswer, correctAnswer, inputType) {
+  if (inputType !== 'single' && inputType !== 'textarea') return undefined;
+  return computeDiff(String(userAnswer ?? ''), String(correctAnswer ?? ''));
+}
+
 export function gradePracticalAnswer({ userAnswer, correctAnswer, problem }) {
-  return matchWithReasons(userAnswer, correctAnswer, problem);
+  const base = matchWithReasons(userAnswer, correctAnswer, problem);
+  const inputType = String(problem?.input_type || 'single');
+  const fieldResults = computeFieldResults(userAnswer, correctAnswer, problem);
+  const diff = computeMaybeDiff(userAnswer, correctAnswer, inputType);
+  return { ...base, fieldResults, diff };
 }
 
 export { isPracticalAnswerMatch };
