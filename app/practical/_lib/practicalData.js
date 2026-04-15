@@ -23,10 +23,19 @@ async function readPracticalFiles(basePath) {
     fs.readFile(path.join(basePath, 'answer1.json'), 'utf8'),
     fs.readFile(path.join(basePath, 'comment1.json'), 'utf8'),
   ]);
+  // hint1.json is optional — not every session has one yet.
+  let hintData = [];
+  try {
+    const hintStr = await fs.readFile(path.join(basePath, 'hint1.json'), 'utf8');
+    hintData = JSON.parse(stripBom(hintStr));
+  } catch {
+    hintData = [];
+  }
   return {
     problemData: JSON.parse(stripBom(problemStr)),
     answerData: JSON.parse(stripBom(answerStr)),
     commentData: JSON.parse(stripBom(commentStr)),
+    hintData,
   };
 }
 
@@ -35,7 +44,15 @@ export async function loadPracticalDatasetMaps(sessionId) {
   if (!cfg) return null;
 
   const basePath = path.join(process.cwd(), ...cfg.basePath);
-  const { problemData, answerData, commentData } = await readPracticalFiles(basePath);
+  const { problemData, answerData, commentData, hintData } = await readPracticalFiles(basePath);
+
+  const hintsByNo = new Map();
+  for (const entry of hintData || []) {
+    if (!entry) continue;
+    const no = Number(entry.problem_number);
+    const body = String(entry.hint_body || entry.hint || '').trim();
+    if (Number.isFinite(no) && body) hintsByNo.set(no, body);
+  }
 
   const answerRecordsMap = new Map();
   for (const section of answerData || []) {
@@ -63,6 +80,7 @@ export async function loadPracticalDatasetMaps(sessionId) {
           Array.isArray(p?.accepted_answers) && p.accepted_answers.length > 0
             ? p.accepted_answers
             : (answerRecord?.accepted_answers || []),
+        hint_body: hintsByNo.get(no) || null,
       });
     }
   }

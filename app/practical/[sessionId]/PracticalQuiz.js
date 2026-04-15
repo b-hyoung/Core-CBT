@@ -17,6 +17,7 @@ import {
   ReportTipToast,
 } from './components/QuizInteractiveParts';
 import AnswerHint from './components/AnswerHint';
+import HintReveal from './components/HintReveal';
 import ResultFeedback from './components/ResultFeedback';
 import { gradePracticalAnswer } from './_lib/gradePracticalAnswer';
 
@@ -3231,6 +3232,7 @@ export default function PracticalQuiz({
                   <div className="rounded-xl border border-[color:var(--theme-border)] bg-slate-50 p-4 shadow-sm dark:bg-slate-900/80">
                     <label className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">답안 입력</label>
                     <AnswerHint problem={currentProblem} correctAnswer={correctAnswer} />
+                    <HintReveal hintBody={currentProblem?.hint_body} disabled={isChecked} />
                     {practicalInputType === 'sequence' && sequenceMeta ? (
                       <div className="space-y-3">
                         <div className="flex flex-wrap items-center gap-2">
