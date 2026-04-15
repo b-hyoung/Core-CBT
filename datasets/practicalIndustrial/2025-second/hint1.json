@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "저장 장치 주소가 아닌 데이터 값 자체로 찾아가는 접근 방식에 주목하세요." },
+  { "problem_number": 2, "hint_body": "행과 열의 나열 순서, 원자성, 값 중복 허용 여부를 기준 삼아 판별하세요." },
+  { "problem_number": 3, "hint_body": "정적 메서드는 선언 타입 기준, 인스턴스 메서드는 실제 객체 기준으로 결정됩니다." },
+  { "problem_number": 4, "hint_body": "첫 줄에서 *a가 갱신된 뒤 반환값과 바뀐 *b의 합을 계산하세요." },
+  { "problem_number": 5, "hint_body": "정적 자원을 URL 경로에 매핑해 응답하는 전통적 소프트웨어 계층을 떠올리세요." },
+  { "problem_number": 6, "hint_body": "네트워크 계층에서 호스트를 식별하는 고유 숫자 주소의 영문 약어입니다." },
+  { "problem_number": 7, "hint_body": "클래스 로딩 시 정적 초기화 순서와 static 블록 실행 시점을 추적하세요." },
+  { "problem_number": 8, "hint_body": "구조체는 값 복사로, 포인터는 원본을 가리킵니다. 함수 내 대입은 바깥에 영향 없어요." },
+  { "problem_number": 9, "hint_body": "요구사항 기반 외부 관점과 코드 내부 경로 관점, 두 대비되는 시각을 쓰세요." },
+  { "problem_number": 10, "hint_body": "변경 이력을 추적하여 가시성과 일관성을 보장하는 SW 관리 활동입니다." },
+  { "problem_number": 11, "hint_body": "두 조건을 동시에 만족시키는 논리 결합자와, 범위 검색을 한 번에 표현하는 구문입니다." },
+  { "problem_number": 12, "hint_body": "20, 21번 포트를 쓰는 파일 송수신 전용 원격 프로토콜의 약어입니다." },
+  { "problem_number": 13, "hint_body": "ICMP 에코 요청으로 상대 호스트 응답 여부를 확인하는 진단 명령입니다." },
+  { "problem_number": 14, "hint_body": "사용자 관점, 조직 전체 관점, 저장 장치 관점 세 단계로 구분해 보세요." },
+  { "problem_number": 15, "hint_body": "매개변수 재할당은 지역 참조만 바꿀 뿐, 그 전 a[0]++가 원본에 반영됩니다." },
+  { "problem_number": 16, "hint_body": "try에서 반환값이 준비된 후 finally가 실행되어도 이미 확정된 값이 전달됩니다." },
+  { "problem_number": 17, "hint_body": "a = a + [3]은 새 리스트를 만들고, b.append는 기존 리스트를 바꿉니다. 교집합 크기를 세세요." },
+  { "problem_number": 18, "hint_body": "함수 내 포인터 변수에 지역 배열을 대입해도 호출 측 배열은 그대로입니다." },
+  { "problem_number": 19, "hint_body": "다른 릴레이션의 기본키를 가리키며 참조 무결성을 담당하는 키입니다." },
+  { "problem_number": 20, "hint_body": "첫 비트 패턴 0, 10, 110이 각각 어느 클래스의 식별 표식인지 떠올리세요." }
+]

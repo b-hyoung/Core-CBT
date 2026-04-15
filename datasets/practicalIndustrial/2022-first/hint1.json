@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "대상 선정 → 방법 선정 → 케이스 작성 → 예상결과 정리 → 실행 순서로 진행됩니다." },
+  { "problem_number": 2, "hint_body": "웹 트래픽 페이로드 검사에 특화된 L7 방화벽을 3글자 약어로." },
+  { "problem_number": 3, "hint_body": "조작 방식(아이콘 직접 조작/브라우저/자연어/명령어 입력)에 맞춰 <보기>와 1:1 매칭하세요." },
+  { "problem_number": 4, "hint_body": "SSH(22) 바로 앞 번호를 떠올리세요." },
+  { "problem_number": 5, "hint_body": "명세 기반 기능 확인은 상자를 닫고, 내부 경로 모두 확인은 상자를 열고 봅니다." },
+  { "problem_number": 6, "hint_body": "조건 i%1==0은 모든 정수에 대해 참이므로 i=2부터 n/2까지의 반복 횟수를 세면 됩니다." },
+  { "problem_number": 7, "hint_body": "도메인 이름을 숫자 주소로 바꿔주는 분산 데이터베이스 서비스의 3글자 약어." },
+  { "problem_number": 8, "hint_body": "한쪽 끝에서만 삽입/삭제가 일어나는 후입선출 구조입니다." },
+  { "problem_number": 9, "hint_body": "i=1,3,5,7,9일 때 3*i를 누적: 3+9+15+21+27." },
+  { "problem_number": 10, "hint_body": "프레임 동기화와 오류 제어를 담당하는 OSI 2계층." },
+  { "problem_number": 11, "hint_body": "type() 출력은 <class '자료형'> 형태로 정수/문자열 각각 표시됩니다." },
+  { "problem_number": 12, "hint_body": "물리적으로 구축하지 않고 가상으로 접근하는 데이터 웨어하우스의 약어." },
+  { "problem_number": 13, "hint_body": "다른 릴레이션의 기본키를 참조하여 참조 무결성을 보장하는 키." },
+  { "problem_number": 14, "hint_body": "XOR 3회 연산은 두 정수 값을 임시변수 없이 교환하는 고전 기법입니다." },
+  { "problem_number": 15, "hint_body": "30대 중 35~39세(최소 0~최대 6명)와 40대 전원(11명)을 더한 범위입니다." },
+  { "problem_number": 16, "hint_body": "반복 그룹/다중값 속성을 원자값으로 분해하는 첫 단계 정규화." },
+  { "problem_number": 17, "hint_body": "1~35에서 짝수 개수와 홀수 개수를 각각 세면 됩니다." },
+  { "problem_number": 18, "hint_body": "(가)는 평균을 구하는 집계함수, (나)는 그룹 내 행 수를 세는 집계함수." },
+  { "problem_number": 19, "hint_body": "ss가 100을 처음 넘는 시점은 a=14, ss=105이며 그때 a+ss를 출력합니다." },
+  { "problem_number": 20, "hint_body": "x가 음수가 아니므로 삼항 연산자와 if-else 모두 x 자신을 그대로 반환합니다." }
+]

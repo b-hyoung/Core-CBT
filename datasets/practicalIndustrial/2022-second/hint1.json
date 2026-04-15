@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "27과 12의 최대공약수(g)와 최소공배수(l)를 구해 두 값을 더합니다." },
+  { "problem_number": 2, "hint_body": "NIC에 새겨진 물리 주소로, IP를 이것으로 매핑하는 것이 ARP입니다." },
+  { "problem_number": 3, "hint_body": "특정 행의 값을 바꾸는 갱신문이며 조건절로 사원번호를 지정합니다." },
+  { "problem_number": 4, "hint_body": "사용자 뷰, 조직 전체 통합 뷰, 저장장치 관점 뷰 순으로 3단계 스키마를 구성합니다." },
+  { "problem_number": 5, "hint_body": "업무 필수 자료/공유 자료/저장매체 자료/중복 배제 자료를 각 용어와 이어 줍니다." },
+  { "problem_number": 6, "hint_body": "시분할 시스템 전형. 할당량 소진 시 큐 맨 뒤로 이동." },
+  { "problem_number": 7, "hint_body": "홀수는 continue로 건너뛰어 짝수만 누적되고, 루프 종료 후 i값(11)이 합에 더해집니다." },
+  { "problem_number": 8, "hint_body": "클라우드의 반대편. 자체 데이터센터에 직접 구축하는 전통적 환경입니다." },
+  { "problem_number": 9, "hint_body": "모듈 하나를 독립적으로 검증하는 최소 단위 테스트 단계입니다." },
+  { "problem_number": 10, "hint_body": "17→18→16→48→12→2 순으로 복합 대입 연산이 차례로 적용됩니다." },
+  { "problem_number": 11, "hint_body": "개발자 앞 통제된 환경에서 수행하는, 베타 이전 단계의 인수 테스트." },
+  { "problem_number": 12, "hint_body": "신뢰성 있는 연결형(FTP 계열)과 비연결형 고속 전송(TFTP 계열)을 각각 떠올려 보세요." },
+  { "problem_number": 13, "hint_body": "비트 스트림을 다루며 기계적/전기적 특성을 규정하는 OSI 최하위 계층." },
+  { "problem_number": 14, "hint_body": "arr은 0,1,4,9,16,25이며 최대·최소를 뺀 나머지 4개의 평균을 소수점 2자리로 출력합니다." },
+  { "problem_number": 15, "hint_body": "arr은 2,5,8,11,14이고 check는 소수이면 1, 아니면 0을 반환해 붙여 출력합니다." },
+  { "problem_number": 16, "hint_body": "26과 91을 동시에 나누는 가장 큰 i를 찾는 루프, 즉 최대공약수를 구합니다." },
+  { "problem_number": 17, "hint_body": "기본키를 이루는 속성은 NULL이나 중복이 안 된다는 규정, 릴레이션의 튜플 식별성과 관련." },
+  { "problem_number": 18, "hint_body": "EMP에서 DNO가 1005인 행의 이름·성·급여 세 컬럼을 투영(π)해 조회합니다." },
+  { "problem_number": 19, "hint_body": "문자열 포인터 배열에서 pa[i][i], 즉 대각선 문자만 순서대로 출력합니다." },
+  { "problem_number": 20, "hint_body": "거리 벡터 기반, 최대 홉 15 제한의 소규모 AS 내부용 라우팅 프로토콜." }
+]

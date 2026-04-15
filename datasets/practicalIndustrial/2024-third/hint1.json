@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "경로 선택·유지와 패킷 중계를 수행하는 네트워크 계층 장비의 본연 업무만 추려내세요." },
+  { "problem_number": 2, "hint_body": "(가)는 3-Way-Handshaking으로 신뢰성 확보, (나)는 비연결형 실시간 전송에 유리한 4계층 쌍." },
+  { "problem_number": 3, "hint_body": "프레임 동기·오류 검출과 MAC/LLC 표준이 속하는 OSI 2번째 층." },
+  { "problem_number": 4, "hint_body": "union은 공간을 공유하므로 intV 5에 floatV의 비트가 더해지며, isInt=1 분기를 탑니다." },
+  { "problem_number": 5, "hint_body": "같은 이름의 조인 컬럼을 괄호로 지정할 때 쓰는 예약어." },
+  { "problem_number": 6, "hint_body": "조건을 만족하는 행의 '개수'를 세는 표준 집계 함수." },
+  { "problem_number": 7, "hint_body": "17→18→16→48→12, 마지막 %=5 한 단계의 나머지가 결과." },
+  { "problem_number": 8, "hint_body": "21번 포트, Binary/ASCII 모드를 갖는 원격 파일 전송 규약." },
+  { "problem_number": 9, "hint_body": "5원소 배열을 양끝에서 교환하며 좁혀가면 가운데 원소(index 2)는 제자리에 남습니다." },
+  { "problem_number": 10, "hint_body": "중복 불허 옵션 키워드 + 인덱스 객체 종류 키워드 두 단어의 조합." },
+  { "problem_number": 11, "hint_body": "홀수는 건너뛰어 짝수합 30, 루프 종료 후 i는 11로 남는다는 점에 주목." },
+  { "problem_number": 12, "hint_body": "ARPAnet 교환 방식의 기본 전송 단위이자 헤더+페이로드 블록 명칭." },
+  { "problem_number": 13, "hint_body": "컨테이너 배포·실행을 자동화하는 대표 오픈소스 플랫폼 이름." },
+  { "problem_number": 14, "hint_body": "하노이 탑 이동 횟수 공식 2^n - 1, n=3을 그대로 대입하세요." },
+  { "problem_number": 15, "hint_body": "커밋 전 변경을 원복해 트랜잭션을 되돌리는 TCL 명령." },
+  { "problem_number": 16, "hint_body": "BETWEEN 35~49는 30대 후반 일부와 40대 전부를 포함하는 경계 해석에 주목." },
+  { "problem_number": 17, "hint_body": "각 개별 조건식이 참·거짓을 모두 갖도록 요구하는 커버리지 기법." },
+  { "problem_number": 18, "hint_body": "제네릭 T가 소거되어 오버로드 해석 시 가장 상위 참조 타입 매개변수가 선택됩니다." },
+  { "problem_number": 19, "hint_body": "(arr[i] + i) % 5 를 각 자리마다 적용한 뒤 index 2의 값을 출력합니다." },
+  { "problem_number": 20, "hint_body": "고정 인프라 없이 이동 단말만으로 임시 구성하는 멀티홉 자율 네트워크 용어." }
+]

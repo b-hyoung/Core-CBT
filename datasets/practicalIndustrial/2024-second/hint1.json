@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "오류 검출용 추가 비트의 개수를 홀/짝으로 맞추는 기법이며, 2비트 동시 오류에는 취약합니다." },
+  { "problem_number": 2, "hint_body": "1NF를 전제로 부분 함수 종속을 제거하는 다음 단계의 정규형입니다." },
+  { "problem_number": 3, "hint_body": "OR에서 AND를 빼면 XOR이며, 011 XOR 101의 값을 구하면 됩니다." },
+  { "problem_number": 4, "hint_body": "메서드 호출 시 인수의 합이 먼저 출력되고 이어서 반환된 곱이 연결 출력됩니다." },
+  { "problem_number": 5, "hint_body": "두 구조체의 같은 필드끼리 더한 실수 값을 소수점 둘째 자리까지 표현하면 됩니다." },
+  { "problem_number": 6, "hint_body": "기본키를 구성하는 속성은 Null이나 중복이 될 수 없다는 제약에 붙는 이름입니다." },
+  { "problem_number": 7, "hint_body": "구구단 n단을 출력하려면 증가하는 반복 변수와 고정 변수를 곱해야 합니다." },
+  { "problem_number": 8, "hint_body": "경로와 홉(hop) 수, 왕복 시간을 추적하는 Windows 계열 네트워크 진단 유틸리티입니다." },
+  { "problem_number": 9, "hint_body": "*p와 n1은 같은 값이므로 첫 두 항은 상쇄되고 n2만 남습니다." },
+  { "problem_number": 10, "hint_body": "내부 구조/로직을 보는지, 입출력만 보는지에 따라 기법을 분류합니다." },
+  { "problem_number": 11, "hint_body": "전체 행, 중복 제거된 학과, 조건 필터 후 고유 학과 개수를 각각 생각합니다." },
+  { "problem_number": 12, "hint_body": "삽입 대상 테이블 지정, 삽입 값 나열, 수정할 컬럼 지정에 쓰이는 표준 키워드입니다." },
+  { "problem_number": 13, "hint_body": "두 조건의 동시 만족, 오름차순 정렬 방향, 특정 패턴 제외에 해당하는 키워드입니다." },
+  { "problem_number": 14, "hint_body": "1대다(그룹), 1대전체, 1대1 전송 방식을 각각 구분하여 떠올리면 됩니다." },
+  { "problem_number": 15, "hint_body": "161/162 포트를 사용하는 TCP/IP 계층의 장비 상태 조회/관리 프로토콜입니다." },
+  { "problem_number": 16, "hint_body": "리스트 순회 중 -1을 건너뛰므로 남는 값들만 연결 출력됩니다." },
+  { "problem_number": 17, "hint_body": "선택 정렬 방식으로 한 라운드가 끝날 때마다 가장 작은 값이 확정되어 출력됩니다." },
+  { "problem_number": 18, "hint_body": "시작 옥텟 128~191, 네트워크부 16비트인 중간 규모 네트워크용 구분입니다." },
+  { "problem_number": 19, "hint_body": "상향식에서 아직 만들어지지 않은 상위 모듈을 대신하여 하위를 호출하는 가상 모듈입니다." },
+  { "problem_number": 20, "hint_body": "RIP는 홉 수 기준이므로 간선 수가 가장 적은 경로를 택해야 합니다." }
+]

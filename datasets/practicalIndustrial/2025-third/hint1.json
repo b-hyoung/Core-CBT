@@ -1,0 +1,14 @@
+[
+  { "problem_number": 1, "hint_body": "저장 위치가 아닌 데이터 값 자체로 찾아가는 방식에 주목하세요." },
+  { "problem_number": 2, "hint_body": "내부를 들여다보지 않는 색과 훤히 들여다보는 색을 떠올리세요." },
+  { "problem_number": 3, "hint_body": "인터넷 문서 요청을 처리해 돌려주는 서비스 제공자 소프트웨어입니다." },
+  { "problem_number": 4, "hint_body": "3계층에서 호스트를 식별하는 논리 주소 체계의 약어입니다." },
+  { "problem_number": 5, "hint_body": "정적 메서드는 참조형 기준, 인스턴스 메서드는 실제 객체 기준으로 바인딩됩니다." },
+  { "problem_number": 6, "hint_body": "클래스 로딩 시 정적 초기화 순서와 static 블록 실행을 추적하세요." },
+  { "problem_number": 7, "hint_body": "함수 내부의 재할당은 외부 참조에 영향을 주지 않습니다." },
+  { "problem_number": 8, "hint_body": "포인터를 통한 값 변경 후 y의 최종 상태와 반환값을 더해보세요." },
+  { "problem_number": 9, "hint_body": "구조체 포인터 전달과 값 전달의 차이, 그리고 지역 포인터 재대입의 효과를 구분하세요." },
+  { "problem_number": 10, "hint_body": "지역 포인터 변수에 새 배열을 가리키게 해도 호출측 배열은 그대로입니다." },
+  { "problem_number": 11, "hint_body": "try의 반환값이 확정된 뒤 마무리 블록이 실행되는 순서에 집중하세요." },
+  { "problem_number": 12, "hint_body": "리스트 덧셈은 새 객체를 만들고, append는 기존 객체를 수정합니다." }
+]

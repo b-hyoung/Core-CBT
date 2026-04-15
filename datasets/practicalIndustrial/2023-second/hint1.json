@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1, "hint_body": "1번은 다른 연산의 끼어듦을 막는 고립 특성, 2번은 장애 이후에도 남는 영속 특성." },
+  { "problem_number": 2, "hint_body": "스키마 정의 계열, 데이터 조작 계열, 권한 제어 계열로 각각 나누세요." },
+  { "problem_number": 3, "hint_body": "루프가 멈추는 조건은 r이 4 미만일 때, q는 뺀 횟수 누적." },
+  { "problem_number": 4, "hint_body": "데이터링크 계층 비트 지향 프로토콜, 프레임 종류가 I·S·U로 구분됩니다." },
+  { "problem_number": 5, "hint_body": "하위 계층부터 전송 단위는 점점 커지며, 각 계층마다 고유 명칭이 있습니다." },
+  { "problem_number": 6, "hint_body": "중복 제거 키워드와 학년 조건 비교 연산자를 WHERE 절에 함께 사용." },
+  { "problem_number": 7, "hint_body": "V모델 오른쪽은 작은 단위 검증부터 시작해 사용자 인수로 마무리됩니다." },
+  { "problem_number": 8, "hint_body": "부분 종속 제거, 이행 종속 제거, 결정자가 후보키가 아닌 종속 제거 순서." },
+  { "problem_number": 9, "hint_body": "대기 시간과 서비스 시간을 더한 값을 서비스 시간으로 나눈 비율이 우선순위." },
+  { "problem_number": 10, "hint_body": "오류 프레임 이후 전송된 것들까지 모두 되돌려 재전송하는 누적 방식." },
+  { "problem_number": 11, "hint_body": "들여쓰기로 블록을 구분하고 동적 타이핑을 지원하는 인터프리터 언어의 특징들." },
+  { "problem_number": 12, "hint_body": "참조를 잃어 도달 불가능해진 힙 객체를 이르는 용어." },
+  { "problem_number": 13, "hint_body": "명세 기반 기능 테스트와 구조·내부 로직 기반 테스트로 구분." },
+  { "problem_number": 14, "hint_body": "OSI 최상위 계층으로 메일·파일 전송 등 사용자 서비스를 제공합니다." },
+  { "problem_number": 15, "hint_body": "선택 정렬로 오름차순 정렬 후, 각 원소 뒤에 'a'가 붙어 출력." },
+  { "problem_number": 16, "hint_body": "5x6 배열에서 테두리 행과 열에 해당하는 네 모서리 값만 출력됩니다." },
+  { "problem_number": 17, "hint_body": "s1의 끝 인덱스부터 역순으로 s2에 복사되어 뒤집힌 문자열이 만들어집니다." },
+  { "problem_number": 18, "hint_body": "정수 형식 출력은 아스키 코드 값, 문자 형식 출력은 해당 글자." },
+  { "problem_number": 19, "hint_body": "도메인이 허용하는 값 범위를 명시해 제한하는 무결성 제약 조건." },
+  { "problem_number": 20, "hint_body": "1부터 5까지 누적 곱셈, 즉 5!의 값." }
+]

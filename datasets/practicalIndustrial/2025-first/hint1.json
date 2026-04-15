@@ -1,0 +1,22 @@
+[
+  { "problem_number": 1,  "hint_body": "웹(Web) 표준 요청/응답 프로토콜 계열." },
+  { "problem_number": 2,  "hint_body": "호스트 언어 코드에 직접 박아 넣어 함께 실행되는 SQL." },
+  { "problem_number": 3,  "hint_body": "릴레이션의 '열 수'와 '행 수'를 따로 세어 보세요." },
+  { "problem_number": 4,  "hint_body": "물리적으로는 버스, 논리적으로는 링인 하이브리드 LAN." },
+  { "problem_number": 5,  "hint_body": "시분할 시스템 전형. 할당량 소진 시 큐 맨 뒤로 이동." },
+  { "problem_number": 6,  "hint_body": "①은 클라우드의 반대 개념. ②는 161·162 포트로 장비 정보를 수집." },
+  { "problem_number": 7,  "hint_body": "참조 swap 뒤 bs[0]과 bs[1]이 같은 객체를 가리킵니다." },
+  { "problem_number": 8,  "hint_body": "정의 / 변경 / 삭제의 대표 DDL 세 가지." },
+  { "problem_number": 9,  "hint_body": "단위 → ( ? ) → 시스템 → 인수 순서의 중간 단계." },
+  { "problem_number": 10, "hint_body": "쉘은 명령 해석기 + 교체 가능한 파일 형태. 커널 설명은 제외." },
+  { "problem_number": 11, "hint_body": "허용 값 집합을 제약하는 컬럼 제약조건 (주어진 목록 중 하나)." },
+  { "problem_number": 12, "hint_body": "신호 재생 / LAN 연결 / 경로 선택 세 장비의 순서." },
+  { "problem_number": 13, "hint_body": "arr[arr[i]-1]이 arr[0], arr[1], arr[2]로 풀립니다." },
+  { "problem_number": 14, "hint_body": "외래키는 참조 대상에 존재하는 값만 가져야 합니다." },
+  { "problem_number": 15, "hint_body": "벨만-포드 · 최대 15홉 · 30초 주기 방송." },
+  { "problem_number": 16, "hint_body": "Graphical / Web / Command-Line / Text 순서로 약어를 고릅니다." },
+  { "problem_number": 17, "hint_body": "정렬 후 홀수 인덱스(1,3,5,7,9)만 출력합니다." },
+  { "problem_number": 18, "hint_body": "p->x × p->y + 2 계산." },
+  { "problem_number": 19, "hint_body": "평가점수 경계값(0, 69, 70, 79, 80, ...)에 주목하는 기법." },
+  { "problem_number": 20, "hint_body": "이중 포인터 **r은 결국 a를 가리킵니다. b의 값을 더하면?" }
+]
