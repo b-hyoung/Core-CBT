@@ -204,6 +204,31 @@ type Segment = { type: 'equal' | 'added' | 'removed'; text: string };
 
 Phase 1 완료 후 별도 spec으로 재개.
 
+## 사전 코드 리뷰 반영 (Phase 1 범위 추가)
+
+### P0 — 착수 직후 선처리
+
+1. **GPT 상태 저장 effect 무한 루프 방어** (`PracticalQuiz.js:1094-1105`)
+   - `buildGptStatePayloadWithPrune`가 항상 새 객체 참조를 반환 → `saved.conversations !== state` 참조 비교가 항상 true
+   - 해결: `prunedCount > 0`일 때만 setState, 또는 내용 기반 shallow equality 비교
+2. **`buildGptStatePayloadWithPrune`의 `nextUsed[key]` 무차별 삭제** (line 99)
+   - `usedProblems`와 `conversations`의 키 체계 정합성 검증 후 선별 삭제
+3. **`gradePracticalAnswer` 모듈 계약 문서화**
+   - 필수 `problem` 필드: `input_type`, `input_labels`, `accepted_answers`, `examples`, `question_text`
+   - 시그니처: `gradePracticalAnswer({ userAnswer, correctAnswer, problem })`
+
+### P1 — 채점 모듈 추출 작업 내부에서 동시 수정
+
+4. `parseLabeledMultiBlankValuesByKnownLabels`의 `indexOf` 기반 라벨 탐색을 word-boundary / 경계 문자 기반으로 교체 (`"가"` vs `"가격"` 오매칭)
+5. `getSequenceMeta`: `mode === 'ordered' && markersCount === 0`일 때 `correctAnswer` 토큰을 분석해 count 결정
+6. `splitMultiBlankDraft`: 한글 다문자 라벨(`"카디널리티"` 등)에서 공백 없이 이어지는 값 파싱 지원
+7. `handleSequenceSlotInput`의 stale closure — `multiBlankDraftsRef` 패턴과 동일하게 ref 기반으로 교체
+8. `buildAcceptedPracticalAnswers`의 paren 분할 regex — SQL 서브쿼리 오매칭 방지 (anchored 또는 unbalanced paren 가드)
+
+### P2 — Phase 2 이월
+
+- `estimateLocalStorageBytes` 정확도, `getLabeledTokenMatches` 분기 순서, `altAnswers` 렌더 dedupe 등 타이포·polish 수준 항목
+
 ## YAGNI 제외 항목
 
 - 감사 로그 별도 테이블 (updated_at으로 충분)
