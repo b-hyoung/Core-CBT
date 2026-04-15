@@ -16,6 +16,9 @@ import {
   QuizSettingsPopover,
   ReportTipToast,
 } from './components/QuizInteractiveParts';
+import AnswerHint from './components/AnswerHint';
+import ResultFeedback from './components/ResultFeedback';
+import { gradePracticalAnswer } from './_lib/gradePracticalAnswer';
 
 const T = {
   loadFail: '문제를 불러오는 데 실패했습니다.',
@@ -3227,6 +3230,7 @@ export default function PracticalQuiz({
                 <div className="space-y-4">
                   <div className="rounded-xl border border-[color:var(--theme-border)] bg-slate-50 p-4 shadow-sm dark:bg-slate-900/80">
                     <label className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">답안 입력</label>
+                    <AnswerHint problem={currentProblem} correctAnswer={correctAnswer} />
                     {practicalInputType === 'sequence' && sequenceMeta ? (
                       <div className="space-y-3">
                         <div className="flex flex-wrap items-center gap-2">
@@ -3430,11 +3434,21 @@ export default function PracticalQuiz({
               </button>
             </div>
 
+            {isChecked && (
+              <div className="mt-4">
+                <ResultFeedback
+                  grade={gradePracticalAnswer({
+                    userAnswer: selectedAnswer,
+                    correctAnswer,
+                    problem: currentProblem,
+                  })}
+                  inputType={practicalInputType}
+                />
+              </div>
+            )}
+
             {shouldShowExplanation && (
               <div className={`mt-6 p-6 rounded-lg animate-in fade-in border ${isCorrect ? 'bg-blue-50 border-blue-200' : 'bg-red-50 border-red-200'}`}>
-                <h3 className={`text-lg font-bold mb-1 ${isCorrect ? 'text-blue-800' : 'text-red-800'}`}>
-                  {isCorrect ? T.correct : T.wrong}
-                </h3>
                 <div className="mb-3">
                   <p className={`mb-2 text-sm font-semibold tracking-wide uppercase ${isCorrect ? 'text-sky-700 dark:text-sky-300' : 'text-red-700 dark:text-red-300'}`}>
                     {T.answer}

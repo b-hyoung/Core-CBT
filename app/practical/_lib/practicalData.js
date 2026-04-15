@@ -1,8 +1,19 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { PRACTICAL_SESSION_CONFIG, isPracticalSessionId, practicalSessionLabel } from './practicalSessions';
+import { fetchHintOverrides } from '../[sessionId]/_lib/fetchHintOverrides';
 
 const stripBom = (s) => String(s || '').replace(/^\uFEFF/, '');
+
+const SYNTHETIC_SESSIONS = new Set([
+  'random',
+  '100',
+  'random22',
+  'high-wrong',
+  'high-unknown',
+  'my-wrong',
+  'my-unknown',
+]);
 
 export { PRACTICAL_SESSION_CONFIG, isPracticalSessionId, practicalSessionLabel };
 
@@ -75,12 +86,33 @@ export async function loadPracticalQuizData(sessionId) {
   const maps = await loadPracticalDatasetMaps(sessionId);
   if (!maps) return null;
 
-  const problems = [...maps.problemsByNo.values()].sort((a, b) => Number(a.problem_number) - Number(b.problem_number));
+  const rawProblems = [...maps.problemsByNo.values()].sort(
+    (a, b) => Number(a.problem_number) - Number(b.problem_number),
+  );
   const answersMap = {};
   const commentsMap = {};
 
   for (const [no, answer] of maps.answersByNo.entries()) answersMap[no] = answer;
   for (const [no, comment] of maps.commentsByNo.entries()) commentsMap[no] = comment;
+
+  const isSynthetic = SYNTHETIC_SESSIONS.has(String(sessionId));
+  const lookupIds = isSynthetic
+    ? Array.from(new Set(rawProblems.map((p) => p.source_session_id).filter(Boolean)))
+    : [String(sessionId)];
+  const overrides = await fetchHintOverrides(lookupIds);
+
+  const problems = rawProblems.map((p) => {
+    const sid = isSynthetic ? String(p.source_session_id || '') : String(sessionId);
+    const pnum = isSynthetic
+      ? Number(p.source_problem_number || p.problem_number)
+      : Number(p.problem_number);
+    const override = overrides.get(`${sid}:${pnum}`);
+    return {
+      ...p,
+      answer_format_hint: override ?? p.answer_format_hint ?? null,
+      hint_source: override ? 'override' : p.answer_format_hint ? 'dataset' : null,
+    };
+  });
 
   return { problems, answersMap, commentsMap, config: maps.config };
 }
