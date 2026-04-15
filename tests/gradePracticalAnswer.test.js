@@ -46,6 +46,45 @@ describe('gradePracticalAnswer - single', () => {
   });
 });
 
+describe('P1 grading fixes', () => {
+  it('#4 multi_blank label boundary: does not confuse 가 with 가격', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: '가: 가격 나: 수량',
+      correctAnswer: '가: 가격 나: 수량',
+      problem: { input_type: 'multi_blank', accepted_answers: [], input_labels: ['가', '나'], examples: '', question_text: '' },
+    });
+    expect(r.matched).toBe(true);
+  });
+
+  it('#5 ordered_sequence derives count from correct answer when examples have no markers', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: 'ㄱ, ㄴ',
+      correctAnswer: 'ㄱ, ㄴ',
+      problem: { input_type: 'ordered_sequence', accepted_answers: [], examples: '', question_text: '' },
+    });
+    expect(r.matched).toBe(true);
+  });
+
+  it('#6 multi_blank parses labels without surrounding whitespace (카디널리티:4)', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: '차수:3,카디널리티:4',
+      correctAnswer: '차수: 3 카디널리티: 4',
+      problem: { input_type: 'multi_blank', accepted_answers: [], input_labels: ['차수', '카디널리티'], examples: '', question_text: '' },
+    });
+    expect(r.matched).toBe(true);
+  });
+
+  it('#8 buildAcceptedPracticalAnswers does not split SQL subqueries', () => {
+    const r = gradePracticalAnswer({
+      userAnswer: 'SELECT * FROM (SELECT id FROM t)',
+      correctAnswer: 'SELECT * FROM (SELECT id FROM t)',
+      problem: { input_type: 'textarea', accepted_answers: [], examples: '', question_text: '' },
+    });
+    expect(r.matched).toBe(true);
+    expect(r.reasons).toContain('exact');
+  });
+});
+
 describe('gradePracticalAnswer - unordered_symbol_set', () => {
   it('matches regardless of order', () => {
     const r = gradePracticalAnswer({

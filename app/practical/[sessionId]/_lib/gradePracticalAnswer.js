@@ -42,8 +42,23 @@ function getSequenceMeta(problem, correctAnswer = '') {
         ? 'unordered_symbol_set'
         : 'ordered';
 
+  // When examples have no markers but we still need a token count for ordered mode,
+  // fall back to counting tokens in the correct answer (e.g. "ㄱ, ㄴ, ㄷ" → 3).
+  const tokensFromAnswer = String(answerText)
+    .split(/[,\s→\-]+/)
+    .filter(Boolean);
+
   return {
-    count: mode === 'unordered_symbol_set' ? 1 : Math.min(Math.max(explicitInputLabels.length || markers.length || 4, 2), 10),
+    count:
+      mode === 'unordered_symbol_set'
+        ? 1
+        : Math.min(
+            Math.max(
+              explicitInputLabels.length || markers.length || tokensFromAnswer.length || 4,
+              2,
+            ),
+            10,
+          ),
     kind,
     mode,
     markersCount: markers.length,
@@ -397,6 +412,27 @@ function parseLabeledMultiBlankValues(value) {
   return values.length >= 2 ? values : null;
 }
 
+function isLabelBoundaryChar(ch) {
+  if (!ch) return true;
+  return !/[A-Za-z0-9가-힣]/.test(ch);
+}
+
+function findLabelWithBoundary(text, label, fromIndex) {
+  // Find `label` in `text` starting at `fromIndex`, but only count occurrences
+  // where the character immediately before the label is a boundary (separator
+  // or start-of-string). Prevents a label like "가" from matching inside a
+  // value like "가격".
+  let searchFrom = Math.max(0, fromIndex);
+  while (searchFrom <= text.length) {
+    const idx = text.indexOf(label, searchFrom);
+    if (idx < 0) return -1;
+    const prevCh = idx === 0 ? '' : text[idx - 1];
+    if (isLabelBoundaryChar(prevCh)) return idx;
+    searchFrom = idx + 1;
+  }
+  return -1;
+}
+
 function parseLabeledMultiBlankValuesByKnownLabels(value, labels) {
   if (!Array.isArray(labels) || labels.length < 2) return null;
   const text = String(value ?? '');
@@ -409,7 +445,7 @@ function parseLabeledMultiBlankValuesByKnownLabels(value, labels) {
     const label = String(labels[i] ?? '');
     if (!label) return null;
 
-    const labelIndex = text.indexOf(label, searchFrom);
+    const labelIndex = findLabelWithBoundary(text, label, searchFrom);
     if (labelIndex < 0) return null;
 
     let valueStart = labelIndex + label.length;
@@ -418,7 +454,7 @@ function parseLabeledMultiBlankValuesByKnownLabels(value, labels) {
     let valueEnd = text.length;
     if (i + 1 < labels.length) {
       const nextLabel = String(labels[i + 1] ?? '');
-      const nextIndex = text.indexOf(nextLabel, valueStart);
+      const nextIndex = findLabelWithBoundary(text, nextLabel, valueStart);
       if (nextIndex < 0) return null;
       valueEnd = nextIndex;
       searchFrom = nextIndex;
@@ -528,7 +564,10 @@ function buildAcceptedPracticalAnswers(correctAnswer, problem = null) {
     return [...accepted].map(normalizePracticalAnswer).filter(Boolean);
   }
 
-  const parenMatch = raw.match(/^(.+?)\s*\((.+)\)$/);
+  // Split "head (tail)" into two accepted forms, but only when both sides are
+  // "simple" content (no nested parens) so SQL subqueries like
+  // "SELECT * FROM (SELECT ...)" aren't blown up into misleading candidates.
+  const parenMatch = raw.match(/^([^()]+?)\s*\(([^()]+)\)$/);
   if (parenMatch) {
     accepted.add(parenMatch[1].trim());
     accepted.add(parenMatch[2].trim());
