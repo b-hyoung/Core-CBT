@@ -5,7 +5,11 @@
       {
         "problem_number": 1,
         "correct_answer_index": 0,
-        "correct_answer_text": "HTTP"
+        "correct_answer_text": "HTTP",
+        "accepted_answers": [
+          "HyperText Transfer Protocol",
+          "Hyper Text Transfer Protocol"
+        ]
       },
       {
         "problem_number": 2,
@@ -100,7 +104,10 @@
       {
         "problem_number": 15,
         "correct_answer_index": 0,
-        "correct_answer_text": "RIP"
+        "correct_answer_text": "RIP",
+        "accepted_answers": [
+          "Routing Information Protocol"
+        ]
       },
       {
         "problem_number": 16,

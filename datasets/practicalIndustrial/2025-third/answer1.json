@@ -17,13 +17,21 @@
         "correct_answer_index": 0,
         "correct_answer_text": "웹서버 (Web Server)",
         "accepted_answers": [
-          "웹 서버"
+          "웹 서버",
+          "웹서버",
+          "Web Server",
+          "WebServer",
+          "웹 서버(Web Server)"
         ]
       },
       {
         "problem_number": 4,
         "correct_answer_index": 0,
-        "correct_answer_text": "IP"
+        "correct_answer_text": "IP",
+        "accepted_answers": [
+          "Internet Protocol",
+          "인터넷 프로토콜"
+        ]
       },
       {
         "problem_number": 5,

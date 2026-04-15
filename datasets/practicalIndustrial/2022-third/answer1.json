@@ -22,7 +22,11 @@
         "correct_answer_index": 0,
         "correct_answer_text": "네트워크 계층(Network Layer)",
         "accepted_answers": [
-          "네트워크계층"
+          "네트워크계층",
+          "네트워크 계층",
+          "Network Layer",
+          "Network",
+          "네트워크"
         ]
       },
       {
@@ -53,7 +57,12 @@
       {
         "problem_number": 9,
         "correct_answer_index": 0,
-        "correct_answer_text": "SJF"
+        "correct_answer_text": "SJF",
+        "accepted_answers": [
+          "Shortest Job First",
+          "최단 작업 우선",
+          "최단작업우선"
+        ]
       },
       {
         "problem_number": 10,
@@ -80,7 +89,10 @@
       {
         "problem_number": 13,
         "correct_answer_index": 0,
-        "correct_answer_text": "RIP"
+        "correct_answer_text": "RIP",
+        "accepted_answers": [
+          "Routing Information Protocol"
+        ]
       },
       {
         "problem_number": 14,
@@ -118,12 +130,20 @@
       {
         "problem_number": 19,
         "correct_answer_index": 0,
-        "correct_answer_text": "뷰(View)"
+        "correct_answer_text": "뷰(View)",
+        "accepted_answers": [
+          "뷰",
+          "View"
+        ]
       },
       {
         "problem_number": 20,
         "correct_answer_index": 0,
-        "correct_answer_text": "텔넷(Telnet)"
+        "correct_answer_text": "텔넷(Telnet)",
+        "accepted_answers": [
+          "텔넷",
+          "Telnet"
+        ]
       }
     ]
   }

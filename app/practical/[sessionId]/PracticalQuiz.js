@@ -842,6 +842,153 @@ function isPracticalAnswerMatch(userAnswer, correctAnswer, problem = null) {
   return false;
 }
 
+function parseLabeledAnswerPairs(text) {
+  const raw = String(text ?? '').trim();
+  if (!raw) return null;
+  const tokens = getLabeledTokenMatches(raw);
+  if (tokens.length < 2) return null;
+  const pairs = [];
+  for (let i = 0; i < tokens.length; i++) {
+    const start = tokens[i].index + tokens[i].fullLength;
+    const end = i + 1 < tokens.length ? tokens[i + 1].index : raw.length;
+    const value = raw
+      .slice(start, end)
+      .trim()
+      .replace(/^[-:：]\s*/, '')
+      .replace(/[,\/|]\s*$/g, '')
+      .trim();
+    if (value) pairs.push({ label: tokens[i].label, value });
+  }
+  return pairs.length >= 2 ? pairs : null;
+}
+
+function PracticalAnswerDisplay({ problem, correctAnswer, inputType, sequenceMeta, tone = 'blue' }) {
+  const raw = String(correctAnswer ?? '').trim();
+  if (!raw) return <span className="text-slate-400">-</span>;
+
+  const toneMap = {
+    blue: {
+      pill: 'bg-sky-100 text-sky-800 border-sky-200 dark:bg-sky-900/40 dark:text-sky-200 dark:border-sky-800',
+      chip: 'bg-white text-sky-900 border-sky-200 dark:bg-slate-900 dark:text-sky-100 dark:border-sky-800',
+      alt: 'bg-slate-50 text-slate-700 border-slate-200 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-700',
+      arrow: 'text-sky-500',
+      block: 'bg-white border-sky-200 dark:bg-slate-900 dark:border-sky-800',
+    },
+    red: {
+      pill: 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/40 dark:text-red-200 dark:border-red-800',
+      chip: 'bg-white text-red-900 border-red-200 dark:bg-slate-900 dark:text-red-100 dark:border-red-800',
+      alt: 'bg-slate-50 text-slate-700 border-slate-200 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-700',
+      arrow: 'text-red-500',
+      block: 'bg-white border-red-200 dark:bg-slate-900 dark:border-red-800',
+    },
+  };
+  const t = toneMap[tone] || toneMap.blue;
+
+  const acceptedAnswers = Array.isArray(problem?.accepted_answers)
+    ? problem.accepted_answers.map((v) => String(v ?? '').trim()).filter(Boolean)
+    : [];
+  const primaryNorm = normalizePracticalAnswer(raw);
+  const altAnswers = acceptedAnswers.filter(
+    (v) => normalizePracticalAnswer(v) !== primaryNorm
+  );
+
+  let body = null;
+
+  // multi_blank / 라벨형 정답 ("가: AVG, 나: COUNT")
+  const labeledPairs = parseLabeledAnswerPairs(raw);
+  if (labeledPairs && (inputType === 'multi_blank' || labeledPairs.length >= 2)) {
+    body = (
+      <div className="flex flex-col gap-2">
+        {labeledPairs.map((p, idx) => (
+          <div
+            key={`${p.label}-${idx}`}
+            className={`flex items-center gap-3 rounded-lg border px-3 py-2 ${t.block}`}
+          >
+            <span
+              className={`inline-flex h-7 min-w-[2rem] items-center justify-center rounded-md border px-2 text-sm font-bold ${t.pill}`}
+            >
+              {p.label}
+            </span>
+            <span className="text-base font-semibold text-slate-900 dark:text-slate-100">
+              {p.value}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // sequence (순서형 또는 기호 집합)
+  if (!body && inputType === 'sequence') {
+    const tokens = raw
+      .split(/\s*(?:->|→|,|\/|\||\-)\s*/g)
+      .map((v) => v.trim())
+      .filter(Boolean);
+    if (tokens.length >= 2) {
+      const isUnordered = sequenceMeta?.mode === 'unordered_symbol_set';
+      body = (
+        <div className="flex flex-wrap items-center gap-2">
+          {tokens.map((tok, idx) => (
+            <div key={`${tok}-${idx}`} className="flex items-center gap-2">
+              <span
+                className={`inline-flex h-9 min-w-[2.25rem] items-center justify-center rounded-lg border px-3 text-base font-bold ${t.chip}`}
+              >
+                {tok}
+              </span>
+              {!isUnordered && idx < tokens.length - 1 && (
+                <span className={`text-lg font-bold ${t.arrow}`}>→</span>
+              )}
+            </div>
+          ))}
+        </div>
+      );
+    }
+  }
+
+  // 코드/SQL/여러 줄 답안
+  if (!body && (raw.includes('\n') || /^(SELECT|UPDATE|INSERT|DELETE|CREATE)\b/i.test(raw))) {
+    body = (
+      <pre
+        className={`whitespace-pre-wrap rounded-lg border px-4 py-3 text-sm font-mono leading-relaxed ${t.block} text-slate-900 dark:text-slate-100`}
+      >
+        {raw}
+      </pre>
+    );
+  }
+
+  // 기본: 단일 답안 — 큰 chip
+  if (!body) {
+    body = (
+      <span
+        className={`inline-flex items-center rounded-lg border px-4 py-2 text-lg font-bold ${t.chip}`}
+      >
+        {raw}
+      </span>
+    );
+  }
+
+  return (
+    <div className="space-y-2">
+      {body}
+      {altAnswers.length > 0 && (
+        <div className="flex flex-wrap items-center gap-1.5 pt-1">
+          <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+            인정 답안
+          </span>
+          {altAnswers.map((v, idx) => (
+            <span
+              key={`${v}-${idx}`}
+              className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs ${t.alt}`}
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function PracticalQuiz({
   problems,
   session,
@@ -3284,9 +3431,18 @@ export default function PracticalQuiz({
                 <h3 className={`text-lg font-bold mb-1 ${isCorrect ? 'text-blue-800' : 'text-red-800'}`}>
                   {isCorrect ? T.correct : T.wrong}
                 </h3>
-                <p className="text-lg font-semibold text-sky-900 mb-3">
-                  {T.answer}: {String(correctAnswer || '').trim() || '-'}
-                </p>
+                <div className="mb-3">
+                  <p className={`mb-2 text-sm font-semibold tracking-wide uppercase ${isCorrect ? 'text-sky-700 dark:text-sky-300' : 'text-red-700 dark:text-red-300'}`}>
+                    {T.answer}
+                  </p>
+                  <PracticalAnswerDisplay
+                    problem={currentProblem}
+                    correctAnswer={correctAnswer}
+                    inputType={practicalInputType}
+                    sequenceMeta={sequenceMeta}
+                    tone={isCorrect ? 'blue' : 'red'}
+                  />
+                </div>
                 {explanationText && (
                   <p className={`text-gray-700 whitespace-pre-wrap border-t pt-3 leading-relaxed ${isCorrect ? 'border-blue-100' : 'border-red-100'}`}>
                     <span className="font-semibold">{T.explanation}:</span>{'\n'}

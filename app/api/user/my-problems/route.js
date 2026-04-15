@@ -96,53 +96,40 @@ export async function GET() {
     const events = await fetchUserFinishEvents(userEmail);
 
     // events are desc by timestamp → first occurrence per key = most recent attempt
-    const wrongMap = new Map();
-    const unknownMap = new Map();
-
+    const latest = new Map();
     for (const event of events) {
       const outcomes = Array.isArray(event?.payload?.problemOutcomes)
         ? event.payload.problemOutcomes
         : [];
-
       for (const o of outcomes) {
         const sourceSessionId = String(o?.sessionId || '').trim();
         const sourceProblemNumber = Number(o?.problemNumber);
         if (!sourceSessionId || !Number.isFinite(sourceProblemNumber) || sourceProblemNumber <= 0)
           continue;
-
         const key = `${sourceSessionId}:${sourceProblemNumber}`;
-
-        if (o.isUnknown) {
-          if (!unknownMap.has(key)) {
-            unknownMap.set(key, {
-              key,
-              sourceSessionId,
-              sourceProblemNumber,
-              selectedAnswer: String(o.selectedAnswer ?? ''),
-              correctAnswer: String(o.correctAnswer ?? ''),
-              timestamp: event.timestamp,
-            });
-          }
-        } else if (!o.isCorrect) {
-          if (!wrongMap.has(key)) {
-            wrongMap.set(key, {
-              key,
-              sourceSessionId,
-              sourceProblemNumber,
-              selectedAnswer: String(o.selectedAnswer ?? ''),
-              correctAnswer: String(o.correctAnswer ?? ''),
-              timestamp: event.timestamp,
-            });
-          }
-        }
+        if (latest.has(key)) continue;
+        latest.set(key, {
+          key,
+          sourceSessionId,
+          sourceProblemNumber,
+          selectedAnswer: String(o.selectedAnswer ?? ''),
+          correctAnswer: String(o.correctAnswer ?? ''),
+          timestamp: event.timestamp,
+          isCorrect: !!o.isCorrect,
+          isUnknown: !!o.isUnknown,
+        });
       }
     }
 
-    return NextResponse.json({
-      ok: true,
-      wrong: Array.from(wrongMap.values()),
-      unknown: Array.from(unknownMap.values()),
-    });
+    const wrong = [];
+    const unknown = [];
+    for (const r of latest.values()) {
+      const { isCorrect, isUnknown, ...rest } = r;
+      if (isUnknown) unknown.push(rest);
+      else if (!isCorrect) wrong.push(rest);
+    }
+
+    return NextResponse.json({ ok: true, wrong, unknown });
   } catch {
     return NextResponse.json({ ok: false, message: 'failed to load problems' }, { status: 500 });
   }

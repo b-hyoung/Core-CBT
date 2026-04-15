@@ -21,7 +21,9 @@
           "데이터 링크",
           "데이터링크",
           "Data Link",
-          "Data Link Layer"
+          "Data Link Layer",
+          "DataLink",
+          "DataLink Layer"
         ]
       },
       {
@@ -49,7 +51,9 @@
         "correct_answer_index": 0,
         "correct_answer_text": "FTP",
         "accepted_answers": [
-          "File Transfer Protocol"
+          "File Transfer Protocol",
+          "파일 전송 프로토콜",
+          "파일전송프로토콜"
         ]
       },
       {
@@ -101,7 +105,12 @@
       {
         "problem_number": 15,
         "correct_answer_index": 0,
-        "correct_answer_text": "롤백(Rollback)"
+        "correct_answer_text": "롤백(Rollback)",
+        "accepted_answers": [
+          "롤백",
+          "Rollback",
+          "ROLLBACK"
+        ]
       },
       {
         "problem_number": 16,
@@ -113,7 +122,10 @@
         "correct_answer_index": 0,
         "correct_answer_text": "조건 커버리지(Condition Coverage)",
         "accepted_answers": [
-          "조건커버리지"
+          "조건커버리지",
+          "조건 커버리지",
+          "Condition Coverage",
+          "Condition"
         ]
       },
       {

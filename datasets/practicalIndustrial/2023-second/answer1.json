@@ -78,7 +78,11 @@
       {
         "problem_number": 12,
         "correct_answer_index": 0,
-        "correct_answer_text": "가비지(Garbage)"
+        "correct_answer_text": "가비지(Garbage)",
+        "accepted_answers": [
+          "가비지",
+          "Garbage"
+        ]
       },
       {
         "problem_number": 13,
@@ -128,7 +132,10 @@
       {
         "problem_number": 19,
         "correct_answer_index": 0,
-        "correct_answer_text": "CHECK"
+        "correct_answer_text": "CHECK",
+        "accepted_answers": [
+          "체크"
+        ]
       },
       {
         "problem_number": 20,

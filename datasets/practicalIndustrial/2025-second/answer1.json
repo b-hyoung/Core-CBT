@@ -35,7 +35,11 @@
       {
         "problem_number": 6,
         "correct_answer_index": 0,
-        "correct_answer_text": "IP"
+        "correct_answer_text": "IP",
+        "accepted_answers": [
+          "Internet Protocol",
+          "인터넷 프로토콜"
+        ]
       },
       {
         "problem_number": 7,
@@ -73,7 +77,11 @@
       {
         "problem_number": 13,
         "correct_answer_index": 0,
-        "correct_answer_text": "PING"
+        "correct_answer_text": "PING",
+        "accepted_answers": [
+          "Packet Internet Groper",
+          "ping"
+        ]
       },
       {
         "problem_number": 14,

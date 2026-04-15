@@ -14,6 +14,7 @@
         "accepted_answers": [
           "제2 정규형",
           "2정규형",
+          "2 정규형",
           "2NF",
           "Second Normal Form"
         ]
@@ -90,7 +91,9 @@
         "correct_answer_index": 0,
         "correct_answer_text": "SNMP",
         "accepted_answers": [
-          "Simple Network Management Protocol"
+          "Simple Network Management Protocol",
+          "간이 망 관리 프로토콜",
+          "간이망관리프로토콜"
         ]
       },
       {
