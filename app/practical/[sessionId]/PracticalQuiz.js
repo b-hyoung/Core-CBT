@@ -93,10 +93,11 @@ function buildGptStatePayloadWithPrune({
   }
 
   // Object key insertion order is used as a lightweight "oldest first" fallback.
+  // Prune conversations first; usedProblems is pruned independently below because
+  // the two maps may use different key schemes.
   let prunedCount = 0;
   for (const key of Object.keys(nextConversations)) {
     delete nextConversations[key];
-    delete nextUsed[key];
     prunedCount += 1;
     payload = { usedProblems: nextUsed, conversations: nextConversations };
     serialized = JSON.stringify(payload);
@@ -1097,9 +1098,12 @@ export default function PracticalQuiz({
         usedProblems: gptUsedProblems,
         conversations: gptConversationsByProblem,
       });
-      if (saved?.pruned) {
-        if (saved.conversations !== gptConversationsByProblem) setGptConversationsByProblem(saved.conversations);
-        if (saved.usedProblems !== gptUsedProblems) setGptUsedProblems(saved.usedProblems);
+      // Only sync back state when an actual prune happened. buildGptStatePayloadWithPrune
+      // always returns fresh object refs, so a reference-only check would cause an
+      // infinite setState loop.
+      if (saved?.prunedCount > 0) {
+        setGptConversationsByProblem(saved.conversations);
+        setGptUsedProblems(saved.usedProblems);
       }
     } catch {}
   }, [gptConversationsByProblem, gptStateStorageKey, gptUsedProblems]);
