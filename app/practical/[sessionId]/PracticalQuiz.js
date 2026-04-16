@@ -1902,6 +1902,7 @@ export default function PracticalQuiz({
           sourceSessionId: currentProblem.originSessionId || sessionId,
           sourceProblemNumber: currentProblem.originProblemNumber || currentProblem.problem_number,
           questionText: currentProblem.question_text || '',
+          examples: currentProblem.examples || '',
           options: Array.isArray(currentProblem.options) ? currentProblem.options : [],
           selectedAnswer: selectedAnswer || '',
           correctAnswer: correctAnswer || '',
@@ -3166,19 +3167,17 @@ export default function PracticalQuiz({
                   <span className="text-sm font-bold text-sky-800 dark:text-sky-200">보기</span>
                 </div>
                 <div className="p-4">
-                  {(() => {
-                    if (currentProblem.example_image_url) {
-                      return (
-                        <div className="overflow-x-auto rounded-lg border border-[color:var(--theme-border)] bg-white p-3 dark:bg-slate-900">
-                          <img
-                            src={String(currentProblem.example_image_url)}
-                            alt="문제 보기 이미지"
-                            className="block h-auto max-w-full"
-                            loading="lazy"
-                          />
-                        </div>
-                      );
-                    }
+                  {currentProblem.example_image_url && (
+                    <div className={`overflow-x-auto rounded-lg border border-[color:var(--theme-border)] bg-white p-3 dark:bg-slate-900 ${currentProblem.examples ? 'mb-3' : ''}`}>
+                      <img
+                        src={String(currentProblem.example_image_url)}
+                        alt="문제 보기 이미지"
+                        className="block h-auto max-w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  {currentProblem.examples && (() => {
                     const lines = currentProblem.examples.split('\n');
                     const nonEmpty = lines.filter((l) => l.trim());
                     const isTable = nonEmpty.length > 1 && nonEmpty.every((l) => l.includes('|'));

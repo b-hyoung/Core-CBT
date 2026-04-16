@@ -4,83 +4,83 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": ""
+        "comment": "디그리(Degree)는 릴레이션을 구성하는 속성(Attribute, 열)의 개수이고, 카디널리티(Cardinality)는 튜플(Tuple, 행)의 개수입니다.\n<회원> 테이블의 속성: ID, 이름, 거주지 → 총 3개\n튜플(행): 1001, 1002, 1003, 1004 → 총 4개\n한줄 요약\n속성 수 = 디그리(3), 튜플 수 = 카디널리티(4)입니다."
       },
       {
         "problem_number": 2,
-        "comment": ""
+        "comment": "트랜잭션의 4대 특성(ACID)과 데이터베이스가 이를 보장하기 위해 제공하는 기능을 매칭하는 문제입니다.\n\n원자성(Atomicity): 트랜잭션의 연산이 전부 실행되거나 전부 실행되지 않아야 함. 중단된 트랜잭션을 되돌리는 기능인 **회복(Recovery)**이 보장합니다.\n일관성(Consistency): 트랜잭션 전후의 DB 상태가 일관되어야 함 → 무결성 제약 조건, 동시성 제어가 보장.\n고립성(Isolation): 여러 트랜잭션이 동시에 수행되더라도 서로 간섭하지 않아야 함. **동시성 제어(Concurrency Control)**가 보장합니다.\n영속성(Durability): 커밋된 결과는 영구히 반영되어야 함 → 회복이 보장.\n\n한줄 요약\n원자성은 '회복', 고립성은 '동시성 제어'가 보장합니다."
       },
       {
         "problem_number": 3,
-        "comment": ""
+        "comment": "이 문제는 10진수 11을 2진수로 변환하는 과정을 배열에 역순으로 저장한 후 뒤에서 앞으로 출력하는 코드입니다.\n\nwhile 루프에서 n(=11)을 2로 나눈 나머지를 a[i]에 저장하고 n을 2로 나눕니다.\ni=0: a[0]=11%2=1, n=5\ni=1: a[1]=5%2=1, n=2\ni=2: a[2]=2%2=0, n=1\ni=3: a[3]=1%2=1, n=0 → 종료\n\n배열: a=[1,1,0,1,0,0,0,0] (나머지 인덱스는 0으로 초기화됨)\nfor 루프는 i=7부터 0까지 거꾸로 출력: 0,0,0,0,1,0,1,1\n\n한줄 요약\n11의 2진 변환을 배열에 거꾸로 담아 8자리로 출력하므로 결과는 **00001011**입니다."
       },
       {
         "problem_number": 4,
-        "comment": ""
+        "comment": "OSI 7계층 중 경로 설정(Routing), 패킷 전달, 트래픽 제어를 담당하며 IP, ICMP, ARP, RARP 등이 동작하는 계층은 **네트워크 계층(Network Layer, 제3계층)**입니다.\n\n1계층 물리 - 비트 전송\n2계층 데이터링크 - 프레임, MAC 주소\n**3계층 네트워크 - 라우팅, IP, 패킷**\n4계층 전송 - TCP/UDP\n5~7계층 세션/표현/응용\n\n한줄 요약\n경로 설정과 IP 프로토콜이 동작하는 계층은 **네트워크 계층(3계층)**입니다."
       },
       {
         "problem_number": 5,
-        "comment": ""
+        "comment": "파이썬의 **클로저(Closure)**와 람다 함수를 활용한 코드입니다.\n\nf(n)은 인자로 받은 n을 기억하는 람다 함수 `lambda a: a*n`을 반환합니다.\nk = f(3) → k는 `lambda a: a*3`이 됨 (n=3이 클로저에 캡처됨).\nk(10) → 10 * 3 = **30**이 출력됩니다.\n\n한줄 요약\nf(3)이 반환한 람다는 a에 3을 곱하므로 k(10)=30입니다."
       },
       {
         "problem_number": 6,
-        "comment": ""
+        "comment": "2차원 배열의 모든 원소의 합을 구하는 코드입니다.\n\n행별 sum 계산 후 ssum에 누적:\n1행: 27+13+21+41+12 = 114\n2행: 11+20+17+35+15 = 98\n3행: 21+15+32+14+10 = 92\n총합: 114 + 98 + 92 = **304**\n\n한줄 요약\n3x5 배열 전체 원소를 합산하여 최종적으로 **304**가 출력됩니다."
       },
       {
         "problem_number": 7,
-        "comment": ""
+        "comment": "단위 테스트가 끝난 모듈들을 결합하는 과정에서 모듈 간 상호작용을 검증하는 테스트는 **통합 테스트(Integration Test)**입니다.\n\n테스트 수행 단계 순서: 단위(Unit) → 통합(Integration) → 시스템(System) → 인수(Acceptance)\n통합 테스트 방식: 비점진적(Big Bang), 점진적(하향식 Top-down, 상향식 Bottom-up, 혼합식 Sandwich).\n\n한줄 요약\n모듈 간 결합 시 상호작용 오류를 찾는 테스트는 **Integration Test(통합 테스트)**입니다."
       },
       {
         "problem_number": 8,
-        "comment": ""
+        "comment": "1부터 50까지 중 7의 배수를 찾아 누적 합산하는 코드입니다.\n\n7의 배수: 7, 14, 21, 28, 35, 42, 49\n합계: 7+14+21+28+35+42+49 = **196**\n(산술급수 공식: 7×(1+2+...+7) = 7×28 = 196)\n\n한줄 요약\n1~50에서 7의 배수의 합은 **196**입니다."
       },
       {
         "problem_number": 9,
-        "comment": ""
+        "comment": "실행 시간이 가장 짧은 프로세스에 CPU를 먼저 할당하는 알고리즘은 **SJF(Shortest Job First)**입니다.\n\nSJF 특징:\n- 평균 대기 시간을 최소화하는 최적 알고리즘\n- 비선점(Non-preemptive) 방식\n- 실행 시간이 긴 프로세스는 기아(Starvation) 현상 발생 가능\n- 선점형 버전이 **SRT(Shortest Remaining Time)**\n\n한줄 요약\n가장 짧은 작업에 우선 CPU를 할당하여 평균 대기 시간을 최소화하는 스케줄링은 **SJF**입니다."
       },
       {
         "problem_number": 10,
-        "comment": ""
+        "comment": "중첩 함수 호출의 실행 순서를 추적하는 문제입니다.\n\n1단계: af(4,5) → 4+5 = 9\n2단계: sf(9,6) → 9-6 = **3**\n\n한줄 요약\nsf(af(4,5), 6) = sf(9,6) = **3**이 출력됩니다."
       },
       {
         "problem_number": 11,
-        "comment": ""
+        "comment": "외래키(Foreign Key) 값은 NULL이거나 참조하는 테이블의 기본키 값과 일치해야 한다는 규칙은 **참조 무결성 제약 조건(Referential Integrity Constraint)**입니다.\n\n무결성 제약 조건의 주요 종류:\n- 개체 무결성(Entity): 기본키는 NULL이거나 중복될 수 없다\n- **참조 무결성(Referential)**: 외래키는 참조 대상의 기본키와 일치하거나 NULL이어야 한다\n- 도메인 무결성(Domain): 속성 값은 정의된 도메인에 속해야 한다\n\n한줄 요약\n외래키의 값이 참조 대상 기본키와 일치해야 한다는 규칙은 **참조 무결성 제약 조건**입니다."
       },
       {
         "problem_number": 12,
-        "comment": ""
+        "comment": "IPv4 주소 클래스별 네트워크(N)와 호스트(H) 부분 구성입니다.\n\n- A클래스: N.H.H.H (네트워크 1바이트, 호스트 3바이트)\n- B클래스: N.N.H.H\n- **C클래스: N.N.N.H** (네트워크 3바이트, 호스트 1바이트)\n- D클래스: 멀티캐스트 전용\n- E클래스: 연구용\n\n(가) N.N.N.H → **C클래스**\n(나) N.H.H.H → **A클래스**\n\n한줄 요약\n네트워크 3부분 + 호스트 1부분은 C클래스, 네트워크 1부분 + 호스트 3부분은 A클래스입니다."
       },
       {
         "problem_number": 13,
-        "comment": ""
+        "comment": "거리 벡터 라우팅, Bellman-Ford 알고리즘, 최대 홉 15 제한, 30초 주기 라우팅 정보 갱신 — 이 특징은 **RIP(Routing Information Protocol)**의 특징입니다.\n\n경로 제어 프로토콜 분류:\n- **IGP(내부)**: RIP(거리 벡터), OSPF(링크 상태)\n- EGP/BGP(외부): 자율 시스템 간 라우팅\n\n한줄 요약\n최대 홉 15 제한과 Bellman-Ford를 사용하는 소규모 내부 라우팅 프로토콜은 **RIP**입니다."
       },
       {
         "problem_number": 14,
-        "comment": ""
+        "comment": "TCP 헤더의 주요 필드 중 세그먼트 재조립과 수신 확인에 사용되는 필드입니다.\n\n(가) 데이터 순서를 저장해 분할된 세그먼트를 재조립하게 하는 필드 → **Sequence Number(순서 번호)**\n(나) 상대방이 데이터를 올바르게 수신했음을 알릴 때 사용하는 필드 → **Acknowledgment Number(확인 응답 번호)**\n\n한줄 요약\n세그먼트 재조립용은 **Sequence Number**, 수신 확인용은 **Acknowledgment Number**입니다."
       },
       {
         "problem_number": 15,
-        "comment": ""
+        "comment": "3x3 배열에 상삼각(Upper Triangular) 형태로 1~6을 채워 출력하는 코드입니다.\n\ndata() 함수: i<=j인 위치에만 v(1부터 증가)를 저장.\na[0][0]=1, a[0][1]=2, a[0][2]=3\na[1][1]=4, a[1][2]=5\na[2][2]=6\n나머지는 init()으로 0.\n\nprnt() 함수: 0이면 공백(\" \"), 아니면 숫자 출력.\n출력:\n```\n123\n 45\n  6\n```\n\n한줄 요약\n상삼각 위치에 1~6을 채우고 0은 공백으로 출력합니다."
       },
       {
         "problem_number": 16,
-        "comment": ""
+        "comment": "1부터 n(입력 5)까지의 정수 합을 구하는 코드입니다.\n\nfor 루프: i=1~5, sum에 누적.\n1+2+3+4+5 = **15**\n(공식: n(n+1)/2 = 5×6/2 = 15)\n\n한줄 요약\n1부터 5까지의 합은 **15**입니다."
       },
       {
         "problem_number": 17,
-        "comment": ""
+        "comment": "타당한 입력과 타당하지 않은 입력의 개수를 균등하게 구성하여 테스트하는 블랙박스 기법은 **동치 분할(Equivalence Partitioning)**입니다.\n\n블랙박스 테스트 기법:\n- **Equivalence Partitioning(동치 분할)**: 유효/무효 데이터 그룹을 동등한 개수로 테스트\n- Boundary Value Analysis(경계값 분석): 경계에 인접한 값 집중 테스트\n- Cause-Effect Graphing(원인-결과 그래프)\n- Error Guessing(오류 예측)\n\n한줄 요약\n유효/무효 데이터 개수를 균등하게 구성하는 기법은 **Equivalence Partitioning(동치 분할)**입니다."
       },
       {
         "problem_number": 18,
-        "comment": ""
+        "comment": "DDL(Data Definition Language)은 DB 구조를 정의/수정/삭제하는 언어로, 3가지 명령어로 구성됩니다.\n\n(가) **CREATE**: 스키마, 도메인, 테이블, 뷰, 인덱스 등 개체 정의(생성)\n(나) **ALTER**: 기존 테이블의 정의(속성 추가/수정/삭제)를 변경\n(다) **DROP**: 스키마, 도메인, 테이블 등의 개체를 삭제\n\n참고: DML은 SELECT/INSERT/UPDATE/DELETE, DCL은 GRANT/REVOKE/COMMIT/ROLLBACK입니다.\n\n한줄 요약\nDDL 3대 명령어: 생성=**CREATE**, 변경=**ALTER**, 삭제=**DROP**."
       },
       {
         "problem_number": 19,
-        "comment": ""
+        "comment": "하나 이상의 기본 테이블로부터 유도되지만 물리적으로 저장되지 않는 가상 테이블은 **뷰(View)**입니다.\n\n뷰의 특징:\n- 논리적으로만 존재하는 가상 테이블 (저장 공간 차지 X)\n- 원본 테이블의 민감 컬럼을 숨기고 필요한 부분만 노출 → 보안 향상\n- 복잡한 쿼리를 단순하게 재사용 가능\n- 단점: 삽입/수정/삭제에 제약, 뷰에 인덱스 불가 등\n\n한줄 요약\n물리적으로 존재하지 않지만 사용자에게는 테이블처럼 보이는 가상 테이블은 **뷰(View)**입니다."
       },
       {
         "problem_number": 20,
-        "comment": ""
+        "comment": "원격지 컴퓨터에 접속해 가상 터미널처럼 사용하는, 응용 계층에서 동작하며 포트 23번을 사용하는 서비스는 **텔넷(Telnet)**입니다.\n\n텔넷의 특징:\n- 원격 시스템 관리용 가상 터미널 서비스\n- 포트 23, 응용 계층(Application Layer)\n- 데이터를 암호화하지 않아 보안상 취약 → 현재는 **SSH(포트 22)**로 대체되는 추세\n\n한줄 요약\n포트 23번을 사용해 원격 컴퓨터에 가상 터미널로 접속하는 서비스는 **텔넷(Telnet)**입니다."
       }
     ]
   }

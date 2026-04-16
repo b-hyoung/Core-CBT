@@ -864,6 +864,7 @@ export default function Quiz({
           sourceSessionId: currentProblem.originSessionId || sessionId,
           sourceProblemNumber: currentProblem.originProblemNumber || currentProblem.problem_number,
           questionText: currentProblem.question_text || '',
+          examples: currentProblem.examples || '',
           options: Array.isArray(currentProblem.options) ? currentProblem.options : [],
           selectedAnswer: selectedAnswer || '',
           correctAnswer: correctAnswer || '',

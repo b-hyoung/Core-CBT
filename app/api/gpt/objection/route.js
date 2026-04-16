@@ -39,12 +39,15 @@ function buildCacheKey({
   sourceProblemNumber,
   selectedAnswer = '',
   correctAnswer = '',
+  examples = '',
 }) {
   const raw = [
+    'v2',
     String(sourceSessionId),
     String(sourceProblemNumber),
     `selected:${normalizeText(selectedAnswer)}`,
     `correct:${normalizeText(correctAnswer)}`,
+    `examples:${normalizeText(examples).slice(0, 200)}`,
   ].join('::');
 
   return createHash('sha256').update(raw).digest('hex');
@@ -147,6 +150,7 @@ export async function POST(req) {
       sourceSessionId = '',
       sourceProblemNumber = '',
       questionText = '',
+      examples = '',
       options = [],
       selectedAnswer = '',
       correctAnswer = '',
@@ -166,6 +170,7 @@ export async function POST(req) {
       sourceProblemNumber,
       selectedAnswer,
       correctAnswer,
+      examples,
     });
 
     if (!isFollowUp) {
@@ -217,8 +222,13 @@ export async function POST(req) {
           '[문제]',
           String(questionText),
           '',
+          '[보기]',
+          String(examples || '없음'),
+          '',
           '[선택지]',
-          Array.isArray(options) ? options.map((opt, i) => `${i + 1}. ${String(opt)}`).join('\n') : '',
+          Array.isArray(options) && options.length > 0
+            ? options.map((opt, i) => `${i + 1}. ${String(opt)}`).join('\n')
+            : '없음(주관식/빈칸 문제)',
           '',
           `[사용자 선택] ${String(selectedAnswer || '없음')}`,
           `[정답] ${String(correctAnswer || '없음')}`,
