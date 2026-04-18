@@ -3,6 +3,7 @@ from fastapi import Depends, FastAPI, Request
 from pydantic import BaseModel, Field
 from .config import get_settings
 from .auth.internal_auth import verify_internal_request
+from .agent.runner import run_agent
 
 app = FastAPI(title="Core-CBT Agent API", version="0.1.0")
 
@@ -38,9 +39,10 @@ async def chat(
     body: ChatRequest,
     user_email: str = Depends(current_user_email),
 ):
-    # V1 Phase 1: echo only. Real implementation in Task 16.
-    return ChatResponse(
-        reply=f"[echo] {user_email} asked: {body.message}",
-        ui_actions=[],
-        turn_count=0,
+    result = await run_agent(
+        user_email=user_email,
+        source_session_id=body.source_session_id,
+        problem_number=body.problem_number,
+        user_message=body.message,
     )
+    return ChatResponse(**result)
