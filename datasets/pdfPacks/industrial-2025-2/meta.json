@@ -1,0 +1,14 @@
+{
+  "slug": "industrial-2025-2",
+  "title": "2025년 2회 정보처리산업기사 필기 (PDF 추출본)",
+  "kind": "pdf_exam",
+  "totalProblems": 60,
+  "pdfFileName": "2. 2025년2회_정보처리산업기사필기 기출문제.pdf",
+  "answerSource": "page6_key",
+  "answerCount": 60,
+  "explanationExtraction": {
+    "status": "placeholder",
+    "reason": "two_column_layout_boundary_loss",
+    "expertMarkerCount": 40
+  }
+}

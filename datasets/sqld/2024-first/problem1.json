@@ -1,0 +1,520 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "스키마에 대한 설명으로 적절한 것은?",
+        "options": [
+          "외부 스키마는 전체 조직의 관점을 통합한 것이다",
+          "개념 스키마는 전체를 통합한 조직 관점의 통합적 표현이다",
+          "내부 스키마는 사용자 관점에서 정의한 것이다",
+          "외부 스키마는 물리적 저장 구조를 표현한다"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "개념적 데이터 모델링에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "업무 요건을 충족하는 데이터 모델을 만든다",
+          "엔터티와 관계를 도출한다",
+          "추상화 수준이 높아 전사적 데이터 모델링에 활용된다",
+          "추상화 수준이 높아 전체 업무 파악이 어렵다"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다른 엔터티와 관계에 의해 생성되지 않고 독립적으로 존재하는 엔터티는?",
+        "options": [
+          "행위 엔터티",
+          "중심 엔터티",
+          "관계 엔터티",
+          "기본 엔터티"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "엔터티-인스턴스-속성-속성값의 관계 설명으로 적절한 것은?",
+        "options": [
+          "인스턴스와 속성은 M:M 관계이다",
+          "하나의 엔터티는 하나의 인스턴스만 가진다",
+          "하나의 속성은 여러 속성값을 가질 수 있다",
+          "하나의 인스턴스는 두 개 이상의 속성을 가지며, 하나의 속성은 하나의 속성값을 갖는다"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "FK(외래키)에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "FK는 부모 테이블의 PK를 참조한다",
+          "FK는 참조 무결성을 보장한다",
+          "FK는 내부식별자이다",
+          "FK는 자식 테이블에 생성된다"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "식별자 관계와 비식별자 관계의 표현으로 적절한 것은?",
+        "options": [
+          "식별관계는 점선, 비식별관계는 실선",
+          "비식별관계에서 자식은 부모에 완전 종속된다",
+          "식별관계는 실선, 비식별관계는 점선",
+          "식별관계에서 부모의 식별자는 자식의 일반 속성이 된다"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "정규형에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "제1정규형은 모든 속성이 원자값을 갖는 것이다",
+          "제2정규형은 부분 함수 종속을 제거한 것이다",
+          "제3정규형은 이행 함수 종속을 제거한 것이다",
+          "제3정규형은 제1, 제2정규형을 만족하지 않아도 된다"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "M:N 관계 해소 시 생성되는 것은?",
+        "options": [
+          "뷰(View)",
+          "교차(관계) 테이블",
+          "시퀀스",
+          "인덱스"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "기본키(PK) 생성에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "기본키는 테이블에 한 개 이상 생성할 수 있다",
+          "기본키는 NOT NULL이어야 한다",
+          "기본키는 고유한 값이어야 한다",
+          "기본키는 행을 유일하게 식별한다"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "모든 가능한 조합에 대해 소계를 생성하는 GROUP BY 확장 함수는?",
+        "options": [
+          "ROLLUP",
+          "GROUPING SETS",
+          "CUBE",
+          "GROUP BY"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "problems": [
+      {
+        "problem_number": 11,
+        "question_text": "SQL의 특징이 아닌 것은?",
+        "options": [
+          "구조적(Structured) 언어이다",
+          "집합적(Set-based) 언어이다",
+          "선언적(Declarative) 언어이다",
+          "절차적(Procedural) 언어이다"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "SQL 명령어 분류 중 적절하지 않은 것은?",
+        "options": [
+          "CREATE → DDL",
+          "SELECT → DML",
+          "INSERT → DCL",
+          "COMMIT → TCL"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "SELECT 문의 논리적 실행 순서로 올바른 것은?",
+        "options": [
+          "SELECT→FROM→WHERE→GROUP BY→HAVING→ORDER BY",
+          "FROM→SELECT→WHERE→GROUP BY→HAVING→ORDER BY",
+          "FROM→WHERE→GROUP BY→HAVING→ORDER BY→SELECT",
+          "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "서브쿼리에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "서브쿼리는 메인쿼리의 컬럼을 사용할 수 있다",
+          "서브쿼리는 괄호로 감싸서 사용한다",
+          "서브쿼리 테이블의 컬럼을 메인쿼리에서 사용할 수 있다",
+          "서브쿼리는 단일행 또는 다중행을 반환할 수 있다"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "순위 함수 결과가 1, 2, 2, 3 형태로 동순위 후 순차 등수를 부여하는 함수는?",
+        "options": [
+          "RANK()",
+          "DENSE_RANK()",
+          "ROW_NUMBER()",
+          "NTILE()"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "트랜잭션 특성 중 동시 실행 시 다른 트랜잭션에 영향받지 않는 특성은?",
+        "options": [
+          "원자성(Atomicity)",
+          "일관성(Consistency)",
+          "고립성(Isolation)",
+          "지속성(Durability)"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "차집합 연산을 수행하는 집합 연산자는?",
+        "options": [
+          "UNION",
+          "INTERSECT",
+          "UNION ALL",
+          "EXCEPT"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "세 번째 글자가 L인 문자열을 찾는 LIKE 패턴은?",
+        "options": [
+          "%L%",
+          "L__%",
+          "__L%",
+          "_L%"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "COALESCE 함수 설명으로 적절한 것은?",
+        "options": [
+          "NULL을 0으로 변환한다",
+          "인자를 순서대로 확인하여 첫 번째 NULL이 아닌 값을 반환한다",
+          "두 인자만 받을 수 있다",
+          "COALESCE(NULL, NULL)은 0을 반환한다"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "SUM(COALESCE(C1, C2, C3)) 결과는?",
+        "options": [
+          "0",
+          "1",
+          "6",
+          "14"
+        ],
+        "examples": "C1: 1, NULL, NULL / C2: 2, 2, NULL / C3: 3, 3, 3"
+      },
+      {
+        "problem_number": 21,
+        "question_text": "NVL(100, 0) + NVL(NULL, 0)의 결과는?",
+        "options": [
+          "NULL",
+          "0",
+          "100",
+          "에러 발생"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "주문을 한 번도 하지 않은 회원을 찾는 SQL로 적절한 것은?",
+        "options": [
+          "WHERE id IN (SELECT id FROM 주문)",
+          "WHERE id = (SELECT id FROM 주문)",
+          "WHERE EXISTS (SELECT 1 FROM 주문 WHERE 회원.id = 주문.id)",
+          "WHERE NOT EXISTS (SELECT 1 FROM 주문 WHERE 회원.id = 주문.id)"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "부모 행 삭제 시 자식 행도 함께 삭제되는 옵션은?",
+        "options": [
+          "RESTRICT",
+          "SET NULL",
+          "CASCADE",
+          "NO ACTION"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "CTAS에서 복제되는 제약조건은?",
+        "options": [
+          "PK, FK, CHECK 등 모든 제약조건",
+          "NOT NULL 제약조건만",
+          "FK만",
+          "아무 제약조건도 복제되지 않음"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "AVG(COL)과 AVG(NVL(COL,0)) 결과가 다른 이유는?",
+        "options": [
+          "AVG가 NULL을 0으로 자동 치환하기 때문",
+          "NVL이 집계에 영향 없기 때문",
+          "AVG(COL)은 NULL 행을 분모에서 제외하고, AVG(NVL(COL,0))은 전체 행 수로 나누기 때문",
+          "두 결과는 항상 동일하다"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "NATURAL JOIN 설명으로 적절하지 않은 것은?",
+        "options": [
+          "동일 이름 컬럼을 자동으로 조인한다",
+          "조인 컬럼에 별칭을 사용할 수 없다",
+          "USING, ON을 함께 사용할 수 있다",
+          "동일 이름 컬럼이 여러 개이면 모두 조인 조건이 된다"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "WHERE NOT (COL <= 2)에서 NULL 포함 시? 데이터: NULL, 1, NULL, 3, 4",
+        "options": [
+          "NULL, 3, 4",
+          "3, 4",
+          "NULL, 1, 3, 4",
+          "1, 3, 4"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "ROLE에 대한 설명으로 적절한 것은?",
+        "options": [
+          "ROLE은 DDL 명령어이다",
+          "ROLE은 GRANT로 부여하고 REVOKE로 회수한다",
+          "ROLE은 다른 ROLE에 부여할 수 없다",
+          "ROLE은 회수할 수 없다"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "MERGE문 설명으로 적절한 것은?",
+        "options": [
+          "INSERT만 수행 가능",
+          "DDL 명령어이다",
+          "조건에 따라 UPDATE와 INSERT를 수행한다",
+          "ROLLBACK이 불가능하다"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "순방향 계층형 쿼리에서 PRIOR 위치는?",
+        "options": [
+          "ㄱ 위치",
+          "ㄴ 위치",
+          "양쪽 모두",
+          "없어도 동작"
+        ],
+        "examples": "CONNECT BY (ㄱ) MGR = (ㄴ) EMP"
+      },
+      {
+        "problem_number": 31,
+        "question_text": "SELECT 결과에서 중복을 제거하는 키워드는?",
+        "options": [
+          "ALL",
+          "DISTINCT",
+          "UNIQUE",
+          "TOP"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "날짜 형식에서 MI의 의미는?",
+        "options": [
+          "월(Month)",
+          "분(Minute)",
+          "밀리초",
+          "마이크로초"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "NOT IN에 NULL 포함 시?",
+        "options": [
+          "NULL",
+          "0",
+          "1",
+          "3"
+        ],
+        "examples": "T_A: 1, 2, NULL / T_B: 1, 2, 3\nSELECT COUNT(*) FROM T_B WHERE COL NOT IN (SELECT COL FROM T_A)"
+      },
+      {
+        "problem_number": 34,
+        "question_text": "IN절에 NULL 포함 시?",
+        "options": [
+          "A, B, C, NULL",
+          "A, B",
+          "A, B, NULL",
+          "NULL"
+        ],
+        "examples": "WHERE COL IN ('A','B', NULL) / 데이터: A, B, C, NULL"
+      },
+      {
+        "problem_number": 35,
+        "question_text": "결과가 다른 NULL 처리 함수는?",
+        "options": [
+          "CASE WHEN COL IS NULL THEN -1 ELSE 0 END",
+          "DECODE(COL, NULL, -1, 0)",
+          "NVL2(COL, 0, -1)",
+          "CASE COL WHEN NULL THEN -1 ELSE 0 END"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "셀프조인을 수행하는 경우는?",
+        "options": [
+          "두 테이블 내에 컬럼 연관관계가 있는 경우",
+          "두 테이블 내에 연관관계 없이 Join 필요 시",
+          "한 테이블 내에 컬럼 연관관계가 있는 경우",
+          "한 테이블 내에 연관관계 없이 Join 필요 시"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "조건 데이터 없을 때 일반 SELECT vs 집계함수 SELECT?",
+        "options": [
+          "NULL, NULL",
+          "NULL, 공집합",
+          "공집합, NULL",
+          "공집합, 공집합"
+        ],
+        "examples": "SELECT COL1 WHERE COL1='z' → ? / SELECT MAX(COL1) WHERE COL1='z' → ?"
+      },
+      {
+        "problem_number": 38,
+        "question_text": "10행×10행 카테시안 곱 결과는?",
+        "options": [
+          "10",
+          "20",
+          "100",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "TRUNCATE 설명으로 적절한 것은?",
+        "options": [
+          "구조와 데이터 모두 삭제",
+          "WHERE로 특정 행 삭제 가능",
+          "특정 행만 삭제 불가능",
+          "DELETE보다 성능이 떨어진다"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "REGEXP_SUBSTR('aaaaabbbb', 'a{2,4}') 결과는?",
+        "options": [
+          "aaa",
+          "aaaa",
+          "ab",
+          "aab"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "급여 높은 순 정렬에서 수정할 부분은?",
+        "options": [
+          "SELECT절",
+          "WHERE절",
+          "GROUP BY절",
+          "ORDER BY절 (DESC 추가)"
+        ],
+        "examples": "ORDER BY SUM(SALARY) — 높은 순으로 정렬해야 함"
+      },
+      {
+        "problem_number": 42,
+        "question_text": "ROLLBACK 설명으로 적절하지 않은 것은?",
+        "options": [
+          "변경사항을 취소한다",
+          "SAVEPOINT로 특정 지점까지 가능",
+          "COMMIT 이전으로 롤백할 수 있다",
+          "DML 결과를 원래 상태로 복구"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "연산자 우선순위가 가장 높은 것은?",
+        "options": [
+          "비교 연산자",
+          "괄호 ()",
+          "AND",
+          "OR"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "CEIL(9.36), ROUND(9.48), FLOOR(9.72) 결과는?",
+        "options": [
+          "9, 9, 9",
+          "10, 9, 9",
+          "9, 9, 10",
+          "10, 10, 9"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "COUNT(ALL COL1)과 COUNT(DISTINCT COL1) 결과는?",
+        "options": [
+          "2, 3",
+          "3, 3",
+          "3, 4",
+          "4, 4"
+        ],
+        "examples": "데이터: (1,A),(2,B),(3,C),(4,D),(1,A),(2,B),(3,A)\nSELECT COUNT(ALL COL1) WHERE COL2='A';\nSELECT COUNT(DISTINCT COL1);"
+      },
+      {
+        "problem_number": 46,
+        "question_text": "COALESCE(NULL, NULL, 'S', NULL, 'QL') 결과는?",
+        "options": [
+          "S",
+          "SQL",
+          "NULL",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "교집합 연산자는?",
+        "options": [
+          "UNION",
+          "INTERSECT",
+          "MINUS",
+          "EXCEPT"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "트랜잭션의 All or Nothing 특성은?",
+        "options": [
+          "원자성",
+          "고립성",
+          "일관성",
+          "지속성"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "SAVEPOINT 후 COMMIT 후 결과는?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "examples": "INSERT 3건→SP1→UPDATE COL1=4(COL2<=2)→SP2→DELETE(COL2=2)→ROLLBACK TO SP2→INSERT(4,1)→COMMIT\nSELECT COUNT(*) WHERE COL1=4;"
+      },
+      {
+        "problem_number": 50,
+        "question_text": "동일 컬럼명이 없는 두 테이블의 NATURAL JOIN 결과는?",
+        "options": [
+          "오류 발생",
+          "공집합(0건)",
+          "INNER JOIN과 동일",
+          "카테시안 곱"
+        ]
+      }
+    ]
+  }
+]

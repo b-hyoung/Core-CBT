@@ -1,0 +1,312 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "응용 스키마",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 3,
+        "correct_answer_text": "업무 규칙이 모델에 포함되지 않아도 된다",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "관계 엔터티",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "파생 속성",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 3,
+        "correct_answer_text": "가, 나, 다, 라",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄷ은 ㄱ과 ㄴ을 합한 것과 의미가 같다",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 2,
+        "correct_answer_text": "본질식별자",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "제2정규형",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "정규화 시 유연성이 떨어진다",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "괄호",
+        "correct_answer_symbol": "②"
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "answers": [
+      {
+        "problem_number": 11,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3, 4",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 3,
+        "correct_answer_text": "FULL OUTER JOIN",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "COL3 >= 200 AND COL4 <= 200",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 1,
+        "correct_answer_text": "20",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "S",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "10, 9, 9",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 1,
+        "correct_answer_text": "3, 30",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 1,
+        "correct_answer_text": "INTERSECT",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "특정 행만 삭제 불가능",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "FROM EMP (무조건)",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "CASE COL WHEN NULL THEN -1 ELSE 0 END",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "한 테이블 컬럼 연관관계",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "공집합, NULL",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 1,
+        "correct_answer_text": "aaaa",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 1,
+        "correct_answer_text": "UNION ALL",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ORDER BY절",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 2,
+        "correct_answer_text": "COMMIT 이전으로 롤백 가능",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 2,
+        "correct_answer_text": "FROM-WHERE-GROUP BY-HAVING-SELECT-ORDER BY",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "DENSE_RANK()",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 0,
+        "correct_answer_text": "원자성",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "0",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "UPDATE SET COL1=NULL",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "LEFT JOIN A.MGR_ID=B.EMP_ID",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 2,
+        "correct_answer_text": "100",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 3,
+        "correct_answer_text": "15",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2 ✓",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 1,
+        "correct_answer_text": "FK는 여러 개 가능",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 3,
+        "correct_answer_text": "REGEXP_INSTR",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 1,
+        "correct_answer_text": "부서 미소속 사원 제외",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ORDER BY에 DESC 추가",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 1,
+        "correct_answer_text": "ROLLUP()",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 3,
+        "correct_answer_text": "CUBE()",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "④",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 2,
+        "correct_answer_text": "③",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "②",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 3,
+        "correct_answer_text": "④",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 1,
+        "correct_answer_text": "②",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 3,
+        "correct_answer_text": "④",
+        "correct_answer_symbol": "④"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 2,
+        "correct_answer_text": "③",
+        "correct_answer_symbol": "③"
+      }
+    ]
+  }
+]

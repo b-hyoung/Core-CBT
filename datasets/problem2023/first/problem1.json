@@ -1,0 +1,618 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "소프트웨어 아키텍처 설계 시 고려사항이 아닌 것은?",
+        "options": [
+          "개발자와 사용자 간의 의사소통 도구로 활용될 수 있어야 한다.",
+          "이해하기 쉽고, 명확하게 작성해야 한다.",
+          "재사용이 불가능하도록 설계해야 한다.",
+          "이해 관계자들의 품질 요구사항을 반영하여 품질 속성을 결정 한다."
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "사용자와 시스템이 정보를 주고받는 상호 작용이 잘 이루어지 도록 하는 장치나 소프트웨어를 의미한다.",
+          "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+          "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+          "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음 중 배치(Placement) 전략에 대한 설명으로 옳은 것은?",
+        "options": [
+          "새로 반입된 프로그램을 주기억장치의 어디에 위치시킬 것인 가를 결정하는 전략이다.",
+          "주기억장치에 넣을 다음 프로그램이나 데이터를 보조기억장치 에서 주기억장치로 언제 가져올 것인가를 결정하는 전략이다.",
+          "새로 주기억장치에 배치되어야 할 프로그램이 적재될 장소를 마련하기 위해 어떤 프로그램이나 데이터를 제거할 지 결정하 는 전략이다.",
+          "실행 중인 프로그램에 의해 참조될 프로그램이나 데이터를 미 리 예상하여 적재하는 전략이다."
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "OSI 7계층 중 데이터 링크 계층의 프로토콜에 해당하지 않는 것은?",
+        "options": [
+          "HDLC",
+          "PPP",
+          "LLC",
+          "UDP"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "디렉터리 구조 중 중앙에 마스터 파일 디렉터리가 있고, 그 아래에 사용자별로 서로 다른 파일 디렉터리가 있는 구조는?",
+        "options": [
+          "1단계 디렉터리 구조",
+          "2단계 디렉터리 구조",
+          "트리 디렉터리 구조",
+          "비순환 그래프 디렉터리 구조"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "한 객체의 상태가 변화하면 객체에 상속되어 있는 다른 객체들에게 변화된 상태를 전달하는 패턴은?",
+        "options": [
+          "State",
+          "Observer",
+          "Visitor",
+          "Mediator"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "세그먼테이션(Segmentation) 기법에 대한 설명으로 옳은 것은?",
+        "options": [
+          "프로그램을 가변적인 크기의 논리적인 단위로 나눈다.",
+          "외부 단편화는 발생하지 않으나 내부 단편화는 발생할 수 있다.",
+          "주소 변환을 위해서 페이지의 위치 정보를 가지고 있는 페이지 맵 테이블(Page Map Table)이 필요하다.",
+          "페이지 맵 테이블 사용으로 비용이 증가되고, 처리 속도가 감소 된다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "세마포어(Semaphore)에 관한 설명 중 옳지 않은 것은?",
+        "options": [
+          "상호배제 문제를 해결하기 위하여 사용된다.",
+          "정수의 변수로서 양의 값만을 가진다.",
+          "여러 개의 프로세스가 동시에 그 값을 수정하지 못한다.",
+          "세마포어에 대한 연산은 처리 도중에 인터럽트 되어서는 안된다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "객체지향 기법의 캡슐화(Encapsulation)에 대한 설명으로 틀린 것 은?",
+        "options": [
+          "객체 간의 결합도가 높아진다.",
+          "변경 발생 시 오류의 파급 효과가 적다.",
+          "소프트웨어 재사용성이 높아진다.",
+          "인터페이스가 단순화된다."
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "UNIX 시스템에서 파일의 권한 모드 설정에 관한 명령어는?",
+        "options": [
+          "chmod",
+          "cp",
+          "ls",
+          "chown"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 중 빌드 자동화 도구가 아닌 것은?",
+        "options": [
+          "Fedora",
+          "Gradle",
+          "Jenkins",
+          "Maven"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "LAN의 한 종류인 100Base-T 네트워크에서 사용되는 전송 매체는?",
+        "options": [
+          "Coaxial cable",
+          "Optical cable",
+          "UTP cable",
+          "Microwave cable"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "현재 헤드의 위치가 50에 있고, 요청 대기열에는 아래와 같은 순서로 들어 있다고 가정할 때 FCFS 스케줄링 알고리즘에 의한 헤드의 총 이동 거리는 얼마인가? 100, 180, 40, 120, 0, 130, 70, 80, 150, 200",
+        "options": [
+          "790",
+          "380",
+          "370",
+          "250"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "객체 지향 개념에서 이미 정의되어 있는 상위 클래스(수퍼 클래스 혹은 부모 클래스)의 메소드를 비롯한 모든 속성을 하위 클래스가 물려 받는 것을 무엇이라고 하는가?",
+        "options": [
+          "Abstraction",
+          "Method",
+          "Inheritance",
+          "Message"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "SJF(Shortest Job First) 스케줄링에서 작업 도착 시간과 CPU 사용 시간은 다음 표와 같다. 모든 작업들의 평균 대기 시간은 얼마인가?",
+        "options": [
+          "15",
+          "17",
+          "24",
+          "25"
+        ],
+        "examples": "작업|도착 시간|CPU 사용시간\n1|0|23\n2|3|35\n3|8|10"
+      },
+      {
+        "problem_number": 16,
+        "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+        "options": [
+          "IPv6 주소는 128비트로 구성된다.",
+          "인증 및 보안 기능을 포함하고 있다.",
+          "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+          "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "관계 대수 중 순수 관계 연산이 아닌 것은?",
+        "options": [
+          "Difference",
+          "Join",
+          "Select",
+          "Project"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "기업의 소프트웨어 인프라인 정보 시스템을 공유와 재사용이 가능한 서비스 단위나 컴포넌트 중심으로 구축하는 정보기술 아키텍처는?",
+        "options": [
+          "SSO",
+          "MEMS",
+          "SaaS",
+          "SOA"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "루프 검사(Loop Test)에서 찾아볼 수 있는 4가지 반복 구조가 아닌 것은?",
+        "options": [
+          "단순 반복",
+          "중첩 반복",
+          "구조적 반복",
+          "비구조적 반복"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 중 가장 결합도가 강한 것은?",
+        "options": [
+          "Data Coupling",
+          "Stamp Coupling",
+          "Content Coupling",
+          "Control Coupling"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "한 모듈이 다른 모듈의 내부 자료를 직접적으로 참조하는 경우의 결합도를 의미하는 것은?",
+        "options": [
+          "내용 결합도",
+          "외부 결합도",
+          "스탬프 결합도",
+          "자료 결합도"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "특정 모듈에 대해서 존재하는 처리 요소들 간의 기능적 연관성을 의미하는 것으로 입력이나 에러 처리 같은 유사한 기능을 행하는 요소끼리 하나의 요소로 묶는 응집도는?",
+        "options": [
+          "교환적 응집도",
+          "순차적 응집도",
+          "논리적 응집도",
+          "절차적 응집도"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "시스템 기능이나 설계, 구현 단계에서의 문제점 등으로 인해 시스템 이 가지게 되는 보안 취약점을 가리키는 용어는?",
+        "options": [
+          "Vulnerability",
+          "Security",
+          "Dependability",
+          "Reliability"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "다음 C언어의 함수 중 키보드로 문자 하나를 입력받아 변수에 저장하 는 함수는?",
+        "options": [
+          "gets( )",
+          "putchar( )",
+          "puts( )",
+          "getchar( )"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "프레임워크(Framework)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "개발표준에 의한 모듈화로 유지보수가 용이하다.",
+          "재사용 모듈을 제공하여 생산성이 향상된다.",
+          "인터페이스 확장을 통해 다양한 형태와 기능을 가진 애플리케 이션 개발이 가능하다.",
+          "라이브러리와 같이 객체들을 사용자가 직접 관리하고 통제해 야 한다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "다음 중 빌드 도구가 아닌 것은?",
+        "options": [
+          "Zeplin",
+          "Ant",
+          "Maven",
+          "Gradle"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "자바스크립트에서 배열에 데이터를 입력하고자 할 때 사용하는 메소드는?",
+        "options": [
+          "push",
+          "add",
+          "pop",
+          "shift"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "다음은 아이디와 패스워드를 입력하는 로그인 창을 자바스크립트로 구현한 것이다. 괄호(㉠, ㉡)에 들어갈 적합한 속성은? <html> <head> <title>Login</title> </head> <body> <form ( ㉠ )=\"post\" ( ㉡ )=\"log01.jsp\"> <p>ID:<input type=\"text\" name=\"id\"></p> <p>PW:<input type=\"password\" name=\"pw\"></p> <p><input type=\"submit\" value=\"Send\"></p> </form> </body> </html>",
+        "options": [
+          "㉠-method, ㉡-action",
+          "㉠-action, ㉡-function",
+          "㉠-function, ㉡-name",
+          "㉠-name, ㉡-method"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "공통 모듈의 재사용 범위에 따른 분류가 아닌 것은?",
+        "options": [
+          "컴포넌트 재사용",
+          "더미코드 재사용",
+          "함수와 객체 재사용",
+          "애플리케이션 재사용"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "스크립트 언어가 아닌 것은?",
+        "options": [
+          "PHP",
+          "Cobol",
+          "Basic",
+          "Python"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "바람직한 소프트웨어 설계 지침이 아닌 것은?",
+        "options": [
+          "적당한 모듈의 크기를 유지한다.",
+          "모듈 간의 접속 관계를 분석하여 복잡도와 중복을 줄인다.",
+          "모듈 간의 결합도는 강할수록 바람직하다.",
+          "모듈 간의 효과적인 제어를 위해 설계에서 계층적 자료 조직이 제시되어야 한다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "추상 클래스에 대한 설명으로 틀린 것은?",
+        "options": [
+          "자식 클래스에서 구현하려는 기능들의 공통점만을 모은 것이다.",
+          "인스턴스 생성이 불가능하다.",
+          "부모 클래스에서 상속받아 구체화한다.",
+          "자식 클래스의 인스턴스를 생성하는 방식으로 사용한다."
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음 중 C언어에서의 변수 선언 방법으로 올바르지 않은 것은?",
+        "options": [
+          "int a, b = 10;",
+          "char c;",
+          "unsigned long d = 2;",
+          "unsigned double e = -3.14"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "HTML5의 <input> 태그에서 반드시 입력되어야 할 필드를 만들 때 사용하는 속성은?",
+        "options": [
+          "essential",
+          "required",
+          "expected",
+          "fill"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때의 결과는? #include <stdio.h> void func(int* p) { *p = *p - 5; } main() { int a = 13; func(&a); printf(\"%d\", a); }",
+        "options": [
+          "-5",
+          "3",
+          "8",
+          "13"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음 중 커서를 왼쪽으로 한 칸 이동하는 제어문자는?",
+        "options": [
+          "＼n",
+          "＼b",
+          "＼t",
+          "＼a"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "정보 보안의 3대 요소에 해당하지 않는 것은?",
+        "options": [
+          "휘발성",
+          "기밀성",
+          "무결성",
+          "가용성"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "다음 자바 프로그램 조건문에 대해 삼항 조건 연산자를 사용하여 옳게 나타낸 것은? if (a > b) max = a; else if (a <= b) max = b;",
+        "options": [
+          "max = (a > b) ? a : b;",
+          "(a > b) ? max = a : max = b;",
+          "max = (a <= b) ? a : b;",
+          "(a <= b) ? max = a : max = b;"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "HTML이 호출될 때 자바스크립트를 이용하여 안내 문구를 전달하고 싶은 경우 사용할 수 있는 메소드는?",
+        "options": [
+          "alert",
+          "prompt",
+          "input",
+          "scan"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "외부 변수(External Variable)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "외부 변수는 함수 밖에서 선언한다.",
+          "초기화하지 않으면 자동으로 0으로 초기화 된다.",
+          "함수가 종료되면 값도 소멸된다.",
+          "다른 파일에서 선언된 변수를 참조할 경우 초기화 할 수 없다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스의 활용",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "다음과 같은 테이블이 있다. 이 릴레이션의 차수는? 학번(SNO) 이름(SNAME) 학년(YEAR) 학과(DEPT) 100 홍길동 4 전기 200 임꺽정 1 컴퓨터 300 이몽룡 2 전자 400 강감찬 4 제어계측 500 김유신 3 컴퓨터",
+        "options": [
+          "500",
+          "24",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "다음 중 교차곱을 의미하는 기호는?",
+        "options": [
+          "∪",
+          "∩",
+          "-",
+          "×"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "릴레이션에 관한 설명 중 옳은 내용 모두를 나열한 것은? ㉠ 하나의 릴레이션에서 튜플의 순서는 존재한다. ㉡ 한 릴레이션에 나타난 속성 값은 논리적으로 분해 가 능한 값이어야 한다. ㉢ 한 릴레이션 내의 튜플은 중복 가능하다. ㉣ 각 속성은 릴레이션 내에서 유일한 이름을 가진다.",
+        "options": [
+          "㉠",
+          "㉣",
+          "㉡, ㉢",
+          "㉡, ㉢, ㉣"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "다음 트리를 전위 순서(Pre-order)로 운행한 결과는?",
+        "options": [
+          "A B C D E F G H",
+          "D B G H E F C A",
+          "A B D C E G H F",
+          "B D G H E F A C"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "뷰(View)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "뷰로 구성된 내용에 대하여 삽입, 삭제, 갱신 연산에 제약이 없다.",
+          "실제 저장된 데이터 중에서 사용자가 필요한 내용만을 선별해 서 볼 수 있다.",
+          "데이터 접근 제어로 보안을 제공한다.",
+          "실제로는 존재하지 않는 가상의 테이블이다."
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "제2정규형에서 제3정규형이 되기 위한 조건은?",
+        "options": [
+          "원자 값이 아닌 도메인을 분해",
+          "부분 함수 종속 제거",
+          "이행 함수 종속 제거",
+          "후보 키를 통하지 않은 조인 종속 제거"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "SQL 명령어 중 DDL에 해당하는 것은?",
+        "options": [
+          "SELECT",
+          "UPDATE",
+          "DELETE",
+          "ALTER"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "삽입 정렬을 사용하여 다음의 자료를 오름차순으로 정렬하고자 한다. 2회전 후의 결과는? 5, 4, 3, 2, 1",
+        "options": [
+          "4, 5, 3, 2, 1",
+          "2, 3, 4, 5, 1",
+          "3, 4, 5, 2, 1",
+          "1, 2, 3, 4, 5"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "관계 데이터 모델에서 하나의 애트리뷰트(Attribute)가 취할 수 있는 모든 원자값들의 집합을 무엇이라고 하는가?",
+        "options": [
+          "도메인",
+          "스키마",
+          "튜플",
+          "엔티티"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "자료를 구조에 따라 분류할 경우, 성격이 나머지 셋과 다른 하나는?",
+        "options": [
+          "스택",
+          "그래프",
+          "큐",
+          "데크"
+        ]
+      },
+      {
+        "problem_number": 51,
+        "question_text": "양쪽 끝에서 노드의 삽입과 삭제가 허용되는 선형 리스트는?",
+        "options": [
+          "스택(Stack)",
+          "큐(Queue)",
+          "데크(Deque)",
+          "연결 리스트(Linked List)"
+        ]
+      },
+      {
+        "problem_number": 52,
+        "question_text": "해싱에서 서로 다른 두 개 이상의 레코드가 동일한 주소를 갖는 현상을 의미하는 것은?",
+        "options": [
+          "Synonym",
+          "Collision",
+          "Bucket",
+          "Slot"
+        ]
+      },
+      {
+        "problem_number": 53,
+        "question_text": "STUDENT 릴레이션에 대한 SELECT 권한을 모든 사용자에게 허가하 는 SQL 명령문은?",
+        "options": [
+          "GRANT SELECT FROM STUDENT TO PROTECT;",
+          "GRANT SELECT ON STUDENT TO PUBLIC;",
+          "GRANT SELECT FROM STUDENT TO ALL;",
+          "GRANT SELECT ON STUDENT TO ALL;"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "트랜잭션(Transaction)의 특성에 해당하지 않는 것은?",
+        "options": [
+          "Atomicity",
+          "Consistency",
+          "Isolation",
+          "Distribution"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "한 릴레이션의 기본키를 구성하는 어떠한 속성 값도 널(null) 값이나 중복 값을 가질 수 없다는 것을 의미하는 것은?",
+        "options": [
+          "참조 무결성 제약 조건",
+          "주소 무결성 제약 조건",
+          "원자값 무결성 제약 조건",
+          "개체 무결성 제약 조건"
+        ]
+      },
+      {
+        "problem_number": 56,
+        "question_text": "SQL 문에서 테이블 생성에 사용되는 문장은?",
+        "options": [
+          "CREATE",
+          "ALTER",
+          "SELECT",
+          "DROP"
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "개체-관계 모델의 E-R 다이어그램에서 속성을 의미하는 그래픽 표현은?",
+        "options": [
+          "사각형",
+          "타원",
+          "마름모",
+          "삼각형"
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "데이터베이스 설계 단계 중 물리적 설계 단계와 거리가 먼 것은?",
+        "options": [
+          "저장 레코드 양식 설계",
+          "스키마의 평가 및 정제",
+          "레코드 집중의 분석 및 설계",
+          "접근 경로 설계"
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "시스템 카탈로그에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "시스템 자체에 관련 있는 다양한 객체에 관한 정보를 포함하는 시스템 데이터베이스이다.",
+          "카탈로그들이 생성되면 자료 사전에 저장되기 때문에 좁은 의 미로는 자료 사전이라고도 한다.",
+          "무결성 확보를 위하여 일반 사용자는 내용을 검색할 수 없다.",
+          "기본 테이블, 뷰, 인덱스, 패키지, 접근 권한 등의 정보를 저장 한다."
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "학생 테이블에서 학번이 “1144077”인 학생의 학년을 “2”로 수정하기 위한 SQL 질의어는?",
+        "options": [
+          "UPDATE 학년=“2” FROM 학생 WHERE 학번=“1144077”;",
+          "UPDATE 학생 SET 학년=“2” WHERE 학번=“1144077”;",
+          "REPLACE FROM 학생 SET 학년=“2” WHERE 학번 =“1144077”;",
+          "REPLACE 학년=“2” SET 학생 WHEN 학번=“1144077”;"
+        ]
+      }
+    ]
+  }
+]

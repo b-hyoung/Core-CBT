@@ -1,0 +1,212 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "comments": [
+      {
+        "problem_number": 1,
+        "comment": "데이터 관점(What)은 어떤 데이터와 관련이 있는지를 모델링한다."
+      },
+      {
+        "problem_number": 2,
+        "comment": "발생 시점: 기본, 중심, 행위 엔터티. 유형 엔터티는 유무형에 따른 분류."
+      },
+      {
+        "problem_number": 3,
+        "comment": "속성 수와 관계없이, 원래 식별자가 복잡할 때만 사용한다."
+      },
+      {
+        "problem_number": 4,
+        "comment": ""
+      },
+      {
+        "problem_number": 5,
+        "comment": ""
+      },
+      {
+        "problem_number": 6,
+        "comment": "개체 무결성=PK, 참조 무결성=FK, 도메인 무결성=CHECK."
+      },
+      {
+        "problem_number": 7,
+        "comment": "직선(—)=필수, 원(○)=선택."
+      },
+      {
+        "problem_number": 8,
+        "comment": "데이터 모델은 트랜잭션도 표현할 수 있다."
+      },
+      {
+        "problem_number": 9,
+        "comment": "상호배타 관계에서도 배타적 상속은 가능하다."
+      },
+      {
+        "problem_number": 10,
+        "comment": "1:1, 1:M, M:N 등."
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "comments": [
+      {
+        "problem_number": 11,
+        "comment": ""
+      },
+      {
+        "problem_number": 12,
+        "comment": ""
+      },
+      {
+        "problem_number": 13,
+        "comment": "(3500,8)만 두 조건 모두 만족."
+      },
+      {
+        "problem_number": 14,
+        "comment": "COALESCE('AB','CD')='AB' (NOT NULL)."
+      },
+      {
+        "problem_number": 15,
+        "comment": ""
+      },
+      {
+        "problem_number": 16,
+        "comment": ""
+      },
+      {
+        "problem_number": 17,
+        "comment": "명시적으로 NULL 입력하면 NULL 저장됨. DEFAULT는 값 미지정 시만 적용."
+      },
+      {
+        "problem_number": 18,
+        "comment": ""
+      },
+      {
+        "problem_number": 19,
+        "comment": ""
+      },
+      {
+        "problem_number": 20,
+        "comment": "DELETE는 구조 유지, DROP은 구조까지 삭제. 완전히 다르다."
+      },
+      {
+        "problem_number": 21,
+        "comment": ""
+      },
+      {
+        "problem_number": 22,
+        "comment": "왼쪽부터 'a' 제거."
+      },
+      {
+        "problem_number": 23,
+        "comment": ""
+      },
+      {
+        "problem_number": 24,
+        "comment": "별칭 지정 후 원래 테이블명으로 참조 불가. 반드시 별칭 사용."
+      },
+      {
+        "problem_number": 25,
+        "comment": ""
+      },
+      {
+        "problem_number": 26,
+        "comment": "<= ALL = 모든 값보다 작거나 같다 → 최솟값(15) 이하."
+      },
+      {
+        "problem_number": 27,
+        "comment": ""
+      },
+      {
+        "problem_number": 28,
+        "comment": ""
+      },
+      {
+        "problem_number": 29,
+        "comment": ""
+      },
+      {
+        "problem_number": 30,
+        "comment": ""
+      },
+      {
+        "problem_number": 31,
+        "comment": "ROWNUM은 정렬 전에 부여되므로, 서브쿼리에서 정렬 후 필터해야 함."
+      },
+      {
+        "problem_number": 32,
+        "comment": ""
+      },
+      {
+        "problem_number": 33,
+        "comment": ""
+      },
+      {
+        "problem_number": 34,
+        "comment": ""
+      },
+      {
+        "problem_number": 35,
+        "comment": ""
+      },
+      {
+        "problem_number": 36,
+        "comment": "NULL=NULL은 UNKNOWN → 값 1만 매칭 → 1건."
+      },
+      {
+        "problem_number": 37,
+        "comment": ""
+      },
+      {
+        "problem_number": 38,
+        "comment": ""
+      },
+      {
+        "problem_number": 39,
+        "comment": ""
+      },
+      {
+        "problem_number": 40,
+        "comment": "(.)\\1은 같은 문자 연속 2번. 첫 매칭 = 'aa'."
+      },
+      {
+        "problem_number": 41,
+        "comment": "COMMIT으로 SP 무효화. ROLLBACK TO SP → 에러. COMMIT된 5건 유지."
+      },
+      {
+        "problem_number": 42,
+        "comment": "물리학, 수학 = 2건."
+      },
+      {
+        "problem_number": 43,
+        "comment": ""
+      },
+      {
+        "problem_number": 44,
+        "comment": ""
+      },
+      {
+        "problem_number": 45,
+        "comment": "MIN=10, MAX(TO_CHAR)='90'. + 연산 시 '90'→90 묵시적 형변환. 10+90=100."
+      },
+      {
+        "problem_number": 46,
+        "comment": "0/300=0, 300/0=에러(ORA-01476), 100/NULL=NULL."
+      },
+      {
+        "problem_number": 47,
+        "comment": ""
+      },
+      {
+        "problem_number": 48,
+        "comment": ""
+      },
+      {
+        "problem_number": 49,
+        "comment": ""
+      },
+      {
+        "problem_number": 50,
+        "comment": ""
+      }
+    ]
+  }
+]

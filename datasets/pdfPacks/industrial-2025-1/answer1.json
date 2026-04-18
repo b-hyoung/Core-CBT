@@ -1,0 +1,317 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SJF, FIFO"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 3,
+        "correct_answer_text": "블랙박스 테스트의 종류에는 기초 경로 검사, 제어 구조 검사 등이 있다."
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 1,
+        "correct_answer_text": "50"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 1,
+        "correct_answer_text": "트리 디렉터리 구조"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "의존(Dependency) 관계 : 하나의 사물이 다른 사물에 포함되어 있는 관계를 표현한다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 2,
+        "correct_answer_text": "명확성 : 사용자가 개념적으로 쉽게 인지할 수 있도록 설계해야 한다."
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 1,
+        "correct_answer_text": "모듈의 수가 증가하면 상대적으로 각 모듈의 크기가 커지며, 모듈 사이의 상호 교류가 감소하여 과부하(Overload) 현상이 나타난다."
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 3,
+        "correct_answer_text": "주기억장치를 보조기억장치처럼 사용한다."
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Method"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Fedora"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "㉮ → ㉱ → ㉰ → ㉯"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "해밍(Hamming) 코드"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 3,
+        "correct_answer_text": "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Debugging"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Capability List"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 1,
+        "correct_answer_text": "단위 테스트 → 통합 테스트 → 시스템 테스트 → 인수 테스트"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 2,
+        "correct_answer_text": "UML"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 1,
+        "correct_answer_text": "정수의 변수로서 양의 값만을 가진다."
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Join"
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "answers": [
+      {
+        "problem_number": 21,
+        "correct_answer_index": 1,
+        "correct_answer_text": "㉠ form, ㉡ method, ㉢ action, ㉣ /form"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "컴포지션"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 3,
+        "correct_answer_text": "응집도를 최소화 한다."
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "int"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 3,
+        "correct_answer_text": "포인터"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 0,
+        "correct_answer_text": "추적성"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3행"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "'I don't like it'"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 2,
+        "correct_answer_text": "구현"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "추상화(Abstraction)는 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다."
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "구현하려는 기능들의 공통점만을 모아 놓은 것이다."
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "%o : 정수형 10진수"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 1,
+        "correct_answer_text": "required"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 3,
+        "correct_answer_text": "실행 속도가 빠르다."
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "border-radius"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 1,
+        "correct_answer_text": "a *= a > 5 ? 2 : 3;"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 0,
+        "correct_answer_text": "prompt"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 1,
+        "correct_answer_text": "무결성"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "C++"
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "answers": [
+      {
+        "problem_number": 41,
+        "correct_answer_index": 3,
+        "correct_answer_text": "회복 기능(Recovery Facility)"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "스택(Stack)"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ORDER BY 판매액 DESC;"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "사용자의 요구에 대한 트랜잭션을 모델링한다."
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NON-EQUI JOIN"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Structure"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "점수 >= 90 AND 점수 <= 95"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "관계 데이터 모델에 대한 연산의 표현 방법으로 관계대수와 관계해석은 모두 절차적인 특성을 갖는다."
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 3,
+        "correct_answer_text": "기본 테이블의 기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 규정이다."
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 2,
+        "correct_answer_text": "폴딩법"
+      },
+      {
+        "problem_number": 51,
+        "correct_answer_index": 3,
+        "correct_answer_text": "-18"
+      },
+      {
+        "problem_number": 52,
+        "correct_answer_index": 1,
+        "correct_answer_text": "n(n-1)/2"
+      },
+      {
+        "problem_number": 53,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Integrity"
+      },
+      {
+        "problem_number": 54,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3NF → BCNF"
+      },
+      {
+        "problem_number": 55,
+        "correct_answer_index": 3,
+        "correct_answer_text": "A B D C E F"
+      },
+      {
+        "problem_number": 56,
+        "correct_answer_index": 2,
+        "correct_answer_text": "E-R 다이어그램은 개체를 사각형, 관계를 마름모, 속성을 화살 표로 표현한다."
+      },
+      {
+        "problem_number": 57,
+        "correct_answer_index": 3,
+        "correct_answer_text": "보조키는 후보키 중에서 대표로 선정된 키이다."
+      },
+      {
+        "problem_number": 58,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SELECT DISTINCT DEPT FROM STUDENT;"
+      },
+      {
+        "problem_number": 59,
+        "correct_answer_index": 2,
+        "correct_answer_text": "⋈"
+      },
+      {
+        "problem_number": 60,
+        "correct_answer_index": 1,
+        "correct_answer_text": "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계"
+      }
+    ]
+  }
+]

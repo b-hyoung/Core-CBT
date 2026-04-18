@@ -1,0 +1,128 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. 격리성 / 2. 지속성"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "DDL: CREATE, ALTER, DROP / DML: SELECT, DELETE, INSERT, UPDATE / DCL: REVOKE, GRANT",
+        "accepted_answers": [
+          "DDL : CREATE, ALTER, DROP / DML : SELECT, DELETE, INSERT, UPDATE / DCL : REVOKE, GRANT",
+          "DDL: CREATE, ALTER, DROP / DML: SELECT, DELETE, INSERT, UPDATE / DCL: GRANT, REVOKE"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "13 그리고 3"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "HDLC"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "물리 계층: 비트 / 데이터링크 계층: 프레임 / 네트워크 계층: 패킷"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT DISTINCT 과목 FROM 학생 WHERE 학년 >= 3;"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄹ -> ㄷ -> ㄴ -> ㄱ"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1) 제 2정규화 : ㄴ / 2) 제 3정규화 : ㄱ / 3) BCNF : ㄷ"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "P=(S+W)/S 또는 (W+S)/S",
+        "accepted_answers": [
+          "p=(s+w)",
+          "(w+s)/s"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄹ (Go-Back N ARQ)"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄴ, ㄷ, ㄹ",
+        "accepted_answers": [
+          "ㄹ, ㄷ, ㄴ"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "가비지(Garbage)"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "블랙박스 테스트 : ㄴ, ㄹ / 화이트박스 테스트 : ㄱ, ㄷ",
+        "accepted_answers": [
+          "블랙 박스 테스트 : ㄴ, ㄹ / 화이트박스 테스트 : ㄱ, ㄷ",
+          "블랙박스 테스트: ㄹ, ㄴ / 화이트박스 테스트: ㄷ, ㄱ",
+          "블랙박스 테스트 : ㄴㄹ / 화이트박스 테스트 : ㄱㄷ"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "응용 계층"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1a2a4a7a"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "17  12\n23  18",
+        "accepted_answers": [
+          "17 12\n23 18",
+          "17    12\n23    18",
+          "17, 12, 23, 18"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "dcba"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "10\\n97\\na"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "CHECK"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "120"
+      }
+    ]
+  }
+]

@@ -1,0 +1,521 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "스키마 종류로 옳지 않은 것은?",
+        "options": [
+          "응용 스키마",
+          "외부 스키마",
+          "개념 스키마",
+          "내부 스키마"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "데이터 모델링 설명으로 옳지 않은 것은?",
+        "options": [
+          "모든 데이터를 포함해야",
+          "업무 분석 기초",
+          "정보시스템 구축 기초",
+          "업무 규칙이 모델에 포함되지 않아도 된다"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "발생 시점에 따른 엔터티 유형으로 적절하지 않은 것은?",
+        "options": [
+          "관계 엔터티",
+          "행위 엔터티",
+          "중심 엔터티",
+          "기본 엔터티"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "다른 속성에서 결과를 도출하는 속성은?",
+        "options": [
+          "설계 속성",
+          "기본 속성",
+          "파생 속성",
+          "관계 속성"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "속성 설명 중 모두 옳은 것은?",
+        "options": [
+          "가, 라",
+          "가, 나, 다",
+          "나, 다, 라",
+          "가, 나, 다, 라"
+        ],
+        "examples": "가. 주소=복합속성 / 나. 나이=단순속성 / 다. 주민번호=단일값속성 / 라. 연락처=다중값속성"
+      },
+      {
+        "problem_number": 6,
+        "question_text": "ERD 설명으로 옳지 않은 것은? (병원-의사-수술)",
+        "options": [
+          "ㄷ은 ㄱ과 ㄴ을 합한 것과 의미가 같다",
+          "의사 없는 병원 가능",
+          "수술 없는 의사 가능",
+          "의사 없는 수술 가능"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "업무에 의해 만들어진 식별자?",
+        "options": [
+          "외부식별자",
+          "내부식별자",
+          "본질식별자",
+          "인조식별자"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "모든 일반 속성이 주식별자에 종속된 정규형?",
+        "options": [
+          "제1정규형",
+          "제2정규형",
+          "제3정규형",
+          "BCNF"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "정규화 설명으로 옳지 않은 것은?",
+        "options": [
+          "정규화 시 유연성이 떨어진다",
+          "일반 속성 간 종속 제거=제3정규형",
+          "반정규화는 데이터 중복으로 독립성 저하",
+          "정규화 많이 할수록 조인 증가→성능 저하 가능"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "연산자 우선순위 가장 높은 것은?",
+        "options": [
+          "비교",
+          "괄호",
+          "AND",
+          "OR"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "problems": [
+      {
+        "problem_number": 11,
+        "question_text": "COUNT(ALL COL1) WHERE COL2='A', COUNT(DISTINCT COL1) 결과?",
+        "options": [
+          "2, 3",
+          "3, 3",
+          "3, 4",
+          "4, 4"
+        ],
+        "examples": "데이터: (1,A),(2,B),(3,C),(4,D),(1,A),(2,B),(3,A)"
+      },
+      {
+        "problem_number": 12,
+        "question_text": "주어진 결과와 다른 JOIN은?",
+        "options": [
+          "INNER JOIN",
+          "LEFT OUTER JOIN",
+          "RIGHT OUTER JOIN",
+          "FULL OUTER JOIN"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "결과가 다른 것은?",
+        "options": [
+          "COL3 >= 200 AND COL4 <= 200",
+          "NOT (200 < COL3 OR 200 > COL4)",
+          "200 BETWEEN COL3 AND COL4",
+          "COL3 <= 200 AND COL4 >= 200"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "MAX KEEP(DENSE_RANK FIRST ORDER BY COL1) 결과?",
+        "options": [
+          "10",
+          "20",
+          "40",
+          "60"
+        ],
+        "examples": "데이터: (1,10),(1,20),(2,30),(3,40),(3,50)"
+      },
+      {
+        "problem_number": 15,
+        "question_text": "COALESCE(NULL, NULL, 'S', NULL, 'QL')?",
+        "options": [
+          "S",
+          "SQL",
+          "NULL",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "CEIL(9.36), ROUND(9.48), FLOOR(9.72)?",
+        "options": [
+          "9, 9, 9",
+          "10, 9, 9",
+          "9, 9, 10",
+          "10, 10, 9"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "COUNT(DISTINCT 물품), COUNT(*) WHERE IN ('p', NULL)?",
+        "options": [
+          "3, 0",
+          "3, 30",
+          "3, 에러",
+          "3, NULL"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "교집합 연산자?",
+        "options": [
+          "UNION",
+          "INTERSECT",
+          "MINUS",
+          "EXCEPT"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "TRUNCATE 설명으로 옳은 것은?",
+        "options": [
+          "구조+데이터 모두 삭제",
+          "ROLLBACK 가능",
+          "특정 행만 삭제 불가능",
+          "DELETE보다 느림"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "SELECT COUNT(*)=4가 되려면?",
+        "options": [
+          "WHERE COL2 LIKE '%%'",
+          "FROM EMP (무조건)",
+          "WHERE COL2 LIKE '%'",
+          "WHERE COL2 LIKE '_%'"
+        ],
+        "examples": "데이터: Smith, Charlie, Alice, NULL (4행)"
+      },
+      {
+        "problem_number": 21,
+        "question_text": "CASE COL WHEN NULL과 결과가 다른 것은?",
+        "options": [
+          "CASE COL WHEN NULL THEN -1 ELSE 0 END",
+          "CASE WHEN COL IS NULL THEN -1 ELSE 0 END",
+          "DECODE(COL, NULL, -1, 0)",
+          "NVL2(COL, 0, -1)"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "셀프조인 가능한 경우?",
+        "options": [
+          "두 테이블 컬럼 연관",
+          "두 테이블 연관 없이",
+          "한 테이블 컬럼 연관관계",
+          "한 테이블 연관 없이"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "조건 불일치: 일반 SELECT vs MAX?",
+        "options": [
+          "NULL, NULL",
+          "NULL, 공집합",
+          "공집합, NULL",
+          "공집합, 공집합"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "REGEXP_SUBSTR('aaaaabbbb', 'a{2,4}')?",
+        "options": [
+          "aaa",
+          "aaaa",
+          "ab",
+          "aab"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "중복 포함 합치는 연산자?",
+        "options": [
+          "UNION",
+          "UNION ALL",
+          "INTERSECT",
+          "MINUS"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "ORDER BY에서 DESC 누락 수정?",
+        "options": [
+          "SELECT절",
+          "WHERE절",
+          "GROUP BY절",
+          "ORDER BY절"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "ROLLBACK 설명으로 옳지 않은 것은?",
+        "options": [
+          "변경사항 취소",
+          "SP로 특정 지점까지 가능",
+          "COMMIT 이전으로 롤백 가능",
+          "DML 결과 원복"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "SQL 연산 순서?",
+        "options": [
+          "SELECT-FROM-WHERE-GROUP BY-HAVING-ORDER BY",
+          "WHERE-FROM-HAVING-GROUP BY-SELECT-ORDER BY",
+          "FROM-WHERE-GROUP BY-HAVING-SELECT-ORDER BY",
+          "FROM-WHERE-HAVING-GROUP BY-SELECT-ORDER BY"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "동순위 후 순차 등수 함수?",
+        "options": [
+          "DENSE_RANK()",
+          "RANK()",
+          "PERCENT_RANK()",
+          "ROW_NUMBER()"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "All or Nothing 트랜잭션 특성?",
+        "options": [
+          "원자성",
+          "고립성",
+          "일관성",
+          "지속성"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "NOT IN에 NULL 포함 시?",
+        "options": [
+          "0",
+          "10",
+          "20",
+          "40"
+        ],
+        "examples": "TAB1:(A,10),(B,20),(C,30) / TAB2:(A,20),(B,20),(C,NULL)"
+      },
+      {
+        "problem_number": 32,
+        "question_text": "MAX(NULL)이 NULL이므로 SET COL1=NULL과 동일?",
+        "options": [
+          "MAX(COL2) 서브쿼리",
+          "COALESCE(MAX(NULL),0)",
+          "MAX(0) 서브쿼리",
+          "UPDATE SET COL1=NULL"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "관리자-차상위관리자 출력 조인?",
+        "options": [
+          "LEFT JOIN A.EMP_ID=B.EMP_ID",
+          "INNER JOIN A.MGR_ID=B.EMP_ID",
+          "LEFT JOIN A.MGR_ID=B.EMP_ID",
+          "LEFT JOIN A.EMP_ID=B.EMP_ID"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "10행×10행 카테시안 곱?",
+        "options": [
+          "10",
+          "20",
+          "100",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "동일 컬럼명 없는 NATURAL JOIN?",
+        "options": [
+          "0",
+          "3",
+          "5",
+          "15"
+        ],
+        "examples": "TAB1(ID,CUSTOMER) / TAB2(C_ID,PHONE)"
+      },
+      {
+        "problem_number": 36,
+        "question_text": "COUNT(DISTINCT COL1) WHERE COL2<=20?",
+        "options": [
+          "2 ✓",
+          "3",
+          "GROUP BY 결과",
+          "GROUP BY 결과"
+        ],
+        "examples": "데이터: (A,10),(A,20),(B,20),(C,30)"
+      },
+      {
+        "problem_number": 37,
+        "question_text": "외래키 제약조건 설명으로 옳은 것은?",
+        "options": [
+          "PK는 한 컬럼에 하나만",
+          "FK는 여러 개 가능",
+          "UNIQUE는 NULL 불허",
+          "FK는 하나만"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "패턴 시작 위치를 정수로 반환하는 함수?",
+        "options": [
+          "REGEXP_COUNT",
+          "REGEXP_LIKE",
+          "REGEXP_REPLACE",
+          "REGEXP_INSTR"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "부서에 소속되지 않은 사원 처리?",
+        "options": [
+          "2등급 이상 모두 출력",
+          "부서 미소속 사원 제외",
+          "1등급도 포함",
+          "모든 사원"
+        ],
+        "examples": "(INNER JOIN 부서.부서ID = 사원.부서ID AND 등급>=2)"
+      },
+      {
+        "problem_number": 40,
+        "question_text": "ORDER BY DESC 누락 수정?",
+        "options": [
+          "SELECT절",
+          "FROM절",
+          "WHERE절",
+          "ORDER BY에 DESC 추가"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "grouping 문제: ROLLUP()?",
+        "options": [
+          "GROUP BY",
+          "ROLLUP()",
+          "CUBE()",
+          "GROUPING SETS()"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "grouping 문제: CUBE()?",
+        "options": [
+          "GROUP BY",
+          "ROLLUP()",
+          "GROUPING SETS()",
+          "CUBE()"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "SAVEPOINT 후 결과?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "examples": "INSERT 3건→SP1→UPDATE COL1=4(COL2<=2)→SP2→DELETE(COL2=2)→ROLLBACK TO SP2→INSERT(4,1)→COMMIT\nCOUNT(*) WHERE COL1=4?"
+      },
+      {
+        "problem_number": 44,
+        "question_text": "[복원 불완전] 조건 불일치 시 NULL UPDATE",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "[복원 불완전] 쿼리 결과값",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "[복원 불완전] GROUPING SETS",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "[복원 불완전] ORDER BY DESC 추가",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "[복원 불완전] ROLLUP",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "[복원 불완전] CUBE",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "[복원 불완전] SAVEPOINT + ROLLBACK",
+        "options": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ]
+      }
+    ]
+  }
+]

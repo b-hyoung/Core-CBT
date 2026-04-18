@@ -1,0 +1,317 @@
+﻿[
+    {
+        "title":  "정보시스템 기반 기술",
+        "answers":  [
+                        {
+                            "problem_number":  1,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "상태 다이어그램(State Diagram)"
+                        },
+                        {
+                            "problem_number":  2,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "하둡(Hadoop)"
+                        },
+                        {
+                            "problem_number":  3,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "객체 다이어그램(Object Diagram): 클래스와 클래스가 가지 는 속성, 클래스 사이의 관계를 표현한다."
+                        },
+                        {
+                            "problem_number":  4,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "데이터 흐름 검사(Data Flow Testing)"
+                        },
+                        {
+                            "problem_number":  5,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "구조 테스트"
+                        },
+                        {
+                            "problem_number":  6,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "9.4"
+                        },
+                        {
+                            "problem_number":  7,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "Indexing"
+                        },
+                        {
+                            "problem_number":  8,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "PaaS-TA: 전기의 생산부터 소비까지의 전 과정에 정보통신 기술을 접목하여 에너지 효율성을 높이는 지능형 전력망 시스 템이다."
+                        },
+                        {
+                            "problem_number":  9,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "클래스(Class)"
+                        },
+                        {
+                            "problem_number":  10,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "추상 클래스"
+                        },
+                        {
+                            "problem_number":  11,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "자료 구조의 변화가 다른 모듈에 영향을 끼치지 않는다."
+                        },
+                        {
+                            "problem_number":  12,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "105"
+                        },
+                        {
+                            "problem_number":  13,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "비동기식"
+                        },
+                        {
+                            "problem_number":  14,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "Method"
+                        },
+                        {
+                            "problem_number":  15,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "□ 사각형"
+                        },
+                        {
+                            "problem_number":  16,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "타조(Tajo)"
+                        },
+                        {
+                            "problem_number":  17,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "어댑터(Adapter)"
+                        },
+                        {
+                            "problem_number":  18,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "전송 계층"
+                        },
+                        {
+                            "problem_number":  19,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "순서도(Flowchart)"
+                        },
+                        {
+                            "problem_number":  20,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "형상 관리의 관리 항목에는 프로젝트 개발 비용, 프로젝트 요구 분석서 등이 있다."
+                        }
+                    ]
+    },
+    {
+        "title":  "프로그래밍 언어 활용",
+        "answers":  [
+                        {
+                            "problem_number":  21,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "인증(Authentication)"
+                        },
+                        {
+                            "problem_number":  22,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "프레임워크는 개발표준에 의한 모듈화로 인해 유지 보수가 어 렵다."
+                        },
+                        {
+                            "problem_number":  23,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "Coupling은 약하고 Cohesion은 강해야 한다."
+                        },
+                        {
+                            "problem_number":  24,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "2"
+                        },
+                        {
+                            "problem_number":  25,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "Boolean Type"
+                        },
+                        {
+                            "problem_number":  26,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "C++"
+                        },
+                        {
+                            "problem_number":  27,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "추적성"
+                        },
+                        {
+                            "problem_number":  28,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "putchar()"
+                        },
+                        {
+                            "problem_number":  29,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "fscanf"
+                        },
+                        {
+                            "problem_number":  30,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "Zeplin"
+                        },
+                        {
+                            "problem_number":  31,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "추상화(Abstraction)는 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다."
+                        },
+                        {
+                            "problem_number":  32,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "대역폭 제한"
+                        },
+                        {
+                            "problem_number":  33,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "a = 1, sum = 1"
+                        },
+                        {
+                            "problem_number":  34,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "절차적 프로그래밍 언어"
+                        },
+                        {
+                            "problem_number":  35,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "실행 속도가 빠르다."
+                        },
+                        {
+                            "problem_number":  36,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "대소문자를 구분하지 않는다."
+                        },
+                        {
+                            "problem_number":  37,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "자동 변수(Automatic Variable)"
+                        },
+                        {
+                            "problem_number":  38,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "문자열을 수치 데이터로 바꾸는 문자 변환함수와 수치를 문자 열로 바꿔주는 변환함수 등이 있다."
+                        },
+                        {
+                            "problem_number":  39,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "주로 화살표를 사용하여 논리적인 제어구조로 흐름을 표현한 다."
+                        },
+                        {
+                            "problem_number":  40,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "4"
+                        }
+                    ]
+    },
+    {
+        "title":  "데이터베이스 활용",
+        "answers":  [
+                        {
+                            "problem_number":  41,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "3, 4, 8, 9, 7"
+                        },
+                        {
+                            "problem_number":  42,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "C, B, D, A"
+                        },
+                        {
+                            "problem_number":  43,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "개념 스키마를 평가 및 정제하고 DBMS에 따라 서로 다른 논리 적 스키마를 설계한다."
+                        },
+                        {
+                            "problem_number":  44,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "요구 조건 분석 단계"
+                        },
+                        {
+                            "problem_number":  45,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "회복 기능(Recovery Facility)"
+                        },
+                        {
+                            "problem_number":  46,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "구조, 연산, 제약조건"
+                        },
+                        {
+                            "problem_number":  47,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "NON-EQUI JOIN"
+                        },
+                        {
+                            "problem_number":  48,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "한 릴레이션에는 똑같은 튜플이 중복 포함될 수 있다."
+                        },
+                        {
+                            "problem_number":  49,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "INSERT~ FROM ~ SET"
+                        },
+                        {
+                            "problem_number":  50,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "슈퍼키"
+                        },
+                        {
+                            "problem_number":  51,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "42"
+                        },
+                        {
+                            "problem_number":  52,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "COMMIT"
+                        },
+                        {
+                            "problem_number":  53,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "노드들이 포인터로 연결되어 검색이 빠르다."
+                        },
+                        {
+                            "problem_number":  54,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "무결성 확보를 위하여 일반 사용자는 내용을 검색할 수 없다."
+                        },
+                        {
+                            "problem_number":  55,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "DEGREE, CARDINALITY"
+                        },
+                        {
+                            "problem_number":  56,
+                            "correct_answer_index":  1,
+                            "correct_answer_text":  "트리의 Degree: 2, 터미널 노드:4"
+                        },
+                        {
+                            "problem_number":  57,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "이행 함수 종속 제거"
+                        },
+                        {
+                            "problem_number":  58,
+                            "correct_answer_index":  0,
+                            "correct_answer_text":  "검색 결과에서 레코드의 중복 제거"
+                        },
+                        {
+                            "problem_number":  59,
+                            "correct_answer_index":  2,
+                            "correct_answer_text":  "3, 1"
+                        },
+                        {
+                            "problem_number":  60,
+                            "correct_answer_index":  3,
+                            "correct_answer_text":  "기본 테이블의 기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 규정이다."
+                        }
+                    ]
+    }
+]

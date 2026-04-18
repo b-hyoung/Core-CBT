@@ -1,0 +1,107 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["ㄱ, ㄴ, ㄷ, ㅁ", "ㄱ,ㄴ,ㄷ,ㅁ"]
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄱ"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Ab"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "4"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["Web Server", "web server", "WEB SERVER"]
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "A2"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "7"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① 블랙 ② 화이트"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["형상 관리", "형상관리"]
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① AND  ② BETWEEN"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["FTP", "ftp"]
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["PING", "ping"]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① 외부 ② 개념 ③ 내부"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "3"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "3"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "외래키"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["① C 클래스  ② B 클래스 ③ A 클래스", "① C클래스  ② B클래스 ③ A클래스", "① c 클래스  ② b 클래스 ③ a 클래스", "① c클래스  ② b클래스 ③ a클래스"]
+      }
+    ]
+  }
+]

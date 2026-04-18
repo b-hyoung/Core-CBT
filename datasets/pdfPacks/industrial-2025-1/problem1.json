@@ -1,0 +1,619 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "Non-preemptive형 프로세스 스케줄링 방식만으로 묶인 것은?",
+        "options": [
+          "SJF, SRT",
+          "SJF, FIFO",
+          "Round-Robin, SRT",
+          "Round-Robin, SJF"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "블랙박스 테스트에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "블랙박스 테스트는 소프트웨어가 수행할 특정 기능을 알기 위 해서 각 기능이 완전히 작동되는 것을 입증하는 테스트이다.",
+          "블랙박스 테스트는 프로그램의 구조를 고려하지 않는다.",
+          "블랙박스 테스트는 소프트웨어 인터페이스에서 실시되는 테스 트이다.",
+          "블랙박스 테스트의 종류에는 기초 경로 검사, 제어 구조 검사 등이 있다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "디스크에서 헤드가 70 트랙을 처리하고 60 트랙으로 이동해 왔다.\n디스크 스케줄링 기법으로 SCAN 방식을 사용할 때 다음 디스크\n대기 큐에서 가장 먼저 처리되는 트랙은?\n디스크 대기 큐 : 20, 50, 95, 100",
+        "options": [
+          "20",
+          "50",
+          "95",
+          "100"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "디렉터리 구조 중 다음 설명에 해당하는 것은?\nㆍ하나의 루트 디렉터리와 여러 개의 부디렉터리로 구성된다.\nㆍUNIX, Windows 운영체제에서 채택하고 있는 구조이다.\nㆍ디렉터리 탐색은 포인터에 의하여 계층적으로 이루어진다.",
+        "options": [
+          "1단계 디렉터리 구조",
+          "트리 디렉터리 구조",
+          "2단계 디렉터리 구조",
+          "비순환 그래프 디렉터리 구조"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "UML의 구성 요소 중 관계(Relationships)에 대한 설명으로 옳지 않은\n것은?",
+        "options": [
+          "의존(Dependency) 관계 : 하나의 사물이 다른 사물에 포함되어 있는 관계를 표현한다.",
+          "실체화(Realization) 관계 : 사물이 할 수 있거나 해야 하는 기능으로 서로를 그룹화 할 수 있는 관계를 표현한다.",
+          "연관(Association) 관계 : 2개 이상의 사물이 서로 관련되어 있는 관계를 표현한다.",
+          "일반화(Generalization) 관계 : 하나의 사물이 다른 사물에 비해 더 일반적인지 구체적인지를 표현한다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "사용자 인터페이스의 기본 원칙에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "학습성 : 누구나 쉽게 배우고 익힐 수 있어야 한다.",
+          "유효성 : 사용자의 목적을 정확하고 완벽하게 달성해야 한다.",
+          "명확성 : 사용자가 개념적으로 쉽게 인지할 수 있도록 설계해야 한다.",
+          "직관성 : 누구나 쉽게 이해하고 사용할 수 있어야 한다."
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "모듈화(Modularity)와 관련한 설명으로 틀린 것은?",
+        "options": [
+          "소프트웨어의 모듈은 프로그래밍 언어에서 Subroutine, Function 등으로 표현될 수 있다.",
+          "모듈의 수가 증가하면 상대적으로 각 모듈의 크기가 커지며, 모듈 사이의 상호 교류가 감소하여 과부하(Overload) 현상이 나타난다.",
+          "모듈화는 시스템을 지능적으로 관리할 수 있도록 해주며, 복잡 도 문제를 해결하는 데 도움을 준다.",
+          "모듈화는 시스템의 유지보수와 수정을 용이하게 한다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "디자인 패턴 중 Singleton에 대한 설명으로 옳은 것은?",
+        "options": [
+          "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다.",
+          "원본 객체를 복제하는 방법으로 객체를 생성하는 패턴이다.",
+          "여러 객체를 가진 복합 객체와 단일 객체를 구분 없이 다루고자 할 때 사용하는 패턴이다.",
+          "수많은 객체들 간의 복잡한 상호작용을 캡슐화하여 객체로 정 의하는 패턴이다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "가상기억장치에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "기억공간의 확장을 위한 것이다.",
+          "주소 변환 작업이 필요하다.",
+          "소프트웨어적인 방법이다.",
+          "주기억장치를 보조기억장치처럼 사용한다."
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "객체 지향 기법에서 객체가 메시지를 받아 실행해야 할 때 객체의\n구체적인 연산을 정의한 것은?",
+        "options": [
+          "Instance",
+          "Method",
+          "Message",
+          "Class"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 중 빌드 자동화 도구가 아닌 것은?",
+        "options": [
+          "Fedora",
+          "Gradle",
+          "Jenkins",
+          "Maven"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "운영체제의 발달 과정 순서를 옳게 나열한 것은?\n㉮ 일괄 처리 시스템\n㉯ 분산 처리 시스템\n㉰ 다중 모드(Mode) 시스템\n㉱ 시분할 시스템",
+        "options": [
+          "㉮ → ㉱ → ㉰ → ㉯",
+          "㉰ → ㉯ → ㉱ → ㉮",
+          "㉮ → ㉰ → ㉱ → ㉯",
+          "㉰ → ㉱ → ㉯ → ㉮"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "디지털 코드 중에서 에러 검출 및 교정이 가능한 코드는?",
+        "options": [
+          "그레이(Gray) 코드",
+          "해밍(Hamming) 코드",
+          "3 초과(Excess-3) 코드",
+          "BCD 코드"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "통합 테스트에 대한 설명으로 틀린 것은?",
+        "options": [
+          "드라이버를 사용하는 것은 상향식 테스트이다.",
+          "스텁을 사용하는 것은 하향식 테스트이다.",
+          "모듈 또는 컴포넌트 간의 상호 작용 오류를 검사한다.",
+          "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "오류가 발생한 코드를 추적하여 수정하는 작업은?",
+        "options": [
+          "Loading",
+          "Linking",
+          "Debugging",
+          "Hashing"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "자원 보호 기법 중 접근 제어 행렬에서 수평으로 있는 각 행들만을\n따온 것으로서 각 영역에 대한 권한은 객체와 그 객체에 허용된\n연산자로 구성되는 것은?",
+        "options": [
+          "Global Table",
+          "Access Control List",
+          "Capability List",
+          "Lock/Key"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "소프트웨어 테스트 순서로 올바로 나열된 것은?",
+        "options": [
+          "단위 테스트 → 인수 테스트 → 통합 테스트 → 시스템 테스트",
+          "단위 테스트 → 통합 테스트 → 시스템 테스트 → 인수 테스트",
+          "인수 테스트 → 단위 테스트 → 시스템 테스트 → 통합 테스트",
+          "시스템 테스트 → 인수 테스트 → 단위 테스트 → 통합 테스트"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "시스템 분석, 설계, 구현 등 시스템 개발 과정에서 시스템 개발자와\n고객 또는 개발자 상호 간의 의사소통이 원활하게 이루어지도록\n표준화한 통합 모델링 언어는?",
+        "options": [
+          "JAVA",
+          "PHP",
+          "UML",
+          "ASP"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "세마포어(Semaphore)에 관한 설명 중 옳지 않은 것은?",
+        "options": [
+          "상호배제 문제를 해결하기 위하여 사용된다.",
+          "정수의 변수로서 양의 값만을 가진다.",
+          "여러 개의 프로세스가 동시에 그 값을 수정하지 못한다.",
+          "세마포어에 대한 연산은 처리 도중에 인터럽트 되어서는 안된다."
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "관계 대수 중 순수 관계 연산이 아닌 것은?",
+        "options": [
+          "Difference",
+          "Join",
+          "Select",
+          "Project"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "다음은 아이디와 암호를 입력하는 로그인 창을 JavaScript로 구현한\n것이다. 괄호(㉠~㉣)에 들어갈 적합한 속성은?\n<html>\n<body>\n<( ㉠ ) ( ㉡ )=\"post\" ( ㉢ )=\"log01.jsp\">\n<p>아이디<input type=\"text\" name=\"id\"></p>\n<p>암호<input type=\"password\" name=\"pw\"></p>\n<( ㉣ )>\n</body>\n</html>",
+        "options": [
+          "㉠ form, ㉡ action, ㉢ method, ㉣ /form",
+          "㉠ form, ㉡ method, ㉢ action, ㉣ /form",
+          "㉠ function, ㉡ form, ㉢ method, ㉣ /function",
+          "㉠ function, ㉡ action, ㉢ form, ㉣ /function"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "Python에서 사용하는 데이터 타입이 아닌 것은?",
+        "options": [
+          "딕셔너리",
+          "튜플",
+          "컴포지션",
+          "리스트"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "모듈 설계 시 유의사항으로 거리가 먼 것은?",
+        "options": [
+          "적절한 크기로 설계한다.",
+          "추상화와 정보 은닉의 성격을 갖도록 한다.",
+          "보기 쉽고 이해가기 쉬워야 한다.",
+          "응집도를 최소화 한다."
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "다음 중 C언어에서 정수형 자료를 나타내는 데이터 형식은?",
+        "options": [
+          "int",
+          "char",
+          "void",
+          "float"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "다음 Java 코드가 실행되었을 때의 결과는?\nint a[][] = new int[2][3];\nSystem.out.print(a.length);",
+        "options": [
+          "2",
+          "3",
+          "5",
+          "6"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "변수의 주소를 말하며, C언어에서는 주소를 제어할 수 있는 기능을\n제공하는 것은?",
+        "options": [
+          "배열",
+          "프로토타입",
+          "라이브러리",
+          "포인터"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "공통 모듈에 대한 명세 기법 중 기능에 대한 요구사항의 출처,\n관련 시스템 등의 관계를 파악할 수 있도록 작성하는 원칙은?",
+        "options": [
+          "추적성",
+          "명확성",
+          "완전성",
+          "일관성"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "다음과 같이 HTML 문서를 작성했을 때 노란색 배경을 갖는 셀의\n위치는?\n<html>\n<style>\ntr:nth-child(even) { background-color:yellow; }\n</style>\n<body>\n<table>\n<thead>\n<tr>\n<th></th>\n</tr>\n</thead>\n<tfoot>\n<tr>\n<td></td>\n</tr>\n</tfoot>\n<tbody>\n<tr>\n<td></td>\n</tr>\n<tr>\n<td></td>\n</tr>\n</tbody>\n</table>\n</body>\n</html>",
+        "options": [
+          "1행",
+          "2행",
+          "3행",
+          "4행"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "Python에서 문자열을 표현하는 방법으로 옳지 않은 것은?",
+        "options": [
+          "'I don't like it'",
+          "\"I don't like it\"",
+          "\"Hello World\"",
+          "'Hello World’"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "소프트웨어 아키텍처의 4+1 관점 중 물리적 시스템에서 사용하는\n소프트웨어 서브 시스템 모듈이 어떻게 구조화되어 있는지에 중점을\n둔 관점은?",
+        "options": [
+          "유스케이스",
+          "논리적",
+          "구현",
+          "물리적"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "객체지향 프로그래밍 언어에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "추상화(Abstraction)는 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다.",
+          "클래스(Class)는 두 개 이상의 유사한 객체들을 묶어서 하나의 공통된 특성을 표현하는 요소이다.",
+          "캡슐화(Encapsulation)는 데이터(속성)와 데이터를 처리하는 함수를 하나로 묶는 것을 의미한다.",
+          "객체(Object)는 데이터(속성)와 이를 처리하기 위한 연산(메소 드)을 결합시킨 실체이다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "추상 클래스에 대한 설명으로 옳은 것은?",
+        "options": [
+          "구상 클래스 또는 구현 클래스라고도 불린다.",
+          "개별적인 인스턴스 생성이 가능하다.",
+          "구현하려는 기능들의 공통점만을 모아 놓은 것이다.",
+          "객체 생성을 위한 속성과 메소드의 구체적인 설계도이다."
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "C언어에서 사용되는 서식 문자열에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "%u : 부호없는 정수형 10진수",
+          "%f : 소수점을 포함하는 실수",
+          "%o : 정수형 10진수",
+          "%x : 정수형 16진수"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "HTML5의 <input> 태그에서 반드시 입력되어야 할 필드를 만들\n때 사용하는 속성은?",
+        "options": [
+          "essential",
+          "required",
+          "expected",
+          "fill"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 중 스크립트 언어에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "개발 시간이 짧다.",
+          "코딩하기 쉽다.",
+          "런타임 오류가 많이 발생한다.",
+          "실행 속도가 빠르다."
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음 중 CSS의 속성 중 사각형 테두리를 둥글게 만드는 속성은?",
+        "options": [
+          "border-radius",
+          "square-round",
+          "border-round",
+          "square-radius"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "다음 코드를 조건 연산자로 올바르게 구현한 것은?\nif (a > 5)\na = a * 2;\nelse\na = a * 3;",
+        "options": [
+          "a > 5 ? a *= 2 : a *= 3;",
+          "a *= a > 5 ? 2 : 3;",
+          "a = a > 5 ? 2 : 3;",
+          "a = a > 5 ? a * 3 : a * 2;"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "자바스크립트의 Windows 객체에서 사용자로부터 데이터를 입력\n받을 수 있는 메소드는?",
+        "options": [
+          "prompt",
+          "alert",
+          "confirm",
+          "messagebox"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "정보 보안의 3대 요소 중 다음 설명에 해당하는 것은?\n인가된 사용자 외에는 정보를 수정하지 못하도록 하는 성\n질",
+        "options": [
+          "기밀성",
+          "무결성",
+          "가용성",
+          "인증"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "다음 중 객체지향 언어에 속하는 것은?",
+        "options": [
+          "ALGOL",
+          "COBOL",
+          "C",
+          "C++"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "DBMS의 필수 기능에 해당하지 않는 것은?",
+        "options": [
+          "정의 기능(Definition Facility)",
+          "조작 기능(Manipulation Facility)",
+          "제어 기능(Control Facility)",
+          "회복 기능(Recovery Facility)"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "리스트 내의 데이터 삽입, 삭제가 한쪽 끝에서 이루어지는 데이터\n구조를 무엇이라 하는가?",
+        "options": [
+          "스택(Stack)",
+          "큐(Queue)",
+          "데크(Deque)",
+          "원형 큐(Circular Queue)"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "다음 표와 같은 판매실적 테이블에서 서울지역에 한하여 판매액을\n내림차순으로 지점명과 판매액을 출력하고자 한다. 가장 적절한\nSQL 구문은?\n[테이블명 : 판매실적]",
+        "options": [
+          "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ORDER BY 판매액 DESC;",
+          "SELECT 지점명, 판매액 FROM 판매실적 ORDER BY 판매액 DESC;",
+          "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ASC;",
+          "SELECT * FROM 판매실적 WHEN 도시= “서울” ORDER BY 판매액 DESC;"
+        ],
+        "examples": "도시|지점명|판매액\n서울|강남 지점|330\n서울|강북 지점|168\n광주|광주 지점|197\n서울|강서 지점|158\n서울|강동 지점|197\n대전|대전 지점|165"
+      },
+      {
+        "problem_number": 44,
+        "question_text": "데이터베이스 설계 시 논리적 설계 단계에 대한 설명으로 옳지\n않은 것은?",
+        "options": [
+          "트랜잭션 인터페이스를 설계한다.",
+          "DBMS에 맞는 논리적 스키마를 설계한다.",
+          "관계형 데이터베이스에서는 테이블을 설계하는 단계이다.",
+          "사용자의 요구에 대한 트랜잭션을 모델링한다."
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "JOIN 조건에 ‘=’ 조건이 아닌 나머지 비교 연산자를 사용하는 JOIN\n방법은?",
+        "options": [
+          "EQUI JOIN",
+          "NON-EQUI JOIN",
+          "SELF JOIN",
+          "CROSS JOIN"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "데이터 모델의 구성 요소 중 데이터베이스에 표현될 대상으로서의\n개체 타입과 개체 타입들간의 관계를 기술한 것은?",
+        "options": [
+          "Operations",
+          "Constraints",
+          "Mapping",
+          "Structure"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "다음 BETWEEN 연산의 의미와 동일한 것은?\nSELECT *\nFROM 성적\nWHERE (점수 BETWEEN 90 AND 95)\nAND 학과 = “컴퓨터공학과”",
+        "options": [
+          "점수 >= 90 AND 점수 <= 95",
+          "점수 > 90 AND 점수 < 95",
+          "점수 > 90 AND 점수 <= 95",
+          "점수 >= 90 AND 점수 < 95"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "관계 데이터 연산인 관계대수 및 관계해석에 대한 설명으로 틀린\n것은?",
+        "options": [
+          "관계 데이터 모델에 대한 연산의 표현 방법으로 관계대수와 관계해석은 모두 절차적인 특성을 갖는다.",
+          "관계대수는 릴레이션 조작을 위한 연산의 집합으로 피연산자 와 결과가 모두 릴레이션이라는 특성을 가지고 있다.",
+          "관계해석은 원래 수학의 프레디킷 해석(Predicate Calculus) 에 기반을 두고 있다.",
+          "관계대수의 일반 집합 연산에는 합집합, 교집합, 차집합 등이 있다."
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "개체 무결성에 대한 설명으로 옳은 것은?",
+        "options": [
+          "주어진 속성 값이 정의된 도메인에 속한 값이어야 한다는 규정 이다.",
+          "외래키 값은 Null이거나 참조 릴레이션의 기본키 값과 동일해 야 한다는 규정이다.",
+          "속성 값들이 사용자가 정의한 제약 조건에 만족해야 한다는 규정이다.",
+          "기본 테이블의 기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 규정이다."
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "레코드 키 값을 여러 부분으로 분류하여 더하거나 XOR하여 주소를\n구하는 해싱 함수는?",
+        "options": [
+          "제산법",
+          "숫자 분석법",
+          "폴딩법",
+          "제곱법"
+        ]
+      },
+      {
+        "problem_number": 51,
+        "question_text": "후위 표기(Postfix)식이 다음과 같을 때 식의 계산 값은? (단, 표현된\n수치는 한 자리 숫자를 의미한다.)\n5 3 4 5 × + -",
+        "options": [
+          "30",
+          "20",
+          "14",
+          "-18"
+        ]
+      },
+      {
+        "problem_number": 52,
+        "question_text": "n개의 정점으로 구성된 무방향 그래프의 최대 간선수는?",
+        "options": [
+          "n(n+1)",
+          "n(n-1)/2",
+          "(n-2)/2",
+          "n-5"
+        ]
+      },
+      {
+        "problem_number": 53,
+        "question_text": "다음 중 트랜잭션의 특성인 ACID에 속하지 않는 것은?",
+        "options": [
+          "Atomicity",
+          "Consistency",
+          "Integrity",
+          "Durability"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "모든 결정자가 후보 키가 되도록 분해하는 정규화 단계는?",
+        "options": [
+          "1NF → 2NF",
+          "2NF → 3NF",
+          "3NF → BCNF",
+          "비정규 릴레이션 → 1NF"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "다음 이진 트리의 전위(Preorder) 순회 결과는?",
+        "options": [
+          "A B C D E F",
+          "D B A E C F",
+          "D B E C F A",
+          "A B D C E F"
+        ],
+        "examples": "    A\n   / \\\n  B   C\n /   / \\\nD   E   F"
+      },
+      {
+        "problem_number": 56,
+        "question_text": "개체-관계 모델(E-R 모델)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "개체 타입과 관계 타입을 이용해서 현실 세계를 개념적으로 표현하는 방법이다.",
+          "E-R 다이어그램은 E-R 모델을 그래프 방식으로 표현한 것이다.",
+          "E-R 다이어그램은 개체를 사각형, 관계를 마름모, 속성을 화살 표로 표현한다.",
+          "현실 세계의 무질서한 데이터를 개념적인 논리 데이터로 표현 하기 위한 방법으로 많이 사용된다."
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "키는 개체 집합에서 고유하게 개체를 식별할 수 있는 속성이다.\n데이터베이스에서 사용되는 키의 종류에 대한 설명 중 옳지 않은\n것은?",
+        "options": [
+          "후보키는 개체들을 고유하게 식별할 수 있는 속성이다.",
+          "슈퍼키는 한 릴레이션 내의 속성들의 집합으로 구성된 키이다.",
+          "외래키는 다른 릴레이션의 기본키를 참조하는 속성 또는 속성 들의 집합이다.",
+          "보조키는 후보키 중에서 대표로 선정된 키이다."
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "학생(STUDENT) 테이블에서 어떤 학과(DEPT)들이 있는지 검색하는\nSQL 명령은? (단, 결과는 중복된 데이터가 없도록 한다.)",
+        "options": [
+          "SELECT ONLY * FROM STUDENT;",
+          "SELECT DISTINCT DEPT FROM STUDENT;",
+          "SELECT ONLY DEPT FROM STUDENT;",
+          "SELECT NOT DUPLICATE DEPT FROM STUDENT;"
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "다음 중 일반 집합 연산자의 기호가 아닌 것은?",
+        "options": [
+          "-",
+          "×",
+          "⋈",
+          "∪"
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "데이터베이스의 설계 과정을 올바르게 나열한 것은?",
+        "options": [
+          "요구 조건 분석 → 개념적 설계 → 물리적 설계 → 논리적 설계",
+          "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계",
+          "요구 조건 분석 → 논리적 설계 → 개념적 설계 → 물리적 설계",
+          "요구 조건 분석 → 물리적 설계 → 개념적 설계 → 논리적 설계"
+        ]
+      }
+    ]
+  }
+]

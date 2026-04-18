@@ -1,0 +1,131 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "다음 <회원>테이블의 디그리(Degree)와 카디널리티(Cardinality)를 쓰시오",
+        "examples": "<회원>\nID | 이름 | 거주지\n1001 | 김 | 마포구\n1002 | 나 | 관악구\n1003 | 박 | 서대문구\n1004 | 이 | 광진구\n\n디그리 :\n카디널리티 :",
+        "input_type": "multi_blank",
+        "answer_format_hint": "예: 항목별 답을 함께 입력"
+      },
+      {
+        "problem_number": 2,
+        "question_text": "트랜잭션의 특성 중 괄호에 들어가기에 적합한 데이터베이스의 기능을 그림에서 한 가지만 찾아 쓰시오.",
+        "examples": "트랜잭션의 특성: 원자성, 일관성, 고립성, 영속성\n데이터베이스의 기능: 무결성 제약 조건, 동시성 제어, 회복\n\n원자성 : (1)\n일관성 : 무결성 제약 조건, 동시성 제어\n고립성 : (2)\n영속성 : 회복\n\n(1) :\n(2) :",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "class Main {\n  public static void main(String args[]) {\n    int[] a = new int[8];\n    int i = 0;\n    int n = 11;\n    while(n > 0){\n      a[i++] = n % 2;\n      n /= 2;\n    }\n    for(i = 7; i >= 0; i--)\n      System.out.print(a[i]);\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 4,
+        "question_text": "OSI 7계층 중 다음 설명에 해당하는 알맞은 계층을 쓰시오.",
+        "examples": "개방 시스템들 간의 네트워크 연결을 관리하는 기능과 데이터의 교환 및 중계 기능을 하는 계층으로, 네트워크 연결의 설정 유지, 해제를 담당한다.\n경로 설정(Rounting), 데이터 교환 및 중계, 트래픽 제어, 패킷 정보 등의 기능을 갖고 있다.\n대표적인 프로토콜 X.25, IP, ICMP, ARP, RARP가 있다.",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 5,
+        "question_text": "다음 Python으로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "def f(n):\n    return lambda a:a*n\nk=f(3)\nprint(k(10))",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 6,
+        "question_text": "다음 C언어로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "#include <stdio.h>\n\nmain() {\n  int a[3][5]={{27,13,21,41,12},{11,20,17,35,15},{21,15,32,14,10}};\n  int sum, ssum=0;\n  for(int i=0; i<3; i++){\n    sum=0;\n    for(int j=0; j<5; j++)\n      sum+=a[i][j];\n    ssum+=sum;\n  }\n  printf(\"%d\", ssum);\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 7,
+        "question_text": "애플리케이션 테스트에 대한 다음 설명에 해당하는 테스트 기법을 <보기>에서 찾아 쓰시오",
+        "examples": "단위 테스트가 완료된 모듈들을 결합하여 하나의 시스템으로 완성시키는 과정에서의 테스트를 의미한다\n모듈 간 또는 통합된 컴포넌트 간의 상호 작용 오류를 검사한다\n단위 테스트가 끝난 모듈을 통합하는 과정에서 발생하는 오류 및 결함을 찾는 테스트이다\n비점진적 방식과 점진적 방식으로 구분할 수 있다\n\n<보기>\nUnit Test\nIntegration Test\nSystem Test\nAcceptance Test\nUser Test\nBeta Test\nAlpha Test\nBlackbox Test",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 8,
+        "question_text": "다음 C언어로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "#include <stdio.h>\n\nmain() {\n  int i=1, n=0;\n  while(i<=50){\n    if(i%7==0)\n      n+=i;\n    i++;\n  }\n  printf(\"%d\", n);\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 9,
+        "question_text": "스케줄링에 대한 다음 설명에 해당하는 알고리즘을 <보기>에서 찾아 쓰시오",
+        "examples": "준비상태 큐에서 기다리고 있는 프로세스들 중에서 실행 시간이 가장 짧은 프로세스에게 먼저 CPU를 할당하는 기법이다\n가장 적은 평균 대기 시간을 제공하는 최적 알고리즘이다\n실행 시간이 긴 프로세스는 실행 시간이 짧은 프로세스에게 할당 순위가 밀려 무한 연기 상태가 될 수 있다\n\n<보기>\nFCFS\nFIFO\nHRN\nDeadline\nSJF\nMQ\nRR\nSRT",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 10,
+        "question_text": "다음 Python으로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "def af(a,b):\n    return a+b\ndef sf(a,b):\n    return a-b\nprint(sf(af(4,5),6))",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 11,
+        "question_text": "데이터베이스의 무결성에 대한 다음 설명에서 괄호에 들어갈 알맞은 답을 쓰시오.",
+        "examples": "무결성은 데이터베이스에 저장된 데이터 값과 그것이 표현하는 현실 세계의 실제값이 일치하는 정확성을 의미하며, 무결성 제약 조건은 데이터베이스에 들어 있는 데이터의 정확성을 보장하기 위해 부정확한 자료가 데이터베이스 내에 저장되는 것을 방지하기 위한 제약 조건을 말한다\n(    )은 외래키 값은 Null이거나 참조 릴레이션의 기본키 값과 동일해야 한다는 제약 조건이다. 즉 릴레이션은 참조할 수 없는 외래키 값을 가질 수 없는 규정이다.",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 12,
+        "question_text": "인터넷에 대한 다음 설명에서 괄호에 들어갈 알맞은 답을 <보기>에서 찾아 쓰시오",
+        "examples": "IP주소는 인터넷에 연결된 모든 컴퓨터 자원을 구분하기 위한 고유한 주소이다. 이러한 IP 주소의 한 종류에 해당하는 IPv4는 네트워크 부분의 길이에 따라 A 클래스에서 E클래스까지 총 5단계로 구성되어 있다. 다음은 IPv4 주소를 8비트씩 4부분으로 나누어 네트워크 주소와 호스트 주소로 구분한 것이다.\n\n(가)\n네트워크 주소 | 네트워크 주소 | 네트워크 주소 | 호스트 주소\n\n(나)\n네트워크 주소 | 호스트 주소 | 호스트 주소 | 호스트 주소\n\n<보기>\nA클래스\nB클래스\nC클래스\nD클래스\nE클래스\n\n(가):\n(나):",
+        "input_type": "multi_blank",
+        "answer_format_hint": "예: (가) 값 / (나) 값"
+      },
+      {
+        "problem_number": 13,
+        "question_text": "경로 제어에 대한 다음 설명에 해당하는 프로토콜을 <보기>에서 찾아 쓰시오.",
+        "examples": "거리 벡터 라우팅 프로토콜이라고 불리며, 최단 경로 탐색에 Bellman-Ford 알고리즘을 사용한다\n소규모 자율 시스템(AS) 내에서 효율적인 방법이다\n최대 홉(Hop) 수를 15로 제한하므로 15를 초과하는 자율 시스템은 구축할 수 없다\n라우팅 정보를 30초마다 네트워크 내의 모든 라우터에 알리며, 180초 이내에 새로운 라우팅 정보가 수신되지 않으면 해당 경로를 이상 상태로 간주한다\n\n<보기>\nIGP\nOSPF\nBGP\nEGP\nAODV\nDRP\nICMP\nRIP",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 14,
+        "question_text": "TCP 헤더에 대한 다음 설명에서 괄호에 들어갈 알맞은 답을 <보기>에서 찾아 쓰시오.",
+        "examples": "TCP는 신뢰성 있는 연결형 서비스와 패킷의 다중화, 순서 제어, 오류 제어, 흐름 제어 등의 기능을 제공하며, 이와 같은 기능을 제공하기 위해 데이터의 헤더에 다음과 같이 다양한 정보를 담고 있다\n\n(가) : 데이터의 순서를 저장하는 곳으로, 수신자는 이 정보를 바탕으로 분할된 세그먼트를 올바른 순서로 재조립할 수 있다\n(나) : 데이터를 올바르게 수신했음을 상대방에게 알릴 때 전달할 데이터가 저장되는 곳이다.\n\n<보기>\nAcknowledgment Number\nVersion Number\nSegment Length\nSource Address\nFragment Offset\nTransport Port\nService Type\nSequence Number\nSYN FLAG",
+        "input_type": "multi_blank",
+        "answer_format_hint": "예: (가) 값 / (나) 값"
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 JAVA로 구현된 프로그램을 분석하여 그 실행결과를 쓰시오.",
+        "examples": "class Main {\n  public static void main(String args[]) {\n    int a[][]=new int [3][3];\n    init(a);\n    data(a);\n    prnt(a);\n  }\n\n  static void init(int a[][]){\n    for(int i=0; i<3; i++)\n      for(int j=0; j<3; j++)\n        a[i][j]=0;\n  }\n\n  static void data(int a[][]){\n    int v=1;\n    for(int i=0; i<3; i++)\n      for(int j=i; j<3; j++)\n        a[i][j]=v++;\n  }\n\n  static void prnt(int a[][]){\n    for(int i=0; i<3; i++){\n      for(int j=0; j<3; j++){\n        if(a[i][j]==0)\n          System.out.printf(\" \");\n        else\n          System.out.printf(\"%d\", a[i][j]);\n      }\n      System.out.println();\n    }\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 C언어로 구현된 프로그램에서 화면에 5를 입력한 후 나타나는 결과를 쓰시오.",
+        "examples": "#include <stdio.h>\n\nmain() {\n  int n, sum=0;\n  printf(\"정수를 입력하시오 : \");\n  scanf(\"%d\", &n);\n  for (int i=1; i<=n; i++)\n    sum=sum+i;\n  printf(\"%d\", sum);\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 17,
+        "question_text": "애플리케이션 테스트에 대한 다음 설명에 해당하는 테스트 기법을 <보기>에서 찾아 쓰시오",
+        "examples": "프로그램의 입력 조건에 타당한 입력 자료와 타당하지 않은 입력 자료의 개수를 균등하게 하여 테스트 케이스를 구성하고 입력자료에 맞는 결과가 출력되는지 확인하는 기법이다\n입력 데이터를 준비할 때 올바른 결과가 나타나는 입력 데이터의 범위 'n<=Data < M'에 해당하는 데이터 10개를 준비했다면, 범위에 포함되지 않는 'Data<n, Data >=M'에 해당하는 데이터도 10개를 준비하여 테스트해야 한다.\n\n<보기>\nEquivalence Partitioning\nBoundary Value Analysis\nCause-Effect Graphing\nAcceptance Test\nError Guessing\nControl Structure\nAlpha Test\nBig bang",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 18,
+        "question_text": "SQL에 대한 다음 설명에서 괄호에 들어갈 알맞은 명령어를 쓰시오.",
+        "examples": "SQL의 하나인 DDL은 DB 구조, 데이터 형식, 접근 방식 등 DB를 구축하거나 수정할 목적으로 사용하는 언어로, 다음 3가지 명령어를 사용하여 표현한다.\n( 가 ) : 스키마, 도메인, 테이블 등의 개체를 정의하는 데 사용하는 명령어\n( 나 ) : 개체에 대한 정의를 변경하는 데 사용하는 명령어\n( 다 ) : 스키마, 도메인, 테이블 등의 개체를 삭제하는 데 사용하는 명령어",
+        "input_type": "multi_blank",
+        "answer_format_hint": "예: (가) 값 / (나) 값"
+      },
+      {
+        "problem_number": 19,
+        "question_text": "데이터베이스에 대한 다음 설명에서 괄호에 공통으로 들어갈 알맞은 답을 쓰시오.",
+        "examples": "(    )는 사용자에게 접근이 허용된 자료만을 제한적으로 보여주기 위해 하나 이상의 기본 테이블로부터 유도된 가상의 테이블이다.\n(    )는 저장장치 내에 물리적으로 존재하지 않지만, 사용자에게는 있는 것처럼 간주된다.\n(    )를 통해서만 데이터에 접근하게 함으로써 (    )에 나타나지 않는 데이터를 안전하게 보호할 수 있다",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 설명에 해당하는 알맞은 인터넷 서비스를 쓰시오.",
+        "examples": "멀리 떨어져 있는 컴퓨터에 접속하여 자신의 컴퓨터처럼 사용할 수 있도록 해주는 서비스이다.\n프로그램을 실행하는 등 시스템 관리 작업을 할 수 있는 가상의 터미널(Virtual Terminal) 기능을 수행한다.\n응용 계층(Application Layer)에서 제공하는 서비스이며, 주로 사용되는 포트 번호는 23이다.",
+        "input_type": "single"
+      }
+    ]
+  }
+]

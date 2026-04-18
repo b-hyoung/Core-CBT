@@ -1,0 +1,107 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) 128 / (나) QoS"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1234"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT DISTINCT grade from customer;"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ARP"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "4"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ICMP"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "15 23 26 31"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄹ, ㄱ, ㄴ, ㄷ"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1335"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Berry\\nApple"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. Verification / 2. Validation"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. 스키마 / 2. 속성"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) &max / (나) &min"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. HTTPS: 443 / 2. SSH : 22 / 3. IMAP : 143"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "10"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄱ. Equivalence Partitioning Testing"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "50"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. Unique Integrity : ㄴ / 2. Domain Integrity : ㄱ / 3. Referential Integrity : ㄹ / 4. Entity Integrity : ㄷ"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "차수 : 5 / 카디널리티 : 3"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "제4정규형"
+      }
+    ]
+  }
+]

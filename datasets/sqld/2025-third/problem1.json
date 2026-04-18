@@ -1,0 +1,513 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "논리적 데이터 모델링 설명으로 적절한 것은?",
+        "options": [
+          "물리적 성능을 고려",
+          "Key, 속성, 관계를 정확히 표현하고 정규화 수행",
+          "추상화 수준이 가장 높음",
+          "테이블스페이스, 인덱스 설계"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "엔터티 설명으로 적절하지 않은 것은?",
+        "options": [
+          "업무에서 관리해야 하는 데이터 집합",
+          "반드시 2개 이상의 인스턴스",
+          "반드시 속성 보유",
+          "하나의 인스턴스만 가져도 된다"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "설계 속성 설명으로 적절한 것은?",
+        "options": [
+          "업무에서 자연 발생하는 속성",
+          "다른 속성에서 계산으로 도출",
+          "설계자가 새로 만든 속성",
+          "다른 엔터티에서 상속"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "반정규화 설명으로 적절하지 않은 것은?",
+        "options": [
+          "성능 향상 위해 중복 허용",
+          "조인 횟수 감소로 조회 성능 향상",
+          "반정규화하면 데이터 일관성이 항상 보장",
+          "정규화 이후에 수행"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "주식별자 선정 기준으로 적절하지 않은 것은?",
+        "options": [
+          "유일성",
+          "최소성",
+          "불변성",
+          "가변성"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "제3정규형 설명으로 적절한 것은?",
+        "options": [
+          "원자값",
+          "부분 함수 종속 제거",
+          "이행 함수 종속 제거",
+          "결정자가 후보키 아닌 종속 제거"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "관계 표현 시 부모가 반드시 가져야 하는 것은?",
+        "options": [
+          "외래키",
+          "주식별자",
+          "파생 속성",
+          "인조식별자"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "데이터 모델링 3단계 순서?",
+        "options": [
+          "물리→논리→개념",
+          "논리→개념→물리",
+          "개념→논리→물리",
+          "물리→개념→논리"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "비식별자 관계에서 자식 엔터티 특징?",
+        "options": [
+          "부모에 완전 종속",
+          "부모 없이 존재 불가",
+          "부모 PK가 자식 PK에 포함",
+          "독립적으로 존재 가능"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "속성 설명으로 적절하지 않은 것은?",
+        "options": [
+          "기본 속성=업무 자연 발생",
+          "설계 속성=설계자가 생성",
+          "파생 속성=다른 속성에서 도출",
+          "파생 속성이 많을수록 좋다"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "problems": [
+      {
+        "problem_number": 11,
+        "question_text": "DDL 설명으로 적절하지 않은 것은?",
+        "options": [
+          "CREATE=객체 생성",
+          "ALTER=객체 변경",
+          "DROP=객체 삭제",
+          "DDL은 ROLLBACK으로 취소 가능"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "IN 연산자 설명으로 적절한 것은?",
+        "options": [
+          "단일값만 비교",
+          "서브쿼리 결과와 비교 가능",
+          "NULL과 비교 가능",
+          "BETWEEN과 동일"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "SUM에서 NULL 처리?",
+        "options": [
+          "NULL→0 치환",
+          "NULL 행 제외하고 합산",
+          "NULL 하나라도 있으면 결과 NULL",
+          "NULL 포함 합산"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "스칼라 서브쿼리 설명으로 적절한 것은?",
+        "options": [
+          "SELECT절에서 여러 행 반환 가능",
+          "SELECT절에서 반드시 하나의 값만 반환",
+          "WHERE절에서만 사용",
+          "FROM절 인라인 뷰"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "OUTER JOIN에서 (+) 기호 설명으로 적절한 것은?",
+        "options": [
+          "(+)는 데이터가 많은 쪽에 표시",
+          "(+)는 데이터가 부족한(NULL이 생기는) 쪽에 표시",
+          "(+)는 양쪽 모두에 표시",
+          "(+)는 INNER JOIN에서 사용"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "GROUP BY에서 집계함수 사용 시 적절하지 않은 것은?",
+        "options": [
+          "SELECT에 집계함수와 GROUP BY 컬럼만 올 수 있다",
+          "HAVING에서 집계함수로 필터링 가능",
+          "WHERE에서 집계함수를 사용할 수 있다",
+          "ORDER BY에서 집계함수 사용 가능"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "DECODE 함수에서 NULL 비교 특수성?",
+        "options": [
+          "DECODE에서 NULL=NULL은 FALSE",
+          "DECODE에서 NULL=NULL은 TRUE",
+          "DECODE는 NULL을 무시",
+          "DECODE는 NVL과 동일"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "PIVOT의 역할?",
+        "options": [
+          "열→행 변환",
+          "행→열 변환",
+          "중복 제거",
+          "집계 없이 변환"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "다중행 서브쿼리 연산자가 아닌 것은?",
+        "options": [
+          "IN",
+          "ANY",
+          "ALL",
+          "="
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "HAVING절 설명으로 적절한 것은?",
+        "options": [
+          "GROUP BY 없이 단독 사용 가능",
+          "WHERE 전에 실행된다",
+          "집계 결과에 대한 조건 필터링",
+          "단일행 함수만 사용 가능"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "VARCHAR2와 CHAR 비교 시 적절한 것은?",
+        "options": [
+          "VARCHAR2는 고정 길이",
+          "CHAR는 가변 길이",
+          "CHAR는 빈 공간을 공백으로 채운다",
+          "VARCHAR2와 CHAR의 비교 결과는 항상 동일"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "TCL(트랜잭션 제어어)에 해당하는 것은?",
+        "options": [
+          "CREATE, DROP",
+          "INSERT, DELETE",
+          "GRANT, REVOKE",
+          "COMMIT, ROLLBACK, SAVEPOINT"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "서브쿼리 위치에 따른 분류가 아닌 것은?",
+        "options": [
+          "스칼라 서브쿼리 (SELECT절)",
+          "인라인 뷰 (FROM절)",
+          "중첩 서브쿼리 (WHERE절)",
+          "조인 서브쿼리 (JOIN절)"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "GRANT와 REVOKE 설명으로 적절한 것은?",
+        "options": [
+          "GRANT는 권한 회수",
+          "REVOKE는 권한 부여",
+          "GRANT는 권한 부여, REVOKE는 권한 회수",
+          "둘 다 DML이다"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "NVL2(expr1, expr2, expr3) 설명?",
+        "options": [
+          "expr1이 NULL이면 expr2 반환",
+          "expr1이 NOT NULL이면 expr2, NULL이면 expr3 반환",
+          "세 값 중 NULL이 아닌 첫 번째 반환",
+          "expr1과 expr2가 같으면 NULL 반환"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "WINDOW FUNCTION에서 PARTITION BY 설명?",
+        "options": [
+          "전체 데이터에 대해 연산",
+          "지정 컬럼 기준으로 그룹을 나눠 각 그룹별 연산",
+          "ORDER BY와 동일",
+          "HAVING과 동일"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "EXISTS 서브쿼리의 SELECT절에 적절한 것은?",
+        "options": [
+          "SELECT * FROM ...",
+          "SELECT 1 FROM ...",
+          "SELECT 컬럼명 FROM ...",
+          "위 모두 가능 (반환값이 아닌 존재 여부만 확인)"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "인라인 뷰(Inline View) 설명?",
+        "options": [
+          "SELECT절에서 사용",
+          "FROM절에서 서브쿼리를 테이블처럼 사용",
+          "WHERE절에서만 사용",
+          "HAVING절에서 사용"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "FETCH FIRST N ROWS ONLY 설명으로 적절한 것은?",
+        "options": [
+          "Oracle 전용 문법",
+          "SQL 표준으로 상위 N건을 제한",
+          "ROWNUM과 동일하게 정렬 전 적용",
+          "ORDER BY 없이도 정확한 Top-N 보장"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "계층형 쿼리에서 LEVEL 가상 컬럼?",
+        "options": [
+          "정렬 순서를 나타낸다",
+          "각 행의 계층 깊이를 나타낸다",
+          "ROWNUM과 동일",
+          "파티션 번호를 나타낸다"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "RATIO_TO_REPORT 함수?",
+        "options": [
+          "순위를 반환",
+          "파티션 내 합 대비 각 행 값의 비율",
+          "누적 백분율",
+          "n개 그룹 분할"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "상관(Correlated) 서브쿼리 특징?",
+        "options": [
+          "메인쿼리와 무관하게 독립 실행",
+          "메인쿼리의 컬럼을 참조하며 행마다 반복 실행",
+          "한 번만 실행되어 결과를 캐싱",
+          "FROM절에서만 사용 가능"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "CROSS JOIN 설명?",
+        "options": [
+          "조인 조건 없이 카테시안 곱 생성",
+          "INNER JOIN과 동일",
+          "NULL 행을 포함하는 조인",
+          "셀프조인의 다른 이름"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "NTILE(4) 함수 설명?",
+        "options": [
+          "4개 행만 반환",
+          "데이터를 4개 그룹으로 균등 분할하여 그룹 번호 부여",
+          "상위 4순위만 반환",
+          "4번째 값을 반환"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "집합 연산자에서 컬럼 수가 다를 때?",
+        "options": [
+          "자동으로 NULL로 채움",
+          "에러 발생",
+          "적은 쪽에 맞춤",
+          "많은 쪽에 맞춤"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "LEAD 함수?",
+        "options": [
+          "현재 행 이전 값",
+          "현재 행 이후 값",
+          "파티션 첫 번째 값",
+          "파티션 마지막 값"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "뷰(VIEW) 변경 명령어?",
+        "options": [
+          "ALTER VIEW",
+          "CREATE OR REPLACE VIEW",
+          "MODIFY VIEW",
+          "UPDATE VIEW"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "FIRST_VALUE / LAST_VALUE 함수?",
+        "options": [
+          "정렬 후 첫 번째/마지막 행의 값 반환",
+          "최소값/최대값 반환",
+          "NULL 첫 번째/마지막 반환",
+          "RANK와 동일"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "다중 테이블 INSERT에 대한 설명?",
+        "options": [
+          "한 번에 하나의 테이블에만 INSERT 가능",
+          "INSERT ALL로 여러 테이블에 동시 INSERT 가능",
+          "INSERT SELECT만 가능",
+          "VALUES 절에서만 가능"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "ROLLUP(A, B, C)이 생성하는 소계 수?",
+        "options": [
+          "3개",
+          "4개",
+          "7개",
+          "8개"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "데이터 사전(Data Dictionary) 설명?",
+        "options": [
+          "사용자가 직접 수정 가능",
+          "DB의 메타데이터를 저장하는 시스템 테이블",
+          "DML로 변경 가능",
+          "인덱스를 저장하는 공간"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "TRIM 함수 설명?",
+        "options": [
+          "왼쪽만 제거",
+          "오른쪽만 제거",
+          "양쪽의 지정 문자를 제거 (기본: 공백)",
+          "중간 문자를 제거"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "CUBE(A, B)가 생성하는 그룹 수?",
+        "options": [
+          "2개",
+          "3개",
+          "4개",
+          "8개"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "NULL 포함 ORDER BY ASC 기본 동작? (SQL Server)",
+        "options": [
+          "NULLS FIRST",
+          "NULLS LAST",
+          "NULL 제외",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "DELETE와 TRUNCATE 차이 중 적절하지 않은 것은?",
+        "options": [
+          "DELETE는 DML, TRUNCATE는 DDL",
+          "DELETE는 ROLLBACK 가능, TRUNCATE는 불가",
+          "DELETE는 WHERE 가능, TRUNCATE는 불가",
+          "DELETE와 TRUNCATE 모두 테이블 구조를 삭제한다"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "서브쿼리에서 ORDER BY 사용 제한?",
+        "options": [
+          "어디서든 사용 가능",
+          "인라인 뷰(FROM절)에서만 사용 가능",
+          "스칼라 서브쿼리에서 사용 가능",
+          "WHERE절 서브쿼리에서 사용 가능"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "비교 연산에서 NULL 결과?",
+        "options": [
+          "TRUE, FALSE, TRUE",
+          "UNKNOWN, UNKNOWN, UNKNOWN",
+          "FALSE, TRUE, FALSE",
+          "에러, 에러, 에러"
+        ],
+        "examples": "100 > NULL / NULL = NULL / NULL != NULL"
+      },
+      {
+        "problem_number": 48,
+        "question_text": "EXCEPT와 NOT IN의 차이?",
+        "options": [
+          "완전히 동일",
+          "EXCEPT는 중복 제거, NOT IN은 중복 유지",
+          "EXCEPT는 NULL 행도 처리, NOT IN은 NULL 포함 시 문제",
+          "NOT IN이 더 빠름"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW 의미?",
+        "options": [
+          "파티션 처음부터 현재 행까지",
+          "현재 행부터 파티션 끝까지",
+          "현재 행 전후 1행",
+          "전체 파티션"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "INDEX에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "조회 성능을 향상시킨다",
+          "DML 성능은 저하될 수 있다",
+          "모든 컬럼에 인덱스를 생성하면 좋다",
+          "B-Tree 인덱스가 가장 일반적이다"
+        ]
+      }
+    ]
+  }
+]

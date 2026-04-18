@@ -1,0 +1,107 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "5"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄷ-ㄴ-ㄹ-ㅁ-ㄱ"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "FEC(전진 오류 수정)"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "21"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄴ, ㄷ, ㄹ"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) 릴레이션 / (나) 도메인 / (다) AND / (라) HAVING / (마) VALUES"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) 정규화 / (나) 이상 / (다) 갱신 / (라) C / (마) BCNF"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": ["가: 요구사항 / 나: 분석 / 다: 설계 / 라: 구현 / 마: 단위테스트 / 바: 통합테스트 / 사: 시스템테스트 / 아: 인수테스트",  "가: 요구사항 / 나: 분석 / 다: 설계 / 라: 구현 / 마: 단위 테스트 / 바: 통합 테스트 / 사: 시스템 테스트 / 아: 인수 테스트"]
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "가: AND / 나: DISTINCT / 다: IN"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "가: 트래픽 제어기 / 나: 작업 스케줄러 / 다: 프로세스 스케줄러 / 라: 디스패처"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① BIOS ② 버퍼링"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Control"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) duckcnt / (나) pigcnt"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(다) 코드 인스펙션"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "49\n100\n91"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가): 학과 / (나): 학생수<=30"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① 정규화 / ② 이상 / ③ 갱신 / ④ C / ⑤ BCNF"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) tset / (나) gnirts"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "334"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) SET / (나) WHERE"
+      }
+    ]
+  }
+]

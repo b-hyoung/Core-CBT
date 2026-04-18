@@ -1,0 +1,312 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 2,
+        "correct_answer_text": "물리적 저장 구조를 표현",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 1,
+        "correct_answer_text": "가능하면 약어를 사용한다",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 2,
+        "correct_answer_text": "다른 엔터티로부터 주식별자를 상속받는다",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 1,
+        "correct_answer_text": "제2정규형",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 2,
+        "correct_answer_text": "일반속성이 주식별자 전체에 종속적",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 1,
+        "correct_answer_text": "1:M도 가능",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "원자성",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "아니다 — 1:M 가능",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 1,
+        "correct_answer_text": "엔터티의 개별 사례이다",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "참여자 수 표현",
+        "correct_answer_symbol": "①"
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "answers": [
+      {
+        "problem_number": 11,
+        "correct_answer_index": 2,
+        "correct_answer_text": "IN절은 단일행 서브쿼리만 사용 가능",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 1,
+        "correct_answer_text": "INSERT, UPDATE, DELETE",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "동점 시 동일 순위 후 순차 번호",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 2,
+        "correct_answer_text": "6행",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "에러",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 2,
+        "correct_answer_text": "GROUPING SETS((A,B),(A))",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "GROUPING SETS(A, B, ())",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULL, 40, NULL",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULL 행 제외, 전체 NULL→SUM=NULL",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "3, 5, 4",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "마지막 INNER JOIN이 NULL 행 제거",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 1,
+        "correct_answer_text": "bc",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 1,
+        "correct_answer_text": "사원번호, 관리자번호",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 2,
+        "correct_answer_text": "별칭은 컬럼 앞뒤 어디든 가능",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 1,
+        "correct_answer_text": "A=1 OR (A=2 AND B=3 AND C=4)",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 1,
+        "correct_answer_text": "FROM EMP A, EMP B, EMP C WHERE A.ENAME='홍길동' AND B.MGR=A.EMPNO AND C.MGR=B.EMPNO",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 1,
+        "correct_answer_text": "에러: 조인 조건이 와야 함",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULLS FIRST",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 2,
+        "correct_answer_text": "첫 번째 행의 동순위 포함 반환",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NOT EXISTS (...)",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 1,
+        "correct_answer_text": "첫 번째 SELECT",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 1,
+        "correct_answer_text": "HAVING COUNT(주문번호) >= 3",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 1,
+        "correct_answer_text": "에러: parent key not found",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 2,
+        "correct_answer_text": "가, 라, 마",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULL 제외",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SUM(sal) OVER(), SUM(sal) OVER(PARTITION BY dept)",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 1,
+        "correct_answer_text": "UNION + INTERSECT",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "에러, NULL",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "DELETE 또는 TRUNCATE",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 2,
+        "correct_answer_text": "2건",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 2,
+        "correct_answer_text": "IS NOT NULL이 올바르다",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ALTER TABLE ... ADD",
+        "correct_answer_symbol": "①"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "FK",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 1,
+        "correct_answer_text": "개체 무결성 위반",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 1,
+        "correct_answer_text": "> AND <",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULLS FIRST",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 2,
+        "correct_answer_text": "첫 번째 행 동순위 포함",
+        "correct_answer_symbol": "③"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULL 제외",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 1,
+        "correct_answer_text": "DISTINCT로 비교",
+        "correct_answer_symbol": "②"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NULLS LAST",
+        "correct_answer_symbol": "②"
+      }
+    ]
+  }
+]

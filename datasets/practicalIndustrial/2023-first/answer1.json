@@ -1,0 +1,159 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① ㄴ, ② ㄱ, ③ ㄷ, ④ ㄹ"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "고객, 책, 출판사 / 구매, 공급",
+        "accepted_answers": [
+          "고객 책 출판사 / 구매 공급",
+          "고객, 책, 출판사 / 구매 공급",
+          "고객 책 출판사 / 구매, 공급",
+          "개체: 고객, 책, 출판사 / 관계: 구매, 공급",
+          "개체 : 고객, 책, 출판사 / 관계 : 구매, 공급",
+          "고객,책,출판사/구매,공급"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "NAT"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2",
+        "accepted_answers": [
+          "2",
+          "2 ",
+          "2)",
+          "(2)",
+          "2번"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SumNTo1(n-1)"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. commit / 2. rollback"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. ㄱ / 2. ㄴ / 3. ㄷ / 4. ㄹ"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "TCP"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "4, 32",
+        "accepted_answers": [
+          "4, 32",
+          "4 32",
+          "4 / 32",
+          "4,32",
+          "4\n32",
+          "Header Length: 4 / Destination IP Address: 32"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "평균 반환 시간 : 6.75 / 평균 대기 시간 : 3.25"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "빅뱅(bigbang) 테스트",
+        "accepted_answers": [
+          "빅뱅 테스트",
+          "빅뱅(big bang) 테스트",
+          "big bang 테스트",
+          "Big Bang 테스트",
+          "BigBang 테스트",
+          "빅뱅 통합 테스트"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "false\ntrue\n4\n0\n1"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. 네트워크 주소 : 191.168.24.0 / 2. 브로드캐스트 주소 : 191.168.27.255",
+        "accepted_answers": [
+          "네트워크 주소 : 191.168.24.0 / 브로드캐스트 주소 : 191.168.27.255",
+          "네트워크 주소: 191.168.24.0 / 브로드캐스트 주소: 191.168.27.255"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄱ, ㄷ, ㅁ, ㅅ",
+        "accepted_answers": [
+          "ㄱ, ㄷ, ㅁ, ㅅ",
+          "ㄱ ㄷ ㅁ ㅅ",
+          "ㄱ,ㄷ,ㅁ,ㅅ",
+          "ㄱ/ㄷ/ㅁ/ㅅ",
+          "ㄱ ㄷ ㅁ ㅅ",
+          "ㄱ, ㄷ, ㅁ, ㅅ."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. 상호 배제 / 2. 순환 대기"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "n-1"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. DML 컴파일러 / 2. 트랜잭션 관리자",
+        "accepted_answers": [
+          "1: DML 컴파일러 / 2: 트랜잭션 관리자"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1 -> 2 -> 3 -> 4 -> 5 -> 2 -> 6",
+        "accepted_answers": [
+          "1234526",
+          "1-2-3-4-5-2-6",
+          "1,2,3,4,5,2,6",
+          "1 → 2 → 3 → 4 → 5 → 2 → 6"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) CHECK / (나) IN"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "elif"
+      }
+    ]
+  }
+]

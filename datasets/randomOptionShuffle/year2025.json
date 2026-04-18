@@ -1,0 +1,2901 @@
+{
+  "format": "random-option-shuffle-year-v1",
+  "year": 2025,
+  "generatedAt": "2026-02-22T18:57:49.639Z",
+  "sessions": [
+    {
+      "key": "2025I-1",
+      "sessionId": "pdfpack-industrial-2025-1"
+    },
+    {
+      "key": "2025I-2",
+      "sessionId": "pdfpack-industrial-2025-2"
+    },
+    {
+      "key": "2025I-3",
+      "sessionId": "pdfpack-industrial-2025-3"
+    }
+  ],
+  "items": [
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 1,
+      "subject": 1,
+      "question_text": "Non-preemptive형 프로세스 스케줄링 방식만으로 묶인 것은?",
+      "options": [
+        "SJF, SRT",
+        "SJF, FIFO",
+        "Round-Robin, SRT",
+        "Round-Robin, SJF"
+      ],
+      "examples": null,
+      "answer_text": "SJF, FIFO",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 2,
+      "subject": 1,
+      "question_text": "블랙박스 테스트에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "블랙박스 테스트는 소프트웨어가 수행할 특정 기능을 알기 위 해서 각 기능이 완전히 작동되는 것을 입증하는 테스트이다.",
+        "블랙박스 테스트는 프로그램의 구조를 고려하지 않는다.",
+        "블랙박스 테스트는 소프트웨어 인터페이스에서 실시되는 테스 트이다.",
+        "블랙박스 테스트의 종류에는 기초 경로 검사, 제어 구조 검사 등이 있다."
+      ],
+      "examples": null,
+      "answer_text": "블랙박스 테스트의 종류에는 기초 경로 검사, 제어 구조 검사 등이 있다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 3,
+      "subject": 1,
+      "question_text": "디스크에서 헤드가 70 트랙을 처리하고 60 트랙으로 이동해 왔다.\n디스크 스케줄링 기법으로 SCAN 방식을 사용할 때 다음 디스크\n대기 큐에서 가장 먼저 처리되는 트랙은?\n디스크 대기 큐 : 20, 50, 95, 100",
+      "options": [
+        "20",
+        "50",
+        "95",
+        "100"
+      ],
+      "examples": null,
+      "answer_text": "50",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 4,
+      "subject": 1,
+      "question_text": "디렉터리 구조 중 다음 설명에 해당하는 것은?\nㆍ하나의 루트 디렉터리와 여러 개의 부디렉터리로 구성된다.\nㆍUNIX, Windows 운영체제에서 채택하고 있는 구조이다.\nㆍ디렉터리 탐색은 포인터에 의하여 계층적으로 이루어진다.",
+      "options": [
+        "1단계 디렉터리 구조",
+        "트리 디렉터리 구조",
+        "2단계 디렉터리 구조",
+        "비순환 그래프 디렉터리 구조"
+      ],
+      "examples": null,
+      "answer_text": "트리 디렉터리 구조",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 5,
+      "subject": 1,
+      "question_text": "UML의 구성 요소 중 관계(Relationships)에 대한 설명으로 옳지 않은\n것은?",
+      "options": [
+        "의존(Dependency) 관계 : 하나의 사물이 다른 사물에 포함되어 있는 관계를 표현한다.",
+        "실체화(Realization) 관계 : 사물이 할 수 있거나 해야 하는 기능으로 서로를 그룹화 할 수 있는 관계를 표현한다.",
+        "연관(Association) 관계 : 2개 이상의 사물이 서로 관련되어 있는 관계를 표현한다.",
+        "일반화(Generalization) 관계 : 하나의 사물이 다른 사물에 비해 더 일반적인지 구체적인지를 표현한다."
+      ],
+      "examples": null,
+      "answer_text": "의존(Dependency) 관계 : 하나의 사물이 다른 사물에 포함되어 있는 관계를 표현한다.",
+      "comment_text": "정답은 ①입니다. 의존(Dependency) 관계 설명이 아니라 포함 관계(집합/합성 관계)에 가까운 설명입니다.\n- ② 실체화(Realization)는 인터페이스가 정의한 기능을 클래스가 구현하는 관계를 나타내는 설명입니다.\n- ③ 연관(Association)은 객체(사물) 사이의 관련 관계를 나타내는 설명입니다.\n- ④ 일반화(Generalization)는 상위/하위(일반적/구체적) 관계를 나타내는 설명입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 6,
+      "subject": 1,
+      "question_text": "사용자 인터페이스의 기본 원칙에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "학습성 : 누구나 쉽게 배우고 익힐 수 있어야 한다.",
+        "유효성 : 사용자의 목적을 정확하고 완벽하게 달성해야 한다.",
+        "명확성 : 사용자가 개념적으로 쉽게 인지할 수 있도록 설계해야 한다.",
+        "직관성 : 누구나 쉽게 이해하고 사용할 수 있어야 한다."
+      ],
+      "examples": null,
+      "answer_text": "명확성 : 사용자가 개념적으로 쉽게 인지할 수 있도록 설계해야 한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 7,
+      "subject": 1,
+      "question_text": "모듈화(Modularity)와 관련한 설명으로 틀린 것은?",
+      "options": [
+        "소프트웨어의 모듈은 프로그래밍 언어에서 Subroutine, Function 등으로 표현될 수 있다.",
+        "모듈의 수가 증가하면 상대적으로 각 모듈의 크기가 커지며, 모듈 사이의 상호 교류가 감소하여 과부하(Overload) 현상이 나타난다.",
+        "모듈화는 시스템을 지능적으로 관리할 수 있도록 해주며, 복잡 도 문제를 해결하는 데 도움을 준다.",
+        "모듈화는 시스템의 유지보수와 수정을 용이하게 한다."
+      ],
+      "examples": null,
+      "answer_text": "모듈의 수가 증가하면 상대적으로 각 모듈의 크기가 커지며, 모듈 사이의 상호 교류가 감소하여 과부하(Overload) 현상이 나타난다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 8,
+      "subject": 1,
+      "question_text": "디자인 패턴 중 Singleton에 대한 설명으로 옳은 것은?",
+      "options": [
+        "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다.",
+        "원본 객체를 복제하는 방법으로 객체를 생성하는 패턴이다.",
+        "여러 객체를 가진 복합 객체와 단일 객체를 구분 없이 다루고자 할 때 사용하는 패턴이다.",
+        "수많은 객체들 간의 복잡한 상호작용을 캡슐화하여 객체로 정 의하는 패턴이다."
+      ],
+      "examples": null,
+      "answer_text": "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 9,
+      "subject": 1,
+      "question_text": "가상기억장치에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "기억공간의 확장을 위한 것이다.",
+        "주소 변환 작업이 필요하다.",
+        "소프트웨어적인 방법이다.",
+        "주기억장치를 보조기억장치처럼 사용한다."
+      ],
+      "examples": null,
+      "answer_text": "주기억장치를 보조기억장치처럼 사용한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 10,
+      "subject": 1,
+      "question_text": "객체 지향 기법에서 객체가 메시지를 받아 실행해야 할 때 객체의\n구체적인 연산을 정의한 것은?",
+      "options": [
+        "Instance",
+        "Method",
+        "Message",
+        "Class"
+      ],
+      "examples": null,
+      "answer_text": "Method",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 11,
+      "subject": 1,
+      "question_text": "다음 중 빌드 자동화 도구가 아닌 것은?",
+      "options": [
+        "Fedora",
+        "Gradle",
+        "Jenkins",
+        "Maven"
+      ],
+      "examples": null,
+      "answer_text": "Fedora",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 12,
+      "subject": 1,
+      "question_text": "운영체제의 발달 과정 순서를 옳게 나열한 것은?\n㉮ 일괄 처리 시스템\n㉯ 분산 처리 시스템\n㉰ 다중 모드(Mode) 시스템\n㉱ 시분할 시스템",
+      "options": [
+        "㉮ → ㉱ → ㉰ → ㉯",
+        "㉰ → ㉯ → ㉱ → ㉮",
+        "㉮ → ㉰ → ㉱ → ㉯",
+        "㉰ → ㉱ → ㉯ → ㉮"
+      ],
+      "examples": null,
+      "answer_text": "㉮ → ㉱ → ㉰ → ㉯",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 13,
+      "subject": 1,
+      "question_text": "디지털 코드 중에서 에러 검출 및 교정이 가능한 코드는?",
+      "options": [
+        "그레이(Gray) 코드",
+        "해밍(Hamming) 코드",
+        "3 초과(Excess-3) 코드",
+        "BCD 코드"
+      ],
+      "examples": null,
+      "answer_text": "해밍(Hamming) 코드",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 14,
+      "subject": 1,
+      "question_text": "통합 테스트에 대한 설명으로 틀린 것은?",
+      "options": [
+        "드라이버를 사용하는 것은 상향식 테스트이다.",
+        "스텁을 사용하는 것은 하향식 테스트이다.",
+        "모듈 또는 컴포넌트 간의 상호 작용 오류를 검사한다.",
+        "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+      ],
+      "examples": null,
+      "answer_text": "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 15,
+      "subject": 1,
+      "question_text": "오류가 발생한 코드를 추적하여 수정하는 작업은?",
+      "options": [
+        "Loading",
+        "Linking",
+        "Debugging",
+        "Hashing"
+      ],
+      "examples": null,
+      "answer_text": "Debugging",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 16,
+      "subject": 1,
+      "question_text": "자원 보호 기법 중 접근 제어 행렬에서 수평으로 있는 각 행들만을\n따온 것으로서 각 영역에 대한 권한은 객체와 그 객체에 허용된\n연산자로 구성되는 것은?",
+      "options": [
+        "Global Table",
+        "Access Control List",
+        "Capability List",
+        "Lock/Key"
+      ],
+      "examples": null,
+      "answer_text": "Capability List",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 17,
+      "subject": 1,
+      "question_text": "소프트웨어 테스트 순서로 올바로 나열된 것은?",
+      "options": [
+        "단위 테스트 → 인수 테스트 → 통합 테스트 → 시스템 테스트",
+        "단위 테스트 → 통합 테스트 → 시스템 테스트 → 인수 테스트",
+        "인수 테스트 → 단위 테스트 → 시스템 테스트 → 통합 테스트",
+        "시스템 테스트 → 인수 테스트 → 단위 테스트 → 통합 테스트"
+      ],
+      "examples": null,
+      "answer_text": "단위 테스트 → 통합 테스트 → 시스템 테스트 → 인수 테스트",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 18,
+      "subject": 1,
+      "question_text": "시스템 분석, 설계, 구현 등 시스템 개발 과정에서 시스템 개발자와\n고객 또는 개발자 상호 간의 의사소통이 원활하게 이루어지도록\n표준화한 통합 모델링 언어는?",
+      "options": [
+        "JAVA",
+        "PHP",
+        "UML",
+        "ASP"
+      ],
+      "examples": null,
+      "answer_text": "UML",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 19,
+      "subject": 1,
+      "question_text": "세마포어(Semaphore)에 관한 설명 중 옳지 않은 것은?",
+      "options": [
+        "상호배제 문제를 해결하기 위하여 사용된다.",
+        "정수의 변수로서 양의 값만을 가진다.",
+        "여러 개의 프로세스가 동시에 그 값을 수정하지 못한다.",
+        "세마포어에 대한 연산은 처리 도중에 인터럽트 되어서는 안된다."
+      ],
+      "examples": null,
+      "answer_text": "정수의 변수로서 양의 값만을 가진다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 20,
+      "subject": 1,
+      "question_text": "관계 대수 중 순수 관계 연산이 아닌 것은?",
+      "options": [
+        "Difference",
+        "Join",
+        "Select",
+        "Project"
+      ],
+      "examples": null,
+      "answer_text": "Join",
+      "comment_text": "정답은 ②입니다. Join은 유도 관계 연산(파생 연산)입니다.\n- ① Difference는 순수 관계 연산입니다.\n- ③ Select는 순수 관계 연산입니다.\n- ④ Project는 순수 관계 연산입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 21,
+      "subject": 2,
+      "question_text": "다음은 아이디와 암호를 입력하는 로그인 창을 JavaScript로 구현한\n것이다. 괄호(㉠~㉣)에 들어갈 적합한 속성은?\n<html>\n<body>\n<( ㉠ ) ( ㉡ )=\"post\" ( ㉢ )=\"log01.jsp\">\n<p>아이디<input type=\"text\" name=\"id\"></p>\n<p>암호<input type=\"password\" name=\"pw\"></p>\n<( ㉣ )>\n</body>\n</html>",
+      "options": [
+        "㉠ form, ㉡ action, ㉢ method, ㉣ /form",
+        "㉠ form, ㉡ method, ㉢ action, ㉣ /form",
+        "㉠ function, ㉡ form, ㉢ method, ㉣ /function",
+        "㉠ function, ㉡ action, ㉢ form, ㉣ /function"
+      ],
+      "examples": null,
+      "answer_text": "㉠ form, ㉡ method, ㉢ action, ㉣ /form",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 22,
+      "subject": 2,
+      "question_text": "Python에서 사용하는 데이터 타입이 아닌 것은?",
+      "options": [
+        "딕셔너리",
+        "튜플",
+        "컴포지션",
+        "리스트"
+      ],
+      "examples": null,
+      "answer_text": "컴포지션",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 23,
+      "subject": 2,
+      "question_text": "모듈 설계 시 유의사항으로 거리가 먼 것은?",
+      "options": [
+        "적절한 크기로 설계한다.",
+        "추상화와 정보 은닉의 성격을 갖도록 한다.",
+        "보기 쉽고 이해가기 쉬워야 한다.",
+        "응집도를 최소화 한다."
+      ],
+      "examples": null,
+      "answer_text": "응집도를 최소화 한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 24,
+      "subject": 2,
+      "question_text": "다음 중 C언어에서 정수형 자료를 나타내는 데이터 형식은?",
+      "options": [
+        "int",
+        "char",
+        "void",
+        "float"
+      ],
+      "examples": null,
+      "answer_text": "int",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 25,
+      "subject": 2,
+      "question_text": "다음 Java 코드가 실행되었을 때의 결과는?\nint a[][] = new int[2][3];\nSystem.out.print(a.length);",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "6"
+      ],
+      "examples": null,
+      "answer_text": "2",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 26,
+      "subject": 2,
+      "question_text": "변수의 주소를 말하며, C언어에서는 주소를 제어할 수 있는 기능을\n제공하는 것은?",
+      "options": [
+        "배열",
+        "프로토타입",
+        "라이브러리",
+        "포인터"
+      ],
+      "examples": null,
+      "answer_text": "포인터",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 27,
+      "subject": 2,
+      "question_text": "공통 모듈에 대한 명세 기법 중 기능에 대한 요구사항의 출처,\n관련 시스템 등의 관계를 파악할 수 있도록 작성하는 원칙은?",
+      "options": [
+        "추적성",
+        "명확성",
+        "완전성",
+        "일관성"
+      ],
+      "examples": null,
+      "answer_text": "추적성",
+      "comment_text": "정답은 ①입니다. 요구사항의 출처와 관련 시스템 등의 관계를 파악할 수 있도록 작성하는 원칙은 추적성(Traceability)입니다.\n- ② 명확성은 요구사항을 중의적 해석 없이 분명하게 작성하는 원칙입니다.\n- ③ 완전성은 시스템 구현에 필요한 내용을 빠짐없이 기술하는 원칙입니다.\n- ④ 일관성은 요구사항 간 충돌 없이 논리적으로 모순되지 않게 작성하는 원칙입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 28,
+      "subject": 2,
+      "question_text": "다음과 같이 HTML 문서를 작성했을 때 노란색 배경을 갖는 셀의\n위치는?\n<html>\n<style>\ntr:nth-child(even) { background-color:yellow; }\n</style>\n<body>\n<table>\n<thead>\n<tr>\n<th></th>\n</tr>\n</thead>\n<tfoot>\n<tr>\n<td></td>\n</tr>\n</tfoot>\n<tbody>\n<tr>\n<td></td>\n</tr>\n<tr>\n<td></td>\n</tr>\n</tbody>\n</table>\n</body>\n</html>",
+      "options": [
+        "1행",
+        "2행",
+        "3행",
+        "4행"
+      ],
+      "examples": null,
+      "answer_text": "3행",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 29,
+      "subject": 2,
+      "question_text": "Python에서 문자열을 표현하는 방법으로 옳지 않은 것은?",
+      "options": [
+        "'I don't like it'",
+        "\"I don't like it\"",
+        "\"Hello World\"",
+        "'Hello World’"
+      ],
+      "examples": null,
+      "answer_text": "'I don't like it'",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 30,
+      "subject": 2,
+      "question_text": "소프트웨어 아키텍처의 4+1 관점 중 물리적 시스템에서 사용하는\n소프트웨어 서브 시스템 모듈이 어떻게 구조화되어 있는지에 중점을\n둔 관점은?",
+      "options": [
+        "유스케이스",
+        "논리적",
+        "구현",
+        "물리적"
+      ],
+      "examples": null,
+      "answer_text": "구현",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 31,
+      "subject": 2,
+      "question_text": "객체지향 프로그래밍 언어에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "추상화(Abstraction)는 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다.",
+        "클래스(Class)는 두 개 이상의 유사한 객체들을 묶어서 하나의 공통된 특성을 표현하는 요소이다.",
+        "캡슐화(Encapsulation)는 데이터(속성)와 데이터를 처리하는 함수를 하나로 묶는 것을 의미한다.",
+        "객체(Object)는 데이터(속성)와 이를 처리하기 위한 연산(메소 드)을 결합시킨 실체이다."
+      ],
+      "examples": null,
+      "answer_text": "추상화(Abstraction)는 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 32,
+      "subject": 2,
+      "question_text": "추상 클래스에 대한 설명으로 옳은 것은?",
+      "options": [
+        "구상 클래스 또는 구현 클래스라고도 불린다.",
+        "개별적인 인스턴스 생성이 가능하다.",
+        "구현하려는 기능들의 공통점만을 모아 놓은 것이다.",
+        "객체 생성을 위한 속성과 메소드의 구체적인 설계도이다."
+      ],
+      "examples": null,
+      "answer_text": "구현하려는 기능들의 공통점만을 모아 놓은 것이다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 33,
+      "subject": 2,
+      "question_text": "C언어에서 사용되는 서식 문자열에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "%u : 부호없는 정수형 10진수",
+        "%f : 소수점을 포함하는 실수",
+        "%o : 정수형 10진수",
+        "%x : 정수형 16진수"
+      ],
+      "examples": null,
+      "answer_text": "%o : 정수형 10진수",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 34,
+      "subject": 2,
+      "question_text": "HTML5의 <input> 태그에서 반드시 입력되어야 할 필드를 만들\n때 사용하는 속성은?",
+      "options": [
+        "essential",
+        "required",
+        "expected",
+        "fill"
+      ],
+      "examples": null,
+      "answer_text": "required",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 35,
+      "subject": 2,
+      "question_text": "다음 중 스크립트 언어에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "개발 시간이 짧다.",
+        "코딩하기 쉽다.",
+        "런타임 오류가 많이 발생한다.",
+        "실행 속도가 빠르다."
+      ],
+      "examples": null,
+      "answer_text": "실행 속도가 빠르다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 36,
+      "subject": 2,
+      "question_text": "다음 중 CSS의 속성 중 사각형 테두리를 둥글게 만드는 속성은?",
+      "options": [
+        "border-radius",
+        "square-round",
+        "border-round",
+        "square-radius"
+      ],
+      "examples": null,
+      "answer_text": "border-radius",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 37,
+      "subject": 2,
+      "question_text": "다음 코드를 조건 연산자로 올바르게 구현한 것은?\nif (a > 5)\na = a * 2;\nelse\na = a * 3;",
+      "options": [
+        "a > 5 ? a *= 2 : a *= 3;",
+        "a *= a > 5 ? 2 : 3;",
+        "a = a > 5 ? 2 : 3;",
+        "a = a > 5 ? a * 3 : a * 2;"
+      ],
+      "examples": null,
+      "answer_text": "a *= a > 5 ? 2 : 3;",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 38,
+      "subject": 2,
+      "question_text": "자바스크립트의 Windows 객체에서 사용자로부터 데이터를 입력\n받을 수 있는 메소드는?",
+      "options": [
+        "prompt",
+        "alert",
+        "confirm",
+        "messagebox"
+      ],
+      "examples": null,
+      "answer_text": "prompt",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 39,
+      "subject": 2,
+      "question_text": "정보 보안의 3대 요소 중 다음 설명에 해당하는 것은?\n인가된 사용자 외에는 정보를 수정하지 못하도록 하는 성\n질",
+      "options": [
+        "기밀성",
+        "무결성",
+        "가용성",
+        "인증"
+      ],
+      "examples": null,
+      "answer_text": "무결성",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 40,
+      "subject": 2,
+      "question_text": "다음 중 객체지향 언어에 속하는 것은?",
+      "options": [
+        "ALGOL",
+        "COBOL",
+        "C",
+        "C++"
+      ],
+      "examples": null,
+      "answer_text": "C++",
+      "comment_text": "정답은 ④입니다. C++는 대표적인 객체지향 언어입니다.\n- ① ALGOL은 절차지향 계열 언어입니다.\n- ② COBOL은 사무 처리용 절차지향 언어입니다.\n- ③ C는 절차지향 언어로 분류됩니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 41,
+      "subject": 3,
+      "question_text": "DBMS의 필수 기능에 해당하지 않는 것은?",
+      "options": [
+        "정의 기능(Definition Facility)",
+        "조작 기능(Manipulation Facility)",
+        "제어 기능(Control Facility)",
+        "회복 기능(Recovery Facility)"
+      ],
+      "examples": null,
+      "answer_text": "회복 기능(Recovery Facility)",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 42,
+      "subject": 3,
+      "question_text": "리스트 내의 데이터 삽입, 삭제가 한쪽 끝에서 이루어지는 데이터\n구조를 무엇이라 하는가?",
+      "options": [
+        "스택(Stack)",
+        "큐(Queue)",
+        "데크(Deque)",
+        "원형 큐(Circular Queue)"
+      ],
+      "examples": null,
+      "answer_text": "스택(Stack)",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 43,
+      "subject": 3,
+      "question_text": "다음 표와 같은 판매실적 테이블에서 서울지역에 한하여 판매액을\n내림차순으로 지점명과 판매액을 출력하고자 한다. 가장 적절한\nSQL 구문은?\n[테이블명 : 판매실적]",
+      "options": [
+        "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ORDER BY 판매액 DESC;",
+        "SELECT 지점명, 판매액 FROM 판매실적 ORDER BY 판매액 DESC;",
+        "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ASC;",
+        "SELECT * FROM 판매실적 WHEN 도시= “서울” ORDER BY 판매액 DESC;"
+      ],
+      "examples": "도시|지점명|판매액\n서울|강남 지점|330\n서울|강북 지점|168\n광주|광주 지점|197\n서울|강서 지점|158\n서울|강동 지점|197\n대전|대전 지점|165",
+      "answer_text": "SELECT 지점명, 판매액 FROM 판매실적 WHERE 도시= “서울” ORDER BY 판매액 DESC;",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 44,
+      "subject": 3,
+      "question_text": "데이터베이스 설계 시 논리적 설계 단계에 대한 설명으로 옳지\n않은 것은?",
+      "options": [
+        "트랜잭션 인터페이스를 설계한다.",
+        "DBMS에 맞는 논리적 스키마를 설계한다.",
+        "관계형 데이터베이스에서는 테이블을 설계하는 단계이다.",
+        "사용자의 요구에 대한 트랜잭션을 모델링한다."
+      ],
+      "examples": null,
+      "answer_text": "사용자의 요구에 대한 트랜잭션을 모델링한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 45,
+      "subject": 3,
+      "question_text": "JOIN 조건에 ‘=’ 조건이 아닌 나머지 비교 연산자를 사용하는 JOIN\n방법은?",
+      "options": [
+        "EQUI JOIN",
+        "NON-EQUI JOIN",
+        "SELF JOIN",
+        "CROSS JOIN"
+      ],
+      "examples": null,
+      "answer_text": "NON-EQUI JOIN",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 46,
+      "subject": 3,
+      "question_text": "데이터 모델의 구성 요소 중 데이터베이스에 표현될 대상으로서의\n개체 타입과 개체 타입들간의 관계를 기술한 것은?",
+      "options": [
+        "Operations",
+        "Constraints",
+        "Mapping",
+        "Structure"
+      ],
+      "examples": null,
+      "answer_text": "Structure",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 47,
+      "subject": 3,
+      "question_text": "다음 BETWEEN 연산의 의미와 동일한 것은?\nSELECT *\nFROM 성적\nWHERE (점수 BETWEEN 90 AND 95)\nAND 학과 = “컴퓨터공학과”",
+      "options": [
+        "점수 >= 90 AND 점수 <= 95",
+        "점수 > 90 AND 점수 < 95",
+        "점수 > 90 AND 점수 <= 95",
+        "점수 >= 90 AND 점수 < 95"
+      ],
+      "examples": null,
+      "answer_text": "점수 >= 90 AND 점수 <= 95",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 48,
+      "subject": 3,
+      "question_text": "관계 데이터 연산인 관계대수 및 관계해석에 대한 설명으로 틀린\n것은?",
+      "options": [
+        "관계 데이터 모델에 대한 연산의 표현 방법으로 관계대수와 관계해석은 모두 절차적인 특성을 갖는다.",
+        "관계대수는 릴레이션 조작을 위한 연산의 집합으로 피연산자 와 결과가 모두 릴레이션이라는 특성을 가지고 있다.",
+        "관계해석은 원래 수학의 프레디킷 해석(Predicate Calculus) 에 기반을 두고 있다.",
+        "관계대수의 일반 집합 연산에는 합집합, 교집합, 차집합 등이 있다."
+      ],
+      "examples": null,
+      "answer_text": "관계 데이터 모델에 대한 연산의 표현 방법으로 관계대수와 관계해석은 모두 절차적인 특성을 갖는다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 49,
+      "subject": 3,
+      "question_text": "개체 무결성에 대한 설명으로 옳은 것은?",
+      "options": [
+        "주어진 속성 값이 정의된 도메인에 속한 값이어야 한다는 규정 이다.",
+        "외래키 값은 Null이거나 참조 릴레이션의 기본키 값과 동일해 야 한다는 규정이다.",
+        "속성 값들이 사용자가 정의한 제약 조건에 만족해야 한다는 규정이다.",
+        "기본 테이블의 기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 규정이다."
+      ],
+      "examples": null,
+      "answer_text": "기본 테이블의 기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 규정이다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 50,
+      "subject": 3,
+      "question_text": "레코드 키 값을 여러 부분으로 분류하여 더하거나 XOR하여 주소를\n구하는 해싱 함수는?",
+      "options": [
+        "제산법",
+        "숫자 분석법",
+        "폴딩법",
+        "제곱법"
+      ],
+      "examples": null,
+      "answer_text": "폴딩법",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 51,
+      "subject": 3,
+      "question_text": "후위 표기(Postfix)식이 다음과 같을 때 식의 계산 값은? (단, 표현된\n수치는 한 자리 숫자를 의미한다.)\n5 3 4 5 × + -",
+      "options": [
+        "30",
+        "20",
+        "14",
+        "-18"
+      ],
+      "examples": null,
+      "answer_text": "-18",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 52,
+      "subject": 3,
+      "question_text": "n개의 정점으로 구성된 무방향 그래프의 최대 간선수는?",
+      "options": [
+        "n(n+1)",
+        "  ",
+        "[PDF 원본 그림/수식 선택지 - 추후 보강 예정]",
+        "n-5  "
+      ],
+      "examples": null,
+      "answer_text": "  ",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 53,
+      "subject": 3,
+      "question_text": "다음 중 트랜잭션의 특성인 ACID에 속하지 않는 것은?",
+      "options": [
+        "Atomicity",
+        "Consistency",
+        "Integrity",
+        "Durability"
+      ],
+      "examples": null,
+      "answer_text": "Integrity",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 54,
+      "subject": 3,
+      "question_text": "모든 결정자가 후보 키가 되도록 분해하는 정규화 단계는?",
+      "options": [
+        "1NF → 2NF",
+        "2NF → 3NF",
+        "3NF → BCNF",
+        "비정규 릴레이션 → 1NF"
+      ],
+      "examples": null,
+      "answer_text": "3NF → BCNF",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 55,
+      "subject": 3,
+      "question_text": "다음 이진 트리에 대한 Preorder 운행 결과는?",
+      "options": [
+        "A B C D E F",
+        "D B A E C F",
+        "D B E C F A",
+        "A B D C E F 4 -"
+      ],
+      "examples": null,
+      "answer_text": "A B D C E F 4 -",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 56,
+      "subject": 3,
+      "question_text": "개체-관계 모델(E-R 모델)에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "개체 타입과 관계 타입을 이용해서 현실 세계를 개념적으로 표현하는 방법이다.",
+        "E-R 다이어그램은 E-R 모델을 그래프 방식으로 표현한 것이다.",
+        "E-R 다이어그램은 개체를 사각형, 관계를 마름모, 속성을 화살 표로 표현한다.",
+        "현실 세계의 무질서한 데이터를 개념적인 논리 데이터로 표현 하기 위한 방법으로 많이 사용된다."
+      ],
+      "examples": null,
+      "answer_text": "E-R 다이어그램은 개체를 사각형, 관계를 마름모, 속성을 화살 표로 표현한다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 57,
+      "subject": 3,
+      "question_text": "키는 개체 집합에서 고유하게 개체를 식별할 수 있는 속성이다.\n데이터베이스에서 사용되는 키의 종류에 대한 설명 중 옳지 않은\n것은?",
+      "options": [
+        "후보키는 개체들을 고유하게 식별할 수 있는 속성이다.",
+        "슈퍼키는 한 릴레이션 내의 속성들의 집합으로 구성된 키이다.",
+        "외래키는 다른 릴레이션의 기본키를 참조하는 속성 또는 속성 들의 집합이다.",
+        "보조키는 후보키 중에서 대표로 선정된 키이다."
+      ],
+      "examples": null,
+      "answer_text": "보조키는 후보키 중에서 대표로 선정된 키이다.",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 58,
+      "subject": 3,
+      "question_text": "학생(STUDENT) 테이블에서 어떤 학과(DEPT)들이 있는지 검색하는\nSQL 명령은? (단, 결과는 중복된 데이터가 없도록 한다.)",
+      "options": [
+        "SELECT ONLY * FROM STUDENT;",
+        "SELECT DISTINCT DEPT FROM STUDENT;",
+        "SELECT ONLY DEPT FROM STUDENT;",
+        "SELECT NOT DUPLICATE DEPT FROM STUDENT;"
+      ],
+      "examples": null,
+      "answer_text": "SELECT DISTINCT DEPT FROM STUDENT;",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 59,
+      "subject": 3,
+      "question_text": "다음 중 일반 집합 연산자의 기호가 아닌 것은?",
+      "options": [
+        "-",
+        "×",
+        "⋈",
+        "∪"
+      ],
+      "examples": null,
+      "answer_text": "⋈",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-1",
+      "sourceSessionId": "pdfpack-industrial-2025-1",
+      "problem_number": 60,
+      "subject": 3,
+      "question_text": "데이터베이스의 설계 과정을 올바르게 나열한 것은?",
+      "options": [
+        "요구 조건 분석 → 개념적 설계 → 물리적 설계 → 논리적 설계",
+        "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계",
+        "요구 조건 분석 → 논리적 설계 → 개념적 설계 → 물리적 설계",
+        "요구 조건 분석 → 물리적 설계 → 개념적 설계 → 논리적 설계"
+      ],
+      "examples": null,
+      "answer_text": "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계",
+      "comment_text": "2025년 1회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 1,
+      "subject": 1,
+      "question_text": "파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은\n것은?",
+      "options": [
+        "노드와 간선으로 구성된다.",
+        "계층 모델이라고도 한다.",
+        "서브 시스템이 입력 데이터를 받아 처리하고 결과를 다음 서브 시스템으로 넘겨주는 과정을 반복한다.",
+        "3개의 서브 시스템(모델, 뷰, 제어)으로 구성되어 있다."
+      ],
+      "examples": null,
+      "answer_text": "서브 시스템이 입력 데이터를 받아 처리하고 결과를 다음 서브 시스템으로 넘겨주는 과정을 반복한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 2,
+      "subject": 1,
+      "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+      "options": [
+        "사용자와 시스템이 정보를 주고받는 상호작용이 잘 이루어지 도록 하는 장치나 소프트웨어를 의미한다.",
+        "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+        "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+        "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+      ],
+      "examples": null,
+      "answer_text": "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 3,
+      "subject": 1,
+      "question_text": "다음 설명에 해당하는 용어는?\n소프트웨어의 구현 단계에서 발생할 수 있는 보안 취약점\n들을 최소화하기 위해 보안 요소들을 고려하며 코딩하는\n것을 의미하며, 보안 취약점을 사전에 대응하여 안정성과\n신뢰성을 확보하기 위해 사용된다.",
+      "options": [
+        "SDLC",
+        "Secure Coding",
+        "CLASP",
+        "OWASP"
+      ],
+      "examples": null,
+      "answer_text": "Secure Coding",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 4,
+      "subject": 1,
+      "question_text": "라우팅 프로토콜 중 Distance Vector 방식이 아닌 것은?",
+      "options": [
+        "RIP",
+        "BGP",
+        "EIGRP",
+        "OSPF"
+      ],
+      "examples": null,
+      "answer_text": "OSPF",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 5,
+      "subject": 1,
+      "question_text": "교착상태의 필요 조건에 해당하지 않는 것은?",
+      "options": [
+        "Mutual Execlusion",
+        "Hold and Wait",
+        "Circular Wait",
+        "Preemption"
+      ],
+      "examples": null,
+      "answer_text": "Preemption",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 6,
+      "subject": 1,
+      "question_text": "X.25는 ITU-T 표준으로 호스트 시스템과 패킷 교환망 간 인터페이스\n를 규정하고 있다. 이 기능에 포함되지 않는 것은?",
+      "options": [
+        "전송 계층",
+        "물리 계층",
+        "프레임 계층",
+        "패킷 계층"
+      ],
+      "examples": null,
+      "answer_text": "전송 계층",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 7,
+      "subject": 1,
+      "question_text": "프로세스가 CPU를 점유하고 있는 상태를 무엇이라 하는가?",
+      "options": [
+        "실행(Running) 상태",
+        "준비(Ready) 상태",
+        "보류(Block) 상태",
+        "조건 만족(Wakeup) 상태"
+      ],
+      "examples": null,
+      "answer_text": "실행(Running) 상태",
+      "comment_text": "정답은 ①입니다. 프로세스가 실제로 CPU를 점유하여 명령을 수행하는 상태는 실행(Running) 상태입니다.\n- ② 준비(Ready) 상태는 CPU를 할당받기 위해 대기하는 상태입니다.\n- ③ 보류(Block) 상태는 입출력 등 특정 사건을 기다리는 상태입니다.\n- ④ 조건 만족(Wakeup) 상태는 대기 상태에서 깨어난 상태를 의미하며 CPU 점유 상태가 아닙니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 8,
+      "subject": 1,
+      "question_text": "현재 헤드의 위치가 50에 있고, 요청 대기열에는 아래와 같은 순서로\n들어 있다고 가정할 때 FCFS 스케줄링 알고리즘에 의한 헤드의\n총 이동 거리는 얼마인가?\n100, 180, 40, 120, 0, 130, 70, 80, 150, 200",
+      "options": [
+        "790",
+        "380",
+        "370",
+        "250"
+      ],
+      "examples": null,
+      "answer_text": "790",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 9,
+      "subject": 1,
+      "question_text": "TCP/IP의 IP Layer에 해당하는 프로토콜은?",
+      "options": [
+        "UDP",
+        "HTTP",
+        "ICMP",
+        "SMTP"
+      ],
+      "examples": null,
+      "answer_text": "ICMP",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 10,
+      "subject": 1,
+      "question_text": "디렉터리 구조 중 중앙에 마스터 파일 디렉터리가 있고, 그 아래에\n사용자별로 서로 다른 파일 디렉터리가 있는 구조는?",
+      "options": [
+        "1단계 디렉터리 구조",
+        "2단계 디렉터리 구조",
+        "트리 디렉터리 구조",
+        "비순환 그래프 디렉터리 구조"
+      ],
+      "examples": null,
+      "answer_text": "2단계 디렉터리 구조",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 11,
+      "subject": 1,
+      "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+      "options": [
+        "IPv6 주소는 128비트로 구성된다.",
+        "인증 및 보안 기능을 포함하고 있다.",
+        "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+        "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+      ],
+      "examples": null,
+      "answer_text": "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 12,
+      "subject": 1,
+      "question_text": "세그먼테이션(Segmentation) 기법에 대한 설명으로 옳은 것은?",
+      "options": [
+        "프로그램을 가변적인 크기의 논리적인 단위로 나눈다.",
+        "외부 단편화는 발생하지 않으나 내부 단편화는 발생할 수 있다.",
+        "주소 변환을 위해서 페이지의 위치 정보를 가지고 있는 페이지 맵 테이블(Page Map Table)이 필요하다.",
+        "페이지 맵 테이블 사용으로 비용이 증가되고, 처리 속도가 감소 된다."
+      ],
+      "examples": null,
+      "answer_text": "프로그램을 가변적인 크기의 논리적인 단위로 나눈다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 13,
+      "subject": 1,
+      "question_text": "HRN 스케줄링에서 우선순위 계산식은?",
+      "options": [
+        "(대기 시간 + 서비스 시간) / 대기 시간",
+        "(대기 시간 + 서비스 시간) / 서비스 시간",
+        "대기 시간 / (대기 시간 + 서비스 시간)",
+        "서비스 시간 / (대시 기간 + 서비스 시간)"
+      ],
+      "examples": null,
+      "answer_text": "(대기 시간 + 서비스 시간) / 서비스 시간",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 14,
+      "subject": 1,
+      "question_text": "통합 테스트에 대한 설명으로 틀린 것은?",
+      "options": [
+        "드라이버를 사용하는 것은 상향식 테스트이다.",
+        "스텁을 사용하는 것은 하향식 테스트이다.",
+        "모듈 또는 컴포넌트 간의 상호 작용 오류를 검사한다.",
+        "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+      ],
+      "examples": null,
+      "answer_text": "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 15,
+      "subject": 1,
+      "question_text": "연산 P, V와 정수 변수를 이용하여 동기화 문제를 해결하는 것은?",
+      "options": [
+        "Critical Section",
+        "Monitor",
+        "Semaphore",
+        "Mutual Exclusion 1 -"
+      ],
+      "examples": null,
+      "answer_text": "Semaphore",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 16,
+      "subject": 1,
+      "question_text": "운영체제에 대한 설명으로 가장 옳은 것은?",
+      "options": [
+        "운영체제는 컴퓨터 자원들인 기억장치, 프로세서, 파일 및 정 보, 네트워크 및 보호 등을 효율적으로 관리할 수 있는 프로그 램의 집합이다.",
+        "운영체제는 컴퓨터 하드웨어, 시스템 프로그램, 응용 프로그램, 사용자 등으로 구성되어 있다.",
+        "자원 할당 측면에서 운영체제의 주된 기능은 파일 관리, 입․출 력의 구현, 소스 프로그램의 컴파일 및 목적코드 생성 등이다.",
+        "운영체제는 시스템 전체의 움직임을 감시, 감독 관리 및 지원하 는 처리 프로그램과 주어진 문제를 응용 프로그램 감독 하에 실제 데이터 처리를 하는 제어 프로그램으로 구성된다."
+      ],
+      "examples": null,
+      "answer_text": "운영체제는 컴퓨터 자원들인 기억장치, 프로세서, 파일 및 정 보, 네트워크 및 보호 등을 효율적으로 관리할 수 있는 프로그 램의 집합이다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 17,
+      "subject": 1,
+      "question_text": "기존에 구현되어 있는 클래스에 기능 발생 시 기존 클래스를 재사용할\n수 있도록 중간에서 맞춰주는 역할을 하는 디자인 패턴은?",
+      "options": [
+        "브리지(Bridge)",
+        "데코레이터(Decorator)",
+        "어댑터(Adapter)",
+        "퍼싸드(Facade)"
+      ],
+      "examples": null,
+      "answer_text": "어댑터(Adapter)",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 18,
+      "subject": 1,
+      "question_text": "Windows 등의 운영체제에서 조작을 위해 사용하는 것으로, 아이콘\n이나 메뉴를 마우스로 선택하여 작업을 수행하는 사용자 인터페이스\n(User Interface)는?",
+      "options": [
+        "GUI(Graphical User Interface)",
+        "MUI(Mobile User Interface)",
+        "CLI(Command Line Interface)",
+        "CUI(Cell User Interface)"
+      ],
+      "examples": null,
+      "answer_text": "GUI(Graphical User Interface)",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 19,
+      "subject": 1,
+      "question_text": "비기능 요구사항에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "예산의 범위, 조직의 비전, 상호 호환성, 보안성, 안전성과 같은 사용자의 필요에 의해 발생한다.",
+        "시스템이 제공하는 서비스의 품질에 관한 것이다.",
+        "시스템에서 제공되는 서비스나 기능에 대한 제약 사항에 관한 것이다.",
+        "시스템이 특정 입력에 대해 어떻게 반응하는지, 사용자의 요구 에 대해 시스템이 어떻게 동작해야 하는지에 관한 사항이다."
+      ],
+      "examples": null,
+      "answer_text": "시스템이 특정 입력에 대해 어떻게 반응하는지, 사용자의 요구 에 대해 시스템이 어떻게 동작해야 하는지에 관한 사항이다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 20,
+      "subject": 1,
+      "question_text": "2진수 1010(2)을 그레이 코드로 변환하면?",
+      "options": [
+        "1010",
+        "1111",
+        "0101",
+        "0000"
+      ],
+      "examples": null,
+      "answer_text": "1111",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 21,
+      "subject": 2,
+      "question_text": "모듈 응집도가 높은 것에서 낮은 것의 순서로 옳게 나열된 것은?",
+      "options": [
+        "절차적 응집성 → 통신적 응집성 → 순차적 응집성 → 기능적 응집성",
+        "통신적 응집성 → 절차적 응집성 → 순차적 응집성 → 기능적 응집성",
+        "절차적 응집성 → 통신적 응집성 → 기능적 응집성 → 순차적 응집성",
+        "기능적 응집성 → 순차적 응집성 → 통신적 응집성 → 절차적 응집성"
+      ],
+      "examples": null,
+      "answer_text": "기능적 응집성 → 순차적 응집성 → 통신적 응집성 → 절차적 응집성",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 22,
+      "subject": 2,
+      "question_text": "Module의 독립성을 높이려면 Coupling과 Cohesion은 어떤 관계가\n되어야 하는가?",
+      "options": [
+        "Coupling과 Cohesion 모두 약해야 한다.",
+        "Coupling과 Cohesion 모두 강해야 한다.",
+        "Coupling은 강하고 Cohesion은 약해야 한다.",
+        "Coupling은 약하고 Cohesion은 강해야 한다."
+      ],
+      "examples": null,
+      "answer_text": "Coupling은 약하고 Cohesion은 강해야 한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 23,
+      "subject": 2,
+      "question_text": "C언어에서 상수를 정의할 때 사용하는 예약어는?",
+      "options": [
+        "#include",
+        "#define",
+        "#valuable",
+        "#function"
+      ],
+      "examples": null,
+      "answer_text": "#define",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 24,
+      "subject": 2,
+      "question_text": "외부 변수(External Variable)에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "외부 변수는 함수 밖에서 선언한다.",
+        "초기화하지 않으면 자동으로 0으로 초기화된다.",
+        "함수가 종료되면 값도 소멸된다.",
+        "다른 파일에서 선언된 변수를 참조할 경우 초기화 할 수 없다."
+      ],
+      "examples": null,
+      "answer_text": "함수가 종료되면 값도 소멸된다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 25,
+      "subject": 2,
+      "question_text": "Python에서 사용되는 서식 문자열과 그 의미가 올바르게 연결되지\n않은 것은?",
+      "options": [
+        "%d - 정수형 10진수",
+        "%x - 정수형 8진수",
+        "%f – 실수",
+        "%s – 문자열"
+      ],
+      "examples": null,
+      "answer_text": "%x - 정수형 8진수",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 26,
+      "subject": 2,
+      "question_text": "객체 지향 설계에서 “Information Hiding”을 가능하게 해주는 가장\n핵심적인 개념은?",
+      "options": [
+        "Encapsulation",
+        "Abstraction",
+        "Inheritance",
+        "Polymorphism"
+      ],
+      "examples": null,
+      "answer_text": "Encapsulation",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 27,
+      "subject": 2,
+      "question_text": "시스템 기능이나 설계, 구현 단계에서의 문제점 등으로 인해 시스템\n이 가지게 되는 보안 취약점을 가리키는 용어는?",
+      "options": [
+        "Vulnerability",
+        "Security",
+        "Dependability",
+        "Reliability"
+      ],
+      "examples": null,
+      "answer_text": "Vulnerability",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 28,
+      "subject": 2,
+      "question_text": "C언어의 unsigned 자료형에 사용할 수 없는 데이터 타입은?",
+      "options": [
+        "int",
+        "short",
+        "double",
+        "long"
+      ],
+      "examples": null,
+      "answer_text": "double",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 29,
+      "subject": 2,
+      "question_text": "다음 중 커서를 왼쪽으로 한 칸 이동하는 제어문자는?",
+      "options": [
+        "＼n",
+        "＼b",
+        "＼t",
+        "＼a"
+      ],
+      "examples": null,
+      "answer_text": "＼b",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 30,
+      "subject": 2,
+      "question_text": "파일 포인터 변수가 가리키는 위치에서 데이터를 가져와 변수에\n저장하는 함수는?",
+      "options": [
+        "fscanf",
+        "fprintf",
+        "fopen",
+        "fclose"
+      ],
+      "examples": null,
+      "answer_text": "fscanf",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 31,
+      "subject": 2,
+      "question_text": "JavaScript의 문법에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "const로 선언된 변수는 값을 변경하거나 재선언되지 못한다.",
+        "==는 자료형을 고려하지 않고 값이 일치하면 true이다.",
+        "===는 값일 일치하더라도 자료형이 다르면 false이다.",
+        "let으로 선언된 변수는 값의 변경과 재선언이 가능하다."
+      ],
+      "examples": null,
+      "answer_text": "let으로 선언된 변수는 값의 변경과 재선언이 가능하다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 32,
+      "subject": 2,
+      "question_text": "다음 파이썬(Python) 프로그램이 실행되었을 때의 결과는?\nclass Cls:\nlst = [1, 6, 5, 2, 3]\ndef func(self):\nprint(self.lst[::2])\na = Cls( )\na.func( )",
+      "options": [
+        "[1, 6, 5, 2, 3]",
+        "[1, 5, 3]",
+        "[6, 2]",
+        "오류 발생"
+      ],
+      "examples": null,
+      "answer_text": "[1, 5, 3]",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 33,
+      "subject": 2,
+      "question_text": "다음 C언어 프로그램이 실행되었을 때, 실행 결과는?\nint main() {\nint arg[4] = { 70, 80, 90, 100 };\nint* p = arg + 1;\nprintf(\"%d\", p[2]);\n}",
+      "options": [
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "examples": null,
+      "answer_text": "100",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 34,
+      "subject": 2,
+      "question_text": "C언어의 대표적인 표준 라이브러리에 대한 설명이 잘못된 것은?",
+      "options": [
+        "stdio.h : 데이터의 입·출력에 사용되는 기능들을 제공",
+        "string.h : 문자열 처리에 사용되는 기능들을 제공",
+        "stdlib.h : 수학 함수들을 제공",
+        "time.h : 시간 처리에 사용되는 기능들을 제공"
+      ],
+      "examples": null,
+      "answer_text": "stdlib.h : 수학 함수들을 제공",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 35,
+      "subject": 2,
+      "question_text": "JavaScript에서 다음 그림과 같은 창을 띄우기 위해 사용한 명령어로\n옳은 것은?",
+      "options": [
+        "alert(“title”, “default”)",
+        "prompt(“title”, “default”)",
+        "alert(“default”, “title”)",
+        "prompt(“default”, “title”)"
+      ],
+      "examples": null,
+      "answer_text": "prompt(“title”, “default”)",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 36,
+      "subject": 2,
+      "question_text": "다음 중 메소드(Method)에 대한 설명으로 옳은 것은?",
+      "options": [
+        "클래스 내에 속한 객체들이 가지고 있는 데이터 값들을 단위별 로 정의하는 것이다.",
+        "객체가 메시지를 받아 실행해야 할 때 구체적인 연산을 정의하 는 것으로, 객체의 상태를 참조하거나 변경하는 수단이 된다.",
+        "두 개 이상의 유사한 객체들을 묶어서 하나의 공통된 특성을 표현하는 요소이다.",
+        "객체들 간에 상호작용을 하는데 사용되는 수단으로 객체의 동 작을 일으키는 외부의 요구사항이다."
+      ],
+      "examples": null,
+      "answer_text": "객체가 메시지를 받아 실행해야 할 때 구체적인 연산을 정의하 는 것으로, 객체의 상태를 참조하거나 변경하는 수단이 된다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 37,
+      "subject": 2,
+      "question_text": "웹 서버(Web Server)의 기능 중 하나로, 네트워크 트래픽의 포화를\n방지하기 위해 응답 속도를 제한하는 기능을 무엇이라 하는가?",
+      "options": [
+        "HTTP/HTTPS",
+        "정적 파일 관리",
+        "대역폭 제한",
+        "가상 호스팅"
+      ],
+      "examples": null,
+      "answer_text": "대역폭 제한",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 38,
+      "subject": 2,
+      "question_text": "C언어에서 정수 변수 a, b에 각각 1, 2가 저장되어 있을 때 다음\n식의 연산 결과로 옳은 것은?\na < b + 2 && a << 1 <= b",
+      "options": [
+        "0",
+        "1",
+        "3",
+        "5"
+      ],
+      "examples": null,
+      "answer_text": "1",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 39,
+      "subject": 2,
+      "question_text": "HTML에서 다음과 같이 frameset 태그를 사용했을 때 나타나는 결과로 올바른 것은?",
+      "options": [
+        "좌측 1칸 | 우측 상하 2칸",
+        "좌측 상하 2칸 | 우측 1칸",
+        "상단 좌우 2칸 | 하단 1칸",
+        "상단 1칸 | 하단 좌우 2칸"
+      ],
+      "examples": "<FRAMESET cols=\"50%, 50%\">\n  <FRAMESET rows=\"50%, 50%\">\n  </FRAMESET>\n</FRAMESET>",
+      "answer_text": "좌측 상하 2칸 | 우측 1칸",
+      "comment_text": "정답은 ②입니다. 기출 해설 기준으로 제시된 레이아웃은 cols로 좌우 분할 후 한쪽을 rows로 상하 분할한 형태다.\n- ① \"좌측 1칸 | 우측 상하 2칸\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ③ \"상단 좌우 2칸 | 하단 1칸\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ④ \"상단 1칸 | 하단 좌우 2칸\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 40,
+      "subject": 2,
+      "question_text": "자바에서 두 개의 논리 값을 연산하여 참(true)을 반환하는 ‘and’의\n의미를 가진 연산자는?",
+      "options": [
+        "==",
+        "&&",
+        "||",
+        "+= 제3과목 : 데이터베이스 활용"
+      ],
+      "examples": null,
+      "answer_text": "&&",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 41,
+      "subject": 3,
+      "question_text": "릴레이션에 관한 설명 중 옳은 내용 모두를 나열한 것은?\n㉠ 하나의 릴레이션에서 튜플의 순서는 존재한다.\n㉡ 한 릴레이션에 나타난 속성 값은 논리적으로 분해 가\n능한 값이어야 한다.\n㉢ 한 릴레이션 내의 튜플은 중복 가능하다.\n㉣ 각 속성은 릴레이션 내에서 유일한 이름을 가진다.",
+      "options": [
+        "㉠",
+        "㉣",
+        "㉡, ㉢",
+        "㉡, ㉢, ㉣"
+      ],
+      "examples": null,
+      "answer_text": "㉣",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 42,
+      "subject": 3,
+      "question_text": "제2정규형에서 제3정규형이 되기 위한 조건은?",
+      "options": [
+        "원자 값이 아닌 도메인을 분해",
+        "부분 함수 종속 제거",
+        "이행 함수 종속 제거",
+        "후보 키를 통하지 않은 조인 종속 제거"
+      ],
+      "examples": null,
+      "answer_text": "이행 함수 종속 제거",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 43,
+      "subject": 3,
+      "question_text": "SQL 명령어 중 DDL에 해당하는 것은?",
+      "options": [
+        "SELECT",
+        "UPDATE",
+        "DELETE",
+        "ALTER"
+      ],
+      "examples": null,
+      "answer_text": "ALTER",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 44,
+      "subject": 3,
+      "question_text": "자료를 구조에 따라 분류할 경우, 성격이 나머지 셋과 다른 하나는?",
+      "options": [
+        "스택",
+        "그래프",
+        "큐",
+        "데크"
+      ],
+      "examples": null,
+      "answer_text": "그래프",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 45,
+      "subject": 3,
+      "question_text": "시스템 카탈로그에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "시스템 자체에 관련 있는 다양한 객체에 관한 정보를 포함하는 시스템 데이터베이스이다.",
+        "카탈로그들이 생성되면 자료 사전에 저장되기 때문에 좁은 의 미로는 자료 사전이라고도 한다.",
+        "무결성 확보를 위하여 일반 사용자는 내용을 검색할 수 없다.",
+        "기본 테이블, 뷰, 인덱스, 패키지, 접근 권한 등의 정보를 저장 한다."
+      ],
+      "examples": null,
+      "answer_text": "무결성 확보를 위하여 일반 사용자는 내용을 검색할 수 없다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 46,
+      "subject": 3,
+      "question_text": "버블 정렬을 이용한 오름차순 정렬 시 다음 자료에 대한 1회전\n후의 결과는?\n9, 6, 7, 3, 5",
+      "options": [
+        "3, 5, 6, 7, 9",
+        "6, 7, 3, 5, 9",
+        "3, 5, 9, 6, 7",
+        "6, 3, 5, 7, 9 3 -"
+      ],
+      "examples": null,
+      "answer_text": "6, 7, 3, 5, 9",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 47,
+      "subject": 3,
+      "question_text": "트랜잭션은 자기의 연산에 대하여 전부(All) 또는 전무(Nothing)\n실행만이 존재하며, 일부 실행으로는 트랜잭션의 기능을 가질 수\n없다는 트랜잭션의 특성은?",
+      "options": [
+        "Atomicity",
+        "Isolation",
+        "Durability",
+        "Consistency"
+      ],
+      "examples": null,
+      "answer_text": "Atomicity",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 48,
+      "subject": 3,
+      "question_text": "3, 5, 6, 8의 순서로 정해진 입력자료를 스택에 입력하였다가 출력한\n결과가 될 수 없는 것은?(단, 왼쪽부터 먼저 출력된 순서이다.)",
+      "options": [
+        "6, 5, 3, 8",
+        "6, 8, 3, 5",
+        "5, 3, 8, 6",
+        "5, 6, 8, 3"
+      ],
+      "examples": null,
+      "answer_text": "6, 8, 3, 5",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 49,
+      "subject": 3,
+      "question_text": "데이터베이스에서 아직 알려지지 않거나 모르는 값으로서 “해당\n없음” 등의 이유로 정보 부재를 나타내기 위해 사용하는 특수한\n데이터 값을 무엇이라 하는가?",
+      "options": [
+        "원자값(Atomic Value)",
+        "참조값(Reference Value)",
+        "무결값(Integrity Value)",
+        "널 값(Null Value)"
+      ],
+      "examples": null,
+      "answer_text": "널 값(Null Value)",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 50,
+      "subject": 3,
+      "question_text": "다음 그림에서 트리의 차수(Degree of a Tree)는?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "examples": "        A\n      /   \\\\\n     B     C\n          / | \\\\\n         D  E  F\n        / \\\\\n       G   H",
+      "answer_text": "3",
+      "comment_text": "정답은 ③입니다. 숫자 보기이므로 계산 결과값 후보를 의미합니다.\n- ① 숫자 보기이므로 계산 결과값 후보를 의미합니다. 따라서 정답이 아닙니다.\n- ② 숫자 보기이므로 계산 결과값 후보를 의미합니다. 따라서 정답이 아닙니다.\n- ④ 숫자 보기이므로 계산 결과값 후보를 의미합니다. 따라서 정답이 아닙니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 51,
+      "subject": 3,
+      "question_text": "다음 판매실적 테이블 R1에 대해 SQL 문을 실행한 결과로 옳은 것은?",
+      "options": [
+        "결과(전체 합계만 출력): 12300",
+        "결과(총포인트만 출력): 4200, 1600, 3700, 2800",
+        "결과(지역 | SUM(포인트)): 서울|4200, 인천|1600, 광주|3700, 부산|2800",
+        "결과(지역 | 총포인트): 서울|4200, 인천|1600, 광주|3700, 부산|2800"
+      ],
+      "examples": "[R1]\nID | 이름 | 지역 | 포인트\n1001 | 이철화 | 서울 | 2300\n1002 | 공혁민 | 인천 | 1600\n1003 | 구양수 | 광주 | 3700\n1004 | 오지수 | 서울 | 1900\n1005 | 김명인 | 부산 | 2800\n\n[SQL 문]\nSELECT 지역, SUM(포인트) AS 총포인트\nFROM R1\nGROUP BY 지역;",
+      "answer_text": "결과(지역 | 총포인트): 서울|4200, 인천|1600, 광주|3700, 부산|2800",
+      "comment_text": "정답은 ④입니다. GROUP BY 지역으로 지역별 합계를 구하고, AS 총포인트 별칭이 결과 컬럼명으로 사용됩니다.\n- ① 전체 합계 1행만 출력한 형태로 GROUP BY 결과가 아닙니다.\n- ② 지역 컬럼 없이 합계값만 나열되어 SQL 결과와 다릅니다.\n- ③ 값은 맞지만 컬럼명이 SUM(포인트)로 표시되어 별칭 총포인트가 반영되지 않았습니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 52,
+      "subject": 3,
+      "question_text": "뷰(View)에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "뷰를 제거하기 위해 DROP 문을 사용한다.",
+        "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다.",
+        "뷰로 구성된 내용에 대하여 삽입, 삭제, 갱신 연산에 제약이 있다.",
+        "데이터의 논리적 독립성을 제공한다."
+      ],
+      "examples": null,
+      "answer_text": "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 53,
+      "subject": 3,
+      "question_text": "일반적인 데이터 모델의 3가지 구성 요소로 옳은 것은?",
+      "options": [
+        "구조, 연산, 도메인",
+        "데이터사전, 연산, 릴레이션",
+        "구조, 연산, 제약조건",
+        "릴레이션, 구조, 스키마"
+      ],
+      "examples": null,
+      "answer_text": "구조, 연산, 제약조건",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 54,
+      "subject": 3,
+      "question_text": "데이터의 중복으로 인하여 관계연산을 처리할 때 예기치 못한 곤란한\n현상이 발생하는 것을 무엇이라 하는가?",
+      "options": [
+        "제한(Restriction)",
+        "종속성(Dependency)",
+        "변환(Translation)",
+        "이상(Anomaly)"
+      ],
+      "examples": null,
+      "answer_text": "이상(Anomaly)",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 55,
+      "subject": 3,
+      "question_text": "명령에 의해 수행된 결과를 실제 물리적 디스크로 저장하고, 데이터\n베이스 조작 작업이 정상적으로 완료되었음을 관리자에게 알려주는\n데이터 제어어는?",
+      "options": [
+        "ROLLBACK",
+        "REVOKE",
+        "COMMIT",
+        "GRANT"
+      ],
+      "examples": null,
+      "answer_text": "COMMIT",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 56,
+      "subject": 3,
+      "question_text": "다음 중 스키마(Schema)의 3계층에 속하지 않는 것은?",
+      "options": [
+        "내용 스키마",
+        "개념 스키마",
+        "외부 스키마",
+        "내부 스키마"
+      ],
+      "examples": null,
+      "answer_text": "내용 스키마",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 57,
+      "subject": 3,
+      "question_text": "인덱스(Index)에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "데이터베이스에 저장된 자료를 더욱 빠르게 조회하기 위하여 사용된다.",
+        "인덱스는 데이터베이스의 논리적 구조와 밀접한 관계가 있다.",
+        "레코드의 삽입과 삭제가 수시로 일어나는 경우 인덱스의 개수 를 최소로 한다.",
+        "데이터 정의어(DDL)를 이용하여 사용자가 생성, 변경, 제거할 수 있다."
+      ],
+      "examples": null,
+      "answer_text": "인덱스는 데이터베이스의 논리적 구조와 밀접한 관계가 있다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 58,
+      "subject": 3,
+      "question_text": "다음 SQL문의 실행결과를 가장 올바르게 설명한 것은?\nDROP TABLE 인사 CASCADE;",
+      "options": [
+        "인사 테이블을 제거한다.",
+        "인사 테이블을 참조하는 테이블과 인사 테이블을 제거한다.",
+        "인사 테이블이 참조중이면 제거하지 않는다.",
+        "인사 테이블을 제거할 지의 여부를 사용자에게 다시 질의한다."
+      ],
+      "examples": null,
+      "answer_text": "인사 테이블을 참조하는 테이블과 인사 테이블을 제거한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 59,
+      "subject": 3,
+      "question_text": "다음 중 디버깅(Debugging)에 대한 설명으로 옳은 것은?",
+      "options": [
+        "오류가 발생한 코드를 추적하여 수정하는 작업을 의미한다.",
+        "시스템에 어떤 일이 발생한 것을 의미한다.",
+        "절차형 SQL을 활용하여 특정 기능을 수행하는 것을 의미한다.",
+        "애플리케이션의 성능 관리를 위해 다양한 모니터링 기능을 제 공하는 도구를 의미한다."
+      ],
+      "examples": null,
+      "answer_text": "오류가 발생한 코드를 추적하여 수정하는 작업을 의미한다.",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-2",
+      "sourceSessionId": "pdfpack-industrial-2025-2",
+      "problem_number": 60,
+      "subject": 3,
+      "question_text": "데이터베이스 설계 단계 중 데이터베이스의 효율성 제고를 위해\n파일 저장 구조 및 접근 경로 등을 설계하는 단계는?",
+      "options": [
+        "개념적 설계 단계",
+        "논리적 설계 단계",
+        "물리적 설계 단계",
+        "데이터베이스 구현 단계 4 -"
+      ],
+      "examples": null,
+      "answer_text": "물리적 설계 단계",
+      "comment_text": "2025년 2회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 1,
+      "subject": 1,
+      "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+      "options": [
+        "IPv6 주소는 128비트로 구성된다.",
+        "인증 및 보안 기능을 포함하고 있다.",
+        "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+        "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+      ],
+      "examples": null,
+      "answer_text": "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 2,
+      "subject": 1,
+      "question_text": "개별 모듈을 시험하는 것으로 모듈이 정확하게 구현되었는지,\n예정한 기능이 제대로 수행되는지를 점검하는 것이 주 목적인\n테스트는?",
+      "options": [
+        "통합 테스트",
+        "단위 테스트",
+        "인수 테스트",
+        "시스템 테스트"
+      ],
+      "examples": null,
+      "answer_text": "단위 테스트",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 3,
+      "subject": 1,
+      "question_text": "FIFO 스케줄링에서 작업 도착 시간과 CPU 사용 시간은 다음\n표와 같다. 모든 작업들의 평균 대기 시간은 얼마인가?\n작업 도착 시간 CPU 사용시간\n1 0 4\n2 1 10\n3 4 1\n4 8 7",
+      "options": [
+        "5",
+        "5.5",
+        "13.75",
+        "3.25"
+      ],
+      "examples": null,
+      "answer_text": "5",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 4,
+      "subject": 1,
+      "question_text": "다음 중 빌드 자동화 도구가 아닌 것은?",
+      "options": [
+        "Fedora",
+        "Gradle",
+        "Jenkins",
+        "Maven"
+      ],
+      "examples": null,
+      "answer_text": "Fedora",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 5,
+      "subject": 1,
+      "question_text": "X.25는 ITU-T 표준으로 호스트 시스템과 패킷 교환망 간 인터페이\n스를 규정하고 있다. 이 기능에 포함되지 않는 것은?",
+      "options": [
+        "물리 계층",
+        "프레임 계층",
+        "패킷 계층",
+        "전송 계층"
+      ],
+      "examples": null,
+      "answer_text": "전송 계층",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 6,
+      "subject": 1,
+      "question_text": "개체-관계(E-R) 모델에서 개체 타입을 표시하는 기호는?",
+      "options": [
+        "마름모",
+        "타원",
+        "사각형",
+        "선"
+      ],
+      "examples": null,
+      "answer_text": "사각형",
+      "comment_text": "정답은 ③입니다. 개체 타입(Entity Type)은 사각형으로 표시합니다.\n- ① 마름모는 관계 타입(Relationship)을 나타냅니다.\n- ② 타원은 속성(Attribute)을 나타냅니다.\n- ④ 선은 개체·속성·관계를 연결하는 선입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 7,
+      "subject": 1,
+      "question_text": "LAN의 한 종류인 100Base-T 네트워크에서 사용되는 전송 매체는?",
+      "options": [
+        "Coaxial cable",
+        "Optical cable",
+        "UTP cable",
+        "Microwave cable"
+      ],
+      "examples": null,
+      "answer_text": "UTP cable",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 8,
+      "subject": 1,
+      "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+      "options": [
+        "사용자와 시스템이 정보를 주고받는 상호 작용이 잘 이루어지 도록 하는 장치나 소프트웨어를 의미한다.",
+        "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+        "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+        "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+      ],
+      "examples": null,
+      "answer_text": "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 9,
+      "subject": 1,
+      "question_text": "아키텍처 설계에서 뷰의 종류가 아닌 것은?",
+      "options": [
+        "물리적 뷰",
+        "논리적 뷰",
+        "프로세스 뷰",
+        "배포 뷰"
+      ],
+      "examples": null,
+      "answer_text": "물리적 뷰",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 10,
+      "subject": 1,
+      "question_text": "디자인 패턴에서 생성 패턴에 속하지 않는 것은?",
+      "options": [
+        "Singleton",
+        "Builder",
+        "Prototype",
+        "Adapter"
+      ],
+      "examples": null,
+      "answer_text": "Adapter",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 11,
+      "subject": 1,
+      "question_text": "데이터 전송에서 한 문자의 전송 시마다 스타트 비트와 스톱 비트를\n삽입하여 전송하는 방식은?",
+      "options": [
+        "동기식",
+        "비동기식",
+        "베이스밴드식",
+        "혼합 동기식"
+      ],
+      "examples": null,
+      "answer_text": "비동기식",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 12,
+      "subject": 1,
+      "question_text": "RR(Round Robin) 스케줄링에서 시간 할당량이 커질 경우 어떤\n스케줄링과 같은 효과를 얻는가?",
+      "options": [
+        "HRN",
+        "FCFS(FIFO)",
+        "SJF",
+        "SRT"
+      ],
+      "examples": null,
+      "answer_text": "FCFS(FIFO)",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 13,
+      "subject": 1,
+      "question_text": "다음 중 배치(Placement) 전략에 대한 설명으로 옳은 것은?",
+      "options": [
+        "새로 반입된 프로그램을 주기억장치의 어디에 위치시킬 것인 가를 결정하는 전략이다.",
+        "주기억장치에 넣을 다음 프로그램이나 데이터를 보조기억장 치에서 주기억장치로 언제 가져올 것인가를 결정하는 전략이 다.",
+        "새로 주기억장치에 배치되어야 할 프로그램이 적재될 장소를 마련하기 위해 어떤 프로그램이나 데이터를 제거할 지 결정하 는 전략이다.",
+        "실행 중인 프로그램에 의해 참조될 프로그램이나 데이터를 미리 예상하여 적재하는 전략이다."
+      ],
+      "examples": null,
+      "answer_text": "새로 반입된 프로그램을 주기억장치의 어디에 위치시킬 것인 가를 결정하는 전략이다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 14,
+      "subject": 1,
+      "question_text": "객체 지향 개념에서 이미 정의되어 있는 상위 클래스(수퍼 클래스\n혹은 부모 클래스)의 메소드를 비롯한 모든 속성을 하위 클래스가\n물려 받는 것을 무엇이라고 하는가?",
+      "options": [
+        "Abstraction",
+        "Method",
+        "Inheritance",
+        "Message"
+      ],
+      "examples": null,
+      "answer_text": "Inheritance",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 15,
+      "subject": 1,
+      "question_text": "UNIX 시스템에서 파일의 권한 모드 설정에 관한 명령어는?",
+      "options": [
+        "chmod",
+        "cp",
+        "ls",
+        "chown"
+      ],
+      "examples": null,
+      "answer_text": "chmod",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 16,
+      "subject": 1,
+      "question_text": "교착상태의 필요 충분 조건에 해당하지 않는 것은?",
+      "options": [
+        "Mutual Execlusion",
+        "Hold and Wait",
+        "Circular Wait",
+        "Preemption"
+      ],
+      "examples": null,
+      "answer_text": "Preemption",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 17,
+      "subject": 1,
+      "question_text": "해싱에서 동일한 버킷 주소를 갖는 레코드들의 집합을 의미하는\n것은?",
+      "options": [
+        "Chaining",
+        "Collision",
+        "Division",
+        "Synonym"
+      ],
+      "examples": null,
+      "answer_text": "Synonym",
+      "comment_text": "정답은 ④입니다. 기출 해설 기준으로 Synonym은 서로 다른 키가 같은 버킷 주소로 매핑된 레코드 집합을 의미한다.\n- ① \"Chaining\"는 용어/명령어/프로토콜 이름을 나타내는 선택지입니다. 따라서 정답이 아닙니다.\n- ② \"Collision\"는 용어/명령어/프로토콜 이름을 나타내는 선택지입니다. 따라서 정답이 아닙니다.\n- ③ \"Division\"는 용어/명령어/프로토콜 이름을 나타내는 선택지입니다. 따라서 정답이 아닙니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 18,
+      "subject": 1,
+      "question_text": "다음은 무엇에 관한 정의인가?\nㆍ실행 중인 프로그램\nㆍ비동기적 행위를 일으키는 주체\nㆍ프로시저가 활동 중인 것\nㆍPCB를 가진 프로그램",
+      "options": [
+        "PROCESS",
+        "WORKING SET",
+        "MONITOR",
+        "SEMAPHORE"
+      ],
+      "examples": null,
+      "answer_text": "PROCESS",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 19,
+      "subject": 1,
+      "question_text": "디자인 패턴 중 Singleton에 대한 설명으로 옳은 것은?",
+      "options": [
+        "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다.",
+        "원본 객체를 복제하는 방법으로 객체를 생성하는 패턴이다.",
+        "여러 객체를 가진 복합 객체와 단일 객체를 구분 없이 다루고 자 할 때 사용하는 패턴이다.",
+        "수많은 객체들 간의 복잡한 상호작용을 캡슐화하여 객체로 정의하는 패턴이다."
+      ],
+      "examples": null,
+      "answer_text": "하나의 객체를 생성하면 생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시에 참조할 수는 없는 패턴이다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 20,
+      "subject": 1,
+      "question_text": "디렉터리 구조 중 중앙에 마스터 파일 디렉터리가 있고, 그 아래에\n사용자별로 서로 다른 파일 디렉터리가 있는 구조는?",
+      "options": [
+        "1단계 디렉터리 구조",
+        "2단계 디렉터리 구조",
+        "트리 디렉터리 구조",
+        "비순환 그래프 디렉터리 구조 제2과목 프로그래밍 언어 활용"
+      ],
+      "examples": null,
+      "answer_text": "2단계 디렉터리 구조",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 21,
+      "subject": 2,
+      "question_text": "다음 JAVA 프로그램이 실행되었을 때, 실행 결과는?\npublic class Main {\npublic static void main(String[ ] args) {\nSystem.out.print((int) 2.9 + 1.7);\n}\n}",
+      "options": [
+        "3.7",
+        "4.7",
+        "3",
+        "4.6"
+      ],
+      "examples": null,
+      "answer_text": "3.7",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 22,
+      "subject": 2,
+      "question_text": "C 언어에서 실수형 변수로 선언한 것은?",
+      "options": [
+        "float a;",
+        "short a;",
+        "int a;",
+        "string a;"
+      ],
+      "examples": null,
+      "answer_text": "float a;",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 23,
+      "subject": 2,
+      "question_text": "다음 중 가장 강한 결합도는?",
+      "options": [
+        "자료 결합도",
+        "스탬프 결합도",
+        "제어 결합도",
+        "내용 결합도"
+      ],
+      "examples": null,
+      "answer_text": "내용 결합도",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 24,
+      "subject": 2,
+      "question_text": "다음 Python 프로그램이 실행되었을 때, 실행 결과는?\na = \"11\"\nb = '\"11\"'\nprint(a * 2 + b)",
+      "options": [
+        "2211",
+        "112\"11\"",
+        "111111",
+        "1111\"11“"
+      ],
+      "examples": null,
+      "answer_text": "1111\"11“",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 25,
+      "subject": 2,
+      "question_text": "다음 중 목록을 생성하는 HTML 태그가 아닌 것은?",
+      "options": [
+        "<ul>",
+        "<li>",
+        "<ol>",
+        "<el>"
+      ],
+      "examples": null,
+      "answer_text": "<el>",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 26,
+      "subject": 2,
+      "question_text": "응용 프로그램 개발 시 운영체제나 프로그래밍 언어 등에 있는\n라이브러리를 이용할 수 있도록 함으로써 효율적인 소프트웨어\n구현을 도와주는 인터페이스는?",
+      "options": [
+        "IDE(Integrated Development Environment)",
+        "통신 프로토콜(Communication Protocol)",
+        "API(Application Programming Interface)",
+        "USB(Universal Serial Bus)"
+      ],
+      "examples": null,
+      "answer_text": "API(Application Programming Interface)",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 27,
+      "subject": 2,
+      "question_text": "JavaScript의 문법에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "const로 선언된 변수는 값을 변경하거나 재선언되지 못한다.",
+        "==는 자료형을 고려하지 않고 값이 일치하면 true이다.",
+        "===는 값일 일치하더라도 자료형이 다르면 false이다.",
+        "let으로 선언된 변수는 값의 변경과 재선언이 가능하다."
+      ],
+      "examples": null,
+      "answer_text": "let으로 선언된 변수는 값의 변경과 재선언이 가능하다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 28,
+      "subject": 2,
+      "question_text": "정보 보안의 3대 요소에 해당하지 않는 것은?",
+      "options": [
+        "기밀성",
+        "휘발성",
+        "무결성",
+        "가용성"
+      ],
+      "examples": null,
+      "answer_text": "휘발성",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 29,
+      "subject": 2,
+      "question_text": "프로그램의 정상적인 실행을 방해하는 조건이나 상태가 나타났을\n때 해당 문제에 대비해 작성해 놓은 처리 루틴을 실행하도록 만드는\n일련의 과정을 가리키는 용어는?",
+      "options": [
+        "Exception Handling",
+        "Clean Code",
+        "Throw",
+        "Container"
+      ],
+      "examples": null,
+      "answer_text": "Exception Handling",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 30,
+      "subject": 2,
+      "question_text": "HTML5의 <input> 태그에서 반드시 입력되어야 할 필드를 만들\n때 사용하는 속성은?",
+      "options": [
+        "essential",
+        "required",
+        "expected",
+        "fill"
+      ],
+      "examples": null,
+      "answer_text": "required",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 31,
+      "subject": 2,
+      "question_text": "예외 처리에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "C++에서는 try, catch, finally를 이용하여 예외 처리를 수행 한다.",
+        "예외가 발생했을 때 프로그래머가 해당 문제에 대비해 작성해 놓은 처리 루틴을 수행하도록 하는 것을 예외 처리라고 한다.",
+        "catch 블록에서 선언한 변수는 해당 catch 블록에서만 유효하 다.",
+        "try ~ catch 문 안에 또 다른 try ~ catch 문을 포함할 수 있다."
+      ],
+      "examples": null,
+      "answer_text": "C++에서는 try, catch, finally를 이용하여 예외 처리를 수행 한다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 32,
+      "subject": 2,
+      "question_text": "다음 중 빌드 도구가 아닌 것은?",
+      "options": [
+        "Zeplin",
+        "Ant",
+        "Maven",
+        "Gradle"
+      ],
+      "examples": null,
+      "answer_text": "Zeplin",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 33,
+      "subject": 2,
+      "question_text": "객체지향 기법 중 다음 설명이 의미하는 것은?\n• 객체의 성질을 분해하여 공통된 성질을 추출하여 슈퍼\n클래스를 선정하는 것이다. 즉, 불필요한 부분을 생략하\n고 객체의 속성 중 가장 중요한 것에만 중점을 두어 개\n략화, 모델화 하는 것이다.\n• 예를 들면, ‘자동차’와 ‘비행기’란 클래스에서 ‘이동수단’\n이란 클래스를 만드는 것이다.",
+      "options": [
+        "Inheritance",
+        "Abstraction",
+        "Polymorphism",
+        "Encapsulation"
+      ],
+      "examples": null,
+      "answer_text": "Abstraction",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 34,
+      "subject": 2,
+      "question_text": "소프트웨어 아키텍처의 4+1 관점 중 물리적 시스템에서 사용하는\n소프트웨어 서브 시스템 모듈이 어떻게 구조화되어 있는지에 중점\n을 둔 관점은?",
+      "options": [
+        "유스케이스",
+        "논리적",
+        "구현",
+        "물리적"
+      ],
+      "examples": null,
+      "answer_text": "구현",
+      "comment_text": "정답은 ③입니다. \"구현\"가 정답에 해당하는 선택지입니다.\n- ① \"유스케이스\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ② \"논리적\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ④ \"물리적\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 35,
+      "subject": 2,
+      "question_text": "다음 JAVA 프로그램이 실행되었을 때, 실행 결과는?\npublic class Main {\npublic static void main(String[] args) {\nSystem.out.print(\"(a) \" + 10/4);\nSystem.out.print(\", (b) \" + 10.0/4);\n}\n}",
+      "options": [
+        "(a) 2, (b) 2.5",
+        "(a) 10/4, (b) 10.0/4",
+        "(a) 2.5, (b) 2.5",
+        "(a) 2.5, (b) 2"
+      ],
+      "examples": null,
+      "answer_text": "(a) 2, (b) 2.5",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 36,
+      "subject": 2,
+      "question_text": "다음 C 언어 프로그램이 실행되었을 때의 결과는?\n#include <stdio.h>\nmain( ) {\nint a = 1;\na <<= 3;\nprintf(\"a=0x%02X\", a);\nreturn 0;\n}",
+      "options": [
+        "a=0x01",
+        "a=0x02",
+        "a=0x04",
+        "a=0x08"
+      ],
+      "examples": null,
+      "answer_text": "a=0x08",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 37,
+      "subject": 2,
+      "question_text": "UI 시스템에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "입력 데이터를 사전에 검증하는 역할을 수행한다.",
+        "잘못된 입력으로 발생하는 예외를 처리한다.",
+        "오류에 대한 구체적인 시스템 정보를 메시지로 제공한다.",
+        "사용자에게 입력 창과 프롬프트, 도움말 등을 제공한다."
+      ],
+      "examples": null,
+      "answer_text": "오류에 대한 구체적인 시스템 정보를 메시지로 제공한다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 38,
+      "subject": 2,
+      "question_text": "<p> 태그에 대해 안쪽 여백을 50, 외곽선의 종류를 점선, 외곽선의\n색을 빨간색으로 지정하는 코드로 올바른 것은?",
+      "options": [
+        "p { padding : 50; border-style : dotted; border-color : red }",
+        "p { margin : 50; border-style : dotted; border-color : red }",
+        "p { space : 50; border-style : dashed; border-color : red }",
+        "p { blank : 50; border-style : ridge; border-color : red }"
+      ],
+      "examples": null,
+      "answer_text": "p { padding : 50; border-style : dotted; border-color : red }",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 39,
+      "subject": 2,
+      "question_text": "HTML5에서 메뉴, 목차, 인덱스와 같이 내부 페이지 및 외부 페이지\n에 대한 탐색 링크들을 정의할 때 사용하는 태그는?",
+      "options": [
+        "<lib>",
+        "<link>",
+        "<nav>",
+        "<index>"
+      ],
+      "examples": null,
+      "answer_text": "<nav>",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 40,
+      "subject": 2,
+      "question_text": "다음은 1000까지의 7의 배수를 모두 합하는 JavaScript 코드이다.\n괄호(㉠, ㉡)에 들어갈 알맞은 예약어는?\n…생략…\n<script>\nvar r = 0, i = 0;\n( ㉠ ) {\ni = i + 1;\nif (i%7 == 0) {\nr = r + i;\n}\n} ( ㉡ ) (i < 1000);\nconsole.log(r);\n</script>\n…생략…",
+      "options": [
+        "㉠-do, ㉡-while",
+        "㉠-do, ㉡-loop",
+        "㉠-while, ㉡-do",
+        "㉠-loop, ㉡-do 제3과목 : 데이터베이스 활용"
+      ],
+      "examples": null,
+      "answer_text": "㉠-do, ㉡-while",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 41,
+      "subject": 3,
+      "question_text": "3, 5, 6, 8의 순서로 정해진 입력자료를 스택에 입력하였다가\n출력한 결과가 될 수 없는 것은?(단, 왼쪽부터 먼저 출력된 순서이\n다.)",
+      "options": [
+        "6, 5, 3, 8",
+        "6, 8, 3, 5",
+        "5, 3, 8, 6",
+        "5, 6, 8, 3"
+      ],
+      "examples": null,
+      "answer_text": "6, 8, 3, 5",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 42,
+      "subject": 3,
+      "question_text": "데이터베이스 설계 단계 중 물리적 설계에 대한 설명으로 옳지\n않은 것은?",
+      "options": [
+        "개념적 설계 단계에서 만들어진 정보 구조로부터 특정 목표 DBMS가 처리할 수 있는 스키마를 생성한다.",
+        "다양한 데이터베이스 응용에 대해서 처리 성능을 얻기 위해 데이터베이스 파일의 저장 구조 및 액세스 경로를 결정한다.",
+        "물리적 저장장치에 저장할 수 있는 물리적 구조의 데이터로 변환하는 과정이다.",
+        "물리적 설계에서 옵션 선택 시 응답시간, 저장 공간의 효율화, 트랜잭션 처리율 등을 고려하여야 한다."
+      ],
+      "examples": null,
+      "answer_text": "개념적 설계 단계에서 만들어진 정보 구조로부터 특정 목표 DBMS가 처리할 수 있는 스키마를 생성한다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 43,
+      "subject": 3,
+      "question_text": "시스템 카탈로그에 대한 설명으로 틀린 것은?",
+      "options": [
+        "시스템 자신이 필요로 하는 스키마 및 여러 가지 객체에 관한 정보를 포함하고 있는 시스템 데이터베이스이다.",
+        "시스템 카탈로그에 저장되는 내용을 메타 데이터라고 한다.",
+        "데이터 사전이라고도 한다.",
+        "일반 사용자는 시스템 테이블의 내용을 검색할 수 없다."
+      ],
+      "examples": null,
+      "answer_text": "일반 사용자는 시스템 테이블의 내용을 검색할 수 없다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 44,
+      "subject": 3,
+      "question_text": "‘학생’ 테이블에서 3학년이고 컴퓨터공학과인 학생의 이름만 조회\n하는 SQL문으로 옳바른 것은?",
+      "options": [
+        "SELECT 이름 FROM 학생 WHERE 학년 = 3 AND 학과 = “컴퓨터공학”;",
+        "SELECT 이름 FROM 학생 WHERE 학년 = 3 OR 학과 = “컴퓨터공학”;",
+        "SELECT 이름 WHEN 학생 WHERE 학년 = 3 AND 학과 = “컴퓨터공학”;",
+        "SELECT 이름 WHEN 학생 WHERE 학년 = 3 OR 학과 = “컴퓨터공학”;"
+      ],
+      "examples": null,
+      "answer_text": "SELECT 이름 FROM 학생 WHERE 학년 = 3 AND 학과 = “컴퓨터공학”;",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 45,
+      "subject": 3,
+      "question_text": "트랜잭션은 자기의 연산에 대하여 전부(All) 또는 전무(Nothing)\n실행만이 존재하며, 일부 실행으로는 트랜잭션의 기능을 가질\n수 없다는 트랜잭션의 특성은?",
+      "options": [
+        "Consistency",
+        "Atomicity",
+        "Isolation",
+        "Durability"
+      ],
+      "examples": null,
+      "answer_text": "Atomicity",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 46,
+      "subject": 3,
+      "question_text": "다음 질의문 실행의 결과는?",
+      "options": [
+        "5000",
+        "7000",
+        "15000",
+        "23000"
+      ],
+      "examples": "[SQL]\nSELECT 가격 FROM 도서가격 WHERE 책번호 =\n(SELECT 책번호 FROM 도서 WHERE 책명 = '운영체제');\n\n<도서>\n책번호 | 책명\n1111 | 운영체제\n2222 | 세계지도\n3333 | 생활영어\n\n<도서가격>\n책번호 | 가격\n1111 | 15000\n2222 | 23000\n3333 | 7000\n4444 | 5000",
+      "answer_text": "15000",
+      "comment_text": "정답은 ③입니다. 하위 질의에서 '운영체제'의 책번호를 먼저 구하면 1111입니다.\n- ① 5000은 책번호 4444의 가격이므로 조건과 다릅니다.\n- ② 7000은 책번호 3333(생활영어)의 가격입니다.\n- ④ 23000은 책번호 2222(세계지도)의 가격입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 47,
+      "subject": 3,
+      "question_text": "한 릴레이션의 기본키를 구성하는 어떠한 속성 값도 널(Null) 값이나\n중복 값을 가질 수 없다는 것을 의미하는 것은?",
+      "options": [
+        "개체 무결성 제약 조건",
+        "참조 무결성 제약 조건",
+        "도메인 무결성 제약 조건",
+        "키 무결성 제약 조건"
+      ],
+      "examples": null,
+      "answer_text": "개체 무결성 제약 조건",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 48,
+      "subject": 3,
+      "question_text": "뷰(View)에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "뷰는 데이터의 접근을 제어하게 함으로써 보안을 제공한다.",
+        "사용자의 데이터 관리를 간단하게 해 준다.",
+        "뷰가 정의된 기본 테이블이 삭제되면, 뷰도 자동적으로 삭제된다.",
+        "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다."
+      ],
+      "examples": null,
+      "answer_text": "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 49,
+      "subject": 3,
+      "question_text": "관계대수와 관계해석에 대한 설명으로 옳지 않은 것은?",
+      "options": [
+        "기본적으로 관계대수와 관계해석은 관계 데이터베이스를 처 리하는 기능과 능력면에서 동등하다.",
+        "관계대수는 질의에 대한 해를 생성하기 위해 수행해야 할 연산 의 순서를 명시해야 하므로, 비절차적 특징을 가진다.",
+        "관계해석은 원하는 정보가 무엇이라는 것만 정의하는 비절차 적 특징을 가지고 있다.",
+        "관계해석은 수학의 프레디킷 해석(Predicate Calculus)에 기 반을 두고 있다."
+      ],
+      "examples": null,
+      "answer_text": "관계대수는 질의에 대한 해를 생성하기 위해 수행해야 할 연산 의 순서를 명시해야 하므로, 비절차적 특징을 가진다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 50,
+      "subject": 3,
+      "question_text": "데이터베이스 관리 시스템(DBMS)의 필수 기능이 아닌 것은?",
+      "options": [
+        "제어 기능",
+        "조작 기능",
+        "정의 기능",
+        "운영 기능"
+      ],
+      "examples": null,
+      "answer_text": "운영 기능",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 51,
+      "subject": 3,
+      "question_text": "학생(STUDENT) 테이블에 컴퓨터정보과 학생 120명, 인터넷정보\n과 학생 160명, 사무자동화과 학생 80명에 관한 데이터가 있다고\n했을 때, 다음에 주어지는 SQL문 ㉠, ㉡, ㉢을 각각 실행 시키면,\n결과 튜플 수는 각각 몇 개인가? (단, DEPT는 학과 컬럼명임)\n㉠ SELECT DISTINCT DEPT FROM STUDENT;\n㉡ SELECT DEPT FROM STUDENT;\n㉢ SELECT COUNT(DISTINCT DEPT) FROM STUDENT\nWHERE DEPT = ‘컴퓨터정보과’;",
+      "options": [
+        "㉠ 3, ㉡ 360, ㉢ 1",
+        "㉠ 360, ㉡ 3, ㉢ 120",
+        "㉠ 3, ㉡ 360, ㉢ 120",
+        "㉠ 360, ㉡ 3, ㉢ 1"
+      ],
+      "examples": null,
+      "answer_text": "㉠ 3, ㉡ 360, ㉢ 1",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 52,
+      "subject": 3,
+      "question_text": "E-R 다이어그램에서 사각형이 의미하는 것은?",
+      "options": [
+        "개체 타입",
+        "관계 타입",
+        "속성",
+        "기본키 속성"
+      ],
+      "examples": null,
+      "answer_text": "개체 타입",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 53,
+      "subject": 3,
+      "question_text": "다음 트리를 전위 순서(Pre-order)로 운행한 결과는?",
+      "options": [
+        "A B C D E F G H",
+        "D B G H E F C A",
+        "A B D C E G H F",
+        "B D G H E F A C"
+      ],
+      "examples": null,
+      "answer_text": "A B D C E G H F",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 54,
+      "subject": 3,
+      "question_text": "제1정규형에서 제2정규형 수행 시 작업으로 옳은 것은?",
+      "options": [
+        "이행적 함수 종속성 제거",
+        "다치 종속 제거",
+        "모든 결정자가 후보 키가 되도록 분해",
+        "부분 함수 종속성 제거"
+      ],
+      "examples": null,
+      "answer_text": "부분 함수 종속성 제거",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 55,
+      "subject": 3,
+      "question_text": "관계 데이터베이스의 구성 요소에 대한 다음 설명 중 가장 옳지\n않은 것은?",
+      "options": [
+        "릴레이션은 식별자에 의해 식별이 가능해야 한다.",
+        "속성은 릴레이션을 구성하는 항목이다.",
+        "하나의 릴레이션을 구성하는 튜플은 모두 같다.",
+        "각 속성은 릴레이션 내에서 유일한 이름을 가진다."
+      ],
+      "examples": null,
+      "answer_text": "하나의 릴레이션을 구성하는 튜플은 모두 같다.",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 56,
+      "subject": 3,
+      "question_text": "n개의 정점으로 구성된 무방향 그래프의 최대 간선수는?",
+      "options": [
+        "n(n+1)",
+        "n(n-1) / 2",
+        "n-2 / 22",
+        "n-5"
+      ],
+      "examples": null,
+      "answer_text": "n(n-1) / 2",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 57,
+      "subject": 3,
+      "question_text": "다음 중 일반 집합 연산자의 기호가 아닌 것은?",
+      "options": [
+        "-",
+        "×",
+        "⨝",
+        "∪"
+      ],
+      "examples": null,
+      "answer_text": "⨝",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 58,
+      "subject": 3,
+      "question_text": "데이터 조작문의 유형으로 옳바르지 않은 것은?",
+      "options": [
+        "SELECT~ FROM~ WHERE~",
+        "INSERT ON~ VALUES~",
+        "DELETE~ FROM~ WHERE~",
+        "UPDATE~ SET~ WHERE~"
+      ],
+      "examples": null,
+      "answer_text": "INSERT ON~ VALUES~",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 59,
+      "subject": 3,
+      "question_text": "선형 자료 구조에 해당하지 않는 것은?",
+      "options": [
+        "리스트(List)",
+        "큐(Queue)",
+        "데크(Deque)",
+        "그래프(Graph)"
+      ],
+      "examples": null,
+      "answer_text": "그래프(Graph)",
+      "comment_text": "2025년 3회 산업기사 PDF 원본에는 정답/해설이 포함되어 있으나, 자동 추출 시 다단 레이아웃으로 해설 블록 경계가 깨져 현재는 추후 보강 예정입니다."
+    },
+    {
+      "sourceKey": "2025I-3",
+      "sourceSessionId": "pdfpack-industrial-2025-3",
+      "problem_number": 60,
+      "subject": 3,
+      "question_text": "삽입 정렬을 사용하여 다음의 자료를 오름차순으로 정렬하고자\n한다. 2회전 후의 결과는?\n5, 4, 3, 2, 1",
+      "options": [
+        "4, 5, 3, 2, 1",
+        "2, 3, 4, 5, 1",
+        "3, 4, 5, 2, 1",
+        "1, 2, 3, 4, 5"
+      ],
+      "examples": null,
+      "answer_text": "3, 4, 5, 2, 1",
+      "comment_text": "정답은 ③입니다. 기출 해설 기준으로 3, 4, 5, 2, 1입니다.\n- ① \"4, 5, 3, 2, 1\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ② \"2, 3, 4, 5, 1\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다.\n- ④ \"1, 2, 3, 4, 5\"는 문제에서 묻는 기준(개념/기능/결과)과 일치하지 않아 정답이 아닙니다."
+    }
+  ]
+}

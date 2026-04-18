@@ -1,0 +1,77 @@
+﻿[
+  {
+    "title": "정보시스템 기반 기술",
+    "comments": [
+      {"problem_number": 1, "comment": "UI 설계의 기준은 사용자(User) 중심이다. 개발자 중심 설계는 시험에서 대표적인 오답 키워드다."},
+      {"problem_number": 2, "comment": "CPU는 ALU, 제어장치, 레지스터로 구성된다. 주기억장치(RAM)는 CPU 외부 구성요소다."},
+      {"problem_number": 3, "comment": "표준 프로세스 상태는 준비, 실행, 대기, 종료다. 로드는 상태가 아니라 동작/개념에 가깝다."},
+      {"problem_number": 4, "comment": "시분할 시스템은 타임 슬라이스 기반으로 동작하므로 라운드 로빈이 적합하다."},
+      {"problem_number": 5, "comment": "교착상태는 비선점 조건을 포함한 필요 조건들이 모두 만족될 때 발생한다. 선점 가능이면 교착상태 조건이 아니다."},
+      {"problem_number": 6, "comment": "캐시 메모리의 핵심 목적은 CPU와 RAM의 속도 차이를 완화하는 것이다."},
+      {"problem_number": 7, "comment": "운영체제의 주된 목적은 자원 관리와 사용자 편의 제공이다."},
+      {"problem_number": 8, "comment": "인터럽트는 CPU 활용도를 높여 시스템 처리를 효율적으로 만든다."},
+      {"problem_number": 9, "comment": "DB의 핵심은 데이터 독립성 확보와 종속성 감소다. 데이터 종속성은 DB 특징으로 보기 어렵다."},
+      {"problem_number": 10, "comment": "FIFO 페이지 교체의 대표적 단점은 Belady 현상(프레임 증가 시 페이지 결함 증가 가능)이다."},
+      {"problem_number": 11, "comment": "PCB에는 상태, PC, 레지스터 등 실행 관리 정보가 포함된다. 소스 코드는 포함되지 않는다."},
+      {"problem_number": 12, "comment": "실시간 시스템은 시간 제약을 지키는 것이 핵심이며, 지연은 곧 오류로 취급될 수 있다."},
+      {"problem_number": 13, "comment": "보안 3요소는 CIA(기밀성, 무결성, 가용성)다. 확장성은 포함되지 않는다."},
+      {"problem_number": 14, "comment": "주기억장치는 실행 중인 프로그램과 데이터를 저장한다."},
+      {"problem_number": 15, "comment": "다중 프로그래밍은 CPU 유휴 시간을 줄여 이용률을 높이는 것이 목적이다."},
+      {"problem_number": 16, "comment": "커널은 메모리, 프로세스, 파일 같은 핵심 자원 관리 기능을 담당한다. UI는 커널 핵심 기능이 아니다."},
+      {"problem_number": 17, "comment": "IPC는 프로세스 간 통신 기법(파이프, 메시지 큐, 공유 메모리 등)이다. 캐시는 IPC가 아니다."},
+      {"problem_number": 18, "comment": "병렬 처리의 대표 장점은 처리 속도 향상이다."},
+      {"problem_number": 19, "comment": "운영체제는 시스템 소프트웨어에 해당한다."},
+      {"problem_number": 20, "comment": "운영체제는 자원 관리와 제어를 담당하며 응용 프로그램 개발 자체는 OS 기능이 아니다."}
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "comments": [
+      {"problem_number": 21, "comment": "변수명은 문자로 시작해야 하며 특수문자를 사용할 수 없다. a1은 올바른 식별자다."},
+      {"problem_number": 22, "comment": "if는 조건문이며 반복문이 아니다. 반복문은 for, while, do-while이다."},
+      {"problem_number": 23, "comment": "후위 증가 연산(a++)은 현재 값을 먼저 사용한 뒤 증가한다. 따라서 출력은 5다."},
+      {"problem_number": 24, "comment": "배열은 동일 자료형을 연속 메모리에 저장하며 일반적으로 크기가 고정된다."},
+      {"problem_number": 25, "comment": "포인터는 값이 아닌 메모리 주소를 저장한다."},
+      {"problem_number": 26, "comment": "컴파일 언어는 실행 전에 번역(컴파일) 후 실행된다."},
+      {"problem_number": 27, "comment": "논리 AND 연산자는 &&다. &는 비트 AND다."},
+      {"problem_number": 28, "comment": "Java에서 클래스 정의 키워드는 class다."},
+      {"problem_number": 29, "comment": "break는 현재 반복문을 즉시 종료한다."},
+      {"problem_number": 30, "comment": "Call by Value는 인자의 값을 복사해 전달하므로 원본 값이 직접 변경되지 않는다."},
+      {"problem_number": 31, "comment": "C 문자열은 널 문자(\\0)로 종료된다."},
+      {"problem_number": 32, "comment": "반환값이 없는 함수의 반환형은 void다."},
+      {"problem_number": 33, "comment": "+는 산술 연산자이며 ==, !=, &&는 비교/논리 연산자다."},
+      {"problem_number": 34, "comment": "라이브러리의 핵심 목적은 코드 재사용성을 높이는 것이다."},
+      {"problem_number": 35, "comment": "인터프리터 언어는 실행 시 한 줄씩 해석하며 실행된다."},
+      {"problem_number": 36, "comment": "C/Java 배열의 인덱스는 0부터 시작한다."},
+      {"problem_number": 37, "comment": "do-while은 조건 검사 전에 본문을 먼저 수행하므로 최소 1회 실행된다."},
+      {"problem_number": 38, "comment": "Java에서 클래스 상속은 extends를 사용한다. implements는 인터페이스 구현이다."},
+      {"problem_number": 39, "comment": "스코프(scope)는 변수를 유효하게 참조할 수 있는 범위를 의미한다."},
+      {"problem_number": 40, "comment": "loop는 자료형이 아니라 제어 구조를 가리키는 일반 용어다."}
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "comments": [
+      {"problem_number": 41, "comment": "DB는 데이터 중복과 종속성을 줄이고 무결성과 공유를 높이는 것이 목적이다."},
+      {"problem_number": 42, "comment": "기본키는 유일성과 NOT NULL 제약을 만족해야 한다."},
+      {"problem_number": 43, "comment": "데이터 조회는 SELECT 문을 사용한다."},
+      {"problem_number": 44, "comment": "정규화의 주요 목적은 중복 제거와 이상 현상 방지다."},
+      {"problem_number": 45, "comment": "트랜잭션 특성은 ACID(원자성, 일관성, 독립성, 지속성)이며 확장성은 포함되지 않는다."},
+      {"problem_number": 46, "comment": "외래키는 테이블 간 참조 관계를 설정하고 참조 무결성을 유지한다."},
+      {"problem_number": 47, "comment": "NULL은 0이나 공백이 아니라 값이 정의되지 않았음을 의미한다."},
+      {"problem_number": 48, "comment": "무결성 제약에는 개체, 참조, 도메인 무결성이 있으며 성능 무결성은 일반 분류가 아니다."},
+      {"problem_number": 49, "comment": "COMMIT은 트랜잭션 변경 사항을 최종 반영(확정)한다."},
+      {"problem_number": 50, "comment": "ROLLBACK은 트랜잭션 변경 사항을 취소하고 이전 상태로 복구한다."},
+      {"problem_number": 51, "comment": "인덱스는 저장공간을 추가로 사용하지만 검색 성능을 향상시킨다."},
+      {"problem_number": 52, "comment": "CREATE는 테이블/스키마 같은 DB 구조를 정의하는 DDL이다."},
+      {"problem_number": 53, "comment": "2NF는 부분 함수 종속을 제거하는 정규형이다."},
+      {"problem_number": 54, "comment": "트랜잭션은 하나의 논리적 작업 단위다."},
+      {"problem_number": 55, "comment": "DELETE는 테이블 구조를 유지한 채 데이터만 삭제하고 DROP은 구조 자체를 삭제한다."},
+      {"problem_number": 56, "comment": "관계형 DB의 기본 단위는 테이블이다."},
+      {"problem_number": 57, "comment": "도메인 무결성은 속성 값이 허용된 범위/집합을 벗어나지 않도록 제한하는 것이다."},
+      {"problem_number": 58, "comment": "GROUP BY는 행을 그룹 단위로 묶어 집계 처리할 때 사용한다."},
+      {"problem_number": 59, "comment": "WHERE 절은 조회 조건을 지정해 행을 필터링한다."},
+      {"problem_number": 60, "comment": "DBMS는 데이터 저장, 검색, 갱신, 무결성/보안 등을 포함한 데이터 관리를 담당한다."}
+    ]
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "comments": [
+      {
+        "problem_number": 1,
+        "comment": "개념 스키마는 조직 전체의 데이터베이스 구조를 통합적으로 표현한 것이다. 외부 스키마는 개별 사용자 관점, 내부 스키마는 물리적 저장 구조이다."
+      },
+      {
+        "problem_number": 2,
+        "comment": "개념적 모델링은 추상화 수준이 높지만, 오히려 전체 업무를 쉽게 파악하도록 하는 것이 목적이다."
+      },
+      {
+        "problem_number": 3,
+        "comment": "기본 엔터티는 업무에 원래 존재하는 정보로, 독립적으로 존재하며 타 엔터티의 부모 역할을 한다."
+      },
+      {
+        "problem_number": 4,
+        "comment": "하나의 인스턴스(행)는 두 개 이상의 속성(컬럼)을 가지며, 각 속성은 하나의 속성값만 갖는다(원자값 원칙)."
+      },
+      {
+        "problem_number": 5,
+        "comment": "FK는 다른 엔터티로부터 상속받은 외부식별자이다. 내부식별자는 자기 자신의 엔터티 내에서 만들어진 식별자를 말한다."
+      },
+      {
+        "problem_number": 6,
+        "comment": "식별자 관계는 실선, 비식별자 관계는 점선으로 표현한다."
+      },
+      {
+        "problem_number": 7,
+        "comment": "정규형은 단계적(cumulative)이므로, 제3정규형이 되려면 반드시 제1·제2정규형을 모두 만족해야 한다."
+      },
+      {
+        "problem_number": 8,
+        "comment": "M:N 관계를 해소하기 위해 교차(관계) 테이블을 생성한다. 양쪽 엔터티의 PK를 FK로 갖는다."
+      },
+      {
+        "problem_number": 9,
+        "comment": "기본키(PK)는 테이블당 하나만 생성할 수 있다. 복합키는 여러 컬럼이지만 PK 자체는 하나이다."
+      },
+      {
+        "problem_number": 10,
+        "comment": "CUBE는 지정된 컬럼들의 모든 가능한 조합(2^n개)에 대해 소계를 생성한다."
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "comments": [
+      {
+        "problem_number": 11,
+        "comment": "SQL은 비절차적(Non-procedural) 언어이다. 무엇(What)을 원하는지 기술하고, 어떻게(How)는 DBMS가 결정한다."
+      },
+      {
+        "problem_number": 12,
+        "comment": "INSERT는 DML(데이터 조작어)이다. DCL은 GRANT, REVOKE 등 권한 관련 명령어이다."
+      },
+      {
+        "problem_number": 13,
+        "comment": "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY 순이다."
+      },
+      {
+        "problem_number": 14,
+        "comment": "메인쿼리에서 서브쿼리 내부 테이블의 컬럼을 직접 참조할 수 없다. 반대 방향(상관 서브쿼리)은 가능하다."
+      },
+      {
+        "problem_number": 15,
+        "comment": "DENSE_RANK()는 동순위 후 순차(1,2,2,3). RANK()는 건너뜀(1,2,2,4)."
+      },
+      {
+        "problem_number": 16,
+        "comment": "고립성(Isolation)은 동시 실행 트랜잭션이 서로 간섭하지 않도록 보장한다."
+      },
+      {
+        "problem_number": 17,
+        "comment": "EXCEPT(SQL 표준) 또는 MINUS(Oracle)는 차집합 연산자이다."
+      },
+      {
+        "problem_number": 18,
+        "comment": "언더스코어(_)는 임의의 한 문자. __L%는 앞 2글자 임의 + 세 번째 L + 이후 아무 문자열."
+      },
+      {
+        "problem_number": 19,
+        "comment": "COALESCE(v1, v2, ...)는 왼쪽부터 첫 번째 NULL이 아닌 값을 반환한다."
+      },
+      {
+        "problem_number": 20,
+        "comment": "행1: COALESCE(1,2,3)=1, 행2: COALESCE(NULL,2,3)=2, 행3: COALESCE(NULL,NULL,3)=3. SUM=6."
+      },
+      {
+        "problem_number": 21,
+        "comment": "NVL(100,0)=100, NVL(NULL,0)=0. 100+0=100."
+      },
+      {
+        "problem_number": 22,
+        "comment": "NOT EXISTS는 서브쿼리에 매칭되는 행이 없을 때 TRUE를 반환한다."
+      },
+      {
+        "problem_number": 23,
+        "comment": "CASCADE는 부모 행 삭제 시 참조하는 자식 행도 함께 삭제한다."
+      },
+      {
+        "problem_number": 24,
+        "comment": "CTAS로 복제 시 NOT NULL만 복제된다. PK, FK, CHECK, UNIQUE 등은 별도 추가 필요."
+      },
+      {
+        "problem_number": 25,
+        "comment": "분모가 다르므로 결과가 달라진다."
+      },
+      {
+        "problem_number": 26,
+        "comment": "NATURAL JOIN은 USING이나 ON절을 함께 사용할 수 없다."
+      },
+      {
+        "problem_number": 27,
+        "comment": "NOT(COL<=2) = COL>2. NULL>2는 UNKNOWN이므로 NULL 행은 제외. 3, 4만 출력."
+      },
+      {
+        "problem_number": 28,
+        "comment": ""
+      },
+      {
+        "problem_number": 29,
+        "comment": ""
+      },
+      {
+        "problem_number": 30,
+        "comment": "순방향: CONNECT BY PRIOR 자식컬럼 = 부모컬럼."
+      },
+      {
+        "problem_number": 31,
+        "comment": ""
+      },
+      {
+        "problem_number": 32,
+        "comment": "MI=분(Minute), MM=월(Month), SS=초(Second)."
+      },
+      {
+        "problem_number": 33,
+        "comment": "NOT IN에 NULL이 포함되면 모든 비교가 UNKNOWN → 0건 반환."
+      },
+      {
+        "problem_number": 34,
+        "comment": "IN절에서 NULL 비교는 UNKNOWN이므로 무시. A, B만 반환."
+      },
+      {
+        "problem_number": 35,
+        "comment": "CASE COL WHEN NULL은 COL=NULL 비교→항상 UNKNOWN→ELSE(0)만 반환. 나머지는 NULL을 정상 처리."
+      },
+      {
+        "problem_number": 36,
+        "comment": "셀프조인은 한 테이블 내에서 컬럼 간 연관관계가 있을 때(예: 사원-매니저) 자기 자신과 조인."
+      },
+      {
+        "problem_number": 37,
+        "comment": "일반 SELECT=공집합(0행), 집계함수=NULL 포함 1행."
+      },
+      {
+        "problem_number": 38,
+        "comment": "조인 조건 없이 FROM에 나열 → 10×10=100행."
+      },
+      {
+        "problem_number": 39,
+        "comment": "TRUNCATE는 모든 행을 삭제하며 특정 행만 삭제 불가. DDL이므로 Auto Commit."
+      },
+      {
+        "problem_number": 40,
+        "comment": "a{2,4}는 a가 2~4회. 탐욕적 매칭으로 최대 4개 → 'aaaa'."
+      },
+      {
+        "problem_number": 41,
+        "comment": "기본은 ASC. 높은 순은 DESC 필요."
+      },
+      {
+        "problem_number": 42,
+        "comment": "COMMIT이 완료되면 변경이 확정되어, 이전으로 ROLLBACK 불가."
+      },
+      {
+        "problem_number": 43,
+        "comment": "괄호 > NOT > 비교 > AND > OR."
+      },
+      {
+        "problem_number": 44,
+        "comment": "CEIL(9.36)=10(올림), ROUND(9.48)=9(0.5미만), FLOOR(9.72)=9(내림)."
+      },
+      {
+        "problem_number": 45,
+        "comment": "COL2='A': (1,A),(1,A),(3,A)→3건. 전체 고유값: 1,2,3,4→4건."
+      },
+      {
+        "problem_number": 46,
+        "comment": "첫 번째 NOT NULL인 'S'를 반환."
+      },
+      {
+        "problem_number": 47,
+        "comment": "INTERSECT는 양쪽 모두에 존재하는 행을 반환."
+      },
+      {
+        "problem_number": 48,
+        "comment": "원자성(Atomicity) = All or Nothing."
+      },
+      {
+        "problem_number": 49,
+        "comment": "UPDATE로 2건 COL1=4, ROLLBACK TO SP2로 DELETE 취소, INSERT(4,1) 추가 → COL1=4 총 3건."
+      },
+      {
+        "problem_number": 50,
+        "comment": "동일 컬럼명이 없으면 조인 조건 없이 카테시안 곱 발생."
+      }
+    ]
+  }
+]

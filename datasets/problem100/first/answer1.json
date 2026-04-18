@@ -1,0 +1,527 @@
+[
+  {
+    "title": "1과목 소프트웨어 설계",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 3,
+        "correct_answer_text": "요구사항 검증 과정을 통해 모든 요구사항 문제를 발견할 수 있다."
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "느리고 안정적인 응답보다는 즉각적인 응답이 필요한 온라인 업무에 적합하다."
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 1,
+        "correct_answer_text": "클래스"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "instance"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 2,
+        "correct_answer_text": "정보은닉(Infomation Hiding)"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Data Store : 삼각형"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 2,
+        "correct_answer_text": "표의 숫자 코드"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "fan-in : 3, fan-out : 2"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "직관성"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "복잡성"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 2,
+        "correct_answer_text": "정형분석"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 1,
+        "correct_answer_text": "모듈 설계"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "객체 모델링, 동적 모델링, 기능 모델링"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 2,
+        "correct_answer_text": "일반화 관계"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "비정형 명세기법은 사용자의 요구를 표현할 때 Z 비정형 명세기법을 사용한다."
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "전체 소스코드 생성 기능"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 2,
+        "correct_answer_text": "LSP(Liskov Substitution Principle)"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Rumbaugh Method"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 3,
+        "correct_answer_text": "추상 패턴"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "사용자의 편의성을 높임으로써 작업시간을 증가시킨다."
+      }
+    ]
+  },
+  {
+    "title": "2과목 소프트웨어 개발",
+    "answers": [
+      {
+        "problem_number": 21,
+        "correct_answer_index": 2,
+        "correct_answer_text": "상향식 통합 테스트의 경우 시스템 구조도의 최상위에 있는 모듈을 먼저 구현하고 테스트한다."
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 1,
+        "correct_answer_text": "테스트 드라이버(Test Driver)"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 3,
+        "correct_answer_text": "간결성"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 3,
+        "correct_answer_text": "A B C + * D / E -"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Tree"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 3,
+        "correct_answer_text": "성능 테스트 도구"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Underflow"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "(가)-㉢, (나)-㉡, (다)-㉠"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 3,
+        "correct_answer_text": "재사용성(Reusability)"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 0,
+        "correct_answer_text": "큐는 비선형구조에 해당한다."
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 3,
+        "correct_answer_text": "선형 검색은 검색을 수행하기 전에 반드시 데이터의 집합이 정렬되어 있어야 한다."
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "피보나치 수열에 따라 다음에 비교할 대상을 선정하여 검색한다."
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 1,
+        "correct_answer_text": "(나) - ㉠, (다) - ㉢"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Message Bus"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 0,
+        "correct_answer_text": "B D C A"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 2,
+        "correct_answer_text": "형상관리를 위하여 구성된 팀을 “chief programmer team”이라고 한다."
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 0,
+        "correct_answer_text": "이진 탐색트리"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 2,
+        "correct_answer_text": "소프트웨어는 사용자 수준에 무관하게 일관된 인터페이스를 제공해야 한다."
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "동적 테스트 시에만 활용하는 기법이다."
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 1,
+        "correct_answer_text": "아주 오래되거나 참고문서 또는 개발자가 없어 유지보수 작업이 어려운 프로그램을 의미한다."
+      }
+    ]
+  },
+  {
+    "title": "3과목 데이터베이스 구축",
+    "answers": [
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT * FROM 공급자 WHERE\n공급자명 LIKE '%신%';"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "사용자가 직접 시스템 카탈로그의 내용을 갱신하여 데이터베이스 무결성을 유지한다."
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "기본키에 속해 있는 애트리뷰트는 널값이나 중복값을 가질 수 없다."
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 2,
+        "correct_answer_text": "◎ 이중 타원"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개체 무결성 제약조건"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 3,
+        "correct_answer_text": "로킹의 단위가 커지면 데이터베이스 공유도가 증가한다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Degree : 4, Cardinality : 3"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "도메인"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 2,
+        "correct_answer_text": "슈퍼키"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SELECT 과목번호, 과목이름 FROM R1, R2 WHERE R1.학번 = R2. 학번 AND R1.학과='전자공학' AND R1.이름 = '강남길’;"
+      },
+      {
+        "problem_number": 51,
+        "correct_answer_index": 1,
+        "correct_answer_text": "이행 규칙"
+      },
+      {
+        "problem_number": 52,
+        "correct_answer_index": 3,
+        "correct_answer_text": "D1: a, b"
+      },
+      {
+        "problem_number": 53,
+        "correct_answer_index": 0,
+        "correct_answer_text": "트리거(trigger)"
+      },
+      {
+        "problem_number": 54,
+        "correct_answer_index": 1,
+        "correct_answer_text": "DELETE"
+      },
+      {
+        "problem_number": 55,
+        "correct_answer_index": 0,
+        "correct_answer_text": "데이터베이스의 개념적 설계 단계 이전에 수행한다."
+      },
+      {
+        "problem_number": 56,
+        "correct_answer_index": 0,
+        "correct_answer_text": "인덱스(Index)"
+      },
+      {
+        "problem_number": 57,
+        "correct_answer_index": 1,
+        "correct_answer_text": "OTHER"
+      },
+      {
+        "problem_number": 58,
+        "correct_answer_index": 1,
+        "correct_answer_text": "타임스탬프 기법"
+      },
+      {
+        "problem_number": 59,
+        "correct_answer_index": 1,
+        "correct_answer_text": "최소성"
+      },
+      {
+        "problem_number": 60,
+        "correct_answer_index": 3,
+        "correct_answer_text": "1NF를 만족하고 키가 아닌 모든 속성이 기본키에 대하여 완전 함수적 종속 관계를 만족해야 한다."
+      }
+    ]
+  },
+  {
+    "title": "4과목 프로그래밍 언어 활용",
+    "answers": [
+      {
+        "problem_number": 61,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Temporal Cohesion"
+      },
+      {
+        "problem_number": 62,
+        "correct_answer_index": 2,
+        "correct_answer_text": "버퍼 오버플로"
+      },
+      {
+        "problem_number": 63,
+        "correct_answer_index": 3,
+        "correct_answer_text": "TCP"
+      },
+      {
+        "problem_number": 64,
+        "correct_answer_index": 0,
+        "correct_answer_text": "32비트의 주소체계를 사용한다."
+      },
+      {
+        "problem_number": 65,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Avoidance"
+      },
+      {
+        "problem_number": 66,
+        "correct_answer_index": 1,
+        "correct_answer_text": "wow 사용자가 로그인할 때까지 반복문을 수행한다."
+      },
+      {
+        "problem_number": 67,
+        "correct_answer_index": 3,
+        "correct_answer_text": "선점(preemption)"
+      },
+      {
+        "problem_number": 68,
+        "correct_answer_index": 2,
+        "correct_answer_text": "[0, 20, 40, 60]"
+      },
+      {
+        "problem_number": 69,
+        "correct_answer_index": 1,
+        "correct_answer_text": "기본 헤더 크기는 100byte이고 160byte까지 확장 가능하다."
+      },
+      {
+        "problem_number": 70,
+        "correct_answer_index": 3,
+        "correct_answer_text": "튜플(tuple) 타입"
+      },
+      {
+        "problem_number": 71,
+        "correct_answer_index": 1,
+        "correct_answer_text": "0 1 2 3"
+      },
+      {
+        "problem_number": 72,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Working Set"
+      },
+      {
+        "problem_number": 73,
+        "correct_answer_index": 3,
+        "correct_answer_text": "우선 순위를 계산하여 그 수치가 가장 낮은 것부터 높은 순으로 우선 순위가 부여된다."
+      },
+      {
+        "problem_number": 74,
+        "correct_answer_index": 3,
+        "correct_answer_text": "페이지 맵 테이블의 크기가 감소한다."
+      },
+      {
+        "problem_number": 75,
+        "correct_answer_index": 2,
+        "correct_answer_text": "외부 라이브러리는 프로그래밍 언어가 기본적으로 가지고 있는 라이브러리를 의미하며, 표준 라이브러리는 별도의 파일 설치를 필요로 하는 라이브러리를 의미한다."
+      },
+      {
+        "problem_number": 76,
+        "correct_answer_index": 2,
+        "correct_answer_text": "R"
+      },
+      {
+        "problem_number": 77,
+        "correct_answer_index": 3,
+        "correct_answer_text": "흐름제어나 순서제어가 없어 전송속도가 빠르다."
+      },
+      {
+        "problem_number": 78,
+        "correct_answer_index": 2,
+        "correct_answer_text": "char 자료형은 나열된 여러 개의 문자를 저장하고자 할 때 사용한다."
+      },
+      {
+        "problem_number": 79,
+        "correct_answer_index": 2,
+        "correct_answer_text": "18, 10"
+      },
+      {
+        "problem_number": 80,
+        "correct_answer_index": 2,
+        "correct_answer_text": "쉘 프로그램 실행을 위해 프로세스와 메모리를 관리한다."
+      }
+    ]
+  },
+  {
+    "title": "5과목 정보시스템 구축관리",
+    "answers": [
+      {
+        "problem_number": 81,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Putnam 모형"
+      },
+      {
+        "problem_number": 82,
+        "correct_answer_index": 0,
+        "correct_answer_text": "tcp wrapper"
+      },
+      {
+        "problem_number": 83,
+        "correct_answer_index": 3,
+        "correct_answer_text": "MQTT"
+      },
+      {
+        "problem_number": 84,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Smurfing"
+      },
+      {
+        "problem_number": 85,
+        "correct_answer_index": 3,
+        "correct_answer_text": "계획단계"
+      },
+      {
+        "problem_number": 86,
+        "correct_answer_index": 3,
+        "correct_answer_text": "하드웨어가 아닌 소프트웨어적으로만 구현되기 때문에 소프트웨어식 암호 기술에 내재된 보안 취약점을 해결할 수 없다는 것이 주요 단점이다."
+      },
+      {
+        "problem_number": 87,
+        "correct_answer_index": 0,
+        "correct_answer_text": "VLAN"
+      },
+      {
+        "problem_number": 88,
+        "correct_answer_index": 3,
+        "correct_answer_text": "방화벽 설정의 잘못된 조작으로 인한 네트워크, 서버 보안 위협"
+      },
+      {
+        "problem_number": 89,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Data Mining"
+      },
+      {
+        "problem_number": 90,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Ⓐ-Ⓓ-Ⓒ-Ⓑ순으로 반복"
+      },
+      {
+        "problem_number": 91,
+        "correct_answer_index": 0,
+        "correct_answer_text": "나선형 모형"
+      },
+      {
+        "problem_number": 92,
+        "correct_answer_index": 3,
+        "correct_answer_text": "N-Screen"
+      },
+      {
+        "problem_number": 93,
+        "correct_answer_index": 1,
+        "correct_answer_text": "대칭 암호 알고리즘은 비밀키 전달을 위한 키 교환이 필요하지 않아 암호화 및 복호화의 속도가 빠르다."
+      },
+      {
+        "problem_number": 94,
+        "correct_answer_index": 1,
+        "correct_answer_text": "해쉬 함수를 이용한 해쉬 암호화 방식을 사용한다."
+      },
+      {
+        "problem_number": 95,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Ⓐ-Ⓓ-Ⓒ-Ⓑ 순으로 반복"
+      },
+      {
+        "problem_number": 96,
+        "correct_answer_index": 3,
+        "correct_answer_text": "프로젝트 개발유형에 따라 object, dynamic, function의 3가지 모드로 구분한다."
+      },
+      {
+        "problem_number": 97,
+        "correct_answer_index": 2,
+        "correct_answer_text": "SSO"
+      },
+      {
+        "problem_number": 98,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개발 중 발생한 요구사항을 쉽게 반영할 수 있다."
+      },
+      {
+        "problem_number": 99,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Seven Touchpoints"
+      },
+      {
+        "problem_number": 100,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프로젝트 수행 시 예상되는 변화를 배제하고 신속히 진행하여야 한다."
+      }
+    ]
+  }
+]

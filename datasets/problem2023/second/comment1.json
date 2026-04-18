@@ -1,0 +1,257 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "comments": [
+      {
+        "problem_number": 1,
+        "comment": "UI는 사용자 중심이 원칙이다. 개발자 중심 설계는 틀린 설명이다."
+      },
+      {
+        "problem_number": 2,
+        "comment": "타임 슬라이스로 CPU를 순환 배정하는 방식은 라운드 로빈이다."
+      },
+      {
+        "problem_number": 3,
+        "comment": "공유/재사용 가능한 서비스 단위 아키텍처는 SOA이다."
+      },
+      {
+        "problem_number": 4,
+        "comment": "FCFS 완료시간 A6, B9, C10, D14이므로 TAT 6, 8, 8, 11의 평균은 8.25이다."
+      },
+      {
+        "problem_number": 5,
+        "comment": "100Base-T 전송 매체는 UTP 케이블이다."
+      },
+      {
+        "problem_number": 6,
+        "comment": "IPv6에는 브로드캐스트가 없고 유니캐스트/멀티캐스트를 사용한다."
+      },
+      {
+        "problem_number": 7,
+        "comment": "헤드 이동거리 합은 50→10(40)→40(30)→55(15)→35(20)로 총 105이다."
+      },
+      {
+        "problem_number": 8,
+        "comment": "소프트웨어 변경사항을 관리하는 활동은 형상관리이다."
+      },
+      {
+        "problem_number": 9,
+        "comment": "SMTP는 메일 전송 프로토콜이며 라우팅 프로토콜이 아니다."
+      },
+      {
+        "problem_number": 10,
+        "comment": "Loop Testing 반복 구조 분류에 연산식 반복은 포함되지 않는다."
+      },
+      {
+        "problem_number": 11,
+        "comment": "프로세스는 실행 중인 프로그램과 PCB 등으로 구성되는 실행 단위이다."
+      },
+      {
+        "problem_number": 12,
+        "comment": "개별 모듈을 시험하는 것은 단위 테스트이다."
+      },
+      {
+        "problem_number": 13,
+        "comment": "P/V 연산과 정수 변수를 이용한 동기화 기법은 세마포어이다."
+      },
+      {
+        "problem_number": 14,
+        "comment": "문제 서술이 불완전하여 내적 단편화 값을 단정하기 어렵다(조건 확정 불가)."
+      },
+      {
+        "problem_number": 15,
+        "comment": "Hamming 코드는 오류 검출과 정정이 가능한 오류정정부호이다."
+      },
+      {
+        "problem_number": 16,
+        "comment": "하나 이상의 유사 객체를 묶어 공통 특성을 표현한 것은 클래스이다."
+      },
+      {
+        "problem_number": 17,
+        "comment": "HRN 우선순위는 (대기시간 + 서비스시간) / 서비스시간으로 계산한다."
+      },
+      {
+        "problem_number": 18,
+        "comment": "교착상태 필요조건은 비선점이며, 선점은 해당하지 않는다."
+      },
+      {
+        "problem_number": 19,
+        "comment": "통합 테스트의 핵심은 모듈 간 상호작용 검증이다."
+      },
+      {
+        "problem_number": 20,
+        "comment": "X.25는 물리/프레임/패킷 계층 중심으로 전송계층을 포함하지 않는다."
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "comments": [
+      {
+        "problem_number": 21,
+        "comment": "C 언어에서 % 연산자는 정수형 피연산자에 대해 나머지를 구한다."
+      },
+      {
+        "problem_number": 22,
+        "comment": "변수명은 숫자로 시작할 수 없으므로 3edc는 올바르지 않다."
+      },
+      {
+        "problem_number": 23,
+        "comment": "결합도가 가장 강한 형태는 내용 결합(Content Coupling)이다."
+      },
+      {
+        "problem_number": 24,
+        "comment": "모듈 간 결합도는 강할수록 좋은 것이 아니라 약할수록 바람직하다."
+      },
+      {
+        "problem_number": 25,
+        "comment": "splice()는 배열을 변경하며, 단순 조회/추출 설명은 slice()에 가깝다."
+      },
+      {
+        "problem_number": 26,
+        "comment": "설계·구현 단계의 문제로 생기는 보안 약점은 Vulnerability이다."
+      },
+      {
+        "problem_number": 27,
+        "comment": "누구나 사용할 수 있도록 공개된 API는 Open API이다."
+      },
+      {
+        "problem_number": 28,
+        "comment": "nth-child(even) 적용 시 해당 조건에 맞는 행은 3행이다."
+      },
+      {
+        "problem_number": 29,
+        "comment": "상위 클래스의 속성과 메서드를 물려받는 개념은 Inheritance이다."
+      },
+      {
+        "problem_number": 30,
+        "comment": "HTML 호출 시 안내 메시지를 띄우는 메서드는 alert이다."
+      },
+      {
+        "problem_number": 31,
+        "comment": "배열 끝에 데이터를 추가하는 메서드는 push이다."
+      },
+      {
+        "problem_number": 32,
+        "comment": "form 속성은 method=\"post\", action=\"log01.jsp\"가 맞다."
+      },
+      {
+        "problem_number": 33,
+        "comment": "해당 전위/후위 연산 식 계산 결과는 정답 보기와 일치한다."
+      },
+      {
+        "problem_number": 34,
+        "comment": "문자열 표기 규칙상 작은따옴표 사용 시 이스케이프 처리 규칙을 지켜야 한다."
+      },
+      {
+        "problem_number": 35,
+        "comment": "삼항 연산자의 올바른 형태는 조건 ? 참 : 거짓 구조이다."
+      },
+      {
+        "problem_number": 36,
+        "comment": "포인터 연산에서 p = arg + 1이면 p[2]는 arg[3]을 가리킨다."
+      },
+      {
+        "problem_number": 37,
+        "comment": "모듈 간 상호 의존 정도를 나타내는 것은 결합도이다."
+      },
+      {
+        "problem_number": 38,
+        "comment": "응집도 높은 순서는 기능적 → 순차적 → 통신적 → 절차적이다."
+      },
+      {
+        "problem_number": 39,
+        "comment": "더미코드 재사용은 공통 모듈 재사용 분류에 해당하지 않는다."
+      },
+      {
+        "problem_number": 40,
+        "comment": "Cobol은 스크립트 언어가 아니다."
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스의 활용",
+    "comments": [
+      {
+        "problem_number": 41,
+        "comment": "버블 정렬 1회전 결과는 6, 7, 3, 5, 9이다."
+      },
+      {
+        "problem_number": 42,
+        "comment": "모든 결정자가 후보키가 되도록 분해하는 단계는 3NF→BCNF이다."
+      },
+      {
+        "problem_number": 43,
+        "comment": "데이터 정의 기능은 DDL 영역에 속한다."
+      },
+      {
+        "problem_number": 44,
+        "comment": "논리/물리적 데이터 구조 정의는 DDL의 역할이다."
+      },
+      {
+        "problem_number": 45,
+        "comment": "학년과 학과를 동시에 만족시키는 AND 조건 SQL이 정답이다."
+      },
+      {
+        "problem_number": 46,
+        "comment": "전위 순회(Preorder)는 Root → Left → Right 순서이다."
+      },
+      {
+        "problem_number": 47,
+        "comment": "뷰에는 삽입/갱신/삭제 연산 제약이 존재한다."
+      },
+      {
+        "problem_number": 48,
+        "comment": "E-R 다이어그램에서 속성은 타원으로 표현한다."
+      },
+      {
+        "problem_number": 49,
+        "comment": "카티션 프로덕트 결과 카디널리티는 4 × 5 = 20이다."
+      },
+      {
+        "problem_number": 50,
+        "comment": "보조키는 후보키 중 대표키가 아니며 개념이 다르다."
+      },
+      {
+        "problem_number": 51,
+        "comment": "SELECT는 DML이며 DCL 명령이 아니다."
+      },
+      {
+        "problem_number": 52,
+        "comment": "기본키의 NULL/중복 금지는 개체 무결성 제약 조건이다."
+      },
+      {
+        "problem_number": 53,
+        "comment": "릴레이션 합병에는 집합 연산자를 사용한다."
+      },
+      {
+        "problem_number": 54,
+        "comment": "Atomicity는 전부 수행되거나 전혀 수행되지 않음을 의미한다."
+      },
+      {
+        "problem_number": 55,
+        "comment": "이상 현상은 삽입/삭제/갱신 이상으로 분류한다."
+      },
+      {
+        "problem_number": 56,
+        "comment": "릴레이션에서 모든 튜플 값이 동일하다는 설명은 성립하지 않는다."
+      },
+      {
+        "problem_number": 57,
+        "comment": "LIFO 방식 자료구조는 Stack이다."
+      },
+      {
+        "problem_number": 58,
+        "comment": "문법상 올바른 형태는 INSERT INTO이다."
+      },
+      {
+        "problem_number": 59,
+        "comment": "Detection은 ACID 구성요소가 아니다."
+      },
+      {
+        "problem_number": 60,
+        "comment": "운영체제 책번호가 1111이므로 가격은 15000이다."
+      }
+    ]
+  }
+]

@@ -1,0 +1,257 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "comments": [
+      {
+        "problem_number": 1,
+        "comment": "오류 검출과 정정이 모두 가능한 대표적 코드."
+      },
+      {
+        "problem_number": 2,
+        "comment": "OSPF는 Link State 방식이다. Distance Vector가 아니다."
+      },
+      {
+        "problem_number": 3,
+        "comment": "경로 설정, 트래픽 제어는 Network Layer 기능."
+      },
+      {
+        "problem_number": 4,
+        "comment": "아키텍처 뷰는 논리·프로세스·개발·배포 뷰가 핵심."
+      },
+      {
+        "problem_number": 5,
+        "comment": "마스터 디렉터리 아래 사용자별 디렉터리 구조."
+      },
+      {
+        "problem_number": 6,
+        "comment": "UI는 사용자 중심 설계가 원칙이다. 개발자 중심은 오답."
+      },
+      {
+        "problem_number": 7,
+        "comment": "프로세스는 실행 중인 프로그램이지 하드웨어 장치가 아니다."
+      },
+      {
+        "problem_number": 8,
+        "comment": "디버깅(Debugging)은 프로그램 실행 중 발생한 오류를 추적하고 원인을 찾아 수정하는 작업이다. Loading은 메모리에 적재하는 과정이고, Linking은 목적 파일을 연결하는 과정이므로 문제의 설명과 다르다."
+      },
+      {
+        "problem_number": 9,
+        "comment": "Singleton은 객체를 하나만 생성하여 공유하는 패턴."
+      },
+      {
+        "problem_number": 10,
+        "comment": "비선점 SJF는 CPU가 비는 시점마다 “도착해 있는 작업 중 실행시간이 가장 짧은 작업”을 선택합니다.\n표 기준으로 작업 1(0,23), 작업 2(3,35), 작업 3(8,10) 입니다.\n\n실행 순서 판단:\n- 시간 0에는 작업 1만 도착 → 작업 1 실행 (0~23)\n- 시간 23에는 작업 2, 3이 모두 도착해 있음 → 실행시간이 짧은 작업 3 먼저 실행 (23~33)\n- 마지막으로 작업 2 실행 (33~68)\n\n대기시간 계산:\n- 작업 1: 시작 0 - 도착 0 = 0\n- 작업 3: 시작 23 - 도착 8 = 15\n- 작업 2: 시작 33 - 도착 3 = 30\n- 평균 대기시간 = (0 + 15 + 30) / 3 = 15"
+      },
+      {
+        "problem_number": 11,
+        "comment": "운영체제 배포판이며 빌드 자동화 도구가 아니다."
+      },
+      {
+        "problem_number": 12,
+        "comment": "개별 모듈의 정확한 구현 여부를 확인."
+      },
+      {
+        "problem_number": 13,
+        "comment": "주체(사용자) 기준으로 객체 + 권한 목록을 관리."
+      },
+      {
+        "problem_number": 14,
+        "comment": "인간공학적 UI 원리는 비전문성 인정이 포함된다. ④는 반대."
+      },
+      {
+        "problem_number": 15,
+        "comment": "형상 관리 대상은 산출물이지 비용이 아니다."
+      },
+      {
+        "problem_number": 16,
+        "comment": "패킷 교환은 실시간 전송에 부적합한 경우가 많다."
+      },
+      {
+        "problem_number": 17,
+        "comment": "공통 기능만 정의, 인스턴스 생성 불가."
+      },
+      {
+        "problem_number": 18,
+        "comment": "교착상태의 필요 조건은 비선점이다. 선점은 해당 없음."
+      },
+      {
+        "problem_number": 19,
+        "comment": "일괄 처리 → 시분할 → 다중 모드 → 분산 처리."
+      },
+      {
+        "problem_number": 20,
+        "comment": "X.25는 물리·프레임·패킷 계층을 포함한다."
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "comments": [
+      {
+        "problem_number": 21,
+        "comment": "사용자로부터 입력을 받는 메소드."
+      },
+      {
+        "problem_number": 22,
+        "comment": "시스템 설계·구현상의 보안 취약점 의미."
+      },
+      {
+        "problem_number": 23,
+        "comment": "모듈 설계는 응집도는 높여야 한다. 최소화는 오답."
+      },
+      {
+        "problem_number": 24,
+        "comment": "누구나 사용 가능한 공개 API."
+      },
+      {
+        "problem_number": 25,
+        "comment": "외부 변수는 프로그램 종료 시까지 유지된다. 함수 종료와 무관."
+      },
+      {
+        "problem_number": 26,
+        "comment": "객체지향 특징(캡슐화·상속·추상화)을 가진 언어."
+      },
+      {
+        "problem_number": 27,
+        "comment": "Python의 range()는 일정 구간의 연속된 수를 생성할 때 사용하는 함수이다. for 반복문이나 리스트 생성에 자주 쓰이며, 시작값/끝값/간격을 지정할 수 있다."
+      },
+      {
+        "problem_number": 28,
+        "comment": "nth-child(even) 기준으로 tbody 첫 번째 tr이 3번째 행."
+      },
+      {
+        "problem_number": 29,
+        "comment": "상위 클래스의 속성과 메소드를 물려받는 개념."
+      },
+      {
+        "problem_number": 30,
+        "comment": "HTML 로딩 시 안내 메시지 출력."
+      },
+      {
+        "problem_number": 31,
+        "comment": "push()는 자바스크립트 배열의 끝(마지막 인덱스 뒤)에 요소를 추가하는 메서드이다. pop()은 삭제, shift()는 앞쪽 요소 삭제이므로 데이터 입력(추가) 기능과 다르다."
+      },
+      {
+        "problem_number": 32,
+        "comment": "form 속성: method=\"post\", action=\"log01.jsp\"."
+      },
+      {
+        "problem_number": 33,
+        "comment": "전위 감소 + 후위 증가 연산 결과."
+      },
+      {
+        "problem_number": 34,
+        "comment": "작은따옴표 안에 작은따옴표 사용 불가(이스케이프 필요)."
+      },
+      {
+        "problem_number": 35,
+        "comment": "삼항 연산자의 기본 형식은 (조건) ? 참일 때 값 : 거짓일 때 값 이다. max에 결과를 저장하려면 max = (a > b) ? a : b; 형태로 작성하면 되며, 이는 원래 if-else 문과 같은 의미다."
+      },
+      {
+        "problem_number": 36,
+        "comment": "p = arg + 1, p[2] → arg[3]."
+      },
+      {
+        "problem_number": 37,
+        "comment": "결합도입니다. 다른 선택지는 용어의 의미나 적용 범위가 달라 문제의 조건에 맞지 않습니다."
+      },
+      {
+        "problem_number": 38,
+        "comment": "응집도 높은 순: 기능적 → 순차적 → 통신적 → 절차적"
+      },
+      {
+        "problem_number": 39,
+        "comment": "공통 모듈 재사용 분류에 해당하지 않는다."
+      },
+      {
+        "problem_number": 40,
+        "comment": "Cobol입니다. 다른 선택지는 용어의 의미나 적용 범위가 달라 문제의 조건에 맞지 않습니다."
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스의 활용",
+    "comments": [
+      {
+        "problem_number": 41,
+        "comment": "버블 정렬 1회전은 앞에서부터 인접한 두 값을 비교하며 큰 값을 뒤로 보내는 과정이다. 9와 6, 9와 7, 9와 3, 9와 5를 차례로 비교/교환하면 1회전 결과는 6, 7, 3, 5, 9가 된다."
+      },
+      {
+        "problem_number": 42,
+        "comment": "모든 결정자가 후보키가 되도록 분해."
+      },
+      {
+        "problem_number": 43,
+        "comment": "데이터 정의 기능은 DDL 영역이다."
+      },
+      {
+        "problem_number": 44,
+        "comment": "논리·물리적 데이터 구조 정의는 DDL, DCL 아님."
+      },
+      {
+        "problem_number": 45,
+        "comment": "문제는 “3학년”이면서 “컴퓨터공학과”인 학생의 이름만 조회하라고 했으므로 조건이 2개 모두 만족되어야 합니다.\n따라서 `WHERE` 절에서 `AND`를 사용해야 하며, 조회 컬럼은 `이름`만 선택해야 합니다.\n\n확인 포인트:\n- 조회 대상 컬럼: `이름`\n- 조건 1: `학년 = 3`\n- 조건 2: `학과 = \"컴퓨터공학\"`\n- 두 조건 동시 만족: `AND`"
+      },
+      {
+        "problem_number": 46,
+        "comment": "Preorder: Root → Left → Right."
+      },
+      {
+        "problem_number": 47,
+        "comment": "뷰에는 삽입·갱신·삭제 제약이 존재한다."
+      },
+      {
+        "problem_number": 48,
+        "comment": "속성은 타원, 화살표가 아니다."
+      },
+      {
+        "problem_number": 49,
+        "comment": "카티션 프로덕트의 카디널리티(튜플 수)는 각 릴레이션의 튜플 수를 곱해서 계산한다. 따라서 |R × S| = |R| × |S| = 4 × 5 = 20이다."
+      },
+      {
+        "problem_number": 50,
+        "comment": "보조키는 후보키 중 대표 키가 아니다."
+      },
+      {
+        "problem_number": 51,
+        "comment": "SELECT는 DML, DCL 아님."
+      },
+      {
+        "problem_number": 52,
+        "comment": "기본키는 NULL·중복 불가."
+      },
+      {
+        "problem_number": 53,
+        "comment": "집합 연산자입니다. 다른 선택지는 용어의 의미나 적용 범위가 달라 문제의 조건에 맞지 않습니다."
+      },
+      {
+        "problem_number": 54,
+        "comment": "전부 수행되거나 전혀 수행되지 않음."
+      },
+      {
+        "problem_number": 55,
+        "comment": "이상 현상은 삽입·삭제·갱신 이상."
+      },
+      {
+        "problem_number": 56,
+        "comment": "릴레이션의 튜플 값이 모두 같을 수는 없다."
+      },
+      {
+        "problem_number": 57,
+        "comment": "Stack입니다. 다른 선택지는 용어의 의미나 적용 범위가 달라 문제의 조건에 맞지 않습니다."
+      },
+      {
+        "problem_number": 58,
+        "comment": "올바른 문법은 INSERT INTO."
+      },
+      {
+        "problem_number": 59,
+        "comment": "트랜잭션의 ACID는 Atomicity(원자성), Consistency(일관성), Isolation(격리성), Durability(지속성)이다. Detection은 ACID 구성 요소가 아니므로 정답이 아니다."
+      },
+      {
+        "problem_number": 60,
+        "comment": "이 문제는 하위 질의(Subquery) 결과를 먼저 구한 뒤, 그 값을 바깥 질의 조건에 대입하면 됩니다.\n\n풀이 순서:\n- 하위 질의: `SELECT 책번호 FROM 도서 WHERE 책명 = ‘운영체제’`\n- 도서 테이블에서 ‘운영체제’의 책번호는 `1111`\n- 바깥 질의: `SELECT 가격 FROM 도서가격 WHERE 책번호 = 1111`\n- 도서가격 테이블에서 책번호 1111의 가격은 `15000`"
+      }
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄱ, ㄷ, ㄹ, ㅁ, ㅂ"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) TCP / (나) UDP"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "데이터 링크 계층"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "8"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) USING"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "COUNT"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "FTP"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "3"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(1) UNIQUE / (2) INDEX",
+        "correct_answer": "(1) UNIQUE / (2) INDEX",
+        "accepted_answers": [
+          "(1) UNIQUE / (2) INDEX",
+          "1) UNIQUE / 2) INDEX",
+          "UNIQUE INDEX",
+          "UNIQUE, INDEX",
+          "UNIQUE / INDEX"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "41"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "패킷(Packet)",
+          "accepted_answers": [
+            "패킷",
+            "packet",
+            "PACKET",
+            "Packet",
+            "패킷(Packet)",
+            "Packet(패킷)"
+          ]
+      },
+        {
+          "problem_number": 13,
+          "correct_answer_index": 0,
+          "correct_answer_text": "도커(Docker)",
+          "accepted_answers": [
+            "도커",
+            "docker",
+            "Docker",
+            "DOCKER",
+            "도커(Docker)",
+            "Docker(도커)"
+          ]
+        },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "7"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "롤백(Rollback)"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) 11, (나) 17"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "조건 커버리지(Condition Coverage)"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "B0"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄹ"
+      }
+    ]
+  }
+]

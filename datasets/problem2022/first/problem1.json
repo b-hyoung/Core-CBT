@@ -1,0 +1,619 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "디지털 코드 중에서 에러 검출 및 교정이 가능한 코드는?",
+        "options": [
+          "그레이(Gray) 코드",
+          "해밍(Hamming) 코드",
+          "3 초과(Excess-3) 코드",
+          "BCD 코드"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "해싱에서 동일한 버킷 주소를 갖는 레코드들의 집합을 의미하는 것은?",
+        "options": [
+          "Chaining",
+          "Collision",
+          "Division",
+          "Synonym"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "라우팅(Routing) 프로토콜이 아닌 것은?",
+        "options": [
+          "BGP",
+          "OSPF",
+          "SMTP",
+          "RIP"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "아키텍처 설계에서 뷰의 종류가 아닌 것은?",
+        "options": [
+          "물리적 뷰",
+          "논리적 뷰",
+          "프로세스 뷰",
+          "배포 뷰"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은 것은?",
+        "options": [
+          "노드와 간선으로 구성된다.",
+          "계층 모델이라고도 한다.",
+          "서브 시스템이 입력 데이터를 받아 처리하고 결과를 다음 서브 시스템으로 넘겨주는 과정을 반복한다.",
+          "3개의 서브 시스템(모델, 뷰, 제어)으로 구성되어 있다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "한 객체의 상태가 변화하면 객체에 상속되어 있는 다른 객체들에게 변화된 상태를 전달하는 패턴은?",
+        "options": [
+          "State",
+          "Observer",
+          "Visitor",
+          "Mediator"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "OSI 참조 모델에서 UDP가 속한 계층은?",
+        "options": [
+          "데이터 링크 계층",
+          "세션 계층",
+          "응용 계층",
+          "전송 계층"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "디렉터리 구조 중 중앙에 마스터 파일 디렉터리가 있고, 그 아래에 사용자별로 서로 다른 파일 디렉터리가 있는 구조는?",
+        "options": [
+          "1단계 디렉터리 구조",
+          "2단계 디렉터리 구조",
+          "트리 디렉터리 구조",
+          "비순환 그래프 디렉터리 구조"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "개체-관계(E-R) 모델에서 개체 타입을 표시하는 기호는?",
+        "options": [
+          "◇ 마름모",
+          "○ 타원",
+          "□ 사각형",
+          "▷ 삼각형"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "FCFS 기법을 적용하여 작업 스케줄링을 하였을 때, 다음 작업들의 평균 회수 시간(Turn Around Time)은? (단, 문맥교환 시간은 무시한다.)",
+        "examples": "작업|도착시간|실행시간\nA|0|6\nB|1|3\nC|2|1\nD|3|8",
+        "options": [
+          "9.25",
+          "8.25",
+          "7.75",
+          "7.25"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+        "options": [
+          "IPv6 주소는 128비트로 구성된다.",
+          "인증 및 보안 기능을 포함하고 있다.",
+          "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+          "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "LAN의 한 종류인 100Base-T 네트워크에서 사용되는 전송 매체는?",
+        "options": [
+          "Coaxial cable",
+          "Optical cable",
+          "UTP cable",
+          "Microwave cable"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "사용자와 시스템이 정보를 주고받는 상호작용이 잘 이루어지 도록 하는 장치나 소프트웨어를 의미한다.",
+          "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+          "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+          "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "디스크 대기 큐에 다음과 같은 순서(왼쪽부터 먼저 도착한 순서임) 로 트랙의 액세스 요청이 대기 중이다. 모든 트랙을 서비스하기 위하여 FCFS 스케줄링 기법이 사용되었을 때, 모두 몇 트랙의 헤드 이동이 생기는가?(단, 현재 헤드의 위치는 50 트랙이다.) 디스크 대기 큐 : 10, 40, 55, 35",
+        "options": [
+          "50",
+          "85",
+          "105",
+          "110"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "소프트웨어의 개발 과정에서 소프트웨어의 변경 사항을 관리하기 위해 개발된 일련의 활동은?",
+        "options": [
+          "정규화",
+          "프로토타입",
+          "통합 테스트",
+          "형상 관리"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "프로세스의 정의 중 틀린 것은?",
+        "options": [
+          "동기적 행위를 일으키는 주체",
+          "실행중인 프로그램",
+          "PCB를 가진 프로그램",
+          "프로세서가 할당되는 실체 1회"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "UML 모델에서 하나의 사물이 다른 사물에 비해 더 일반적인지 구체적인지를 표현하는 경우에 나타나는 관계는?",
+        "options": [
+          "의존 관계",
+          "일반화 관계",
+          "연관 관계",
+          "포함 관계"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "기업의 소프트웨어 인프라인 정보 시스템을 공유와 재사용이 가능 한 서비스 단위나 컴포넌트 중심으로 구축하는 정보기술 아키텍처 는?",
+        "options": [
+          "SSO",
+          "MEMS",
+          "SaaS",
+          "SOA"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "통합 테스트에 대한 설명으로 틀린 것은?",
+        "options": [
+          "드라이버를 사용하는 것은 상향식 테스트이다.",
+          "스텁을 사용하는 것은 하향식 테스트이다.",
+          "모듈 또는 컴포넌트 간의 상호 작용 오류를 검사한다.",
+          "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 설명에 해당하는 용어는? 소프트웨어의 구현 단계에서 발생할 수 있는 보안 취약점 들을 최소화하기 위해 보안 요소들을 고려하며 코딩하는 것을 의미하며, 보안 취약점을 사전에 대응하여 안정성과 신뢰성을 확보하기 위해 사용된다.",
+        "options": [
+          "SDLC",
+          "Secure Coding",
+          "CLASP",
+          "OWASP"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "한 모듈이 다른 모듈의 내부 자료를 직접적으로 참조하는 경우의 결합도를 의미하는 것은?",
+        "options": [
+          "내용 결합도",
+          "공통 결합도",
+          "제어 결합도",
+          "스탬프 결합도"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "JavaScript에서 다음 그림과 같은 창을 띄우기 위해 사용한 명령어로 옳은 것은?",
+        "options": [
+          "alert(“title”, “default”)",
+          "prompt(“title”, “default”)",
+          "alert(“default”, “title”)",
+          "prompt(“default”, “title”)"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음 중 C언어에서 변수명으로 사용할 수 있는 것은?",
+        "options": [
+          "8_dei",
+          "while",
+          "di sum",
+          "iAvg"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "C언어에서 상수를 정의할 때 사용하는 예약어는?",
+        "options": [
+          "#include",
+          "#define",
+          "#valuable",
+          "#function"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "다음 Java 코드가 실행되었을 때의 결과는? int a[][] = new int[2][3]; System.out.print(a.length);",
+        "options": [
+          "2",
+          "3",
+          "5",
+          "6"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "Python에서 사용되는 서식 문자열과 그 의미가 올바르게 연결되지 않은 것은?",
+        "options": [
+          "%d - 정수형 10진수",
+          "%x - 정수형 8진수",
+          "%f - 실수",
+          "%s - 문자열"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "Python에서 문자열이나 리스트와 같은 순차형 객체에서 일부를 잘라 반환하는 기능은?",
+        "options": [
+          "Goto",
+          "Range",
+          "Slice",
+          "Set"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "HTML에서 다음과 같이 frameset 태그를 사용했을 때 나타나는 결과로 올바른 것은?",
+        "examples": "<FRAMESET cols=\"50%, 50%\">\n  <FRAMESET rows=\"50%, 50%\">\n  </FRAMESET>\n</FRAMESET>",
+        "options": [
+          "좌측 1칸 | 우측 상하 2칸",
+          "좌측 상하 2칸 | 우측 1칸",
+          "상단 좌우 2칸 | 하단 1칸",
+          "상단 1칸 | 하단 좌우 2칸"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "다음 중 C 언어에서 수학 함수를 사용하기 위해 추가해야 하는 라이브러리는?",
+        "options": [
+          "stdio.h",
+          "math.h",
+          "stdlib.h",
+          "time.h"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "다음 중 JavaScript의 프레임워크가 아닌 것은?",
+        "options": [
+          "Angular",
+          "React",
+          "Ember",
+          "Django"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "다음 C언어의 함수 중 키보드로 문자 하나를 입력받아 변수에 저장하는 함수는?",
+        "options": [
+          "gets( )",
+          "putchar( )",
+          "puts( )",
+          "getchar( )"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "프레임워크(Framework)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "개발표준에 의한 모듈화로 유지보수가 용이하다.",
+          "재사용 모듈을 제공하여 생산성이 향상된다.",
+          "인터페이스 확장을 통해 다양한 형태와 기능을 가진 애플리케 이션 개발이 가능하다.",
+          "라이브러리와 같이 객체들을 사용자가 직접 관리하고 통제해 야 한다."
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음 중 빌드 도구가 아닌 것은?",
+        "options": [
+          "Zeplin",
+          "Ant",
+          "Maven",
+          "Gradle"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "모듈을 설계하기 위해서 바람직한 응집도(Cohesion)와 결합도 (Coupling)의 관계는?",
+        "options": [
+          "응집도는 약하고 결합도는 강해야 한다.",
+          "응집도는 강하고 결합도는 약해야 한다.",
+          "응집도도 약하고 결합도도 약해야 한다.",
+          "응집도도 강하고 결합도도 강해야 한다."
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때의 결과는? #include <stdio.h> void func(int* p) { *p = *p - 5; } main() { int a = 13; func(&a); printf(\"%d\", a); }",
+        "options": [
+          "-5",
+          "3",
+          "8",
+          "13"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "추상 클래스에 대한 설명으로 옳은 것은?",
+        "options": [
+          "구상 클래스 또는 구현 클래스라고도 불린다.",
+          "개별적인 인스턴스 생성이 가능하다.",
+          "구현하려는 기능들의 공통점만을 모아 놓은 것이다.",
+          "객체 생성을 위한 속성과 메소드의 구체적인 설계도이다."
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "다음 중 객체지향 언어에 속하는 것은?",
+        "options": [
+          "ALGOL",
+          "COBOL",
+          "C",
+          "C++"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "다음 중 커서를 왼쪽으로 한 칸 이동하는 제어문자는?",
+        "options": [
+          "＼n",
+          "＼b",
+          "＼t",
+          "＼a"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "특정 모듈에 대해서 존재하는 처리 요소들 간의 기능적 연관성을 의미하는 것으로 입력이나 에러 처리 같은 유사한 기능을 행하는 요소끼리 하나의 요소로 묶는 응집도는?",
+        "options": [
+          "기능적 응집도",
+          "순차적 응집도",
+          "논리적 응집도",
+          "절차적 응집도"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "정보 보안의 3대 요소에 해당하지 않는 것은?",
+        "options": [
+          "휘발성",
+          "기밀성",
+          "무결성",
+          "가용성"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스의 활용",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "스택의 응용 분야로 거리가 먼 것은?",
+        "options": [
+          "서브루틴 호출",
+          "인터럽트 처리",
+          "수식 계산 및 수식 표기법",
+          "운영체제의 작업 스케줄링"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "3, 5, 6, 8의 순서로 정해진 입력자료를 스택에 입력하였다가 출력한 결과가 될 수 없는 것은?(단, 왼쪽부터 먼저 출력된 순서이 다.)",
+        "options": [
+          "6, 5, 3, 8",
+          "6, 8, 3, 5",
+          "5, 3, 8, 6",
+          "5, 6, 8, 3"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "다음과 같은 그래프에서 간선의 개수는?",
+        "options": [
+          "2개",
+          "4개",
+          "6개",
+          "8개"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "자료가 다음과 같을 때, 삽입(Insertion) 정렬 방법을 적용하여 오름차순으로 정렬할 경우 Pass 2를 수행한 결과는? 자료 : 8, 3, 4, 9, 7",
+        "options": [
+          "3 8 4 9 7",
+          "3 4 8 9 7",
+          "3 4 7 9 8",
+          "3 4 7 8 9"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "A → B 이고 B → C 일 때 A → C를 만족하는 종속 관계를 제거하는 정규화 단계는?",
+        "options": [
+          "1NF → 2NF",
+          "2NF → 3NF",
+          "3NF → BCNF",
+          "비정규 릴레이션 → 1NF"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "다음 SQL문을 올바르게 설명한 것은? SELECT * FROM STUDENT WHERE SNAME LIKE ‘홍%’ ;",
+        "options": [
+          "SNAME이 ‘홍’씨로 시작하면 삭제한다.",
+          "SNAME이 ‘홍’씨로 시작되는 튜플을 찾는다.",
+          "SNAME이 ‘홍’씨로 시작하면 0으로 치환한다.",
+          "SNAME이 ‘홍’씨로 시작되는 튜플을 삭제한다."
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "다음 중 트랜잭션의 특성인 ACID에 속하지 않는 것은?",
+        "options": [
+          "Atomicity",
+          "Consistency",
+          "Integrity",
+          "Durability"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "다음 중 SQL 정의어에 포함되지 않는 명령어는?",
+        "options": [
+          "CREATE",
+          "SELECT",
+          "ALTER",
+          "DROP"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "데이터베이스 설계 단계 중 물리적 설계에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "개념적 설계 단계에서 만들어진 정보 구조로부터 특정 목표 DBMS가 처리할 수 있는 스키마를 생성한다.",
+          "다양한 데이터베이스 응용에 대해서 처리 성능을 얻기 위해 데이터베이스 파일의 저장 구조 및 액세스 경로를 결정한다.",
+          "물리적 저장장치에 저장할 수 있는 물리적 구조의 데이터로 변환하는 과정이다.",
+          "물리적 설계에서 옵션 선택 시 응답시간, 저장 공간의 효율화, 트랜잭션 처리율 등을 고려하여야 한다."
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "릴레이션에서 속성의 수와 튜플의 수를 의미하는 것으로 순서대로 옳게 짝지어진 것은?",
+        "options": [
+          "CARDINALITY, DEGREE",
+          "DOMAIN, DEGREE",
+          "DEGREE, CARDINALITY",
+          "DEGREE, DOMAIN"
+        ]
+      },
+      {
+        "problem_number": 51,
+        "question_text": "릴레이션의 기본키를 구성하는 어떤 속성도 널(Null) 값이나 중복 값을 가질 수 없음을 의미하는 것은?",
+        "options": [
+          "참조 무결성 제약 조건",
+          "정보 무결성 제약 조건",
+          "개체 무결성 제약 조건",
+          "주소 무결성 제약 조건"
+        ]
+      },
+      {
+        "problem_number": 52,
+        "question_text": "두 릴레이션에 존재하는 튜플의 합집합을 구하되, 결과로 생성된 릴레이션에서 중복되는 튜플은 제거되는 연산은?",
+        "options": [
+          "UNION",
+          "DIFFERENCE",
+          "INTERSECTION",
+          "CARTESIAN PRODUCT"
+        ]
+      },
+      {
+        "problem_number": 53,
+        "question_text": "뷰(VIEW)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "뷰는 하나 이상의 기본 테이블로부터 유도되어 만들어지는 가상 테이블이다.",
+          "삽입, 삭제, 갱신 연산에 제한이 있다.",
+          "데이터의 논리적 독립성을 제공한다.",
+          "SQL에서 뷰를 생성할 때는 MAKE를 사용한다."
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "버블 정렬을 이용한 오름차순 정렬시 다음 자료에 대한 3회전 후의 결과는? 9, 6, 7, 3, 5",
+        "options": [
+          "3, 5, 6, 7, 9",
+          "6, 3, 5, 7, 9",
+          "6, 7, 3, 5, 9",
+          "9, 7, 6, 5, 3"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "다음 SQL의 실행 결과로 옳은 것은? <거래내역> 상호 금액 대명금속 255,000 정금강업 900,000 효신산업 600,000 율촌화학 220,000 한국제지 200,000 한국화이바 795.000 <SQL> SELECT 상호 FROM 거래내역 WHERE 금액 In (SELECT MAX(금액) FROM 거래내역);",
+        "options": [
+          "대명금속",
+          "정금강업",
+          "효신산업",
+          "율촌화학"
+        ]
+      },
+      {
+        "problem_number": 56,
+        "question_text": "데이터베이스의 무결성 규정(Integrity Rule)과 관련한 설명으로 틀린 것은?",
+        "options": [
+          "무결성 규정에는 데이터가 만족해야 될 제약 조건, 규정을 참 조할 때 사용하는 식별자 등의 요소가 포함될 수 있다.",
+          "무결성 규정의 대상으로는 도메인, 키, 종속성 등이 있다.",
+          "정식으로 허가 받은 사용자가 아닌 불법적인 사용자에 의한 갱신으로부터 데이터베이스를 보호하기 위한 규정이다.",
+          "릴레이션 무결성 규정(Relation Integrity Rules)은 릴레이션 을 조작하는 과정에서의 의미적 관계(Semantic Relationship) 를 명세한 것이다."
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "정규화 과정 중 2NF에서 3NF로 진행시의 작업에 해당하는 것은?",
+        "options": [
+          "부분적 함수 종속 제거",
+          "결정자이면서 후보 키가 아닌 것 제거",
+          "이행적 함수 종속 제거",
+          "다치 종속 제거"
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "SQL의 데이터 조작문(DML)에 해당하는 것은?",
+        "options": [
+          "CREATE",
+          "INSERT",
+          "ALTER",
+          "DROP"
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "다음에 해당하는 트랜잭션(ACID)의 특성은? 둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어 들 수 없다.",
+        "options": [
+          "Atomicity",
+          "Consistency",
+          "Isolation",
+          "Durability"
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "시스템 카탈로그에 대한 설명으로 틀린 것은?",
+        "options": [
+          "시스템 자신이 필요로 하는 스키마 및 여러 가지 객체에 관한 정보를 포함하고 있는 시스템 데이터베이스이다.",
+          "시스템 카탈로그에 저장되는 내용을 메타 데이터라고 한다.",
+          "데이터 사전이라고도 한다.",
+          "일반 사용자는 시스템 테이블의 내용을 검색할 수 없다."
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,317 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "물리적 뷰"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 3,
+        "correct_answer_text": "형상 관리"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SOA"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "네트워크 계층"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 3,
+        "correct_answer_text": "실시간 전송이나 대량의 데이터 전송에 적합하다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 3,
+        "correct_answer_text": "하드웨어에 의해 사용되는 입출력 장치"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 2,
+        "correct_answer_text": "재사용이 불가능하도록 설계해야 한다."
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "호환성이 없는 클래스들의 인터페이스를 다른 클래스가 이용할 수 있도록 변환해준다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "구조적 반복"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 2,
+        "correct_answer_text": "UTP cable"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "15"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Content Coupling"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다."
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 2,
+        "correct_answer_text": "SMTP"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 3,
+        "correct_answer_text": "클래스"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "다중 작업(Multi-Tasking)을 지원하지 않는다."
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 2,
+        "correct_answer_text": "프로토타입(Prototype)"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 1,
+        "correct_answer_text": "자료 사전(Data Dictionary)"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 1,
+        "correct_answer_text": "알파 테스트"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "순서도(Flowchart)"
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "answers": [
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "prompt"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "프레임워크는 개발표준에 의한 모듈화로 인해 유지 보수가 어렵다."
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Content Coupling"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "휘발성"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 2,
+        "correct_answer_text": "splice( ) : 배열에서 지정한 범위의 데이터를 가져온다."
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 2,
+        "correct_answer_text": "주로 화살표를 사용하여 논리적인 제어 구조로 흐름을 표현한다."
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Open API"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 3,
+        "correct_answer_text": "XSS"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 1,
+        "correct_answer_text": "더미코드 재사용"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 0,
+        "correct_answer_text": "fscanf"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 2,
+        "correct_answer_text": "모듈 간의 결합도는 강할수록 바람직하다."
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "range"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 3,
+        "correct_answer_text": "1, 30"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Boolean Type"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 2,
+        "correct_answer_text": "8"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 1,
+        "correct_answer_text": "fan-in : 3, fan-out : 2"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "자동 변수(Automatic Variable)"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "1"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "121"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "다른 모듈에서의 접근이 불가능해야 한다."
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "answers": [
+      {
+        "problem_number": 41,
+        "correct_answer_index": 3,
+        "correct_answer_text": "B, D, A, C"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 1,
+        "correct_answer_text": "개념 스키마"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 3,
+        "correct_answer_text": "시스템 카탈로그의 정보를 INSERT, UPDATE, DELETE 문으로 직접 갱신할 수 있다."
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "A B D C E G H F"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 0,
+        "correct_answer_text": "DELETE"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "노드들이 포인터로 연결되어 검색이 빠르다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 3,
+        "correct_answer_text": "충돌로 인해 같은 Home Address를 갖는 레코드들의 집합이다."
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 2,
+        "correct_answer_text": "기본키(Primary Key)"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Isolation"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개념 스키마를 평가 및 정제하고 DBMS에 따라 서로 다른 논리적 스키마를 설계한다."
+      },
+      {
+        "problem_number": 51,
+        "correct_answer_index": 2,
+        "correct_answer_text": "사각형"
+      },
+      {
+        "problem_number": 52,
+        "correct_answer_index": 3,
+        "correct_answer_text": "조회 이상"
+      },
+      {
+        "problem_number": 53,
+        "correct_answer_index": 0,
+        "correct_answer_text": "GROUP BY"
+      },
+      {
+        "problem_number": 54,
+        "correct_answer_index": 3,
+        "correct_answer_text": "뷰를 제거할 때는 DELETE 문을 사용한다."
+      },
+      {
+        "problem_number": 55,
+        "correct_answer_index": 1,
+        "correct_answer_text": "㉠ 200, ㉡ 3, ㉢ 1"
+      },
+      {
+        "problem_number": 56,
+        "correct_answer_index": 2,
+        "correct_answer_text": "개체 무결성 제약 조건"
+      },
+      {
+        "problem_number": 57,
+        "correct_answer_index": 1,
+        "correct_answer_text": "2NF → 3NF"
+      },
+      {
+        "problem_number": 58,
+        "correct_answer_index": 2,
+        "correct_answer_text": "20"
+      },
+      {
+        "problem_number": 59,
+        "correct_answer_index": 1,
+        "correct_answer_text": "INSERT ON~ VALUES~"
+      },
+      {
+        "problem_number": 60,
+        "correct_answer_index": 1,
+        "correct_answer_text": "관계형 데이터 모델"
+      }
+    ]
+  }
+]

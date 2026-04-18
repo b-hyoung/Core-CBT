@@ -1,0 +1,77 @@
+﻿[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {"problem_number": 1, "question_text": "사용자 인터페이스(UI)에 대한 설명으로 틀린 것은?", "options": ["사용자와 시스템 간 상호작용 수단", "배우기 쉽고 사용하기 쉬워야 함", "개발자 중심으로 설계", "사용자 요구사항 반영"]},
+      {"problem_number": 2, "question_text": "CPU 구성 요소가 아닌 것은?", "options": ["ALU", "제어장치", "레지스터", "주기억장치"]},
+      {"problem_number": 3, "question_text": "프로세스 상태가 아닌 것은?", "options": ["준비", "실행", "대기", "로드"]},
+      {"problem_number": 4, "question_text": "시분할 시스템에 적합한 스케줄링은?", "options": ["FCFS", "SJF", "우선순위", "라운드로빈"]},
+      {"problem_number": 5, "question_text": "교착상태 발생 조건이 아닌 것은?", "options": ["상호배제", "점유대기", "선점 가능", "환형대기"]},
+      {"problem_number": 6, "question_text": "캐시 메모리의 목적은?", "options": ["대용량 저장", "보조기억장치 대체", "CPU와 메모리 속도 차이 완화", "영구 저장"]},
+      {"problem_number": 7, "question_text": "운영체제의 주된 목적은?", "options": ["하드웨어 제거", "사용자 편의 제공", "오류 수정", "프로그램 개발"]},
+      {"problem_number": 8, "question_text": "인터럽트의 설명으로 옳은 것은?", "options": ["CPU를 중지시킴", "자원 낭비 발생", "효율적 처리 가능", "메모리 확장"]},
+      {"problem_number": 9, "question_text": "데이터베이스 특징으로 틀린 것은?", "options": ["데이터 독립성", "데이터 중복 최소화", "데이터 종속성", "데이터 무결성"]},
+      {"problem_number": 10, "question_text": "FIFO 페이지 교체 알고리즘 단점은?", "options": ["구현 복잡", "Belady 현상", "참조 빈도 반영", "성능 최적"]},
+      {"problem_number": 11, "question_text": "PCB에 포함되지 않는 것은?", "options": ["프로세스 상태", "프로그램 카운터", "레지스터 정보", "소스 코드"]},
+      {"problem_number": 12, "question_text": "실시간 시스템 특징은?", "options": ["처리 순서 무관", "시간 제약 중요", "배치 처리", "사용자 개입 필수"]},
+      {"problem_number": 13, "question_text": "정보보안 3요소가 아닌 것은?", "options": ["기밀성", "무결성", "가용성", "확장성"]},
+      {"problem_number": 14, "question_text": "주기억장치의 역할은?", "options": ["영구 저장", "실행 중 프로그램 저장", "백업", "네트워크 관리"]},
+      {"problem_number": 15, "question_text": "다중 프로그래밍 목적은?", "options": ["응답 시간 증가", "CPU 이용률 향상", "자원 낭비", "처리량 감소"]},
+      {"problem_number": 16, "question_text": "커널 기능이 아닌 것은?", "options": ["메모리 관리", "프로세스 관리", "파일 관리", "사용자 인터페이스"]},
+      {"problem_number": 17, "question_text": "IPC 방법이 아닌 것은?", "options": ["파이프", "메시지 큐", "공유 메모리", "캐시"]},
+      {"problem_number": 18, "question_text": "병렬 처리의 장점은?", "options": ["복잡성 감소", "처리 속도 향상", "자원 낭비", "응답 지연"]},
+      {"problem_number": 19, "question_text": "시스템 소프트웨어는?", "options": ["워드", "브라우저", "운영체제", "게임"]},
+      {"problem_number": 20, "question_text": "운영체제의 기능이 아닌 것은?", "options": ["자원 관리", "프로세스 제어", "사용자 편의 제공", "응용 프로그램 개발"]}
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {"problem_number": 21, "question_text": "C언어 변수명으로 올바른 것은?", "options": ["int 1a", "int a1", "int a-1", "int a@"]},
+      {"problem_number": 22, "question_text": "반복문이 아닌 것은?", "options": ["for", "while", "do-while", "if"]},
+      {"problem_number": 23, "question_text": "다음 출력 결과는? int a=5; printf(\"%d\", a++);", "options": ["5", "6", "오류", "없음"]},
+      {"problem_number": 24, "question_text": "배열 특징으로 틀린 것은?", "options": ["동일 자료형", "연속 메모리", "크기 동적 변경", "인덱스 접근"]},
+      {"problem_number": 25, "question_text": "포인터의 역할은?", "options": ["값 저장", "주소 저장", "함수 호출", "반복 처리"]},
+      {"problem_number": 26, "question_text": "컴파일 언어 특징은?", "options": ["실행 시 번역", "실행 속도 느림", "실행 전 번역", "오류 무시"]},
+      {"problem_number": 27, "question_text": "논리 AND 연산자는?", "options": ["&", "&&", "|", "||"]},
+      {"problem_number": 28, "question_text": "Java 클래스 정의 키워드는?", "options": ["def", "struct", "class", "function"]},
+      {"problem_number": 29, "question_text": "반복문을 즉시 종료하는 문장은?", "options": ["continue", "break", "return", "goto"]},
+      {"problem_number": 30, "question_text": "Call by Value 특징은?", "options": ["원본 값 변경", "주소 전달", "값 복사", "참조 전달"]},
+      {"problem_number": 31, "question_text": "C언어에서 문자열 종료 문자는?", "options": ["\\n", "\\0", "\\t", "EOF"]},
+      {"problem_number": 32, "question_text": "함수 반환값이 없을 때 사용하는 자료형은?", "options": ["int", "char", "void", "float"]},
+      {"problem_number": 33, "question_text": "다음 중 산술 연산자는?", "options": ["==", "!=", "+", "&&"]},
+      {"problem_number": 34, "question_text": "라이브러리의 목적은?", "options": ["중복 코드 증가", "재사용성 향상", "실행 속도 감소", "오류 증가"]},
+      {"problem_number": 35, "question_text": "인터프리터 언어 특징은?", "options": ["실행 전 전체 번역", "실행 시 한 줄씩 해석", "실행 속도 빠름", "기계어 직접 실행"]},
+      {"problem_number": 36, "question_text": "배열 인덱스 시작 값은?", "options": ["0", "1", "-1", "언어별 상이"]},
+      {"problem_number": 37, "question_text": "조건이 거짓일 때 반복 수행하는 문장은?", "options": ["for", "while", "do-while", "if"]},
+      {"problem_number": 38, "question_text": "Java에서 상속 키워드는?", "options": ["include", "inherit", "extends", "implements"]},
+      {"problem_number": 39, "question_text": "변수 유효 범위를 의미하는 것은?", "options": ["타입", "스코프", "상수", "주소"]},
+      {"problem_number": 40, "question_text": "다음 중 자료형이 아닌 것은?", "options": ["int", "char", "float", "loop"]}
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "problems": [
+      {"problem_number": 41, "question_text": "DB 목적이 아닌 것은?", "options": ["중복 제거", "무결성 유지", "데이터 종속성 증가", "공유"]},
+      {"problem_number": 42, "question_text": "기본키 특징은?", "options": ["중복 허용", "NULL 허용", "유일성", "외래 참조"]},
+      {"problem_number": 43, "question_text": "데이터 조회 SQL은?", "options": ["INSERT", "UPDATE", "DELETE", "SELECT"]},
+      {"problem_number": 44, "question_text": "정규화 목적은?", "options": ["중복 제거", "성능 저하", "복잡성 증가", "데이터 손실"]},
+      {"problem_number": 45, "question_text": "트랜잭션 특성이 아닌 것은?", "options": ["원자성", "일관성", "독립성", "확장성"]},
+      {"problem_number": 46, "question_text": "외래키 역할은?", "options": ["중복 허용", "테이블 간 관계 설정", "기본키 대체", "데이터 삭제"]},
+      {"problem_number": 47, "question_text": "NULL 의미는?", "options": ["0", "공백", "값 없음", "오류"]},
+      {"problem_number": 48, "question_text": "데이터 무결성 종류가 아닌 것은?", "options": ["개체 무결성", "참조 무결성", "도메인 무결성", "성능 무결성"]},
+      {"problem_number": 49, "question_text": "COMMIT 의미는?", "options": ["변경 취소", "변경 저장", "테이블 삭제", "트랜잭션 종료 실패"]},
+      {"problem_number": 50, "question_text": "ROLLBACK 의미는?", "options": ["변경 저장", "이전 상태 복구", "데이터 삽입", "트리거 실행"]},
+      {"problem_number": 51, "question_text": "인덱스 목적은?", "options": ["저장 공간 증가", "검색 속도 향상", "중복 제거", "무결성 유지"]},
+      {"problem_number": 52, "question_text": "테이블 구조 정의 SQL은?", "options": ["CREATE", "INSERT", "SELECT", "UPDATE"]},
+      {"problem_number": 53, "question_text": "정규형 중 부분 함수 종속 제거는?", "options": ["1NF", "2NF", "3NF", "BCNF"]},
+      {"problem_number": 54, "question_text": "트랜잭션 단위는?", "options": ["테이블", "파일", "논리적 작업 단위", "인덱스"]},
+      {"problem_number": 55, "question_text": "DELETE와 DROP 차이 설명으로 옳은 것은?", "options": ["둘 다 구조 삭제", "DELETE는 구조 유지", "DROP은 데이터만 삭제", "차이 없음"]},
+      {"problem_number": 56, "question_text": "관계형 DB의 기본 단위는?", "options": ["파일", "레코드", "테이블", "필드"]},
+      {"problem_number": 57, "question_text": "도메인 무결성이 의미하는 것은?", "options": ["키 중복 방지", "값 범위 제한", "관계 유지", "접근 제어"]},
+      {"problem_number": 58, "question_text": "GROUP BY 역할은?", "options": ["정렬", "그룹화", "조건 필터", "조인"]},
+      {"problem_number": 59, "question_text": "WHERE 절 역할은?", "options": ["정렬", "그룹화", "조건 지정", "테이블 생성"]},
+      {"problem_number": 60, "question_text": "데이터베이스 관리 시스템(DBMS) 역할은?", "options": ["하드웨어 제어", "데이터 관리", "프로그램 작성", "네트워크 구성"]}
+    ]
+  }
+]

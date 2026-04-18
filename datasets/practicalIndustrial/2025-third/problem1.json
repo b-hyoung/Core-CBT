@@ -1,0 +1,79 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "데이터베이스의 특성으로 옳은 것을 모두 고르시오.",
+        "examples": "ㄱ. 실시간 접근성\nㄴ. 계속적인 변화\nㄷ. 동시 공용\nㄹ. 주소기반 참조\nㅁ. 내용에 의한 참조",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 2,
+        "question_text": "소프트웨어 테스트 기법 중, 코드 내부 구조를 보지 않고 입·출력 위주로 테스트하는 방법을 (ㄱ)박스 테스트, 코드 내부 로직을 기반으로 하는 방법을 (ㄴ)박스 테스트라 한다.",
+        "examples": "",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 3,
+        "question_text": "아파치(Apache), MS의 IIS처럼 클라이언트의 HTTP 요청을 받아 정적 파일 및 동적 콘텐츠를 제공하는 소프트웨어는?",
+        "examples": "",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 4,
+        "question_text": "OSI 7계층 중 네트워크 계층의 대표 프로토콜로, 논리 주소를 담당하는 영문 2글자 프로토콜은?",
+        "examples": "",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 5,
+        "question_text": "아래 Java 코드의 출력값은?",
+        "examples": "public class Gisafirst {\n  static class A {\n    static String nu() { return \"A\"; }\n    String mo() { return \"a\"; }\n  }\n  static class B extends A {\n    static String nu() { return \"B\"; }\n    String mo() { return \"b\"; }\n  }\n  public static void main(String[] args) {\n    A tester = new B();\n    System.out.println(tester.nu() + tester.mo());\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 6,
+        "question_text": "아래 Java 코드의 출력값은?",
+        "examples": "public class Gisafirst {\n  static int x = f();\n  static int f() {\n    System.out.print(\"A\");\n    return 1;\n  }\n  static {\n    x++;\n  }\n  public static void main(String[] args) {\n    System.out.print(x);\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 7,
+        "question_text": "아래 Java 코드의 출력값은?",
+        "examples": "public class Gisafirst {\n  static void func(int[] a) {\n    a[0]++;\n    a = new int[]{5};\n  }\n  public static void main(String[] args) {\n    int[] arr = {2};\n    func(arr);\n    System.out.println(arr[0]);\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 8,
+        "question_text": "아래 C 코드의 출력값은?",
+        "examples": "int fn(int *a, int *b) {\n  *a = *a + *b;\n  return (*b = *a - *b);\n}\nint main() {\n  int x = 2;\n  int y = 3;\n  printf(\"%d\", fn(&x, &y) + y);\n  return 0;\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 9,
+        "question_text": "아래 C 코드의 출력값은?",
+        "examples": "typedef struct { int x; } Struct;\nvoid change(Struct *a, Struct b) {\n  a->x += b.x;\n  b.x = 100;\n  a = &b;\n  a->x = 200;\n}\nint main() {\n  Struct b1 = {3};\n  Struct b2 = {4};\n  change(&b1, b2);\n  printf(\"%d \", b1.x);\n  return 0;\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 10,
+        "question_text": "아래 C 코드의 출력값은?",
+        "examples": "void func(int *p) {\n  int temp[] = {0, 1, 2};\n  p = temp;\n  p[0] = 9;\n}\nint main() {\n  int arr[] = {3, 4, 5};\n  func(arr);\n  printf(\"%d \", arr[0]);\n  return 0;\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 11,
+        "question_text": "아래 Java 코드의 출력값은?",
+        "examples": "public class Gisafirst {\n  int result = 0;\n  int test() {\n    try { return 1; }\n    finally { result = 2; }\n  }\n  public static void main(String[] args) {\n    Gisafirst p = new Gisafirst();\n    System.out.print(p.test());\n  }\n}",
+        "input_type": "single"
+      },
+      {
+        "problem_number": 12,
+        "question_text": "아래 Python 코드의 출력값은?",
+        "examples": "a = [1, 2]\nb = a\na = a + [3]\nb.append(4)\nprint(len(set(a) & set(b)))",
+        "input_type": "single"
+      }
+    ]
+  }
+]

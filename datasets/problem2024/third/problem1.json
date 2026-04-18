@@ -1,0 +1,625 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "아키텍처 설계에서 뷰의 종류가 아닌 것은?",
+        "options": [
+          "물리적 뷰",
+          "논리적 뷰",
+          "프로세스 뷰",
+          "배포 뷰"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "소프트웨어의 개발 과정에서 소프트웨어의 변경 사항을 관리하기 위해 개발된 일련의 활동은?",
+        "options": [
+          "정규화",
+          "프로토타입",
+          "통합 테스트",
+          "형상 관리"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "기업의 소프트웨어 인프라인 정보 시스템을 공유와 재사용이 가능한 서비스 단위나 컴포넌트 중심으로 구축하는 정보기술 아키텍처는?",
+        "options": [
+          "SSO",
+          "MEMS",
+          "SaaS",
+          "SOA"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "OSI 7 계층 중에서 다음 설명에 해당하는 계층은?",
+        "examples": "ㆍ경로 설정, 트래픽 제어 기능\nㆍ네트워크 연결을 설정, 유지, 해제하는 기능",
+        "options": [
+          "세션 계층",
+          "응용 계층",
+          "네트워크 계층",
+          "표현 계층"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "데이터 전송 방식 중 패킷 교환 방식에 대한 설명으로 틀린 것은?",
+        "options": [
+          "가상 회선 방식과 데이터그램 방식이 있다.",
+          "전송에 실패한 패킷의 경우 재전송이 가능하다.",
+          "패킷 단위로 헤더를 추가하므로 패킷별 오버헤드가 발생한다.",
+          "실시간 전송이나 대량의 데이터 전송에 적합하다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "프로세스의 정의로 적당하지 않은 것은?",
+        "options": [
+          "실행중인 프로그램",
+          "프로세서가 할당되는 개체",
+          "운영체제 내에 프로세스 제어 블록의 존재로서 명시되는 것",
+          "하드웨어에 의해 사용되는 입출력 장치"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "소프트웨어 아키텍처 설계 시 고려사항이 아닌 것은?",
+        "options": [
+          "개발자와 사용자 간의 의사소통 도구로 활용될 수 있어야 한다.",
+          "이해하기 쉽고, 명확하게 작성해야 한다.",
+          "재사용이 불가능하도록 설계해야 한다.",
+          "이해 관계자들의 품질 요구사항을 반영하여 품질 속성을 결정한다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "GoF(Gang of Four)의 디자인 패턴 중 데코레이터(Decorator)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "구조 패턴에 속한다.",
+          "호환성이 없는 클래스들의 인터페이스를 다른 클래스가 이용할 수 있도록 변환해준다.",
+          "객체 간의 결합을 통해 능동적으로 기능들을 확장할 수 있다.",
+          "임의의 객체에 부가적인 기능을 추가하기 위해 다른 객체들을 덧붙이는 방식으로 구현한다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "루프 검사(Loop Test)에서 찾아볼 수 있는 4가지 반복 구조가 아닌 것은?",
+        "options": [
+          "단순 반복",
+          "중첩 반복",
+          "구조적 반복",
+          "비구조적 반복"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "LAN의 한 종류인 100Base-T 네트워크에서 사용되는 전송 매체는?",
+        "options": [
+          "Coaxial cable",
+          "Optical cable",
+          "UTP cable",
+          "Microwave cable"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "SJF(Shortest Job First) 스케줄링에서 작업 도착 시간과 CPU 사용 시간은 다음 표와 같다. 모든 작업들의 평균 대기 시간은 얼마인가?",
+        "examples": "작업 | 도착 시간 | CPU 사용시간\n1 | 0 | 23\n2 | 3 | 35\n3 | 8 | 10",
+        "options": [
+          "15",
+          "17",
+          "24",
+          "25"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "다음 중 가장 결합도가 강한 것은?",
+        "options": [
+          "Data Coupling",
+          "Stamp Coupling",
+          "Content Coupling",
+          "Control Coupling"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "사용자와 시스템이 정보를 주고받는 상호 작용이 잘 이루어지도록 하는 장치나 소프트웨어를 의미한다.",
+          "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+          "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+          "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "라우팅(Routing) 프로토콜이 아닌 것은?",
+        "options": [
+          "BGP",
+          "OSPF",
+          "SMTP",
+          "RIP"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "객체 지향의 개념에서 하나 이상의 유사한 객체를 묶어서 하나의 공통된 특성을 표현한 것을 무엇이라고 하는가?",
+        "options": [
+          "인스턴스",
+          "메소드",
+          "메시지",
+          "클래스"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "UNIX에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "다중 작업(Multi-Tasking)을 지원하지 않는다.",
+          "대화식 시분할 운영체제이다.",
+          "두 사람 이상의 사용자가 동시에 시스템을 사용할 수 있다.",
+          "대부분 C 언어로 구성되어 있다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "형상 관리 도구의 주요 기능이 아닌 것은?",
+        "options": [
+          "커밋(Commit)",
+          "체크인(Check-In)",
+          "프로토타입(Prototype)",
+          "동기화(Update)"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "자료 흐름도의 구성 요소가 아닌 것은?",
+        "options": [
+          "자료 흐름(Data Flow)",
+          "자료 사전(Data Dictionary)",
+          "자료 저장소(Data Store)",
+          "처리(Process)"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "사용자가 개발자 앞에서 행하는 테스트 기법으로, 통제된 환경에서 테스트가 행해지며, 오류와 사용상의 문제점을 사용자와 개발자가 함께 확인하면서 기록하는 테스트 기법은?",
+        "options": [
+          "사용자 인수 테스트",
+          "알파 테스트",
+          "베타 테스트",
+          "규정 인수 테스트"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "HIPO의 3가지 패키지가 아닌 것은?",
+        "options": [
+          "도식목차(Visual Table of Contents)",
+          "순서도(Flowchart)",
+          "총괄도표(Overview Diagram)",
+          "상세도표(Detail Diagram)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "자바스크립트의 Windows 객체에서 사용자로부터 데이터를 입력 받을 수 있는 메소드는?",
+        "options": [
+          "prompt",
+          "alert",
+          "confirm",
+          "messagebox"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "프레임워크의 특성에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "프레임워크는 재사용 가능한 모듈들을 제공함으로써 예산 절감, 생산성 향상, 품질 보증이 가능하다.",
+          "프레임워크는 다형성을 통한 인터페이스 확장이 가능하여 다양한 형태와 기능을 가진 애플리케이션 개발이 가능하다.",
+          "프레임워크는 개발표준에 의한 모듈화로 인해 유지 보수가 어렵다.",
+          "개발자가 관리하고 통제해야 하는 객체들의 제어를 프레임워크에 넘김으로써 생산성을 향상시킨다."
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음 중 가장 결합도가 강한 것은?",
+        "options": [
+          "Data Coupling",
+          "Stamp Coupling",
+          "Content Coupling",
+          "Control Coupling"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "정보 보안의 3대 요소에 해당하지 않는 것은?",
+        "options": [
+          "휘발성",
+          "기밀성",
+          "무결성",
+          "가용성"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "자바스크립트에서 배열의 속성과 메소드에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "pop( ) : 배열의 맨 끝의 값을 삭제한다.",
+          "join( ) : 배열의 요소들을 구분자로 구분하는 하나의 문자열로 반환한다.",
+          "splice( ) : 배열에서 지정한 범위의 데이터를 가져온다.",
+          "length : 배열의 길이를 반환한다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "N-S(Nassi-Schneiderman) chart에 대한 설명으로 거리가 먼 것은?",
+        "options": [
+          "논리의 기술에 중점을 둔 도형식 표현 방법이다.",
+          "연속, 선택 및 다중 선택, 반복 등의 제어 논리 구조로 표현한다.",
+          "주로 화살표를 사용하여 논리적인 제어 구조로 흐름을 표현한다.",
+          "조건이 복합되어 있는 곳의 처리를 시각적으로 명확히 식별하는데 적합하다."
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "API(Application Programming Interface) 중 누구나 무료로 사용할 수 있도록 공개된 API를 무엇이라 하는가?",
+        "options": [
+          "Free API",
+          "Java API",
+          "SUS",
+          "Open API"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "웹 페이지에 악의적인 스크립트를 포함시켜 사용자 측에서 실행되게 유도함으로써, 정보 유출 등의 공격을 유발할 수 있는 취약점은?",
+        "options": [
+          "Ransomware",
+          "Pharming",
+          "Phishing",
+          "XSS"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "공통 모듈의 재사용 범위에 따른 분류가 아닌 것은?",
+        "options": [
+          "컴포넌트 재사용",
+          "더미코드 재사용",
+          "함수와 객체 재사용",
+          "애플리케이션 재사용"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "파일 포인터 변수가 가리키는 위치에서 데이터를 가져와 변수에 저장하는 함수는?",
+        "options": [
+          "fscanf",
+          "fprintf",
+          "fopen",
+          "fclose"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "바람직한 소프트웨어 설계 지침이 아닌 것은?",
+        "options": [
+          "적당한 모듈의 크기를 유지한다.",
+          "모듈 간의 접속 관계를 분석하여 복잡도와 중복을 줄인다.",
+          "모듈 간의 결합도는 강할수록 바람직하다.",
+          "모듈 간의 효과적인 제어를 위해 설계에서 계층적 자료 조직이 제시되어야 한다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Python에서 연속된 숫자를 생성하는 함수로, 리스트, 반복문 등에서 많이 사용되는 것은?",
+        "options": [
+          "for",
+          "slice",
+          "range",
+          "continue"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음 Java 프로그램이 실행되었을 때, 실행 결과는?",
+        "examples": "public class Test {\n  public static void main(String args[]) {\n    int a, b, c, d;\n    a = b = 5;\n    c = --a % --a;\n    d = b++ * b++;\n    System.out.printf(\"%d, %d\", c, d);\n  }\n}",
+        "options": [
+          "0, 25",
+          "1, 25",
+          "0, 30",
+          "1, 30"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "조건이 참인지 거짓인지 판단하고자 할 때 사용하는 데이터 타입은?",
+        "options": [
+          "Integer Type",
+          "Boolean Type",
+          "Character String Type",
+          "Floating Point Type"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때의 결과는?",
+        "examples": "#include <stdio.h>\nvoid func(int* p) {\n  *p = *p - 5;\n}\nmain() {\n  int a = 13;\n  func(&a);\n  printf(\"%d\", a);\n}",
+        "options": [
+          "-5",
+          "3",
+          "8",
+          "13"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음은 어떤 프로그램 구조를 나타낸다. 모듈 F에서의 fan-in과 fan-out의 수는 얼마인가?",
+        "options": [
+          "fan-in : 2, fan-out : 3",
+          "fan-in : 3, fan-out : 2",
+          "fan-in : 1, fan-out : 2",
+          "fan-in : 2, fan-out : 1"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "기억 클래스(Storage Class)의 종류 중 함수나 코드의 범위를 한정하는 블록 내에서 선언되는 변수는?",
+        "options": [
+          "외부 변수(External Variable)",
+          "정적 변수(Static Variable)",
+          "자동 변수(Automatic Variable)",
+          "레지스터 변수(Register Variable)"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "C언어에서 정수 변수 a, b에 각각 1, 2가 저장되어 있을 때 다음 식의 연산 결과로 옳은 것은?",
+        "examples": "a < b + 2 && a << 1 <= b",
+        "options": [
+          "0",
+          "1",
+          "3",
+          "5"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때의 결과는?",
+        "examples": "#include <stdio.h>\nint main(int argc, char *argv[]) {\n  int a[2][2] = {{11, 22}, {44, 55}};\n  int i, sum = 0;\n  int *p;\n  p = a[0];\n  for(i = 1; i < 4; i++)\n    sum += *(p + i);\n  printf(\"%d\", sum);\n  return 0;\n}",
+        "options": [
+          "55",
+          "77",
+          "121",
+          "132"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "소프트웨어 개발에서 모듈(Module)이 되기 위한 주요 특징에 해당하지 않는 것은?",
+        "options": [
+          "다른 것들과 구별될 수 있는 독립적인 기능을 가진 단위(Unit)이다.",
+          "독립적인 컴파일이 가능하다.",
+          "유일한 이름을 가져야 한다.",
+          "다른 모듈에서의 접근이 불가능해야 한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "A, B, C, D의 순서로 정해진 입력 자료를 스택에 입력하였다가 출력한 결과가 될 수 없는 것은?(단, 왼쪽부터 먼저 출력된 순서대로 나열하였다.)",
+        "options": [
+          "A, D, C, B",
+          "A, B, C, D",
+          "D, C, B, A",
+          "B, D, A, C"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "데이터베이스의 3층 스키마 중 모든 응용 시스템과 사용자들이 필요로 하는 데이터를 통합한 조직 전체의 데이터베이스 구조를 논리적으로 정의하는 스키마는?",
+        "options": [
+          "내부 스키마",
+          "개념 스키마",
+          "외부 스키마",
+          "동적 스키마"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "시스템 카탈로그에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "데이터 사전이라고도 한다.",
+          "시스템 카탈로그에 저장되는 내용을 메타 데이터라고 한다.",
+          "시스템 자신이 필요로 하는 스키마 및 여러 가지 객체에 관한 정보를 포함하고 있는 시스템 데이터베이스이다.",
+          "시스템 카탈로그의 정보를 INSERT, UPDATE, DELETE 문으로 직접 갱신할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "다음 트리를 Preorder로 운행한 결과는?",
+        "options": [
+          "A B C D E F G H",
+          "A D B G H E F C",
+          "A B D C E F G H",
+          "A B D C E G H F"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "다음 중 DDL 명령어가 아닌 것은?",
+        "options": [
+          "DELETE",
+          "ALTER",
+          "DROP",
+          "CREATE"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "연결 리스트(Linked List)에 대한 설명으로 가장 옳지 않은 것은?",
+        "options": [
+          "노드의 삽입이나 삭제가 쉽다.",
+          "노드들이 포인터로 연결되어 검색이 빠르다.",
+          "연결을 해주는 포인터(Pointer)를 위한 추가 공간이 필요하다.",
+          "연결 리스트 중에서 중간 노드 연결이 끊어지면 그 다음 노드를 찾기 힘들다."
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "해시 테이블에서 Synonym에 대한 설명으로 옳은 것은?",
+        "options": [
+          "하나의 주소를 갖는 파일의 한 구역을 의미한다.",
+          "서로 다른 두 개 이상의 레코드가 같은 주소를 갖는 현상이다.",
+          "한 개의 레코드를 저장할 수 있는 공간이다.",
+          "충돌로 인해 같은 Home Address를 갖는 레코드들의 집합이다."
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "후보키(Candidate Key) 중에서 대표로 선정된 키를 무엇이라고 하는가?",
+        "options": [
+          "슈퍼키(Super Key)",
+          "대체키(Alternate Key)",
+          "기본키(Primary Key)",
+          "외래키(Foreign Key)"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "다음에 해당하는 트랜잭션(ACID)의 특성은?",
+        "examples": "둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다.",
+        "options": [
+          "Atomicity",
+          "Consistency",
+          "Isolation",
+          "Durability"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "데이터베이스 설계 단계 중 논리적 설계 단계에 해당하는 것은?",
+        "options": [
+          "개념 스키마를 평가 및 정제하고 DBMS에 따라 서로 다른 논리적 스키마를 설계한다.",
+          "데이터베이스 파일의 저장 구조 및 액세스 경로를 결정한다.",
+          "물리적 저장장치에 저장할 수 있는 물리적 구조의 데이터로 변환하는 과정이다.",
+          "저장 레코드의 형식, 순서, 접근 경로 등의 정보가 컴퓨터에 저장되는 방법을 묘사한다."
+        ]
+      },
+      {
+        "problem_number": 51,
+        "question_text": "개체-관계(E-R) 모델에서 개체 타입을 표시하는 기호는?",
+        "options": [
+          "마름모",
+          "타원",
+          "사각형",
+          "선"
+        ]
+      },
+      {
+        "problem_number": 52,
+        "question_text": "정규화를 거치지 않으면 릴레이션 조작 시 데이터 중복에 따른 예기치 못한 곤란한 현상이 발생할 수 있다. 이러한 이상(Anomaly) 현상의 종류에 해당하지 않는 것은?",
+        "options": [
+          "삭제 이상",
+          "삽입 이상",
+          "갱신 이상",
+          "조회 이상"
+        ]
+      },
+      {
+        "problem_number": 53,
+        "question_text": "SQL 구문에서 \"having\" 절은 반드시 어떤 구문과 사용되어야 하는가?",
+        "options": [
+          "GROUP BY",
+          "ORDER BY",
+          "UPDATE",
+          "JOIN"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "뷰(View)에 대한 설명으로 가장 옳지 않은 것은?",
+        "options": [
+          "뷰는 독자적인 인덱스를 가질 수 없다.",
+          "뷰는 논리적 독립성을 제공한다.",
+          "뷰로 구성된 내용에 대한 삽입, 갱신, 삭제 연산에는 제약이 따른다.",
+          "뷰를 제거할 때는 DELETE 문을 사용한다."
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "학생(STUDENT) 테이블에 전산과 학생이 50명, 전자과 학생이 100명, 기계과 학생이 50명 있다고 할 때, 다음 SQL문 ㉠, ㉡, ㉢의 실행 결과 튜플 수는 각각 얼마인가? (단, DEPT 필드는 학과명을 의미한다.)",
+        "examples": "㉠ SELECT DEPT FROM STUDENT;\n㉡ SELECT DISTINCT DEPT FROM STUDENT;\n㉢ SELECT COUNT(DISTINCT DEPT) FROM STUDENT\n   WHERE DEPT='전산과';",
+        "options": [
+          "㉠ 3, ㉡ 3, ㉢ 1",
+          "㉠ 200, ㉡ 3, ㉢ 1",
+          "㉠ 200, ㉡ 3, ㉢ 50",
+          "㉠ 200, ㉡ 200, ㉢ 50"
+        ]
+      },
+      {
+        "problem_number": 56,
+        "question_text": "릴레이션의 기본키를 구성하는 어떤 속성도 널(Null) 값이나 중복 값을 가질 수 없음을 의미하는 것은?",
+        "options": [
+          "참조 무결성 제약 조건",
+          "정보 무결성 제약 조건",
+          "개체 무결성 제약 조건",
+          "주소 무결성 제약 조건"
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "A → B 이고 B → C 일 때 A → C를 만족하는 종속 관계를 제거하는 정규화 단계는?",
+        "options": [
+          "1NF → 2NF",
+          "2NF → 3NF",
+          "3NF → BCNF",
+          "비정규 릴레이션 → 1NF"
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "릴레이션 R의 튜플의 개수가 4, 릴레이션 S의 튜플의 개수가 5일 때, 두 릴레이션을 카티션 프로덕트(Cartesian Product)한 결과 릴레이션의 카디널리티는?",
+        "options": [
+          "1",
+          "9",
+          "20",
+          "41"
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "데이터 조작문의 유형으로 옳바르지 않은 것은?",
+        "options": [
+          "SELECT~ FROM~ WHERE~",
+          "INSERT ON~ VALUES~",
+          "DELETE~ FROM~ WHERE~",
+          "UPDATE~ SET~ WHERE~"
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "개념 세계에서 표현된 각 개체와 개체 간의 관계들을 서로 독립된 2차원 테이블 즉 릴레이션으로 표현하며, 가장 널리 사용되는 데이터 모델은?",
+        "options": [
+          "개체형 데이터 모델",
+          "관계형 데이터 모델",
+          "계층형 데이터 모델",
+          "네트워크형 데이터 모델"
+        ]
+      }
+    ]
+  }
+]

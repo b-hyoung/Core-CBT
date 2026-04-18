@@ -1,0 +1,382 @@
+[
+  {
+    "title": "AI 프롬프트엔지니어링 2급 기출모의고사 1회",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "다음 중 인공지능의 핵심 기능에 해당하지 않는 것을 고르시오.",
+        "options": [
+          "학습(Learning)",
+          "추론(Reasoning)",
+          "실행(Execution)",
+          "적응(Adaptation)"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "다음 보기에서 설명하는 인공지능 활용 분야로 가장 적합한 것을 고르시오.",
+        "examples": "과거의 데이터를 분석하여 패턴을 발견하고, 이를 기반으로 미래의 결과를 예측하는 기술로, 기계 학습의 핵심 목표 중 하나이다.",
+        "options": [
+          "자연어 처리(NLP)",
+          "이미지 인식(Image Recognition)",
+          "예측 분석(Predictive Analytics)",
+          "자율 주행(Autonomous Driving)"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음은 인공지능이 활용되는 기술에 대한 설명이다. 가장 적합한 것을 고르시오.",
+        "examples": "컴퓨터가 텍스트, 음성 등 인간의 언어를 이해하고 처리하여 의미 있는 결과를 생성하는 기술이다.",
+        "options": [
+          "컴퓨터 비전(Computer Vision)",
+          "강화 학습(Reinforcement Learning)",
+          "자연어 처리(Natural Language Processing)",
+          "로보틱스(Robotics)"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "다음 중 AI 시스템에서 발생하는 환각(Hallucination)에 관한 설명으로 올바르지 않은 것을 고르시오.",
+        "options": [
+          "AI 시스템이 잘못된 정보를 마치 사실인 것처럼 생성하는 현상이다.",
+          "출력 결과에 부정확하거나 무관한 내용이 포함되는 현상이다.",
+          "학습 데이터의 편향으로 인해 잘못된 결론을 이끌어내는 현상이다.",
+          "연산 과정에서 수학적 오류가 발생하여 잘못된 값을 출력하는 현상이다."
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "다음 중 생성 AI의 특징으로 올바르지 않은 것을 고르시오.",
+        "options": [
+          "텍스트, 이미지, 음악 등 새로운 콘텐츠를 생성할 수 있다.",
+          "대규모 데이터를 학습하여 패턴을 파악한다.",
+          "항상 정확하고 신뢰할 수 있는 결과를 생성한다.",
+          "사용자의 입력에 따라 다양한 형태의 출력을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "다음 중 AI 학습에 사용되는 핵심 하드웨어 구성요소로 가장 적합한 것을 고르시오.",
+        "options": [
+          "CPU",
+          "GPU",
+          "RAM",
+          "SSD"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "다음 중 AI에서 사용하는 temperature 파라미터에 대한 설명으로 올바른 것을 고르시오.",
+        "options": [
+          "값이 높을수록 보수적이고 일관된 답변을 생성한다.",
+          "값이 낮을수록 창의적이고 다양한 답변을 생성한다.",
+          "값이 높을수록 창의적이고 다양한 답변을 생성한다.",
+          "temperature는 출력 길이를 제어하는 파라미터이다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "다음 중 프롬프트의 구성요소가 아닌 것을 고르시오.",
+        "options": [
+          "지시(Instruction)",
+          "맥락(Context)",
+          "입력 데이터(Input Data)",
+          "내용(Content)"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "질문을 통해 단계적으로 답변을 유도하는 프롬프트 기법으로 가장 적합한 것을 고르시오.",
+        "options": [
+          "Zero-shot Learning",
+          "Chain of Thought",
+          "Few-shot Learning",
+          "Multi-modal Prompting"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "다음 중 조건부 프롬프트를 통해 모델의 출력을 제어하는 기법으로 가장 적합한 것을 고르시오.",
+        "options": [
+          "Recursive Prompting",
+          "Role-based Prompting",
+          "Reflection-based Prompting",
+          "Self-consistency"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 중 프롬프트 엔지니어링의 핵심 원칙으로 적절하지 않은 것을 고르시오.",
+        "options": [
+          "명확하고 구체적인 지시를 작성한다.",
+          "모델에게 생각할 시간을 준다.",
+          "가능한 한 짧고 모호한 프롬프트를 사용한다.",
+          "맥락과 예시를 적절히 제공한다."
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "다음 중 AI를 활용한 코드 작성 시 프롬프트에 포함해야 할 요소로 적합하지 않은 것을 고르시오.",
+        "options": [
+          "역할 지정(Role Assignment)",
+          "파라미터 제어(Parameter Control)",
+          "출력 형식(Output Format)",
+          "컨텍스트 주입(Context Injection)"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "다음 중 인공지능 프롬프트 파라미터(Parameter)에 해당하지 않는 것을 고르시오.",
+        "options": [
+          "Top-p",
+          "Max Length",
+          "Frequency Penalty",
+          "Batch Size"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "다음 중 반복적으로 프롬프트를 개선하여 결과의 품질을 높이는 기법으로 가장 적합한 것을 고르시오.",
+        "options": [
+          "Iterative Refinement",
+          "Zero-shot Prompting",
+          "One-shot Prompting",
+          "Random Sampling"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 중 프롬프트 인젝션(Prompt Injection)에 대한 설명으로 올바르지 않은 것을 고르시오.",
+        "options": [
+          "악의적인 입력을 통해 AI 모델의 동작을 조작하는 공격이다.",
+          "시스템 프롬프트를 무시하고 새로운 지시를 따르도록 유도한다.",
+          "프롬프트 인젝션은 멀티스레딩 환경에서만 발생한다.",
+          "사용자 입력을 검증하여 방지할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 중 AI에서 사용하는 프롬프트 기법에 대한 설명으로 올바르지 않은 것을 고르시오.",
+        "options": [
+          "Chain of Thought는 단계적 추론을 유도하는 기법이다.",
+          "One-shot은 하나의 예시를 제공하여 작업을 수행하는 기법이다.",
+          "Zero-shot은 예시 없이 작업을 수행하는 기법이다.",
+          "Few-shot은 대량의 학습 데이터로 모델을 재훈련하는 기법이다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "다음 중 AI에서 프롬프트의 구조적 요소에 해당하지 않는 것을 고르시오.",
+        "options": [
+          "출력 형식(Output Format)",
+          "제약 조건(Constraint)",
+          "변수 할당(Variable Assignment)",
+          "네트워크 설정(Network Configuration)"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "다음 중 AI 활용 시 창의성을 제어하는 파라미터로 가장 적합한 것을 고르시오.",
+        "options": [
+          "Temperature",
+          "Frequency Penalty",
+          "Presence Penalty",
+          "Top-p"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "다음 중 AI가 활용되는 인접 기술 분야로 적합하지 않은 것을 고르시오.",
+        "options": [
+          "메타버스(Metaverse)",
+          "블록체인(Blockchain)",
+          "사물인터넷(IoT)",
+          "관계형 데이터베이스(RDBMS)"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 중 대화형 AI에서 문맥을 유지하기 위한 기법으로 가장 적합한 것을 고르시오.",
+        "options": [
+          "System Prompt 설정",
+          "Temperature 조절",
+          "Batch Processing",
+          "Data Augmentation"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "다음 대화형 AI 상황에서 가장 적합한 Temperature 설정을 고르시오.",
+        "examples": "고객 문의에 대한 정확하고 일관된 답변을 제공해야 하는 고객지원 챗봇을 운영하고 있다.",
+        "options": [
+          "Temperature를 0.1~0.3으로 낮게 설정한다.",
+          "Temperature를 0.7~0.9로 높게 설정한다.",
+          "Temperature를 1.5 이상으로 매우 높게 설정한다.",
+          "Temperature 설정은 답변 품질에 영향을 주지 않는다."
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "다음 중 프롬프트를 활용한 텍스트 분석 방법으로 적합하지 않은 것을 고르시오.",
+        "options": [
+          "텍스트 분류(Text Classification)",
+          "감정 분석(Sentiment Analysis)",
+          "개체명 인식(NER)",
+          "이미지 세그멘테이션(Image Segmentation)"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음 중 프롬프트를 활용한 데이터 추출(Extraction) 기법에 대한 설명으로 적합한 것을 고르시오.",
+        "options": [
+          "비정형 텍스트에서 구조화된 정보를 추출하는 기법이다.",
+          "이미지에서 텍스트를 인식하는 OCR 기술이다.",
+          "데이터베이스에서 SQL 쿼리를 실행하는 기법이다.",
+          "네트워크 트래픽에서 패킷을 분석하는 기법이다."
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "다음 중 사람과 AI가 상호작용하며 결과를 점진적으로 개선하는 기법으로 가장 적합한 것을 고르시오.",
+        "options": [
+          "One-shot Learning",
+          "Self-reflection",
+          "Interactive Refinement",
+          "Chance Injection"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "다음 중 네거티브 프롬프트(Negative Prompt)에 대한 설명으로 올바른 것을 고르시오.",
+        "options": [
+          "생성 결과에서 특정 요소를 제외하도록 지시하는 프롬프트이다.",
+          "부정적인 감정의 텍스트를 생성하기 위한 프롬프트이다.",
+          "AI 모델의 성능을 저하시키는 프롬프트이다.",
+          "오류를 의도적으로 발생시키는 프롬프트이다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "다음 중 데이터 변환에 가장 적합한 프롬프트 기법을 고르시오.",
+        "options": [
+          "Style Transfer",
+          "Data Validation",
+          "Error Detecting",
+          "Pattern Matching"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "다음 중 프롬프트 엔지니어링을 활용한 콘텐츠 생성 방법으로 적합하지 않은 것을 고르시오.",
+        "options": [
+          "블로그 글 작성을 위한 주제와 톤을 지정한다.",
+          "이메일 초안 작성을 위한 맥락을 제공한다.",
+          "SNS 게시글의 해시태그를 자동 생성한다.",
+          "데이터베이스 스키마를 직접 수정한다."
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "다음 중 미드저니(Midjourney)에서 이미지 스타일을 지정하는 키워드로 적합하지 않은 것을 고르시오.",
+        "options": [
+          "Cinematic",
+          "Photorealistic",
+          "Dynamic",
+          "Executable"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "다음 중 프롬프트의 종류에 해당하지 않는 것을 고르시오.",
+        "options": [
+          "자동화된 질의 생성(Automated Query Generation)",
+          "요약 프롬프트(Summarization Prompt)",
+          "컨텍스트 프롬프트(Contextual Prompt)",
+          "하드웨어 프롬프트(Hardware Prompt)"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "다음은 미드저니에서 이미지를 생성하기 위한 프롬프트이다. 프롬프트의 구성으로 적합하지 않은 것을 고르시오.",
+        "examples": "/imagine prompt: A watercolor painting of a sunset over the ocean, soft pastel colors --ar 16:9 --v 5",
+        "options": [
+          "주제 설명(Subject Description)",
+          "스타일 지정(Style Specification)",
+          "파라미터 설정(Parameter Setting)",
+          "데이터베이스 연결(Database Connection)"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "다음 이미지를 생성한 AI 도구의 이름을 쓰시오. (단답형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/31.png",
+        "examples": "",
+        "options": []
+      },
+      {
+        "problem_number": 32,
+        "question_text": "다음 보기에서 설명하고 있는 프롬프트의 구성요소를 쓰시오. (단답형 주관식)",
+        "examples": "- 사용자가 AI에게 특정 작업을 수행하도록 하는 명령이나 요청\n- 프롬프트의 가장 핵심적인 요소로, AI가 무엇을 해야 하는지 알려주는 역할",
+        "options": []
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음 중 생성 AI의 저작권에 대한 설명으로 올바른 내용을 쓰시오. (단답형 주관식)",
+        "examples": "생성 AI가 만든 작품이 기존 저작물과 유사할 경우 발생할 수 있는 법적 문제를 지칭하는 용어를 한글로 쓰시오.",
+        "options": []
+      },
+      {
+        "problem_number": 34,
+        "question_text": "다음은 텍스트 생성 시 단어를 선택하는 디코딩 방법에 대한 설명이다. 적합한 것을 고르시오.",
+        "examples": "매 단계에서 가장 확률이 높은 단어를 선택하는 방법으로, 가장 단순하지만 다양성이 부족할 수 있다.",
+        "options": [
+          "Nucleus Sampling",
+          "Top-p Sampling",
+          "Beam Search",
+          "Greedy Decoding"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 보기에서 ( ㉠ )에 공통으로 들어갈 내용으로 옳은 것을 쓰시오. (단답형 주관식)",
+        "examples": "- ( ㉠ )은/는 사전 학습된 모델에 추가 데이터를 사용하여 특정 작업에 맞게 모델을 조정하는 과정이다.\n- ( ㉠ )을/를 통해 일반적인 모델을 특정 도메인에 최적화할 수 있다.",
+        "options": []
+      },
+      {
+        "problem_number": 36,
+        "question_text": "① 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/36-40.png",
+        "examples": "[제시문 A] 다음 프롬프트 작성 요소를 참고하여 물음에 답하시오.\n\n프롬프트 구성:\n- 역할(Role): ( ① )로서 답변해줘\n- 작업(Task): 다음 텍스트를 ( ② )해줘\n- 형식(Format): ( ③ ) 형식으로 출력해줘",
+        "options": []
+      },
+      {
+        "problem_number": 37,
+        "question_text": "② 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/36-40.png",
+        "examples": "[제시문 A 참조]\n- 작업(Task): 다음 텍스트를 ( ② )해줘",
+        "options": []
+      },
+      {
+        "problem_number": 38,
+        "question_text": "③ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/36-40.png",
+        "examples": "[제시문 A 참조]\n- 형식(Format): ( ③ ) 형식으로 출력해줘",
+        "options": []
+      },
+      {
+        "problem_number": 39,
+        "question_text": "④ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/36-40.png",
+        "examples": "[제시문 B] 미드저니에서 이미지를 생성하기 위한 프롬프트\n/imagine prompt: A ( ④ ) style painting of mountains --ar ( ⑤ )",
+        "options": []
+      },
+      {
+        "problem_number": 40,
+        "question_text": "⑤ 에 들어갈 내용을 위 보기에서 골라 쓰시오. (다중보기 선택형 주관식)",
+        "image_url": "/images/ai-prompt/grade2-c/36-40.png",
+        "examples": "[제시문 B 참조]\n/imagine prompt: A ( ④ ) style painting of mountains --ar ( ⑤ )",
+        "options": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,1028 @@
+[
+  {
+    "title": "1과목 소프트웨어 설계",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "요구사항 검증(Requirements Validation)과 관련한 설명으로 틀린 것은?",
+        "options": [
+          "요구사항이 고객이 정말 원하는 시스템을 제대로 정의하고 있는지 점검하는 과정이다.",
+          "개발완료 이후에 문제점이 발견될 경우 막대한 재작업 비용이 들 수 있기 때문에 요구사항 검증은 매우 중요하다.",
+          "요구사항이 실제 요구를 반영하는지, 문서상의 요구사항은 서로 상충되지 않는지 등을 점검한다.",
+          "요구사항 검증 과정을 통해 모든 요구사항 문제를 발견할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "메시지 지향 미들웨어(Message-Oriented Middleware, MOM)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "느리고 안정적인 응답보다는 즉각적인 응답이 필요한 온라인 업무에 적합하다.",
+          "독립적인 애플리케이션을 하나의 통합된 시스템으로 묶기 위한 역할을 한다.",
+          "송신측과 수신측의 연결 시 메시지 큐를 활용하는 방법이 있다.",
+          "상이한 애플리케이션 간 통신을 비동기 방식으로 지원한다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "객체지향 프로그램에서 데이터를 추상화하는 단위는?",
+        "options": [
+          "메소드",
+          "클래스",
+          "상속성",
+          "메시지"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "객체지향 기법에서 같은 클래스에 속한 각각의 객체를 의미하는 것은?",
+        "options": [
+          "instance",
+          "message",
+          "method",
+          "module"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "객체지향 설계에서 객체가 가지고 있는 속성과 오퍼레이션의 일부를 감추어서 객체의 외부에서는 접근이 불가능하게 하는 개념은? (문제 오류로 가답안 발표시 3번으로 발표되었지만 확정 답안 발표시 2, 3번이 정답처리 되었습니다. 여기서는 가답안인 3번을 누르면 정답 처리 됩니다.)",
+        "options": [
+          "조직화(Organizing)",
+          "캡슐화(Encapsulation)",
+          "정보은닉(Infomation Hiding)",
+          "구조화(Structuralization)"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "자료흐름도(DFD)의 각 요소별 표기 형태의 연결이 옳지 않은 것은?",
+        "options": [
+          "Process : 원",
+          "Data Flow : 화살표",
+          "Data Store : 삼각형",
+          "Terminator : 사각형"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "코드화 대상 항목의 중량, 면적, 용량 등의 물리적 수치를 이용하여 만든 코드는?",
+        "options": [
+          "순차 코드",
+          "10진 코드",
+          "표의 숫자 코드",
+          "블록 코드"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "다음은 어떤 프로그램 구조를 나타낸다. 모듈 F에서의 fan-in과 fan-out의 수는 얼마인가?",
+        "options": [
+          "fan-in : 2, fan-out : 3",
+          "fan-in : 3, fan-out : 2",
+          "fan-in : 1, fan-out : 2",
+          "fan-in : 2, fan-out : 1"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "UI 설계 원칙 중 누구나 쉽게 이해하고 사용할 수 있어야 한다는 원칙은?",
+        "options": [
+          "희소성",
+          "유연성",
+          "직관성",
+          "멀티운용성"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "코드의 기본 기능으로 거리가 먼 것은?",
+        "options": [
+          "복잡성",
+          "표준화",
+          "분류",
+          "식별"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "XP(eXtreme Programming)의 5가지 가치로 거리가 먼 것은?",
+        "options": [
+          "용기",
+          "의사소통",
+          "정형분석",
+          "피드백"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "소프트웨어의 상위설계에 속하지 않는 것은?",
+        "options": [
+          "아키텍처 설계",
+          "모듈 설계",
+          "인터페이스 정의",
+          "사용자 인터페이스 설계"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "럼바우(Rumbaugh)의 객체지향 분석에서 사용하는 분석 활동으로 옳은 것은?",
+        "options": [
+          "객체 모델링, 동적 모델링, 정적 모델링",
+          "객체 모델링, 동적 모델링, 기능 모델링",
+          "동적 모델링, 기능 모델링, 정적 모델링",
+          "정적 모델링, 객체 모델링, 기능 모델링"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "아래의 UML 모델에서 '차' 클래스와 각 클래스의 관계로 옳은 것은?",
+        "options": [
+          "추상화 관계",
+          "의존 관계",
+          "일반화 관계",
+          "그룹 관계"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "요구 사항 명세기법에 대한 설명으로 틀린 것은?",
+        "options": [
+          "비정형 명세기법은 사용자의 요구를 표현할 때 자연어를 기반으로 서술한다.",
+          "비정형 명세기법은 사용자의 요구를 표현할 때 Z 비정형 명세기법을 사용한다.",
+          "정형 명세기법은 사용자의 요구를 표현할 때 수학적인 원리와 표기법을 이용한다.",
+          "정형 명세기법은 비정형 명세기법에 비해 표현이 간결하다."
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 중 상위 CASE 도구가 지원하는 주요기능으로 볼 수 없는 것은?",
+        "options": [
+          "모델들 사이의 모순검사 기능",
+          "전체 소스코드 생성 기능",
+          "모델의 오류검증 기능",
+          "자료흐름도 작성 기능"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "객체지향 설계 원칙 중, 서브타입(상속받은 하위 클래스)은 어디에서나 자신의 기반타입(상위클래스)으로 교체할 수 있어야 함을 의미하는 원칙은?",
+        "options": [
+          "ISP(Interface Segregation Principle)",
+          "DIP(Dependency Inversion Principle)",
+          "LSP(Liskov Substitution Principle)",
+          "SRP(Single Responsibility Principle)"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "객체지향 분석기법의 하나로 객체 모형, 동적 모형, 기능 모형의 3개 모형을 생성하는 방법은?",
+        "options": [
+          "Wirfs-Block Method",
+          "Rumbaugh Method",
+          "Booch Method",
+          "Jacobson Method"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "GoF(Gangs of Four) 디자인 패턴 분류에 해당하지 않는 것은?",
+        "options": [
+          "생성 패턴",
+          "구조 패턴",
+          "행위 패턴",
+          "추상 패턴"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "사용자 인터페이스(UI)의 특징으로 틀린 것은?",
+        "options": [
+          "구현하고자 하는 결과의 오류를 최소화한다.",
+          "사용자의 편의성을 높임으로써 작업시간을 증가시킨다.",
+          "막연한 작업 기능에 대해 구체적인 방법을 제시하여 준다.",
+          "사용자 중심의 상호 작용이 되도록 한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 소프트웨어 개발",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "통합 테스트(Integration Test)와 관련한 설명으로 틀린 것은?",
+        "options": [
+          "시스템을 구성하는 모듈의 인터페이스와 결합을 테스트하는 것이다.",
+          "하향식 통합 테스트의 경우 넓이 우선(Breadth First) 방식으로 테스트를 할 모듈을 선택할 수 있다.",
+          "상향식 통합 테스트의 경우 시스템 구조도의 최상위에 있는 모듈을 먼저 구현하고 테스트한다.",
+          "모듈 간의 인터페이스와 시스템의 동작이 정상적으로 잘되고 있는지를 빨리 파악하고자 할 때 상향식 보다는 하향식 통합 테스트를 사용하는 것이 좋다."
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "단위 테스트에서 테스트의 대상이 되는 하위 모듈을 호출하고, 파라미터를 전달하는 가상의 모듈로 상향식 테스트에 필요한 것은?",
+        "options": [
+          "테스트 스텁(Test Stub)",
+          "테스트 드라이버(Test Driver)",
+          "테스트 슈트(Test Suites)",
+          "테스트 케이스(Test Case)"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "소프트웨어 품질 측정을 위해 개발자 관점에서 고려해야 할 항목으로 거리가 먼 것은?",
+        "options": [
+          "정확성",
+          "무결성",
+          "사용성",
+          "간결성"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "다음 전위식(prefix)을 후위식(postfix)으로 옳게 표현한 것은?",
+        "options": [
+          "A B C + D / * E -",
+          "A B * C D / + E -",
+          "A B * C + D / E -",
+          "A B C + * D / E -"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "EAI(Enterprise Application Integration)의 구축 유형으로 옳지 않은 것은?",
+        "options": [
+          "Point-to-Point",
+          "Hub&Spoke",
+          "Message Bus",
+          "Tree"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "애플리케이션의 처리량, 응답시간, 경과시간, 자원사용률에 대해 가상의 사용자를 생성하고 테스트를 수행함으로써 성능 목표를 달성하였는지를 확인하는 테스트 자동화 도구는?",
+        "options": [
+          "명세 기반 테스트 설계 도구",
+          "코드 기반 테스트 설계 도구",
+          "기능 테스트 수행 도구",
+          "성능 테스트 도구"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "다음은 스택의 자료 삭제 알고리즘이다. ⓐ에 들어 갈 내용으로 옳은 것은? (단, Top: 스택포인터, S: 스택의 이름)",
+        "options": [
+          "Overflow",
+          "Top = Top + 1",
+          "Underflow",
+          "Top = Top"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "제품 소프트웨어의 사용자 매뉴얼 작성절차로 (가)~(다)와 [보기]의 기호를 바르게 연결한 것은?",
+        "options": [
+          "(가)-㉠, (나)-㉡, (다)-㉢",
+          "(가)-㉢, (나)-㉡, (다)-㉠",
+          "(가)-㉠, (나)-㉢, (다)-㉡",
+          "(가)-㉢, (나)-㉠, (다)-㉡"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "소프트웨어의 일부분을 다른 시스템에서 사용할 수 있는 정도를 의미하는 것은?",
+        "options": [
+          "신뢰성(Reliability)",
+          "유지보수성(Maintainability)",
+          "가시성(Visibility)",
+          "재사용성(Reusability)"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "자료구조에 대한 설명으로 틀린 것은?",
+        "options": [
+          "큐는 비선형구조에 해당한다.",
+          "큐는 First In – First Out 처리를 수행한다.",
+          "스택은 Last In – First out 처리를 수행한다.",
+          "스택은 서브루틴 호출, 인터럽트 처리, 수식 계산 및 수식 표기법에 응용된다."
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "알고리즘과 관련한 설명으로 틀린 것은?",
+        "options": [
+          "주어진 작업을 수행하는 컴퓨터 명령어를 순서대로 나열한 것으로 볼 수 있다.",
+          "검색(Searching)은 정렬이 되지 않은 데이터 혹은 정렬이 된 데이터 중에서 키값에 해당되는 데이터를 찾는 알고리즘이다.",
+          "정렬(Sorting)은 흩어져있는 데이터를 키값을 이용하여 순서대로 열거하는 알고리즘이다.",
+          "선형 검색은 검색을 수행하기 전에 반드시 데이터의 집합이 정렬되어 있어야 한다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "이진 검색 알고리즘에 대한 설명으로 틀린 것은?",
+        "options": [
+          "탐색 효율이 좋고 탐색 시간이 적게 소요된다.",
+          "검색할 데이터가 정렬되어 있어야 한다.",
+          "피보나치 수열에 따라 다음에 비교할 대상을 선정하여 검색한다.",
+          "비교횟수를 거듭할 때마다 검색 대상이 되는 데이터의 수가 절반으로 줄어든다."
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음은 인스펙션(Inspection) 과정을 표현한 것이다. (가)~(마)에 들어갈 말을 보기에서 찾아 바르게 연결한 것은?",
+        "options": [
+          "(가) - ㉡, (나) - ㉢",
+          "(나) - ㉠, (다) - ㉢",
+          "(다) - ㉢, (라) - ㉤",
+          "(라) - ㉣, (마) - ㉢"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "EAI(Enterprise Application Integration) 구축 유형에서 애플리케이션 사이에 미들웨어를 두어 처리하는 것은? (문제 오류로 가답안 발표시 1번으로 발표되었지만 확정 답안 발표시 1, 3, 4번이 정답처리 되었습니다. 여기서는 가답안인 1번을 누르면 정답 처리 됩니다.)",
+        "options": [
+          "Message Bus",
+          "Point-to-point",
+          "Hub & Spoke",
+          "Hybrid"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "순서가 A, B, C, D로 정해진 입력자료를 push, push, pop, push, push, pop, pop, pop 순서로 스택연산을 수행하는 경우 출력 결과는?",
+        "options": [
+          "B D C A",
+          "A B C D",
+          "B A C D",
+          "A B D C"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "소프트웨어 형상관리(Configuration management)에 관한 설명으로 틀린 것은?",
+        "options": [
+          "소프트웨어에서 일어나는 수정이나 변경을 알아내고 제어하는 것을 의미한다.",
+          "소프트웨어 개발의 전체 비용을 줄이고, 개발 과정의 여러 방해 요인이 최소화되도록 보증하는 것을 목적으로 한다.",
+          "형상관리를 위하여 구성된 팀을 “chief programmer team”이라고 한다.",
+          "형상관리의 기능 중 하나는 버전 제어 기술이다."
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "다음 중 최악의 경우 검색 효율이 가장 나쁜트리 구조는?",
+        "options": [
+          "이진 탐색트리",
+          "AVL 트리",
+          "2-3 트리",
+          "레드-블랙 트리"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "공학적으로 잘된 소프트웨어(Well Engineered Software)의 설명 중 틀린 것은?",
+        "options": [
+          "소프트웨어는 유지보수가 용이해야 한다.",
+          "소프트웨어는 신뢰성이 높아야 한다.",
+          "소프트웨어는 사용자 수준에 무관하게 일관된 인터페이스를 제공해야 한다.",
+          "소프트웨어는 충분한 테스팅을 거쳐야 한다."
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "코드 인스펙션과 관련한 설명으로 틀린 것은?",
+        "options": [
+          "프로그램을 수행시켜보는 것 대신에 읽어보고 눈으로 확인하는 방법으로 볼 수 있다.",
+          "코드 품질 향상 기법 중 하나이다.",
+          "동적 테스트 시에만 활용하는 기법이다.",
+          "결함과 함께 코딩 표준 준수 여부, 효율성 등의 다른 품질 이슈를 검사하기도 한다."
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "외계인코드(Alien Code)에 대한 설명으로 옳은 것은?",
+        "options": [
+          "프로그램의 로직이 복잡하여 이해하기 어려운 프로그램을 의미한다.",
+          "아주 오래되거나 참고문서 또는 개발자가 없어 유지보수 작업이 어려운 프로그램을 의미한다.",
+          "오류가 없어 디버깅 과정이 필요 없는 프로그램을 의미한다.",
+          "사용자가 직접 작성한 프로그램을 의미한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 데이터베이스 구축",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "결과 값이 아래와 같을 때 SQL 질의로 옳은 것은?",
+        "options": [
+          "SELECT * FROM 공급자 WHERE\n공급자명 LIKE '%신%';",
+          "SELECT * FROM 공급자 WHERE\n공급자명 LIKE '%대%';",
+          "SELECT * FROM 공급자 WHERE\n공급자명 LIKE '%사%';",
+          "SELECT * FROM 공급자 WHERE\n공급자명 IS NOT NULL;"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "시스템 카탈로그에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "사용자가 직접 시스템 카탈로그의 내용을 갱신하여 데이터베이스 무결성을 유지한다.",
+          "시스템 자신이 필요로 하는 스키마 및 여러가지 객체에 관한 정보를 포함하고 있는 시스템 데이터베이스이다.",
+          "시스템 카탈로그에 저장되는 내용을 메타데이터라고도 한다.",
+          "시스템 카탈로그는 DBMS가 스스로 생성하고 유지한다."
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "데이터 무결성 제약조건 중 “개체 무결성 제약”조건에 대한 설명으로 맞는 것은?",
+        "options": [
+          "릴레이션 내의 튜플들이 각 속성의 도메인에 지정된 값만을 가져야 한다.",
+          "기본키에 속해 있는 애트리뷰트는 널값이나 중복값을 가질 수 없다.",
+          "릴레이션은 참조할 수 없는 외래키 값을 가질 수 없다.",
+          "외래키 값은 참조 릴레이션의 기본키 값과 동일해야 한다."
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "E-R 모델에서 다중값 속성의 표기법은?",
+        "options": [
+          "◇ 마름모",
+          "□ 사각형",
+          "◎ 이중 타원",
+          "─ 연결선"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "다음 중 기본키는 NULL 값을 가져서는 안되며, 릴레이션 내에 오직 하나의 값만 존재해야 한다는 조건을 무엇이라 하는가?",
+        "options": [
+          "개체 무결성 제약조건",
+          "참조 무결성 제약조건",
+          "도메인 무결성 제약조건",
+          "속성 무결성 제약조건"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "병행제어 기법 중 로킹에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "로킹의 대상이 되는 객체의 크기를 로킹 단위라고 한다.",
+          "데이터베이스, 파일, 레코드 등은 로킹 단위가 될 수 있다.",
+          "로킹의 단위가 작아지면 로킹 오버헤드가 증가한다.",
+          "로킹의 단위가 커지면 데이터베이스 공유도가 증가한다."
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "다음 릴레이션의 Degree와 Cardinality는?",
+        "options": [
+          "Degree : 4, Cardinality : 3",
+          "Degree : 3, Cardinality : 4",
+          "Degree : 3, Cardinality : 12",
+          "Degree : 12, Cardinality : 3"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "하나의 애트리뷰트가 가질 수 있는 원자값들의 집합을 의미하는 것은?",
+        "options": [
+          "도메인",
+          "튜플",
+          "엔티티",
+          "다형성"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "관계형 데이터베이스에서 다음 설명에 해당하는 키(Key)는?",
+        "options": [
+          "후보키",
+          "대체키",
+          "슈퍼키",
+          "외래키"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 R1과 R2의 테이블에서 아래의　실행 결과를 얻기 위한 SQL문은?",
+        "options": [
+          "SELECT 과목번호, 과목이름 FROM R1, R2 WHERE R1.학번 = R2. 학번 AND R1.학과='전자공학' AND R1.이름 = '강남길’;",
+          "SELECT 과목번호, 과목이름 FROM R1, R2 WHERE R1.학번 = R2.학번 OR R1.학과='전자공학' OR R1.이름 = '홍길동';",
+          "SELECT 과목번호, 과목이름 FROM R1, R2 WHERE R1.학번 = R2.학번 AND R1.학과=‘컴퓨터공학' AND R1.이름 '강남길’;",
+          "SELECT 과목번호, 과목이름 FROM R1, R2 WHERE R1.학번 = R2.학번 OR R1.학과='컴퓨터공학' OR R1.이름 = '홍길동';"
+        ]
+      },
+      {
+        "problem_number": 51,
+        "question_text": "다음에 해당하는 함수 종속의 추론 규칙은?",
+        "options": [
+          "분해 규칙",
+          "이행 규칙",
+          "반사 규칙",
+          "결합 규칙"
+        ]
+      },
+      {
+        "problem_number": 52,
+        "question_text": "다음 R과 S 두 릴레이션에 대한 Division 연산의 수행 결과는?",
+        "options": [
+          "D1: a",
+          "D2 D3: 1 A",
+          "D1 D2: a 1, b 1",
+          "D1: a, b"
+        ],
+        "examples": "R||\nD1|D2|D3\na|1|A\nb|1|A\n\nS||\nD2|D3\n1|A"
+      },
+      {
+        "problem_number": 53,
+        "question_text": "데이터베이스 시스템에서 삽입, 갱신, 삭제 등의 이벤트가 발생할 때마다 관련 작업이 자동으로 수행되는 절차형 SQL은?",
+        "options": [
+          "트리거(trigger)",
+          "무결성(integrity)",
+          "잠금(lock)",
+          "복귀(rollback)"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "다음 중 SQL에서의 DDL 문이 아닌 것은?",
+        "options": [
+          "CREATE",
+          "DELETE",
+          "ALTER",
+          "DROP"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "정규화에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "데이터베이스의 개념적 설계 단계 이전에 수행한다.",
+          "데이터 구조의 안정성을 최대화한다.",
+          "중복을 배제하여 삽입, 삭제, 갱신 이상의 발생을 방지한다.",
+          "데이터 삽입 시 릴레이션을 재구성할 필요성을 줄인다."
+        ]
+      },
+      {
+        "problem_number": 56,
+        "question_text": "데이터베이스 성능에 많은 영향을 주는 DBMS의 구성 요소로 테이블과 클러스터에 연관되어 독립적인 저장 공간을 보유하며, 데이터베이스에 저장된 자료를 더욱 빠르게 조회하기 위하여 사용되는 것은?",
+        "options": [
+          "인덱스(Index)",
+          "트랜잭션(Transaction)",
+          "역정규화(Denormalization)",
+          "트리거(Trigger)"
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "SQL의 논리 연산자가 아닌 것은?",
+        "options": [
+          "AND",
+          "OTHER",
+          "OR",
+          "NOT"
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "동시성 제어를 위한 직렬화 기법으로 트랜잭션 간의 처리 순서를 미리 정하는 방법은?",
+        "options": [
+          "로킹 기법",
+          "타임스탬프 기법",
+          "검증 기법",
+          "배타 로크 기법"
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "다음 설명의 ( )안에 들어갈 내용으로 적합한 것은?",
+        "options": [
+          "중복성",
+          "최소성",
+          "참조성",
+          "동일성"
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "정규화 과정 중 1NF에서 2NF가 되기 위한 조건은?",
+        "options": [
+          "1NF를 만족하는 모든 도메인이 원자 값이어야 한다.",
+          "1NF를 만족하고 키가 아닌 모든 애트리뷰트들이 기본 키에 이행적으로 함수 종속되지 않아야 한다.",
+          "1NF를 만족하고 다치 종속이 제거되어야 한다.",
+          "1NF를 만족하고 키가 아닌 모든 속성이 기본키에 대하여 완전 함수적 종속 관계를 만족해야 한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 61,
+        "question_text": "모듈 내 구성 요소들이 서로 다른 기능을 같은 시간대에 함께 실행하는 경우의 응집도(Cohesion)는?",
+        "options": [
+          "Temporal Cohesion",
+          "Logical Cohesion",
+          "Coincidental Cohesion",
+          "Sequential Cohesion"
+        ]
+      },
+      {
+        "problem_number": 62,
+        "question_text": "다음 내용이 설명하는 소프트웨어 취약점은?",
+        "options": [
+          "FTP 바운스 공격",
+          "SQL 삽입",
+          "버퍼 오버플로",
+          "디렉토리 접근 공격"
+        ]
+      },
+      {
+        "problem_number": 63,
+        "question_text": "TCP/IP 프로토콜 중 전송계층 프로토콜은?",
+        "options": [
+          "HTTP",
+          "SMTP",
+          "FTP",
+          "TCP"
+        ]
+      },
+      {
+        "problem_number": 64,
+        "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+        "options": [
+          "32비트의 주소체계를 사용한다.",
+          "멀티미디어의 실시간 처리가 가능하다.",
+          "IPv4보다 보안성이 강화되었다.",
+          "자동으로 네트워크 환경구성이 가능하다."
+        ]
+      },
+      {
+        "problem_number": 65,
+        "question_text": "교착상태의 해결 방법 중 은행원 알고리즘(Banker's Algorithm)이 해당되는 기법은?",
+        "options": [
+          "Detection",
+          "Avoidance",
+          "Recovery",
+          "Prevention"
+        ]
+      },
+      {
+        "problem_number": 66,
+        "question_text": "다음 쉘 스크립트의 의미로 옳은 것은?",
+        "options": [
+          "wow 사용자가 로그인한 경우에만 반복문을 수행한다.",
+          "wow 사용자가 로그인할 때까지 반복문을 수행한다.",
+          "wow 문자열을 복사한다.",
+          "wow 사용자에 대한 정보를 무한 반복하여 출력한다."
+        ]
+      },
+      {
+        "problem_number": 67,
+        "question_text": "교착 상태 발생의 필요 충분 조건이 아닌 것은?",
+        "options": [
+          "상호 배제(mutual exclusion)",
+          "점유와 대기(hold and wait)",
+          "환형 대기(circular wait)",
+          "선점(preemption)"
+        ]
+      },
+      {
+        "problem_number": 68,
+        "question_text": "다음 파이썬으로 구현된 프로그램의 실행 결과로 옳은 것은?",
+        "options": [
+          "[20, 60]",
+          "[60, 20]",
+          "[0, 20, 40, 60]",
+          "[10, 30, 50, 70]"
+        ]
+      },
+      {
+        "problem_number": 69,
+        "question_text": "TCP 프로토콜에 대한 설명으로 거리가 먼 것은?",
+        "options": [
+          "신뢰성이 있는 연결 지향형 전달 서비스이다.",
+          "기본 헤더 크기는 100byte이고 160byte까지 확장 가능하다.",
+          "스트림 전송 기능을 제공한다.",
+          "순서제어, 오류제어, 흐름제어 기능을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 70,
+        "question_text": "Python 데이터 타입 중 시퀀스(Sequence) 데이터 타입에 해당하며 다양한 데이터 타입들을 주어진 순서에 따라 저장할 수 있으나 저장된 내용을 변경할 수 없는 것은?",
+        "options": [
+          "복소수(complex) 타입",
+          "리스트(list) 타입",
+          "사전(dict) 타입",
+          "튜플(tuple) 타입"
+        ]
+      },
+      {
+        "problem_number": 71,
+        "question_text": "다음 JAVA 프로그램이 실행되었을 때, 실행결과는?",
+        "options": [
+          "1 2 3 4",
+          "0 1 2 3",
+          "1 2 3",
+          "0 1 2"
+        ]
+      },
+      {
+        "problem_number": 72,
+        "question_text": "운영체제의 가상기억장치 관리에서 프로세스가 일정 시간동안 자주 참조하는 페이지들의 집합을 의미하는 것은?",
+        "options": [
+          "Locality",
+          "Deadlock",
+          "Thrashing",
+          "Working Set"
+        ]
+      },
+      {
+        "problem_number": 73,
+        "question_text": "HRN(Highest Response-ratio Next) 스케줄링 방식에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "대기 시간이 긴 프로세스의 경우 우선 순위가 높아진다.",
+          "SJF 기법을 보완하기 위한 방식이다.",
+          "긴 작업과 짧은 작업 간의 지나친 불평등을 해소할 수 있다.",
+          "우선 순위를 계산하여 그 수치가 가장 낮은 것부터 높은 순으로 우선 순위가 부여된다."
+        ]
+      },
+      {
+        "problem_number": 74,
+        "question_text": "페이징 기법에서 페이지 크기가 작아질수록 발생하는 현상이 아닌 것은?",
+        "options": [
+          "기억장소 이용 효율이 증가한다.",
+          "입·출력 시간이 늘어난다.",
+          "내부 단편화가 감소한다.",
+          "페이지 맵 테이블의 크기가 감소한다."
+        ]
+      },
+      {
+        "problem_number": 75,
+        "question_text": "라이브러리의 개념과 구성에 대한 설명 중 틀린 것은?",
+        "options": [
+          "라이브러리란 필요할 때 찾아서 쓸 수 있도록 모듈화되어 제공되는 프로그램을 말한다.",
+          "프로그래밍 언어에 따라 일반적으로 도움말, 설치 파일, 샘플 코드 등을 제공한다.",
+          "외부 라이브러리는 프로그래밍 언어가 기본적으로 가지고 있는 라이브러리를 의미하며, 표준 라이브러리는 별도의 파일 설치를 필요로 하는 라이브러리를 의미한다.",
+          "라이브러리는 모듈과 패키지를 총칭하며, 모듈이 개별 파일이라면 패키지는 파일들을 모아 놓은 폴더라고 볼 수 있다."
+        ]
+      },
+      {
+        "problem_number": 76,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때, 실행 결과는?",
+        "options": [
+          "E",
+          "V",
+          "R",
+          "O"
+        ]
+      },
+      {
+        "problem_number": 77,
+        "question_text": "UDP 특성에 해당되는 것은?",
+        "options": [
+          "양방향 연결형 서비스를 제공한다.",
+          "송신중에 링크를 유지관리하므로 신뢰성이 높다.",
+          "순서제어, 오류제어, 흐름제어 기능을 한다.",
+          "흐름제어나 순서제어가 없어 전송속도가 빠르다."
+        ]
+      },
+      {
+        "problem_number": 78,
+        "question_text": "JAVA에서 변수와 자료형에 대한 설명으로 틀린 것은?",
+        "options": [
+          "변수는 어떤 값을 주기억 장치에 기억하기 위해서 사용하는 공간이다.",
+          "변수의 자료형에 따라 저장할 수 있는 값의 종류와 범위가 달라진다.",
+          "char 자료형은 나열된 여러 개의 문자를 저장하고자 할 때 사용한다.",
+          "boolean 자료형은 조건이 참인지 거짓인지 판단하고자 할 때 사용한다."
+        ]
+      },
+      {
+        "problem_number": 79,
+        "question_text": "a[0]의 주소값이 10일 경우 다음 C언어 프로그램이 실행되었을 때의 결과는? (단, int 형의 크기는 4Byte로 가정한다.)",
+        "options": [
+          "14, 10",
+          "14, 14",
+          "18, 10",
+          "18, 14"
+        ]
+      },
+      {
+        "problem_number": 80,
+        "question_text": "UNIX 시스템의 쉘(shell)의 주요 기능에 대한 설명이 아닌 것은?",
+        "options": [
+          "사용자 명령을 해석하고 커널로 전달하는 기능을 제공한다.",
+          "반복적인 명령 프로그램을 만드는 프로그래밍 기능을 제공한다.",
+          "쉘 프로그램 실행을 위해 프로세스와 메모리를 관리한다.",
+          "초기화 파일을 이용해 사용자 환경을 설정하는 기능을 제공한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "5과목 정보시스템 구축관리",
+    "problems": [
+      {
+        "problem_number": 81,
+        "question_text": "Rayleigh-Norden 곡선의 노력 분포도를 이용한 프로젝트 비용 산정기법은?",
+        "options": [
+          "Putnam 모형",
+          "델파이 모형",
+          "COCOMO 모형",
+          "기능점수 모형"
+        ]
+      },
+      {
+        "problem_number": 82,
+        "question_text": "어떤 외부 컴퓨터가 접속되면 접속 인가 여부를 점검해서 인가된 경우에는 접속이 허용되고, 그 반대의 경우에는 거부할 수 있는 접근제어 유틸리티는?",
+        "options": [
+          "tcp wrapper",
+          "trace checker",
+          "token finder",
+          "change detector"
+        ]
+      },
+      {
+        "problem_number": 83,
+        "question_text": "다음 내용이 설명하는 것은?",
+        "options": [
+          "GRID",
+          "TELNET",
+          "GPN",
+          "MQTT"
+        ]
+      },
+      {
+        "problem_number": 84,
+        "question_text": "IP 또는 ICMP의 특성을 악용하여 특정 사이트에 집중적으로 데이터를 보내 네트워크 또는 시스템의 상태를 불능으로 만드는 공격 방법은?",
+        "options": [
+          "TearDrop",
+          "Smishing",
+          "Qshing",
+          "Smurfing"
+        ]
+      },
+      {
+        "problem_number": 85,
+        "question_text": "CMM(Capability Maturity Model) 모델의 레벨로 옳지 않은 것은?",
+        "options": [
+          "최적단계",
+          "관리단계",
+          "정의단계",
+          "계획단계"
+        ]
+      },
+      {
+        "problem_number": 86,
+        "question_text": "클라우드 기반 HSM(Cloud-based Hardware Security Module)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "클라우드(데이터센터) 기반 암호화 키 생성, 처리, 저장 등을 하는 보안 기기이다.",
+          "국내에서는 공인인증제의 폐지와 전자서명법 개정을 추진하면서 클라우드 HSM 용어가 자주 등장하였다.",
+          "클라우드에 인증서를 저장하므로 기존 HSM 기기나 휴대폰에 인증서를 저장해 다닐 필요가 없다.",
+          "하드웨어가 아닌 소프트웨어적으로만 구현되기 때문에 소프트웨어식 암호 기술에 내재된 보안 취약점을 해결할 수 없다는 것이 주요 단점이다."
+        ]
+      },
+      {
+        "problem_number": 87,
+        "question_text": "물리적 배치와 상관없이 논리적으로 LAN을구성하여 Broadcast Domain을 구분할 수있게 해주는 기술로 접속된 장비들의 성능향상 및 보안성 증대 효과가 있는 것은?",
+        "options": [
+          "VLAN",
+          "STP",
+          "L2AN",
+          "ARP"
+        ]
+      },
+      {
+        "problem_number": 88,
+        "question_text": "물리적 위협으로 인한 문제에 해당하지 않는 것은?",
+        "options": [
+          "화재, 홍수 등 천재지변으로 인한 위협",
+          "하드웨어 파손, 고장으로 인한 장애",
+          "방화, 테러로 인한 하드웨어와 기록장치를 물리적으로 파괴하는 행위",
+          "방화벽 설정의 잘못된 조작으로 인한 네트워크, 서버 보안 위협"
+        ]
+      },
+      {
+        "problem_number": 89,
+        "question_text": "빅데이터 분석 기술 중 대량의 데이터를 분석하여 데이터 속에 내재되어 있는 변수 사이의 상호관례를 규명하여 일정한 패턴을 찾아내는 기법은?",
+        "options": [
+          "Data Mining",
+          "Wm-Bus",
+          "Digital Twin",
+          "Zigbee"
+        ]
+      },
+      {
+        "problem_number": 90,
+        "question_text": "소프트웨어 개발 모델 중 나선형 모델의 4가지 주요 활동이 순서대로 나열된 것은?",
+        "options": [
+          "Ⓐ-Ⓑ-Ⓓ-Ⓒ순으로 반복",
+          "Ⓐ-Ⓓ-Ⓒ-Ⓑ순으로 반복",
+          "Ⓐ-Ⓑ-Ⓒ-Ⓓ순으로 반복",
+          "Ⓐ-Ⓒ-Ⓑ-Ⓓ순으로 반복"
+        ]
+      },
+      {
+        "problem_number": 91,
+        "question_text": "프로토타입을 지속적으로 발전시켜 최종 소프트웨어 개발까지 이르는 개발방법으로 위험관리가 중심인 소프트웨어 생명주기 모형은?",
+        "options": [
+          "나선형 모형",
+          "델파이 모형",
+          "폭포수 모형",
+          "기능점수 모형"
+        ]
+      },
+      {
+        "problem_number": 92,
+        "question_text": "PC, TV, 휴대폰에서 원하는 콘텐츠를 끊김없이 자유롭게 이용할 수 있는 서비스는?",
+        "options": [
+          "Memristor",
+          "MEMS",
+          "SNMP",
+          "N-Screen"
+        ]
+      },
+      {
+        "problem_number": 93,
+        "question_text": "대칭 암호 알고리즘과 비대칭 암호 알고리즘에 대한 설명으로 틀린 것은?",
+        "options": [
+          "대칭 암호 알고리즘은 비교적 실행 속도가 빠르기 때문에 다양한 암호의 핵심 함수로 사용될 수 있다.",
+          "대칭 암호 알고리즘은 비밀키 전달을 위한 키 교환이 필요하지 않아 암호화 및 복호화의 속도가 빠르다.",
+          "비대칭 암호 알고리즘은 자신만이 보관하는 비밀키를 이용하여 인증, 전자서명 등에 적용이 가능하다.",
+          "대표적인 대칭키 암호 알고리즘으로는 AES, IDEA 등이 있다."
+        ]
+      },
+      {
+        "problem_number": 94,
+        "question_text": "스트림 암호화 방식의 설명으로 옳지 않은 것은?",
+        "options": [
+          "비트/바이트/단어들을 순차적으로 암호화한다.",
+          "해쉬 함수를 이용한 해쉬 암호화 방식을 사용한다.",
+          "RC4는 스트림 암호화 방식에 해당한다.",
+          "대칭키 암호화 방식이다."
+        ]
+      },
+      {
+        "problem_number": 95,
+        "question_text": "소프트웨어 개발 모델 중 나선형 모델의 4가지 주요 활동이 순서대로 나열된 것은?",
+        "options": [
+          "Ⓐ-Ⓑ-Ⓓ-Ⓒ 순으로 반복",
+          "Ⓐ-Ⓓ-Ⓒ-Ⓑ 순으로 반복",
+          "Ⓐ-Ⓑ-Ⓒ-Ⓓ 순으로 반복",
+          "Ⓐ-Ⓒ-Ⓑ-Ⓓ 순으로 반복"
+        ]
+      },
+      {
+        "problem_number": 96,
+        "question_text": "COCOMO(Constructive Cost Model) 모형의 특징이 아닌 것은?",
+        "options": [
+          "프로젝트를 완성하는데 필요한 man-month로 산정 결과를 나타낼 수 있다.",
+          "보헴(Boehm)이 제안한 것으로 원시코드 라인 수에 의한 비용 산정 기법이다.",
+          "비교적 작은 규모의 프로젝트 기록을 통계 분석하여 얻은 결과를 반영한 모델이며 중소 규모 소프트웨어 프로젝트 비용 추정에 적합하다.",
+          "프로젝트 개발유형에 따라 object, dynamic, function의 3가지 모드로 구분한다."
+        ]
+      },
+      {
+        "problem_number": 97,
+        "question_text": "시스템이 몇 대가 되어도 하나의 시스템에서 인증에 성공하면 다른 시스템에 대한 접근권한도 얻는 시스템을 의미하는 것은?",
+        "options": [
+          "SOS",
+          "SBO",
+          "SSO",
+          "SOA"
+        ]
+      },
+      {
+        "problem_number": 98,
+        "question_text": "폭포수 모형의 특징으로 거리가 먼 것은",
+        "options": [
+          "개발 중 발생한 요구사항을 쉽게 반영할 수 있다.",
+          "순차적인 접근방법을 이용한다.",
+          "단계적 정의와 산출물이 명확하다.",
+          "모형의 적용 경험과 성공사례가 많다."
+        ]
+      },
+      {
+        "problem_number": 99,
+        "question_text": "실무적으로 검증된 개발보안 방법론 중 하나로써 SW보안의 모범 사례를 SDLC(Software Development Life Cycle)에 통합한 소프트웨어 개발 보안 생명주기 방법론은?",
+        "options": [
+          "CLASP",
+          "CWE",
+          "PIMS",
+          "Seven Touchpoints"
+        ]
+      },
+      {
+        "problem_number": 100,
+        "question_text": "소프트웨어 개발 방법론의 테일러링(Tailoring)과 관련한 설명으로 틀린 것은?",
+        "options": [
+          "프로젝트 수행 시 예상되는 변화를 배제하고 신속히 진행하여야 한다.",
+          "프로젝트에 최적화된 개발 방법론을 적용하기 위해 절차, 산출물 등을 적절히 변경하는 활동이다.",
+          "관리 측면에서의 목적 중 하나는 최단기간에 안정적인 프로젝트 진행을 위한 사전 위험을 식별하고 제거하는 것이다.",
+          "기술적 측면에서의 목적 중 하나는 프로젝트에 최적화된 기술 요소를 도입하여 프로젝트 특성에 맞는 최적의 기법과 도구를 사용하는 것이다."
+        ]
+      }
+    ]
+  }
+]

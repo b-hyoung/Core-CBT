@@ -1,0 +1,212 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "comments": [
+      {
+        "problem_number": 1,
+        "comment": ""
+      },
+      {
+        "problem_number": 2,
+        "comment": ""
+      },
+      {
+        "problem_number": 3,
+        "comment": ""
+      },
+      {
+        "problem_number": 4,
+        "comment": ""
+      },
+      {
+        "problem_number": 5,
+        "comment": ""
+      },
+      {
+        "problem_number": 6,
+        "comment": ""
+      },
+      {
+        "problem_number": 7,
+        "comment": ""
+      },
+      {
+        "problem_number": 8,
+        "comment": ""
+      },
+      {
+        "problem_number": 9,
+        "comment": ""
+      },
+      {
+        "problem_number": 10,
+        "comment": ""
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "comments": [
+      {
+        "problem_number": 11,
+        "comment": ""
+      },
+      {
+        "problem_number": 12,
+        "comment": ""
+      },
+      {
+        "problem_number": 13,
+        "comment": ""
+      },
+      {
+        "problem_number": 14,
+        "comment": ""
+      },
+      {
+        "problem_number": 15,
+        "comment": "[원문 정답표시] ①② (복수정답)\n서브쿼리는 메인쿼리 레벨로 결과 생성. Inline View의 경우 메인에서 사용 가능."
+      },
+      {
+        "problem_number": 16,
+        "comment": ""
+      },
+      {
+        "problem_number": 17,
+        "comment": "Oracle에서는 FROM절에 AS 키워드 사용 불가."
+      },
+      {
+        "problem_number": 18,
+        "comment": ""
+      },
+      {
+        "problem_number": 19,
+        "comment": ""
+      },
+      {
+        "problem_number": 20,
+        "comment": "UK는 NULL을 허용한다. PK = UNIQUE + NOT NULL."
+      },
+      {
+        "problem_number": 21,
+        "comment": ""
+      },
+      {
+        "problem_number": 22,
+        "comment": ""
+      },
+      {
+        "problem_number": 23,
+        "comment": "AVG는 NULL 제외. 그룹3: (30+30)/2=30."
+      },
+      {
+        "problem_number": 24,
+        "comment": ""
+      },
+      {
+        "problem_number": 25,
+        "comment": "ROW_NUMBER:4, RANK:4(건너뜀), DENSE_RANK:3(순차)."
+      },
+      {
+        "problem_number": 26,
+        "comment": ""
+      },
+      {
+        "problem_number": 27,
+        "comment": ""
+      },
+      {
+        "problem_number": 28,
+        "comment": ""
+      },
+      {
+        "problem_number": 29,
+        "comment": "ROWNUM은 1부터 순차. 1을 건너뛸 수 없으므로 0건."
+      },
+      {
+        "problem_number": 30,
+        "comment": ""
+      },
+      {
+        "problem_number": 31,
+        "comment": "BETWEEN은 양 끝값 포함. ②는 끝값 제외."
+      },
+      {
+        "problem_number": 32,
+        "comment": ""
+      },
+      {
+        "problem_number": 33,
+        "comment": ""
+      },
+      {
+        "problem_number": 34,
+        "comment": ""
+      },
+      {
+        "problem_number": 35,
+        "comment": ""
+      },
+      {
+        "problem_number": 36,
+        "comment": ""
+      },
+      {
+        "problem_number": 37,
+        "comment": ""
+      },
+      {
+        "problem_number": 38,
+        "comment": ""
+      },
+      {
+        "problem_number": 39,
+        "comment": ""
+      },
+      {
+        "problem_number": 40,
+        "comment": ""
+      },
+      {
+        "problem_number": 41,
+        "comment": "2번째 캡처 그룹 (4(56)(78))이 위치 4에서 시작."
+      },
+      {
+        "problem_number": 42,
+        "comment": ""
+      },
+      {
+        "problem_number": 43,
+        "comment": ""
+      },
+      {
+        "problem_number": 44,
+        "comment": ""
+      },
+      {
+        "problem_number": 45,
+        "comment": ""
+      },
+      {
+        "problem_number": 46,
+        "comment": ""
+      },
+      {
+        "problem_number": 47,
+        "comment": ""
+      },
+      {
+        "problem_number": 48,
+        "comment": ""
+      },
+      {
+        "problem_number": 49,
+        "comment": ""
+      },
+      {
+        "problem_number": 50,
+        "comment": "동일 컬럼명 없으면 카테시안 곱. 3×5=15."
+      }
+    ]
+  }
+]

@@ -1,0 +1,523 @@
+[
+  {
+    "title": "1과목: 데이터 모델링의 이해",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "Key, 속성, 관계를 정확하게 표현하고 재사용성이 높은 모델링은?",
+        "options": [
+          "논리적 데이터 모델링",
+          "개념적 데이터 모델링",
+          "물리적 데이터 모델링",
+          "데이터베이스 모델링"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "엔터티 특징으로 적절하지 않은 것은?",
+        "options": [
+          "고유한 식별자를 가진다",
+          "데이터 저장의 기본 단위이다",
+          "반드시 2개 이상의 속성을 가진다",
+          "속성이 없는 엔터티가 있을 수 있다"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "속성 특징으로 적절하지 않은 것은?",
+        "options": [
+          "엔터티의 특성을 나타낸다",
+          "기본·파생 속성으로 구분 가능",
+          "파생 속성은 다른 속성에서 계산",
+          "파생 속성은 많을수록 좋다"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "주식별자 특징으로 적절하지 않은 것은?",
+        "options": [
+          "유일성 보장",
+          "최소성 조건 만족",
+          "고유하게 식별",
+          "값이 자주 변경될 수 있다"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "비식별자 관계 설명으로 적절하지 않은 것은?",
+        "options": [
+          "식별관계에서 부모 식별자는 자식 PK에 포함",
+          "비식별관계에서 부모와의 관계는 반드시 필수",
+          "식별관계에서 자식은 부모에 종속",
+          "비식별관계에서 자식이 독립적으로 존재 가능"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "고객-주문 ERD 설명으로 적절한 것은?",
+        "options": [
+          "고객번호는 주문에서 자체 생성",
+          "주문의 고객번호는 고객에서 상속받은 것",
+          "고객-주문은 비식별 관계가 아니다",
+          "주문은 기본 엔터티"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "일반속성이 주식별자 전체에 완전 종속인 상태는?",
+        "options": [
+          "제1정규형",
+          "제2정규형",
+          "제3정규형",
+          "BCNF"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "원래 식별자가 복잡하여 인위적으로 만든 식별자는?",
+        "options": [
+          "외래키",
+          "복합 식별자",
+          "인조 식별자",
+          "자연 식별자"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "IE·바커 표기법의 관계 표현 중 적절하지 않은 것은?",
+        "options": [
+          "IE에서 필수 관계=실선",
+          "바커에서 선택 관계=점선",
+          "IE는 실선, 바커는 O 표시로 선택 관계 표현",
+          "IE에서 필수 관계는 O 없이"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "NULL 설명으로 적절한 것은?",
+        "options": [
+          "NULL은 0과 같다",
+          "NULL + 숫자 = 숫자",
+          "NULL은 미지의 값으로 비교 불가",
+          "IE에서 NULL 허용 여부를 알 수 없다"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목: SQL 기본 및 활용",
+    "problems": [
+      {
+        "problem_number": 11,
+        "question_text": "CTAS 설명으로 적절하지 않은 것은?",
+        "options": [
+          "데이터를 복사한다",
+          "모든 제약조건이 복사된다",
+          "기존 구조 기반으로 생성",
+          "NOT NULL만 복사, PK/FK 별도 추가"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "VIEW 설명으로 적절하지 않은 것은?",
+        "options": [
+          "실제 데이터 저장 안 함",
+          "보안 목적 사용 가능",
+          "컬럼 추가 시 VIEW 변경 불필요",
+          "다른 테이블 참조"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "DB의 논리적 업무 최소 단위는?",
+        "options": [
+          "트랜잭션",
+          "레코드",
+          "Query",
+          "테이블"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "CONNECT BY PRIOR emp_no = mgr_no 전개 방향?",
+        "options": [
+          "역방향",
+          "순방향",
+          "양방향",
+          "알 수 없다"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "서브쿼리 설명 중 적절하지 않은 것은? (복수정답)",
+        "options": [
+          "1:M 관계에서 항상 M 레벨로 집계",
+          "서브쿼리 컬럼은 메인에서 사용 불가",
+          "괄호로 감싸서 사용",
+          "스칼라 서브쿼리는 하나의 값만 반환"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "CASE WHEN col1='X' THEN NULL ELSE col1 END와 동일한 함수?",
+        "options": [
+          "NVL(col1, 'X')",
+          "COALESCE(col1, 'X')",
+          "NULLIF(col1, 'X')",
+          "NVL2(col1, 'X', NULL)"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "Oracle에서 FROM절에 AS 사용 시?",
+        "options": [
+          "정상",
+          "에러 (ORA-00933)",
+          "경고만",
+          "T 무시"
+        ],
+        "examples": "SELECT T.* FROM TAB AS T"
+      },
+      {
+        "problem_number": 18,
+        "question_text": "COALESCE(A, 50B, '50') 설명으로 적절한 것은?",
+        "options": [
+          "B가 NOT NULL이면 항상 B값",
+          "A, B 모두 NULL이면 100 반환",
+          "A가 NULL이면 언제나 50B",
+          "A가 NOT NULL이면 A값 반환"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "IN절에 NULL 포함 시?",
+        "options": [
+          "A, B, C, NULL",
+          "A, B",
+          "A, B, NULL",
+          "NULL"
+        ],
+        "examples": "WHERE COL IN ('A','B',NULL) / 데이터: A, B, C, NULL"
+      },
+      {
+        "problem_number": 20,
+        "question_text": "UK(UNIQUE) 설명으로 적절하지 않은 것은?",
+        "options": [
+          "PK는 NOT NULL",
+          "FK는 부모 PK를 참조",
+          "UK는 NOT NULL이어야 한다",
+          "CHECK는 특정 조건만 허용"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "IN→EXISTS 변환 시 적절한 것은?",
+        "options": [
+          "WHERE EXISTS(SELECT 1 FROM B WHERE A.성별=B.성별 AND A.번호=B.번호)",
+          "JOIN B ON A.성별=B.성별",
+          "WHERE A.성별 IN (...)",
+          "WHERE 번호 = ALL(...)"
+        ],
+        "examples": "WHERE 번호 IN (SELECT 번호 FROM B WHERE A.성별=B.성별)"
+      },
+      {
+        "problem_number": 22,
+        "question_text": "NOT IN에 NULL 포함 시?",
+        "options": [
+          "NULL",
+          "0",
+          "1",
+          "3"
+        ],
+        "examples": "T_A: 1, 2, NULL / T_B: 1, 2, 3"
+      },
+      {
+        "problem_number": 23,
+        "question_text": "NULL 포함 AVG(나이) GROUP BY 결과?",
+        "options": [
+          "10, 20, 25",
+          "10, 20, NULL",
+          "10, 20, 30",
+          "10, 20, 20"
+        ],
+        "examples": "그룹1:(10,10) / 그룹2:(20,20) / 그룹3:(30,30,NULL)"
+      },
+      {
+        "problem_number": 24,
+        "question_text": "강좌 100과 101 동시 수강 학생 SQL?",
+        "options": [
+          "WHERE 강좌번호=100 AND 강좌번호=101",
+          "INTERSECT 사용",
+          "WHERE 강좌번호 IN (100, 101)",
+          "WHERE 강좌번호=100 OR 101"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "ROW_NUMBER, RANK, DENSE_RANK에서 7780번(SALARY=4000) 결과?",
+        "options": [
+          "4, 4, 3",
+          "3, 3, 3",
+          "4, 4, 4",
+          "3, 4, 3"
+        ],
+        "examples": "데이터(오름차순): 2000, 3000, 3000, 4000, 4000"
+      },
+      {
+        "problem_number": 26,
+        "question_text": "CUME_DIST 함수 설명?",
+        "options": [
+          "파티션별 전체 건수 대비 누적 백분율",
+          "동점 시 동일 순위",
+          "상대적 순위 0~1",
+          "n개 그룹 분할"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "RANGE BETWEEN 100 PRECEDING AND 200 FOLLOWING 의미?",
+        "options": [
+          "100행~200행",
+          "현재 값 -100~+200 범위",
+          "첫100~마지막200행",
+          "ROWS와 동일"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "UPDATE WHERE 없이 서브쿼리 불일치 시?",
+        "options": [
+          "조건 일치만 인상",
+          "WHERE dept=60과 동일",
+          "에러",
+          "불일치 행 salary가 NULL로 변경"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "ROWNUM=2의 결과?",
+        "options": [
+          "2번째 행",
+          "0건",
+          "1번째 행",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "셀프조인으로 등수 구하기 빈칸?",
+        "options": [
+          "COUNT(), t1.점수 > t2.점수",
+          "COUNT()+1, t1.점수 < t2.점수",
+          "RANK(), t1.점수 = t2.점수",
+          "SUM(*), t1.점수 >= t2.점수"
+        ],
+        "examples": "SELECT 이름, 점수, (SELECT (ㄱ) FROM t1 t2 WHERE (ㄴ)) AS 순위"
+      },
+      {
+        "problem_number": 31,
+        "question_text": "BETWEEN과 결과가 다른 것은?",
+        "options": [
+          "COL >= ... AND COL <= ...",
+          "COL > ... AND COL < ...",
+          "NOT(COL < ... OR COL > ...)",
+          "COL >= ... AND COL < '2024-01-01'"
+        ],
+        "examples": "WHERE COL BETWEEN '2023-01-01' AND '2023-12-31'"
+      },
+      {
+        "problem_number": 32,
+        "question_text": "SAVEPOINT와 ROLLBACK 후 유효 SQL?",
+        "options": [
+          "전부",
+          "SQL1, SQL4, SQL5",
+          "SQL1, SQL2만",
+          "모두 무효"
+        ],
+        "examples": "SQL1→SP_A→SQL2→SP_B→SQL3→ROLLBACK TO A→SQL4→SQL5"
+      },
+      {
+        "problem_number": 33,
+        "question_text": "IN절 서브쿼리에서 중복이 있어도 에러가 안 나는 이유?",
+        "options": [
+          "에러 무시",
+          "DISTINCT로 비교",
+          "첫 번째 값만 사용",
+          "ALL과 동일"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "ORDER BY 기본 정렬?",
+        "options": [
+          "DESC",
+          "ASC",
+          "입력 순서",
+          "NULL 우선"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "0/N, N/0, N/NULL 결과?",
+        "options": [
+          "0, 0, 0",
+          "0, 에러, NULL",
+          "NULL, 에러, 0",
+          "에러, 에러, 에러"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "GROUPING SETS 설명으로 적절한 것은?",
+        "options": [
+          "ROLLUP과 항상 동일",
+          "원하는 그룹핑만 선택적 지정 가능",
+          "CUBE보다 많은 소계",
+          "개별 컬럼 그룹핑 불가"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "LAG 함수 설명?",
+        "options": [
+          "이후 행 값 반환",
+          "이전 행 값 반환",
+          "LAG=LEAD",
+          "집계 함수"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "CASE문에서 ELSE 없을 때 조건 불일치 시?",
+        "options": [
+          "0",
+          "에러",
+          "NULL",
+          "공백"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "COMMIT 후 ROLLBACK 가능?",
+        "options": [
+          "가능",
+          "불가능 — COMMIT은 확정",
+          "SP가 있으면 가능",
+          "DDL만 가능"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "LIKE 'A%' 의미?",
+        "options": [
+          "A 포함 모든 문자열",
+          "A로 시작하는 모든 문자열",
+          "A로 끝나는 문자열",
+          "정확히 'A'"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "REGEXP_INSTR('12345678', '(123)(4(56)(78))', 1,1,0,'i',2) 결과?",
+        "options": [
+          "1",
+          "4",
+          "5",
+          "8"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "단일행 함수 설명으로 적절하지 않은 것은?",
+        "options": [
+          "각 행에 개별 적용",
+          "여러 인자, 하나의 결과",
+          "중첩 사용 가능",
+          "GROUP BY절에서 사용 불가"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "INNER JOIN에서 컬럼명이 반드시 같아야 하는가?",
+        "options": [
+          "반드시 같아야",
+          "같지 않아도 ON절에서 지정 가능",
+          "USING만 사용",
+          "에러"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "전체 합계 + 부서별 합계 윈도우 함수?",
+        "options": [
+          "SUM(sal) OVER(), SUM(sal) OVER(PARTITION BY dept)",
+          "SUM(sal) GROUP BY dept",
+          "SUM(sal) OVER(ORDER BY dept)",
+          "COUNT(*) OVER()"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "TRUNCATE는 특정 행만 삭제 가능?",
+        "options": [
+          "가능",
+          "WHERE로 가능",
+          "불가능",
+          "DELETE보다 느림"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "연산자 우선순위 가장 높은 것?",
+        "options": [
+          "비교",
+          "괄호",
+          "AND",
+          "OR"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "CEIL(9.36), ROUND(9.48), FLOOR(9.72)?",
+        "options": [
+          "9, 9, 9",
+          "10, 9, 9",
+          "9, 9, 10",
+          "10, 10, 9"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "SAVEPOINT 후 결과?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "examples": "INSERT 3건→SP1→UPDATE COL1=4(COL2<=2)→SP2→DELETE→ROLLBACK TO SP2→INSERT(4,1)→COMMIT\nCOUNT(*) WHERE COL1=4?"
+      },
+      {
+        "problem_number": 49,
+        "question_text": "NATURAL JOIN 기본 동작?",
+        "options": [
+          "동일 이름 모든 컬럼으로 자동 조인",
+          "첫 번째 컬럼만",
+          "PK-FK만",
+          "CROSS JOIN"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "동일 컬럼명 없는 NATURAL JOIN 결과?",
+        "options": [
+          "0",
+          "3",
+          "5",
+          "15"
+        ],
+        "examples": "TAB1(ID,CUSTOMER) / TAB2(C_ID,PHONE)"
+      }
+    ]
+  }
+]

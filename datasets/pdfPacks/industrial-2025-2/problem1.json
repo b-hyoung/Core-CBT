@@ -1,0 +1,620 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은\n것은?",
+        "options": [
+          "노드와 간선으로 구성된다.",
+          "계층 모델이라고도 한다.",
+          "서브 시스템이 입력 데이터를 받아 처리하고 결과를 다음 서브 시스템으로 넘겨주는 과정을 반복한다.",
+          "3개의 서브 시스템(모델, 뷰, 제어)으로 구성되어 있다."
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "사용자 인터페이스(User Interface)에 대한 설명으로 틀린 것은?",
+        "options": [
+          "사용자와 시스템이 정보를 주고받는 상호작용이 잘 이루어지 도록 하는 장치나 소프트웨어를 의미한다.",
+          "편리한 유지보수를 위해 개발자 중심으로 설계되어야 한다.",
+          "배우기가 용이하고 쉽게 사용할 수 있도록 만들어져야 한다.",
+          "사용자 요구사항이 UI에 반영될 수 있도록 구성해야 한다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음 설명에 해당하는 용어는?\n소프트웨어의 구현 단계에서 발생할 수 있는 보안 취약점\n들을 최소화하기 위해 보안 요소들을 고려하며 코딩하는\n것을 의미하며, 보안 취약점을 사전에 대응하여 안정성과\n신뢰성을 확보하기 위해 사용된다.",
+        "options": [
+          "SDLC",
+          "Secure Coding",
+          "CLASP",
+          "OWASP"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "라우팅 프로토콜 중 Distance Vector 방식이 아닌 것은?",
+        "options": [
+          "RIP",
+          "BGP",
+          "EIGRP",
+          "OSPF"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "교착상태의 필요 조건에 해당하지 않는 것은?",
+        "options": [
+          "Mutual Execlusion",
+          "Hold and Wait",
+          "Circular Wait",
+          "Preemption"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "X.25는 ITU-T 표준으로 호스트 시스템과 패킷 교환망 간 인터페이스\n를 규정하고 있다. 이 기능에 포함되지 않는 것은?",
+        "options": [
+          "전송 계층",
+          "물리 계층",
+          "프레임 계층",
+          "패킷 계층"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "프로세스가 CPU를 점유하고 있는 상태를 무엇이라 하는가?",
+        "options": [
+          "실행(Running) 상태",
+          "준비(Ready) 상태",
+          "보류(Block) 상태",
+          "조건 만족(Wakeup) 상태"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "현재 헤드의 위치가 50에 있고, 요청 대기열에는 아래와 같은 순서로\n들어 있다고 가정할 때 FCFS 스케줄링 알고리즘에 의한 헤드의\n총 이동 거리는 얼마인가?\n100, 180, 40, 120, 0, 130, 70, 80, 150, 200",
+        "options": [
+          "790",
+          "380",
+          "370",
+          "250"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "TCP/IP의 IP Layer에 해당하는 프로토콜은?",
+        "options": [
+          "UDP",
+          "HTTP",
+          "ICMP",
+          "SMTP"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "디렉터리 구조 중 중앙에 마스터 파일 디렉터리가 있고, 그 아래에\n사용자별로 서로 다른 파일 디렉터리가 있는 구조는?",
+        "options": [
+          "1단계 디렉터리 구조",
+          "2단계 디렉터리 구조",
+          "트리 디렉터리 구조",
+          "비순환 그래프 디렉터리 구조"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "IPv6에 대한 설명으로 틀린 것은?",
+        "options": [
+          "IPv6 주소는 128비트로 구성된다.",
+          "인증 및 보안 기능을 포함하고 있다.",
+          "브로드캐스트, 유니캐스트, 멀티캐스트로 구성된다.",
+          "IPv6 확장 헤더를 통해 네트워크 기능 확장이 용이하다."
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "세그먼테이션(Segmentation) 기법에 대한 설명으로 옳은 것은?",
+        "options": [
+          "프로그램을 가변적인 크기의 논리적인 단위로 나눈다.",
+          "외부 단편화는 발생하지 않으나 내부 단편화는 발생할 수 있다.",
+          "주소 변환을 위해서 페이지의 위치 정보를 가지고 있는 페이지 맵 테이블(Page Map Table)이 필요하다.",
+          "페이지 맵 테이블 사용으로 비용이 증가되고, 처리 속도가 감소 된다."
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "HRN 스케줄링에서 우선순위 계산식은?",
+        "options": [
+          "(대기 시간 + 서비스 시간) / 대기 시간",
+          "(대기 시간 + 서비스 시간) / 서비스 시간",
+          "대기 시간 / (대기 시간 + 서비스 시간)",
+          "서비스 시간 / (대시 기간 + 서비스 시간)"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "통합 테스트에 대한 설명으로 틀린 것은?",
+        "options": [
+          "드라이버를 사용하는 것은 상향식 테스트이다.",
+          "스텁을 사용하는 것은 하향식 테스트이다.",
+          "모듈 또는 컴포넌트 간의 상호 작용 오류를 검사한다.",
+          "모듈이나 컴포넌트의 기능성 테스트를 최우선으로 한다."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "연산 P, V와 정수 변수를 이용하여 동기화 문제를 해결하는 것은?",
+        "options": [
+          "Critical Section",
+          "Monitor",
+          "Semaphore",
+          "Mutual Exclusion 1 -"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "운영체제에 대한 설명으로 가장 옳은 것은?",
+        "options": [
+          "운영체제는 컴퓨터 자원들인 기억장치, 프로세서, 파일 및 정 보, 네트워크 및 보호 등을 효율적으로 관리할 수 있는 프로그 램의 집합이다.",
+          "운영체제는 컴퓨터 하드웨어, 시스템 프로그램, 응용 프로그램, 사용자 등으로 구성되어 있다.",
+          "자원 할당 측면에서 운영체제의 주된 기능은 파일 관리, 입․출 력의 구현, 소스 프로그램의 컴파일 및 목적코드 생성 등이다.",
+          "운영체제는 시스템 전체의 움직임을 감시, 감독 관리 및 지원하 는 처리 프로그램과 주어진 문제를 응용 프로그램 감독 하에 실제 데이터 처리를 하는 제어 프로그램으로 구성된다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "기존에 구현되어 있는 클래스에 기능 발생 시 기존 클래스를 재사용할\n수 있도록 중간에서 맞춰주는 역할을 하는 디자인 패턴은?",
+        "options": [
+          "브리지(Bridge)",
+          "데코레이터(Decorator)",
+          "어댑터(Adapter)",
+          "퍼싸드(Facade)"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "question_text": "Windows 등의 운영체제에서 조작을 위해 사용하는 것으로, 아이콘\n이나 메뉴를 마우스로 선택하여 작업을 수행하는 사용자 인터페이스\n(User Interface)는?",
+        "options": [
+          "GUI(Graphical User Interface)",
+          "MUI(Mobile User Interface)",
+          "CLI(Command Line Interface)",
+          "CUI(Cell User Interface)"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "비기능 요구사항에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "예산의 범위, 조직의 비전, 상호 호환성, 보안성, 안전성과 같은 사용자의 필요에 의해 발생한다.",
+          "시스템이 제공하는 서비스의 품질에 관한 것이다.",
+          "시스템에서 제공되는 서비스나 기능에 대한 제약 사항에 관한 것이다.",
+          "시스템이 특정 입력에 대해 어떻게 반응하는지, 사용자의 요구 에 대해 시스템이 어떻게 동작해야 하는지에 관한 사항이다."
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "2진수 1010(2)을 그레이 코드로 변환하면?",
+        "options": [
+          "1010",
+          "1111",
+          "0101",
+          "0000"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "problems": [
+      {
+        "problem_number": 21,
+        "question_text": "모듈 응집도가 높은 것에서 낮은 것의 순서로 옳게 나열된 것은?",
+        "options": [
+          "절차적 응집성 → 통신적 응집성 → 순차적 응집성 → 기능적 응집성",
+          "통신적 응집성 → 절차적 응집성 → 순차적 응집성 → 기능적 응집성",
+          "절차적 응집성 → 통신적 응집성 → 기능적 응집성 → 순차적 응집성",
+          "기능적 응집성 → 순차적 응집성 → 통신적 응집성 → 절차적 응집성"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "Module의 독립성을 높이려면 Coupling과 Cohesion은 어떤 관계가\n되어야 하는가?",
+        "options": [
+          "Coupling과 Cohesion 모두 약해야 한다.",
+          "Coupling과 Cohesion 모두 강해야 한다.",
+          "Coupling은 강하고 Cohesion은 약해야 한다.",
+          "Coupling은 약하고 Cohesion은 강해야 한다."
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "C언어에서 상수를 정의할 때 사용하는 예약어는?",
+        "options": [
+          "#include",
+          "#define",
+          "#valuable",
+          "#function"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "외부 변수(External Variable)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "외부 변수는 함수 밖에서 선언한다.",
+          "초기화하지 않으면 자동으로 0으로 초기화된다.",
+          "함수가 종료되면 값도 소멸된다.",
+          "다른 파일에서 선언된 변수를 참조할 경우 초기화 할 수 없다."
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "Python에서 사용되는 서식 문자열과 그 의미가 올바르게 연결되지\n않은 것은?",
+        "options": [
+          "%d - 정수형 10진수",
+          "%x - 정수형 8진수",
+          "%f – 실수",
+          "%s – 문자열"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "객체 지향 설계에서 “Information Hiding”을 가능하게 해주는 가장\n핵심적인 개념은?",
+        "options": [
+          "Encapsulation",
+          "Abstraction",
+          "Inheritance",
+          "Polymorphism"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "시스템 기능이나 설계, 구현 단계에서의 문제점 등으로 인해 시스템\n이 가지게 되는 보안 취약점을 가리키는 용어는?",
+        "options": [
+          "Vulnerability",
+          "Security",
+          "Dependability",
+          "Reliability"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "question_text": "C언어의 unsigned 자료형에 사용할 수 없는 데이터 타입은?",
+        "options": [
+          "int",
+          "short",
+          "double",
+          "long"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "다음 중 커서를 왼쪽으로 한 칸 이동하는 제어문자는?",
+        "options": [
+          "＼n",
+          "＼b",
+          "＼t",
+          "＼a"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "파일 포인터 변수가 가리키는 위치에서 데이터를 가져와 변수에\n저장하는 함수는?",
+        "options": [
+          "fscanf",
+          "fprintf",
+          "fopen",
+          "fclose"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "JavaScript의 문법에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "const로 선언된 변수는 값을 변경하거나 재선언되지 못한다.",
+          "==는 자료형을 고려하지 않고 값이 일치하면 true이다.",
+          "===는 값일 일치하더라도 자료형이 다르면 false이다.",
+          "let으로 선언된 변수는 값의 변경과 재선언이 가능하다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "다음 파이썬(Python) 프로그램이 실행되었을 때의 결과는?\nclass Cls:\nlst = [1, 6, 5, 2, 3]\ndef func(self):\nprint(self.lst[::2])\na = Cls( )\na.func( )",
+        "options": [
+          "[1, 6, 5, 2, 3]",
+          "[1, 5, 3]",
+          "[6, 2]",
+          "오류 발생"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "다음 C언어 프로그램이 실행되었을 때, 실행 결과는?\nint main() {\nint arg[4] = { 70, 80, 90, 100 };\nint* p = arg + 1;\nprintf(\"%d\", p[2]);\n}",
+        "options": [
+          "70",
+          "80",
+          "90",
+          "100"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "C언어의 대표적인 표준 라이브러리에 대한 설명이 잘못된 것은?",
+        "options": [
+          "stdio.h : 데이터의 입·출력에 사용되는 기능들을 제공",
+          "string.h : 문자열 처리에 사용되는 기능들을 제공",
+          "stdlib.h : 수학 함수들을 제공",
+          "time.h : 시간 처리에 사용되는 기능들을 제공"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "JavaScript에서 다음 그림과 같은 창을 띄우기 위해 사용한 명령어로\n옳은 것은?",
+        "options": [
+          "alert(“title”, “default”)",
+          "prompt(“title”, “default”)",
+          "alert(“default”, “title”)",
+          "prompt(“default”, “title”)"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음 중 메소드(Method)에 대한 설명으로 옳은 것은?",
+        "options": [
+          "클래스 내에 속한 객체들이 가지고 있는 데이터 값들을 단위별 로 정의하는 것이다.",
+          "객체가 메시지를 받아 실행해야 할 때 구체적인 연산을 정의하 는 것으로, 객체의 상태를 참조하거나 변경하는 수단이 된다.",
+          "두 개 이상의 유사한 객체들을 묶어서 하나의 공통된 특성을 표현하는 요소이다.",
+          "객체들 간에 상호작용을 하는데 사용되는 수단으로 객체의 동 작을 일으키는 외부의 요구사항이다."
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "웹 서버(Web Server)의 기능 중 하나로, 네트워크 트래픽의 포화를\n방지하기 위해 응답 속도를 제한하는 기능을 무엇이라 하는가?",
+        "options": [
+          "HTTP/HTTPS",
+          "정적 파일 관리",
+          "대역폭 제한",
+          "가상 호스팅"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "C언어에서 정수 변수 a, b에 각각 1, 2가 저장되어 있을 때 다음\n식의 연산 결과로 옳은 것은?\na < b + 2 && a << 1 <= b",
+        "options": [
+          "0",
+          "1",
+          "3",
+          "5"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "HTML에서 다음과 같이 frameset 태그를 사용했을 때 나타나는 결과로 올바른 것은?",
+        "options": [
+          "좌측 1칸 | 우측 상하 2칸",
+          "좌측 상하 2칸 | 우측 1칸",
+          "상단 좌우 2칸 | 하단 1칸",
+          "상단 1칸 | 하단 좌우 2칸"
+        ],
+        "examples": "<FRAMESET cols=\"50%, 50%\">\n  <FRAMESET rows=\"50%, 50%\">\n  </FRAMESET>\n</FRAMESET>"
+      },
+      {
+        "problem_number": 40,
+        "question_text": "자바에서 두 개의 논리 값을 연산하여 참(true)을 반환하는 ‘and’의\n의미를 가진 연산자는?",
+        "options": [
+          "==",
+          "&&",
+          "||",
+          "+= 제3과목 : 데이터베이스 활용"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스 활용",
+    "problems": [
+      {
+        "problem_number": 41,
+        "question_text": "릴레이션에 관한 설명 중 옳은 내용 모두를 나열한 것은?\n㉠ 하나의 릴레이션에서 튜플의 순서는 존재한다.\n㉡ 한 릴레이션에 나타난 속성 값은 논리적으로 분해 가\n능한 값이어야 한다.\n㉢ 한 릴레이션 내의 튜플은 중복 가능하다.\n㉣ 각 속성은 릴레이션 내에서 유일한 이름을 가진다.",
+        "options": [
+          "㉠",
+          "㉣",
+          "㉡, ㉢",
+          "㉡, ㉢, ㉣"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "제2정규형에서 제3정규형이 되기 위한 조건은?",
+        "options": [
+          "원자 값이 아닌 도메인을 분해",
+          "부분 함수 종속 제거",
+          "이행 함수 종속 제거",
+          "후보 키를 통하지 않은 조인 종속 제거"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "SQL 명령어 중 DDL에 해당하는 것은?",
+        "options": [
+          "SELECT",
+          "UPDATE",
+          "DELETE",
+          "ALTER"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "자료를 구조에 따라 분류할 경우, 성격이 나머지 셋과 다른 하나는?",
+        "options": [
+          "스택",
+          "그래프",
+          "큐",
+          "데크"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "시스템 카탈로그에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "시스템 자체에 관련 있는 다양한 객체에 관한 정보를 포함하는 시스템 데이터베이스이다.",
+          "카탈로그들이 생성되면 자료 사전에 저장되기 때문에 좁은 의 미로는 자료 사전이라고도 한다.",
+          "무결성 확보를 위하여 일반 사용자는 내용을 검색할 수 없다.",
+          "기본 테이블, 뷰, 인덱스, 패키지, 접근 권한 등의 정보를 저장 한다."
+        ]
+      },
+      {
+        "problem_number": 46,
+        "question_text": "버블 정렬을 이용한 오름차순 정렬 시 다음 자료에 대한 1회전\n후의 결과는?\n9, 6, 7, 3, 5",
+        "options": [
+          "3, 5, 6, 7, 9",
+          "6, 7, 3, 5, 9",
+          "3, 5, 9, 6, 7",
+          "6, 3, 5, 7, 9 3 -"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "트랜잭션은 자기의 연산에 대하여 전부(All) 또는 전무(Nothing)\n실행만이 존재하며, 일부 실행으로는 트랜잭션의 기능을 가질 수\n없다는 트랜잭션의 특성은?",
+        "options": [
+          "Atomicity",
+          "Isolation",
+          "Durability",
+          "Consistency"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "3, 5, 6, 8의 순서로 정해진 입력자료를 스택에 입력하였다가 출력한\n결과가 될 수 없는 것은?(단, 왼쪽부터 먼저 출력된 순서이다.)",
+        "options": [
+          "6, 5, 3, 8",
+          "6, 8, 3, 5",
+          "5, 3, 8, 6",
+          "5, 6, 8, 3"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "데이터베이스에서 아직 알려지지 않거나 모르는 값으로서 “해당\n없음” 등의 이유로 정보 부재를 나타내기 위해 사용하는 특수한\n데이터 값을 무엇이라 하는가?",
+        "options": [
+          "원자값(Atomic Value)",
+          "참조값(Reference Value)",
+          "무결값(Integrity Value)",
+          "널 값(Null Value)"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 그림에서 트리의 차수(Degree of a Tree)는?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "examples": "        A\n      /   \\\\\n     B     C\n          / | \\\\\n         D  E  F\n        / \\\\\n       G   H"
+      },
+      {
+        "problem_number": 51,
+        "question_text": "다음 판매실적 테이블 R1에 대해 SQL 문을 실행한 결과로 옳은 것은?",
+        "options": [
+          "결과(전체 합계만 출력): 12300",
+          "결과(총포인트만 출력): 4200, 1600, 3700, 2800",
+          "결과(지역 | SUM(포인트)): 서울|4200, 인천|1600, 광주|3700, 부산|2800",
+          "결과(지역 | 총포인트): 서울|4200, 인천|1600, 광주|3700, 부산|2800"
+        ],
+        "examples": "[R1]\nID | 이름 | 지역 | 포인트\n1001 | 이철화 | 서울 | 2300\n1002 | 공혁민 | 인천 | 1600\n1003 | 구양수 | 광주 | 3700\n1004 | 오지수 | 서울 | 1900\n1005 | 김명인 | 부산 | 2800\n\n[SQL 문]\nSELECT 지역, SUM(포인트) AS 총포인트\nFROM R1\nGROUP BY 지역;"
+      },
+      {
+        "problem_number": 52,
+        "question_text": "뷰(View)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "뷰를 제거하기 위해 DROP 문을 사용한다.",
+          "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다.",
+          "뷰로 구성된 내용에 대하여 삽입, 삭제, 갱신 연산에 제약이 있다.",
+          "데이터의 논리적 독립성을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 53,
+        "question_text": "일반적인 데이터 모델의 3가지 구성 요소로 옳은 것은?",
+        "options": [
+          "구조, 연산, 도메인",
+          "데이터사전, 연산, 릴레이션",
+          "구조, 연산, 제약조건",
+          "릴레이션, 구조, 스키마"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "question_text": "데이터의 중복으로 인하여 관계연산을 처리할 때 예기치 못한 곤란한\n현상이 발생하는 것을 무엇이라 하는가?",
+        "options": [
+          "제한(Restriction)",
+          "종속성(Dependency)",
+          "변환(Translation)",
+          "이상(Anomaly)"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "question_text": "명령에 의해 수행된 결과를 실제 물리적 디스크로 저장하고, 데이터\n베이스 조작 작업이 정상적으로 완료되었음을 관리자에게 알려주는\n데이터 제어어는?",
+        "options": [
+          "ROLLBACK",
+          "REVOKE",
+          "COMMIT",
+          "GRANT"
+        ]
+      },
+      {
+        "problem_number": 56,
+        "question_text": "다음 중 스키마(Schema)의 3계층에 속하지 않는 것은?",
+        "options": [
+          "내용 스키마",
+          "개념 스키마",
+          "외부 스키마",
+          "내부 스키마"
+        ]
+      },
+      {
+        "problem_number": 57,
+        "question_text": "인덱스(Index)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "데이터베이스에 저장된 자료를 더욱 빠르게 조회하기 위하여 사용된다.",
+          "인덱스는 데이터베이스의 논리적 구조와 밀접한 관계가 있다.",
+          "레코드의 삽입과 삭제가 수시로 일어나는 경우 인덱스의 개수 를 최소로 한다.",
+          "데이터 정의어(DDL)를 이용하여 사용자가 생성, 변경, 제거할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 58,
+        "question_text": "다음 SQL문의 실행결과를 가장 올바르게 설명한 것은?\nDROP TABLE 인사 CASCADE;",
+        "options": [
+          "인사 테이블을 제거한다.",
+          "인사 테이블을 참조하는 테이블과 인사 테이블을 제거한다.",
+          "인사 테이블이 참조중이면 제거하지 않는다.",
+          "인사 테이블을 제거할 지의 여부를 사용자에게 다시 질의한다."
+        ]
+      },
+      {
+        "problem_number": 59,
+        "question_text": "다음 중 디버깅(Debugging)에 대한 설명으로 옳은 것은?",
+        "options": [
+          "오류가 발생한 코드를 추적하여 수정하는 작업을 의미한다.",
+          "시스템에 어떤 일이 발생한 것을 의미한다.",
+          "절차형 SQL을 활용하여 특정 기능을 수행하는 것을 의미한다.",
+          "애플리케이션의 성능 관리를 위해 다양한 모니터링 기능을 제 공하는 도구를 의미한다."
+        ]
+      },
+      {
+        "problem_number": 60,
+        "question_text": "데이터베이스 설계 단계 중 데이터베이스의 효율성 제고를 위해\n파일 저장 구조 및 접근 경로 등을 설계하는 단계는?",
+        "options": [
+          "개념적 설계 단계",
+          "논리적 설계 단계",
+          "물리적 설계 단계",
+          "데이터베이스 구현 단계 4 -"
+        ]
+      }
+    ]
+  }
+]

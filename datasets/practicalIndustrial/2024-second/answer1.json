@@ -1,0 +1,124 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) 1 / (나) 1 / (다) 없으며 / (라) 불가능"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "제2정규형"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "6"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1025"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "7.00 그리고 9.00"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개체"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(가) n*i"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "tracert"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "22"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1) 블랙박스 테스트 : ㄴ, ㅁ, ㅂ / 2) 화이트박스 테스트 : ㄱ, ㄷ, ㄹ"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1. 200 / 2. 3 / 3. 1"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(1) INTO / (2) VALUES / (3) SET"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(1) AND / (2) ASC / (3) NOT"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "(1) 멀티캐스트 / (2) 브로드캐스트 / (3) 유니캐스트"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SNMP"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "101"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "2 3 4 5 10"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "B클래스",
+        "accepted_answers": [
+          "B???",
+          "B ???",
+          "b???",
+          "b ???",
+          "Bclass",
+          "B class",
+          "bclass",
+          "b class",
+          "B-CLASS",
+          "B CLASS"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "드라이버"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "A-D-C-E-F",
+        "accepted_answers": [
+          "A -> D -> C -> E -> F",
+          "A D C E F",
+          "ADCEF"
+        ]
+      }
+    ]
+  }
+]

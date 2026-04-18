@@ -1,0 +1,317 @@
+[
+  {
+    "title": "정보시스템 기반 기술",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 2,
+        "correct_answer_text": "재사용이 불가능하도록 설계해야 한다."
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 3,
+        "correct_answer_text": "프로토콜"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "실행(Running) 상태"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 1,
+        "correct_answer_text": "호환성이 없는 클래스들의 인터페이스를 다른 클래스가 이용 할 수 있도록 변환해준다."
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 3,
+        "correct_answer_text": "주기억장치를 보조기억장치처럼 사용한다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 1,
+        "correct_answer_text": "FCFS(FIFO)"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프로그램을 가변적인 크기의 논리적인 단위로 나눈다."
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ICMP"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "네트워크 계층"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 2,
+        "correct_answer_text": "UML"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Adapter"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "JAVA 기반의 오픈 소스 형태로, 서블릿 컨테이너에서 실행되 는 서버 기반 도구이다."
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "790"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 1,
+        "correct_answer_text": "단위 테스트 → 통합 테스트 → 시스템 테스트 → 인수 테스트"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "비동기식"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Method"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 3,
+        "correct_answer_text": "강도 테스트"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 2,
+        "correct_answer_text": "구조적 반복"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "5"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SOA"
+      }
+    ]
+  },
+  {
+    "title": "프로그래밍 언어 활용",
+    "answers": [
+      {
+        "problem_number": 21,
+        "correct_answer_index": 1,
+        "correct_answer_text": "㉠ form, ㉡ method, ㉢ action, ㉣ /form"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ObjectInputStream"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 3,
+        "correct_answer_text": "return"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 3,
+        "correct_answer_text": "calc(r.x, r.y)"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 1,
+        "correct_answer_text": "document.write(100)"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "㉠-do, ㉡-while"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 0,
+        "correct_answer_text": "%"
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "3edc"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "fscanf"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Content Coupling"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 2,
+        "correct_answer_text": "모듈 간의 결합도는 강할수록 바람직하다."
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "부모 클래스에서 상속받아 구체화한다."
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 3,
+        "correct_answer_text": "String 자료형을 사용하여 문자열을 저장할 수 있다."
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 0,
+        "correct_answer_text": "C++에서는 try, catch, finally를 이용하여 예외 처리를 수행 한다."
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 3,
+        "correct_answer_text": "unsigned double e = -3.14"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 1,
+        "correct_answer_text": "required"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "splice( ) : 배열에서 지정한 범위의 데이터를 가져온다."
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "&&"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 3,
+        "correct_answer_text": "절차적 응집도"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 0,
+        "correct_answer_text": "캡슐화는 상위 클래스에서 속성이나 연산을 전달받아 새로운 형태의 클래스로 확장하여 사용하는 것을 의미한다."
+      }
+    ]
+  },
+  {
+    "title": "데이터베이스의 활용",
+    "answers": [
+      {
+        "problem_number": 41,
+        "correct_answer_index": 1,
+        "correct_answer_text": "INSERT"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 3,
+        "correct_answer_text": "하나 이상의 기본 테이블로부터 유도되어 만들어지는 물리적 인 실제 테이블이다."
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SELECT DISTINCT DEPT FROM STUDENT;"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "널 값(Null Value)"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 1,
+        "correct_answer_text": "관계형 데이터 모델"
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "관계대수는 질의에 대한 해를 생성하기 위해 수행해야 할 연산 의 순서를 명시해야 하므로, 비절차적 특징을 가진다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 2,
+        "correct_answer_text": "⋈"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 2,
+        "correct_answer_text": "일반 사용자들도 SQL을 이용하여 시스템 카탈로그를 직접 갱신할 수 있다."
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 3,
+        "correct_answer_text": "데크"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3, 4, 5, 2, 1"
+      },
+      {
+        "problem_number": 51,
+        "correct_answer_index": 2,
+        "correct_answer_text": "DROP"
+      },
+      {
+        "problem_number": 52,
+        "correct_answer_index": 3,
+        "correct_answer_text": "부분 함수 종속성 제거"
+      },
+      {
+        "problem_number": 53,
+        "correct_answer_index": 0,
+        "correct_answer_text": "㉠ 3, ㉡ 360, ㉢ 1"
+      },
+      {
+        "problem_number": 54,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개체 타입"
+      },
+      {
+        "problem_number": 55,
+        "correct_answer_index": 1,
+        "correct_answer_text": "튜플"
+      },
+      {
+        "problem_number": 56,
+        "correct_answer_index": 3,
+        "correct_answer_text": "‘박’으로 시작하지 않는 3글자의 문자 이름을 검색한다."
+      },
+      {
+        "problem_number": 57,
+        "correct_answer_index": 1,
+        "correct_answer_text": "n(n-1)/2"
+      },
+      {
+        "problem_number": 58,
+        "correct_answer_index": 2,
+        "correct_answer_text": "직접 파일"
+      },
+      {
+        "problem_number": 59,
+        "correct_answer_index": 3,
+        "correct_answer_text": "운영 기능"
+      },
+      {
+        "problem_number": 60,
+        "correct_answer_index": 1,
+        "correct_answer_text": "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계"
+      }
+    ]
+  }
+]
