@@ -7,125 +7,160 @@
         "question_text": "패리티 비트(Parity Bit)에 대한 설명 빈칸 채우기",
         "examples": "홀수 패리티 검사에서 (가)의 개수는 홀수이고, 짝수 패리티 검사에서 (나)의 개수는 짝수이다.\n패리티 비트는 2Bit 이상 짝수 개수에서 오류가 발생되면, 검출할 수 (다), 수정도 (라)하다.\n\n<보기>\n1\n2\n3\n4\n가능\n불가능\n있으며\n없으며",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: (가) 값 / (나) 값"
+        "answer_format_hint": "예: (가) 값 / (나) 값",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 2,
         "question_text": "정규화 과정을 묻는 용어 쓰기",
         "examples": "데이터베이스 정규화 과정에서 테이블 R이 제1정규형이고, 기본키가 아닌 모든 속성이 기본키에 대하여 완전 함수적 종속을 만족하는 정규형은 무엇인지 쓰시오.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "SQL"
       },
       {
         "problem_number": 3,
         "question_text": "C언어 실행결과",
         "examples": "#include <stdio.h>\nint main() {\n  int i = 3;\n  int j = 5;\n  printf(\"%d\", (i | j) - (i & j));\n  return 0;\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 4,
         "question_text": "Java 실행결과",
         "examples": "public class Test {\n  int A(int a, int b) {\n    System.out.print(a+b);\n    return a*b;\n  }\n  public static void main(String[] args) {\n    Test a = new Test();\n    System.out.print(a.A(5,5));\n  }\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
       },
       {
         "problem_number": 5,
         "question_text": "C언어 출력결과",
         "examples": "#include <stdio.h>\nstruct number {\n  float i;\n  float j;\n};\n\nint main() {\n  struct number a = {3.0, 4.0};\n  struct number b = {4.0, 5.0};\n  printf(\"%.2f 그리고 %.2f\", a.i+b.i, a.j + b.j);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 6,
         "question_text": "다음 설명에 해당하는 용어를 쓰시오",
         "examples": "기본 테이블의 기본키를 구성하는 어떤 속성도 널(Null) 값이나 중복값을 가질 수 없다는 규정이다.\n관계 데이터 모델에서는 릴레이션에 포함되어 있는 튜플들을 유일하게 구별해주고 각 튜플에 쉽게 접근할 수 있도록 릴레이션마다 기본키를 정의하는데, 기본키를 구성하는 속성 전체나 일부가 널(Null) 값이 되면 튜플의 유일성을 판단할 수 없어 기본키의 본래 목적을 상실하게 된다. 이를 ( ) 무결성 제약조건이라고 한다.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "SQL"
       },
       {
         "problem_number": 7,
         "question_text": "코드 빈칸에 알맞은 수식을 채워 코드를 완성하시오",
         "examples": "#include <stdio.h>\nint main() {\n  int n = 3;\n  for(int i = 1; i <= 9; i++) {\n    printf(\"%d*%d=%d\\n\", n, i, (가));\n  }\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 8,
         "question_text": "명령어를 쓰시오",
         "examples": "MS-DOS에서 인터넷 서버까지의 경로를 추적하는 명령어로, IP 주소, 목적지까지 거치는 경로(장비의 수)의 수, 각 구간 사이의 데이터 왕복 속도를 알아볼 수 있는 명령어를 쓰시오.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 9,
         "question_text": "C언어 출력 결과",
         "examples": "#include <stdio.h>\nint main() {\n  int n1 = 11;\n  int n2 = 0;\n  int* p = NULL;\n  p = &n1;\n  n2 = *p + n1;\n  printf(\"%d\", *p-n1+n2);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 10,
         "question_text": "애플리케이션 테스트를 블랙박스 테스트와 화이트박스 테스트로 구분하여 쓰시오",
         "examples": "ㄱ. 기초 경로 검사\nㄴ. 동치 분할 검사\nㄷ. 루프 검사\nㄹ. 조건 검사\nㅁ. 경계값 분석\nㅂ. 원인-효과 그래프 검사\n블랙박스/화이트박스 테스트로 구분",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: 1) 값 / 2) 값"
+        "answer_format_hint": "예: 1) 값 / 2) 값",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
       },
       {
         "problem_number": 11,
         "question_text": "SQL문 실행 결과로 표시되는 튜플 수를 쓰시오",
         "examples": "학생(STUDENT) 테이블에 전기과 학생 50명, 전산과 학생 100명, 전자과 학생 50명일 때 SQL문 실행 결과로 표시되는 튜플 수를 쓰시오. (DEPT는 학과)\n\n1. SELECT DEPT FROM STUDENT;\n2. SELECT DISTINCT DEPT FROM STUDENT;\n3. SELECT COUNT(DISTINCT DEPT) FROM STUDENT WHERE DEPT='전산과';",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: 1) 값 / 2) 값"
+        "answer_format_hint": "예: 1) 값 / 2) 값",
+        "category": "SQL"
       },
       {
         "problem_number": 12,
         "question_text": "처리조건에 부합하는 SQL문 빈칸 채우기",
         "examples": "<처리조건>\n- <사원> 테이블에 이름이 \"윤정희\", 부서가 \"영업부\", 주소가 \"마포구\"인 사원의 정보를 입력하시오.\n- <사원> 테이블에서 이름이 \"임선호\"인 사원의 부서를 \"기획부\"로 변경하시오.\n\n<SQL문>\n- INSERT (1) 사원 (이름, 부서, 주소) (2) ('윤정희', '영업부', '마포구');\n- UPDATE 사원 (3) 부서 = '기획부' WHERE 이름 = '임선호';",
         "input_type": "textarea",
-        "answer_format_hint": "예: SQL문 전체를 입력하세요."
+        "answer_format_hint": "예: SQL문 전체를 입력하세요.",
+        "category": "SQL"
       },
       {
         "problem_number": 13,
         "question_text": "처리조건에 부합하는 SQL문 빈칸 채우기",
         "examples": "<처리조건>\n- <회원> 테이블에서 성별이 \"여\"이면서 등급이 \"GOLD\"인 회원의 정보를 검색하시오.\n- <회원> 테이블에서 회원들의 구매내역을 검색하되, 가입년도를 기준으로 오름차순정렬하여 검색하시오.\n- <회원> 테이블에서 이름이 \"김\"으로 시작하지 않는 회원들을 검색하시오.\n\n<SQL문>\n- SELECT * FROM 회원 WHERE 성별='여' (1) 등급='GOLD';\n- SELECT * FROM 회원 ORDER BY 가입년도 (2);\n- SELECT * FROM 회원 WHERE 이름 (3) LIKE '김%';",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "SQL"
       },
       {
         "problem_number": 14,
         "question_text": "IPv4 주소가 사용하는 네트워크 상 전송 방식에 대한 설명 정답 쓰기",
         "examples": "(1)은 한 번의 송신으로 메시지나 정보를 목표한 여러 컴퓨터에 동시에 그룹 단위로 전송하는 것을 말한다. 이때 망 접속 형태가 요구할 경우에 한해, 자동으로 라우터와 같은 다른 네트워크 요소들에 메시지의 복사본이 생성된다. 인터넷 텔레비전, 응용 프로그램 용도로 사용된다.\n(2)는 송신 호스트가 전송한 데이터가 네트워크에 연결된 모든 호스트에게 전송되는 것을 말한다. 주소는 주로 FFFFFFFF = 255.255.255.255 형태가 사용된다.\n(3)는 고유 주소로 식별된 하나의 네트워크 목적지에 1:1로(one-to-one) 트래픽 또는 메시지를 전송하는 것을 말한다.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 15,
         "question_text": "설명에 해당하는 알맞은 용어 쓰기",
         "examples": "TCP/IP의 네트워크 관리 프로토콜로, 라우터나 허브 등 네트워크 기기의 네트워크 정보를 네트워크 관리 시스템에 보내는데 사용된다.\n이 프로토콜을 사용하는 대표적인 장비에는 프린터, UPS, CCTV 등이 있다.\n에이전트(Agent)는 161번 포트를 사용하고, 관리 시스템(Manager)은 162번 포트를 사용한다.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 16,
         "question_text": "Python 실행결과",
         "examples": "x = [1, -1, 0, 1, -1]\n\nfor n in x:\n    if(n == -1): continue\n    print(n, end=\"\")",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Python"
       },
       {
         "problem_number": 17,
         "question_text": "C언어 실행결과",
         "examples": "#include <stdio.h>\nint main() {\n  int a[5] = {3, 4, 5, 10, 2};\n  int *p = a;\n  int i, j, temp;\n  for(i = 0; i < 5; i++) {\n    for(j = i+1; j < 5; j++) {\n      if(*(p+i) > *(p+j)) {\n        temp = *(p+i);\n        *(p+i) = *(p+j);\n        *(p+j) = temp;\n      }\n    }\n    printf(\"%d \", *(p+i));\n  }\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 18,
         "question_text": "IPv4 클래스 구분에 대한 용어 쓰기",
         "examples": "IP 주소(IPv4)는 인터넷에 연결된 모든 컴퓨터 자원을 구분하기 위한 주소로, 8비트씩 4부분, 총 32비트로 구성된다. 또한 IP 주소는 네트워크 부분의 길이에 따라 A 클래스에서 E 클래스까지 5개의 클래스로 구분하는데, 네트워크 부분의 길이가 16비트이며, 128~191로 시작하고 나머지 16비트가 호스트 부분인 클래스는 무엇인지 쓰시오.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 19,
         "question_text": "단위 테스트에서 상향식 테스트에 사용되는 가상 모듈 쓰기",
         "examples": "단위 테스트에서 테스트의 대상이 되는 하위 모듈을 호출하고, 매개 변수(Parameter)를 전달하는 가상의 모듈로, 상향식 테스트에서 사용되는 것은 무엇인지 쓰시오.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
       },
       {
         "problem_number": 20,
         "question_text": "다음 라우터 그래프에서 RIP 기준으로 A에서 F까지의 최단 경로를 쓰시오.",
         "examples": "<보기>\n라우터: A, B, C, D, E, F\n간선 가중치\nA-B: 2\nA-D: 1\nB-D: 2\nD-C: 2\nC-E: 1\nE-F: 2\nC-F: 5",
         "input_type": "sequence",
-        "answer_format_hint": "예: A-B-C-D"
+        "answer_format_hint": "예: A-B-C-D",
+        "category": "이론",
+        "subcategory": "네트워크"
       }
     ]
   }

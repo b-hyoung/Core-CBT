@@ -7,7 +7,8 @@
         "question_text": "다음은 트랜잭션의 4가지 특성에 대한 설명이다. 설명에 해당하는 것을 쓰시오(원래는 <보기>에서 고르는 문제)",
         "examples": "1. 둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다\n2. 트랜잭션이 일단 완료되면 그 후에 어떤 형태로 시스템이 고장 나더라도 트랜잭션의 결과는 잃어버리지 않고 지속되어야 한다.",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: 1) 값 / 2) 값"
+        "answer_format_hint": "예: 1) 값 / 2) 값",
+        "category": "SQL"
       },
       {
         "problem_number": 2,
@@ -19,71 +20,90 @@
           "DML",
           "DCL"
         ],
-        "answer_format_hint": "예: DDL / DML / DCL 항목 나열"
+        "answer_format_hint": "예: DDL / DML / DCL 항목 나열",
+        "category": "SQL"
       },
       {
         "problem_number": 3,
         "question_text": "출력 결과",
         "examples": "#include <stdio.h>\nint main() {\n  int d = 55;\n  int n = 4;\n  int r = 0, q = 0;\n  r = d;\n  while(r >= 4) {\n    r = r - n;\n    q++;\n  }\n  printf(\"%d 그리고 \", q);\n  printf(\"%d\", r);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 4,
         "question_text": "데이터링크 계층의 대표적인 프로토콜로 정보를 전송 제어 부호가 포함된 프레임이라는 단위로 분할하여 전송하며 프로토콜의 구조는 프레임의 플래그, 주소부, 제어부, 데이터부, 오류검출부로 구분된다. 프레임은 I-Frame, S-Frame, U_Frame이 있다. 설명에 해당하는 프로토콜을 쓰시오",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 5,
         "question_text": "아래 OSI계층 표의 PDU(데이터 단위)를 쓰시오.",
         "examples": "(원래는 보기가 있는 문제)\n물리 계층\n데이터링크 계층\n네트워크 계층",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: 항목별 답을 함께 입력"
+        "answer_format_hint": "예: 항목별 답을 함께 입력",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 6,
         "question_text": "아래 처리조건을 보고 SQL문을 작성하시오.",
         "examples": "<처리조건>\n-학생 테이블에서 학년이 3학년 이상이 수강하는 과목을 검색한다\n-검색 결과 중복을 제거한다",
         "input_type": "textarea",
-        "answer_format_hint": "예: SELECT ...;"
+        "answer_format_hint": "예: SELECT ...;",
+        "category": "SQL"
       },
       {
         "problem_number": 7,
         "question_text": "<보기>를 V모델 순서대로 나열하시오",
         "examples": "<보기>\nㄱ. 인수 테스트\nㄴ. 시스템 테스트\nㄷ. 통합 테스트\nㄹ. 단위 테스트",
         "input_type": "sequence",
-        "answer_format_hint": "예: ㄱ-ㄴ-ㄷ-ㄹ"
+        "answer_format_hint": "예: ㄱ-ㄴ-ㄷ-ㄹ",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
       },
       {
         "problem_number": 8,
         "question_text": "아래는 정규화 과정 중 일부에 대한 설명이다. 적절한 설명을 보기에에서 고르시오",
         "examples": "<보기>\nㄱ. 이행적 함수 종속 관계를 제거한다\nㄴ. 기본키에 속하지 않는 모든 속성이 기본키에 완전 함수 종속이 되도록 부분 함수 종속성을 제거한다.\nㄷ. 결정자가 후보키가 아닌 함수 종속성을 제거한다\n\n1) 제 2정규화 :\n2) 제 3정규화 :\n3) BCNF :",
         "input_type": "multi_blank",
-        "answer_format_hint": "예: 1) 값 / 2) 값"
+        "answer_format_hint": "예: 1) 값 / 2) 값",
+        "category": "SQL"
       },
       {
         "problem_number": 9,
         "question_text": "아래 기호를 써서 HRN 스케줄링 기법에 우선 순위 공식을 쓰시오",
         "examples": "P: 우선순위\nS: 서비스 시간\nW: 대기 시간",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 10,
         "question_text": "다음 설명에 해당하는 것을 보기에서 고르시오",
         "examples": "데이터 프레임을 연속적으로 전송하는 과정에서 NAK를 수신하게 되면, 오류가 발생한 프레임 이후에 전송된 모든 데이터 프레임을 재전송하는 방식이다\n\n<보기>\nㄱ. Selective-Repeat ARQ\nㄴ. Stop-and-Wait ARQ\nㄷ. Non-Acknowledge ARQ\nㄹ. Go-Back N ARQ\nㅁ. Selective ARQ\nㅂ. Adaptive ARQ\nㅅ. Forward-Stop ARQ\nㅇ. Auto-Repeat ARQ",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 11,
         "question_text": "다음 보기에서 Python 언어의 특징을 모두 고르시오",
         "examples": "<보기>\nㄱ. 변수 선언 시 자료형 작성은 필수\nㄴ. 세미콜론을 사용하지 않아도 된다\nㄷ. 변수에 연속하여 값을 저장하는 것이 가능하다\nㄹ. 같은 수준의 코드는 반드시 동일한 여백을 가져야 한다\nㅁ. gcc를 이용해 컴파일하기 때문에 인터프리터 언어가 아니다",
         "input_type": "unordered_symbol_set",
-        "answer_format_hint": "예: ㄴ, ㄷ, ㄹ"
+        "answer_format_hint": "예: ㄴ, ㄷ, ㄹ",
+        "category": "Code",
+        "subcategory": "Python"
       },
       {
         "problem_number": 12,
         "question_text": "다음은 Java 관련 용어에 대한 설명이다. 설명에 해당하는 것을 쓰시오",
         "examples": "Java에서 힙(heap)에 남아있으나 변수가 가지고 있던 참조값을 잃거나 변수 자체가 없어짐으로써 더 이상 사용되지 않는 객체",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
       },
       {
         "problem_number": 13,
@@ -94,48 +114,63 @@
         "input_labels": [
           "블랙박스 테스트",
           "화이트박스 테스트"
-        ]
+        ],
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
       },
       {
         "problem_number": 14,
         "question_text": "정보처리를 수행하는 응용 프로그램과의 인터페이스를 제공하며 전자우편이나 파일 전송 같은 사용자 서비스를 제공하는 OSI 계층을 쓰시오",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
       },
       {
         "problem_number": 15,
         "question_text": "출력결과",
         "examples": "class Main {\n  public static void main(String[] args) {\n    int[] a = {4, 7, 1, 2};\n    for(int i=0; i<3; i++) {\n      for(int j=i+1; j<4; j++) {\n        if(a[i] > a[j]) {\n          int temp = a[j];\n          a[j] = a[i];\n          a[i] = temp;\n        }\n      }\n    }\n    for(int i=0; i<4; i++) {\n      System.out.print(a[i] + \"a\");\n    }\n  }\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
       },
       {
         "problem_number": 16,
         "question_text": "코드 아래에 있는 것이 출력결과인데 출력결과의 파란색 빈칸에 들어갈 출력값을 적으시오",
         "examples": "#include <stdio.h>\nvoid Sort(int a[][6]) {\n  for(int i=0; i<=4; i++) {\n    for(int j=5; j>=0; j--) {\n      if(i==0 || i==4 || j==0 || j==5) {\n        printf(\"%3d\", a[i][j]);\n      }\n      else {\n        printf(\"   \");\n      }\n    }\n    printf(\"\\n\");\n  }\n}\nint main() {\n  int a[5][6] = {{0,1,2,3,4,5},\n                 {6,7,8,9,10,11},\n                 {12,13,14,15,16,17},\n                 {18,19,20,21,22,23},\n                 {24,25,26,27,28,29}};\n  Sort(a);\n}",
         "input_type": "textarea",
-        "answer_format_hint": "예: 17    12 (줄바꿈) 23    18"
+        "answer_format_hint": "예: 17    12 (줄바꿈) 23    18",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 17,
         "question_text": "출력결과",
         "examples": "#include <stdio.h>\nint main() {\n  char s1[5] = \"abcd\";\n  char s2[5];\n  for(int i=0; i<4; i++) {\n    s2[i] = s1[3-i];\n  }\n  s2[5] = '\\0';\n  printf(\"%s\", s2);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 18,
         "question_text": "출력결과",
         "examples": "#include <stdio.h>\nint main() {\n  // A = 65, a = 97\n  int a = 10;\n  char b = 'a';\n  printf(\"%d \\n\", a);\n  printf(\"%d \\n\", b);\n  printf(\"%c\", b);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       },
       {
         "problem_number": 19,
         "question_text": "SQL문에서 특정 속성의 값을 제한하기 위해 사용하는 문법으로 도메인이 가질 수 있는 값의 범위를 제약할 때 사용하는 제약조건을 쓰시오.",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "SQL"
       },
       {
         "problem_number": 20,
         "question_text": "출력결과",
         "examples": "#include <stdio.h>\nint main() {\n  int result=1, i;\n  for(i=1; i<=5; i++) {\n    result *= i;\n  }\n  printf(\"%d\", result);\n}",
-        "input_type": "single"
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
       }
     ]
   }
