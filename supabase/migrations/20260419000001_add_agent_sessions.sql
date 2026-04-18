@@ -38,6 +38,20 @@ CREATE POLICY agent_sessions_own ON agent_sessions
   FOR ALL
   USING (user_email = current_setting('request.jwt.claims', true)::json->>'email');
 
+-- updated_at 자동 갱신 트리거
+CREATE OR REPLACE FUNCTION set_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS agent_sessions_set_updated_at ON agent_sessions;
+CREATE TRIGGER agent_sessions_set_updated_at
+  BEFORE UPDATE ON agent_sessions
+  FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+
 COMMENT ON TABLE agent_sessions IS 'AI 학습 튜터 에이전트 대화 세션 (per user × source_session × problem)';
 COMMENT ON COLUMN agent_sessions.messages IS 'OpenAI chat completions 메시지 배열 (system/user/assistant/tool)';
 COMMENT ON COLUMN agent_sessions.generated_problems IS 'present_similar_problem으로 생성한 문제들 (expected_answer 포함, 서버 전용)';

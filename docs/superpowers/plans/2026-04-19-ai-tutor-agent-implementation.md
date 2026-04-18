@@ -294,7 +294,7 @@ FROM information_schema.columns
 WHERE table_name = 'agent_sessions'
 ORDER BY ordinal_position;
 ```
-Expected: 15개 컬럼이 출력됨 (id, user_email, source_session_id, ..., updated_at)
+Expected: 16개 컬럼이 출력됨 (id, user_email, source_session_id, ..., updated_at)
 
 - [ ] **Step 3: Commit**
 
