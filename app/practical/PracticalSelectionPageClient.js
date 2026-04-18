@@ -7,7 +7,6 @@ import { ArrowLeft, Book, ChevronRight, LoaderCircle, Shuffle } from 'lucide-rea
 import { trackEvent } from '@/lib/analyticsClient';
 import { PRACTICAL_SESSIONS_BY_YEAR } from './_lib/practicalSessions';
 import UserQuickActions from '@/app/_components/UserQuickActions';
-import MyStudyButtons from '@/app/_components/MyStudyButtons';
 import ThemeControls from '@/app/_components/ThemeControls';
 
 const RESUME_STATE_KEY_PREFIX = 'quiz_resume_state_';
@@ -156,8 +155,6 @@ export default function PracticalSelectionPageClient({
   useEffect(() => {
     const refresh = () => {
       const ids = [
-        'practical-my-wrong',
-        'practical-my-unknown',
         'practical-high-wrong',
         'practical-high-unknown',
         'practical-random',
@@ -226,18 +223,6 @@ export default function PracticalSelectionPageClient({
         </section>
 
         <div className="space-y-4">
-          <MyStudyButtons
-            resumeMap={resumeMap}
-            examType="practical"
-            initialIsLoggedIn={initialIsLoggedIn}
-            initialAvailability={initialReviewAvailability}
-            sectionTitle="내가 틀린 실기 문제 모아보기"
-            wrongHref="/practical/my-wrong"
-            wrongResumeKey="practical-my-wrong"
-            unknownHref="/practical/my-unknown"
-            unknownResumeKey="practical-my-unknown"
-          />
-
           <SectionShell eyebrow="특수 모드 / 종합">
             <div className="space-y-2">
               {utilityModes.map((mode) => {

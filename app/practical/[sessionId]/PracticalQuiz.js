@@ -1831,9 +1831,18 @@ export default function PracticalQuiz({
   };
 
   // 오답 재풀이: 틀린 문제만 추려 새 시험 상태로 재시작
+  // NOTE: strict `!==` 비교는 "①: 온프레미스 / ②: SNMP" vs "① 온프레미스 ② SNMP"
+  // 같이 포맷만 다른 정답을 오답으로 오분류하므로 isPracticalAnswerMatch 사용.
   const handleRetryWrongProblems = () => {
     const mergedAnswers = { ...accumulatedAnswers, ...answers };
-    const wrongProblems = allProblems.filter((p) => mergedAnswers[p.problem_number] !== answersMap[p.problem_number]);
+    const wrongProblems = allProblems.filter((p) => {
+      const userAnswer = mergedAnswers[p.problem_number];
+      const correctAnswer = answersMap[p.problem_number];
+      // UNKNOWN/미응답은 여기서 제외(오답 재풀이가 아닌 "모르겠어요 재풀이"로 따로 관리)
+      if (userAnswer === UNKNOWN_OPTION) return false;
+      if (userAnswer == null || String(userAnswer).trim() === '') return false;
+      return !isPracticalAnswerMatch(userAnswer, correctAnswer, p);
+    });
     if (wrongProblems.length === 0) return;
 
     setAccumulatedAnswers(mergedAnswers);
