@@ -46,3 +46,25 @@ async def chat(
         user_message=body.message,
     )
     return ChatResponse(**result)
+
+
+class SubmitRequest(BaseModel):
+    source_session_id: str = Field(..., min_length=1)
+    problem_number: int = Field(..., ge=1)
+    problem_id: str = Field(..., min_length=1)
+    user_answer: str = Field(..., min_length=1, max_length=500)
+
+
+@app.post("/submit", response_model=ChatResponse)
+async def submit_answer(
+    body: SubmitRequest,
+    user_email: str = Depends(current_user_email),
+):
+    synthesized = f"[유저가 {body.problem_id} 문제에 답변: '{body.user_answer}']"
+    result = await run_agent(
+        user_email=user_email,
+        source_session_id=body.source_session_id,
+        problem_number=body.problem_number,
+        user_message=synthesized,
+    )
+    return ChatResponse(**result)
