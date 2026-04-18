@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from .config import get_settings
 from .auth.internal_auth import verify_internal_request
 from .agent.runner import run_agent
+from .db.session_store import load_session, delete_session
 
 app = FastAPI(title="Core-CBT Agent API", version="0.1.0")
 
@@ -68,3 +69,44 @@ async def submit_answer(
         user_message=synthesized,
     )
     return ChatResponse(**result)
+
+
+class SessionView(BaseModel):
+    messages: list[dict]
+    turn_count: int
+    generated_problems: list[dict]
+    user_evaluations: list[dict]
+
+
+@app.get("/session/{source_session_id}/{problem_number}", response_model=SessionView)
+async def get_session(
+    source_session_id: str,
+    problem_number: int,
+    user_email: str = Depends(current_user_email),
+):
+    session = await load_session(user_email, source_session_id, problem_number)
+    if session is None:
+        return SessionView(messages=[], turn_count=0, generated_problems=[], user_evaluations=[])
+
+    # system 메시지 제외 + expected_answer 마스킹
+    visible_messages = [m for m in session.messages if m.get("role") != "system"]
+    masked_problems = [
+        {k: v for k, v in p.items() if k != "expected_answer"}
+        for p in session.generated_problems
+    ]
+    return SessionView(
+        messages=visible_messages,
+        turn_count=session.turn_count,
+        generated_problems=masked_problems,
+        user_evaluations=session.user_evaluations,
+    )
+
+
+@app.delete("/session/{source_session_id}/{problem_number}")
+async def reset_session(
+    source_session_id: str,
+    problem_number: int,
+    user_email: str = Depends(current_user_email),
+):
+    await delete_session(user_email, source_session_id, problem_number)
+    return {"ok": True}
