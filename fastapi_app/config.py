@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     datasets_root: str = str(_PROJECT_ROOT / "datasets" / "practicalIndustrial")
 
     # Agent
-    agent_max_iterations: int = 5
+    agent_max_iterations: int = 10
     agent_rate_limit_per_hour: int = 20
 
     model_config = SettingsConfigDict(
