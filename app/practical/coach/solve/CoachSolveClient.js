@@ -919,23 +919,23 @@ export default function CoachSolveClient({ lang, problems }) {
                         <p className="text-sm text-blue-900 leading-relaxed whitespace-pre-wrap">{problem._comment}</p>
                       </div>
                     )}
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2">
+                      {!isCorrect && (
+                        <button
+                          onClick={() => setChatOpen(true)}
+                          className="w-full flex items-center justify-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          AI 코치에게 물어보기
+                        </button>
+                      )}
                       <button
                         onClick={handleNext}
-                        className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-slate-800 text-white px-4 py-3 text-sm font-semibold hover:bg-slate-700 transition"
+                        className="w-full flex items-center justify-center gap-1 rounded-xl bg-slate-800 text-white px-4 py-3 text-sm font-semibold hover:bg-slate-700 transition"
                       >
                         {currentIndex + 1 >= total ? '결과 보기' : '다음 문제'}
                         <ChevronRight className="h-4 w-4" />
                       </button>
-                      {!isCorrect && (
-                        <button
-                          onClick={() => setChatOpen(true)}
-                          className="flex items-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
-                        >
-                          <MessageCircle className="h-4 w-4" />
-                          AI 코치
-                        </button>
-                      )}
                     </div>
                   </div>
                 )}
@@ -1003,13 +1003,14 @@ export default function CoachSolveClient({ lang, problems }) {
         )}
       </div>
 
-      {/* 모바일: 우하단 플로팅 AI 버튼 */}
-      {!chatOpen && checked && (
+      {/* 모바일: 우하단 플로팅 AI 버튼 — 오답 시에만, 버튼 아래로 겹치지 않게 */}
+      {!chatOpen && checked && !isCorrect && (
         <button
           onClick={() => setChatOpen(true)}
-          className="md:hidden fixed bottom-6 right-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-500 transition active:scale-95"
+          className="md:hidden fixed bottom-20 right-4 z-30 flex items-center gap-2 rounded-full bg-violet-600 text-white pl-4 pr-5 py-3 shadow-lg hover:bg-violet-500 transition active:scale-95"
         >
-          <MessageCircle className="h-6 w-6" />
+          <MessageCircle className="h-5 w-5" />
+          <span className="text-sm font-semibold">AI 코치</span>
         </button>
       )}
 
