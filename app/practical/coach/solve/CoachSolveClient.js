@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, MessageCircle, X, Send, CheckCircle2, XCircle, Database } from 'lucide-react';
+import { getMultiBlankMeta, joinMultiBlankAnswer } from '@/lib/multiBlankUtils';
 
 const LANG_ICON = {
   C: '/icons/c.svg',
@@ -503,6 +504,90 @@ function MobileChatOverlay({
   );
 }
 
+function AnswerInput({ problem, answer, correctAnswer, onAnswer, onSubmit, disabled, accentColor = 'indigo' }) {
+  const inputType = problem?.input_type || 'single';
+  const meta = inputType === 'multi_blank' ? getMultiBlankMeta(problem, correctAnswer) : null;
+
+  if (meta && meta.labels.length >= 2) {
+    // multi_blank: 라벨별 입력 칸
+    const values = Array.isArray(answer) ? answer : meta.labels.map(() => '');
+
+    function handleSlotChange(idx, val) {
+      const next = [...values];
+      next[idx] = val;
+      onAnswer(next);
+    }
+
+    function handleSlotKeyDown(e, idx) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (idx < meta.labels.length - 1) {
+          // 다음 칸으로 포커스
+          const nextInput = e.target?.parentElement?.parentElement?.querySelector(`[data-slot="${idx + 1}"]`);
+          nextInput?.focus();
+        } else {
+          // 마지막 칸에서 엔터 → 제출
+          const joined = joinMultiBlankAnswer(meta.labels, values);
+          onSubmit(joined);
+        }
+      }
+    }
+
+    return (
+      <div className="space-y-2 mb-4">
+        {meta.labels.map((label, idx) => (
+          <div key={`blank-${label}-${idx}`} className="flex items-center gap-2">
+            <div className="w-12 shrink-0 rounded-lg border border-slate-200 bg-slate-50 px-2 py-2 text-center text-sm font-bold text-slate-600">
+              {label}
+            </div>
+            <input
+              data-slot={idx}
+              type="text"
+              value={values[idx] || ''}
+              onChange={(e) => handleSlotChange(idx, e.target.value)}
+              onKeyDown={(e) => handleSlotKeyDown(e, idx)}
+              disabled={disabled}
+              placeholder="답 입력"
+              autoFocus={idx === 0}
+              className={`flex-1 rounded-xl border border-slate-200 bg-white text-slate-900 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-${accentColor}-300 disabled:bg-slate-50 disabled:text-slate-400`}
+            />
+          </div>
+        ))}
+        <button
+          onClick={() => onSubmit(joinMultiBlankAnswer(meta.labels, values))}
+          disabled={disabled || values.every((v) => !v?.trim())}
+          className={`w-full rounded-xl bg-${accentColor}-600 text-white px-4 py-3 text-sm font-semibold hover:opacity-90 transition disabled:opacity-50`}
+        >
+          {disabled ? '채점 중...' : '확인'}
+        </button>
+      </div>
+    );
+  }
+
+  // single / textarea: 기존 단일 입력
+  return (
+    <div className="flex gap-2 mb-4 mt-2">
+      <input
+        type="text"
+        value={typeof answer === 'string' ? answer : ''}
+        onChange={(e) => onAnswer(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); onSubmit(typeof answer === 'string' ? answer : ''); } }}
+        disabled={disabled}
+        placeholder="답 입력..."
+        autoFocus
+        className={`flex-1 rounded-xl border border-slate-200 bg-white text-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-${accentColor}-300 disabled:bg-slate-50 disabled:text-slate-400`}
+      />
+      <button
+        onClick={() => onSubmit(typeof answer === 'string' ? answer : '')}
+        disabled={disabled || !(typeof answer === 'string' ? answer.trim() : false)}
+        className={`bg-${accentColor}-600 text-white rounded-xl px-6 py-3 text-sm font-semibold hover:opacity-90 transition disabled:opacity-50`}
+      >
+        확인
+      </button>
+    </div>
+  );
+}
+
 export default function CoachSolveClient({ lang, category = 'Code', problems }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -563,8 +648,9 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
   }, [chatOpen]);
 
   function handleCheck() {
-    if (!userAnswer.trim()) return;
-    const correct = userAnswer.trim().toLowerCase() === (problem._answer || '').trim().toLowerCase();
+    const answerStr = typeof userAnswer === 'string' ? userAnswer : (Array.isArray(userAnswer) ? userAnswer.join(', ') : '');
+    if (!answerStr.trim()) return;
+    const correct = answerStr.trim().toLowerCase() === (problem._answer || '').trim().toLowerCase();
     setIsCorrect(correct);
     setChecked(true);
     setResults((prev) => [...prev, {
@@ -926,23 +1012,13 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
                   </div>
                 )}
                 {!checked ? (
-                  <div className="flex gap-2 mb-4 mt-2">
-                    <input
-                      ref={inputRef}
-                      type="text"
-                      value={userAnswer}
-                      onChange={(e) => setUserAnswer(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                      placeholder="답 입력..."
-                      className="flex-1 rounded-xl border border-slate-200 bg-white text-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
-                    />
-                    <button
-                      onClick={handleCheck}
-                      className={`${colors.accent} text-white rounded-xl px-6 py-3 text-sm font-semibold hover:opacity-90 transition`}
-                    >
-                      확인
-                    </button>
-                  </div>
+                  <AnswerInput
+                    problem={problem}
+                    answer={userAnswer}
+                    correctAnswer={problem._answer}
+                    onAnswer={setUserAnswer}
+                    onSubmit={(val) => { setUserAnswer(val); handleCheck(); }}
+                  />
                 ) : (
                   <div className="space-y-4 mb-4">
                     <div className={`rounded-xl p-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'}`}>
