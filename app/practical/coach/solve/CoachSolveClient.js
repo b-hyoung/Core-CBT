@@ -308,6 +308,169 @@ function ChatBubble({ msg, onStartProblem, onRequestSimilar }) {
   );
 }
 
+function MobileChatOverlay({
+  problem, genProblem, viewMode, lang, chatMessages, chatInput, chatLoading,
+  checked, isCorrect, userAnswer, genAnswer, genSubmitted, genResult, genLoading,
+  onClose, onChatInput, onChatSend, onStartProblem, onRequestSimilar,
+  onSwitchOriginal, onSwitchGenerated, onGenAnswer, onGenSubmit, onNext,
+  currentIndex, total, chatScrollRef,
+}) {
+  const [mobileTab, setMobileTab] = useState('chat'); // 'problem' | 'chat'
+
+  return (
+    <div className="md:hidden fixed inset-0 z-40 flex flex-col bg-white">
+      {/* 상단 바: 문제 요약 + 탭 + 닫기 */}
+      <div className="border-b border-slate-200 bg-white px-4 py-2">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-2">
+            <img src={LANG_ICON[lang]} alt={lang} className="h-4 w-4" />
+            <span className="text-xs font-bold text-slate-700">{problem._sourceSessionId} · {problem.problem_number}번</span>
+          </div>
+          <button onClick={onClose} className="flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-slate-600">
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+        {/* 탭 */}
+        <div className="flex gap-1 p-0.5 bg-slate-100 rounded-lg">
+          <button
+            onClick={() => setMobileTab('problem')}
+            className={`flex-1 rounded-md py-1.5 text-xs font-semibold transition ${mobileTab === 'problem' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-500'}`}
+          >
+            {genProblem && viewMode === 'generated' ? '유사 문제' : '문제'}
+          </button>
+          <button
+            onClick={() => setMobileTab('chat')}
+            className={`flex-1 rounded-md py-1.5 text-xs font-semibold transition ${mobileTab === 'chat' ? 'bg-violet-600 text-white shadow-sm' : 'text-slate-500'}`}
+          >
+            AI 코치
+          </button>
+        </div>
+      </div>
+
+      {/* 문제 탭 */}
+      {mobileTab === 'problem' && (
+        <div className="flex-1 overflow-y-auto p-4 bg-slate-50">
+          {/* 원본/유사 전환 */}
+          {genProblem && (
+            <div className="flex gap-1 mb-3 p-0.5 bg-slate-200/60 rounded-lg">
+              <button
+                onClick={onSwitchOriginal}
+                className={`flex-1 rounded-md py-1.5 text-xs font-semibold transition ${viewMode === 'original' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-500'}`}
+              >
+                원본
+              </button>
+              <button
+                onClick={onSwitchGenerated}
+                className={`flex-1 rounded-md py-1.5 text-xs font-semibold transition ${viewMode === 'generated' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500'}`}
+              >
+                유사 문제
+              </button>
+            </div>
+          )}
+
+          {genProblem && viewMode === 'generated' ? (
+            <>
+              <h2 className="text-sm font-bold text-slate-900 mb-2 leading-relaxed">{genProblem.question_text}</h2>
+              {genProblem.examples && <CodeBlock code={genProblem.examples} lang={lang} />}
+              {!genSubmitted ? (
+                <div className="flex gap-2">
+                  <input
+                    type="text" value={genAnswer} onChange={(e) => onGenAnswer(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); onGenSubmit(); } }}
+                    placeholder="답 입력..."
+                    className="flex-1 rounded-xl border border-emerald-200 bg-white text-slate-900 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  />
+                  <button onClick={onGenSubmit} disabled={genLoading}
+                    className="bg-emerald-600 text-white rounded-xl px-5 py-2.5 text-sm font-semibold disabled:opacity-50">
+                    {genLoading ? '...' : '제출'}
+                  </button>
+                </div>
+              ) : genResult ? (
+                <div className="space-y-2">
+                  <div className={`rounded-xl p-3 text-sm ${genResult.correct ? 'bg-emerald-50 border border-emerald-200 text-emerald-800' : 'bg-amber-50 border border-amber-200 text-amber-800'}`}>
+                    {genResult.correct ? '✅ ' : '💡 '}{genResult.reasoning}
+                  </div>
+                  <div className="flex gap-2">
+                    <button onClick={() => { onRequestSimilar(); setMobileTab('chat'); }}
+                      className="flex-1 rounded-xl bg-violet-600 text-white py-2.5 text-sm font-semibold">한 문제 더</button>
+                    <button onClick={onNext}
+                      className="flex-1 rounded-xl bg-slate-800 text-white py-2.5 text-sm font-semibold">
+                      {currentIndex + 1 >= total ? '결과 보기' : '다음 문제 →'}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-xl bg-slate-100 p-4 text-center animate-pulse text-sm text-slate-400">채점 중...</div>
+              )}
+            </>
+          ) : (
+            <>
+              <h2 className="text-sm font-bold text-slate-900 mb-2 leading-relaxed">{problem.question_text}</h2>
+              {problem.examples && <CodeBlock code={problem.examples} lang={lang} />}
+              {checked && (
+                <div className="space-y-2">
+                  <div className={`rounded-xl p-3 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'}`}>
+                    <span className={`text-sm font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}>
+                      {isCorrect ? '✅ 정답!' : '❌ 오답'}
+                    </span>
+                    {!isCorrect && <p className="text-xs text-rose-600 mt-1">내 답: {userAnswer} → 정답: {problem._answer}</p>}
+                  </div>
+                  {problem._comment && (
+                    <div className="rounded-xl bg-blue-50 border border-blue-200 p-3">
+                      <p className="text-xs font-bold text-blue-600 mb-1">해설</p>
+                      <p className="text-xs text-blue-900 leading-relaxed whitespace-pre-wrap">{problem._comment}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+
+      {/* 채팅 탭 */}
+      {mobileTab === 'chat' && (
+        <>
+          <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-3 space-y-2 bg-slate-50">
+            {chatMessages.length === 0 && (
+              <div className="text-center py-16">
+                <MessageCircle className="h-10 w-10 text-slate-200 mx-auto mb-3" />
+                <p className="text-sm text-slate-400">이 문제에 대해 질문해보세요</p>
+              </div>
+            )}
+            {chatMessages.map((msg, i) => (
+              <ChatBubble key={i} msg={msg}
+                onStartProblem={(d) => { onStartProblem(d); setMobileTab('problem'); }}
+                onRequestSimilar={onRequestSimilar}
+              />
+            ))}
+            {chatLoading && (
+              <div className="bg-white border border-slate-200 text-slate-400 rounded-xl px-3 py-2 text-sm mr-8 animate-pulse">
+                생각 중...
+              </div>
+            )}
+          </div>
+
+          <div className="border-t border-slate-200 bg-white p-3" style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}>
+            <div className="flex gap-2">
+              <input
+                type="text" value={chatInput}
+                onChange={(e) => onChatInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); onChatSend(); } }}
+                placeholder="질문하기..."
+                className="flex-1 rounded-lg border border-slate-200 bg-white text-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300"
+              />
+              <button onClick={onChatSend} className="rounded-lg bg-violet-600 text-white p-2 hover:bg-violet-500 transition">
+                <Send className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function CoachSolveClient({ lang, problems }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -840,71 +1003,47 @@ export default function CoachSolveClient({ lang, problems }) {
         )}
       </div>
 
-      {/* 모바일: 플로팅 AI 버튼 */}
-      {!chatOpen && checked && !isCorrect && (
+      {/* 모바일: 우하단 플로팅 AI 버튼 */}
+      {!chatOpen && checked && (
         <button
           onClick={() => setChatOpen(true)}
-          className="md:hidden fixed bottom-6 right-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-500 transition"
+          className="md:hidden fixed bottom-6 right-6 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-500 transition active:scale-95"
         >
           <MessageCircle className="h-6 w-6" />
         </button>
       )}
 
-      {/* 모바일: 풀스크린 채팅 오버레이 */}
+      {/* 모바일: 풀스크린 오버레이 (문제/채팅 탭 전환) */}
       {chatOpen && (
-        <div className="md:hidden fixed inset-0 z-40 flex flex-col bg-white">
-          <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
-            <div className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
-                <MessageCircle className="h-3.5 w-3.5" />
-              </div>
-              <span className="text-sm font-bold text-slate-700">AI 코치</span>
-            </div>
-            <button onClick={() => setChatOpen(false)} className="text-slate-400 hover:text-slate-600">
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-slate-50">
-            {chatMessages.length === 0 && (
-              <div className="text-center py-16">
-                <MessageCircle className="h-10 w-10 text-slate-200 mx-auto mb-3" />
-                <p className="text-sm text-slate-400">이 문제에 대해 질문해보세요</p>
-              </div>
-            )}
-            {chatMessages.map((msg, i) => (
-              <div
-                key={i}
-                className={`rounded-xl px-3 py-2 text-sm ${
-                  msg.role === 'user'
-                    ? 'bg-violet-600 text-white ml-12'
-                    : 'bg-white border border-slate-200 text-slate-700 mr-12'
-                }`}
-              >
-                {msg.content}
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-slate-200 bg-white p-3 safe-area-bottom">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleChatSend(); } }}
-                placeholder="질문하기..."
-                className="flex-1 rounded-lg border border-slate-200 bg-white text-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-300"
-              />
-              <button
-                onClick={handleChatSend}
-                className="rounded-lg bg-violet-600 text-white p-2 hover:bg-violet-500 transition"
-              >
-                <Send className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <MobileChatOverlay
+          problem={problem}
+          genProblem={genProblem}
+          viewMode={viewMode}
+          lang={lang}
+          chatMessages={chatMessages}
+          chatInput={chatInput}
+          chatLoading={chatLoading}
+          checked={checked}
+          isCorrect={isCorrect}
+          userAnswer={userAnswer}
+          genAnswer={genAnswer}
+          genSubmitted={genSubmitted}
+          genResult={genResult}
+          genLoading={genLoading}
+          onClose={() => setChatOpen(false)}
+          onChatInput={setChatInput}
+          onChatSend={handleChatSend}
+          onStartProblem={handleStartGenProblem}
+          onRequestSimilar={() => sendToAgent('이해했어. 비슷한 유형으로 문제 하나 내줘.')}
+          onSwitchOriginal={switchToOriginal}
+          onSwitchGenerated={switchToGenerated}
+          onGenAnswer={setGenAnswer}
+          onGenSubmit={handleGenSubmit}
+          onNext={handleNext}
+          currentIndex={currentIndex}
+          total={total}
+          chatScrollRef={chatScrollRef}
+        />
       )}
     </main>
   );
