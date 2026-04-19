@@ -122,7 +122,7 @@ function CodeBlock({ code, lang }) {
               <span className="select-none text-right text-[11px] mr-4 inline-block" style={{ minWidth: '2ch', color: 'rgba(255,255,255,0.15)' }}>
                 {i + 1}
               </span>
-              <span style={{ whiteSpace: 'pre' }}>
+              <span style={{ whiteSpace: lang === 'SQL' ? 'pre-wrap' : 'pre', wordBreak: lang === 'SQL' ? 'keep-all' : undefined }}>
                 <HighlightedLine line={line} lang={lang} theme={theme} />
               </span>
             </div>
