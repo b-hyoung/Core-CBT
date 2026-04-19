@@ -34,6 +34,12 @@ const LANG_THEME = {
   Python:  { active: 'bg-sky-600 text-white',    border: 'border-l-sky-500',    hover: 'hover:bg-sky-50/60' },
 };
 
+const LANG_ICON = {
+  C: '/icons/c.svg',
+  Java: '/icons/java.svg',
+  Python: '/icons/python.svg',
+};
+
 const CODE_LANGUAGES = [
   { key: '전체', icon: null, label: '전체' },
   { key: 'C',      icon: '/icons/c.svg',      label: 'C' },
@@ -121,15 +127,19 @@ export default function CoachProblemListClient({ category, slug, stats, rows }) 
                     href={`/practical/${datasetIdToRouteId(r.source_session_id)}?p=${r.problem_number}&from=coach`}
                     className={`group flex items-center justify-between rounded-xl border border-slate-200/80 border-l-4 ${getLangBorder(r.subcategory, langFilter)} bg-white px-4 py-3 shadow-sm ${getLangHover(r.subcategory, langFilter)} hover:shadow-md transition`}
                   >
-                    <div>
-                      <p className="text-xs font-medium text-slate-400">{prettySession(r.source_session_id)}</p>
-                      <p className="text-sm font-bold text-slate-800">
-                        {r.problem_number}번
-                        {r.subcategory && <span className="ml-2 text-xs font-semibold text-slate-500">({r.subcategory})</span>}
-                      </p>
-                      {r.question_preview && (
-                        <p className="mt-0.5 text-xs text-slate-400 line-clamp-1">{r.question_preview}</p>
+                    <div className="flex items-center gap-3">
+                      {r.subcategory && LANG_ICON[r.subcategory] && (
+                        <img src={LANG_ICON[r.subcategory]} alt={r.subcategory} className="h-5 w-5 shrink-0" />
                       )}
+                      <div>
+                        <p className="text-xs font-medium text-slate-400">{prettySession(r.source_session_id)}</p>
+                        <p className="text-sm font-bold text-slate-800">
+                          {r.problem_number}번
+                        </p>
+                        {r.question_preview && (
+                          <p className="mt-0.5 text-xs text-slate-400 line-clamp-1">{r.question_preview}</p>
+                        )}
+                      </div>
                     </div>
                     <ChevronRight className="h-4 w-4 text-slate-300 group-hover:translate-x-0.5 group-hover:text-slate-500 transition-transform" />
                   </Link>
