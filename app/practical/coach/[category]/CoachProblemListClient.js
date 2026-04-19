@@ -27,6 +27,13 @@ function prettySession(id) {
   return SESSION_LABELS[id] || id;
 }
 
+const LANG_THEME = {
+  '전체':  { active: 'bg-slate-700 text-white', border: 'border-l-slate-400', hover: 'hover:bg-slate-50' },
+  C:       { active: 'bg-indigo-600 text-white', border: 'border-l-indigo-500', hover: 'hover:bg-indigo-50/60' },
+  Java:    { active: 'bg-orange-500 text-white', border: 'border-l-orange-400', hover: 'hover:bg-orange-50/60' },
+  Python:  { active: 'bg-sky-600 text-white',    border: 'border-l-sky-500',    hover: 'hover:bg-sky-50/60' },
+};
+
 const CODE_LANGUAGES = [
   { key: '전체', icon: null, label: '전체' },
   { key: 'C',      icon: '/icons/c.svg',      label: 'C' },
@@ -40,6 +47,7 @@ function LanguageFilterTabs({ active, onChange, stats }) {
     <div className="flex flex-wrap gap-2 mb-4">
       {CODE_LANGUAGES.map(({ key, icon, label }) => {
         const isActive = active === key;
+        const theme = LANG_THEME[key] || LANG_THEME['전체'];
         const stat = key === '전체' ? codeStats._total : codeStats[key];
         const acc = stat?.total > 0 ? ` ${pct(stat.accuracy)}` : '';
         return (
@@ -48,7 +56,7 @@ function LanguageFilterTabs({ active, onChange, stats }) {
             onClick={() => onChange(key)}
             className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition ${
               isActive
-                ? 'bg-emerald-600 text-white shadow-sm'
+                ? `${theme.active} shadow-sm`
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             }`}
           >
@@ -59,6 +67,16 @@ function LanguageFilterTabs({ active, onChange, stats }) {
       })}
     </div>
   );
+}
+
+function getLangBorder(subcategory, activeFilter) {
+  if (activeFilter !== '전체') return LANG_THEME[activeFilter]?.border || 'border-l-slate-400';
+  return LANG_THEME[subcategory]?.border || 'border-l-slate-400';
+}
+
+function getLangHover(subcategory, activeFilter) {
+  if (activeFilter !== '전체') return LANG_THEME[activeFilter]?.hover || 'hover:bg-slate-50';
+  return LANG_THEME[subcategory]?.hover || 'hover:bg-slate-50';
 }
 
 export default function CoachProblemListClient({ category, slug, stats, rows }) {
@@ -101,7 +119,7 @@ export default function CoachProblemListClient({ category, slug, stats, rows }) 
                 <li key={`${r.source_session_id}:${r.problem_number}`}>
                   <Link
                     href={`/practical/${datasetIdToRouteId(r.source_session_id)}?p=${r.problem_number}&from=coach`}
-                    className="group flex items-center justify-between rounded-xl border border-slate-200/80 border-l-4 border-l-rose-400 bg-white px-4 py-3 shadow-sm hover:bg-rose-50/60 hover:shadow-md transition"
+                    className={`group flex items-center justify-between rounded-xl border border-slate-200/80 border-l-4 ${getLangBorder(r.subcategory, langFilter)} bg-white px-4 py-3 shadow-sm ${getLangHover(r.subcategory, langFilter)} hover:shadow-md transition`}
                   >
                     <div>
                       <p className="text-xs font-medium text-slate-400">{prettySession(r.source_session_id)}</p>
