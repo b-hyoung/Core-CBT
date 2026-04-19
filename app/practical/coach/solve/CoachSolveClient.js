@@ -541,11 +541,15 @@ export default function CoachSolveClient({ lang, problems }) {
     }
   }, [chatOpen]);
 
-  // AI 코치 열릴 때 해설만 먼저 요청
+  // AI 코치 열릴 때 자동 해설 요청
   useEffect(() => {
-    if (chatOpen && !autoSent && checked && !isCorrect) {
+    if (chatOpen && !autoSent && checked) {
       setAutoSent(true);
-      sendToAgent(`이 문제를 틀렸어. 왜 정답이 "${problem._answer}"인지 자세히 설명해줘.`);
+      if (isCorrect) {
+        sendToAgent(`이 문제를 맞혔어. 왜 정답이 "${problem._answer}"인지 핵심 포인트를 정리해줘.`);
+      } else {
+        sendToAgent(`이 문제를 틀렸어. 왜 정답이 "${problem._answer}"인지 자세히 설명해줘.`);
+      }
     }
   }, [chatOpen]);
 
@@ -961,23 +965,19 @@ export default function CoachSolveClient({ lang, problems }) {
                       </div>
                     )}
                     <div className="flex flex-col gap-2">
-                      {!isCorrect && (
-                        <>
-                          <button
-                            onClick={() => setChatOpen(true)}
-                            className="w-full flex items-center justify-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
-                          >
-                            <MessageCircle className="h-4 w-4" />
-                            AI 코치에게 물어보기
-                          </button>
-                          <button
-                            onClick={() => { setChatOpen(true); sendToAgent('비슷한 유형으로 문제 하나 내줘.'); }}
-                            className="w-full flex items-center justify-center gap-1 rounded-xl bg-emerald-600 text-white px-4 py-3 text-sm font-semibold hover:bg-emerald-500 transition"
-                          >
-                            유사 문제 바로 풀기
-                          </button>
-                        </>
-                      )}
+                      <button
+                        onClick={() => setChatOpen(true)}
+                        className="w-full flex items-center justify-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        AI 코치에게 물어보기
+                      </button>
+                      <button
+                        onClick={() => { setChatOpen(true); sendToAgent('비슷한 유형으로 문제 하나 내줘.'); }}
+                        className="w-full flex items-center justify-center gap-1 rounded-xl bg-emerald-600 text-white px-4 py-3 text-sm font-semibold hover:bg-emerald-500 transition"
+                      >
+                        유사 문제 바로 풀기
+                      </button>
                       <Link
                         href="/practical/coach/code"
                         className="w-full flex items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-slate-700 px-4 py-3 text-sm font-semibold hover:bg-slate-50 transition"
@@ -1054,7 +1054,7 @@ export default function CoachSolveClient({ lang, problems }) {
       </div>
 
       {/* 모바일: 우하단 플로팅 AI 버튼 — 오답 시에만, 버튼 아래로 겹치지 않게 */}
-      {!chatOpen && checked && !isCorrect && (
+      {!chatOpen && checked && (
         <button
           onClick={() => setChatOpen(true)}
           className="md:hidden fixed bottom-20 right-4 z-30 flex items-center gap-2 rounded-full bg-violet-600 text-white pl-4 pr-5 py-3 shadow-lg hover:bg-violet-500 transition active:scale-95"
