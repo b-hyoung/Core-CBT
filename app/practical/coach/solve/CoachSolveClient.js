@@ -641,10 +641,16 @@ function AnswerComparison({ userAnswer, correctAnswer, problem }) {
 function AnswerInput({ problem, answer, correctAnswer, onAnswer, onSubmit, disabled, accentColor = 'indigo' }) {
   // input_type 상관없이 정답에 라벨이 2개 이상이면 multi_blank로 처리
   let meta = getMultiBlankMeta(problem, correctAnswer);
-  // AI 생성 문제: question_text+examples 에서 (가)(나)(다) 직접 추출 보강
-  if ((!meta || meta.labels.length < 2) && problem?.input_type === 'multi_blank') {
+  // AI 생성 문제: question_text+examples 에서 빈칸 라벨 직접 추출 보강
+  if (!meta || meta.labels.length < 2) {
     const fullText = `${problem.question_text || ''}\n${problem.examples || ''}`;
-    const found = [...fullText.matchAll(/\(\s*([가-힣])\s*\)/g)].map(m => m[1]);
+    // (가)(나)(다) 패턴
+    const korean = [...fullText.matchAll(/\(\s*([가-힣])\s*\)/g)].map(m => m[1]);
+    // ① ② ③ 패턴
+    const circled = [...fullText.matchAll(/([①-⑳])/g)].map(m => m[1]);
+    // (1)(2)(3) 패턴
+    const numbered = [...fullText.matchAll(/\(\s*(\d+)\s*\)/g)].map(m => m[1]);
+    const found = korean.length >= 2 ? korean : circled.length >= 2 ? circled : numbered.length >= 2 ? numbered : [];
     const unique = [...new Set(found)];
     if (unique.length >= 2) meta = { labels: unique };
   }
