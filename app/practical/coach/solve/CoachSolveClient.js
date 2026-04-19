@@ -571,7 +571,14 @@ function AnswerComparison({ userAnswer, correctAnswer, problem }) {
 
 function AnswerInput({ problem, answer, correctAnswer, onAnswer, onSubmit, disabled, accentColor = 'indigo' }) {
   // input_type 상관없이 정답에 라벨이 2개 이상이면 multi_blank로 처리
-  const meta = getMultiBlankMeta(problem, correctAnswer);
+  let meta = getMultiBlankMeta(problem, correctAnswer);
+  // AI 생성 문제: question_text+examples 에서 (가)(나)(다) 직접 추출 보강
+  if ((!meta || meta.labels.length < 2) && problem?.input_type === 'multi_blank') {
+    const fullText = `${problem.question_text || ''}\n${problem.examples || ''}`;
+    const found = [...fullText.matchAll(/\(([가-힣])\)/g)].map(m => m[1]);
+    const unique = [...new Set(found)];
+    if (unique.length >= 2) meta = { labels: unique };
+  }
 
   if (meta && meta.labels.length >= 2) {
     // multi_blank: 라벨별 입력 칸
