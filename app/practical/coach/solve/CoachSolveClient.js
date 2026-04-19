@@ -240,6 +240,7 @@ export default function CoachSolveClient({ lang, problems }) {
   const [genAnswer, setGenAnswer] = useState('');
   const [genSubmitted, setGenSubmitted] = useState(false);
   const [genLoading, setGenLoading] = useState(false);
+  const [genResult, setGenResult] = useState(null); // { correct, reasoning, correctAnswer }
   const [slideDir, setSlideDir] = useState(''); // 'slide-left' | 'slide-right' | ''
   const inputRef = useRef(null);
   const chatEndRef = useRef(null);
@@ -292,6 +293,7 @@ export default function CoachSolveClient({ lang, problems }) {
     setGenProblem(null);
     setGenAnswer('');
     setGenSubmitted(false);
+    setGenResult(null);
   }
 
   async function sendToAgent(message) {
@@ -363,11 +365,11 @@ export default function CoachSolveClient({ lang, problems }) {
       if (data.ui_actions?.length > 0) {
         for (const action of data.ui_actions) {
           if (action.type === 'evaluation') {
-            setChatMessages((prev) => [...prev, {
-              role: 'assistant',
-              content: null,
-              ui_action: action,
-            }]);
+            setGenResult({
+              correct: action.correct,
+              reasoning: action.reasoning || '',
+              userAnswer: genAnswer.trim(),
+            });
           }
           if (action.type === 'present_problem') {
             // AI가 또 유사 문제를 내면 다시 전환
@@ -376,6 +378,7 @@ export default function CoachSolveClient({ lang, problems }) {
               setGenProblem({ problem_id: action.problem_id, ...action.data });
               setGenAnswer('');
               setGenSubmitted(false);
+              setGenResult(null);
               setSlideDir('');
             }, 200);
           }
@@ -499,6 +502,7 @@ export default function CoachSolveClient({ lang, problems }) {
                   <CodeBlock code={genProblem.examples} lang={lang} />
                 )}
                 {!genSubmitted ? (
+                  /* 답 입력 */
                   <div className="flex gap-2 mb-4">
                     <input
                       type="text"
@@ -517,9 +521,59 @@ export default function CoachSolveClient({ lang, problems }) {
                       {genLoading ? '채점 중...' : '제출'}
                     </button>
                   </div>
+                ) : genResult ? (
+                  /* diff 비교 UI */
+                  <div className="mb-4 space-y-3">
+                    <div className="rounded-xl overflow-hidden" style={{ background: '#1e1e2e' }}>
+                      <div className="px-4 py-2 text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(0,0,0,0.2)' }}>
+                        출력 결과 비교
+                      </div>
+                      <div className="px-4 py-3 font-mono text-sm space-y-1">
+                        <div className="flex items-center gap-2 rounded px-2 py-1" style={{ background: genResult.correct ? '#0d331a' : '#3b1111', borderLeft: `3px solid ${genResult.correct ? '#22c55e' : '#ef4444'}` }}>
+                          <span style={{ color: genResult.correct ? '#86efac' : '#fca5a5' }}>
+                            {genResult.correct ? '+' : '-'} {genResult.userAnswer}
+                          </span>
+                          <span className="text-[10px] ml-auto" style={{ color: genResult.correct ? '#4ade80' : '#f87171' }}>
+                            (내 답)
+                          </span>
+                        </div>
+                        {!genResult.correct && (
+                          <div className="flex items-center gap-2 rounded px-2 py-1" style={{ background: '#0d331a', borderLeft: '3px solid #22c55e' }}>
+                            <span style={{ color: '#86efac' }}>+ (정답은 AI 채팅에서 확인)</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* AI 피드백 요약 */}
+                    {genResult.reasoning && (
+                      <div className={`rounded-xl p-3 text-sm leading-relaxed ${genResult.correct ? 'bg-emerald-50 border border-emerald-200 text-emerald-800' : 'bg-amber-50 border border-amber-200 text-amber-800'}`}>
+                        {genResult.correct ? '✅ ' : '💡 '}
+                        {genResult.reasoning}
+                      </div>
+                    )}
+
+                    {/* 하단 버튼 */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => sendToAgent('비슷한 문제 하나 더 내줘')}
+                        className="flex-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
+                      >
+                        한 문제 더
+                      </button>
+                      <button
+                        onClick={handleNext}
+                        className="flex-1 flex items-center justify-center gap-1 rounded-xl bg-slate-800 text-white px-4 py-3 text-sm font-semibold hover:bg-slate-700 transition"
+                      >
+                        다음 원래 문제
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
                 ) : (
-                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-4 mb-4 text-center">
-                    <p className="text-sm text-slate-500">제출 완료 — AI 코치 패널에서 채점 결과를 확인하세요</p>
+                  /* 채점 대기 중 */
+                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-6 mb-4 text-center animate-pulse">
+                    <p className="text-sm text-slate-400">AI가 채점 중...</p>
                   </div>
                 )}
               </>
