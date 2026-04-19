@@ -504,6 +504,74 @@ function MobileChatOverlay({
   );
 }
 
+function AnswerComparison({ userAnswer, correctAnswer, problem }) {
+  const meta = getMultiBlankMeta(problem, correctAnswer);
+  const labels = meta?.labels || [];
+
+  // 정답을 라벨별로 파싱
+  const correctParts = {};
+  const correctStr = String(correctAnswer || '');
+  for (let i = 0; i < labels.length; i++) {
+    const label = labels[i];
+    // "(가) 값" 또는 "가: 값" 패턴으로 추출
+    const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const patterns = [
+      new RegExp(`\\(?${escapedLabel}\\)?\\s*[:：]?\\s*([^/,]+)`, 'i'),
+    ];
+    for (const re of patterns) {
+      const m = correctStr.match(re);
+      if (m) { correctParts[label] = m[1].trim(); break; }
+    }
+    if (!correctParts[label]) {
+      // fallback: 순서대로 슬래시 분리
+      const splits = correctStr.split(/\s*\/\s*/);
+      if (splits[i]) {
+        const cleaned = splits[i].replace(/^\(?\s*[가-힣①-⑳\d]+\)?\s*[:：]?\s*/, '').trim();
+        correctParts[label] = cleaned;
+      }
+    }
+  }
+
+  const userValues = Array.isArray(userAnswer) ? userAnswer : [];
+
+  return (
+    <div className="rounded-xl border border-slate-200 overflow-hidden">
+      <div className="bg-slate-50 px-4 py-2 border-b border-slate-200">
+        <p className="text-xs font-bold text-slate-500">내 답 vs 정답 비교</p>
+      </div>
+      <div className="divide-y divide-slate-100">
+        {labels.map((label, i) => {
+          const mine = (userValues[i] || '').trim();
+          const correct = (correctParts[label] || '').trim();
+          const match = mine && correct && mine.toLowerCase() === correct.toLowerCase();
+          return (
+            <div key={label} className="flex items-stretch">
+              <div className="w-12 shrink-0 flex items-center justify-center bg-slate-50 border-r border-slate-200 text-sm font-bold text-slate-600">
+                {label}
+              </div>
+              <div className="flex-1 flex">
+                <div className={`flex-1 px-3 py-2.5 text-sm border-r border-slate-100 ${match ? 'bg-emerald-50' : 'bg-rose-50/50'}`}>
+                  <p className="text-[10px] text-slate-400 mb-0.5">내 답</p>
+                  <p className={`font-semibold ${match ? 'text-emerald-700' : 'text-rose-600'}`}>{mine || '-'}</p>
+                </div>
+                <div className="flex-1 px-3 py-2.5 text-sm bg-emerald-50/30">
+                  <p className="text-[10px] text-slate-400 mb-0.5">정답</p>
+                  <p className="font-semibold text-emerald-700">{correct || '-'}</p>
+                </div>
+              </div>
+              <div className="w-8 shrink-0 flex items-center justify-center">
+                {match
+                  ? <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  : <XCircle className="h-4 w-4 text-rose-400" />}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function AnswerInput({ problem, answer, correctAnswer, onAnswer, onSubmit, disabled, accentColor = 'indigo' }) {
   // input_type 상관없이 정답에 라벨이 2개 이상이면 multi_blank로 처리
   const meta = getMultiBlankMeta(problem, correctAnswer);
@@ -648,15 +716,26 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
   }, [chatOpen]);
 
   function handleCheck() {
-    const answerStr = typeof userAnswer === 'string' ? userAnswer : (Array.isArray(userAnswer) ? userAnswer.join(', ') : '');
+    const answerStr = typeof userAnswer === 'string' ? userAnswer : (Array.isArray(userAnswer) ? joinMultiBlankAnswer(getMultiBlankMeta(problem, problem._answer)?.labels || [], userAnswer) : '');
     if (!answerStr.trim()) return;
-    const correct = answerStr.trim().toLowerCase() === (problem._answer || '').trim().toLowerCase();
+
+    const isMulti = Array.isArray(userAnswer) && userAnswer.length >= 2;
+    let correct;
+
+    if (isMulti) {
+      // multi_blank: 자동 채점 안 함 → 항상 null (비교 UI로 전환)
+      correct = null;
+    } else {
+      // single: 대소문자·공백 무시 비교
+      correct = answerStr.trim().toLowerCase() === (problem._answer || '').trim().toLowerCase();
+    }
+
     setIsCorrect(correct);
     setChecked(true);
     setResults((prev) => [...prev, {
       problemNumber: problem.problem_number,
       sourceSessionId: problem._sourceSessionId,
-      correct,
+      correct: correct === true,
     }]);
   }
 
@@ -1021,28 +1100,33 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
                   />
                 ) : (
                   <div className="space-y-4 mb-4">
-                    <div className={`rounded-xl p-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'}`}>
-                      <div className="flex items-center gap-2 mb-2">
-                        {isCorrect
-                          ? <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                          : <XCircle className="h-5 w-5 text-rose-600" />}
-                        <span className={`text-sm font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}>
-                          {isCorrect ? '정답!' : '오답'}
-                        </span>
-                      </div>
-                      {!isCorrect && (
-                        <div className="flex gap-3 text-sm">
-                          <div className="flex-1 rounded-lg bg-rose-100/60 px-3 py-2 text-center">
-                            <p className="text-[10px] text-rose-400 font-semibold mb-0.5">내 답</p>
-                            <p className="font-bold text-rose-700">{userAnswer}</p>
-                          </div>
-                          <div className="flex-1 rounded-lg bg-emerald-100/60 px-3 py-2 text-center">
-                            <p className="text-[10px] text-emerald-500 font-semibold mb-0.5">정답</p>
-                            <p className="font-bold text-emerald-700">{problem._answer}</p>
-                          </div>
+                    {isCorrect === null ? (
+                      /* multi_blank 비교 모드: 빈칸별 내 답 vs 정답 나란히 */
+                      <AnswerComparison userAnswer={userAnswer} correctAnswer={problem._answer} problem={problem} />
+                    ) : (
+                      <div className={`rounded-xl p-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'}`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          {isCorrect
+                            ? <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                            : <XCircle className="h-5 w-5 text-rose-600" />}
+                          <span className={`text-sm font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}>
+                            {isCorrect ? '정답!' : '오답'}
+                          </span>
                         </div>
-                      )}
-                    </div>
+                        {!isCorrect && (
+                          <div className="flex gap-3 text-sm">
+                            <div className="flex-1 rounded-lg bg-rose-100/60 px-3 py-2 text-center">
+                              <p className="text-[10px] text-rose-400 font-semibold mb-0.5">내 답</p>
+                              <p className="font-bold text-rose-700">{typeof userAnswer === 'string' ? userAnswer : ''}</p>
+                            </div>
+                            <div className="flex-1 rounded-lg bg-emerald-100/60 px-3 py-2 text-center">
+                              <p className="text-[10px] text-emerald-500 font-semibold mb-0.5">정답</p>
+                              <p className="font-bold text-emerald-700">{problem._answer}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                     {problem._comment && (
                       <div className="mt-4 rounded-xl bg-blue-50/70 border border-blue-100 p-5">
                         <p className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-3">해설</p>
