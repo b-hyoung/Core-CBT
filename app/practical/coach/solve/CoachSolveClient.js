@@ -188,11 +188,32 @@ function renderInline(text) {
   });
 }
 
-function ChatBubble({ msg }) {
+function ChatBubble({ msg, onStartProblem }) {
   if (msg.role === 'user') {
     return (
       <div className="bg-violet-600 text-white rounded-xl px-3 py-2 text-sm ml-8">
         {msg.content}
+      </div>
+    );
+  }
+  // 유사 문제 대기 카드 (버튼)
+  if (msg.ui_action?.type === 'pending_problem') {
+    const d = msg.ui_action.data;
+    return (
+      <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 mr-4">
+        <p className="text-xs font-bold text-emerald-700 mb-1">✏️ 유사 문제 준비됨</p>
+        <p className="text-sm text-emerald-900 mb-2 line-clamp-2">{d.question_text}</p>
+        {d.examples && (
+          <pre className="bg-slate-900 text-slate-200 rounded-lg p-2 text-xs font-mono mb-2 overflow-x-auto whitespace-pre-wrap max-h-24 overflow-y-hidden">
+            {d.examples.slice(0, 150)}{d.examples.length > 150 ? '...' : ''}
+          </pre>
+        )}
+        <button
+          onClick={() => onStartProblem?.(d)}
+          className="w-full rounded-lg bg-emerald-600 text-white py-2 text-sm font-semibold hover:bg-emerald-500 transition"
+        >
+          유사문제 풀기 →
+        </button>
       </div>
     );
   }
@@ -317,18 +338,13 @@ export default function CoachSolveClient({ lang, problems }) {
       if (data.ui_actions?.length > 0) {
         for (const action of data.ui_actions) {
           if (action.type === 'present_problem') {
+            // 자동 슬라이드 X → 채팅에 버튼 카드로 표시
+            const pendingProblem = { problem_id: action.problem_id, ...action.data };
             setChatMessages((prev) => [...prev, {
               role: 'assistant',
-              content: '유사 문제를 왼쪽에 띄웠어요. 풀어보세요!',
+              content: null,
+              ui_action: { type: 'pending_problem', data: pendingProblem },
             }]);
-            // 왼쪽 슬라이드 전환
-            setSlideDir('slide-left');
-            setTimeout(() => {
-              setGenProblem({ problem_id: action.problem_id, ...action.data });
-              setGenAnswer('');
-              setGenSubmitted(false);
-              setSlideDir('');
-            }, 200);
           }
         }
       }
@@ -389,6 +405,17 @@ export default function CoachSolveClient({ lang, problems }) {
     } finally {
       setGenLoading(false);
     }
+  }
+
+  function handleStartGenProblem(problemData) {
+    setSlideDir('slide-left');
+    setTimeout(() => {
+      setGenProblem(problemData);
+      setGenAnswer('');
+      setGenSubmitted(false);
+      setGenResult(null);
+      setSlideDir('');
+    }, 200);
   }
 
   function handleBackToOriginal() {
@@ -491,9 +518,19 @@ export default function CoachSolveClient({ lang, problems }) {
             {genProblem ? (
               /* ─── 유사 문제 모드 ─── */
               <>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-bold">유사 문제</span>
-                  <button onClick={handleBackToOriginal} className="text-xs text-slate-400 hover:text-slate-600 underline">원래 문제 보기</button>
+                {/* 원본/유사 탭 전환 */}
+                <div className="flex gap-1 mb-4 p-1 bg-slate-100 rounded-xl">
+                  <button
+                    onClick={handleBackToOriginal}
+                    className="flex-1 rounded-lg px-3 py-2 text-xs font-semibold text-slate-500 hover:bg-white hover:text-slate-700 transition"
+                  >
+                    원본 문제
+                  </button>
+                  <button
+                    className="flex-1 rounded-lg px-3 py-2 text-xs font-semibold bg-white text-emerald-700 shadow-sm"
+                  >
+                    유사 문제
+                  </button>
                 </div>
                 <h2 className="text-base font-bold text-slate-900 mb-3 leading-relaxed">
                   {genProblem.question_text}
@@ -583,6 +620,7 @@ export default function CoachSolveClient({ lang, problems }) {
                 <p className="text-xs font-medium text-slate-400 mb-1">
                   {problem._sourceSessionId} · {problem.problem_number}번
                 </p>
+
                 <h2 className="text-base font-bold text-slate-900 mb-3 leading-relaxed">
                   {problem.question_text}
                 </h2>
@@ -682,7 +720,7 @@ export default function CoachSolveClient({ lang, problems }) {
                 </div>
               )}
               {chatMessages.map((msg, i) => (
-                <ChatBubble key={i} msg={msg} />
+                <ChatBubble key={i} msg={msg} onStartProblem={handleStartGenProblem} />
               ))}
               {chatLoading && (
                 <div className="bg-white border border-slate-200 text-slate-400 rounded-xl px-3 py-2 text-sm mr-8 animate-pulse">
