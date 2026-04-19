@@ -674,6 +674,7 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
   const [viewMode, setViewMode] = useState('original'); // 'original' | 'generated'
   const inputRef = useRef(null);
   const chatScrollRef = useRef(null);
+  const desktopChatScrollRef = useRef(null);
 
   const problem = problems[currentIndex];
   const colors = LANG_COLOR[lang] || LANG_COLOR.C;
@@ -683,20 +684,20 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
     if (!checked && inputRef.current) inputRef.current.focus();
   }, [currentIndex, checked]);
 
-  useEffect(() => {
-    if (chatScrollRef.current) {
-      const el = chatScrollRef.current;
-      el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+  function scrollAllChats(behavior = 'smooth') {
+    for (const ref of [chatScrollRef, desktopChatScrollRef]) {
+      if (ref.current) {
+        ref.current.scrollTo({ top: ref.current.scrollHeight, behavior });
+      }
     }
+  }
+
+  useEffect(() => {
+    scrollAllChats('smooth');
   }, [chatMessages, chatLoading]);
 
-  // 채팅 패널 열릴 때 맨 아래로
   useEffect(() => {
-    if (chatOpen && chatScrollRef.current) {
-      setTimeout(() => {
-        chatScrollRef.current.scrollTo({ top: chatScrollRef.current.scrollHeight });
-      }, 50);
-    }
+    if (chatOpen) setTimeout(() => scrollAllChats('instant'), 50);
   }, [chatOpen]);
 
   // AI 코치 열릴 때 자동 해설 요청
@@ -1170,7 +1171,7 @@ export default function CoachSolveClient({ lang, category = 'Code', problems }) 
             </div>
 
             {/* 메시지 목록 */}
-            <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-3 space-y-2">
+            <div ref={desktopChatScrollRef} className="flex-1 overflow-y-auto p-3 space-y-2">
               {chatMessages.length === 0 && (
                 <div className="text-center py-10">
                   <MessageCircle className="h-8 w-8 text-slate-200 mx-auto mb-2" />
