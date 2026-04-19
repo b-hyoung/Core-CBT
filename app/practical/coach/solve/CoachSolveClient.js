@@ -315,10 +315,23 @@ function MobileChatOverlay({
   onSwitchOriginal, onSwitchGenerated, onGenAnswer, onGenSubmit, onNext,
   currentIndex, total, chatScrollRef,
 }) {
-  const [mobileTab, setMobileTab] = useState('chat'); // 'problem' | 'chat'
+  const [mobileTab, setMobileTab] = useState('chat');
+  const [kbHeight, setKbHeight] = useState(0);
+
+  // 키보드 높이 감지 (visualViewport API)
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    function onResize() {
+      const diff = window.innerHeight - vv.height;
+      setKbHeight(diff > 50 ? diff : 0);
+    }
+    vv.addEventListener('resize', onResize);
+    return () => vv.removeEventListener('resize', onResize);
+  }, []);
 
   return (
-    <div className="md:hidden fixed inset-0 z-40 flex flex-col bg-white">
+    <div className="md:hidden fixed inset-x-0 top-0 z-40 flex flex-col bg-white" style={{ height: `calc(100dvh - ${kbHeight}px)` }}>
       {/* 상단 바: 문제 요약 + 탭 + 닫기 */}
       <div className="border-b border-slate-200 bg-white px-4 py-2">
         <div className="flex items-center justify-between mb-2">
