@@ -25,7 +25,7 @@ def _normalize(text: str) -> str:
 
 
 def _get_original_answer(session) -> str:
-    """세션의 시스템 프롬프트 이전 get_question_detail 결과에서 원래 정답 추출."""
+    """세션의 get_question_detail 결과에서 원래 정답 추출."""
     for msg in session.messages:
         if isinstance(msg, dict) and msg.get("role") == "tool":
             try:
@@ -35,6 +35,38 @@ def _get_original_answer(session) -> str:
             except (json.JSONDecodeError, TypeError):
                 pass
     return ""
+
+
+def _check_answer_duplicate(new_answer: str, session) -> str | None:
+    """새 유사 문제 정답이 원래 문제 또는 이전 유사 문제와 겹치면 거부 메시지 반환."""
+    if not new_answer:
+        return None
+
+    # 1. 원래 문제 정답과 완전 일치
+    original = _get_original_answer(session)
+    if original and new_answer == original:
+        return ("REJECTED: 유사 문제의 정답이 원래 문제와 동일합니다. "
+                "완전히 다른 SQL 키워드/값이 정답이 되도록 새로 설계해서 다시 호출하세요.")
+
+    # 2. 이전 유사 문제 정답과 유사도 체크 (개별 답 항목 50% 이상 겹치면 거부)
+    for prev in session.generated_problems:
+        prev_answer = _normalize(prev.get("expected_answer", ""))
+        if not prev_answer:
+            continue
+        if new_answer == prev_answer:
+            return ("REJECTED: 이전에 낸 유사 문제와 정답이 동일합니다. "
+                    "각 빈칸의 키워드를 모두 다르게 바꿔서 다시 만들어주세요.")
+        # 개별 키워드 비교
+        new_parts = set(new_answer.replace(":", "").split())
+        prev_parts = set(prev_answer.replace(":", "").split())
+        if new_parts and prev_parts:
+            overlap = len(new_parts & prev_parts) / max(len(new_parts), len(prev_parts))
+            if overlap >= 0.5:
+                diff_needed = prev_parts - new_parts
+                return (f"REJECTED: 이전 유사 문제와 정답이 너무 비슷합니다 (겹침: {new_parts & prev_parts}). "
+                        f"각 빈칸마다 완전히 다른 SQL 키워드를 사용하세요.")
+
+    return None
 
 
 async def dispatch_tool(tool_call, user_email: str, session, ui_actions: list) -> dict[str, Any]:
@@ -69,11 +101,11 @@ async def dispatch_tool(tool_call, user_email: str, session, ui_actions: list) -
                 category=args.get("category"),
             )
         if name == "present_similar_problem":
-            # 정답 중복 거부: 원래 문제 정답과 유사 문제 정답이 같으면 재생성 요청
+            # 정답 중복 거부: 원래 문제 + 이전 유사 문제 정답과 비교
             new_answer = _normalize(args.get("expected_answer", ""))
-            original_answer = _get_original_answer(session)
-            if new_answer and original_answer and new_answer == original_answer:
-                return {"error": "REJECTED: 유사 문제의 정답이 원래 문제와 완전히 동일합니다. 다른 SQL 키워드가 정답이 되도록 테이블 구조와 조건을 완전히 새로 설계해서 present_similar_problem을 다시 호출하세요. 예: OR→AND였다면 BETWEEN, LIKE, EXISTS 등 다른 키워드를 정답으로."}
+            reject_reason = _check_answer_duplicate(new_answer, session)
+            if reject_reason:
+                return {"error": reject_reason}
             return handle_present_similar_problem(args, session, ui_actions)
         if name == "submit_evaluation":
             return handle_submit_evaluation(args, session, ui_actions)
