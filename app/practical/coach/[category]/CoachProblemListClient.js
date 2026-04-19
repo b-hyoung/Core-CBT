@@ -7,6 +7,14 @@ function pct(n) {
   return `${Math.round((n || 0) * 100)}%`;
 }
 
+// datasets 폴더명(2024-first) → Next.js 라우트 ID(practical-industrial-2024-1)
+const ROUND_MAP = { first: '1', second: '2', third: '3' };
+function datasetIdToRouteId(datasetId) {
+  const m = String(datasetId).match(/^(\d{4})-(first|second|third)$/);
+  if (!m) return datasetId;
+  return `practical-industrial-${m[1]}-${ROUND_MAP[m[2]]}`;
+}
+
 const SESSION_LABELS = {
   '2022-first': '2022년 1회', '2022-second': '2022년 2회', '2022-third': '2022년 3회',
   '2023-first': '2023년 1회', '2023-second': '2023년 2회', '2023-third': '2023년 3회',
@@ -61,7 +69,7 @@ export default function CoachProblemListClient({ category, slug, stats, rows }) 
               {rows.map((r) => (
                 <li key={`${r.source_session_id}:${r.problem_number}`}>
                   <Link
-                    href={`/practical/${r.source_session_id}?p=${r.problem_number}&from=coach`}
+                    href={`/practical/${datasetIdToRouteId(r.source_session_id)}?p=${r.problem_number}&from=coach`}
                     className="group flex items-center justify-between rounded-xl border border-slate-200/80 border-l-4 border-l-rose-400 bg-white px-4 py-3 shadow-sm hover:bg-rose-50/60 hover:shadow-md transition"
                   >
                     <div>
