@@ -505,8 +505,8 @@ function MobileChatOverlay({
 }
 
 function AnswerInput({ problem, answer, correctAnswer, onAnswer, onSubmit, disabled, accentColor = 'indigo' }) {
-  const inputType = problem?.input_type || 'single';
-  const meta = inputType === 'multi_blank' ? getMultiBlankMeta(problem, correctAnswer) : null;
+  // input_type 상관없이 정답에 라벨이 2개 이상이면 multi_blank로 처리
+  const meta = getMultiBlankMeta(problem, correctAnswer);
 
   if (meta && meta.labels.length >= 2) {
     // multi_blank: 라벨별 입력 칸
