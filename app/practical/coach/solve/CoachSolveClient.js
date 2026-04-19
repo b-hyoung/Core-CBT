@@ -125,6 +125,38 @@ function CodeBlock({ code, lang }) {
   );
 }
 
+function ChatBubble({ msg }) {
+  if (msg.role === 'user') {
+    return (
+      <div className="bg-violet-600 text-white rounded-xl px-3 py-2 text-sm ml-8">
+        {msg.content}
+      </div>
+    );
+  }
+  // 유사 문제 카드
+  if (msg.ui_action?.type === 'present_problem') {
+    const d = msg.ui_action.data || {};
+    return (
+      <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 mr-4">
+        <p className="text-xs font-bold text-emerald-700 mb-1">✏️ 유사 문제</p>
+        <p className="text-sm text-emerald-900 mb-2">{d.question_text}</p>
+        {d.examples && (
+          <pre className="bg-slate-900 text-emerald-300 rounded-lg p-2 text-xs font-mono mb-2 overflow-x-auto whitespace-pre-wrap">
+            {d.examples}
+          </pre>
+        )}
+        <p className="text-[10px] text-emerald-500">답을 아래 입력창에 보내세요</p>
+      </div>
+    );
+  }
+  // 일반 AI 응답
+  return (
+    <div className="bg-white border border-slate-200 text-slate-700 rounded-xl px-3 py-2 text-sm mr-8 whitespace-pre-wrap leading-relaxed">
+      {msg.content}
+    </div>
+  );
+}
+
 export default function CoachSolveClient({ lang, problems }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -133,6 +165,8 @@ export default function CoachSolveClient({ lang, problems }) {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+  const [autoSent, setAutoSent] = useState(false); // 자동 해설 요청 여부
   const [completed, setCompleted] = useState(false);
   const [results, setResults] = useState([]); // {problemNumber, sourceSessionId, correct}
   const inputRef = useRef(null);
@@ -149,6 +183,14 @@ export default function CoachSolveClient({ lang, problems }) {
   useEffect(() => {
     if (chatEndRef.current) chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
+
+  // AI 코치 열릴 때 자동 해설 요청
+  useEffect(() => {
+    if (chatOpen && !autoSent && checked && !isCorrect) {
+      setAutoSent(true);
+      sendToAgent(`이 문제를 틀렸어. 왜 정답이 "${problem._answer}"인지 설명해주고, 이해할 수 있게 비슷한 문제를 내줘.`);
+    }
+  }, [chatOpen]);
 
   function handleCheck() {
     if (!userAnswer.trim()) return;
@@ -172,16 +214,55 @@ export default function CoachSolveClient({ lang, problems }) {
     setChecked(false);
     setIsCorrect(false);
     setChatMessages([]);
+    setChatOpen(false);
+    setAutoSent(false);
+    setChatLoading(false);
+  }
+
+  async function sendToAgent(message) {
+    setChatLoading(true);
+    setChatMessages((prev) => [...prev, { role: 'user', content: message }]);
+    try {
+      const resp = await fetch('/api/agent/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source_session_id: problem._sourceSessionId,
+          problem_number: problem.problem_number,
+          message,
+        }),
+      });
+      const data = await resp.json();
+      if (data.reply) {
+        setChatMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
+      }
+      // ui_actions 처리 (유사 문제 카드 등)
+      if (data.ui_actions?.length > 0) {
+        for (const action of data.ui_actions) {
+          if (action.type === 'present_problem') {
+            setChatMessages((prev) => [...prev, {
+              role: 'assistant',
+              content: null,
+              ui_action: action,
+            }]);
+          }
+        }
+      }
+    } catch (e) {
+      setChatMessages((prev) => [...prev, {
+        role: 'assistant',
+        content: '연결 오류가 발생했어요. FastAPI 서버가 실행 중인지 확인해주세요.',
+      }]);
+    } finally {
+      setChatLoading(false);
+    }
   }
 
   function handleChatSend() {
-    if (!chatInput.trim()) return;
-    setChatMessages((prev) => [
-      ...prev,
-      { role: 'user', content: chatInput.trim() },
-      { role: 'assistant', content: '(AI 응답은 Phase 4에서 FastAPI 연동 후 활성화됩니다)' },
-    ]);
+    if (!chatInput.trim() || chatLoading) return;
+    const msg = chatInput.trim();
     setChatInput('');
+    sendToAgent(msg);
   }
 
   function handleKeyDown(e) {
@@ -374,17 +455,13 @@ export default function CoachSolveClient({ lang, problems }) {
                 </div>
               )}
               {chatMessages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={`rounded-xl px-3 py-2 text-sm ${
-                    msg.role === 'user'
-                      ? 'bg-violet-600 text-white ml-8'
-                      : 'bg-white border border-slate-200 text-slate-700 mr-8'
-                  }`}
-                >
-                  {msg.content}
-                </div>
+                <ChatBubble key={i} msg={msg} />
               ))}
+              {chatLoading && (
+                <div className="bg-white border border-slate-200 text-slate-400 rounded-xl px-3 py-2 text-sm mr-8 animate-pulse">
+                  생각 중...
+                </div>
+              )}
               <div ref={chatEndRef} />
             </div>
 
