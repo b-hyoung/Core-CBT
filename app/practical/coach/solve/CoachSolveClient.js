@@ -944,29 +944,27 @@ export default function CoachSolveClient({ lang, problems }) {
                     )}
                     <div className="flex flex-col gap-2">
                       {!isCorrect && (
-                        <button
-                          onClick={() => setChatOpen(true)}
-                          className="w-full flex items-center justify-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
-                        >
-                          <MessageCircle className="h-4 w-4" />
-                          AI 코치에게 물어보기
-                        </button>
-                      )}
-                      {currentIndex + 1 < total && (
-                        <button
-                          onClick={handleNext}
-                          className="w-full flex items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-slate-700 px-4 py-3 text-sm font-semibold hover:bg-slate-50 transition"
-                        >
-                          다른 문제 풀기
-                          <ChevronRight className="h-4 w-4" />
-                        </button>
+                        <>
+                          <button
+                            onClick={() => setChatOpen(true)}
+                            className="w-full flex items-center justify-center gap-1 rounded-xl bg-violet-600 text-white px-4 py-3 text-sm font-semibold hover:bg-violet-500 transition"
+                          >
+                            <MessageCircle className="h-4 w-4" />
+                            AI 코치에게 물어보기
+                          </button>
+                          <button
+                            onClick={() => { setChatOpen(true); sendToAgent('비슷한 유형으로 문제 하나 내줘.'); }}
+                            className="w-full flex items-center justify-center gap-1 rounded-xl bg-emerald-600 text-white px-4 py-3 text-sm font-semibold hover:bg-emerald-500 transition"
+                          >
+                            유사 문제 바로 풀기
+                          </button>
+                        </>
                       )}
                       <Link
                         href="/practical/coach/code"
-                        className="w-full flex items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-slate-500 px-4 py-2.5 text-xs font-medium hover:bg-slate-50 transition"
+                        className="w-full flex items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-slate-700 px-4 py-3 text-sm font-semibold hover:bg-slate-50 transition"
                       >
-                        <ChevronLeft className="h-3.5 w-3.5" />
-                        목록으로 돌아가기
+                        다른 문제 풀기
                       </Link>
                     </div>
                   </div>
