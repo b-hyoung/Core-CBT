@@ -884,7 +884,6 @@ export default function CoachSolveClient({ lang, problems }) {
                 {msg.content}
               </div>
             ))}
-            <div ref={chatEndRef} />
           </div>
 
           <div className="border-t border-slate-200 bg-white p-3 safe-area-bottom">
