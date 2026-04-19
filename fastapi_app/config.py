@@ -26,7 +26,11 @@ class Settings(BaseSettings):
     agent_max_iterations: int = 5
     agent_rate_limit_per_hour: int = 20
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file="../.env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 @lru_cache
