@@ -95,6 +95,76 @@ function HighlightedLine({ line, lang, theme }) {
   ))}</>;
 }
 
+function formatProblemText(text) {
+  if (!text) return { description: '', sqlParts: [] };
+  // \\n → \n 변환
+  let cleaned = text.replace(/\\n/g, '\n');
+  // - 구분자로 이어진 문장을 줄바꿈으로 분리
+  cleaned = cleaned.replace(/\s*-\s+/g, '\n');
+  // <SQL문> 이전까지를 설명, <SQL문> 이후를 SQL로 분리
+  const lines = cleaned.split('\n').filter(l => l.trim());
+  const descLines = [];
+  const sqlLines = [];
+  let inSql = false;
+  for (const line of lines) {
+    if (line.includes('<SQL') || line.includes('SELECT') || line.includes('INSERT') || line.includes('UPDATE') || line.includes('DELETE') || line.includes('CREATE')) {
+      inSql = true;
+    }
+    if (inSql) {
+      sqlLines.push(line);
+    } else {
+      descLines.push(line);
+    }
+    // SQL 끝나면 다시 설명으로
+    if (inSql && line.trim().endsWith(';')) {
+      inSql = false;
+    }
+  }
+  return { description: descLines.join('\n'), sqlParts: sqlLines };
+}
+
+function FormattedProblem({ problem, lang, category }) {
+  const qt = problem.question_text || '';
+  const ex = problem.examples || '';
+  // examples가 있으면 그대로 사용, 없으면 question_text에서 추출
+  const hasExamples = ex.trim().length > 10;
+
+  if (hasExamples) {
+    // question_text에서 SQL 부분 제거 (examples에 이미 있으므로)
+    const { description } = formatProblemText(qt);
+    const cleanDesc = description || qt.split('<SQL')[0].replace(/\\n/g, '\n').replace(/\s*-\s+/g, '\n').trim();
+    return (
+      <>
+        <div className="text-base font-bold text-slate-900 mb-5 leading-relaxed whitespace-pre-line">
+          {cleanDesc.split('\n').filter(l => l.trim()).map((line, i) => (
+            <p key={i} className={i > 0 ? 'mt-2' : ''}>{line.trim()}</p>
+          ))}
+        </div>
+        <div className="mb-5">
+          <CodeBlock code={ex.replace(/\\n/g, '\n')} lang={lang || category} />
+        </div>
+      </>
+    );
+  }
+
+  // examples가 없으면 question_text에서 SQL 분리
+  const { description, sqlParts } = formatProblemText(qt);
+  return (
+    <>
+      <div className="text-base font-bold text-slate-900 mb-5 leading-relaxed">
+        {(description || qt).split('\n').filter(l => l.trim()).map((line, i) => (
+          <p key={i} className={i > 0 ? 'mt-2 text-sm font-normal text-slate-700' : ''}>{line.trim()}</p>
+        ))}
+      </div>
+      {sqlParts.length > 0 && (
+        <div className="mb-5">
+          <CodeBlock code={sqlParts.join('\n')} lang={lang || category} />
+        </div>
+      )}
+    </>
+  );
+}
+
 function CodeBlock({ code, lang }) {
   const theme = CODE_THEME[lang] || CODE_THEME.C;
   const lines = code.split('\n');
@@ -402,8 +472,7 @@ function MobileChatOverlay({
 
           {genProblem && viewMode === 'generated' ? (
             <>
-              <h2 className="text-base font-bold text-slate-900 mb-5 leading-relaxed">{genProblem.question_text}</h2>
-              {genProblem.examples && <CodeBlock code={genProblem.examples} lang={lang || category} />}
+              <FormattedProblem problem={genProblem} lang={lang} category={category} />
               {!genSubmitted ? (
                 <AnswerInput
                   problem={genProblem}
