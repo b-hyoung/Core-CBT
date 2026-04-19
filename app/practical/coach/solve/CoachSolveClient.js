@@ -188,11 +188,24 @@ function renderInline(text) {
   });
 }
 
-function ChatBubble({ msg, onStartProblem }) {
+function ChatBubble({ msg, onStartProblem, onRequestSimilar }) {
   if (msg.role === 'user') {
     return (
       <div className="bg-violet-600 text-white rounded-xl px-3 py-2 text-sm ml-8">
         {msg.content}
+      </div>
+    );
+  }
+  // "유사 문제 내줘" 제안 버튼
+  if (msg.ui_action?.type === 'suggest_similar') {
+    return (
+      <div className="mr-4">
+        <button
+          onClick={() => onRequestSimilar?.()}
+          className="w-full rounded-xl bg-violet-50 border border-violet-200 text-violet-700 py-3 text-sm font-semibold hover:bg-violet-100 transition"
+        >
+          비슷한 유형 문제 풀어보기
+        </button>
       </div>
     );
   }
@@ -278,11 +291,11 @@ export default function CoachSolveClient({ lang, problems }) {
     if (chatEndRef.current) chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
 
-  // AI 코치 열릴 때 자동 해설 요청
+  // AI 코치 열릴 때 해설만 먼저 요청
   useEffect(() => {
     if (chatOpen && !autoSent && checked && !isCorrect) {
       setAutoSent(true);
-      sendToAgent(`이 문제를 틀렸어. 왜 정답이 "${problem._answer}"인지 설명해주고, 이해할 수 있게 비슷한 문제를 내줘.`);
+      sendToAgent(`이 문제를 틀렸어. 왜 정답이 "${problem._answer}"인지 자세히 설명해줘.`);
     }
   }, [chatOpen]);
 
@@ -334,7 +347,16 @@ export default function CoachSolveClient({ lang, problems }) {
       if (data.reply) {
         setChatMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
       }
-      // ui_actions 처리 — 유사 문제가 왼쪽 슬라이드로 전환
+      // 해설 응답인데 유사 문제가 없으면 → "유사 문제 내줘" 버튼 추가
+      const hasPresentProblem = data.ui_actions?.some((a) => a.type === 'present_problem');
+      if (data.reply && !hasPresentProblem && !genProblem) {
+        setChatMessages((prev) => [...prev, {
+          role: 'assistant',
+          content: null,
+          ui_action: { type: 'suggest_similar' },
+        }]);
+      }
+      // ui_actions 처리
       if (data.ui_actions?.length > 0) {
         for (const action of data.ui_actions) {
           if (action.type === 'present_problem') {
@@ -720,7 +742,7 @@ export default function CoachSolveClient({ lang, problems }) {
                 </div>
               )}
               {chatMessages.map((msg, i) => (
-                <ChatBubble key={i} msg={msg} onStartProblem={handleStartGenProblem} />
+                <ChatBubble key={i} msg={msg} onStartProblem={handleStartGenProblem} onRequestSimilar={() => sendToAgent('이해했어. 비슷한 유형으로 문제 하나 내줘.')} />
               ))}
               {chatLoading && (
                 <div className="bg-white border border-slate-200 text-slate-400 rounded-xl px-3 py-2 text-sm mr-8 animate-pulse">
