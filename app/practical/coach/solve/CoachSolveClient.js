@@ -125,38 +125,66 @@ function CodeBlock({ code, lang }) {
   );
 }
 
-// 마크다운 코드블럭을 분리해서 렌더링
+// 마크다운 렌더링 (코드블럭, 헤더, 인라인코드, 볼드, 줄바꿈)
 function renderMarkdown(text) {
   if (!text) return null;
+
+  // 1. 코드블럭 분리
   const parts = text.split(/(```[\s\S]*?```)/g);
+
   return parts.map((part, i) => {
+    // 코드블럭
     const codeMatch = part.match(/^```(\w*)\n?([\s\S]*?)```$/);
     if (codeMatch) {
       return (
-        <pre key={i} className="bg-slate-900 text-slate-200 rounded-lg p-3 text-xs font-mono my-2 overflow-x-auto whitespace-pre-wrap">
+        <pre key={i} className="bg-slate-900 text-slate-200 rounded-lg p-3 text-xs font-mono my-2 overflow-x-auto whitespace-pre-wrap leading-relaxed">
           {codeMatch[2].trim()}
         </pre>
       );
     }
-    // 인라인 코드 `...`
-    const inlineParts = part.split(/(`[^`]+`)/g);
+
+    // 2. 줄 단위로 처리 (헤더, 일반 텍스트)
+    const lines = part.split('\n');
     return (
       <span key={i}>
-        {inlineParts.map((ip, j) => {
-          if (ip.startsWith('`') && ip.endsWith('`')) {
-            return <code key={j} className="bg-slate-100 text-rose-600 px-1.5 py-0.5 rounded text-xs font-mono">{ip.slice(1, -1)}</code>;
+        {lines.map((line, li) => {
+          const trimmed = line.trimStart();
+
+          // 헤더
+          if (trimmed.startsWith('#### ')) {
+            return <p key={li} className="text-xs font-bold text-slate-500 mt-3 mb-1">{renderInline(trimmed.slice(5))}</p>;
           }
-          // 볼드 **...**
-          const boldParts = ip.split(/(\*\*[^*]+\*\*)/g);
-          return boldParts.map((bp, k) => {
-            if (bp.startsWith('**') && bp.endsWith('**')) {
-              return <strong key={`${j}-${k}`}>{bp.slice(2, -2)}</strong>;
-            }
-            return bp;
-          });
+          if (trimmed.startsWith('### ')) {
+            return <p key={li} className="text-sm font-bold text-slate-700 mt-3 mb-1">{renderInline(trimmed.slice(4))}</p>;
+          }
+          if (trimmed.startsWith('## ')) {
+            return <p key={li} className="text-base font-bold text-slate-800 mt-3 mb-1">{renderInline(trimmed.slice(3))}</p>;
+          }
+
+          // 빈 줄
+          if (!trimmed) {
+            return <br key={li} />;
+          }
+
+          // 일반 텍스트
+          return <span key={li}>{renderInline(line)}{li < lines.length - 1 ? '\n' : ''}</span>;
         })}
       </span>
     );
+  });
+}
+
+// 인라인 마크다운: `code`, **bold**
+function renderInline(text) {
+  const tokens = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
+  return tokens.map((tok, i) => {
+    if (tok.startsWith('`') && tok.endsWith('`')) {
+      return <code key={i} className="bg-slate-800 text-emerald-300 px-1.5 py-0.5 rounded text-xs font-mono">{tok.slice(1, -1)}</code>;
+    }
+    if (tok.startsWith('**') && tok.endsWith('**')) {
+      return <strong key={i}>{tok.slice(2, -2)}</strong>;
+    }
+    return tok;
   });
 }
 
