@@ -27,27 +27,33 @@ function prettySession(id) {
   return SESSION_LABELS[id] || id;
 }
 
-const CODE_LANGUAGES = ['전체', 'C', 'Java', 'Python'];
+const CODE_LANGUAGES = [
+  { key: '전체', icon: null, label: '전체' },
+  { key: 'C',      icon: '/icons/c.svg',      label: 'C' },
+  { key: 'Java',   icon: '/icons/java.svg',   label: 'Java' },
+  { key: 'Python', icon: '/icons/python.svg', label: 'Python' },
+];
 
 function LanguageFilterTabs({ active, onChange, stats }) {
   const codeStats = stats?.Code || {};
   return (
     <div className="flex flex-wrap gap-2 mb-4">
-      {CODE_LANGUAGES.map((lang) => {
-        const isActive = active === lang;
-        const stat = lang === '전체' ? codeStats._total : codeStats[lang];
+      {CODE_LANGUAGES.map(({ key, icon, label }) => {
+        const isActive = active === key;
+        const stat = key === '전체' ? codeStats._total : codeStats[key];
         const acc = stat?.total > 0 ? ` ${pct(stat.accuracy)}` : '';
         return (
           <button
-            key={lang}
-            onClick={() => onChange(lang)}
-            className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${
+            key={key}
+            onClick={() => onChange(key)}
+            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition ${
               isActive
                 ? 'bg-emerald-600 text-white shadow-sm'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             }`}
           >
-            {lang}{acc}
+            {icon && <img src={icon} alt={label} className={`h-4 w-4 ${isActive ? 'brightness-0 invert' : ''}`} />}
+            {label}{acc}
           </button>
         );
       })}
