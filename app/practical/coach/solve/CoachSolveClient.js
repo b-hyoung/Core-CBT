@@ -897,9 +897,9 @@ export default function CoachSolveClient({ lang, problems }) {
                     </button>
                   </div>
                 ) : (
-                  <div className="space-y-3 mb-4">
+                  <div className="space-y-4 mb-4">
                     <div className={`rounded-xl p-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'}`}>
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-2 mb-2">
                         {isCorrect
                           ? <CheckCircle2 className="h-5 w-5 text-emerald-600" />
                           : <XCircle className="h-5 w-5 text-rose-600" />}
@@ -908,15 +908,24 @@ export default function CoachSolveClient({ lang, problems }) {
                         </span>
                       </div>
                       {!isCorrect && (
-                        <p className="text-sm text-rose-600">
-                          내 답: <span className="font-semibold">{userAnswer}</span> → 정답: <span className="font-semibold">{problem._answer}</span>
-                        </p>
+                        <div className="flex gap-3 text-sm">
+                          <div className="flex-1 rounded-lg bg-rose-100/60 px-3 py-2 text-center">
+                            <p className="text-[10px] text-rose-400 font-semibold mb-0.5">내 답</p>
+                            <p className="font-bold text-rose-700">{userAnswer}</p>
+                          </div>
+                          <div className="flex-1 rounded-lg bg-emerald-100/60 px-3 py-2 text-center">
+                            <p className="text-[10px] text-emerald-500 font-semibold mb-0.5">정답</p>
+                            <p className="font-bold text-emerald-700">{problem._answer}</p>
+                          </div>
+                        </div>
                       )}
                     </div>
                     {problem._comment && (
-                      <div className="rounded-xl bg-blue-50 border border-blue-200 p-4">
-                        <p className="text-xs font-bold text-blue-600 mb-1">해설</p>
-                        <p className="text-sm text-blue-900 leading-relaxed whitespace-pre-wrap">{problem._comment}</p>
+                      <div className="mt-4 rounded-xl bg-blue-50/70 border border-blue-100 p-5">
+                        <p className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-3">해설</p>
+                        <div className="text-sm text-blue-950 leading-[1.8] whitespace-pre-wrap">
+                          {problem._comment}
+                        </div>
                       </div>
                     )}
                     <div className="flex flex-col gap-2">
