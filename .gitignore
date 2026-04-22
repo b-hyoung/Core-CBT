@@ -48,6 +48,7 @@ next-env.d.ts
 temp_*.html
 .claude
 .agents
+.superpowers
 scripts/__pycache__/
 pdf/extracted/
 
