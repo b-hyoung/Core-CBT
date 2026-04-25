@@ -9,7 +9,7 @@ from ..constants.prompts import (
 )
 from ..db.session_store import AgentSession, load_session, save_session
 from ..tools.dispatch import dispatch_tool
-from ..tools.question import get_question_detail
+from ..tools.question import get_question_detail, get_problem_tags
 from .llm_client import get_llm_client, get_llm_model
 from .schemas import TOOLS_SCHEMA
 
@@ -26,11 +26,15 @@ async def _create_fresh_session(user_email: str, source_session_id: str, problem
         category = None
         subcategory = None
 
+    # 태그 데이터 로드 (유사 문제 생성 가이드용)
+    problem_tags = get_problem_tags(source_session_id, problem_number)
+
     system_prompt = build_main_system_prompt(
         source_session_id=source_session_id,
         problem_number=problem_number,
         category=category or "unknown",
         subcategory=subcategory,
+        problem_tags=problem_tags,
     )
     session = AgentSession(
         user_email=user_email,

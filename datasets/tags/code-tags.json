@@ -1,0 +1,2927 @@
+{
+  "practical-industrial-2022-1:6": {
+    "language": "C",
+    "concept": "반복문과 조건문",
+    "detail": "for문과 나머지 연산을 이용한 조건 카운팅",
+    "tags": [
+      "for문",
+      "나머지연산",
+      "조건문",
+      "카운팅",
+      "scanf"
+    ],
+    "required_knowledge": [
+      "for문",
+      "if문",
+      "나머지 연산자",
+      "scanf 입력"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "for문의 범위를 n/2까지로 제한하고 i%1==0 조건(항상 참)으로 카운팅하여 약수 탐색 의도와 실제 동작의 괴리를 파악하는 원리",
+    "variation_hints": [
+      "scanf로 입력받은 값의 약수 개수를 세되 i%n==0 조건으로 정확히 카운팅하는 코드",
+      "1부터 n까지 반복하면서 3의 배수만 카운팅하는 코드로 변형",
+      "for문 범위를 sqrt(n)까지로 설정하고 약수를 쌍으로 카운팅하는 코드",
+      "입력값 n에 대해 n/3까지 반복하며 홀수인 약수만 카운팅하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 n, count를 그대로 사용하고 scanf(\"%d\", &n)으로 입력받는 동일한 패턴 금지",
+      "i%1==0이라는 항상 참인 조건을 그대로 복제하지 말 것",
+      "for(int i=2; i<=n/2; i++) 구조를 그대로 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "최대공약수와 최소공배수",
+      "함수와 소수 판별",
+      "반복문을 이용한 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-1:9": {
+    "language": "C",
+    "concept": "반복문을 이용한 누적 합산",
+    "detail": "for문에서 증가값이 2인 반복과 곱셈 누적 합산",
+    "tags": [
+      "for문",
+      "누적합",
+      "곱셈",
+      "증감식"
+    ],
+    "required_knowledge": [
+      "for문",
+      "복합 대입 연산자",
+      "증감식 변형"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "for문의 증감식을 i=i+2로 설정하여 홀수(1,3,5,7,9)만 순회하고, 각 반복에서 n*i를 r에 누적 합산하는 원리",
+    "variation_hints": [
+      "증감식을 i=i+3으로 변경하여 1,4,7,10 등의 수열에 대한 곱셈 누적 합산",
+      "for문에서 짝수(2,4,6,8,10)만 순회하며 n의 거듭제곱을 누적하는 코드",
+      "감소하는 for문(i=9; i>=1; i=i-2)으로 역순 홀수 곱셈 합산",
+      "두 변수 n과 m을 교대로 곱하며 누적하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 n=3, r=0을 그대로 사용하고 r=r+n*i 패턴을 복제하지 말 것",
+      "for(int i=1; i<10; i=i+2) 구조를 동일하게 사용하지 말 것",
+      "초기값 1, 종료값 10 미만, 증가값 2의 조합을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문",
+      "반복문을 이용한 조건부 누적 합산",
+      "반복문을 이용한 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-1:11": {
+    "language": "Python",
+    "concept": "자료형 확인",
+    "detail": "type() 함수를 이용한 정수형과 문자열형의 자료형 출력",
+    "tags": [
+      "type함수",
+      "자료형",
+      "int",
+      "str",
+      "print"
+    ],
+    "required_knowledge": [
+      "type() 함수",
+      "기본 자료형",
+      "print 출력"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "type() 함수가 반환하는 <class 'int'>와 <class 'str'> 형태의 출력 포맷을 정확히 파악하는 원리",
+    "variation_hints": [
+      "float, list, tuple 등 다양한 자료형에 대해 type()을 호출하여 출력 포맷 확인",
+      "isinstance()와 type()의 차이를 비교하는 코드로 변형",
+      "type(x).__name__을 사용하여 자료형 이름만 문자열로 출력하는 코드",
+      "변수에 여러 값을 재할당한 뒤 각 시점의 type() 결과를 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "x=10, y='test' 변수명과 값을 그대로 사용하지 말 것",
+      "print(type(x))와 print(type(y)) 두 줄 구조를 동일하게 복제하지 말 것"
+    ],
+    "related_concepts": [
+      "함수 정의와 호출",
+      "람다 함수"
+    ]
+  },
+  "practical-industrial-2022-1:14": {
+    "language": "C",
+    "concept": "비트 연산자",
+    "detail": "XOR 비트 연산을 이용한 두 변수의 값 교환 (swap)",
+    "tags": [
+      "XOR",
+      "비트연산",
+      "값교환",
+      "swap"
+    ],
+    "required_knowledge": [
+      "XOR 연산자(^)",
+      "복합 대입 연산자(^=)",
+      "비트 연산 원리"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "XOR 연산의 자기역원 성질(a^b^b=a)을 이용하여 임시 변수 없이 세 번의 ^= 연산으로 두 변수의 값을 교환하는 원리",
+    "variation_hints": [
+      "덧셈과 뺄셈만으로 임시 변수 없이 두 변수를 교환하는 코드",
+      "XOR swap 후 추가로 비트 AND, OR 연산 결과를 출력하는 코드",
+      "세 변수를 XOR을 이용해 순환 교환(a->b->c->a)하는 코드",
+      "XOR swap을 함수로 분리하고 포인터로 전달하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 n1=15, n2=22를 그대로 사용하지 말 것",
+      "n1^=n2; n2^=n1; n1^=n2; 세 줄 구조를 동일한 값으로 복제하지 말 것",
+      "printf(\"%d %d\", n1, n2) 출력 형식을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "비트 연산",
+      "포인터를 이용한 값 교환"
+    ]
+  },
+  "practical-industrial-2022-1:17": {
+    "language": "C",
+    "concept": "반복문과 조건문을 이용한 카운팅",
+    "detail": "for문에서 나머지 연산으로 짝수/홀수 개수를 각각 카운팅",
+    "tags": [
+      "for문",
+      "짝수",
+      "홀수",
+      "카운팅",
+      "나머지연산"
+    ],
+    "required_knowledge": [
+      "for문",
+      "if-else문",
+      "나머지 연산자(%)"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "1부터 num(35)까지 반복하면서 i%2==0으로 짝수와 홀수를 분류하고 각각 별도의 카운터(evencnt, oddcnt)로 집계하는 원리",
+    "variation_hints": [
+      "1부터 n까지에서 3의 배수, 5의 배수, 나머지를 세 개의 카운터로 분류하는 코드",
+      "배열의 원소를 순회하며 양수/음수/영을 각각 카운팅하는 코드",
+      "문자열에서 대문자/소문자/숫자 개수를 각각 카운팅하는 코드",
+      "1부터 100까지에서 4로 나눈 나머지별(0,1,2,3) 개수를 배열에 저장하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 num=35, evencnt=0, oddcnt=0을 그대로 사용하지 말 것",
+      "for(int i=1; i<=num; i++)와 i%2==0 조건의 if-else 구조를 동일하게 복제하지 말 것",
+      "printf(\"%d %d\", evencnt, oddcnt) 출력 형식을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문",
+      "반복문과 continue문",
+      "반복문을 이용한 조건부 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-1:19": {
+    "language": "Java",
+    "concept": "반복문을 이용한 누적 합산",
+    "detail": "while(true) 무한 루프에서 break 조건으로 탈출하며 누적 합산",
+    "tags": [
+      "while문",
+      "무한루프",
+      "break",
+      "누적합",
+      "증감연산자"
+    ],
+    "required_knowledge": [
+      "while문",
+      "break문",
+      "전위 증가 연산자(++)",
+      "복합 대입 연산자(+=)"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "while(true) 무한 루프에서 ss>100 조건으로 break 탈출하되, ++a(전위 증가) 후 ss+=a로 누적하여 break 시점의 a와 ss 합을 출력하는 원리",
+    "variation_hints": [
+      "do-while문으로 변환하여 누적 곱이 1000을 초과하면 탈출하는 코드",
+      "while(true)에서 후위 증가(a++)를 사용하여 누적 합산 결과가 달라지는 코드",
+      "두 변수를 교대로 증가시키며 합이 임계값을 넘으면 break하는 코드",
+      "피보나치 수열을 while(true)로 생성하다가 특정 값 초과 시 break하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 a=0, ss=0과 while(true) + if(ss>100) break 구조를 그대로 사용하지 말 것",
+      "++a; ss+=a; 순서와 System.out.print(a+ss) 출력을 동일하게 복제하지 말 것",
+      "임계값 100을 그대로 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "반복문과 조건문",
+      "반복문을 이용한 조건부 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-1:20": {
+    "language": "Java",
+    "concept": "삼항 연산자",
+    "detail": "삼항 연산자와 if-else문의 동일한 절대값 로직 비교",
+    "tags": [
+      "삼항연산자",
+      "조건연산자",
+      "if-else",
+      "절대값"
+    ],
+    "required_knowledge": [
+      "삼항 연산자(?:)",
+      "if-else문",
+      "println 출력"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "삼항 연산자 (x>=0)?x:-x 와 if-else문이 동일한 절대값 로직을 수행하여 같은 결과(1 1)를 출력함을 확인하는 원리",
+    "variation_hints": [
+      "삼항 연산자와 Math.abs()의 결과를 비교하는 코드",
+      "중첩 삼항 연산자로 세 값 중 최대값을 구하는 코드와 if-else if 비교",
+      "삼항 연산자로 부호 함수(signum: -1, 0, 1)를 구현하는 코드",
+      "음수 입력에 대해 삼항 연산자와 if-else의 결과가 동일함을 보이는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 x=1, T_x=0, t_x=0을 그대로 사용하지 말 것",
+      "(x>=0)?x:-x 절대값 패턴을 동일한 초기값으로 복제하지 말 것",
+      "삼항 연산자와 if-else를 나란히 비교하는 동일한 구조를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "복합 대입 연산자",
+      "최대공약수"
+    ]
+  },
+  "practical-industrial-2022-2:1": {
+    "language": "C",
+    "concept": "최대공약수와 최소공배수",
+    "detail": "for문을 이용한 최대공약수(GCD) 탐색 후 최소공배수(LCM) 계산",
+    "tags": [
+      "최대공약수",
+      "최소공배수",
+      "GCD",
+      "LCM",
+      "for문",
+      "나머지연산"
+    ],
+    "required_knowledge": [
+      "for문",
+      "if문",
+      "나머지 연산자(%)",
+      "break문",
+      "최대공약수/최소공배수 관계"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "b부터 1까지 역순 탐색하여 a%i==0 && b%i==0인 첫 번째 i를 GCD로 확정(break)하고, LCM=a*b/g 공식으로 최소공배수를 구한 뒤 g+l을 출력하는 원리",
+    "variation_hints": [
+      "유클리드 호제법(재귀)으로 GCD를 구하고 LCM을 계산하는 코드",
+      "세 수의 GCD와 LCM을 구하는 코드로 확장",
+      "while문으로 두 수를 반복적으로 빼며 GCD를 구하는 코드",
+      "GCD와 LCM의 곱이 a*b와 같음을 검증하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 a=27, b=12, l, g를 그대로 사용하지 말 것",
+      "for(int i=b; i>0; i--) 역순 탐색 후 break 구조를 동일하게 복제하지 말 것",
+      "l=a*b/g; printf(\"%d\", g+l); 출력 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "최대공약수",
+      "반복문과 조건문",
+      "함수와 소수 판별"
+    ]
+  },
+  "practical-industrial-2022-2:7": {
+    "language": "C",
+    "concept": "반복문과 continue문",
+    "detail": "for문에서 continue를 이용한 홀수 건너뛰기와 짝수 누적 합산",
+    "tags": [
+      "for문",
+      "continue",
+      "짝수합",
+      "나머지연산",
+      "누적합"
+    ],
+    "required_knowledge": [
+      "for문",
+      "continue문",
+      "if문",
+      "나머지 연산자(%)"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "for문(0~10)에서 i%2!=0이면 continue로 홀수를 건너뛰고 짝수만 sum에 누적한 뒤, 루프 종료 후 i(=11)와 sum(=30)의 합 41을 출력하는 원리",
+    "variation_hints": [
+      "while문에서 continue로 3의 배수를 건너뛰고 나머지만 누적하는 코드",
+      "for문에서 continue로 특정 인덱스의 배열 원소를 제외하고 합산하는 코드",
+      "중첩 for문에서 내부 루프의 continue가 외부 루프에 영향을 주지 않음을 보이는 코드",
+      "continue 대신 if-else로 동일한 결과를 내는 코드와 비교"
+    ],
+    "anti_patterns": [
+      "변수명 sum=0, i=0과 for(i=0; i<=10; i++) 구조를 그대로 사용하지 말 것",
+      "i%2!=0 continue 후 sum+=i 패턴을 동일한 범위로 복제하지 말 것",
+      "printf(\"%d\", i+sum)에서 루프 변수와 합의 덧셈 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문을 이용한 카운팅",
+      "반복문과 제어문",
+      "반복문을 이용한 조건부 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-2:10": {
+    "language": "Java",
+    "concept": "복합 대입 연산자",
+    "detail": "다양한 복합 대입 연산자(+=, -=, *=, /=, %=)의 순차 적용",
+    "tags": [
+      "복합대입연산자",
+      "산술연산",
+      "연산순서"
+    ],
+    "required_knowledge": [
+      "복합 대입 연산자",
+      "정수 나눗셈",
+      "나머지 연산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "i=17에 대해 +=1, -=2, *=3, /=4, %=5를 순차 적용하여 각 단계의 정수 연산 결과를 정확히 추적하는 원리 (17->18->16->48->12->2)",
+    "variation_hints": [
+      "복합 대입 연산자 순서를 바꾸어(*=를 먼저, +=를 나중에) 결과 차이를 보는 코드",
+      "비트 복합 대입 연산자(>>=, <<=, &=, |=)를 순차 적용하는 코드",
+      "float형 변수에 복합 대입 연산자를 적용하여 정수 나눗셈과의 차이를 보는 코드",
+      "반복문 안에서 매 반복마다 다른 복합 대입 연산자를 적용하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 i=17과 동일한 다섯 가지 연산자 순서(+=1, -=2, *=3, /=4, %=5)를 그대로 사용하지 말 것",
+      "System.out.print(i) 단일 출력 구조를 그대로 복제하지 말 것",
+      "피연산자 1,2,3,4,5 순서를 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "산술 연산자",
+      "삼항 연산자",
+      "연산자"
+    ]
+  },
+  "practical-industrial-2022-2:14": {
+    "language": "C",
+    "concept": "배열과 통계 처리",
+    "detail": "배열에서 최대값/최소값을 제외한 평균 계산",
+    "tags": [
+      "배열",
+      "최대값",
+      "최소값",
+      "평균",
+      "실수출력",
+      "printf서식"
+    ],
+    "required_knowledge": [
+      "1차원 배열",
+      "for문",
+      "if문",
+      "printf 서식(%.2f)",
+      "실수 나눗셈"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "arr[i]=i*i로 배열을 채운 뒤 전체 합에서 최대값(25)과 최소값(0)을 빼고 나머지 4개의 평균을 4.0으로 나누어 %.2f로 출력하는 원리",
+    "variation_hints": [
+      "배열에서 상위 2개와 하위 2개를 제외한 중간값들의 평균을 구하는 코드",
+      "사용자 입력으로 배열을 채우고 중앙값(median)을 구하는 코드",
+      "배열의 분산(variance)을 계산하여 %.3f로 출력하는 코드",
+      "배열에서 평균보다 큰 원소의 개수를 카운팅하는 코드"
+    ],
+    "anti_patterns": [
+      "arr[i]=i*i 초기화와 max=0, min=99 초기값을 그대로 사용하지 말 것",
+      "(sum-max-min)/4.0 공식과 printf(\"%.2f\") 출력을 동일하게 복제하지 말 것",
+      "배열 크기 6과 제곱 초기화 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "2차원 배열과 중첩 반복문",
+      "반복문과 조건문을 이용한 카운팅",
+      "배열과 통계 처리"
+    ]
+  },
+  "practical-industrial-2022-2:15": {
+    "language": "C",
+    "concept": "함수와 소수 판별",
+    "detail": "사용자 정의 함수와 sqrt를 이용한 소수 판별 알고리즘",
+    "tags": [
+      "함수",
+      "소수판별",
+      "sqrt",
+      "while문",
+      "배열"
+    ],
+    "required_knowledge": [
+      "사용자 정의 함수",
+      "sqrt 함수",
+      "while문",
+      "나머지 연산",
+      "배열"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "배열을 (i+2)+(i*2) 공식으로 초기화한 뒤, check() 함수에서 sqrt(a)까지 나누어 나머지가 0인지 검사하여 소수이면 1, 아니면 0을 반환하는 원리",
+    "variation_hints": [
+      "에라토스테네스의 체로 n 이하의 소수를 모두 출력하는 코드",
+      "배열의 원소 중 소수인 것만 필터링하여 새 배열에 저장하는 코드",
+      "소수 판별 함수를 2부터 a/2까지 나누는 방식으로 구현하는 코드",
+      "두 수 사이의 소수 개수를 반환하는 함수를 작성하는 코드"
+    ],
+    "anti_patterns": [
+      "arr[i]=(i+2)+(i*2) 초기화 공식을 그대로 사용하지 말 것",
+      "check() 함수명과 int n=(int)sqrt(a) 패턴을 동일하게 복제하지 말 것",
+      "소수이면 1, 아니면 0을 반환하는 동일한 출력 형식(연속 0/1 출력)을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문",
+      "최대공약수와 최소공배수",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2022-2:16": {
+    "language": "Java",
+    "concept": "최대공약수",
+    "detail": "삼항 연산자로 최소값 구한 후 for문을 이용한 최대공약수 탐색",
+    "tags": [
+      "최대공약수",
+      "GCD",
+      "삼항연산자",
+      "for문",
+      "나머지연산"
+    ],
+    "required_knowledge": [
+      "삼항 연산자(?:)",
+      "for문",
+      "if문",
+      "나머지 연산자(%)"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "삼항 연산자로 a와 b 중 작은 값 c를 구한 뒤, 1부터 c 미만까지 순방향 탐색하며 a%i==0 && b%i==0인 i를 g에 갱신하여 마지막으로 갱신된 값이 GCD가 되는 원리",
+    "variation_hints": [
+      "유클리드 호제법의 반복문 버전으로 GCD를 구하는 Java 코드",
+      "삼항 연산자 대신 Math.min()을 사용하고 역순 탐색(break)으로 GCD를 구하는 코드",
+      "세 수의 GCD를 구하기 위해 gcd(a, gcd(b, c)) 패턴을 사용하는 코드",
+      "GCD를 구한 뒤 서로소인지 판별하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 a=26, b=91, g=0, c를 그대로 사용하지 말 것",
+      "int c=a<b?a:b 후 for(int i=1; i<c; i++) 순방향 탐색 구조를 그대로 복제하지 말 것",
+      "System.out.print(g) 단일 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "최대공약수와 최소공배수",
+      "삼항 연산자",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2022-2:19": {
+    "language": "C",
+    "concept": "포인터와 2차원 배열",
+    "detail": "2차원 char 배열과 포인터 배열을 이용한 문자 인덱싱 접근",
+    "tags": [
+      "포인터",
+      "2차원배열",
+      "char배열",
+      "문자열",
+      "sizeof"
+    ],
+    "required_knowledge": [
+      "2차원 배열",
+      "포인터 배열",
+      "sizeof 연산자",
+      "문자 인덱싱"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "char a[3][5]에 문자열을 저장하고 char *pa[] 포인터 배열로 각 행을 가리킨 뒤, sizeof(pa)/sizeof(pa[0])로 행 수를 구하고 pa[i][i]로 대각선 문자(K,U,S)를 출력하는 원리",
+    "variation_hints": [
+      "포인터 배열로 문자열의 마지막 문자만 역순으로 출력하는 코드",
+      "2차원 char 배열에서 각 행의 strlen을 구하여 출력하는 코드",
+      "포인터 배열의 원소 순서를 바꾸어 문자열 정렬을 수행하는 코드",
+      "pa[i][n-1-i]로 역대각선 문자를 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "문자열 \"KOR\",\"HUM\",\"RES\"를 그대로 사용하지 말 것",
+      "char a[3][5]와 char *pa[]={a[0],a[1],a[2]} 구조를 동일하게 복제하지 말 것",
+      "pa[i][i] 대각선 접근 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터와 배열 역순",
+      "2차원 배열과 중첩 반복문",
+      "문자열 처리"
+    ]
+  },
+  "practical-industrial-2022-3:3": {
+    "language": "Java",
+    "concept": "진법 변환",
+    "detail": "while문에서 나머지/몫 연산으로 10진수를 2진수로 변환 후 역순 출력",
+    "tags": [
+      "진법변환",
+      "2진수",
+      "while문",
+      "배열",
+      "나머지연산"
+    ],
+    "required_knowledge": [
+      "while문",
+      "배열",
+      "나머지 연산자(%)",
+      "정수 나눗셈",
+      "역순 출력"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "n%2로 2진수 각 자릿수를 배열에 저장하고 n/=2로 몫을 갱신하는 while 루프 후, 배열을 역순(인덱스 7부터 0)으로 출력하여 올바른 2진수를 만드는 원리",
+    "variation_hints": [
+      "10진수를 8진수로 변환하여 출력하는 코드",
+      "10진수를 16진수로 변환하되 A~F 문자를 포함하여 출력하는 코드",
+      "2진수 문자열을 입력받아 10진수로 변환하는 역변환 코드",
+      "스택(LIFO)을 이용하여 배열 없이 2진수 변환 결과를 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "int[] a = new int[8]과 n=11을 그대로 사용하지 말 것",
+      "a[i++] = n % 2; n /= 2; 패턴을 동일한 변수명으로 복제하지 말 것",
+      "for(i=7; i>=0; i--) 역순 출력 구조를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "반복문과 조건문",
+      "비트 연산자"
+    ]
+  },
+  "practical-industrial-2022-3:5": {
+    "language": "Python",
+    "concept": "람다 함수",
+    "detail": "클로저 패턴으로 lambda를 반환하는 함수 정의 및 호출",
+    "tags": [
+      "lambda",
+      "클로저",
+      "함수반환",
+      "고차함수"
+    ],
+    "required_knowledge": [
+      "lambda 함수",
+      "클로저",
+      "함수 반환값",
+      "함수 호출"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "f(n)이 lambda a:a*n을 반환하여 클로저로 n=3을 캡처하고, k=f(3) 후 k(10)을 호출하면 10*3=30이 출력되는 고차 함수 원리",
+    "variation_hints": [
+      "lambda를 반환하는 함수에서 덧셈/뺄셈 등 다른 연산을 수행하는 코드",
+      "이중 클로저(함수가 함수를 반환하고 그 함수가 또 함수를 반환)로 세 인자를 순차 적용하는 코드",
+      "map()과 lambda를 조합하여 리스트의 각 원소에 클로저를 적용하는 코드",
+      "filter()와 lambda 클로저로 특정 조건의 원소만 추출하는 코드"
+    ],
+    "anti_patterns": [
+      "def f(n): return lambda a:a*n 구조를 그대로 사용하지 말 것",
+      "k=f(3); print(k(10)) 호출 패턴을 동일한 인자로 복제하지 말 것",
+      "변수명 f, k, n, a를 모두 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "함수 정의와 호출",
+      "자료형 확인"
+    ]
+  },
+  "practical-industrial-2022-3:6": {
+    "language": "C",
+    "concept": "2차원 배열과 중첩 반복문",
+    "detail": "2차원 배열의 모든 원소를 중첩 for문으로 누적 합산",
+    "tags": [
+      "2차원배열",
+      "중첩for문",
+      "누적합",
+      "배열합계"
+    ],
+    "required_knowledge": [
+      "2차원 배열 초기화",
+      "중첩 for문",
+      "누적 합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int a[3][5]를 리터럴로 초기화한 뒤, 외부 for문(행)에서 행별 sum을 구하고 내부 for문(열)에서 원소를 누적하여 전체 합계 ssum에 행별 합을 더하는 이중 누적 원리",
+    "variation_hints": [
+      "2차원 배열의 각 열(column)의 합을 별도로 구하여 출력하는 코드",
+      "2차원 배열에서 대각선 원소만 합산하는 코드",
+      "행별 평균을 구하고 가장 큰 평균을 가진 행의 인덱스를 출력하는 코드",
+      "2차원 배열의 전치(transpose)를 수행한 후 전체 합을 구하는 코드"
+    ],
+    "anti_patterns": [
+      "a[3][5]={{27,13,21,41,12},{11,20,17,35,15},{21,15,32,14,10}} 데이터를 그대로 사용하지 말 것",
+      "변수명 sum, ssum과 행별 sum 초기화 후 ssum+=sum 패턴을 그대로 복제하지 말 것",
+      "3x5 크기의 동일한 배열 구조를 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "배열과 통계 처리",
+      "2차원 배열과 메서드",
+      "포인터와 2차원 배열"
+    ]
+  },
+  "practical-industrial-2022-3:8": {
+    "language": "C",
+    "concept": "반복문을 이용한 조건부 누적 합산",
+    "detail": "while문에서 7의 배수만 필터링하여 누적 합산",
+    "tags": [
+      "while문",
+      "나머지연산",
+      "배수",
+      "누적합",
+      "조건문"
+    ],
+    "required_knowledge": [
+      "while문",
+      "if문",
+      "나머지 연산자(%)",
+      "누적 합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "while(i<=50)에서 i%7==0 조건으로 7의 배수(7,14,21,28,35,42,49)만 n에 누적하여 합계 196을 출력하는 원리",
+    "variation_hints": [
+      "1부터 100까지에서 3과 5의 공배수만 누적 합산하는 코드",
+      "while문에서 특정 배수를 제외(건너뛰기)하고 나머지를 합산하는 코드",
+      "do-while문으로 변환하여 11의 배수만 필터링하는 코드",
+      "for문에서 배수 조건과 짝수 조건을 동시에 만족하는 수만 합산하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 i=1, n=0과 while(i<=50) 구조를 그대로 사용하지 말 것",
+      "i%7==0 조건과 n+=i 패턴을 동일한 범위로 복제하지 말 것",
+      "printf(\"%d\", n) 단일 출력과 범위 50을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 continue문",
+      "반복문과 조건문을 이용한 카운팅",
+      "반복문을 이용한 누적 합산"
+    ]
+  },
+  "practical-industrial-2022-3:10": {
+    "language": "Python",
+    "concept": "함수 정의와 호출",
+    "detail": "두 함수의 중첩 호출을 통한 연산 결과 계산",
+    "tags": [
+      "함수정의",
+      "함수호출",
+      "중첩호출",
+      "매개변수",
+      "반환값"
+    ],
+    "required_knowledge": [
+      "함수 정의(def)",
+      "return문",
+      "함수 중첩 호출",
+      "매개변수 전달"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "af(a,b)가 a+b를, sf(a,b)가 a-b를 반환하고, sf(af(4,5),6)에서 내부 af(4,5)=9가 먼저 평가된 후 sf(9,6)=3이 출력되는 중첩 호출 원리",
+    "variation_hints": [
+      "세 함수를 중첩 호출하여 복합 수학 연산(예: mf(af(2,3), sf(7,4)))을 수행하는 코드",
+      "함수 반환값을 변수에 저장한 후 다시 다른 함수에 전달하는 단계적 호출 코드",
+      "곱셈 함수와 나눗셈 함수를 추가하여 사칙연산 조합을 중첩 호출하는 코드",
+      "재귀 함수와 일반 함수를 중첩 호출하는 코드"
+    ],
+    "anti_patterns": [
+      "함수명 af, sf를 그대로 사용하지 말 것",
+      "sf(af(4,5),6) 호출 패턴과 동일한 인자 값을 복제하지 말 것",
+      "return a+b / return a-b 두 함수 구조를 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "람다 함수",
+      "자료형 확인",
+      "함수와 소수 판별"
+    ]
+  },
+  "practical-industrial-2022-3:15": {
+    "language": "Java",
+    "concept": "2차원 배열과 메서드",
+    "detail": "static 메서드로 2차원 배열 초기화/데이터 설정/출력을 분리하여 상삼각 행렬 생성",
+    "tags": [
+      "2차원배열",
+      "메서드",
+      "static",
+      "상삼각행렬",
+      "중첩for문",
+      "printf"
+    ],
+    "required_knowledge": [
+      "2차원 배열",
+      "static 메서드",
+      "중첩 for문",
+      "배열 매개변수 전달",
+      "printf 서식"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "init()으로 0 초기화, data()에서 j=i부터 시작하여 v++로 상삼각 영역만 1~6으로 채우고, prnt()에서 0이면 공백, 아니면 숫자를 출력하여 상삼각 행렬을 만드는 원리",
+    "variation_hints": [
+      "하삼각 행렬을 생성하는 코드로 변형(j<=i 조건)",
+      "대각선 행렬(대각선만 값, 나머지 0)을 생성하는 코드",
+      "역방향으로 채워지는 상삼각 행렬(큰 수부터 감소)을 만드는 코드",
+      "단위 행렬(identity matrix)을 생성하고 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "init, data, prnt 세 메서드 분리 구조를 동일한 이름으로 사용하지 말 것",
+      "for(int j=i; j<3; j++) a[i][j]=v++; 패턴을 그대로 복제하지 말 것",
+      "3x3 크기와 0이면 공백 출력하는 조건을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "2차원 배열과 중첩 반복문",
+      "정적 변수",
+      "배열과 통계 처리"
+    ]
+  },
+  "practical-industrial-2022-3:16": {
+    "language": "C",
+    "concept": "반복문을 이용한 누적 합산",
+    "detail": "for문으로 1부터 입력값까지의 합계 계산 (가우스 합)",
+    "tags": [
+      "for문",
+      "누적합",
+      "scanf",
+      "입력처리"
+    ],
+    "required_knowledge": [
+      "for문",
+      "scanf 입력",
+      "누적 합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "scanf로 n=5를 입력받고 for(int i=1; i<=n; i++) sum=sum+i;로 1+2+3+4+5=15를 계산하는 가우스 합 원리",
+    "variation_hints": [
+      "가우스 공식 n*(n+1)/2를 직접 사용하여 결과를 비교하는 코드",
+      "1부터 n까지의 제곱합(1^2+2^2+...+n^2)을 for문으로 구하는 코드",
+      "짝수만 또는 홀수만의 합을 for문으로 구하는 코드",
+      "재귀 함수로 1부터 n까지의 합을 구하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 n, sum=0과 scanf(\"%d\", &n) 입력 패턴을 그대로 사용하지 말 것",
+      "for(int i=1; i<=n; i++) sum=sum+i; 구조를 동일하게 복제하지 말 것",
+      "입력값 5와 printf(\"%d\", sum) 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "반복문을 이용한 조건부 누적 합산",
+      "재귀 함수"
+    ]
+  },
+  "practical-industrial-2023-1:4": {
+    "language": "C",
+    "concept": "퀵 정렬",
+    "detail": "피벗을 중간 인덱스로 선택하는 partition 함수에서 나눗셈 값 추론",
+    "tags": [
+      "퀵정렬",
+      "정렬",
+      "재귀",
+      "분할정복",
+      "배열"
+    ],
+    "required_knowledge": [
+      "배열",
+      "재귀 함수",
+      "정렬 알고리즘",
+      "함수 호출"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "partition 함수에서 피벗을 arr[(left+right)/2]로 선택하기 위해 (가)에 2를 넣어 중간 인덱스 기반 Hoare 파티션 방식의 퀵 정렬을 완성하는 원리",
+    "variation_hints": [
+      "피벗을 arr[right]로 선택하는 Lomuto 파티션 방식으로 변환하여 빈칸 완성",
+      "partition 함수에서 random 인덱스로 피벗을 선택하는 코드",
+      "내림차순 정렬이 되도록 비교 연산자를 변경하는 빈칸 문제",
+      "3개의 값 중 중앙값을 피벗으로 선택하는 median-of-three 방식 코드"
+    ],
+    "anti_patterns": [
+      "swap(int arr[], int i, int j) 함수명과 매개변수를 그대로 사용하지 말 것",
+      "int pivot = arr[(left + right) / 2]에서 (left+right)/2 표현식을 동일하게 복제하지 말 것",
+      "int data[LEN] = {5, 8, 3, 12, 9, 25, 15, 21, 1, 19} 배열을 그대로 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "재귀 함수",
+      "정렬 알고리즘",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2023-1:5": {
+    "language": "C",
+    "concept": "재귀 함수",
+    "detail": "1부터 n까지 누적 합산을 재귀 호출로 구현",
+    "tags": [
+      "재귀",
+      "누적합",
+      "함수호출"
+    ],
+    "required_knowledge": [
+      "재귀 함수",
+      "조건문",
+      "함수 반환값"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "SumNTo1(n) 함수에서 n<=1이면 1을 반환하고, 그 외에는 n + SumNTo1(n-1)로 재귀 호출하여 1부터 n까지의 합을 구하는 재귀적 누적 합산 원리",
+    "variation_hints": [
+      "재귀로 n부터 1까지의 곱(팩토리얼)을 구하는 함수의 빈칸 완성",
+      "재귀 호출에서 n-2로 감소시켜 홀수 또는 짝수만의 합을 구하는 코드",
+      "증가하는 재귀로 변환하되 종료 조건을 if(n>=100)으로 변경하는 문제",
+      "꼬리 재귀(tail recursion)로 변환하여 누적 매개변수를 추가한 코드"
+    ],
+    "anti_patterns": [
+      "함수명 SumNTo1과 매개변수 n을 그대로 사용하지 말 것",
+      "if(n <= 1) return 1; else return n + SumNTo1(n-1) 구조를 동일하게 복제하지 말 것",
+      "SumNTo1(100)과 printf(\"%d\", result) 호출 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "함수 정의와 호출",
+      "재귀 함수"
+    ]
+  },
+  "practical-industrial-2023-1:12": {
+    "language": "Java",
+    "concept": "연산자",
+    "detail": "논리 부정, 논리 OR, 비트 시프트, 비트 AND, 나머지 대입 연산자 혼합 출력",
+    "tags": [
+      "논리연산자",
+      "비트연산자",
+      "시프트연산자",
+      "대입연산자",
+      "복합연산자"
+    ],
+    "required_knowledge": [
+      "논리 연산자",
+      "비트 연산자",
+      "시프트 연산",
+      "대입 연산자",
+      "연산자 우선순위"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "x=1에 대해 !(x>0)=false, (x!=0)||(x>0)=true, x<<2=4(좌시프트 2비트), x&2=0(비트AND), x%=3=1(나머지 대입)을 각각 println으로 출력하는 복합 연산자 추적 원리",
+    "variation_hints": [
+      "비트 OR(|)과 비트 XOR(^)를 추가하여 여섯 가지 연산 결과를 출력하는 코드",
+      "x값을 음수(-3)로 변경하여 동일 연산자들의 결과 변화를 추적하는 문제",
+      "우시프트(>>)와 비부호 우시프트(>>>)를 포함한 연산 결과 예측",
+      "논리 AND(&&)의 단락 평가로 인해 뒤쪽 식이 실행되지 않는 코드"
+    ],
+    "anti_patterns": [
+      "int x = 1과 !(x>0), (x!=0)||(x>0), x<<2, x&2, x%=3 다섯 줄 구조를 그대로 사용하지 말 것",
+      "System.out.println 다섯 번 출력 패턴을 동일하게 복제하지 말 것",
+      "초기값 x=1을 그대로 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "비트 연산자",
+      "복합 대입 연산자",
+      "삼항 연산자"
+    ]
+  },
+  "practical-industrial-2023-1:16": {
+    "language": "C",
+    "concept": "재귀 함수",
+    "detail": "n*n 제곱의 합을 재귀 호출로 구현하는 패턴에서 인자 추론",
+    "tags": [
+      "재귀",
+      "제곱합",
+      "함수호출"
+    ],
+    "required_knowledge": [
+      "재귀 함수",
+      "조건문",
+      "수학 연산"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "recursive(n)에서 n<=1이면 1을 반환하고, n*n + recursive(n-1)로 재귀하여 1^2+2^2+...+n^2 제곱합을 구하되 (가)에 n-1을 넣어 완성하는 원리",
+    "variation_hints": [
+      "세제곱(n*n*n)의 합을 재귀로 구하는 함수의 빈칸 완성",
+      "n-2로 감소하며 홀수의 제곱합만 구하는 재귀 코드",
+      "재귀 대신 for문으로 동일한 제곱합을 구하고 결과를 비교하는 코드",
+      "n*(n+1)*(2*n+1)/6 공식으로 제곱합을 직접 계산하여 비교하는 코드"
+    ],
+    "anti_patterns": [
+      "함수명 recursive와 if(n <= 1) return 1 종료 조건을 그대로 사용하지 말 것",
+      "return n*n+recursive(n-1) 구조를 동일한 형태로 복제하지 말 것",
+      "scanf(\"%d\", &i)와 printf(\"%d \", recursive(i)) 입출력 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "재귀 함수",
+      "반복문을 이용한 누적 합산",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2023-1:20": {
+    "language": "Python",
+    "concept": "조건문",
+    "detail": "if-elif-else 분기 구조에서 elif 키워드 추론",
+    "tags": [
+      "조건문",
+      "elif",
+      "리스트",
+      "in연산자"
+    ],
+    "required_knowledge": [
+      "if-elif-else 문법",
+      "리스트",
+      "in 연산자",
+      "bool 자료형"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "wallet 리스트에 cash가 없으므로 if문을 건너뛰고, card=True이므로 (가)에 elif를 넣어 elif(card): 조건이 참이 되어 버스를 출력하는 if-elif-else 분기 원리",
+    "variation_hints": [
+      "wallet에 cash를 추가하고 card=False로 변경하여 결과가 달라지는 코드",
+      "elif 대신 if를 사용하여 독립적인 조건 판단이 되는 경우와 결과 차이를 비교",
+      "3단 이상의 elif 체인으로 교통수단 선택을 확장하는 코드",
+      "in 연산자 대신 wallet.count('cash') > 0 조건으로 변형하는 코드"
+    ],
+    "anti_patterns": [
+      "wallet=['credit','id']와 card=True 변수를 그대로 사용하지 말 것",
+      "if('cash' in wallet) / elif(card) / else 세 분기 구조를 동일하게 복제하지 말 것",
+      "print('택시'), print('버스'), print('도보') 출력 문자열을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "리스트 메서드",
+      "함수 정의와 호출",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2023-2:3": {
+    "language": "C",
+    "concept": "반복문",
+    "detail": "while문을 이용한 나눗셈의 몫과 나머지 수동 계산",
+    "tags": [
+      "반복문",
+      "while",
+      "나눗셈",
+      "몫",
+      "나머지"
+    ],
+    "required_knowledge": [
+      "while문",
+      "변수 갱신",
+      "printf"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "d=55, n=4에서 while(r>=4)로 r에서 n을 반복 빼면서 q를 증가시켜, 나눗셈의 몫 q=13과 나머지 r=3을 수동으로 계산하여 '13 그리고 3'을 출력하는 원리",
+    "variation_hints": [
+      "d=100, n=7로 변경했을 때의 몫과 나머지 추적",
+      "뺄셈 대신 나눗셈 연산자(/)와 나머지 연산자(%)로 직접 계산하여 비교하는 코드",
+      "while문 대신 do-while문으로 변환하여 결과 차이를 추적",
+      "음수 나눗셈(d=-55)에서 while 조건의 동작 차이를 분석하는 코드"
+    ],
+    "anti_patterns": [
+      "변수명 d=55, n=4, r=0, q=0을 그대로 사용하지 말 것",
+      "r=d; while(r>=4) { r=r-n; q++; } 패턴을 동일한 값으로 복제하지 말 것",
+      "printf(\"%d 그리고 \", q); printf(\"%d\", r) 출력 형식을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "반복문과 조건문",
+      "반복문을 이용한 조건부 누적 합산"
+    ]
+  },
+  "practical-industrial-2023-2:11": {
+    "language": "Python",
+    "concept": "언어 특성",
+    "detail": "Python 언어의 동적 타이핑, 세미콜론 생략, 들여쓰기 규칙 등 특징 식별",
+    "tags": [
+      "파이썬특성",
+      "동적타이핑",
+      "인터프리터",
+      "들여쓰기"
+    ],
+    "required_knowledge": [
+      "Python 기본 문법",
+      "인터프리터 vs 컴파일러",
+      "동적 타이핑"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "Python의 동적 타이핑(변수 선언 시 자료형 불필요), 세미콜론 생략 가능, 들여쓰기 기반 블록 구분, 인터프리터 언어 특성을 보기에서 식별하여 ㄴ,ㄷ,ㄹ을 선택하는 원리",
+    "variation_hints": [
+      "Java와 Python의 변수 선언 방식 차이를 비교하는 문제",
+      "Python의 GIL, 가비지 컬렉션 등 심화 특성을 추가 보기에 포함하는 문제",
+      "C언어와 Python의 컴파일/인터프리터 차이를 묻는 문제로 변형",
+      "들여쓰기 오류(IndentationError)가 발생하는 코드 예시를 보고 원인을 찾는 문제"
+    ],
+    "anti_patterns": [
+      "ㄱ~ㅁ 동일한 5개 보기 구조를 그대로 사용하지 말 것",
+      "자료형 작성 필수/세미콜론/들여쓰기/gcc 컴파일 동일한 보기 문장을 복제하지 말 것",
+      "정답이 ㄴ,ㄷ,ㄹ인 동일한 조합을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "자료형 확인",
+      "리스트 메서드",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2023-2:12": {
+    "language": "Java",
+    "concept": "가비지 컬렉션",
+    "detail": null,
+    "tags": [
+      "가비지",
+      "힙메모리",
+      "객체",
+      "참조"
+    ],
+    "required_knowledge": [
+      "힙 메모리",
+      "객체 참조",
+      "가비지 컬렉션"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "Java의 힙 메모리에서 변수가 참조값을 잃거나 변수 자체가 소멸하여 더 이상 접근할 수 없는 객체를 가비지(Garbage)라 하며, GC가 이를 자동 회수하는 원리",
+    "variation_hints": [
+      "객체 참조를 null로 설정한 후 System.gc()를 호출하는 코드에서 가비지 생성 시점 추적",
+      "순환 참조(A->B->A)가 있는 객체가 가비지가 되는 조건을 묻는 문제",
+      "finalize() 메서드가 호출되는 시점과 가비지 컬렉션의 관계를 묻는 문제",
+      "WeakReference와 SoftReference를 사용한 참조 유형별 GC 동작 차이"
+    ],
+    "anti_patterns": [
+      "힙에 남아있으나 참조값을 잃은 객체라는 동일한 설명 문장을 그대로 사용하지 말 것",
+      "가비지 컬렉션의 정의를 단순 암기형으로 동일하게 출제하지 말 것",
+      "빈칸 채우기에서 garbage 한 단어만 묻는 동일 형식을 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스와 메서드",
+      "클래스 상속",
+      "배열과 객체 참조"
+    ]
+  },
+  "practical-industrial-2023-2:15": {
+    "language": "Java",
+    "concept": "정렬 알고리즘",
+    "detail": "이중 for문을 이용한 선택 정렬 구현과 결과 출력",
+    "tags": [
+      "선택정렬",
+      "정렬",
+      "이중반복문",
+      "배열",
+      "swap"
+    ],
+    "required_knowledge": [
+      "배열",
+      "이중 for문",
+      "선택 정렬",
+      "임시 변수 교환"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "배열 {4,7,1,2}에 대해 이중 for문에서 i번째 위치부터 끝까지 최솟값을 찾아 a[i]와 swap하는 선택 정렬을 수행한 후, 정렬된 배열을 '1a2a4a7a' 형식으로 출력하는 원리",
+    "variation_hints": [
+      "선택 정렬을 내림차순으로 변경하여 결과를 추적하는 코드",
+      "버블 정렬로 알고리즘을 교체하여 동일 배열의 정렬 결과와 비교하는 코드",
+      "선택 정렬 각 패스 후의 중간 배열 상태를 출력하는 코드",
+      "배열에 중복 값이 포함된 경우 선택 정렬의 안정성 여부를 추적하는 문제"
+    ],
+    "anti_patterns": [
+      "int[] a = {4, 7, 1, 2} 배열을 그대로 사용하지 말 것",
+      "for(int i=0; i<3; i++) for(int j=i+1; j<4; j++) if(a[i]>a[j]) swap 구조를 동일하게 복제하지 말 것",
+      "System.out.print(a[i] + \"a\") 출력 형식을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "정렬 알고리즘",
+      "퀵 정렬",
+      "반복문과 조건문을 이용한 카운팅"
+    ]
+  },
+  "practical-industrial-2023-2:16": {
+    "language": "C",
+    "concept": "2차원 배열",
+    "detail": "2차원 배열의 테두리 요소만 역순 출력하는 조건 분기",
+    "tags": [
+      "2차원배열",
+      "테두리출력",
+      "조건문",
+      "반복문",
+      "역순"
+    ],
+    "required_knowledge": [
+      "2차원 배열",
+      "이중 for문",
+      "조건문",
+      "printf 서식"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "5x6 2차원 배열에서 j를 5부터 0까지 역순 순회하며, i==0||i==4||j==0||j==5 조건으로 테두리 요소만 %3d 서식으로 출력하고 내부는 공백 3칸으로 처리하는 원리",
+    "variation_hints": [
+      "테두리가 아닌 내부 요소만 출력하는 조건으로 변경하는 코드",
+      "j를 정순으로 순회하여 테두리 출력 결과가 달라지는지 추적",
+      "3x4 크기 배열로 변경하여 테두리 조건과 출력 결과를 새로 추적하는 문제",
+      "대각선 요소(i==j)만 출력하고 나머지는 공백으로 처리하는 코드"
+    ],
+    "anti_patterns": [
+      "a[5][6] 배열과 {0,1,2,...,29} 순차 초기화를 그대로 사용하지 말 것",
+      "for(int j=5; j>=0; j--) 역순 순회와 i==0||i==4||j==0||j==5 조건을 동일하게 복제하지 말 것",
+      "printf(\"%3d\", a[i][j])와 printf(\"   \") 3칸 공백 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "2차원 배열과 중첩 반복문",
+      "2차원 배열과 메서드",
+      "배열과 통계 처리"
+    ]
+  },
+  "practical-industrial-2023-2:17": {
+    "language": "C",
+    "concept": "문자열 처리",
+    "detail": "for문을 이용한 문자열 역순 복사",
+    "tags": [
+      "문자열",
+      "배열",
+      "역순",
+      "char배열",
+      "널문자"
+    ],
+    "required_knowledge": [
+      "char 배열",
+      "문자열",
+      "for문",
+      "인덱스 역순 접근"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "char s1[5]=\"abcd\"에 대해 for(i=0;i<4;i++) s2[i]=s1[3-i]로 문자를 역순 복사하여 s2=\"dcba\"를 만들고 printf(\"%s\", s2)로 출력하는 인덱스 역산 원리",
+    "variation_hints": [
+      "strlen(s1)을 사용하여 문자열 길이에 의존하지 않는 범용 역순 복사 코드",
+      "역순 복사 시 대문자를 소문자로 변환하는 추가 조건을 넣은 코드",
+      "두 문자열을 교대로 합치는(interleave) 코드로 변형",
+      "strrev() 함수와 수동 역순 복사의 결과를 비교하는 코드"
+    ],
+    "anti_patterns": [
+      "char s1[5] = \"abcd\"와 char s2[5] 변수를 그대로 사용하지 말 것",
+      "s2[i] = s1[3-i] 역순 인덱스 복사 패턴을 동일하게 복제하지 말 것",
+      "s2[5] = '\\0' 널문자 삽입과 printf(\"%s\", s2) 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "문자열 처리",
+      "포인터와 배열 역순",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2023-2:18": {
+    "language": "C",
+    "concept": "자료형 변환",
+    "detail": "char형 변수의 정수(%d)와 문자(%c) 출력 차이 (ASCII 코드)",
+    "tags": [
+      "자료형",
+      "ASCII",
+      "char",
+      "printf",
+      "형변환"
+    ],
+    "required_knowledge": [
+      "char 자료형",
+      "ASCII 코드",
+      "printf 서식 지정자"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int a=10은 %d로 10을, char b='a'(ASCII 97)는 %d로 97을 %c로 'a' 문자를 출력하여, 동일 변수를 서식 지정자에 따라 정수와 문자로 다르게 해석하는 원리",
+    "variation_hints": [
+      "char b='A'(ASCII 65)로 변경하여 %d와 %c 결과의 차이를 추적하는 코드",
+      "char형에 산술 연산(b+3)을 수행한 후 %d와 %c로 각각 출력하는 코드",
+      "printf(\"%c\", 65+i)로 반복문을 사용하여 A~Z를 출력하는 코드",
+      "int형 변수에 문자 상수를 대입하고 %c로 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "int a = 10과 char b = 'a'를 그대로 사용하지 말 것",
+      "printf(\"%d\", a); printf(\"%d\", b); printf(\"%c\", b) 세 줄 출력을 동일하게 복제하지 말 것",
+      "A=65, a=97 주석과 동일한 ASCII 값을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "자료형 확인",
+      "비트 연산자",
+      "문자열 처리"
+    ]
+  },
+  "practical-industrial-2023-2:20": {
+    "language": "C",
+    "concept": "반복문",
+    "detail": "for문을 이용한 팩토리얼 계산 (누적 곱셈)",
+    "tags": [
+      "반복문",
+      "for문",
+      "팩토리얼",
+      "누적곱"
+    ],
+    "required_knowledge": [
+      "for문",
+      "복합 대입 연산자",
+      "누적 곱셈"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "result=1에서 for(i=1;i<=5;i++) result*=i로 1*1*2*3*4*5=120을 계산하여 5! 팩토리얼을 구하는 누적 곱셈 원리",
+    "variation_hints": [
+      "for문 범위를 i=2부터 시작하여 불필요한 1곱셈을 제거하는 코드",
+      "재귀 함수로 동일한 팩토리얼을 구현하여 반복문 버전과 비교하는 코드",
+      "역순 for문(i=5;i>=1;i--)으로 동일한 결과를 얻는 코드",
+      "팩토리얼 결과를 이용하여 조합(nCr) 또는 순열(nPr)을 계산하는 코드"
+    ],
+    "anti_patterns": [
+      "int result=1과 for(i=1; i<=5; i++) result *= i 구조를 그대로 사용하지 말 것",
+      "printf(\"%d\", result) 단일 출력을 동일하게 복제하지 말 것",
+      "변수명 result, i를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "재귀 함수",
+      "복합 대입 연산자"
+    ]
+  },
+  "practical-industrial-2023-3:2": {
+    "language": "C",
+    "concept": "재귀 함수",
+    "detail": "재귀 호출 후 출력하여 역순이 아닌 순차 출력 생성",
+    "tags": [
+      "재귀",
+      "출력순서",
+      "매크로",
+      "define"
+    ],
+    "required_knowledge": [
+      "재귀 함수",
+      "호출 스택",
+      "#define 매크로",
+      "조건문"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "#define MAX 4로 정의 후 prin(MAX) 호출 시, prin(a)에서 a>1이면 prin(a-1)을 먼저 재귀 호출하고 복귀 후 printf(\"%d\",a)를 실행하여 1234를 순차 출력하는 재귀 호출 스택 복귀 순서 원리",
+    "variation_hints": [
+      "printf를 재귀 호출 전에 배치하여 4321로 역순 출력되는 코드로 변형",
+      "#define MAX를 6으로 변경하여 출력 범위가 확장되는 결과 추적",
+      "재귀 호출과 printf 사이에 추가 연산(a*2)을 삽입하는 코드",
+      "종료 조건을 a>2로 변경하여 출력 시작 값이 달라지는 문제"
+    ],
+    "anti_patterns": [
+      "#define MAX 4와 함수명 prin을 그대로 사용하지 말 것",
+      "if(a > 1) prin(a-1); printf(\"%d\", a) 구조를 동일하게 복제하지 말 것",
+      "prin(MAX)를 main에서 호출하는 동일 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "재귀 함수",
+      "반복문을 이용한 누적 합산",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2023-3:5": {
+    "language": "C",
+    "concept": "2차원 배열",
+    "detail": "달팽이 배열(snail array) 방향 전환 시 모듈러 연산 값 추론",
+    "tags": [
+      "달팽이배열",
+      "2차원배열",
+      "방향전환",
+      "모듈러연산"
+    ],
+    "required_knowledge": [
+      "2차원 배열",
+      "방향 벡터",
+      "모듈러 연산",
+      "while문",
+      "#define 매크로"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "달팽이 배열에서 방향 벡터 p[4][2]로 하/우/상/좌를 표현하고, 벽이나 이미 채운 칸을 만나면 c=(c+1)%4로 방향을 전환하여 (가)에 4를 넣어 4방향 순환을 완성하는 원리",
+    "variation_hints": [
+      "방향 벡터를 8방향으로 확장하고 c=(c+1)%8로 수정하는 코드",
+      "달팽이 방향을 반시계 방향으로 변경하기 위해 방향 벡터 순서를 바꾸는 코드",
+      "SIZE를 3으로 줄여 3x3 달팽이 배열의 출력 결과를 추적하는 문제",
+      "달팽이 대신 지그재그(zigzag) 패턴으로 배열을 채우는 코드"
+    ],
+    "anti_patterns": [
+      "int p[4][2] = {{0,1},{1,0},{0,-1},{-1,0}} 방향 벡터를 그대로 사용하지 말 것",
+      "c = (c+1) % 4 방향 전환 패턴을 동일하게 복제하지 말 것",
+      "#define SIZE 5와 동일한 5x5 크기를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "2차원 배열과 중첩 반복문",
+      "반복문과 조건문",
+      "2차원 배열과 메서드"
+    ]
+  },
+  "practical-industrial-2023-3:7": {
+    "language": "C",
+    "concept": "정렬 알고리즘",
+    "detail": "버블 정렬 수행 후 일부 인덱스 범위만 출력",
+    "tags": [
+      "버블정렬",
+      "정렬",
+      "이중반복문",
+      "배열",
+      "sizeof"
+    ],
+    "required_knowledge": [
+      "버블 정렬",
+      "이중 for문",
+      "배열",
+      "sizeof 연산자"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "data[]={15,12,26,23,31,36}에 대해 이중 for문으로 인접 원소를 비교(data[j]>data[j+1])하여 swap하는 버블 정렬 수행 후, for(i=1;i<cnt-1;i++)로 첫째/마지막 원소를 제외한 중간 값들만 출력하는 원리",
+    "variation_hints": [
+      "버블 정렬 후 전체 배열을 출력하는 코드와 부분 출력의 차이를 비교",
+      "내부 for문에서 이미 정렬된 뒤쪽을 건너뛰는 최적화(cnt-1-i)의 효과를 추적",
+      "버블 정렬을 내림차순으로 변경하여 결과를 추적",
+      "sizeof(data)/sizeof(int)로 배열 크기를 자동 계산하는 패턴의 의미를 묻는 문제"
+    ],
+    "anti_patterns": [
+      "int data[] = {15, 12, 26, 23, 31, 36} 배열을 그대로 사용하지 말 것",
+      "sizeof(data)/sizeof(int)로 cnt를 구하고 이중 for문으로 버블 정렬하는 구조를 동일하게 복제하지 말 것",
+      "for(int i=1; i<cnt-1; i++) printf(\"%d \", data[i]) 부분 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "정렬 알고리즘",
+      "배열과 통계 처리",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2023-3:9": {
+    "language": "C",
+    "concept": "포인터",
+    "detail": "배열 포인터 전달 및 포인터 산술을 이용한 부분 배열 접근",
+    "tags": [
+      "포인터",
+      "배열",
+      "포인터산술",
+      "함수매개변수"
+    ],
+    "required_knowledge": [
+      "포인터",
+      "배열과 포인터 관계",
+      "포인터 산술",
+      "역참조 연산자"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "sub(a)에서 *a=a[0]=1, a[2]=3을 출력하고, sub(a+2)에서 포인터를 2칸 이동시켜 *a=a[2]=3, a[2]=a[4]=5를 출력하여 '1335'가 출력되는 포인터 산술 원리",
+    "variation_hints": [
+      "sub(a+3)으로 호출하여 배열의 더 뒤쪽 요소를 접근하는 코드",
+      "포인터 대신 배열 인덱스를 매개변수로 전달하여 동일 결과를 내는 코드와 비교",
+      "sub 함수에서 a[2] 대신 *(a+2)로 표현하여 동일 동작임을 확인하는 코드",
+      "음수 오프셋 접근(sub(a+4)에서 a[-1])의 동작을 묻는 변형 문제"
+    ],
+    "anti_patterns": [
+      "int a[10] = {1,2,3,4,5,6} 배열을 그대로 사용하지 말 것",
+      "sub(a); sub(a+2) 두 번 호출 패턴을 동일하게 복제하지 말 것",
+      "printf(\"%d\", *a); printf(\"%d\", a[2]) 출력 구조를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터와 2차원 배열",
+      "포인터와 배열 역순",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2023-3:10": {
+    "language": "Java",
+    "concept": "클래스 상속",
+    "detail": "상속과 메서드 오버라이딩에서 super 키워드를 통한 부모 필드/메서드 접근",
+    "tags": [
+      "상속",
+      "오버라이딩",
+      "super",
+      "다형성",
+      "동적바인딩"
+    ],
+    "required_knowledge": [
+      "클래스 상속",
+      "메서드 오버라이딩",
+      "super 키워드",
+      "다형성",
+      "동적 바인딩"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "Berry A = new Apple()로 업캐스팅 후 A.meth() 호출 시 동적 바인딩으로 Apple의 오버라이딩된 func()가 실행되어, super.Str='Berry'와 Str='Apple'을 설정하고 super.func()로 부모의 Str을 먼저 출력한 뒤 자신의 Str을 출력하는 원리",
+    "variation_hints": [
+      "Apple에서 meth()도 오버라이딩하여 super.meth()를 호출하는 코드의 실행 순서 추적",
+      "3단계 상속에서 super.super 접근 불가를 확인하는 문제",
+      "Str 필드를 protected로 변경하고 자식에서 동일 이름 필드 선언 시 hiding 동작 추적",
+      "Berry A = new Berry()로 선언했을 때의 결과와 비교하는 문제"
+    ],
+    "anti_patterns": [
+      "클래스명 Berry, Apple과 필드명 Str, 메서드명 meth, func를 그대로 사용하지 말 것",
+      "super.Str = 'Berry'와 Str = 'Apple' 대입 후 super.func() 호출 패턴을 동일하게 복제하지 말 것",
+      "Berry A = new Apple(); A.meth() 업캐스팅 호출 구조를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "상속과 다형성",
+      "클래스와 메서드",
+      "클래스 초기화 순서"
+    ]
+  },
+  "practical-industrial-2023-3:13": {
+    "language": "C",
+    "concept": "포인터",
+    "detail": "함수에 포인터 매개변수로 주소를 전달하여 값 변경 (call by reference)",
+    "tags": [
+      "포인터",
+      "주소전달",
+      "call-by-reference",
+      "함수매개변수"
+    ],
+    "required_knowledge": [
+      "포인터",
+      "주소 연산자(&)",
+      "역참조 연산자(*)",
+      "함수 매개변수"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "compare 함수에서 int *ma, int *in 매개변수로 주소를 받아 *ma, *in에 값을 저장하므로, main에서 (가)=&max, (나)=&min으로 주소를 전달하여 call-by-reference로 max와 min 값을 변경하는 원리",
+    "variation_hints": [
+      "포인터 대신 반환값(struct)으로 두 값을 동시에 반환하는 코드와 비교",
+      "배열을 매개변수로 전달하여 최대값과 최소값을 저장하는 코드",
+      "compare 함수의 if-else에서 i>j일 때와 아닐 때 *ma, *in 할당이 동일한 버그를 수정하는 문제",
+      "전역 변수를 사용하여 포인터 없이 동일 결과를 내는 코드와 비교"
+    ],
+    "anti_patterns": [
+      "함수명 compare와 매개변수 int *ma, int *in을 그대로 사용하지 말 것",
+      "compare(3, 7, &max, &min) 호출 패턴을 동일한 인자로 복제하지 말 것",
+      "printf(\"작은수:%d 큰수:%d\", max, min) 출력 형식을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터",
+      "포인터를 이용한 값 교환",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2023-3:15": {
+    "language": "Java",
+    "concept": "정적 변수",
+    "detail": "static 변수와 static 메서드를 이용한 for문 누적 합산",
+    "tags": [
+      "static",
+      "정적변수",
+      "반복문",
+      "누적합",
+      "메서드호출"
+    ],
+    "required_knowledge": [
+      "static 키워드",
+      "for문",
+      "메서드 호출",
+      "누적 합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "static int a=0과 static int func(int t)에서 a=a+t로 정적 변수에 누적하며, for(i=0;i<5;i++) func(i)로 0+1+2+3+4=10을 누적하여 static 변수 a의 최종값 10을 출력하는 원리",
+    "variation_hints": [
+      "static 변수 대신 인스턴스 변수를 사용하여 매 호출마다 초기화되는 결과와 비교",
+      "for문 범위를 i=1부터 시작하거나 i<10으로 변경하여 결과 추적",
+      "func 함수에서 a = a * t로 변경하여 곱셈 누적 결과를 추적하는 문제",
+      "두 개의 static 변수를 사용하여 짝수/홀수 합을 각각 누적하는 코드"
+    ],
+    "anti_patterns": [
+      "static int a = 0과 static int func(int t) { a = a+t; return a; } 구조를 그대로 사용하지 말 것",
+      "for(int i=0; i<5; i++) func(i) 호출 패턴을 동일하게 복제하지 말 것",
+      "System.out.print(a) 단일 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "정적 변수",
+      "반복문을 이용한 누적 합산",
+      "클래스 초기화 순서"
+    ]
+  },
+  "practical-industrial-2023-3:17": {
+    "language": "Java",
+    "concept": "클래스와 메서드",
+    "detail": null,
+    "tags": [
+      "클래스",
+      "객체생성",
+      "메서드호출",
+      "반환값"
+    ],
+    "required_knowledge": [
+      "클래스 정의",
+      "객체 생성",
+      "메서드 호출"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "class A에서 int f(int a, int b) { return a+b; }를 정의하고, A a = new A()로 객체를 생성한 뒤 a.f(25,25)를 호출하여 25+25=50을 반환하고 System.out.print로 출력하는 기본 클래스 메서드 호출 원리",
+    "variation_hints": [
+      "메서드 f를 오버로딩하여 f(int a)와 f(int a, int b) 두 버전이 있을 때 호출 결과 추적",
+      "반환값을 void로 바꾸고 메서드 내부에서 직접 출력하는 코드로 변형",
+      "클래스 A를 상속한 B에서 f 메서드를 오버라이딩하여 a*b를 반환하는 코드",
+      "생성자에서 초기값을 받아 필드에 저장하고 f에서 필드값과 매개변수를 합산하는 코드"
+    ],
+    "anti_patterns": [
+      "class A { int f(int a, int b) { return a+b; } } 구조를 그대로 사용하지 말 것",
+      "A a = new A(); System.out.print(a.f(25, 25)) 호출 패턴을 동일하게 복제하지 말 것",
+      "매개변수 값 25, 25를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 상속",
+      "함수 정의와 호출",
+      "메서드 호출과 반환값"
+    ]
+  },
+  "practical-industrial-2024-1:1": {
+    "language": "C",
+    "concept": "문자열 처리",
+    "detail": "대문자 범위 비교를 통한 카운팅",
+    "tags": [
+      "문자열",
+      "대문자",
+      "카운팅",
+      "for문",
+      "ASCII"
+    ],
+    "required_knowledge": [
+      "for반복문",
+      "char형",
+      "문자비교",
+      "strlen함수"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "char* str=\"abCDEFgH\"에서 for문으로 각 문자를 순회하며 ch>='A' && ch<='Z' 조건으로 대문자를 판별하여 count를 증가시키고, C,D,E,F,H 총 5개를 카운팅하는 원리",
+    "variation_hints": [
+      "소문자 개수를 카운팅하도록 조건을 ch>='a' && ch<='z'로 변경하는 코드",
+      "toupper/tolower 함수를 사용하여 대소문자 변환 후 출력하는 코드",
+      "숫자 문자(0-9)가 포함된 문자열에서 숫자 개수를 카운팅하는 코드",
+      "isupper() 함수를 사용하여 동일 결과를 내는 코드와 비교"
+    ],
+    "anti_patterns": [
+      "char* str = \"abCDEFgH\" 문자열을 그대로 사용하지 말 것",
+      "ch >= 'A' && ch <= 'Z'와 count++ 패턴을 동일하게 복제하지 말 것",
+      "printf(\"%d\", count) 단일 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "문자열 처리",
+      "자료형 변환",
+      "반복문과 조건문을 이용한 카운팅"
+    ]
+  },
+  "practical-industrial-2024-1:4": {
+    "language": "Java",
+    "concept": "향상된 for문",
+    "detail": "배열의 향상된 for문을 이용한 누적 합산",
+    "tags": [
+      "배열",
+      "향상된for문",
+      "누적합",
+      "foreach"
+    ],
+    "required_knowledge": [
+      "배열선언",
+      "향상된for문",
+      "누적합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int a[] = {1,2,3,4,5,6}에 대해 향상된 for문(for(int i:a))으로 모든 원소를 순회하며 sum+=i로 누적하여 1+2+3+4+5+6=21을 출력하는 foreach 패턴 원리",
+    "variation_hints": [
+      "향상된 for문에서 짝수만 합산하는 조건을 추가하는 코드",
+      "일반 for문과 향상된 for문의 결과를 비교하되 인덱스 접근이 필요한 경우를 제시",
+      "String 배열에 대해 향상된 for문으로 문자열을 연결하는 코드",
+      "ArrayList<Integer>에 대해 향상된 for문을 사용하여 합산하는 코드"
+    ],
+    "anti_patterns": [
+      "int a[] = {1, 2, 3, 4, 5, 6}과 int sum = 0을 그대로 사용하지 말 것",
+      "for(int i:a) sum += i 패턴을 동일하게 복제하지 말 것",
+      "System.out.print(sum) 단일 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "배열과 통계 처리",
+      "리스트 메서드"
+    ]
+  },
+  "practical-industrial-2024-1:13": {
+    "language": "Java",
+    "concept": "반복문과 조건문",
+    "detail": "연립방정식을 브루트포스로 풀어 오리와 돼지 수를 구하는 로직",
+    "tags": [
+      "for문",
+      "조건문",
+      "브루트포스",
+      "연립방정식",
+      "빈칸"
+    ],
+    "required_knowledge": [
+      "for반복문",
+      "if조건문",
+      "변수관계추론"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "totalcnt=10, totalleg=26에서 for문으로 duckcnt를 1부터 순회하며 pigcnt=totalcnt-(가:duckcnt)로 계산하고, 2*duckcnt+4*(나:pigcnt)==totalleg 조건으로 오리=7, 돼지=3을 구하는 브루트포스 원리",
+    "variation_hints": [
+      "연립방정식을 수학적으로 풀어 직접 계산하는 코드와 비교",
+      "동물 종류를 3가지로 확장하고 이중 for문으로 브루트포스하는 코드",
+      "while문과 조건식으로 동일한 탐색을 수행하는 코드",
+      "totalcnt=20, totalleg=56으로 값을 변경하여 결과를 추적하는 문제"
+    ],
+    "anti_patterns": [
+      "int totalcnt=10, totalleg=26 변수를 그대로 사용하지 말 것",
+      "pigcnt = totalcnt - duckcnt와 (2*duckcnt)+(4*pigcnt)==totalleg 조건을 동일하게 복제하지 말 것",
+      "System.out.printf(\"%d %d\", duckcnt, pigcnt) 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문",
+      "반복문과 조건문을 이용한 카운팅",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2024-1:15": {
+    "language": "Python",
+    "concept": "리스트 메서드",
+    "detail": "pop()과 pop(index)를 사용한 요소 제거 및 반환",
+    "tags": [
+      "리스트",
+      "pop",
+      "스택",
+      "인덱스"
+    ],
+    "required_knowledge": [
+      "리스트자료형",
+      "pop메서드",
+      "인덱스접근"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "a=[81,91,72,100,49]에서 a.pop()은 마지막 원소 49를 제거 반환하고, 두 번째 a.pop()은 100을, a.pop(1)은 인덱스 1의 91을 제거 반환하여 49/100/91을 순서대로 출력하는 원리",
+    "variation_hints": [
+      "pop(0)으로 첫 번째 원소를 반복 제거하며 큐 동작을 시뮬레이션하는 코드",
+      "pop()과 append()를 교대로 사용하여 스택 push/pop 동작을 추적하는 코드",
+      "pop() 후 리스트의 남은 원소를 매번 print하여 상태 변화를 추적하는 코드",
+      "remove()와 pop()의 차이(값 기반 vs 인덱스 기반)를 비교하는 코드"
+    ],
+    "anti_patterns": [
+      "a=[81,91,72,100,49] 리스트를 그대로 사용하지 말 것",
+      "print(a.pop()); print(a.pop()); print(a.pop(1)) 세 번 호출 패턴을 동일하게 복제하지 말 것",
+      "동일한 5개 원소 리스트 구성을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "리스트 참조와 집합 연산",
+      "함수 정의와 호출",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2024-1:18": {
+    "language": "C",
+    "concept": "포인터와 동적 메모리",
+    "detail": "malloc과 strcpy를 이용한 문자열 역순 출력 반복",
+    "tags": [
+      "포인터",
+      "malloc",
+      "strcpy",
+      "문자열역순",
+      "while문",
+      "동적메모리"
+    ],
+    "required_knowledge": [
+      "포인터",
+      "동적메모리할당",
+      "문자열함수",
+      "while반복문",
+      "역순출력"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "while(1) 무한 루프에서 scanf로 문자열 입력 후 malloc+strcpy로 동적 복사하고, strlen(ptr)-1부터 0까지 역순 문자 출력하며, cnt를 감소시켜 cnt<=1이면 break하는 반복 역순 출력 원리",
+    "variation_hints": [
+      "malloc 대신 strdup를 사용하여 동적 복사를 간소화하는 코드",
+      "역순 출력 대신 짝수 인덱스 문자만 출력하는 코드로 변형",
+      "cnt를 3으로 변경하여 3번 입력/역순 출력하는 코드의 결과 추적",
+      "free(ptr)를 추가하여 메모리 누수를 방지하는 개선 코드"
+    ],
+    "anti_patterns": [
+      "char str[100]과 int cnt=2를 그대로 사용하지 말 것",
+      "ptr = (char*)malloc(strlen(str)+1); strcpy(ptr, str) 동적 복사 패턴을 동일하게 복제하지 말 것",
+      "for(int i=strlen(ptr)-1; i>=0; i--) printf(\"%c\", ptr[i]) 역순 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "문자열 처리",
+      "포인터와 배열 역순",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2024-1:19": {
+    "language": "C",
+    "concept": "반복문과 나머지 연산",
+    "detail": "do-while문에서 나머지 연산자로 약수를 탐색",
+    "tags": [
+      "do-while",
+      "나머지연산",
+      "약수",
+      "반복문"
+    ],
+    "required_knowledge": [
+      "do-while반복문",
+      "나머지연산자",
+      "약수개념"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "sum=0, i=329에서 do { sum=999%i; i++; } while(sum!=0)로 999를 i로 나눈 나머지가 0이 될 때까지 반복하여, 999%333==0일 때 i가 334로 증가된 후 출력되는 약수 탐색 원리",
+    "variation_hints": [
+      "999 대신 다른 합성수(예: 1001)를 사용하여 약수를 탐색하는 코드",
+      "do-while 대신 while문으로 변환하여 초기 i값에 따른 결과 차이를 추적",
+      "sum=999%i 대신 i%값==0으로 약수 판별 방향을 바꾸는 코드",
+      "약수를 모두 출력하는 코드로 확장"
+    ],
+    "anti_patterns": [
+      "int sum=0, i=329와 do { sum=999%i; i++; } while(sum!=0) 구조를 그대로 사용하지 말 것",
+      "printf(\"%d\", i) 단일 출력을 동일하게 복제하지 말 것",
+      "999와 329라는 특정 값을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 조건문",
+      "함수와 소수 판별",
+      "최대공약수와 최소공배수"
+    ]
+  },
+  "practical-industrial-2024-2:3": {
+    "language": "C",
+    "concept": "비트 연산",
+    "detail": "비트 OR과 AND 연산 결과의 차이 계산",
+    "tags": [
+      "비트연산",
+      "OR",
+      "AND",
+      "비트논리"
+    ],
+    "required_knowledge": [
+      "비트OR연산",
+      "비트AND연산",
+      "이진수변환"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "i=3(0011), j=5(0101)에 대해 비트 OR(i|j)=7(0111)과 비트 AND(i&j)=1(0001)의 차이 7-1=6을 계산하여 출력하는 비트 연산 원리",
+    "variation_hints": [
+      "비트 XOR(i^j)와 비트 NOT(~i)를 추가하여 복합 비트 연산 결과를 추적하는 코드",
+      "i와 j를 8비트 이진수 문자열과 함께 출력하는 코드",
+      "비트 OR과 AND 대신 비트 시프트를 사용한 연산으로 변형",
+      "unsigned char형으로 8비트 범위에서 비트 연산 결과를 추적하는 코드"
+    ],
+    "anti_patterns": [
+      "int i=3, j=5와 (i|j)-(i&j) 표현식을 그대로 사용하지 말 것",
+      "printf(\"%d\", (i|j)-(i&j)) 출력을 동일하게 복제하지 말 것",
+      "3과 5라는 특정 값 조합을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "비트 연산자",
+      "복합 대입 연산자",
+      "연산자"
+    ]
+  },
+  "practical-industrial-2024-2:4": {
+    "language": "Java",
+    "concept": "메서드 호출과 반환값",
+    "detail": "메서드 내부 출력과 반환값 출력 순서 추적",
+    "tags": [
+      "메서드",
+      "반환값",
+      "print",
+      "호출순서"
+    ],
+    "required_knowledge": [
+      "메서드정의",
+      "반환값",
+      "print출력순서",
+      "객체생성"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "Test 객체의 A(5,5) 메서드 호출 시 내부에서 System.out.print(a+b)로 10을 먼저 출력하고, return a*b=25를 반환하여 외부 System.out.print에서 25를 출력하므로 최종 '1025'가 되는 출력 순서 원리",
+    "variation_hints": [
+      "메서드 내부에서 println 대신 print를 사용할 때의 출력 차이를 추적",
+      "반환값을 변수에 저장한 후 별도 줄에서 출력하는 코드로 변형",
+      "메서드 A를 두 번 중첩 호출(a.A(a.A(2,3), 4))하여 출력 순서를 추적하는 문제",
+      "void 반환으로 변경하고 모든 출력을 메서드 내부에서 처리하는 코드"
+    ],
+    "anti_patterns": [
+      "int A(int a, int b) { System.out.print(a+b); return a*b; } 구조를 그대로 사용하지 말 것",
+      "System.out.print(a.A(5,5)) 반환값 직접 출력 패턴을 동일하게 복제하지 말 것",
+      "매개변수 값 5, 5를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스와 메서드",
+      "함수 정의와 호출",
+      "메서드 호출과 반환값"
+    ]
+  },
+  "practical-industrial-2024-2:5": {
+    "language": "C",
+    "concept": "구조체",
+    "detail": "구조체 멤버 간 float 덧셈과 서식 지정 출력",
+    "tags": [
+      "구조체",
+      "struct",
+      "float",
+      "printf서식"
+    ],
+    "required_knowledge": [
+      "구조체정의",
+      "구조체초기화",
+      "실수형연산",
+      "printf서식지정자"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "struct number에 float i, j 멤버를 가진 a={3.0,4.0}과 b={4.0,5.0}에 대해 a.i+b.i=7.00, a.j+b.j=9.00을 %.2f 서식으로 '7.00 그리고 9.00'을 출력하는 구조체 멤버 접근 원리",
+    "variation_hints": [
+      "구조체 멤버를 int형으로 변경하여 실수 출력과의 차이를 비교하는 코드",
+      "구조체 배열을 선언하여 여러 구조체의 멤버 합을 for문으로 구하는 코드",
+      "구조체 포인터를 사용하여 화살표 연산자로 멤버에 접근하는 코드",
+      "%.2f 대신 %.0f, %e 등 다른 서식 지정자를 사용한 출력 비교"
+    ],
+    "anti_patterns": [
+      "struct number { float i; float j; }와 a={3.0,4.0}, b={4.0,5.0}을 그대로 사용하지 말 것",
+      "printf(\"%.2f 그리고 %.2f\", a.i+b.i, a.j+b.j) 출력을 동일하게 복제하지 말 것",
+      "멤버명 i, j를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "구조체 포인터",
+      "공용체와 구조체",
+      "배열과 통계 처리"
+    ]
+  },
+  "practical-industrial-2024-2:7": {
+    "language": "C",
+    "concept": "반복문",
+    "detail": "구구단 출력을 위한 곱셈 수식 빈칸 완성",
+    "tags": [
+      "for문",
+      "구구단",
+      "printf",
+      "빈칸"
+    ],
+    "required_knowledge": [
+      "for반복문",
+      "산술연산",
+      "printf"
+    ],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "n=3, for(i=1;i<=9;i++)에서 printf(\"%d*%d=%d\", n, i, (가))의 (가)에 n*i를 넣어 3단 구구단을 '3*1=3, 3*2=6, ...' 형식으로 출력하는 원리",
+    "variation_hints": [
+      "구구단 전체(2단~9단)를 이중 for문으로 출력하는 코드로 확장",
+      "n*i 대신 n+i를 넣어 덧셈표를 출력하는 코드",
+      "역순 구구단(9부터 1까지)을 출력하는 코드",
+      "홀수 단(3,5,7,9단)만 출력하는 조건을 추가한 코드"
+    ],
+    "anti_patterns": [
+      "int n=3과 for(int i=1; i<=9; i++) 구조를 그대로 사용하지 말 것",
+      "printf(\"%d*%d=%d\", n, i, n*i) 패턴을 동일하게 복제하지 말 것",
+      "3단 구구단이라는 동일한 출력 대상을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "2차원 배열과 중첩 반복문",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2024-2:9": {
+    "language": "C",
+    "concept": "포인터",
+    "detail": "포인터를 이용한 변수 간접 참조 및 연산",
+    "tags": [
+      "포인터",
+      "간접참조",
+      "주소연산자",
+      "역참조"
+    ],
+    "required_knowledge": [
+      "포인터선언",
+      "주소연산자",
+      "역참조연산자",
+      "포인터연산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int n1=11에 대해 p=&n1로 주소를 저장하고, n2=*p+n1=11+11=22를 계산한 후 *p-n1+n2=11-11+22=22를 출력하는 포인터 간접 참조 연산 원리",
+    "variation_hints": [
+      "p를 &n2로 재할당한 후 *p의 값 변화를 추적하는 코드",
+      "포인터를 통해 *p=20으로 값을 변경한 후 n1의 값을 확인하는 코드",
+      "두 포인터 p, q가 각각 n1, n2를 가리킬 때 *p + *q 연산을 수행하는 코드",
+      "const int *p로 선언하여 *p를 통한 값 변경이 불가능함을 확인하는 코드"
+    ],
+    "anti_patterns": [
+      "int n1=11, n2=0, *p=NULL과 p=&n1 패턴을 그대로 사용하지 말 것",
+      "n2=*p+n1과 printf(\"%d\", *p-n1+n2) 연산을 동일하게 복제하지 말 것",
+      "변수명 n1, n2, p를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터",
+      "이중 포인터",
+      "포인터를 이용한 값 교환"
+    ]
+  },
+  "practical-industrial-2024-2:16": {
+    "language": "Python",
+    "concept": "반복문과 제어문",
+    "detail": "for문에서 continue를 사용한 특정 값 건너뛰기",
+    "tags": [
+      "for문",
+      "continue",
+      "조건문",
+      "리스트순회"
+    ],
+    "required_knowledge": [
+      "for반복문",
+      "continue문",
+      "if조건문",
+      "print함수"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "x=[1,-1,0,1,-1]에서 for n in x로 순회하며 n==-1이면 continue로 건너뛰고, 나머지 원소 1,0,1을 end=''로 연결하여 '101'을 출력하는 Python continue문 원리",
+    "variation_hints": [
+      "continue 조건을 n==0으로 변경하여 0을 건너뛰는 코드",
+      "continue 대신 if n != -1: print(n)로 동일 결과를 내는 코드와 비교",
+      "break를 사용하여 -1을 만나면 즉시 중단하는 코드와 결과 차이 비교",
+      "리스트 컴프리헨션으로 동일 결과를 내는 코드"
+    ],
+    "anti_patterns": [
+      "x = [1, -1, 0, 1, -1] 리스트를 그대로 사용하지 말 것",
+      "if(n == -1): continue와 print(n, end='') 패턴을 동일하게 복제하지 말 것",
+      "리스트 원소 구성을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 제어문",
+      "반복문과 continue문",
+      "리스트 메서드"
+    ]
+  },
+  "practical-industrial-2024-2:17": {
+    "language": "C",
+    "concept": "포인터와 정렬",
+    "detail": "포인터 배열 접근을 이용한 선택 정렬",
+    "tags": [
+      "포인터",
+      "선택정렬",
+      "배열",
+      "이중for문",
+      "정렬"
+    ],
+    "required_knowledge": [
+      "포인터산술",
+      "배열포인터",
+      "선택정렬알고리즘",
+      "이중반복문"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int *p=a로 배열 시작 주소를 포인터에 저장한 후, *(p+i)와 *(p+j)로 포인터 산술을 사용한 이중 for문 선택 정렬을 수행하고, 매 패스마다 확정된 최솟값을 순서대로 출력하는 원리",
+    "variation_hints": [
+      "a[i], a[j] 배열 인덱스 방식으로 동일 정렬을 구현하여 포인터 방식과 비교",
+      "포인터를 사용한 버블 정렬로 알고리즘을 변경하는 코드",
+      "매 swap 시마다 배열 전체를 출력하는 코드로 변형",
+      "내림차순 정렬로 변경하여 *(p+i) < *(p+j) 조건의 결과를 추적"
+    ],
+    "anti_patterns": [
+      "int a[5] = {3, 4, 5, 10, 2}와 int *p = a를 그대로 사용하지 말 것",
+      "*(p+i) > *(p+j)와 temp 교환 패턴을 동일하게 복제하지 말 것",
+      "printf(\"%d \", *(p+i)) 매 패스 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "정렬 알고리즘",
+      "포인터와 배열 역순",
+      "포인터"
+    ]
+  },
+  "practical-industrial-2024-3:4": {
+    "language": "C",
+    "concept": "공용체와 구조체",
+    "detail": "union과 struct 조합 및 구조체 포인터를 통한 함수 호출",
+    "tags": [
+      "union",
+      "struct",
+      "구조체포인터",
+      "공용체",
+      "함수호출"
+    ],
+    "required_knowledge": [
+      "공용체정의",
+      "구조체정의",
+      "구조체포인터",
+      "지정초기화",
+      "함수매개변수"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "union Number(intV, floatV 공유 메모리)와 struct data(n1, n2, isInt) 조합에서, isInt=1이므로 func에서 a->n1.intV += a->n2.intV로 5+3=8이 계산되어 printf(\"%d\", a.n1.intV)로 8을 출력하는 공용체 구조체 포인터 접근 원리",
+    "variation_hints": [
+      "isInt=0으로 변경하여 floatV 분기가 실행될 때의 결과를 추적하는 코드",
+      "union에서 float와 int가 동일 메모리를 공유할 때 타입 변환 문제를 묻는 코드",
+      "구조체 포인터 대신 값 전달로 변경하여 원본 미변경을 확인하는 코드",
+      "공용체 없이 별도의 int/float 멤버를 가진 구조체로 변형하는 코드"
+    ],
+    "anti_patterns": [
+      "union Number { int intV; int floatV; }와 struct data 조합을 그대로 사용하지 말 것",
+      "struct data a = {{.intV = 5}, {.floatV = 3.5}, 1} 지정 초기화를 동일하게 복제하지 말 것",
+      "if(a->isInt) { a->n1.intV += a->n2.intV; } 분기를 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "구조체 포인터",
+      "구조체 포인터와 값 전달",
+      "비트 연산자"
+    ]
+  },
+  "practical-industrial-2024-3:7": {
+    "language": "Java",
+    "concept": "산술 연산자",
+    "detail": "복합 대입 연산자의 순차적 적용과 나머지 연산",
+    "tags": [
+      "복합대입연산자",
+      "산술연산",
+      "나머지연산",
+      "연산순서"
+    ],
+    "required_knowledge": [
+      "복합대입연산자",
+      "정수나눗셈",
+      "나머지연산자"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "i=17에 대해 i+=1(18), i-=2(16), i*=3(48), i/=4(12), i%=5(2)를 순차 적용하여 정수 연산의 각 단계를 추적하고 최종 2를 출력하는 복합 대입 연산자 원리",
+    "variation_hints": [
+      "연산자 순서를 변경하여 결과가 달라지는 코드",
+      "float형으로 변경하여 /= 연산에서 정수 나눗셈과의 차이를 비교",
+      "비트 복합 대입 연산자(&=, |=, ^=)를 순차 적용하는 코드",
+      "각 연산 후 중간 결과를 배열에 저장하여 한 번에 출력하는 코드"
+    ],
+    "anti_patterns": [
+      "int i=17과 +=1, -=2, *=3, /=4, %=5 순서를 그대로 사용하지 말 것",
+      "System.out.print(i) 단일 출력을 동일하게 복제하지 말 것",
+      "피연산자 1,2,3,4,5와 초기값 17 조합을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "복합 대입 연산자",
+      "산술 연산자",
+      "연산자"
+    ]
+  },
+  "practical-industrial-2024-3:9": {
+    "language": "C",
+    "concept": "포인터와 배열 역순",
+    "detail": "포인터 swap 함수를 이용한 배열 요소 뒤집기",
+    "tags": [
+      "포인터",
+      "swap",
+      "배열역순",
+      "함수호출",
+      "이중포인터"
+    ],
+    "required_knowledge": [
+      "포인터매개변수",
+      "swap함수",
+      "배열과포인터",
+      "while반복문"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "swap 함수로 *ptr1과 *ptr2를 교환하고, func에서 ptr1=&arr[0], ptr2=&arr[n-1]부터 ptr1<ptr2인 동안 양쪽을 swap하며 배열 {1,2,3,4,5}를 {5,4,3,2,1}로 뒤집고 arr[2]=3을 출력하는 원리",
+    "variation_hints": [
+      "배열 크기가 짝수(6개)인 경우 중간 요소 없이 완전 역전되는 결과 추적",
+      "배열의 앞 절반만 뒤집는 코드로 변형",
+      "swap 함수 대신 XOR 교환을 사용하는 코드",
+      "역순 배열의 전체를 출력하는 코드로 변형"
+    ],
+    "anti_patterns": [
+      "int arr[] = {1, 2, 3, 4, 5}와 func(arr, 5) 호출을 그대로 사용하지 말 것",
+      "void swap(int *ptr1, int *ptr2) 함수와 ptr1++; ptr2-- 패턴을 동일하게 복제하지 말 것",
+      "printf(\"%d\", arr[2]) 특정 인덱스 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터를 이용한 값 교환",
+      "포인터와 배열 역순",
+      "포인터"
+    ]
+  },
+  "practical-industrial-2024-3:11": {
+    "language": "C",
+    "concept": "반복문과 제어문",
+    "detail": "for문에서 continue를 이용한 짝수 누적 합산",
+    "tags": [
+      "for문",
+      "continue",
+      "짝수합",
+      "나머지연산"
+    ],
+    "required_knowledge": [
+      "for반복문",
+      "continue문",
+      "나머지연산자",
+      "누적합산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "for(i=0;i<=10;i++)에서 i%2!=0이면 continue로 홀수를 건너뛰고 짝수만 sum에 누적(0+2+4+6+8+10=30)한 후, 루프 종료 시 i=11이 되어 i+sum=11+30=41을 출력하는 원리",
+    "variation_hints": [
+      "continue 대신 if(i%2==0) sum+=i로 동일 결과를 내는 코드와 비교",
+      "홀수만 누적하도록 조건을 i%2==0 continue로 변경하는 코드",
+      "while문으로 변환하여 i++의 위치에 따른 결과 차이를 추적",
+      "for문 종료 후 i값이 11인 이유를 명확히 묻는 문제"
+    ],
+    "anti_patterns": [
+      "int sum=0, i=0과 for(i=0; i<=10; i++) 구조를 그대로 사용하지 말 것",
+      "if(i%2!=0) continue; sum+=i 패턴을 동일하게 복제하지 말 것",
+      "printf(\"%d\", i+sum) 루프 변수와 합의 덧셈 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "반복문과 continue문",
+      "반복문과 제어문",
+      "반복문을 이용한 조건부 누적 합산"
+    ]
+  },
+  "practical-industrial-2024-3:14": {
+    "language": "C",
+    "concept": "재귀 함수",
+    "detail": "하노이탑 패턴의 이중 재귀 호출 횟수 계산",
+    "tags": [
+      "재귀",
+      "하노이탑",
+      "이중재귀",
+      "함수호출"
+    ],
+    "required_knowledge": [
+      "재귀함수",
+      "재귀종료조건",
+      "하노이탑알고리즘",
+      "호출스택"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "factorial(n,from,to,temp)에서 n==0이면 0 반환, 그 외에는 factorial(n-1,...)+1+factorial(n-1,...)로 이중 재귀하여 n=3일 때 2^3-1=7을 계산하는 하노이탑 이동 횟수 패턴 원리",
+    "variation_hints": [
+      "n=4로 변경하여 2^4-1=15가 되는 결과를 추적하는 문제",
+      "이중 재귀 대신 공식 2^n-1로 직접 계산하여 비교하는 코드",
+      "각 재귀 호출에서 from, to 값을 printf로 출력하여 이동 경로를 추적하는 코드",
+      "+2로 변경하여 비표준 하노이탑 결과를 추적하는 문제"
+    ],
+    "anti_patterns": [
+      "함수명 factorial과 매개변수 (int n, int from, int to, int temp)를 그대로 사용하지 말 것",
+      "return factorial(n-1,from,temp,to)+1+factorial(n-1,temp,to,from) 구조를 동일하게 복제하지 말 것",
+      "factorial(3, 3, 2, 1) 호출과 printf(\"%d\") 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "재귀 함수",
+      "퀵 정렬",
+      "함수 정의와 호출"
+    ]
+  },
+  "practical-industrial-2024-3:18": {
+    "language": "Java",
+    "concept": "제네릭과 메서드 오버로딩",
+    "detail": "제네릭 타입 소거로 인한 오버로딩 메서드 선택",
+    "tags": [
+      "제네릭",
+      "오버로딩",
+      "타입소거",
+      "클래스",
+      "다형성"
+    ],
+    "required_knowledge": [
+      "제네릭클래스",
+      "메서드오버로딩",
+      "타입소거",
+      "Object타입",
+      "상속계층"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "Collection<T>에서 제네릭 타입 T가 컴파일 시 소거(erasure)되어 Object로 대체되므로, new Printer().print(value)에서 print(Object a) 오버로딩이 선택되어 'B0'이 출력되는 타입 소거 원리",
+    "variation_hints": [
+      "Collection<Integer>로 타입을 명시적으로 지정하여 print(Integer a)가 호출되는지 확인하는 코드",
+      "와일드카드(Collection<?>)를 사용할 때 오버로딩 선택이 달라지는지 추적하는 문제",
+      "메서드 오버로딩 대신 instanceof를 사용하여 런타임 타입 검사하는 코드",
+      "print(String a)를 추가하여 String 타입의 Collection에서의 오버로딩 선택 추적"
+    ],
+    "anti_patterns": [
+      "class Printer의 print(Integer a), print(Object a), print(Number a) 세 오버로딩을 그대로 사용하지 말 것",
+      "Collection<T>와 new Printer().print(value) 호출 패턴을 동일하게 복제하지 말 것",
+      "new Collection<>(0).print() 인라인 생성 호출 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 상속",
+      "상속과 다형성",
+      "클래스와 메서드"
+    ]
+  },
+  "practical-industrial-2024-3:19": {
+    "language": "C",
+    "concept": "이중 포인터",
+    "detail": "이중 포인터를 통한 배열 요소 변환 및 나머지 연산",
+    "tags": [
+      "이중포인터",
+      "배열",
+      "나머지연산",
+      "함수매개변수"
+    ],
+    "required_knowledge": [
+      "이중포인터",
+      "포인터산술",
+      "나머지연산자",
+      "함수호출"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "func(int **arr, int size)에서 *(*arr+i)로 이중 포인터를 통해 배열 원소에 접근하고, (*(*arr+i)+i)%size로 원소값에 인덱스를 더한 후 size(5)로 나머지 연산하여 arr[2]=(4+2)%5=1이 되어 num=1을 출력하는 원리",
+    "variation_hints": [
+      "size를 7로 변경하여 나머지 연산 결과가 달라지는 코드 추적",
+      "이중 포인터 대신 단일 포인터로 동일한 배열 변환을 수행하는 코드와 비교",
+      "곱셈 연산으로 변경하여 결과를 추적하는 문제",
+      "변환 후 배열 전체를 출력하여 각 원소의 변화를 확인하는 코드"
+    ],
+    "anti_patterns": [
+      "int arr[] = {3, 1, 4, 1, 5}와 int *p = arr; int **pp = &p 구조를 그대로 사용하지 말 것",
+      "*(*arr+i) = (*(*arr+i)+i) % size 변환식을 동일하게 복제하지 말 것",
+      "num = arr[2]; printf(\"%d\", num) 특정 인덱스 출력을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "이중 포인터",
+      "포인터",
+      "반복문과 조건문"
+    ]
+  },
+  "practical-industrial-2025-1:7": {
+    "language": "Java",
+    "concept": "배열과 객체 참조",
+    "detail": "배열 요소 간 객체 참조 교환 후 동일 객체에 대한 누적 연산",
+    "tags": [
+      "배열",
+      "객체참조",
+      "참조복사",
+      "클래스"
+    ],
+    "required_knowledge": [
+      "Java 클래스 생성자",
+      "배열 인덱싱",
+      "객체 참조와 값의 차이"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "배열 요소 간 참조를 swap해도 bs[0]과 bs[1]이 동일한 객체 a를 가리키게 되므로, bs[0].a += bs[1].a가 같은 객체의 필드를 자기 자신에 더하는 자기참조 누적(3+3=6)이 발생하는 원리",
+    "variation_hints": [
+      "3개 객체 배열에서 순환 참조 교환(c[0]=c[1], c[1]=c[2], c[2]=temp) 후 특정 인덱스 필드값 추적",
+      "swap 후 bs[0].a *= bs[1].a 처럼 곱셈 연산으로 변경하여 동일 객체 자기참조 곱셈 결과 예측",
+      "생성자에서 static 카운터를 증가시키는 클래스를 사용하여 객체 생성 횟수와 참조 교환 결합",
+      "ArrayList를 사용하여 Collections.swap 후 동일 객체 필드 연산 결과 추적"
+    ],
+    "anti_patterns": [
+      "클래스명 B와 필드명 a, 생성자 B(int a) { this.a = a; } 패턴을 그대로 사용하지 말 것",
+      "bs[0]과 bs[1]을 temp 변수로 swap하는 동일한 3줄 구조를 재사용하지 말 것",
+      "초기값이 동일한 (3, 3) 두 객체를 생성하는 구조를 복사하지 말 것"
+    ],
+    "related_concepts": [
+      "배열 참조 전달",
+      "클래스 초기화 순서",
+      "포인터를 이용한 값 교환"
+    ]
+  },
+  "practical-industrial-2025-1:13": {
+    "language": "Java",
+    "concept": "배열 간접 인덱싱",
+    "detail": "배열 값을 인덱스로 활용하여 누적 합산하는 패턴",
+    "tags": [
+      "배열",
+      "인덱싱",
+      "반복문",
+      "누적합"
+    ],
+    "required_knowledge": [
+      "for문",
+      "배열 인덱스 접근",
+      "arr.length"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "arr[arr[i]-1] 패턴으로 배열의 값 자체를 다시 인덱스로 사용하여 간접 참조하고, 그 결과를 누적 합산하는 이중 인덱싱 원리",
+    "variation_hints": [
+      "arr[arr[i]] 형태로 -1 없이 직접 간접 인덱싱하되 0-based 배열 값을 사용하는 변형",
+      "2차원 배열에서 첫 번째 행의 값을 두 번째 행의 인덱스로 사용하여 합산하는 코드",
+      "간접 인덱싱 결과를 곱셈으로 누적하거나, 특정 조건(짝수만)을 필터링하는 변형",
+      "배열 값이 문자열 배열의 인덱스를 가리켜 특정 문자를 추출하는 패턴"
+    ],
+    "anti_patterns": [
+      "int[] arr = {1, 2, 3}과 arr[arr[i]-1] 조합을 그대로 사용하지 말 것",
+      "배열 크기 3, 값 1~3의 연속 정수 배열을 동일하게 사용하지 말 것",
+      "sum += arr[arr[i]-1] 표현식을 그대로 복사하지 말 것"
+    ],
+    "related_concepts": [
+      "반복문을 이용한 누적 합산",
+      "배열과 통계 처리",
+      "2차원 배열과 중첩 반복문"
+    ]
+  },
+  "practical-industrial-2025-1:17": {
+    "language": "C",
+    "concept": "퀵 정렬",
+    "detail": "피벗 기반 분할 정복 퀵 정렬 후 홀수 인덱스 요소 출력",
+    "tags": [
+      "정렬",
+      "퀵정렬",
+      "재귀",
+      "분할정복",
+      "배열"
+    ],
+    "required_knowledge": [
+      "재귀 함수",
+      "포인터",
+      "배열",
+      "퀵 정렬 알고리즘",
+      "나머지 연산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "중간 인덱스 피벗((left+right)/2)을 사용하는 Hoare 파티션 방식의 퀵 정렬을 수행한 후, i%2==1 조건으로 홀수 인덱스 요소만 선별 출력하는 원리",
+    "variation_hints": [
+      "정렬 후 짝수 인덱스 요소만 역순으로 출력하는 변형",
+      "피벗을 첫 번째 요소(arr[left])로 선택하는 Lomuto 파티션 방식으로 교체",
+      "정렬 후 인접 요소 차이(arr[i+1]-arr[i])를 출력하는 변형",
+      "퀵 정렬 대신 병합 정렬을 구현하고 특정 인덱스 요소를 출력하는 변형",
+      "내림차순 정렬로 조건을 변경(arr[left] > pivot, arr[right] < pivot)하는 변형"
+    ],
+    "anti_patterns": [
+      "int arr[] = { 1, 22, 5, 43, 19, 57, 75, 8, 27, 13 } 동일한 10개 배열을 사용하지 말 것",
+      "partition/sort 함수명과 동일한 시그니처(int* arr, int left, int right)를 그대로 쓰지 말 것",
+      "i%2==1 홀수 인덱스 필터 조건을 동일하게 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "정렬 알고리즘",
+      "재귀 함수",
+      "포인터와 배열 역순"
+    ]
+  },
+  "practical-industrial-2025-1:18": {
+    "language": "C",
+    "concept": "구조체 포인터",
+    "detail": "구조체 포인터를 통한 멤버 접근 및 연산",
+    "tags": [
+      "구조체",
+      "포인터",
+      "화살표연산자",
+      "멤버접근"
+    ],
+    "required_knowledge": [
+      "struct 정의",
+      "포인터 선언",
+      "화살표 연산자(->)",
+      "구조체 초기화"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "struct A 포인터 p가 data를 가리킬 때, p->temp = p->x * p->y + 2 처럼 화살표 연산자를 통해 여러 멤버를 조합한 산술 결과를 다른 멤버에 저장하는 원리",
+    "variation_hints": [
+      "구조체 배열을 선언하고 포인터 산술(p++)로 다음 요소의 멤버에 접근하는 변형",
+      "중첩 구조체(struct 내부에 struct)에서 화살표 연산자를 연쇄 사용하는 코드",
+      "구조체 포인터를 함수에 전달하여 멤버값을 변경한 후 main에서 출력하는 변형",
+      "구조체 멤버 중 float형을 사용하여 나눗셈 결과의 소수점 출력을 요구하는 변형"
+    ],
+    "anti_patterns": [
+      "struct A { int x; int y; int temp; } 동일한 3개 int 멤버 구조를 사용하지 말 것",
+      "data = {5, 3} 초기화와 p->x * p->y + 2 동일 산술식을 그대로 쓰지 말 것",
+      "변수명 data, p를 동일하게 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "구조체 포인터와 값 전달",
+      "공용체와 구조체",
+      "포인터"
+    ]
+  },
+  "practical-industrial-2025-1:20": {
+    "language": "C",
+    "concept": "이중 포인터",
+    "detail": "이중 포인터를 통한 간접 참조로 원본 변수 값 변경",
+    "tags": [
+      "포인터",
+      "이중포인터",
+      "간접참조",
+      "역참조"
+    ],
+    "required_knowledge": [
+      "포인터 선언",
+      "주소 연산자(&)",
+      "역참조 연산자(*)",
+      "이중 포인터(**)"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "int **r = &p에서 **r이 p가 가리키는 a의 값에 접근하므로, **r += *q가 a에 b의 값을 더하는 간접 참조 체인(r -> p -> a) 원리",
+    "variation_hints": [
+      "이중 포인터 r을 통해 포인터 p 자체를 다른 변수(&b)로 재할당한 후 **r 출력",
+      "삼중 포인터(int ***)를 사용하여 3단계 간접 참조 체인의 최종값 추적",
+      "이중 포인터로 배열의 특정 요소를 가리키게 한 후 **r로 값을 변경하는 코드",
+      "함수 매개변수로 이중 포인터를 전달하여 호출자의 포인터가 가리키는 대상을 변경하는 변형"
+    ],
+    "anti_patterns": [
+      "int a=5, b=8, *p=&a, *q=&b, **r=&p 동일한 변수 선언 패턴을 사용하지 말 것",
+      "**r += *q 표현식을 그대로 사용하지 말 것",
+      "변수명 a, b, p, q, r을 동일한 조합으로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터를 이용한 값 교환",
+      "포인터 매개변수 재할당",
+      "포인터와 2차원 배열"
+    ]
+  },
+  "practical-industrial-2025-2:3": {
+    "language": "Java",
+    "concept": "상속과 다형성",
+    "detail": "정적 메서드 하이딩과 인스턴스 메서드 오버라이딩의 차이",
+    "tags": [
+      "상속",
+      "오버라이딩",
+      "다형성",
+      "정적메서드",
+      "메서드하이딩"
+    ],
+    "required_knowledge": [
+      "클래스 상속(extends)",
+      "static 메서드",
+      "업캐스팅",
+      "동적 바인딩과 정적 바인딩"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "A tester = new B()로 업캐스팅 시, static 메서드 nu()는 선언 타입(A) 기준으로 정적 바인딩되고 인스턴스 메서드 mo()는 실제 객체(B) 기준으로 동적 바인딩되어 Ab가 출력되는 원리",
+    "variation_hints": [
+      "static 메서드와 인스턴스 메서드를 3단계 상속(A-B-C)에서 각각 오버라이딩/하이딩하여 출력 추적",
+      "인터페이스의 default 메서드와 static 메서드의 바인딩 차이를 묻는 변형",
+      "동일 클래스에서 오버로딩된 static/인스턴스 메서드가 혼재할 때 호출 결과 추적",
+      "B tester = new B()로 다운캐스팅 없이 선언하여 static 메서드도 B의 것이 호출되는 대조 문제"
+    ],
+    "anti_patterns": [
+      "클래스명 A/B와 메서드명 nu()/mo()를 그대로 사용하지 말 것",
+      "return \"A\", return \"a\", return \"B\", return \"b\" 같은 단일 문자 반환 패턴을 복사하지 말 것",
+      "tester.nu() + tester.mo() 문자열 연결 출력 패턴을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 상속",
+      "클래스 초기화 순서",
+      "제네릭과 메서드 오버로딩"
+    ]
+  },
+  "practical-industrial-2025-2:4": {
+    "language": "C",
+    "concept": "포인터를 이용한 값 교환",
+    "detail": "포인터 매개변수로 두 변수의 값을 교환(swap)하는 함수",
+    "tags": [
+      "포인터",
+      "함수",
+      "값교환",
+      "call by reference"
+    ],
+    "required_knowledge": [
+      "포인터 매개변수",
+      "역참조를 통한 값 변경",
+      "함수 반환값",
+      "산술 연산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "fn 함수에서 *a = *a + *b로 합을 a에 저장한 뒤, return (*b = *a - *b)로 원래 a값을 b에 넣고 반환하는 산술적 swap 패턴과, 반환값 + 변경된 y의 합산을 추적하는 원리",
+    "variation_hints": [
+      "XOR 비트 연산(^=)으로 swap을 수행하는 함수에서 반환값과 변경된 변수의 합산 추적",
+      "3개 변수를 순환 교환하는 함수(a->b, b->c, c->a)에서 포인터 매개변수 결과 추적",
+      "swap 함수의 반환값을 다른 함수의 인자로 전달하는 중첩 호출 결과 예측",
+      "곱셈/나눗셈을 이용한 swap(*a = *a * *b, *b = *a / *b, *a = *a / *b) 변형"
+    ],
+    "anti_patterns": [
+      "fn(int *a, int *b) 시그니처와 *a = *a + *b; return (*b = *a - *b) 패턴을 그대로 쓰지 말 것",
+      "int x = 2, y = 3 초기값을 동일하게 사용하지 말 것",
+      "printf(\"%d\", fn(&x, &y) + y) 반환값+변수 합산 출력 패턴을 복사하지 말 것"
+    ],
+    "related_concepts": [
+      "비트 연산자",
+      "포인터 매개변수 재할당",
+      "구조체 포인터와 값 전달"
+    ]
+  },
+  "practical-industrial-2025-2:7": {
+    "language": "Java",
+    "concept": "클래스 초기화 순서",
+    "detail": "static 변수 초기화, static 블록 실행 순서와 출력 추적",
+    "tags": [
+      "static",
+      "초기화블록",
+      "클래스로딩",
+      "실행순서"
+    ],
+    "required_knowledge": [
+      "static 변수",
+      "static 초기화 블록",
+      "클래스 로딩 순서",
+      "메서드 호출"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "클래스 로딩 시 static int x = f()가 먼저 실행되어 A를 출력하고 x=1로 초기화된 후, static 블록에서 x++로 x=2가 되어 main에서 2를 출력하는 선언 순서 기반 초기화 원리",
+    "variation_hints": [
+      "static 블록을 2개 이상 배치하고 사이에 static 변수 선언을 끼워넣어 실행 순서 추적",
+      "부모-자식 클래스 간 static 초기화 블록의 실행 순서(부모 먼저)를 묻는 변형",
+      "static 변수가 다른 static 메서드를 호출하고 그 메서드가 또 다른 static 변수를 참조하는 순환 패턴",
+      "인스턴스 초기화 블록과 static 초기화 블록의 실행 시점 차이를 묻는 변형"
+    ],
+    "anti_patterns": [
+      "static int x = f()와 static { x++; } 조합을 그대로 사용하지 말 것",
+      "f() 메서드에서 System.out.print(\"A\"); return 1; 패턴을 복사하지 말 것",
+      "출력이 A2가 되는 동일한 결과 구조를 재현하지 말 것"
+    ],
+    "related_concepts": [
+      "상속과 다형성",
+      "정적 변수",
+      "배열과 객체 참조"
+    ]
+  },
+  "practical-industrial-2025-2:8": {
+    "language": "C",
+    "concept": "구조체 포인터와 값 전달",
+    "detail": "구조체의 포인터 전달과 값 전달 차이에 따른 원본 변경 여부",
+    "tags": [
+      "구조체",
+      "포인터",
+      "값전달",
+      "참조전달",
+      "함수매개변수"
+    ],
+    "required_knowledge": [
+      "struct 정의",
+      "포인터 매개변수(call by reference)",
+      "값 매개변수(call by value)",
+      "포인터 재할당"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "change 함수에서 포인터 a로 전달된 b1은 a->x += b.x로 원본이 변경(3+4=7)되지만, 값 전달된 b는 복사본이므로 b.x=100은 원본 b2에 영향 없고, a=&b로 포인터를 재할당해도 main의 b1에는 영향 없는 원리",
+    "variation_hints": [
+      "두 구조체 모두 포인터로 전달하되 하나의 포인터를 다른 것으로 재할당하는 변형",
+      "구조체 멤버로 포인터를 가지는 경우(struct { int *p; }) 얕은 복사 문제를 묻는 변형",
+      "함수에서 malloc으로 새 구조체를 할당하고 포인터 매개변수에 대입하는 코드의 결과 추적",
+      "구조체 반환값을 사용하여 값 전달의 한계를 우회하는 패턴"
+    ],
+    "anti_patterns": [
+      "change(Struct *a, Struct b) 시그니처에서 하나는 포인터, 하나는 값 전달하는 동일 패턴을 쓰지 말 것",
+      "Struct b1 = {3}; Struct b2 = {4}; 초기값 조합을 복사하지 말 것",
+      "a = &b; a->x = 200; 포인터 재할당 후 대입 패턴을 그대로 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터를 이용한 값 교환",
+      "포인터 매개변수 재할당",
+      "구조체 포인터"
+    ]
+  },
+  "practical-industrial-2025-2:15": {
+    "language": "Java",
+    "concept": "배열 참조 전달",
+    "detail": "배열 참조를 함수에 전달 후 요소 변경과 참조 재할당의 차이",
+    "tags": [
+      "배열",
+      "참조전달",
+      "함수",
+      "참조재할당"
+    ],
+    "required_knowledge": [
+      "배열 참조",
+      "메서드 매개변수",
+      "참조 재할당과 요소 변경의 차이"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "func 내에서 a[0]++는 원본 배열의 요소를 직접 수정(2->3)하지만, a = new int[]{5}는 지역 참조만 재할당하므로 호출자의 arr 참조에는 영향이 없어 arr[0]이 3으로 출력되는 원리",
+    "variation_hints": [
+      "배열 참조를 재할당한 후 재할당된 배열의 요소를 변경하고 원본과 비교하는 변형",
+      "2차원 배열에서 행 참조를 재할당하는 경우와 요소를 직접 변경하는 경우의 차이",
+      "ArrayList를 매개변수로 전달하여 add/clear 후 호출자에서 확인하는 변형",
+      "배열을 래퍼 객체(class Wrapper { int[] data; })로 감싸서 전달하는 변형"
+    ],
+    "anti_patterns": [
+      "func(int[] a) { a[0]++; a = new int[]{5}; } 패턴을 그대로 사용하지 말 것",
+      "int[] arr = {2} 단일 요소 배열 초기화를 동일하게 쓰지 말 것",
+      "a[0]++ 후 바로 a = new int[] 재할당하는 2줄 구조를 복사하지 말 것"
+    ],
+    "related_concepts": [
+      "배열과 객체 참조",
+      "포인터 매개변수 재할당",
+      "리스트 참조와 집합 연산"
+    ]
+  },
+  "practical-industrial-2025-2:16": {
+    "language": "Java",
+    "concept": "예외 처리 try-finally",
+    "detail": "try 블록의 return과 finally 블록 실행 순서 및 반환값 결정",
+    "tags": [
+      "예외처리",
+      "try",
+      "finally",
+      "return",
+      "실행순서"
+    ],
+    "required_knowledge": [
+      "try-finally 구문",
+      "return 문의 동작",
+      "finally 블록의 실행 보장"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "try 블록에서 return 1이 실행되면 반환값 1이 임시 저장되고, finally 블록의 result=2가 실행되지만 반환값은 이미 결정되어 있으므로 최종 반환값은 1인 원리",
+    "variation_hints": [
+      "finally 블록에서도 return문을 사용하여 try의 반환값을 덮어쓰는 변형",
+      "try-catch-finally에서 catch 블록의 return과 finally 블록의 실행 순서 추적",
+      "try에서 예외를 발생시키고 catch에서 return, finally에서 필드 변경 후 반환값과 필드값 동시 출력",
+      "finally에서 반환할 참조 객체의 내부 값을 변경하여 반환값에 영향을 주는 변형"
+    ],
+    "anti_patterns": [
+      "int result = 0 필드와 try { return 1; } finally { result = 2; } 구조를 그대로 쓰지 말 것",
+      "test() 메서드명과 Main p = new Main(); p.test() 호출 패턴을 복사하지 말 것",
+      "finally에서 인스턴스 필드만 변경하고 반환값에 영향 없는 동일한 트릭을 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 초기화 순서",
+      "메서드 호출과 반환값",
+      "배열 참조 전달"
+    ]
+  },
+  "practical-industrial-2025-2:17": {
+    "language": "Python",
+    "concept": "리스트 참조와 집합 연산",
+    "detail": "리스트 얕은 복사와 새 객체 생성(+연산) 차이 및 set 교집합",
+    "tags": [
+      "리스트",
+      "참조",
+      "얕은복사",
+      "집합",
+      "교집합"
+    ],
+    "required_knowledge": [
+      "리스트 참조 할당",
+      "리스트 + 연산(새 객체)",
+      "append(원본 변경)",
+      "set 교집합(&)",
+      "len 함수"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "b = a로 같은 객체를 참조한 후, a = a + [3]은 새 리스트를 생성하여 a만 [1,2,3]이 되고, b.append(4)는 원본을 변경하여 b가 [1,2,4]가 되어, set 교집합 {1,2}의 len이 2가 되는 원리",
+    "variation_hints": [
+      "a += [3] (in-place 확장)과 a = a + [3] (새 객체 생성)의 차이를 묻는 변형",
+      "리스트 슬라이싱(b = a[:])으로 얕은 복사 후 중첩 리스트 변경의 영향 추적",
+      "dict의 참조 할당과 copy()의 차이를 set 연산과 결합하는 변형",
+      "set의 합집합(|), 차집합(-) 연산으로 교체하여 결과 예측"
+    ],
+    "anti_patterns": [
+      "a = [1, 2]; b = a; a = a + [3]; b.append(4) 동일한 4줄 시퀀스를 그대로 쓰지 말 것",
+      "print(len(set(a) & set(b))) 출력 패턴을 복사하지 말 것",
+      "초기값 [1, 2]와 추가값 3, 4의 동일 조합을 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "리스트 메서드",
+      "배열 참조 전달",
+      "배열과 객체 참조"
+    ]
+  },
+  "practical-industrial-2025-2:18": {
+    "language": "C",
+    "concept": "포인터 매개변수 재할당",
+    "detail": "함수 내 포인터 매개변수를 지역 배열로 재할당하여 원본 미변경",
+    "tags": [
+      "포인터",
+      "함수",
+      "지역변수",
+      "매개변수재할당"
+    ],
+    "required_knowledge": [
+      "포인터 매개변수",
+      "지역 배열",
+      "포인터 재할당과 원본의 관계"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "func에서 포인터 p를 지역 배열 temp에 재할당(p = temp)하면, 이후 p[0] = 9는 지역 배열만 변경하고 호출자의 arr은 그대로 유지되어 arr[0]이 3으로 출력되는 원리",
+    "variation_hints": [
+      "지역 배열 대신 malloc으로 동적 할당한 메모리에 포인터를 재할당하는 변형",
+      "이중 포인터(int **pp)를 사용하여 호출자의 포인터 자체를 재할당 가능하게 하는 대조 문제",
+      "포인터 재할당 전에 p[0]을 변경하고, 재할당 후에도 p[1]을 변경하여 원본에 반영되는 부분 추적",
+      "static 지역 배열로 재할당하고 반환하여 댕글링 포인터 문제를 회피하는 변형"
+    ],
+    "anti_patterns": [
+      "func(int *p) { int temp[] = {0, 1, 2}; p = temp; p[0] = 9; } 패턴을 그대로 쓰지 말 것",
+      "int arr[] = {3, 4, 5}와 int temp[] = {0, 1, 2} 동일한 배열 초기값을 복사하지 말 것",
+      "printf(\"%d\", arr[0]) 단일 요소 출력 패턴을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "이중 포인터",
+      "포인터를 이용한 값 교환",
+      "배열 참조 전달"
+    ]
+  },
+  "practical-industrial-2025-3:5": {
+    "language": "Java",
+    "concept": "상속과 다형성",
+    "detail": "정적 메서드 하이딩과 인스턴스 메서드 오버라이딩의 차이",
+    "tags": [
+      "상속",
+      "오버라이딩",
+      "다형성",
+      "정적메서드",
+      "메서드하이딩"
+    ],
+    "required_knowledge": [
+      "클래스 상속(extends)",
+      "static 메서드",
+      "업캐스팅",
+      "동적 바인딩과 정적 바인딩"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "A tester = new B()로 업캐스팅 시, static 메서드 nu()는 선언 타입(A) 기준 정적 바인딩, 인스턴스 메서드 mo()는 실제 객체(B) 기준 동적 바인딩되어 Ab가 출력되는 원리",
+    "variation_hints": [
+      "3단계 상속 체인에서 각 레벨의 static/인스턴스 메서드 호출 결과 추적",
+      "인터페이스 default 메서드와 구현 클래스 메서드의 바인딩 차이를 묻는 변형",
+      "같은 이름의 static과 인스턴스 메서드가 공존할 때 컴파일 에러 여부를 묻는 변형",
+      "다운캐스팅((B)tester).nu() 시 static 메서드의 바인딩이 달라지는 변형"
+    ],
+    "anti_patterns": [
+      "Gisafirst 클래스명과 내부 A/B 클래스 구조를 그대로 쓰지 말 것",
+      "nu()/mo() 메서드명과 단일 대소문자 반환 패턴을 복사하지 말 것",
+      "tester.nu() + tester.mo() 문자열 연결 println 패턴을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 상속",
+      "클래스 초기화 순서",
+      "제네릭과 메서드 오버로딩"
+    ]
+  },
+  "practical-industrial-2025-3:6": {
+    "language": "Java",
+    "concept": "클래스 초기화 순서",
+    "detail": "static 변수 초기화, static 블록 실행 순서와 출력 추적",
+    "tags": [
+      "static",
+      "초기화블록",
+      "클래스로딩",
+      "실행순서"
+    ],
+    "required_knowledge": [
+      "static 변수",
+      "static 초기화 블록",
+      "클래스 로딩 순서",
+      "메서드 호출"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "static int x = f()가 먼저 실행되어 A 출력 및 x=1 초기화, 이어서 static { x++; }로 x=2, main에서 x 출력 시 2가 되는 소스코드 선언 순서 기반 초기화 원리",
+    "variation_hints": [
+      "static 블록이 static 변수 선언 이전에 위치할 때의 컴파일/실행 결과 추적",
+      "상속 관계에서 부모-자식 static 초기화 블록의 실행 순서 추적",
+      "static 변수 초기화에서 예외가 발생하는 경우 ExceptionInInitializerError 처리 변형",
+      "enum 클래스의 static 초기화 순서를 묻는 변형"
+    ],
+    "anti_patterns": [
+      "Gisafirst 클래스명과 static int x = f(); static { x++; } 조합을 그대로 쓰지 말 것",
+      "f() 메서드에서 print(\"A\") + return 1 패턴을 복사하지 말 것",
+      "A2 동일 출력 결과가 나오는 구조를 재현하지 말 것"
+    ],
+    "related_concepts": [
+      "상속과 다형성",
+      "정적 변수",
+      "메서드 호출과 반환값"
+    ]
+  },
+  "practical-industrial-2025-3:7": {
+    "language": "Java",
+    "concept": "배열 참조 전달",
+    "detail": "배열 참조를 함수에 전달 후 요소 변경과 참조 재할당의 차이",
+    "tags": [
+      "배열",
+      "참조전달",
+      "함수",
+      "참조재할당"
+    ],
+    "required_knowledge": [
+      "배열 참조",
+      "메서드 매개변수",
+      "참조 재할당과 요소 변경의 차이"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "func에서 a[0]++는 원본 배열 요소를 직접 수정(2->3)하지만, a = new int[]{5}는 매개변수의 지역 참조만 교체하므로 호출자의 arr 참조와 원본 배열에는 영향 없어 3이 출력되는 원리",
+    "variation_hints": [
+      "a = new int[]{5} 대신 Arrays.copyOf로 재할당하고 요소 변경 후 원본 확인",
+      "메서드에서 배열 요소 여러 개를 변경한 후 중간에 재할당이 끼어드는 순서 변형",
+      "String[] 배열을 전달하여 요소 변경(a[0] = \"new\")과 참조 재할당의 차이 추적",
+      "반환값으로 new int[] 배열을 돌려받아 호출자에서 사용하는 패턴"
+    ],
+    "anti_patterns": [
+      "func(int[] a) { a[0]++; a = new int[]{5}; } 동일 패턴을 그대로 쓰지 말 것",
+      "int[] arr = {2} 단일 요소 배열을 동일하게 사용하지 말 것",
+      "Gisafirst 클래스명과 동일한 코드 구조를 복사하지 말 것"
+    ],
+    "related_concepts": [
+      "배열과 객체 참조",
+      "포인터 매개변수 재할당",
+      "리스트 참조와 집합 연산"
+    ]
+  },
+  "practical-industrial-2025-3:8": {
+    "language": "C",
+    "concept": "포인터를 이용한 값 교환",
+    "detail": "포인터 매개변수로 두 변수의 값을 교환(swap)하는 함수",
+    "tags": [
+      "포인터",
+      "함수",
+      "값교환",
+      "call by reference"
+    ],
+    "required_knowledge": [
+      "포인터 매개변수",
+      "역참조를 통한 값 변경",
+      "함수 반환값",
+      "산술 연산"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "*a = *a + *b로 합을 저장한 뒤, return (*b = *a - *b)로 원래 a값을 b에 넣으면서 반환하고, fn(&x,&y)+y에서 반환값(원래 x=2)과 변경된 y(=2)를 합산하여 4가 출력되는 원리",
+    "variation_hints": [
+      "임시 변수를 사용한 전통적 swap과 산술 swap의 결과를 비교하는 변형",
+      "포인터로 3개 변수를 순환 교환하는 함수의 결과 추적",
+      "매크로(#define SWAP(a,b))로 swap을 구현할 때 부작용을 묻는 변형",
+      "swap 함수를 2번 연속 호출하여 원래 값 복원 여부를 확인하는 변형"
+    ],
+    "anti_patterns": [
+      "fn(int *a, int *b) 시그니처와 산술 swap 패턴을 그대로 사용하지 말 것",
+      "int x = 2, y = 3 초기값 조합을 복사하지 말 것",
+      "fn(&x, &y) + y 반환값과 변경된 인수의 합산 패턴을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "비트 연산자",
+      "이중 포인터",
+      "구조체 포인터와 값 전달"
+    ]
+  },
+  "practical-industrial-2025-3:9": {
+    "language": "C",
+    "concept": "구조체 포인터와 값 전달",
+    "detail": "구조체의 포인터 전달과 값 전달 차이에 따른 원본 변경 여부",
+    "tags": [
+      "구조체",
+      "포인터",
+      "값전달",
+      "참조전달",
+      "함수매개변수"
+    ],
+    "required_knowledge": [
+      "struct 정의",
+      "포인터 매개변수(call by reference)",
+      "값 매개변수(call by value)",
+      "포인터 재할당"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "포인터로 전달된 a는 a->x += b.x로 원본 수정(3+4=7)이 가능하지만, 값으로 전달된 b는 복사본이므로 b.x=100이 원본에 무영향이고, a=&b 포인터 재할당 후 a->x=200도 지역 복사본만 변경하는 원리",
+    "variation_hints": [
+      "두 구조체 모두 포인터로 전달하되 하나를 다른 것의 주소로 재할당하는 변형",
+      "구조체 안에 포인터 멤버(int *p)가 있을 때 값 전달의 얕은 복사 문제 추적",
+      "const 포인터(const Struct *a)로 전달하여 a->x 변경이 컴파일 에러인지 묻는 변형",
+      "구조체를 반환값으로 돌려받아 원본을 갱신하는 우회 패턴"
+    ],
+    "anti_patterns": [
+      "change(Struct *a, Struct b) 시그니처의 혼합 전달 패턴을 그대로 쓰지 말 것",
+      "typedef struct { int x; } Struct 동일 정의를 복사하지 말 것",
+      "a = &b; a->x = 200; 포인터 재할당+대입 트릭을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "포인터를 이용한 값 교환",
+      "포인터 매개변수 재할당",
+      "구조체 포인터"
+    ]
+  },
+  "practical-industrial-2025-3:10": {
+    "language": "C",
+    "concept": "포인터 매개변수 재할당",
+    "detail": "함수 내 포인터 매개변수를 지역 배열로 재할당하여 원본 미변경",
+    "tags": [
+      "포인터",
+      "함수",
+      "지역변수",
+      "매개변수재할당"
+    ],
+    "required_knowledge": [
+      "포인터 매개변수",
+      "지역 배열",
+      "포인터 재할당과 원본의 관계"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "func 내에서 p = temp로 포인터를 지역 배열에 재할당하면, p[0] = 9는 지역 temp 배열만 수정하고 호출자의 arr 배열은 변경되지 않아 arr[0]=3이 그대로 출력되는 원리",
+    "variation_hints": [
+      "재할당 전에 p[0] = 99를 실행하고 재할당 후에 p[1] = 88을 실행하여 원본에 반영되는 부분만 추적",
+      "이중 포인터(int **pp)를 매개변수로 사용하여 *pp = temp로 호출자의 포인터 자체를 변경 가능하게 하는 대조 문제",
+      "지역 배열 대신 static 배열이나 전역 배열로 재할당하는 변형",
+      "포인터 매개변수를 NULL로 재할당한 후 호출자에서 원본이 NULL인지 확인하는 변형"
+    ],
+    "anti_patterns": [
+      "void func(int *p) { int temp[] = {0,1,2}; p = temp; p[0] = 9; } 패턴을 그대로 쓰지 말 것",
+      "int arr[] = {3, 4, 5} 배열 초기값을 동일하게 사용하지 말 것",
+      "printf(\"%d\", arr[0]) 단일 요소 출력을 동일하게 쓰지 말 것"
+    ],
+    "related_concepts": [
+      "이중 포인터",
+      "배열 참조 전달",
+      "포인터를 이용한 값 교환"
+    ]
+  },
+  "practical-industrial-2025-3:11": {
+    "language": "Java",
+    "concept": "예외 처리 try-finally",
+    "detail": "try 블록의 return과 finally 블록 실행 순서 및 반환값 결정",
+    "tags": [
+      "예외처리",
+      "try",
+      "finally",
+      "return",
+      "실행순서"
+    ],
+    "required_knowledge": [
+      "try-finally 구문",
+      "return 문의 동작",
+      "finally 블록의 실행 보장"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "try에서 return 1이 실행되면 반환값 1이 확정 저장되고, finally의 result=2는 인스턴스 필드만 변경할 뿐 이미 확정된 반환값(기본형 int)을 바꿀 수 없어 1이 출력되는 원리",
+    "variation_hints": [
+      "finally 블록에서 return 3을 추가하여 try의 반환값을 덮어쓰는 변형",
+      "반환 타입이 참조형(int[] 또는 StringBuilder)일 때 finally에서 내용을 변경하면 반환값에 반영되는지 추적",
+      "try에서 예외 throw, catch에서 return, finally에서 다른 return을 넣는 3단계 변형",
+      "test() 호출 후 p.result 값도 함께 출력하여 반환값(1)과 필드값(2)의 차이를 명시적으로 묻는 변형"
+    ],
+    "anti_patterns": [
+      "int result 필드 + try { return 1; } finally { result = 2; } 구조를 그대로 쓰지 말 것",
+      "Gisafirst p = new Gisafirst(); p.test() 호출 패턴을 복사하지 말 것",
+      "인스턴스 필드만 finally에서 변경하는 동일 트릭을 재현하지 말 것"
+    ],
+    "related_concepts": [
+      "클래스 초기화 순서",
+      "메서드 호출과 반환값",
+      "배열 참조 전달"
+    ]
+  },
+  "practical-industrial-2025-3:12": {
+    "language": "Python",
+    "concept": "리스트 참조와 집합 연산",
+    "detail": "리스트 얕은 복사와 새 객체 생성(+연산) 차이 및 set 교집합",
+    "tags": [
+      "리스트",
+      "참조",
+      "얕은복사",
+      "집합",
+      "교집합"
+    ],
+    "required_knowledge": [
+      "리스트 참조 할당",
+      "리스트 + 연산(새 객체)",
+      "append(원본 변경)",
+      "set 교집합(&)",
+      "len 함수"
+    ],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "b = a는 같은 리스트 객체를 참조하지만, a = a + [3]은 새 리스트를 만들어 a만 [1,2,3]이 되고, b.append(4)는 원래 객체를 수정하여 b=[1,2,4]가 되어, set(a)&set(b) = {1,2}의 len이 2인 원리",
+    "variation_hints": [
+      "a.extend([3]) (in-place)와 a = a + [3] (새 객체)의 차이를 동시에 묻는 변형",
+      "중첩 리스트([[1],[2]])에서 b = a[:]로 얕은 복사 후 내부 리스트 변경 시 원본 영향 추적",
+      "set 합집합(|)이나 대칭차집합(^)으로 교체하여 결과 예측",
+      "tuple의 + 연산과 리스트의 + 연산 결과를 비교하는 변형"
+    ],
+    "anti_patterns": [
+      "a = [1, 2]; b = a; a = a + [3]; b.append(4) 동일한 4줄 구조를 그대로 쓰지 말 것",
+      "len(set(a) & set(b)) 출력 패턴을 복사하지 말 것",
+      "[1, 2] 초기값과 추가값 3, 4 조합을 동일하게 사용하지 말 것"
+    ],
+    "related_concepts": [
+      "리스트 메서드",
+      "배열 참조 전달",
+      "배열과 객체 참조"
+    ]
+  }
+}

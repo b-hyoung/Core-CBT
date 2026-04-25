@@ -3,6 +3,35 @@ import json
 from pathlib import Path
 from ..config import get_settings
 
+# 태그 데이터 캐시 (서버 시작 시 1회 로드)
+_TAGS_CACHE: dict[str, dict] = {}
+
+
+def _load_tags() -> dict[str, dict]:
+    """datasets/tags/*.json 파일들을 로드하여 캐시."""
+    if _TAGS_CACHE:
+        return _TAGS_CACHE
+    tags_dir = Path(get_settings().datasets_root).parent / "tags"
+    if tags_dir.exists():
+        for tag_file in tags_dir.glob("*-tags.json"):
+            with tag_file.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            _TAGS_CACHE.update(data)
+    return _TAGS_CACHE
+
+
+def get_problem_tags(source_session_id: str, problem_number: int) -> dict | None:
+    """특정 문제의 태그 데이터를 반환. 없으면 None."""
+    tags = _load_tags()
+    # session_id 매핑: "2025-second" → "practical-industrial-2025-2"
+    parts = source_session_id.split("-")
+    if len(parts) == 2:
+        round_map = {"first": "1", "second": "2", "third": "3"}
+        tag_key = f"practical-industrial-{parts[0]}-{round_map.get(parts[1], parts[1])}:{problem_number}"
+    else:
+        tag_key = f"{source_session_id}:{problem_number}"
+    return tags.get(tag_key)
+
 
 async def get_question_detail(source_session_id: str, problem_number: int) -> dict:
     """문제 원문·정답·해설·분류를 한 번에 반환.

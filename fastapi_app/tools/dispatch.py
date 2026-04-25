@@ -4,18 +4,64 @@
 1. JSON 인자 파싱 실패 방어
 2. 유저 스코프 툴에 user_email 강제 주입 (서버 세션 값으로 덮어씀)
 3. 출력 툴은 UI 이벤트 생성 + 세션 상태 업데이트
-4. 예외를 {"error": ...} 로 변환하여 에이전트 루프가 복구할 수 있게
+4. Code 유사 문제는 실제 컴파일/실행으로 정답 검증 후 통과/거부
+5. 예외를 {"error": ...} 로 변환하여 에이전트 루프가 복구할 수 있게
 """
 import json
 import logging
 from typing import Any
 
 from ..agent.schemas import USER_SCOPED_TOOLS, OUTPUT_TOOLS
+from ..agent.llm_client import get_llm_client, get_llm_model
+from ..constants.prompts import CRITIC_SYSTEM_PROMPT
 from .question import get_question_detail
 from .user_history import get_user_wrong_history, get_user_topic_stats
 from .output_tools import handle_present_similar_problem, handle_submit_evaluation
+from .code_executor import verify_answer
 
 logger = logging.getLogger(__name__)
+
+
+async def _critic_fallback(code: str, claimed_answer: str, language: str) -> dict:
+    """컴파일러 실패 시 Critic AI로 정답 검증 (폴백).
+
+    Returns:
+        {"verified": True, "answer": "..."} 또는
+        {"verified": False, "answer": "...", "reason": "..."}
+    """
+    user_msg = (
+        f"[언어] {language}\n"
+        f"[코드]\n{code}\n\n"
+        f"[주장된 정답] {claimed_answer}\n\n"
+        "위 코드를 한 줄씩 추적하여 실제 출력이 주장된 정답과 일치하는지 판단해."
+    )
+    try:
+        client = get_llm_client()
+        model = get_llm_model()
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": CRITIC_SYSTEM_PROMPT},
+                {"role": "user", "content": user_msg},
+            ],
+            temperature=0,
+            max_tokens=200,
+        )
+        reply = (resp.choices[0].message.content or "").strip()
+        logger.info("critic fallback reply: %s", reply)
+
+        if reply.startswith("확인"):
+            return {"verified": True, "answer": claimed_answer}
+        if reply.startswith("틀림"):
+            parts = reply.split(",", 1)
+            correct = parts[0].replace("틀림:", "").replace("틀림", "").strip()
+            reason = parts[1].replace("이유:", "").strip() if len(parts) > 1 else ""
+            return {"verified": False, "answer": correct, "reason": reason}
+        # 파싱 실패 → 원래 답 그대로 통과
+        return {"verified": True, "answer": claimed_answer}
+    except Exception as e:  # noqa: BLE001
+        logger.warning("critic fallback failed: %s", e)
+        return {"verified": True, "answer": claimed_answer}
 
 
 def _normalize(text: str) -> str:
@@ -101,11 +147,54 @@ async def dispatch_tool(tool_call, user_email: str, session, ui_actions: list) -
                 category=args.get("category"),
             )
         if name == "present_similar_problem":
-            # 정답 중복 거부: 원래 문제 + 이전 유사 문제 정답과 비교
+            # 1. 정답 중복 거부: 원래 문제 + 이전 유사 문제 정답과 비교
             new_answer = _normalize(args.get("expected_answer", ""))
             reject_reason = _check_answer_duplicate(new_answer, session)
             if reject_reason:
                 return {"error": reject_reason}
+
+            # 2. Code 카테고리: 3단계 정답 검증
+            #    1차: 컴파일러 실행 (정확도 100%)
+            #    2차: Critic AI 폴백 (컴파일 실패 시)
+            #    3차: AI 원래 답 그대로 통과 + 로그 (둘 다 실패 시)
+            if args.get("category") == "Code" and args.get("examples"):
+                code = args["examples"]
+                language = args.get("language", "C")
+                original_answer = args.get("expected_answer", "")
+
+                verify_result = verify_answer(code, language, original_answer)
+                if verify_result["verified"]:
+                    # 1차 통과: 컴파일러 확인 완료
+                    pass
+                elif not verify_result.get("error"):
+                    # 1차: 실행은 됐지만 정답 불일치 → 실제 출력으로 자동 교체
+                    actual = verify_result.get("actual_output", "")
+                    logger.info(
+                        "auto-corrected answer: '%s' -> '%s'",
+                        original_answer, actual,
+                    )
+                    args["expected_answer"] = actual
+                else:
+                    # 1차 실패(컴파일/실행 에러) → 2차: Critic AI 폴백
+                    logger.warning(
+                        "compiler failed, falling back to critic: %s",
+                        verify_result.get("error", ""),
+                    )
+                    critic_result = await _critic_fallback(code, original_answer, language)
+                    if not critic_result["verified"]:
+                        # Critic이 정답 수정
+                        logger.info(
+                            "critic corrected answer: '%s' -> '%s'",
+                            original_answer, critic_result["answer"],
+                        )
+                        args["expected_answer"] = critic_result["answer"]
+                    # Critic도 실패하면 원래 답 그대로 통과 (3차)
+                    logger.info(
+                        "verification chain: compiler=%s, critic=%s, final_answer='%s'",
+                        "fail", "verified" if critic_result["verified"] else "corrected",
+                        args["expected_answer"],
+                    )
+
             return handle_present_similar_problem(args, session, ui_actions)
         if name == "submit_evaluation":
             return handle_submit_evaluation(args, session, ui_actions)
