@@ -145,6 +145,14 @@
         "answer_format_hint": "① 회선 ② 메시지 ③ 데이터그램 ④ 가상회선",
         "category": "이론",
         "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 18,
+        "question_text": "다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "class A {\n    int func(int x) {\n        return x + 3;\n    }\n}\nclass B extends A {\n    int func(int x) {\n        return x * 3;\n    }\n}\nclass C extends B {\n    int func(int x) {\n        return x - 1;\n    }\n}\nclass Main {\n    public static void main(String[] args) {\n        A a = new C();\n        B b = new C();\n        System.out.print(((A)b).func(4) + a.func(3));\n    }\n}",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
       }
     ]
   }

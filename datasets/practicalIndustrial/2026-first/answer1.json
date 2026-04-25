@@ -116,6 +116,11 @@
           "회선, 메시지, 데이터그램, 가상회선",
           "ㅅ, ㄷ, ㄱ, ㅂ"
         ]
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "5"
       }
     ]
   }
