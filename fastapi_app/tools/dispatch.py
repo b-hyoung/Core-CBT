@@ -153,10 +153,9 @@ async def dispatch_tool(tool_call, user_email: str, session, ui_actions: list) -
             if reject_reason:
                 return {"error": reject_reason}
 
-            # 2. Code/SQL 카테고리: 3단계 정답 검증
-            #    1차: 실행 검증 — Code: gcc/javac/python, SQL: MySQL
-            #    2차: Critic AI 폴백 (실행 실패 시)
-            #    3차: AI 원래 답 그대로 통과 + 로그 (둘 다 실패 시)
+            # 2. 정답 검증 체인
+            #    Code/SQL: 1차 실행 검증 → 2차 Critic AI → 3차 원래 답 통과
+            #    이론: 실행 불가 → 바로 Critic AI → 원래 답 통과
             category = args.get("category")
             if category in ("Code", "SQL") and args.get("examples"):
                 code = args["examples"]
@@ -195,6 +194,21 @@ async def dispatch_tool(tool_call, user_email: str, session, ui_actions: list) -
                         "fail", "verified" if critic_result["verified"] else "corrected",
                         args["expected_answer"],
                     )
+
+            # 이론 카테고리: 실행 검증 불가 → Critic AI로 정답 검증
+            if category not in ("Code", "SQL") and args.get("expected_answer"):
+                original_answer = args.get("expected_answer", "")
+                critic_result = await _critic_fallback(
+                    code=f"문제: {args.get('question_text', '')}\n보기/예시: {args.get('examples', '')}",
+                    claimed_answer=original_answer,
+                    language="이론",
+                )
+                if not critic_result["verified"]:
+                    logger.info(
+                        "theory critic corrected: '%s' -> '%s'",
+                        original_answer, critic_result["answer"],
+                    )
+                    args["expected_answer"] = critic_result["answer"]
 
             return handle_present_similar_problem(args, session, ui_actions)
         if name == "submit_evaluation":
