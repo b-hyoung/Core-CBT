@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -47,5 +48,14 @@ next-env.d.ts
 temp_*.html
 .claude
 .agents
+.superpowers
 scripts/__pycache__/
 pdf/extracted/
+
+# FastAPI
+fastapi_app/.venv/
+fastapi_app/.env
+fastapi_app/__pycache__/
+fastapi_app/**/__pycache__/
+fastapi_app/.pytest_cache/
+!fastapi_app/.env.example

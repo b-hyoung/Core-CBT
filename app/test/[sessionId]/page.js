@@ -70,7 +70,6 @@ const sessionConfig = {
   '9': { title: '정보처리산업기사 2022년 1회', basePath: ['datasets', 'problem2022', 'first'] },
   '10': { title: '정보처리산업기사 2022년 2회', basePath: ['datasets', 'problem2022', 'second'] },
   '11': { title: '정보처리산업기사 2022년 3회', basePath: ['datasets', 'problem2022', 'third'] },
-  '12': { title: '개발자가 방금 만든 따끈 문제 60', basePath: ['datasets', 'problemNow_60', 'first'] },
   ...OBJECTIVE_SESSION_CONFIG,
 };
 

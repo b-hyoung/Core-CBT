@@ -1,0 +1,127 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "블랙박스 테스트: ㄴ, ㄹ / 화이트박스 테스트: ㄱ, ㄷ",
+        "accepted_answers": [
+          "블랙박스 테스트: ㄴ, ㄹ / 화이트박스 테스트: ㄱ, ㄷ",
+          "블랙박스: ㄴ, ㄹ / 화이트박스: ㄱ, ㄷ",
+          "블랙박스 테스트: ㄴ,ㄹ / 화이트박스 테스트: ㄱ,ㄷ"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP, ICMP, IGMP, ARP",
+        "accepted_answers": [
+          "IP, ICMP, IGMP, ARP",
+          "IP,ICMP,IGMP,ARP",
+          "ARP, ICMP, IGMP, IP",
+          "ARP, IP, ICMP, IGMP"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "18"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "6"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㅁ",
+        "accepted_answers": ["ㅁ", "외래키", "Foreign Key", "foreign key"]
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "67, 68",
+        "accepted_answers": ["67, 68", "67,68", "67 68", "67", "68", "67 또는 68"]
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "응용 계층",
+        "accepted_answers": ["응용 계층", "응용계층", "Application Layer", "Application"]
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① GRANT ② ON ③ TO",
+        "accepted_answers": [
+          "① GRANT ② ON ③ TO",
+          "GRANT ON TO",
+          "grant on to",
+          "GRANT, ON, TO"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SET",
+        "accepted_answers": ["SET", "set", "Set"]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Go-Back-N ARQ",
+        "accepted_answers": ["Go-Back-N ARQ", "Go Back N", "Go-Back-N", "go back n", "ㄴ"]
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "10"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① SUM ② S_SAL",
+        "accepted_answers": ["① SUM ② S_SAL", "SUM, S_SAL", "SUM S_SAL", "sum, S_SAL"]
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① 스키마 ② 속성",
+        "accepted_answers": ["① 스키마 ② 속성", "스키마, 속성", "스키마 속성"]
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ㄹ → ㄷ → ㄱ → ㄴ",
+        "accepted_answers": ["ㄹ → ㄷ → ㄱ → ㄴ", "ㄹ→ㄷ→ㄱ→ㄴ", "ㄹ-ㄷ-ㄱ-ㄴ", "ㄹ ㄷ ㄱ ㄴ"]
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "531"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "① 회선 ② 메시지 ③ 데이터그램 ④ 가상회선",
+        "accepted_answers": [
+          "① 회선 ② 메시지 ③ 데이터그램 ④ 가상회선",
+          "회선, 메시지, 데이터그램, 가상회선",
+          "ㅅ, ㄷ, ㄱ, ㅂ"
+        ]
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "5"
+      }
+    ]
+  }
+]

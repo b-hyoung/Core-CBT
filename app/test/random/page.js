@@ -7,7 +7,6 @@ import Quiz from '../[sessionId]/Quiz';
 export const dynamic = 'force-dynamic';
 
 const SOURCES = [
-  { key: 'NOW-60', sessionId: '12', basePath: ['datasets', 'problemNow_60', 'first'] },
   { key: '2025I-1', sessionId: 'pdfpack-industrial-2025-1', basePath: ['datasets', 'pdfPacks', 'industrial-2025-1'] },
   { key: '2025I-2', sessionId: 'pdfpack-industrial-2025-2', basePath: ['datasets', 'pdfPacks', 'industrial-2025-2'] },
   { key: '2025I-3', sessionId: 'pdfpack-industrial-2025-3', basePath: ['datasets', 'pdfPacks', 'industrial-2025-3'] },

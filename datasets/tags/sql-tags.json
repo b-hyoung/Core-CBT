@@ -1,0 +1,1100 @@
+{
+  "practical-industrial-2022-1:12": {
+    "sql_type": "concept",
+    "concept": "데이터 웨어하우스",
+    "detail": "가상 데이터 웨어하우스(VDB)의 개념과 특징",
+    "tags": ["VDB", "데이터 웨어하우스", "OLTP", "가상 시스템"],
+    "required_knowledge": ["데이터 웨어하우스 개념", "OLTP vs OLAP", "데이터 분석 시스템"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "물리적 구축 없이 가상으로 데이터 웨어하우스 기능을 제공하는 시스템의 약어를 묻는 문제",
+    "variation_hints": [
+      "OLAP과 OLTP의 차이점을 묻는 형태로 변형",
+      "데이터 마트와 데이터 웨어하우스의 차이를 묻는 문제",
+      "ETL 과정이 생략되는 이유를 서술형으로 묻는 변형",
+      "데이터 웨어하우스의 구성 요소를 보기에서 고르는 형태"
+    ],
+    "anti_patterns": ["VDB라는 약어를 그대로 보기에 노출하면 안 됨", "OLTP 설명을 그대로 복사하면 안 됨", "비용/시간 절감이라는 키워드를 동일하게 사용하면 안 됨"],
+    "related_concepts": ["데이터 마이닝", "OLAP", "ETL", "데이터 마트"]
+  },
+  "practical-industrial-2022-1:13": {
+    "sql_type": "concept",
+    "concept": "외래키(Foreign Key)",
+    "detail": "외래키의 정의와 참조 무결성과의 관계",
+    "tags": ["외래키", "Foreign Key", "기본키", "참조", "키"],
+    "required_knowledge": ["릴레이션 개념", "기본키", "도메인", "참조 무결성"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "다른 릴레이션의 기본키를 참조하는 속성 집합이 외래키임을 이해하는 문제",
+    "variation_hints": [
+      "실제 테이블 두 개를 주고 외래키를 식별하게 하는 변형",
+      "외래키 제약 조건 위반 사례를 주고 오류 원인을 묻는 형태",
+      "후보키/대체키/슈퍼키와 함께 구분하는 문제",
+      "외래키가 NULL을 허용하는 경우와 허용하지 않는 경우의 차이"
+    ],
+    "anti_patterns": ["보기 목록을 동일하게 사용하면 안 됨", "동일한 도메인 상에서 정의라는 표현을 그대로 쓰면 안 됨", "참조 릴레이션이라는 용어를 동일 문맥으로 반복하면 안 됨"],
+    "related_concepts": ["참조 무결성", "기본키", "후보키", "CASCADE"]
+  },
+  "practical-industrial-2022-1:15": {
+    "sql_type": "query",
+    "concept": "BETWEEN 조건 범위 해석",
+    "detail": "BETWEEN 절을 사용한 범위 검색에서 결과 튜플 수 추론",
+    "tags": ["BETWEEN", "SELECT", "WHERE", "범위 검색", "튜플 수"],
+    "required_knowledge": ["SELECT 문법", "WHERE 조건절", "BETWEEN 연산자", "데이터 분포 추론"],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "나이 분포가 주어졌을 때 BETWEEN 35 AND 49 조건에 해당하는 최소/최대 인원수를 추론",
+    "variation_hints": [
+      "BETWEEN 대신 >= AND <= 형태로 동일 조건을 표현하고 결과 비교",
+      "NOT BETWEEN을 사용하여 제외 범위의 튜플 수를 묻는 변형",
+      "여러 조건(AND/OR)을 결합한 범위 검색으로 확장",
+      "날짜형 데이터에 BETWEEN을 적용하는 변형"
+    ],
+    "anti_patterns": ["인사팀 20명, 20대 3명, 30대 6명이라는 동일 수치를 사용하면 안 됨", "BETWEEN 35 AND 49라는 동일 범위를 사용하면 안 됨", "이상/이하 형식의 답 형태를 그대로 쓰면 안 됨"],
+    "related_concepts": ["IN 연산자", "LIKE 패턴매칭", "비교 연산자", "NULL 처리"]
+  },
+  "practical-industrial-2022-1:16": {
+    "sql_type": "concept",
+    "concept": "정규화",
+    "detail": "제1정규형(1NF) - 원자값 변환",
+    "tags": ["정규화", "1NF", "원자값", "다중값", "릴레이션"],
+    "required_knowledge": ["정규화 개념", "원자값", "다중값 속성", "함수적 종속"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "다중값 속성을 원자값으로 변환하는 과정이 제1정규형임을 식별",
+    "variation_hints": [
+      "구체적인 테이블 예시를 주고 어떤 정규형 위반인지 판단하게 하는 변형",
+      "1NF부터 BCNF까지 순서를 나열하게 하는 문제",
+      "부분 함수 종속 제거(2NF)와 혼동하게 하는 변형",
+      "반정규화가 필요한 상황을 제시하고 정규화와 비교"
+    ],
+    "anti_patterns": ["다중 값으로 구성되어 원자값으로 변환이라는 표현을 그대로 쓰면 안 됨", "정규화를 쓰시오라는 동일 질문 형태를 반복하면 안 됨"],
+    "related_concepts": ["2NF", "3NF", "BCNF", "이상현상(Anomaly)"]
+  },
+  "practical-industrial-2022-1:18": {
+    "sql_type": "query",
+    "concept": "집계함수",
+    "detail": "AVG, COUNT 함수를 GROUP BY/HAVING과 함께 사용",
+    "tags": ["AVG", "COUNT", "GROUP BY", "HAVING", "집계함수"],
+    "required_knowledge": ["집계함수 종류", "GROUP BY 절", "HAVING 절", "WHERE와 HAVING 차이"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "평균을 구하는 AVG와 개수를 세는 COUNT를 GROUP BY/HAVING과 결합하여 조건부 집계",
+    "variation_hints": [
+      "SUM, MAX, MIN 등 다른 집계함수로 교체하는 변형",
+      "HAVING 조건을 WHERE로 잘못 쓴 오류를 찾게 하는 변형",
+      "서브쿼리와 집계함수를 결합하는 문제",
+      "여러 그룹 조건과 다중 집계함수를 사용하는 복합 문제"
+    ],
+    "anti_patterns": ["sub_Code, mid라는 동일 컬럼명을 사용하면 안 됨", "학생 수 5명 이상이라는 동일 조건을 사용하면 안 됨", "AVG(mid)와 COUNT(*)의 동일 조합을 그대로 쓰면 안 됨"],
+    "related_concepts": ["WHERE 절", "ORDER BY", "서브쿼리", "DISTINCT"]
+  },
+  "practical-industrial-2022-2:3": {
+    "sql_type": "query",
+    "concept": "UPDATE 문",
+    "detail": "UPDATE SET WHERE를 사용한 단일 행 갱신",
+    "tags": ["UPDATE", "SET", "WHERE", "DML", "갱신"],
+    "required_knowledge": ["UPDATE 문법", "WHERE 조건절", "DML 명령어"],
+    "problem_style": "SQL 작성",
+    "key_mechanism": "특정 조건의 행을 찾아 속성값을 갱신하는 UPDATE 문 작성",
+    "variation_hints": [
+      "여러 컬럼을 동시에 갱신하는 UPDATE 문으로 변형",
+      "서브쿼리를 SET 절에 사용하는 복합 갱신 문제",
+      "WHERE 조건 없이 UPDATE 실행 시 결과를 묻는 변형",
+      "UPDATE와 DELETE를 비교하여 적절한 명령어를 선택하는 문제"
+    ],
+    "anti_patterns": ["emp_num이 2073인 사원의 salary를 2500으로라는 동일 데이터를 사용하면 안 됨", "동일한 salaries 테이블 구조를 복사하면 안 됨"],
+    "related_concepts": ["DELETE 문", "INSERT 문", "트랜잭션", "WHERE 조건절"]
+  },
+  "practical-industrial-2022-2:4": {
+    "sql_type": "concept",
+    "concept": "스키마 3계층",
+    "detail": "외부/개념/내부 스키마의 정의와 구분",
+    "tags": ["스키마", "외부 스키마", "개념 스키마", "내부 스키마", "3계층"],
+    "required_knowledge": ["데이터베이스 구조", "데이터 독립성", "스키마 개념"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "사용자 관점(외부), 전체 논리 구조(개념), 물리 저장(내부) 스키마를 구분",
+    "variation_hints": [
+      "데이터 독립성(논리적/물리적)과 연계하여 묻는 변형",
+      "각 스키마 변경 시 다른 스키마에 미치는 영향을 묻는 문제",
+      "스키마와 인스턴스의 차이를 묻는 형태",
+      "ANSI/SPARC 3계층 구조도를 제시하고 빈칸을 채우는 변형"
+    ],
+    "anti_patterns": ["사용자나 응용 프로그래머가 각 개인의 입장에서라는 설명을 그대로 쓰면 안 됨", "하나만 존재한다라는 개념 스키마 설명을 동일하게 쓰면 안 됨", "물리적 저장장치의 입장에서라는 내부 스키마 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["데이터 독립성", "데이터베이스 관리 시스템", "메타데이터", "데이터 사전"]
+  },
+  "practical-industrial-2022-2:5": {
+    "sql_type": "concept",
+    "concept": "데이터베이스 정의",
+    "detail": "운영 데이터, 공유 데이터, 저장 데이터, 통합 데이터 구분",
+    "tags": ["운영 데이터", "공유 데이터", "저장 데이터", "통합 데이터", "데이터베이스 정의"],
+    "required_knowledge": ["데이터베이스 개념", "데이터 특성"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "데이터베이스의 4가지 정의(Operational, Shared, Stored, Integrated)를 각각의 설명과 매칭",
+    "variation_hints": [
+      "데이터베이스의 특성(실시간 접근성, 계속적 변화 등)과 혼합하여 출제",
+      "정의와 특성을 구분하게 하는 변형",
+      "구체적인 사례를 주고 어떤 정의에 해당하는지 판단하는 문제",
+      "파일 시스템과 데이터베이스의 차이점과 연계하는 문제"
+    ],
+    "anti_patterns": ["Operational/Shared/Stored/Integrated의 영문 표기를 보기에 그대로 쓰면 안 됨", "동일한 a~d 설명을 그대로 복사하면 안 됨"],
+    "related_concepts": ["데이터베이스 특성", "DBMS", "파일 시스템", "데이터 독립성"]
+  },
+  "practical-industrial-2022-2:17": {
+    "sql_type": "concept",
+    "concept": "개체 무결성",
+    "detail": "기본키의 NULL/중복 불허 규정",
+    "tags": ["개체 무결성", "기본키", "NULL", "무결성 제약 조건"],
+    "required_knowledge": ["무결성 종류", "기본키 개념", "NULL 값"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "기본키 속성이 NULL이나 중복값을 가질 수 없다는 규정이 개체 무결성임을 식별",
+    "variation_hints": [
+      "참조 무결성, 도메인 무결성과 함께 3가지를 구분하는 문제",
+      "실제 테이블에서 무결성 위반 사례를 찾게 하는 변형",
+      "무결성 제약 조건과 트리거의 관계를 묻는 문제",
+      "CASCADE, SET NULL 등 참조 무결성 옵션과 함께 출제"
+    ],
+    "anti_patterns": ["기본키를 구성하는 어떤 속성도 Null 값이나 중복값을 가질 수 없다는 동일 설명을 쓰면 안 됨", "도메인/참조 무결성 설명을 동일하게 나열하면 안 됨"],
+    "related_concepts": ["참조 무결성", "도메인 무결성", "기본키", "CHECK 제약"]
+  },
+  "practical-industrial-2022-2:18": {
+    "sql_type": "query",
+    "concept": "관계대수와 SQL 변환",
+    "detail": "관계 대수식을 SELECT-FROM-WHERE SQL문으로 변환",
+    "tags": ["관계대수", "SELECT", "FROM", "WHERE", "프로젝션", "셀렉션"],
+    "required_knowledge": ["관계대수 기호", "SELECT 문법", "프로젝션", "셀렉션"],
+    "problem_style": "SQL 작성",
+    "key_mechanism": "관계 대수의 선택(σ)과 추출(π) 연산을 SQL의 WHERE와 SELECT로 변환",
+    "variation_hints": [
+      "JOIN이 포함된 관계 대수식을 SQL로 변환하는 확장",
+      "SQL문을 관계 대수식으로 역변환하는 문제",
+      "합집합/차집합 등 집합 연산을 UNION/EXCEPT로 변환",
+      "관계 대수와 관계 해석의 차이를 묻는 이론 문제"
+    ],
+    "anti_patterns": ["FNAME, LNAME, SALARY FROM EMP WHERE DNO=1005라는 동일 쿼리를 쓰면 안 됨", "동일한 이미지 기반 관계 대수식을 재사용하면 안 됨"],
+    "related_concepts": ["관계 해석", "프로젝션 연산", "셀렉션 연산", "JOIN 연산"]
+  },
+  "practical-industrial-2022-3:1": {
+    "sql_type": "concept",
+    "concept": "차수와 카디널리티",
+    "detail": "릴레이션의 디그리(속성 수)와 카디널리티(튜플 수) 계산",
+    "tags": ["디그리", "카디널리티", "차수", "속성", "튜플", "릴레이션"],
+    "required_knowledge": ["릴레이션 구조", "속성과 튜플 개념"],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "테이블의 열 수가 디그리(차수), 행 수가 카디널리티임을 이해하고 계산",
+    "variation_hints": [
+      "JOIN 결과 테이블의 차수와 카디널리티를 구하는 변형",
+      "카티션 프로덕트 후 차수/카디널리티 변화를 묻는 문제",
+      "프로젝션/셀렉션 연산 후 차수/카디널리티 변화",
+      "도메인의 정의와 함께 릴레이션 구성 요소를 묻는 복합 문제"
+    ],
+    "anti_patterns": ["ID/이름/거주지 3열, 4행이라는 동일 테이블을 사용하면 안 됨", "디그리:3, 카디널리티:4라는 동일 답을 유도하면 안 됨"],
+    "related_concepts": ["릴레이션 특성", "도메인", "튜플", "속성"]
+  },
+  "practical-industrial-2022-3:2": {
+    "sql_type": "concept",
+    "concept": "트랜잭션 특성(ACID)",
+    "detail": "원자성/일관성/고립성/영속성과 DB 기능(회복, 동시성 제어 등) 매칭",
+    "tags": ["트랜잭션", "ACID", "원자성", "일관성", "고립성", "영속성", "회복", "동시성 제어"],
+    "required_knowledge": ["트랜잭션 개념", "ACID 특성", "동시성 제어", "회복 기법"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "ACID 각 특성을 보장하기 위한 DB 기능(회복, 무결성, 동시성 제어)을 올바르게 매칭",
+    "variation_hints": [
+      "트랜잭션 상태 전이(활동/실패/철회/완료/부분완료)를 묻는 변형",
+      "COMMIT과 ROLLBACK의 역할과 ACID 특성의 관계",
+      "동시성 제어 기법(로킹, 타임스탬프)과 고립성의 관계",
+      "트랜잭션 격리 수준(Read Uncommitted 등)을 묻는 확장"
+    ],
+    "anti_patterns": ["원자성-회복, 고립성-동시성 제어라는 동일 매칭을 그대로 쓰면 안 됨", "동일한 보기 구조를 복사하면 안 됨"],
+    "related_concepts": ["COMMIT", "ROLLBACK", "로킹", "2단계 로킹"]
+  },
+  "practical-industrial-2022-3:11": {
+    "sql_type": "concept",
+    "concept": "참조 무결성",
+    "detail": "외래키와 참조 릴레이션의 기본키 간 일치 규정",
+    "tags": ["참조 무결성", "외래키", "기본키", "NULL", "무결성"],
+    "required_knowledge": ["외래키 개념", "기본키", "무결성 종류"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "외래키 값은 NULL이거나 참조 릴레이션의 기본키 값과 동일해야 한다는 제약 조건이 참조 무결성",
+    "variation_hints": [
+      "참조 무결성 위반 시 발생하는 오류를 사례로 제시하는 변형",
+      "CASCADE/SET NULL/SET DEFAULT/RESTRICT 옵션을 묻는 문제",
+      "개체 무결성과 참조 무결성을 구분하는 문제",
+      "실제 INSERT/DELETE 시 참조 무결성 검사 과정을 묻는 변형"
+    ],
+    "anti_patterns": ["외래키 값은 Null이거나 참조 릴레이션의 기본키 값과 동일해야라는 설명을 그대로 쓰면 안 됨", "참조할 수 없는 외래키 값을 가질 수 없는이라는 표현을 복사하면 안 됨"],
+    "related_concepts": ["개체 무결성", "도메인 무결성", "외래키", "CASCADE"]
+  },
+  "practical-industrial-2022-3:18": {
+    "sql_type": "concept",
+    "concept": "DDL 명령어",
+    "detail": "CREATE, ALTER, DROP의 역할 구분",
+    "tags": ["DDL", "CREATE", "ALTER", "DROP", "데이터 정의어"],
+    "required_knowledge": ["SQL 분류(DDL/DML/DCL)", "스키마 정의", "테이블 구조 변경"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "DDL의 3가지 명령어(CREATE/ALTER/DROP)를 정의/변경/삭제 기능과 매칭",
+    "variation_hints": [
+      "DML(SELECT/INSERT/UPDATE/DELETE)과 DDL을 분류하는 문제",
+      "DCL(GRANT/REVOKE)까지 포함하여 SQL을 3분류하는 확장",
+      "TRUNCATE와 DROP의 차이를 묻는 변형",
+      "ALTER TABLE로 컬럼 추가/삭제/변경하는 실제 SQL을 작성하는 문제"
+    ],
+    "anti_patterns": ["스키마, 도메인, 테이블 등의 개체를 정의/변경/삭제라는 동일 설명을 쓰면 안 됨", "3가지 빈칸에 CREATE/ALTER/DROP을 넣는 동일 형태를 반복하면 안 됨"],
+    "related_concepts": ["DML", "DCL", "TCL", "TRUNCATE"]
+  },
+  "practical-industrial-2022-3:19": {
+    "sql_type": "concept",
+    "concept": "뷰(View)",
+    "detail": "가상 테이블로서의 뷰의 정의와 특성",
+    "tags": ["뷰", "View", "가상 테이블", "보안", "데이터 독립성"],
+    "required_knowledge": ["뷰 개념", "기본 테이블", "데이터 보안"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "하나 이상의 기본 테이블로부터 유도된 가상 테이블이 뷰(View)임을 식별",
+    "variation_hints": [
+      "뷰를 통한 DML 연산 제약(갱신 불가 조건)을 묻는 변형",
+      "CREATE VIEW 문을 작성하는 실습형 문제",
+      "뷰의 장단점을 서술하는 문제",
+      "인라인 뷰와 저장 뷰의 차이를 묻는 확장"
+    ],
+    "anti_patterns": ["접근이 허용된 자료만을 제한적으로 보여주기 위해라는 설명을 그대로 쓰면 안 됨", "저장장치 내에 물리적으로 존재하지 않지만이라는 표현을 복사하면 안 됨", "나타나지 않는 데이터를 안전하게 보호라는 문구를 동일하게 쓰면 안 됨"],
+    "related_concepts": ["기본 테이블", "인라인 뷰", "CREATE VIEW", "데이터 보안"]
+  },
+  "practical-industrial-2023-1:2": {
+    "sql_type": "concept",
+    "concept": "E-R 모델",
+    "detail": "E-R 다이어그램에서 개체와 관계 식별",
+    "tags": ["E-R 모델", "개체", "관계", "ERD", "데이터 모델링"],
+    "required_knowledge": ["E-R 모델 기호", "개체 타입", "관계 타입", "속성"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "E-R 다이어그램에서 사각형(개체)과 마름모(관계)를 구분하여 식별",
+    "variation_hints": [
+      "E-R 모델의 속성 종류(단일/다중/유도/복합)를 묻는 변형",
+      "E-R 모델을 릴레이션으로 변환하는 과정을 묻는 문제",
+      "관계의 카디널리티(1:1, 1:N, N:M)를 식별하는 변형",
+      "약한 개체와 강한 개체를 구분하는 확장"
+    ],
+    "anti_patterns": ["고객/책/출판사 개체와 구매/공급 관계를 동일하게 사용하면 안 됨", "동일한 E-R 다이어그램 이미지를 재사용하면 안 됨"],
+    "related_concepts": ["릴레이션 변환", "카디널리티", "참여 제약", "데이터 모델링"]
+  },
+  "practical-industrial-2023-1:6": {
+    "sql_type": "concept",
+    "concept": "트랜잭션 연산",
+    "detail": "COMMIT과 ROLLBACK의 역할",
+    "tags": ["COMMIT", "ROLLBACK", "트랜잭션", "TCL"],
+    "required_knowledge": ["트랜잭션 개념", "ACID 특성", "TCL 명령어"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "정상 완료 시 물리적 저장(COMMIT)과 비정상 시 원상 복귀(ROLLBACK) 연산을 구분",
+    "variation_hints": [
+      "SAVEPOINT와 함께 부분 롤백을 묻는 변형",
+      "트랜잭션 상태 전이도에서 COMMIT/ROLLBACK 위치를 묻는 문제",
+      "자동 COMMIT과 명시적 COMMIT의 차이",
+      "COMMIT 전후의 데이터 가시성 차이를 묻는 변형"
+    ],
+    "anti_patterns": ["정상적으로 수행하여 변경된 내용을 실제 물리적 디스크에 저장이라는 COMMIT 설명을 그대로 쓰면 안 됨", "원래의 상태로 원상 복귀라는 ROLLBACK 설명을 복사하면 안 됨"],
+    "related_concepts": ["SAVEPOINT", "트랜잭션 상태", "ACID", "TCL"]
+  },
+  "practical-industrial-2023-1:7": {
+    "sql_type": "concept",
+    "concept": "관계대수 연산자",
+    "detail": "SELECT, PROJECT, INTERSECTION, DIFFERENCE 연산자 식별",
+    "tags": ["관계대수", "SELECT", "PROJECT", "INTERSECTION", "DIFFERENCE"],
+    "required_knowledge": ["관계대수 연산", "집합 연산", "순수 관계 연산"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "관계대수의 기본 연산자(σ/π/∩/-)를 각 설명과 올바르게 매칭",
+    "variation_hints": [
+      "UNION, CARTESIAN PRODUCT까지 포함한 확장 문제",
+      "관계대수 기호(σ, π, ⋈)를 직접 쓰게 하는 변형",
+      "자연 조인과 세미 조인의 차이를 묻는 문제",
+      "관계대수 연산을 SQL로 변환하는 복합 문제"
+    ],
+    "anti_patterns": ["동일한 설명 문구와 보기를 그대로 쓰면 안 됨", "1-ㄱ/2-ㄴ/3-ㄷ/4-ㄹ이라는 순서 매칭을 동일하게 쓰면 안 됨"],
+    "related_concepts": ["UNION", "JOIN", "DIVISION", "카티션 프로덕트"]
+  },
+  "practical-industrial-2023-1:8": {
+    "sql_type": "concept",
+    "concept": "정규화",
+    "detail": "2NF/3NF/BCNF의 정의와 종속 제거 기준",
+    "tags": ["정규화", "2NF", "3NF", "BCNF", "부분 함수 종속", "이행적 함수 종속"],
+    "required_knowledge": ["함수적 종속", "부분 함수 종속", "이행적 함수 종속", "후보키"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "2NF(부분 함수 종속 제거), 3NF(이행적 함수 종속 제거), BCNF(결정자가 후보키)를 구분",
+    "variation_hints": [
+      "구체적인 함수적 종속 다이어그램을 주고 정규형을 판별하는 변형",
+      "정규화 과정에서 테이블을 분해하는 실습형 문제",
+      "4NF(다치 종속 제거)와 5NF(조인 종속)까지 확장",
+      "반정규화가 필요한 상황을 제시하는 변형"
+    ],
+    "anti_patterns": ["이행적 함수 종속 관계를 제거/부분 함수 종속성을 제거/결정자가 후보키가 아닌이라는 설명을 동일하게 쓰면 안 됨", "동일한 보기 형태(ㄱ/ㄴ/ㄷ)를 복사하면 안 됨"],
+    "related_concepts": ["1NF", "4NF", "5NF", "이상현상"]
+  },
+  "practical-industrial-2023-1:17": {
+    "sql_type": "concept",
+    "concept": "DBMS 구성 요소",
+    "detail": "DML 컴파일러와 트랜잭션 관리자의 역할",
+    "tags": ["DBMS", "DML 컴파일러", "트랜잭션 관리자", "질의 처리기", "DDL 컴파일러"],
+    "required_knowledge": ["DBMS 구조", "DML/DDL", "트랜잭션 관리"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "DML 요청을 해석하는 모듈(DML 컴파일러)과 권한/무결성/회복을 담당하는 모듈(트랜잭션 관리자)을 구분",
+    "variation_hints": [
+      "DDL 컴파일러의 역할을 함께 묻는 확장",
+      "데이터 사전과 데이터 디렉토리의 차이를 묻는 변형",
+      "질의 최적화기의 역할을 추가하는 문제",
+      "DBMS 구성도를 그리고 빈칸을 채우는 변형"
+    ],
+    "anti_patterns": ["데이터 조작어 요청을 받으면 해석하는 모듈이라는 설명을 그대로 쓰면 안 됨", "동일한 보기 목록을 복사하면 안 됨"],
+    "related_concepts": ["질의 처리기", "DDL 컴파일러", "데이터 사전", "버퍼 관리자"]
+  },
+  "practical-industrial-2023-1:19": {
+    "sql_type": "command",
+    "concept": "CREATE TABLE 제약 조건",
+    "detail": "CHECK와 IN을 사용한 속성값 제한",
+    "tags": ["CREATE TABLE", "CHECK", "IN", "제약 조건", "DDL"],
+    "required_knowledge": ["CREATE TABLE 문법", "제약 조건 종류", "CHECK 절"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "CREATE TABLE에서 CHECK 제약 조건과 IN 연산자를 사용하여 특정 값만 허용하는 구문 작성",
+    "variation_hints": [
+      "CHECK에 범위 조건(BETWEEN)을 사용하는 변형",
+      "NOT NULL, UNIQUE, PRIMARY KEY 등 다른 제약 조건과 함께 출제",
+      "ALTER TABLE로 제약 조건을 추가/삭제하는 문제",
+      "DEFAULT 값 설정과 CHECK를 결합하는 변형"
+    ],
+    "anti_patterns": ["Intern/Staff/Manager/Director/President라는 동일 값 목록을 사용하면 안 됨", "TITLE 속성과 COMPANY 테이블을 그대로 쓰면 안 됨"],
+    "related_concepts": ["NOT NULL", "UNIQUE", "PRIMARY KEY", "FOREIGN KEY 제약"]
+  },
+  "practical-industrial-2023-2:1": {
+    "sql_type": "concept",
+    "concept": "트랜잭션 특성(ACID)",
+    "detail": "고립성(Isolation)과 영속성(Durability) 설명 식별",
+    "tags": ["트랜잭션", "ACID", "고립성", "영속성", "격리성", "지속성"],
+    "required_knowledge": ["트랜잭션 개념", "ACID 4가지 특성"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "병행 실행 시 다른 트랜잭션 간섭 불가(고립성), 완료 후 결과 영구 보존(영속성)을 식별",
+    "variation_hints": [
+      "원자성과 일관성까지 4가지 모두를 매칭하는 확장",
+      "각 특성을 보장하는 기술(로킹, 로그 등)과 연결하는 문제",
+      "트랜잭션 격리 수준(Isolation Level)과 연계하는 변형",
+      "Dirty Read, Phantom Read 등 동시성 문제와 연결"
+    ],
+    "anti_patterns": ["어느 하나의 트랜잭션 실행 중에 다른 트랜잭션의 연산이 끼어들 수 없다라는 설명을 그대로 쓰면 안 됨", "결과는 잃어버리지 않고 지속되어야라는 설명을 복사하면 안 됨"],
+    "related_concepts": ["동시성 제어", "로킹", "회복 기법", "트랜잭션 격리 수준"]
+  },
+  "practical-industrial-2023-2:2": {
+    "sql_type": "concept",
+    "concept": "SQL 분류(DDL/DML/DCL)",
+    "detail": "SQL 명령어를 DDL, DML, DCL로 분류",
+    "tags": ["DDL", "DML", "DCL", "GRANT", "REVOKE", "SELECT", "INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "DROP"],
+    "required_knowledge": ["SQL 언어 분류", "각 명령어의 기능"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "9개 SQL 명령어를 정의어(CREATE/ALTER/DROP), 조작어(SELECT/INSERT/UPDATE/DELETE), 제어어(GRANT/REVOKE)로 분류",
+    "variation_hints": [
+      "TCL(COMMIT/ROLLBACK/SAVEPOINT)까지 4분류로 확장",
+      "TRUNCATE가 DDL인지 DML인지 묻는 변형",
+      "각 명령어의 실제 사용 예시를 보고 분류하는 문제",
+      "MERGE, RENAME 등 추가 명령어 포함"
+    ],
+    "anti_patterns": ["GRANT/DELETE/CREATE/ALTER/SELECT/REVOKE/INSERT/UPDATE/DROP이라는 동일 보기를 쓰면 안 됨", "DDL/DML/DCL 3분류를 동일 형태로 반복하면 안 됨"],
+    "related_concepts": ["TCL", "TRUNCATE", "MERGE", "SQL 표준"]
+  },
+  "practical-industrial-2023-2:6": {
+    "sql_type": "query",
+    "concept": "SELECT DISTINCT",
+    "detail": "조건부 검색과 중복 제거를 포함한 SQL 작성",
+    "tags": ["SELECT", "DISTINCT", "WHERE", "조건 검색", "중복 제거"],
+    "required_knowledge": ["SELECT 문법", "DISTINCT", "WHERE 조건절", "비교 연산자"],
+    "problem_style": "SQL 작성",
+    "key_mechanism": "3학년 이상인 학생의 과목을 중복 없이 검색하는 SELECT DISTINCT 쿼리 작성",
+    "variation_hints": [
+      "DISTINCT 대신 GROUP BY를 사용하여 동일 결과를 얻는 변형",
+      "여러 컬럼에 DISTINCT를 적용하는 경우의 의미 차이",
+      "COUNT(DISTINCT column)으로 중복 제거 후 카운트",
+      "서브쿼리에서 DISTINCT를 사용하는 복합 문제"
+    ],
+    "anti_patterns": ["학년이 3학년 이상이 수강하는 과목이라는 동일 조건을 쓰면 안 됨", "학생 테이블에서라는 동일 맥락을 반복하면 안 됨"],
+    "related_concepts": ["GROUP BY", "COUNT", "서브쿼리", "ALL"]
+  },
+  "practical-industrial-2023-2:8": {
+    "sql_type": "concept",
+    "concept": "정규화",
+    "detail": "2NF/3NF/BCNF 과정의 이상현상 제거 기준",
+    "tags": ["정규화", "2NF", "3NF", "BCNF", "이상현상", "함수 종속"],
+    "required_knowledge": ["함수적 종속", "부분 함수 종속", "이행적 함수 종속", "결정자"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "2NF(부분 함수 종속 제거), 3NF(이행적 함수 종속 제거), BCNF(결정자=후보키) 기준 구분",
+    "variation_hints": [
+      "실제 테이블과 함수 종속 다이어그램을 보고 정규형 판별",
+      "정규화 전후 테이블 변화를 보여주고 어떤 정규화인지 묻는 문제",
+      "1NF부터 5NF까지 전체 정규화 과정을 순서대로 나열",
+      "무손실 분해와 종속성 보존 조건을 함께 묻는 확장"
+    ],
+    "anti_patterns": ["이행적 함수 종속 관계를 제거/부분 함수 종속성을 제거/결정자가 후보키가 아닌이라는 동일 설명을 쓰면 안 됨"],
+    "related_concepts": ["1NF", "4NF", "이상현상", "함수적 종속 다이어그램"]
+  },
+  "practical-industrial-2023-2:19": {
+    "sql_type": "concept",
+    "concept": "CHECK 제약 조건",
+    "detail": "도메인 값 범위를 제한하는 CHECK 제약 조건 용어",
+    "tags": ["CHECK", "제약 조건", "도메인", "DDL"],
+    "required_knowledge": ["제약 조건 종류", "도메인 개념", "CREATE TABLE"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "속성값의 범위를 제한하기 위해 사용하는 제약 조건이 CHECK임을 식별",
+    "variation_hints": [
+      "CHECK와 NOT NULL, UNIQUE의 차이를 묻는 변형",
+      "CHECK 제약 조건을 ALTER TABLE로 추가하는 문제",
+      "도메인 무결성과 CHECK 제약 조건의 관계를 묻는 변형",
+      "TRIGGER와 CHECK의 역할 비교"
+    ],
+    "anti_patterns": ["특정 속성의 값을 제한하기 위해 사용하는 문법이라는 설명을 그대로 쓰면 안 됨", "도메인이 가질 수 있는 값의 범위를 제약이라는 표현을 복사하면 안 됨"],
+    "related_concepts": ["도메인 무결성", "NOT NULL", "UNIQUE", "DEFAULT"]
+  },
+  "practical-industrial-2023-2:20": {
+    "sql_type": "concept",
+    "concept": "정규화",
+    "detail": "제4정규형(4NF) - 다치 종속 제거",
+    "tags": ["정규화", "4NF", "다치 종속", "함수 종속"],
+    "required_knowledge": ["다치 종속 개념", "정규화 과정", "3NF/BCNF"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "함수 종속이 아닌 다치 종속을 제거하면 제4정규형(4NF)을 만족",
+    "variation_hints": [
+      "5NF(조인 종속 제거)와 4NF의 차이를 묻는 변형",
+      "다치 종속의 구체적 예시를 주고 4NF 위반 여부를 판단",
+      "1NF부터 5NF까지 순서와 각 제거 대상을 나열하는 문제",
+      "BCNF와 4NF의 관계를 설명하는 변형"
+    ],
+    "anti_patterns": ["함수 종속이 아닌 다치 종속을 제거하면이라는 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["3NF", "BCNF", "5NF", "조인 종속"]
+  },
+  "practical-industrial-2023-3:3": {
+    "sql_type": "query",
+    "concept": "SELECT DISTINCT",
+    "detail": "DISTINCT를 사용한 중복 제거 검색 SQL 작성",
+    "tags": ["SELECT", "DISTINCT", "중복 제거", "DML"],
+    "required_knowledge": ["SELECT 문법", "DISTINCT 키워드"],
+    "problem_style": "SQL 작성",
+    "key_mechanism": "customer 테이블에서 grade 속성을 중복 없이 검색하는 SELECT DISTINCT 쿼리 작성",
+    "variation_hints": [
+      "여러 컬럼에 DISTINCT 적용 시 동작 방식을 묻는 변형",
+      "DISTINCT와 GROUP BY의 결과 차이를 비교하는 문제",
+      "COUNT(DISTINCT)와 COUNT(*)의 결과 차이",
+      "ORDER BY와 DISTINCT를 함께 사용하는 변형"
+    ],
+    "anti_patterns": ["customer 테이블에서 grade 속성을 중복없이라는 동일 조건을 쓰면 안 됨"],
+    "related_concepts": ["GROUP BY", "COUNT", "ALL", "집계함수"]
+  },
+  "practical-industrial-2023-3:6": {
+    "sql_type": "query",
+    "concept": "SQL 복합 빈칸",
+    "detail": "릴레이션/도메인 용어와 BETWEEN AND, HAVING, INSERT INTO VALUES 구문",
+    "tags": ["릴레이션", "도메인", "BETWEEN", "AND", "HAVING", "INSERT", "VALUES"],
+    "required_knowledge": ["릴레이션 용어", "도메인 개념", "BETWEEN", "HAVING", "INSERT 문법"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "DB 용어(릴레이션, 도메인)와 SQL 키워드(AND, HAVING, VALUES)를 빈칸에 올바르게 채우기",
+    "variation_hints": [
+      "BETWEEN 대신 IN이나 LIKE를 사용하는 조건으로 변형",
+      "HAVING 대신 WHERE를 잘못 사용한 오류를 찾는 문제",
+      "INSERT INTO ... SELECT 구문으로 변형",
+      "도메인과 속성, 튜플의 관계를 도식으로 묻는 변형"
+    ],
+    "anti_patterns": ["릴레이션/도메인/AND/HAVING/VALUES라는 동일 답 조합을 쓰면 안 됨", "종업원 테이블과 동일한 예시를 사용하면 안 됨"],
+    "related_concepts": ["WHERE", "GROUP BY", "INSERT INTO SELECT", "속성"]
+  },
+  "practical-industrial-2023-3:7": {
+    "sql_type": "concept",
+    "concept": "정규화와 이상현상",
+    "detail": "정규화/이상현상/갱신이상/이행적 종속/BCNF 종합",
+    "tags": ["정규화", "이상현상", "갱신 이상", "이행적 종속", "BCNF"],
+    "required_knowledge": ["정규화 과정", "이상현상 종류", "함수적 종속", "이행적 종속", "BCNF"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "정규화/이상현상(Anomaly)/갱신이상/이행적 종속(A->C)/BCNF의 핵심 용어를 종합적으로 이해",
+    "variation_hints": [
+      "삽입/삭제/갱신 이상의 구체적 사례를 주고 식별하는 변형",
+      "정규화 과정의 순서를 나열하는 문제",
+      "실제 테이블에서 이상현상을 찾아 정규화하는 실습형",
+      "함수 종속 다이어그램을 해석하는 변형"
+    ],
+    "anti_patterns": ["정규화/이상현상/갱신/C/BCNF라는 동일 답 순서를 쓰면 안 됨", "동일한 5개 빈칸 구조를 복사하면 안 됨"],
+    "related_concepts": ["삽입 이상", "삭제 이상", "함수적 종속", "무손실 분해"]
+  },
+  "practical-industrial-2023-3:9": {
+    "sql_type": "query",
+    "concept": "SQL 조건절 키워드",
+    "detail": "AND, DISTINCT, IN 키워드 빈칸 채우기",
+    "tags": ["AND", "DISTINCT", "IN", "WHERE", "SELECT"],
+    "required_knowledge": ["논리 연산자", "DISTINCT", "IN 연산자", "WHERE 조건절"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "AND(복합 조건), DISTINCT(중복 제거), IN(목록 포함 검사) 키워드를 올바른 위치에 배치",
+    "variation_hints": [
+      "OR과 AND의 우선순위를 묻는 변형",
+      "NOT IN과 IN의 차이를 묻는 문제",
+      "EXISTS와 IN의 성능/의미 차이",
+      "BETWEEN과 IN을 결합하는 복합 조건"
+    ],
+    "anti_patterns": ["학년>=3 AND 학과=전자계산이라는 동일 조건을 쓰면 안 됨", "PNO IN (1,2,3)이라는 동일 예시를 쓰면 안 됨"],
+    "related_concepts": ["OR", "NOT IN", "EXISTS", "ANY/ALL"]
+  },
+  "practical-industrial-2023-3:16": {
+    "sql_type": "query",
+    "concept": "GROUP BY와 HAVING",
+    "detail": "학과별 학생수 조건 검색(GROUP BY/HAVING/COUNT)",
+    "tags": ["GROUP BY", "HAVING", "COUNT", "SELECT", "조건 검색"],
+    "required_knowledge": ["GROUP BY", "HAVING", "집계함수", "WHERE와 HAVING 차이"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "학생수가 30명 이하인 학과를 검색하기 위해 GROUP BY와 HAVING COUNT(*)<=30을 사용",
+    "variation_hints": [
+      "HAVING에 AVG, SUM 등 다른 집계함수를 사용하는 변형",
+      "WHERE와 HAVING을 동시에 사용하는 복합 조건",
+      "GROUP BY 없이 HAVING을 사용할 수 있는지 묻는 문제",
+      "여러 그룹 기준(다중 컬럼 GROUP BY)을 사용하는 변형"
+    ],
+    "anti_patterns": ["학생수가 30명 이하인 학과라는 동일 조건을 쓰면 안 됨", "동일한 (가)/(나) 빈칸 형태를 반복하면 안 됨"],
+    "related_concepts": ["WHERE", "ORDER BY", "집계함수", "서브쿼리"]
+  },
+  "practical-industrial-2023-3:20": {
+    "sql_type": "query",
+    "concept": "UPDATE SET WHERE",
+    "detail": "UPDATE 문의 SET과 WHERE 키워드 빈칸 채우기",
+    "tags": ["UPDATE", "SET", "WHERE", "BETWEEN", "DML"],
+    "required_knowledge": ["UPDATE 문법", "SET 절", "WHERE 조건절", "BETWEEN"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "UPDATE 테이블 SET 컬럼=값 WHERE 조건 구문에서 SET과 WHERE 키워드를 올바르게 배치",
+    "variation_hints": [
+      "서브쿼리를 WHERE 조건에 사용하는 UPDATE 변형",
+      "여러 컬럼을 동시에 갱신하는 SET 절",
+      "UPDATE와 DELETE를 혼합하여 적절한 명령어를 선택하는 문제",
+      "CASE WHEN을 SET 절에 사용하는 변형"
+    ],
+    "anti_patterns": ["고객계좌/등급=우대고객/잔고 BETWEEN이라는 동일 데이터를 쓰면 안 됨", "SET과 WHERE 2개 빈칸을 동일 형태로 반복하면 안 됨"],
+    "related_concepts": ["DELETE", "INSERT", "CASE WHEN", "서브쿼리"]
+  },
+  "practical-industrial-2024-1:2": {
+    "sql_type": "concept",
+    "concept": "정규화",
+    "detail": "제2정규형(2NF) - 완전 함수적 종속",
+    "tags": ["정규화", "2NF", "완전 함수적 종속", "부분 함수 종속"],
+    "required_knowledge": ["1NF", "함수적 종속", "부분 함수 종속", "기본키"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "제1정규형이면서 기본키가 아닌 모든 속성이 기본키에 완전 함수적 종속을 만족하는 것이 2NF",
+    "variation_hints": [
+      "복합 기본키가 있는 테이블에서 부분 함수 종속을 찾는 변형",
+      "1NF에서 2NF로 분해하는 과정을 실습형으로 출제",
+      "2NF와 3NF의 차이를 설명하게 하는 문제",
+      "완전 함수 종속과 부분 함수 종속의 예시를 구분하는 변형"
+    ],
+    "anti_patterns": ["기본키가 아닌 모든 속성이 기본키에 대하여 완전 함수적 종속이라는 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["1NF", "3NF", "부분 함수 종속", "복합 키"]
+  },
+  "practical-industrial-2024-1:6": {
+    "sql_type": "concept",
+    "concept": "개체 무결성",
+    "detail": "기본키의 NULL/중복 불허 제약 조건 용어",
+    "tags": ["개체 무결성", "기본키", "NULL", "중복", "무결성"],
+    "required_knowledge": ["무결성 종류", "기본키", "NULL 개념"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "기본키는 NULL이나 중복값을 가질 수 없다는 제약 조건이 개체 무결성(Entity Integrity)",
+    "variation_hints": [
+      "참조 무결성, 도메인 무결성과 구분하는 문제",
+      "개체 무결성 위반 사례를 INSERT 문으로 제시하는 변형",
+      "UNIQUE 제약과 PRIMARY KEY 제약의 차이",
+      "복합 기본키에서의 개체 무결성 적용"
+    ],
+    "anti_patterns": ["기본키를 구성하는 어떤 속성도 널 값이나 중복값을 가질 수 없다라는 동일 설명을 쓰면 안 됨"],
+    "related_concepts": ["참조 무결성", "도메인 무결성", "PRIMARY KEY", "UNIQUE"]
+  },
+  "practical-industrial-2024-1:11": {
+    "sql_type": "query",
+    "concept": "SELECT/DISTINCT/COUNT 결과 추론",
+    "detail": "동일 테이블에 대해 3가지 다른 SELECT 문의 결과 튜플 수 비교",
+    "tags": ["SELECT", "DISTINCT", "COUNT", "튜플 수", "결과 예측"],
+    "required_knowledge": ["SELECT 기본", "DISTINCT", "COUNT", "COUNT(DISTINCT)"],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "SELECT DEPT(200개), SELECT DISTINCT DEPT(3개), SELECT COUNT(DISTINCT DEPT) WHERE 조건(1개)의 결과 수 추론",
+    "variation_hints": [
+      "COUNT(*)와 COUNT(column)의 차이(NULL 처리)를 묻는 변형",
+      "GROUP BY와 결합하여 결과 행 수를 예측하는 문제",
+      "UNION과 UNION ALL의 결과 행 수 차이",
+      "서브쿼리 결과의 행 수를 예측하는 변형"
+    ],
+    "anti_patterns": ["전기과 50명, 전산과 100명, 전자과 50명이라는 동일 데이터를 쓰면 안 됨", "3개 SQL문을 연속 비교하는 동일 형태를 반복하면 안 됨"],
+    "related_concepts": ["GROUP BY", "UNION", "NULL 처리", "집계함수"]
+  },
+  "practical-industrial-2024-1:12": {
+    "sql_type": "query",
+    "concept": "INSERT/UPDATE 빈칸",
+    "detail": "INSERT INTO VALUES와 UPDATE SET WHERE 키워드 채우기",
+    "tags": ["INSERT", "INTO", "VALUES", "UPDATE", "SET", "WHERE"],
+    "required_knowledge": ["INSERT 문법", "UPDATE 문법", "DML 명령어"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "INSERT INTO 테이블 VALUES (...)과 UPDATE 테이블 SET 컬럼=값 WHERE 조건 구문의 키워드를 채우기",
+    "variation_hints": [
+      "INSERT INTO ... SELECT 구문으로 변형",
+      "UPDATE에서 여러 컬럼을 동시에 수정하는 변형",
+      "DELETE FROM WHERE 구문과 혼합 출제",
+      "INSERT 시 특정 컬럼만 지정하는 경우와 전체 컬럼의 차이"
+    ],
+    "anti_patterns": ["윤정희/영업부/마포구와 임선호/기획부라는 동일 데이터를 쓰면 안 됨", "INSERT INTO/VALUES/SET이라는 동일 답 조합을 쓰면 안 됨"],
+    "related_concepts": ["DELETE", "MERGE", "서브쿼리", "트랜잭션"]
+  },
+  "practical-industrial-2024-1:13": {
+    "sql_type": "query",
+    "concept": "SQL 조건절 키워드",
+    "detail": "AND, ASC(ORDER BY), NOT LIKE 키워드 빈칸 채우기",
+    "tags": ["AND", "ORDER BY", "ASC", "NOT LIKE", "WHERE"],
+    "required_knowledge": ["논리 연산자", "ORDER BY", "LIKE 패턴", "NOT 연산자"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "복합 조건(AND), 정렬(ORDER BY ASC), 부정 패턴(NOT LIKE)을 올바른 위치에 배치",
+    "variation_hints": [
+      "DESC와 ASC를 혼합 정렬하는 변형",
+      "LIKE 패턴에서 _와 %의 차이를 묻는 문제",
+      "OR과 AND의 우선순위를 괄호로 제어하는 변형",
+      "IS NOT NULL과 NOT LIKE를 결합하는 문제"
+    ],
+    "anti_patterns": ["성별=여 AND 등급=GOLD / ORDER BY ASC / NOT LIKE 김%라는 동일 예시를 쓰면 안 됨"],
+    "related_concepts": ["OR", "DESC", "IS NULL", "LIKE 패턴"]
+  },
+  "practical-industrial-2024-1:17": {
+    "sql_type": "concept",
+    "concept": "정규화 종합",
+    "detail": "정규화/이상현상/갱신/함수종속/이행적종속/BCNF 전체 종합",
+    "tags": ["정규화", "이상현상", "갱신 이상", "함수적 종속", "이행적 종속", "BCNF", "1NF", "2NF", "3NF", "4NF", "5NF"],
+    "required_knowledge": ["정규화 전체 과정", "이상현상", "함수적 종속", "다치 종속", "조인 종속"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "정규화(①), 이상현상(②), 갱신(③), C(④이행적종속), BCNF(⑤)를 종합적으로 이해",
+    "variation_hints": [
+      "각 정규형의 예시 테이블을 주고 정규형을 판별하는 문제",
+      "정규화 과정을 플로차트로 제시하고 빈칸을 채우는 변형",
+      "반정규화의 목적과 방법을 묻는 확장",
+      "정규화와 성능의 트레이드오프를 논하는 서술형"
+    ],
+    "anti_patterns": ["동일한 5개 빈칸(정규화/이상현상/갱신/C/BCNF) 구조를 반복하면 안 됨", "1NF~5NF까지의 동일한 긴 설명을 복사하면 안 됨"],
+    "related_concepts": ["반정규화", "성능 최적화", "인덱스", "파티셔닝"]
+  },
+  "practical-industrial-2024-1:18": {
+    "sql_type": "concept",
+    "concept": "무결성 종류",
+    "detail": "Unique/Domain/Referential/Entity Integrity 매칭",
+    "tags": ["무결성", "개체 무결성", "참조 무결성", "도메인 무결성", "고유 무결성"],
+    "required_knowledge": ["무결성 제약 조건 4종류", "기본키", "외래키", "도메인"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "도메인(속성값 범위), 고유(중복 불허), 개체(기본키 NULL 불허), 참조(외래키 제약)를 각 설명과 매칭",
+    "variation_hints": [
+      "실제 CREATE TABLE 문에서 각 무결성을 보장하는 제약 조건을 찾는 문제",
+      "무결성 위반 INSERT/UPDATE 문을 주고 위반 종류를 식별하는 변형",
+      "사용자 정의 무결성(CHECK, TRIGGER)과의 관계",
+      "무결성과 정규화의 관계를 묻는 확장"
+    ],
+    "anti_patterns": ["Unique/Domain/Referential/Entity라는 동일 4개 보기를 쓰면 안 됨", "ㄱ/ㄴ/ㄷ/ㄹ 설명을 동일하게 복사하면 안 됨"],
+    "related_concepts": ["CHECK 제약", "TRIGGER", "NOT NULL", "CASCADE"]
+  },
+  "practical-industrial-2024-2:5": {
+    "sql_type": "query",
+    "concept": "JOIN USING",
+    "detail": "USING 절을 사용한 동일 컬럼 기반 JOIN",
+    "tags": ["JOIN", "USING", "INNER JOIN", "SELECT", "테이블 결합"],
+    "required_knowledge": ["JOIN 종류", "USING 절", "ON 절", "동등 조인"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "두 테이블에서 동일한 컬럼명(학과코드)을 기준으로 JOIN할 때 USING 키워드를 사용",
+    "variation_hints": [
+      "USING 대신 ON을 사용하는 형태로 변형",
+      "NATURAL JOIN과 USING의 차이를 묻는 문제",
+      "LEFT/RIGHT/FULL OUTER JOIN으로 확장",
+      "3개 이상 테이블을 JOIN하는 복합 문제"
+    ],
+    "anti_patterns": ["학번/이름/학과코드/학과명이라는 동일 컬럼을 쓰면 안 됨", "학생 JOIN 학과 USING(학과코드)라는 동일 구문을 쓰면 안 됨"],
+    "related_concepts": ["INNER JOIN ON", "NATURAL JOIN", "OUTER JOIN", "CROSS JOIN"]
+  },
+  "practical-industrial-2024-2:6": {
+    "sql_type": "concept",
+    "concept": "COUNT 집계함수",
+    "detail": "조건과 일치하는 튜플 개수를 반환하는 COUNT 함수 용어",
+    "tags": ["COUNT", "집계함수", "GROUP BY", "튜플"],
+    "required_knowledge": ["집계함수 종류", "COUNT 사용법"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "지정된 조건과 일치하는 튜플의 개수를 반환하는 집계 함수가 COUNT",
+    "variation_hints": [
+      "COUNT(*)와 COUNT(column)의 NULL 처리 차이를 묻는 변형",
+      "SUM, AVG, MAX, MIN과 함께 구분하는 문제",
+      "COUNT(DISTINCT column)의 의미를 묻는 변형",
+      "집계함수와 GROUP BY/HAVING의 관계를 설명하는 문제"
+    ],
+    "anti_patterns": ["지정된 조건과 일치하는 튜플의 개수를 반환이라는 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["SUM", "AVG", "MAX/MIN", "GROUP BY"]
+  },
+  "practical-industrial-2024-2:10": {
+    "sql_type": "command",
+    "concept": "CREATE INDEX",
+    "detail": "UNIQUE INDEX 생성 SQL 구문",
+    "tags": ["CREATE", "INDEX", "UNIQUE", "DDL", "인덱스"],
+    "required_knowledge": ["인덱스 개념", "CREATE INDEX 문법", "UNIQUE 제약"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "CREATE UNIQUE INDEX 인덱스명 ON 테이블(속성) 구문에서 UNIQUE와 INDEX 키워드를 올바르게 배치",
+    "variation_hints": [
+      "복합 인덱스(여러 컬럼)를 생성하는 변형",
+      "인덱스 삭제(DROP INDEX) 구문을 묻는 문제",
+      "클러스터 인덱스와 비클러스터 인덱스의 차이",
+      "인덱스의 장단점과 사용 시기를 묻는 이론 문제"
+    ],
+    "anti_patterns": ["Stud_idx ON Student(ssn)이라는 동일 인덱스를 쓰면 안 됨", "CREATE (1) (2) 형태의 동일 빈칸을 반복하면 안 됨"],
+    "related_concepts": ["DROP INDEX", "클러스터 인덱스", "B-Tree", "ALTER INDEX"]
+  },
+  "practical-industrial-2024-2:11": {
+    "sql_type": "command",
+    "concept": "CREATE TABLE 제약 조건",
+    "detail": "CHECK와 IN을 사용한 속성값 제한",
+    "tags": ["CREATE TABLE", "CHECK", "IN", "제약 조건", "DDL"],
+    "required_knowledge": ["CREATE TABLE 문법", "CHECK 절", "IN 연산자", "제약 조건"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "직책 속성에 CHECK(직책 IN ('사원','대리','과장','팀장')) 형태로 값을 제한하는 구문",
+    "variation_hints": [
+      "BETWEEN을 CHECK 조건에 사용하는 변형",
+      "CONSTRAINT 이름을 지정하는 형태로 변형",
+      "ALTER TABLE ADD CONSTRAINT로 나중에 제약을 추가하는 문제",
+      "FOREIGN KEY REFERENCES 구문과 결합하는 변형"
+    ],
+    "anti_patterns": ["사원/대리/과장/팀장이라는 동일 값 목록을 쓰면 안 됨", "직원코드/성명/직책/연봉이라는 동일 테이블 구조를 쓰면 안 됨"],
+    "related_concepts": ["NOT NULL", "UNIQUE", "FOREIGN KEY", "DEFAULT"]
+  },
+  "practical-industrial-2024-2:14": {
+    "sql_type": "concept",
+    "concept": "참조 무결성",
+    "detail": "실제 테이블 예시를 통한 참조 무결성 식별",
+    "tags": ["참조 무결성", "외래키", "기본키", "무결성 제약"],
+    "required_knowledge": ["외래키", "참조 관계", "무결성 종류"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "회원/결제 두 테이블에서 외래키 관계를 식별하고 참조 무결성 제약 조건을 적용",
+    "variation_hints": [
+      "참조 무결성 위반 데이터를 삽입하는 SQL을 주고 오류 여부를 묻는 변형",
+      "CASCADE DELETE 시 영향 범위를 묻는 문제",
+      "SET NULL과 SET DEFAULT의 차이를 묻는 변형",
+      "자기 참조(Self-referencing) 외래키를 다루는 문제"
+    ],
+    "anti_patterns": ["kim/choi/kang 이름과 rx-123/dp-01 등 동일 데이터를 쓰면 안 됨", "회원/결제 테이블을 동일하게 재사용하면 안 됨"],
+    "related_concepts": ["개체 무결성", "CASCADE", "SET NULL", "RESTRICT"]
+  },
+  "practical-industrial-2024-2:15": {
+    "sql_type": "concept",
+    "concept": "ROLLBACK",
+    "detail": "ROLLBACK 명령어의 역할과 필요성",
+    "tags": ["ROLLBACK", "트랜잭션", "TCL", "비일관성"],
+    "required_knowledge": ["트랜잭션 개념", "COMMIT", "ROLLBACK", "TCL"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "COMMIT되지 않은 변경 사항을 취소하고 이전 상태로 되돌리는 명령어가 ROLLBACK",
+    "variation_hints": [
+      "SAVEPOINT와 ROLLBACK TO를 결합하는 변형",
+      "COMMIT과 ROLLBACK의 사용 시점을 비교하는 문제",
+      "자동 롤백이 발생하는 상황(시스템 장애)을 묻는 변형",
+      "ROLLBACK 후 데이터 상태를 예측하는 문제"
+    ],
+    "anti_patterns": ["COMMIT되지 않은 모든 내용을 취소하고 이전 상태로 돌리는이라는 설명을 그대로 쓰면 안 됨", "비일관성(Inconsistency) 상태라는 표현을 복사하면 안 됨"],
+    "related_concepts": ["COMMIT", "SAVEPOINT", "트랜잭션 상태", "회복 기법"]
+  },
+  "practical-industrial-2024-2:16": {
+    "sql_type": "query",
+    "concept": "BETWEEN 조건 범위 해석",
+    "detail": "BETWEEN 절 사용 시 데이터 분포에 따른 결과 튜플 수 추론",
+    "tags": ["BETWEEN", "SELECT", "WHERE", "튜플 수", "범위 검색"],
+    "required_knowledge": ["BETWEEN", "WHERE 조건절", "데이터 분포 추론"],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "나이 분포(20대/30대/40대)에서 BETWEEN 35 AND 49로 검색 가능한 최소/최대 인원 수 추론",
+    "variation_hints": [
+      "정확한 나이 분포가 주어진 상태에서 결과 수를 구하는 변형",
+      "NOT BETWEEN을 사용한 결과 수 추론",
+      "날짜형 컬럼에 BETWEEN을 적용하는 변형",
+      "IN과 BETWEEN의 결과 차이를 비교하는 문제"
+    ],
+    "anti_patterns": ["인사팀 20명/20대 3명/30대 6명이라는 동일 데이터를 쓰면 안 됨", "BETWEEN 35 AND 49라는 동일 범위를 쓰면 안 됨"],
+    "related_concepts": ["IN", "LIKE", "비교 연산자", "NULL 처리"]
+  },
+  "practical-industrial-2024-3:12": {
+    "sql_type": "concept",
+    "concept": "데이터 사전/속성",
+    "detail": "데이터 사전(메타데이터)과 속성(Attribute)의 정의",
+    "tags": ["데이터 사전", "속성", "메타데이터", "개체", "논리적 단위"],
+    "required_knowledge": ["데이터 사전 개념", "속성 개념", "개체", "릴레이션 구성"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "데이터 구조/내용의 메타데이터 집합이 데이터 사전이고, 개체의 특성을 기술하는 최소 논리 단위가 속성",
+    "variation_hints": [
+      "데이터 사전과 데이터 디렉토리의 차이를 묻는 변형",
+      "속성/튜플/도메인/릴레이션의 관계를 도식화하는 문제",
+      "시스템 카탈로그와 데이터 사전의 관계",
+      "메타데이터의 종류(기술적/운영적/비즈니스)를 묻는 확장"
+    ],
+    "anti_patterns": ["자료의 구조 및 내용 그리고 논리적/물리적 특성에 대한 정보를 표현이라는 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["시스템 카탈로그", "도메인", "튜플", "릴레이션"]
+  },
+  "practical-industrial-2025-1:2": {
+    "sql_type": "concept",
+    "concept": "내장 SQL(Embedded SQL)",
+    "detail": "호스트 프로그램 언어에 삽입된 SQL의 개념",
+    "tags": ["내장 SQL", "Embedded SQL", "호스트 언어", "커서"],
+    "required_knowledge": ["SQL 유형", "호스트 언어", "프로그램 내 SQL 사용"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "응용 프로그램 내에 SQL문을 내포하여 실행하는 형태가 내장(Embedded) SQL",
+    "variation_hints": [
+      "동적 SQL과 정적 SQL의 차이를 묻는 변형",
+      "커서(CURSOR)의 역할과 사용법을 묻는 문제",
+      "저장 프로시저(Stored Procedure)와의 비교",
+      "SQLCA, SQLCODE 등 상태 변수를 묻는 확장"
+    ],
+    "anti_patterns": ["응용 프로그램 내에 데이터베이스에서 사용하는 데이터를 정의하거나 질의하는 SQL 문장을 내포하여라는 설명을 그대로 쓰면 안 됨"],
+    "related_concepts": ["동적 SQL", "커서", "저장 프로시저", "ODBC/JDBC"]
+  },
+  "practical-industrial-2025-1:3": {
+    "sql_type": "concept",
+    "concept": "차수와 카디널리티",
+    "detail": "릴레이션의 디그리(속성 수)와 카디널리티(튜플 수) 계산",
+    "tags": ["차수", "카디널리티", "디그리", "속성", "튜플"],
+    "required_knowledge": ["릴레이션 구조", "속성과 튜플 개념"],
+    "problem_style": "실행결과 예측",
+    "key_mechanism": "테이블의 열(컬럼) 수가 차수(Degree), 행(레코드) 수가 카디널리티(Cardinality)",
+    "variation_hints": [
+      "JOIN 후 결과 테이블의 차수와 카디널리티를 구하는 변형",
+      "프로젝션 연산 후 차수 변화를 묻는 문제",
+      "셀렉션 연산 후 카디널리티 변화를 묻는 문제",
+      "도메인의 카디널리티와 릴레이션의 카디널리티 구분"
+    ],
+    "anti_patterns": ["이름/주소/성별 3열, 4행이라는 동일 테이블을 사용하면 안 됨"],
+    "related_concepts": ["릴레이션", "도메인", "튜플", "속성"]
+  },
+  "practical-industrial-2025-1:8": {
+    "sql_type": "concept",
+    "concept": "DDL 명령어",
+    "detail": "CREATE, ALTER, DROP의 정의/변경/삭제 역할",
+    "tags": ["DDL", "CREATE", "ALTER", "DROP"],
+    "required_knowledge": ["SQL 분류", "DDL 명령어", "스키마 정의"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "DDL의 3가지(CREATE 정의, ALTER 변경, DROP 삭제)를 올바르게 매칭",
+    "variation_hints": [
+      "TRUNCATE를 DDL에 포함시키는 변형",
+      "ALTER TABLE의 세부 옵션(ADD, MODIFY, DROP COLUMN)을 묻는 문제",
+      "DML/DCL/TCL과 함께 전체 SQL 분류를 묻는 확장",
+      "CREATE의 대상(TABLE, VIEW, INDEX, SCHEMA)을 나열하는 변형"
+    ],
+    "anti_patterns": ["스키마, 도메인, 테이블, 뷰, 인덱스 등을 정의/변경/삭제라는 동일 설명을 쓰면 안 됨"],
+    "related_concepts": ["DML", "DCL", "TCL", "TRUNCATE"]
+  },
+  "practical-industrial-2025-1:14": {
+    "sql_type": "concept",
+    "concept": "참조 무결성",
+    "detail": "외래키 참조 관계에서의 참조 무결성 제약 조건 식별",
+    "tags": ["참조 무결성", "외래키", "기본키", "릴레이션"],
+    "required_knowledge": ["외래키", "기본키", "참조 관계", "무결성 종류"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "결제 테이블의 회원 속성이 회원 테이블의 이름을 참조할 때 참조 무결성이 필요",
+    "variation_hints": [
+      "참조 무결성 위반 시 어떤 오류가 발생하는지 묻는 변형",
+      "ON DELETE CASCADE의 동작을 묻는 문제",
+      "자기 참조 외래키에서의 참조 무결성",
+      "여러 테이블 간 참조 관계 다이어그램을 해석하는 변형"
+    ],
+    "anti_patterns": ["회원/결제 테이블의 동일 데이터와 구조를 재사용하면 안 됨"],
+    "related_concepts": ["개체 무결성", "CASCADE", "RESTRICT", "외래키"]
+  },
+  "practical-industrial-2025-1:19": {
+    "sql_type": "concept",
+    "concept": "외래키(Foreign Key)",
+    "detail": "참조 관계에서 외래키 식별",
+    "tags": ["외래키", "Foreign Key", "기본키", "참조 관계"],
+    "required_knowledge": ["키 종류", "기본키", "외래키", "참조 관계"],
+    "problem_style": "용어 맞추기",
+    "key_mechanism": "수강 릴레이션의 학번이 학생 릴레이션의 기본키를 참조하므로 외래키",
+    "variation_hints": [
+      "자기 참조 외래키의 예시를 묻는 변형",
+      "외래키가 기본키의 일부인 경우를 묻는 문제",
+      "후보키/대체키/슈퍼키와의 관계를 종합적으로 묻는 변형",
+      "외래키 제약 조건 설정 SQL(FOREIGN KEY REFERENCES)을 작성하는 문제"
+    ],
+    "anti_patterns": ["학생/수강 릴레이션의 학번 참조 예시를 동일하게 쓰면 안 됨"],
+    "related_concepts": ["기본키", "후보키", "참조 무결성", "CASCADE"]
+  },
+  "practical-industrial-2025-2:1": {
+    "sql_type": "concept",
+    "concept": "데이터베이스 특성",
+    "detail": "실시간 접근성/계속적 변화/동시 공용/내용에 의한 참조 식별",
+    "tags": ["데이터베이스 특성", "실시간 접근성", "계속적 변화", "동시 공용", "내용에 의한 참조"],
+    "required_knowledge": ["데이터베이스 개념", "데이터베이스 4가지 특성"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "5개 보기에서 DB 특성(실시간 접근성, 계속적 변화, 동시 공용, 내용에 의한 참조)을 올바르게 선택",
+    "variation_hints": [
+      "데이터베이스 정의(통합/저장/운영/공유 데이터)와 혼합 출제",
+      "파일 시스템과 데이터베이스의 특성 차이를 묻는 변형",
+      "각 특성의 구체적 사례를 주고 매칭하는 문제",
+      "데이터 독립성과 데이터베이스 특성의 관계"
+    ],
+    "anti_patterns": ["ㄱ~ㅁ 보기를 동일하게 쓰면 안 됨", "주소 기반 참조(오답)를 동일 위치에 배치하면 안 됨"],
+    "related_concepts": ["데이터베이스 정의", "DBMS", "데이터 독립성", "파일 시스템"]
+  },
+  "practical-industrial-2025-2:2": {
+    "sql_type": "concept",
+    "concept": "릴레이션 특성",
+    "detail": "릴레이션의 특성(튜플 비중복, 순서 무의미, 원자값 등) 식별",
+    "tags": ["릴레이션", "튜플", "속성", "원자값", "순서"],
+    "required_knowledge": ["릴레이션 개념", "릴레이션 특성", "원자값"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "릴레이션에서 튜플 비중복, 튜플/속성 순서 무의미, 속성값은 원자값만 사용 등의 특성을 구분",
+    "variation_hints": [
+      "릴레이션과 테이블의 용어 매핑(행-튜플, 열-속성)을 묻는 변형",
+      "릴레이션의 특성을 위반하는 사례를 찾는 문제",
+      "릴레이션 스키마와 릴레이션 인스턴스의 차이",
+      "1NF 조건과 릴레이션 특성의 관계"
+    ],
+    "anti_patterns": ["ㄱ~ㅁ의 동일 보기를 쓰면 안 됨", "튜플의 순서는 유의미하다(오답)를 동일 위치에 배치하면 안 됨"],
+    "related_concepts": ["1NF", "도메인", "차수", "카디널리티"]
+  },
+  "practical-industrial-2025-2:14": {
+    "sql_type": "concept",
+    "concept": "스키마 3계층",
+    "detail": "외부/개념/내부 스키마의 정의 구분",
+    "tags": ["스키마", "외부 스키마", "개념 스키마", "내부 스키마"],
+    "required_knowledge": ["데이터베이스 구조", "3계층 스키마", "데이터 독립성"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "사용자 관점(외부), 전체 논리(개념), 물리 저장(내부) 스키마를 설명으로부터 식별",
+    "variation_hints": [
+      "논리적 데이터 독립성과 물리적 데이터 독립성을 스키마와 연결",
+      "3계층 구조도에서 매핑(사상)을 묻는 변형",
+      "스키마 변경이 다른 계층에 미치는 영향을 묻는 문제",
+      "ANSI/SPARC 모델의 목적을 묻는 확장"
+    ],
+    "anti_patterns": ["사용자나 응용 프로그래머가 각 개인의 입장에서라는 동일 설명을 쓰면 안 됨"],
+    "related_concepts": ["데이터 독립성", "매핑(사상)", "DBMS 구조", "메타데이터"]
+  },
+  "practical-industrial-2025-3:1": {
+    "sql_type": "concept",
+    "concept": "데이터베이스 특성",
+    "detail": "실시간 접근성/계속적 변화/동시 공용/내용에 의한 참조 식별",
+    "tags": ["데이터베이스 특성", "실시간 접근성", "계속적 변화", "동시 공용", "내용에 의한 참조"],
+    "required_knowledge": ["데이터베이스 개념", "데이터베이스 4가지 특성"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "보기에서 데이터베이스의 올바른 특성만을 골라 선택",
+    "variation_hints": [
+      "데이터베이스의 정의와 특성을 혼합하여 구분하는 문제",
+      "각 특성을 실제 사례와 매칭하는 변형",
+      "빅데이터와 전통적 데이터베이스의 특성 차이를 묻는 확장",
+      "DBMS의 기능과 데이터베이스 특성의 관계"
+    ],
+    "anti_patterns": ["ㄱ~ㅁ의 동일 보기와 동일 오답(주소기반 참조)을 쓰면 안 됨"],
+    "related_concepts": ["DBMS 기능", "데이터베이스 정의", "데이터 독립성"]
+  },
+  "practical-industrial-2025-3:8": {
+    "sql_type": "command",
+    "concept": "GRANT 권한 부여",
+    "detail": "GRANT SELECT, UPDATE ON 테이블 TO 사용자 구문",
+    "tags": ["GRANT", "DCL", "권한", "ON", "TO"],
+    "required_knowledge": ["DCL 명령어", "GRANT 문법", "권한 관리"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "GRANT 권한목록 ON 테이블 TO 사용자 구문에서 GRANT/ON/TO 키워드를 올바르게 배치",
+    "variation_hints": [
+      "WITH GRANT OPTION을 포함하는 변형",
+      "REVOKE 구문과 비교하는 문제",
+      "ALL PRIVILEGES를 부여하는 변형",
+      "특정 컬럼에만 권한을 부여하는 세분화된 GRANT"
+    ],
+    "anti_patterns": ["GRANT SELECT, UPDATE ON 학생 TO 홍길동이라는 동일 구문을 쓰면 안 됨"],
+    "related_concepts": ["REVOKE", "WITH GRANT OPTION", "ROLE", "DCL"]
+  },
+  "practical-industrial-2025-3:9": {
+    "sql_type": "query",
+    "concept": "UPDATE SET",
+    "detail": "UPDATE 문의 SET 키워드 빈칸 채우기",
+    "tags": ["UPDATE", "SET", "WHERE", "DML"],
+    "required_knowledge": ["UPDATE 문법", "SET 절"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "UPDATE 테이블 SET 컬럼=값 WHERE 조건 구문에서 SET 키워드를 올바르게 배치",
+    "variation_hints": [
+      "서브쿼리를 SET 값에 사용하는 변형",
+      "CASE WHEN을 SET에 사용하여 조건별 갱신",
+      "여러 테이블을 JOIN하여 UPDATE하는 변형",
+      "UPDATE 결과 확인을 위한 SELECT 문과 함께 출제"
+    ],
+    "anti_patterns": ["이름=김밥 WHERE 학번=202518017이라는 동일 데이터를 쓰면 안 됨"],
+    "related_concepts": ["INSERT", "DELETE", "MERGE", "서브쿼리"]
+  },
+  "practical-industrial-2025-3:11": {
+    "sql_type": "query",
+    "concept": "SQL 조건절 키워드",
+    "detail": "AND와 BETWEEN 키워드 빈칸 채우기",
+    "tags": ["AND", "BETWEEN", "WHERE", "SELECT"],
+    "required_knowledge": ["논리 연산자", "BETWEEN", "WHERE 조건절"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "점수 >= 80 AND 점수 <= 90과 BETWEEN 80 AND 90이 동일 결과임을 이해하고 빈칸 채우기",
+    "variation_hints": [
+      "NOT BETWEEN을 사용한 부정 조건으로 변형",
+      "BETWEEN과 IN의 차이를 묻는 문제",
+      "날짜형 데이터에 BETWEEN 적용",
+      "OR과 AND의 우선순위를 묻는 변형"
+    ],
+    "anti_patterns": ["점수 >= 80 AND 점수 <= 90 / BETWEEN 80 AND 90이라는 동일 예시를 쓰면 안 됨"],
+    "related_concepts": ["OR", "IN", "NOT BETWEEN", "비교 연산자"]
+  },
+  "practical-industrial-2025-3:12": {
+    "sql_type": "query",
+    "concept": "집계함수와 AS",
+    "detail": "SUM 집계함수와 AS 별칭 사용",
+    "tags": ["SUM", "AS", "집계함수", "별칭", "SELECT"],
+    "required_knowledge": ["집계함수", "AS 키워드", "별칭(Alias)"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "SELECT SUM(급여) AS S_SAL 구문에서 SUM과 AS(별칭) 키워드를 올바르게 배치",
+    "variation_hints": [
+      "AVG, COUNT, MAX, MIN 등 다른 집계함수로 변형",
+      "테이블 별칭과 컬럼 별칭을 구분하는 문제",
+      "GROUP BY와 함께 부서별 합계를 구하는 변형",
+      "AS 없이 별칭을 사용하는 축약 형태의 차이"
+    ],
+    "anti_patterns": ["SUM(급여) AS S_SAL이라는 동일 구문을 쓰면 안 됨", "사원 테이블의 동일 데이터를 재사용하면 안 됨"],
+    "related_concepts": ["AVG", "COUNT", "GROUP BY", "테이블 별칭"]
+  },
+
+  "practical-industrial-2026-1:8": {
+    "sql_type": "command",
+    "concept": "DCL 권한 부여 (GRANT)",
+    "detail": "GRANT 권한 ON 테이블 TO 사용자 구문의 빈칸 채우기",
+    "tags": ["GRANT", "ON", "TO", "DCL", "권한"],
+    "required_knowledge": ["GRANT 구문", "ON 절", "TO 절", "DCL과 DDL/DML 구분"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "GRANT 권한 ON 테이블 TO 사용자 구문에서 GRANT, ON, TO 세 키워드의 위치를 정확히 파악하는 원리",
+    "variation_hints": [
+      "REVOKE 권한 ON 테이블 FROM 사용자 구문으로 권한 회수 변형",
+      "WITH GRANT OPTION을 추가하여 권한 위임 가능 여부를 묻는 문제",
+      "여러 권한(SELECT, INSERT, DELETE)을 동시에 부여하는 변형",
+      "GRANT ALL ON 테이블 TO 사용자 형태의 전체 권한 부여 변형"
+    ],
+    "anti_patterns": [
+      "GRANT SELECT, UPDATE ON 학생 TO 홍길동 구문을 그대로 쓰지 말 것",
+      "빈칸 위치 ①②③을 동일하게 배치하지 말 것"
+    ],
+    "related_concepts": ["REVOKE", "DDL 명령어", "DML 명령어"]
+  },
+  "practical-industrial-2026-1:9": {
+    "sql_type": "command",
+    "concept": "DML UPDATE 구문",
+    "detail": "UPDATE 테이블 SET 컬럼=값 WHERE 조건 구문에서 SET 빈칸",
+    "tags": ["UPDATE", "SET", "WHERE", "DML"],
+    "required_knowledge": ["UPDATE 구문", "SET 절", "WHERE 절"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "UPDATE 테이블 SET 컬럼=값 WHERE 조건 구문에서 SET 키워드의 위치와 역할을 파악하는 원리",
+    "variation_hints": [
+      "여러 컬럼을 동시에 수정하는 SET 절 변형 (SET A=1, B=2)",
+      "서브쿼리를 이용한 UPDATE SET 값 변형",
+      "DELETE FROM 테이블 WHERE 조건과 비교하는 문제",
+      "INSERT INTO 테이블 VALUES 구문과 혼합하여 DML 키워드를 구분하는 문제"
+    ],
+    "anti_patterns": [
+      "UPDATE 학생 SET 이름='김밥' WHERE 학번='202518017' 구문을 그대로 쓰지 말 것",
+      "SET 빈칸만 동일하게 내지 말 것"
+    ],
+    "related_concepts": ["INSERT INTO", "DELETE FROM", "DCL 권한 부여 (GRANT)"]
+  },
+  "practical-industrial-2026-1:12": {
+    "sql_type": "query",
+    "concept": "집계함수와 AS",
+    "detail": "SUM 집계함수로 합계를 구하고 AS로 별칭을 부여하는 빈칸 채우기",
+    "tags": ["SUM", "AS", "집계함수", "별칭", "SELECT"],
+    "required_knowledge": ["집계함수 (SUM)", "AS 키워드", "별칭(Alias)"],
+    "problem_style": "빈칸 채우기",
+    "key_mechanism": "SELECT SUM(컬럼) AS 별칭 FROM 테이블 구문에서 SUM과 별칭을 정확히 채우는 원리",
+    "variation_hints": [
+      "AVG, COUNT로 집계함수를 변경하고 별칭도 다르게 하는 변형",
+      "GROUP BY를 추가하여 부서별 합계를 구하는 변형",
+      "HAVING과 결합하여 조건부 집계 변형",
+      "여러 집계함수를 동시에 사용하는 SELECT SUM(...) AS A, AVG(...) AS B 변형"
+    ],
+    "anti_patterns": [
+      "SUM(급여) AS S_SAL 동일 구문을 쓰지 말 것",
+      "사원 테이블의 동일 데이터(3000, 2500, 3500, 2800)를 재사용하지 말 것"
+    ],
+    "related_concepts": ["AVG", "COUNT", "GROUP BY", "HAVING"]
+  }
+}

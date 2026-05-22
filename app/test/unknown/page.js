@@ -17,8 +17,6 @@ const SESSION_LABELS = {
   '9': '2022-1',
   '10': '2022-2',
   '11': '2022-3',
-  '12': 'NOW-60',
-  '100': '100',
 };
 
 function sectionTitleOf(newNo) {

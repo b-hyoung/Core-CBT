@@ -1,0 +1,159 @@
+[
+  {
+    "title": "정보처리산업기사 실기",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "다음 ㄱ~ㄹ의 설명을 블랙박스 테스트와 화이트박스 테스트로 분류하시오.",
+        "examples": "<보기>\nㄱ. 프로그램의 내부 구조와 로직을 분석하여 테스트 케이스를 설계하는 방법\nㄴ. 입력값과 출력값을 기반으로 기능이 정상 동작하는지 검증하는 방법\nㄷ. 소스 코드의 실행 경로를 추적하여 모든 분기를 검증하는 방법\nㄹ. 요구사항 명세서를 기반으로 기능 요구사항의 충족 여부를 검증하는 방법",
+        "input_type": "multi_blank",
+        "answer_format_hint": "블랙박스 테스트: ㄴ, ㄹ / 화이트박스 테스트: ㄱ, ㄷ",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
+      },
+      {
+        "problem_number": 2,
+        "question_text": "다음 보기에서 네트워크 계층(Network Layer)의 프로토콜을 모두 골라 쓰시오.",
+        "examples": "<보기>\nIP, TCP, ICMP, UDP, IGMP, DNS, ARP",
+        "input_type": "single",
+        "answer_format_hint": "해당하는 프로토콜을 모두 쓰시오",
+        "category": "이론",
+        "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "class A {\n    int func(int x) {\n        return x + 2;\n    }\n}\nclass B extends A {\n    int func(int x) {\n        return x * 2;\n    }\n    int func(int x, int y) {\n        return func(x) + y;\n    }\n}\nclass Main {\n    public static void main(String[] args) {\n        B b = new B();\n        int n = 3;\n        int m = 1;\n        while (n-- > 0) m = b.func(m, n);\n        System.out.print(m);\n    }\n}",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
+      },
+      {
+        "problem_number": 4,
+        "question_text": "다음 Python으로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "a = (1, 2, 3)\narr = [a, a]\narr[1] += (4,)\n\nprint(arr[0][2] + arr[1][2])",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Python"
+      },
+      {
+        "problem_number": 5,
+        "question_text": "다음 ㄱ~ㅁ 중 아래 설명에 해당하는 키의 종류를 고르시오.",
+        "examples": "설명: 다른 릴레이션의 기본키를 참조하여 릴레이션 간의 관계를 표현하는 키\n\n<보기>\nㄱ. 후보키(Candidate Key) — 릴레이션에서 튜플을 유일하게 식별할 수 있는 속성의 집합으로, 유일성과 최소성을 만족하는 키\nㄴ. 기본키(Primary Key) — 후보키 중에서 선택된 주 키로, NULL 값을 가질 수 없는 키\nㄷ. 대체키(Alternate Key) — 후보키 중 기본키로 선택되지 않은 나머지 키\nㄹ. 슈퍼키(Super Key) — 유일성은 만족하지만 최소성은 만족하지 않을 수 있는 키\nㅁ. 외래키(Foreign Key) — 다른 릴레이션의 기본키를 참조하여 릴레이션 간의 관계를 표현하는 키",
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
+      },
+      {
+        "problem_number": 6,
+        "question_text": "DHCP에서 사용하는 포트 번호를 쓰시오.",
+        "examples": "DHCP(Dynamic Host Configuration Protocol)는 네트워크에 접속하는 호스트에게 IP 주소, 서브넷 마스크, 게이트웨이 등의 네트워크 설정 정보를 자동으로 할당해주는 프로토콜이다.",
+        "input_type": "single",
+        "answer_format_hint": "포트 번호를 쓰시오",
+        "category": "이론",
+        "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 7,
+        "question_text": "다음 설명에 해당하는 OSI 7계층의 계층 이름을 쓰시오.",
+        "examples": "- 사용자와 네트워크 간의 인터페이스를 제공하는 계층이다.\n- HTTP, FTP, SMTP, DNS 등의 프로토콜이 동작하는 계층이다.\n- 전자 메일, 파일 전송, 웹 브라우징 등 사용자가 직접 사용하는 네트워크 서비스를 제공한다.",
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 8,
+        "question_text": "다음 SQL문의 빈칸 ①, ②, ③에 알맞은 예약어를 쓰시오.",
+        "examples": "학생 테이블에 대해 사용자 '홍길동'에게 SELECT, UPDATE 권한을 부여하는 SQL문이다.\n\n( ① ) SELECT, UPDATE ( ② ) 학생 ( ③ ) 홍길동;",
+        "input_type": "multi_blank",
+        "answer_format_hint": "① GRANT ② ON ③ TO",
+        "category": "SQL",
+        "subcategory": "query"
+      },
+      {
+        "problem_number": 9,
+        "question_text": "다음 SQL문의 빈칸에 알맞은 예약어를 쓰시오.",
+        "examples": "학생 테이블에서 학번이 '202518017'인 학생의 이름을 '김밥'으로 수정하는 SQL문이다.\n\nUPDATE 학생 (    ) 이름='김밥' WHERE 학번='202518017';",
+        "input_type": "single",
+        "category": "SQL",
+        "subcategory": "query"
+      },
+      {
+        "problem_number": 10,
+        "question_text": "다음 설명에 해당하는 ARQ(자동 반복 요청) 방식을 보기에서 골라 쓰시오.",
+        "examples": "설명: 오류가 발생한 프레임 이후에 전송된 모든 프레임을 재전송하는 방식으로, 오류 지점부터 다시 전송한다.\n\n<보기>\nㄱ. Stop-and-Wait ARQ\nㄴ. Go-Back-N ARQ\nㄷ. Selective Repeat ARQ\nㄹ. Adaptive ARQ\nㅁ. Piggybacking\nㅂ. Sliding Window",
+        "input_type": "single",
+        "category": "이론",
+        "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 C언어로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "#include <stdio.h>\n\nint main() {\n    int arr[4] = {2, 4, 6, 8};\n    int *p = arr;\n    int *q = arr + 3;\n\n    while(p < q){\n        *(p+1) = *(p+1) - *p;\n        p++;\n    }\n\n    printf(\"%d\", arr[1]+arr[2]+arr[3]);\n}",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
+      },
+      {
+        "problem_number": 12,
+        "question_text": "다음 SQL문의 빈칸 ①, ②에 알맞은 것을 쓰시오.",
+        "examples": "<사원> 테이블\n| 사번 | 이름 | 부서 | 급여 |\n|------|------|------|------|\n| 101  | 홍길동 | 개발 | 3000 |\n| 102  | 김철수 | 인사 | 2500 |\n| 103  | 이영희 | 개발 | 3500 |\n| 104  | 박민수 | 인사 | 2800 |\n\nSELECT ( ① )(급여) AS ( ② ) FROM 사원;\n\n<실행 결과>\n| S_SAL |\n|-------|\n| 11800 |",
+        "input_type": "multi_blank",
+        "answer_format_hint": "① SUM ② S_SAL",
+        "category": "SQL",
+        "subcategory": "query"
+      },
+      {
+        "problem_number": 13,
+        "question_text": "다음 Python으로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "d = {1: \"a\", True: \"b\", 1.0: \"c\"}\nprint(len(d))",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Python"
+      },
+      {
+        "problem_number": 14,
+        "question_text": "다음 설명의 괄호에 해당하는 용어를 보기에서 골라 쓰시오.",
+        "examples": "( ① )는 데이터의 구조와 제약조건에 대한 전반적인 명세를 기술한 메타데이터의 집합이다.\n\n( ② )는 개체가 가지는 하나의 특성으로, 릴레이션에서 열(Column)에 해당하며 더 이상 분리할 수 없는 데이터의 논리적 단위이다.\n\n<보기>\nㄱ. 스키마  ㄴ. 속성  ㄷ. 도메인  ㄹ. 튜플  ㅁ. 인스턴스  ㅂ. 릴레이션",
+        "input_type": "multi_blank",
+        "answer_format_hint": "① 스키마 ② 속성",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 ㄱ~ㄹ의 테스트를 수행 순서대로 나열하시오.",
+        "examples": "<보기>\nㄱ. 시스템 테스트\nㄴ. 인수 테스트\nㄷ. 통합 테스트\nㄹ. 단위 테스트",
+        "input_type": "single",
+        "answer_format_hint": "예: ㄱ → ㄴ → ㄷ → ㄹ",
+        "category": "이론",
+        "subcategory": "소프트웨어공학"
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 C언어로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "#include <stdio.h>\n\nint main() {\n    unsigned int n = 12345u;\n    unsigned int r = 0u;\n    while(n > 0) {\n        r = r * 10 + n % 10;\n        n /= 100;\n    }\n    printf(\"%u\", r);\n    return 0;\n}",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "C"
+      },
+      {
+        "problem_number": 17,
+        "question_text": "다음 설명의 괄호에 해당하는 용어를 보기에서 골라 쓰시오.",
+        "examples": "통신망에서 데이터를 전송하는 교환 방식은 크게 회선 교환 방식과 축적 교환 방식으로 나뉜다.\n\n( ① ) 교환 방식은 송수신 단말기 사이에 데이터를 전송하기 전에 전용 통신 회선을 설정하여 데이터 전송 완료 시까지 독점적으로 사용하는 방식이다.\n\n축적 교환 방식 중 ( ② ) 교환 방식은 전송 데이터를 그대로 다음 노드에 전달하며, 목적지까지 경유하는 각 노드에서 축적 후 전달하는 방식이다.\n\n패킷 교환 방식 중 ( ③ ) 방식은 각 패킷이 독립적으로 최적 경로를 선택하여 전송되며, 도착 순서가 다를 수 있다. ( ④ ) 방식은 논리적 연결을 먼저 설정한 뒤 같은 경로로 패킷을 전송하는 방식이다.\n\n<보기>\nㄱ. 데이터그램  ㄴ. 패킷  ㄷ. 메시지  ㄹ. 셀\nㅁ. 멀티플렉싱  ㅂ. 가상회선  ㅅ. 회선  ㅇ. ATM\nㅈ. 다중화  ㅊ. 브로드캐스트  ㅋ. 유니캐스트",
+        "input_type": "multi_blank",
+        "answer_format_hint": "① 회선 ② 메시지 ③ 데이터그램 ④ 가상회선",
+        "category": "이론",
+        "subcategory": "네트워크"
+      },
+      {
+        "problem_number": 18,
+        "question_text": "다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.",
+        "examples": "class A {\n    int func(int x) {\n        return x + 3;\n    }\n}\nclass B extends A {\n    int func(int x) {\n        return x * 3;\n    }\n}\nclass C extends B {\n    int func(int x) {\n        return x - 1;\n    }\n}\nclass Main {\n    public static void main(String[] args) {\n        A a = new C();\n        B b = new C();\n        System.out.print(((A)b).func(4) + a.func(3));\n    }\n}",
+        "input_type": "single",
+        "category": "Code",
+        "subcategory": "Java"
+      }
+    ]
+  }
+]

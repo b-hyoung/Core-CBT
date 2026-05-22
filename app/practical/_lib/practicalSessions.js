@@ -11,15 +11,19 @@ export const PRACTICAL_SESSION_CONFIG = {
   'practical-industrial-2025-1': { year: 2025, round: 1, title: '정보처리산업기사 실기 2025년 1회', basePath: ['datasets', 'practicalIndustrial', '2025-first'] },
   'practical-industrial-2025-2': { year: 2025, round: 2, title: '정보처리산업기사 실기 2025년 2회', basePath: ['datasets', 'practicalIndustrial', '2025-second'] },
   'practical-industrial-2025-3': { year: 2025, round: 3, title: '정보처리산업기사 실기 2025년 3회', basePath: ['datasets', 'practicalIndustrial', '2025-third'] },
+  'practical-industrial-2026-1': { year: 2026, round: 1, title: '정보처리산업기사 실기 2026년 1회 (기억 복구)', basePath: ['datasets', 'practicalIndustrial', '2026-first'] },
 };
 
-export const PRACTICAL_SESSIONS_BY_YEAR = [2025, 2024, 2023, 2022].map((year) => ({
+export const PRACTICAL_SESSIONS_BY_YEAR = [2026, 2025, 2024, 2023, 2022].map((year) => ({
   year,
-  sessions: [1, 2, 3].map((round) => ({
-    id: `practical-industrial-${year}-${round}`,
-    title: `${round}회`,
-    description: `정보처리산업기사 실기 ${year}년 ${round}회`,
-  })),
+  sessions: Object.entries(PRACTICAL_SESSION_CONFIG)
+    .filter(([, cfg]) => cfg.year === year)
+    .sort(([, a], [, b]) => a.round - b.round)
+    .map(([id, cfg]) => ({
+      id,
+      title: `${cfg.round}회`,
+      description: cfg.title,
+    })),
 }));
 
 export function isPracticalSessionId(sessionId) {

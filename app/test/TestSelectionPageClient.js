@@ -104,12 +104,6 @@ const utilityModes = [
     desc: '2022 / 2023 / 2024 / 2025 연도 선택 후 진행',
     colorClass: 'bg-violet-50 text-violet-700 dark:bg-slate-800 dark:text-slate-300',
   },
-  {
-    href: '/test/100',
-    title: '100문제 풀어보기',
-    desc: '엄선된 100문제 종합 세트',
-    colorClass: 'bg-emerald-50 text-emerald-700 dark:bg-slate-800 dark:text-slate-300',
-  },
 ];
 
 const resumeChipColors = {

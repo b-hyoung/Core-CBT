@@ -23,8 +23,6 @@ const SESSION_PATHS = {
   '9': ['problem2022', 'first'],
   '10': ['problem2022', 'second'],
   '11': ['problem2022', 'third'],
-  '12': ['problemNow_60', 'first'],
-  '100': ['problem100', 'first'],
 };
 
 const SESSION_LABELS = {
@@ -39,9 +37,7 @@ const SESSION_LABELS = {
   '9': '2022-1',
   '10': '2022-2',
   '11': '2022-3',
-  '12': 'NOW-60',
-  '100': '100',
-};
+  };
 
 const stripBom = (s) => String(s || '').replace(/^\uFEFF/, '');
 

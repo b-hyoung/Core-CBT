@@ -467,8 +467,11 @@ function parseLabeledMultiBlankValuesByKnownLabels(value, labels) {
     const raw = text
       .slice(valueStart, valueEnd)
       .trim()
-      .replace(/^[,\/|]\s*/g, '')
-      .replace(/[,\s/|]+$/g, '');
+      // Strip leading separators (comma / slash / pipe / open paren).
+      .replace(/^[,\/|(]+\s*/g, '')
+      // Strip trailing separators — including "(" which is often the
+      // opening of the next label like "(나)".
+      .replace(/[,\s/|(]+$/g, '');
     values.push(raw);
   }
 
