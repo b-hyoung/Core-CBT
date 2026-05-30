@@ -137,7 +137,7 @@ function buildExplanationScript(item) {
   return `해설. ${s}`;
 }
 
-export default function ShortsPlayer({ items, title, sessionId }) {
+export default function ShortsPlayer({ items, title, sessionId, audioBasePath = '' }) {
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState('question');
   const [isPlaying, setIsPlaying] = useState(true);
@@ -148,6 +148,9 @@ export default function ShortsPlayer({ items, title, sessionId }) {
   const [availableVoices, setAvailableVoices] = useState([]); // OS/브라우저 한국어 음성 목록
   const [micEnabled, setMicEnabled] = useState(true);   // ask 페이즈에서 음성 입력 사용 여부
   const [pickerOpen, setPickerOpen] = useState(false);  // 문제 선택 모달
+  // 캐시된 MP3 모드 (audioBasePath 있을 때만 사용 가능). 'cached' | 'native'
+  const [audioMode, setAudioMode] = useState(audioBasePath ? 'cached' : 'native');
+  const audioElRef = useRef(null);
 
   // ask 페이즈 관련
   const [askRemainingMs, setAskRemainingMs] = useState(ASK_WINDOW_MS);
@@ -402,6 +405,14 @@ export default function ShortsPlayer({ items, title, sessionId }) {
       phaseTimer.current = null;
     }
     window.speechSynthesis?.cancel();
+    // 캐시 audio도 중단
+    if (audioElRef.current) {
+      try { audioElRef.current.pause(); } catch {}
+      audioElRef.current.onended = null;
+      audioElRef.current.onerror = null;
+      audioElRef.current.src = '';
+      audioElRef.current = null;
+    }
 
     if (!isPlaying || !item) return;
     if (phase === 'ask' || phase === 'gpt_loading') return; // 별도 effect에서 관리
@@ -440,8 +451,30 @@ export default function ShortsPlayer({ items, title, sessionId }) {
       return;
     }
 
+    // 캐시 MP3 모드 — gpt_response는 동적이라 캐시 못 함, 항상 native TTS
+    const cacheablePhase = phase === 'question' || phase === 'answer' || phase === 'explanation';
+    if (audioMode === 'cached' && audioBasePath && cacheablePhase) {
+      const url = `${audioBasePath}/${item.number}_${phase}.mp3`;
+      const a = new Audio(url);
+      a.playbackRate = speed;
+      a.volume = volume;
+      a.onended = advance;
+      a.onerror = () => {
+        // MP3 미존재/네트워크 실패 → 브라우저 TTS로 fallback
+        audioElRef.current = null;
+        speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
+      };
+      audioElRef.current = a;
+      a.play().catch(() => {
+        // play() 거부 (autoplay 정책 등) — fallback
+        audioElRef.current = null;
+        speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
+      });
+      return;
+    }
+
     speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
-  }, [index, phase, isPlaying, muted, volume, speed, voice, item, gptAnswer, gptError, micEnabled, goNextItem]);
+  }, [index, phase, isPlaying, muted, volume, speed, voice, item, gptAnswer, gptError, micEnabled, audioMode, audioBasePath, goNextItem]);
 
   // ── 언마운트 cleanup ────────────────────────────
   useEffect(() => {
@@ -758,7 +791,19 @@ export default function ShortsPlayer({ items, title, sessionId }) {
                 <option key={s} value={s}>{s.toFixed(s === 1 ? 0 : 2)}x</option>
               ))}
             </select>
-            {availableVoices.length > 0 && (
+            {audioBasePath && (
+              <select
+                value={audioMode}
+                onChange={(e) => setAudioMode(e.target.value)}
+                onClick={(e) => e.stopPropagation()}
+                title="음성 모드"
+                className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[0.75rem] text-slate-200"
+              >
+                <option value="cached">고음질 (Edge)</option>
+                <option value="native">브라우저</option>
+              </select>
+            )}
+            {audioMode === 'native' && availableVoices.length > 0 && (
               <select
                 value={voice?.voiceURI || ''}
                 onChange={(e) => {

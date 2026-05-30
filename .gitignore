@@ -52,6 +52,9 @@ temp_*.html
 scripts/__pycache__/
 pdf/extracted/
 
+# 숏츠 TTS 캐시 (스크립트로 재생성 가능)
+/public/audio/shorts/
+
 # FastAPI
 fastapi_app/.venv/
 fastapi_app/.env

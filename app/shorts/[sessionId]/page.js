@@ -76,5 +76,18 @@ export default async function ShortsPage({ params }) {
   const config = OBJECTIVE_SESSION_CONFIG[decoded];
   const title = config?.title || config?.label || decoded;
 
-  return <ShortsPlayer items={data} title={title} sessionId={decoded} />;
+  // basePath: ['datasets', '<subject>', '<sessionKey>']
+  const basePath = Array.isArray(config?.basePath) ? config.basePath : null;
+  const audioBasePath = basePath && basePath.length >= 3
+    ? `/audio/shorts/${basePath[1]}/${basePath[2]}`
+    : '';
+
+  return (
+    <ShortsPlayer
+      items={data}
+      title={title}
+      sessionId={decoded}
+      audioBasePath={audioBasePath}
+    />
+  );
 }
