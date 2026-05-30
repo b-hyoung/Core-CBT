@@ -458,23 +458,46 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
       const a = new Audio(url);
       a.playbackRate = speed;
       a.volume = volume;
-      a.onended = advance;
-      a.onerror = () => {
-        // MP3 미존재/네트워크 실패 → 브라우저 TTS로 fallback
+      // 한 번만 fallback 시도하도록 가드 — 동일 페이즈에서 onerror 와 play().catch 가 모두 발생해도
+      // 다음 페이즈로 cleanup된 이후에는 fallback 무시.
+      let fallbackFired = false;
+      const tryFallback = () => {
+        if (fallbackFired) return;
+        if (audioElRef.current !== a) return; // 이미 cleanup → 새 페이즈가 처리 중
+        fallbackFired = true;
         audioElRef.current = null;
         speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
       };
+      a.onended = () => {
+        if (audioElRef.current !== a) return;
+        advance();
+      };
+      a.onerror = tryFallback;
       audioElRef.current = a;
-      a.play().catch(() => {
-        // play() 거부 (autoplay 정책 등) — fallback
-        audioElRef.current = null;
-        speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
-      });
+      a.play().catch(tryFallback);
       return;
     }
 
     speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
-  }, [index, phase, isPlaying, muted, volume, speed, voice, item, gptAnswer, gptError, micEnabled, audioMode, audioBasePath, goNextItem]);
+  // 의도적으로 muted/volume/speed 는 deps에서 제외 — 아래 별도 effect로 라이브 적용
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, phase, isPlaying, voice, item, gptAnswer, gptError, micEnabled, audioMode, audioBasePath, goNextItem]);
+
+  // ── mute/volume/speed 라이브 적용 (재생 중간에 토글해도 즉시 반영) ─────
+  useEffect(() => {
+    if (audioElRef.current) {
+      audioElRef.current.muted = muted;
+      audioElRef.current.volume = volume;
+      audioElRef.current.playbackRate = speed;
+    }
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      if (muted) {
+        try { window.speechSynthesis.pause(); } catch {}
+      } else {
+        try { window.speechSynthesis.resume(); } catch {}
+      }
+    }
+  }, [muted, volume, speed]);
 
   // ── 언마운트 cleanup ────────────────────────────
   useEffect(() => {
