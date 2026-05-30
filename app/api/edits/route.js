@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { isAllowedSubject, isAllowedSessionKey, readCommentFromDisk } from '@/lib/commentPath';
 import { insertEdit, countRecentByUser, updateEdit } from '@/lib/commentEditStore';
 import { notifyNewEdit } from '@/lib/discordNotify';
+import { buildProblemUrl } from '@/lib/problemUrlMap';
 
 export const dynamic = 'force-dynamic';
 
@@ -66,8 +67,7 @@ export async function POST(request) {
     isAnonymous,
   });
 
-  const siteBase = process.env.SITE_BASE_URL || '';
-  const problemUrl = `${siteBase}/admin/edits?focus=${inserted.id}`; // Task 14 will swap this for real problem URL via buildProblemUrl
+  const problemUrl = buildProblemUrl(subject, sessionKey, problemNumber);
 
   try {
     const { messageId, channelId } = await notifyNewEdit(inserted, problemUrl);
