@@ -468,7 +468,7 @@ export default function ShortsPlayer({ items, title, sessionId }) {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950 p-4 text-slate-100">
-      <div className="relative flex aspect-[9/16] w-full max-w-[420px] flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl ring-1 ring-slate-800">
+      <div className="relative flex w-full flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl ring-1 ring-slate-800 aspect-[9/16] max-w-[420px] lg:aspect-auto lg:h-[85vh] lg:max-w-[1200px]">
 
         {/* progress bar */}
         <div className="absolute left-0 right-0 top-0 z-10 h-1 bg-slate-800/80">
@@ -502,48 +502,63 @@ export default function ShortsPlayer({ items, title, sessionId }) {
           </span>
         </div>
 
-        {/* body */}
+        {/* body: 모바일은 단일 스크롤, PC는 2-pane (좌=문제/보기, 우=정답/해설/ask/gpt) */}
         <div
           ref={bodyRef}
           onClick={skipToNextPhase}
-          className="flex-1 cursor-pointer overflow-y-auto px-5 py-4"
+          className="flex flex-1 cursor-pointer flex-col overflow-y-auto lg:flex-row lg:overflow-hidden"
           aria-label="탭하면 다음 페이즈로 진행"
         >
-          <div className="mb-2 text-[0.7rem] uppercase tracking-[0.1em] text-slate-500">
-            {item.sectionTitle || '문제'} · #{item.number}
+          {/* LEFT pane — 문제 + 보기 */}
+          <div className="px-5 py-4 lg:flex-1 lg:overflow-y-auto lg:border-r lg:border-slate-800 lg:py-5">
+            <div className="mb-2 text-[0.7rem] uppercase tracking-[0.1em] text-slate-500">
+              {item.sectionTitle || '문제'} · #{item.number}
+            </div>
+            <h2 className={`mb-3 text-[1.0625rem] font-semibold leading-snug text-slate-100 lg:text-[1.25rem] ${phase === 'question' ? 'ring-2 ring-sky-400/40 rounded-md px-2 py-1 -mx-2' : ''}`}>
+              {item.question}
+            </h2>
+            {item.examples && (
+              <pre className="mb-3 whitespace-pre-wrap rounded-md bg-slate-900/60 px-3 py-2 text-[0.8125rem] text-slate-300 lg:text-[0.875rem]">
+                {item.examples}
+              </pre>
+            )}
+
+            <ul className="space-y-2">
+              {item.options.map((opt, i) => {
+                const isCorrect = showAnswer && i === item.correctIndex;
+                const sym = OPTION_SYMBOLS[i] || `${i + 1}`;
+                return (
+                  <li
+                    key={i}
+                    className={`flex items-start gap-2 rounded-md border px-3 py-2 text-[0.9375rem] transition-colors lg:text-[1rem] ${
+                      isCorrect
+                        ? 'border-emerald-500/60 bg-emerald-500/10 text-emerald-100'
+                        : 'border-slate-700 bg-slate-900/40 text-slate-200'
+                    }`}
+                  >
+                    <span className={`shrink-0 font-semibold ${isCorrect ? 'text-emerald-300' : 'text-slate-400'}`}>
+                      {sym}
+                    </span>
+                    <span>{opt}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          <h2 className={`mb-3 text-[1.0625rem] font-semibold leading-snug text-slate-100 ${phase === 'question' ? 'ring-2 ring-sky-400/40 rounded-md px-2 py-1 -mx-2' : ''}`}>
-            {item.question}
-          </h2>
-          {item.examples && (
-            <pre className="mb-3 whitespace-pre-wrap rounded-md bg-slate-900/60 px-3 py-2 text-[0.8125rem] text-slate-300">
-              {item.examples}
-            </pre>
-          )}
 
-          <ul className="space-y-2">
-            {item.options.map((opt, i) => {
-              const isCorrect = showAnswer && i === item.correctIndex;
-              const sym = OPTION_SYMBOLS[i] || `${i + 1}`;
-              return (
-                <li
-                  key={i}
-                  className={`flex items-start gap-2 rounded-md border px-3 py-2 text-[0.9375rem] transition-colors ${
-                    isCorrect
-                      ? 'border-emerald-500/60 bg-emerald-500/10 text-emerald-100'
-                      : 'border-slate-700 bg-slate-900/40 text-slate-200'
-                  }`}
-                >
-                  <span className={`shrink-0 font-semibold ${isCorrect ? 'text-emerald-300' : 'text-slate-400'}`}>
-                    {sym}
-                  </span>
-                  <span>{opt}</span>
-                </li>
-              );
-            })}
-          </ul>
+          {/* RIGHT pane — 정답 + 해설 + ask + gpt. PC에선 항상 보임, 모바일에선 좌측 아래에 이어짐 */}
+          <div className="px-5 pb-4 lg:flex-1 lg:overflow-y-auto lg:px-5 lg:py-5">
+            {/* PC에선 빈 영역 안내 — 답 공개 전 */}
+            {!showAnswer && (
+              <div className="hidden h-full items-center justify-center text-center lg:flex">
+                <div className="text-slate-500">
+                  <p className="text-[0.875rem]">문제를 다 읽으면</p>
+                  <p className="text-[0.875rem]">이쪽에 정답과 해설이 표시됩니다</p>
+                </div>
+              </div>
+            )}
 
-          {showAnswer && (
+            {showAnswer && (
             <div
               ref={answerRef}
               className={`mt-4 rounded-lg border bg-sky-500/10 px-3 py-2 transition-all ${
@@ -638,7 +653,8 @@ export default function ShortsPlayer({ items, title, sessionId }) {
               </p>
             </div>
           )}
-        </div>
+          </div>{/* RIGHT pane end */}
+        </div>{/* body end */}
 
         {/* controls */}
         <div className="flex items-center justify-between border-t border-slate-800 bg-slate-950/80 px-4 py-3">
