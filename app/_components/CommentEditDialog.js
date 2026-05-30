@@ -21,6 +21,7 @@ export default function CommentEditDialog({
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [submitted, setSubmitted] = useState(false); // success 화면 표시 플래그
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function CommentEditDialog({
     setProposed('');
     setIsAnonymous(false);
     setError('');
+    setSubmitted(false);
     requestAnimationFrame(() => textareaRef.current?.focus());
   }, [open]);
 
@@ -65,7 +67,10 @@ export default function CommentEditDialog({
         return;
       }
       onSubmitted?.(data);
-      onClose();
+      setSubmitting(false);
+      setSubmitted(true);
+      // 1.6초간 성공 메시지 노출 후 자동 닫기
+      setTimeout(() => onClose(), 1600);
     } catch {
       setError('네트워크 오류');
       setSubmitting(false);
@@ -95,6 +100,15 @@ export default function CommentEditDialog({
           </button>
         </div>
 
+        {submitted ? (
+          <div className="flex flex-col items-center gap-3 px-6 py-12 text-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-sky-950/50 dark:text-sky-300">
+              <Check className="h-6 w-6" />
+            </div>
+            <p className="text-[1rem] font-semibold text-slate-900 dark:text-slate-100">제안이 전송됐어요</p>
+            <p className="text-[0.875rem] text-slate-500 dark:text-slate-400">관리자 검토 후 반영됩니다.</p>
+          </div>
+        ) : (
         <div className="space-y-5 px-6 py-5">
           <div>
             <p className="mb-2 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
@@ -148,7 +162,9 @@ export default function CommentEditDialog({
             </p>
           )}
         </div>
+        )}
 
+        {!submitted && (
         <div className="flex items-center justify-end gap-2 border-t border-[color:var(--theme-border)] px-6 py-4">
           <button
             type="button"
@@ -166,6 +182,7 @@ export default function CommentEditDialog({
             {submitting ? '제출 중...' : '제안 제출'}
           </button>
         </div>
+        )}
       </div>
     </div>
   );
