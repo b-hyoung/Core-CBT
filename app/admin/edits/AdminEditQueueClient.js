@@ -244,6 +244,31 @@ export default function AdminEditQueueClient() {
                   PR #{selected.prNumber} 포함됨. {selected.status === 'merged' ? '머지 완료.' : '머지 대기.'}
                 </p>
               )}
+              {selected.prNumber != null && selected.status === 'approved' && (
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    disabled={busy}
+                    onClick={async () => {
+                      setBusy(true);
+                      const res = await fetch(`/api/admin/edits/${selected.id}/mark-merged`, { method: 'POST' });
+                      const data = await res.json().catch(() => ({}));
+                      setBusy(false);
+                      if (data?.ok) {
+                        setToast('머지 완료 처리됨');
+                        setSelectedId(null);
+                        await reload();
+                      } else {
+                        setToast(`실패: ${data?.message || res.status}`);
+                      }
+                      setTimeout(() => setToast(''), 2000);
+                    }}
+                    className="rounded-md bg-emerald-600 px-3 py-1.5 text-[0.875rem] font-medium text-white hover:bg-emerald-700"
+                  >
+                    GitHub에서 머지 완료 → 머지 처리
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </section>
