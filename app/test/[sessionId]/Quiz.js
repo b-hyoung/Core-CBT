@@ -7,7 +7,11 @@ import { ChevronDown, ChevronLeft, ChevronRight, Settings } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import ReportReasonPicker from '@/app/_components/ReportReasonPicker';
 import ThemeControls from '@/app/_components/ThemeControls';
+import CommentEditButton from '@/app/_components/CommentEditButton';
+import CommentEditDialog from '@/app/_components/CommentEditDialog';
+import CommentContributors from '@/app/_components/CommentContributors';
 import { removeUnknownProblem, upsertUnknownProblem } from '@/lib/unknownProblemsStore';
+import { parseSessionId } from '@/lib/sessionKeyMap';
 import { QuizResults, TestLobby, UpdateNoticeModal } from './components/QuizShellParts';
 import {
   GptChatModal,
@@ -205,6 +209,11 @@ export default function Quiz({
   const [initialJumpApplied, setInitialJumpApplied] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [themeControlsOpen, setThemeControlsOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+
+  // Compute session context for comment-edit UI (null for legacy numeric sessions)
+  const sessionCtx = parseSessionId(sessionId);
+
   const gptStateStorageKey = `gpt_objection_state_${sessionId}`;
   const gptVoteStorageKey = `gpt_feedback_votes_${sessionId}`;
   const resumeStorageKey = `${RESUME_STATE_KEY_PREFIX}${sessionId}`;
@@ -2209,9 +2218,14 @@ export default function Quiz({
 
             {shouldShowExplanation && (
               <div className={`mt-6 p-6 rounded-lg animate-in fade-in border ${isCorrect ? 'bg-blue-50 border-blue-200' : 'bg-red-50 border-red-200'}`}>
-                <h3 className={`text-lg font-bold mb-1 ${isCorrect ? 'text-blue-800' : 'text-red-800'}`}>
-                  {isCorrect ? T.correct : T.wrong}
-                </h3>
+                <div className="flex items-start justify-between mb-1">
+                  <h3 className={`text-lg font-bold ${isCorrect ? 'text-blue-800' : 'text-red-800'}`}>
+                    {isCorrect ? T.correct : T.wrong}
+                  </h3>
+                  {sessionCtx && (
+                    <CommentEditButton onClick={() => setEditOpen(true)} />
+                  )}
+                </div>
                 <p className="text-lg font-semibold text-sky-900 mb-3">
                   {T.answer}: {isSubjectiveProblem ? (String(correctAnswer || '').trim() || '-') : `${correctAnswerIndex + 1}${T.numberSuffix}`}
                 </p>
@@ -2220,6 +2234,13 @@ export default function Quiz({
                     <span className="font-semibold">{T.explanation}:</span>{'\n'}
                     {formatExplanation(explanationText)}
                   </p>
+                )}
+                {sessionCtx && (
+                  <CommentContributors
+                    subject={sessionCtx.subject}
+                    sessionKey={sessionCtx.sessionKey}
+                    problemNumber={currentProblemNumber}
+                  />
                 )}
 
                 <GptHelpSection
@@ -2342,6 +2363,18 @@ export default function Quiz({
       />
 
       <GptLoadingOverlay isOpen={gptLoading} />
+
+      {sessionCtx && (
+        <CommentEditDialog
+          open={editOpen}
+          onClose={() => setEditOpen(false)}
+          subject={sessionCtx.subject}
+          sessionKey={sessionCtx.sessionKey}
+          problemNumber={currentProblemNumber}
+          problemTitle={`${sessionCtx.subject.toUpperCase()} ${sessionCtx.sessionKey} · ${currentProblemNumber}번`}
+          originalComment={explanationText}
+        />
+      )}
 
     </div>
   );
