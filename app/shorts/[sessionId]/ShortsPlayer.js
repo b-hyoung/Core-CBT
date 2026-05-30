@@ -115,9 +115,25 @@ function buildAnswerScript(item) {
   return cleanForTts(`정답은 ${sym}. ${item.correctText}.`);
 }
 
+// 해설 코멘트에서 [풀이] 섹션만 추출. 다음 [라벨] 또는 문자열 끝까지.
+// [풀이] 라벨이 없으면 전체 코멘트를 fallback으로 사용 (구버전·복원불완전 케이스).
+function extractPuriSection(comment) {
+  const s = String(comment || '');
+  const m = s.match(/\[\s*풀이\s*\]([\s\S]*?)(?=\n\s*\[[^\]]+\]|$)/);
+  return (m ? m[1] : s).trim();
+}
+
 function buildExplanationScript(item) {
   if (!item.comment) return '';
-  return cleanForTts(`해설. ${item.comment}`);
+  const puri = extractPuriSection(item.comment);
+  if (!puri) return '';
+  // TTS용: 라벨/기호 정제 + 괄호와 그 안 내용까지 통째로 제거
+  let s = cleanForTts(puri).replace(/\([^)]*\)/g, ' ');
+  // 글머리표(·, -) 정리
+  s = s.replace(/(^|\s)[·\-]\s+/g, '$1');
+  s = s.replace(/\s{2,}/g, ' ').trim();
+  if (!s) return '';
+  return `해설. ${s}`;
 }
 
 export default function ShortsPlayer({ items, title, sessionId }) {
