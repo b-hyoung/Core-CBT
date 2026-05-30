@@ -4,7 +4,7 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": ""
+        "comment": "내부 스키마는 물리적 저장 구조 관점. 외부는 사용자, 개념은 조직 전체 통합 관점."
       },
       {
         "problem_number": 2,
@@ -12,11 +12,11 @@
       },
       {
         "problem_number": 3,
-        "comment": ""
+        "comment": "기본(독립) 엔터티는 주식별자를 자기가 정의. 상속받는 건 의존(자식) 엔터티 특성."
       },
       {
         "problem_number": 4,
-        "comment": ""
+        "comment": "주식별자 일부에만 종속되는 일반속성을 분리하는 게 제2정규형(부분함수 종속 제거)."
       },
       {
         "problem_number": 5,
@@ -24,23 +24,23 @@
       },
       {
         "problem_number": 6,
-        "comment": ""
+        "comment": "식별자 관계도 1:M 가능. 한 부모의 PK를 자식 여러 행이 받을 수 있음."
       },
       {
         "problem_number": 7,
-        "comment": ""
+        "comment": "원자성(Atomicity): 트랜잭션은 전부 성공 또는 전부 실패. 부분 처리 없음."
       },
       {
         "problem_number": 8,
-        "comment": ""
+        "comment": "계층형 모델도 1:M 관계 가능. 1:1만 되는 게 아님."
       },
       {
         "problem_number": 9,
-        "comment": ""
+        "comment": "인스턴스는 엔터티 타입의 구체적 발생 사례(행 한 줄)."
       },
       {
         "problem_number": 10,
-        "comment": ""
+        "comment": "관계 차수(Cardinality)는 참여 인스턴스 수(1:1, 1:M, M:N)를 표현."
       }
     ]
   },
@@ -53,19 +53,19 @@
       },
       {
         "problem_number": 12,
-        "comment": ""
+        "comment": "DML = INSERT/UPDATE/DELETE. CREATE/ALTER/DROP은 DDL."
       },
       {
         "problem_number": 13,
-        "comment": ""
+        "comment": "DENSE_RANK는 동점이면 같은 순위 부여, 다음은 건너뛰지 않음(1,2,2,3)."
       },
       {
         "problem_number": 14,
-        "comment": ""
+        "comment": "연결 그루핑: ROLLUP(c)={(c),()}에 col1을 더하면 (c,c)≡(c), (c) → 모두 col1 그루핑. 3개 값 × 2 = 6행."
       },
       {
         "problem_number": 15,
-        "comment": ""
+        "comment": "테이블명은 영문자로 시작해야 함. 숫자 시작은 syntax error."
       },
       {
         "problem_number": 16,
@@ -73,31 +73,31 @@
       },
       {
         "problem_number": 17,
-        "comment": ""
+        "comment": "ROLLUP(A)={(A),()}, B={(B)}. 합치면 GROUPING SETS(A,B,())와 동일."
       },
       {
         "problem_number": 18,
-        "comment": ""
+        "comment": "NULL과 연산하면 결과는 NULL. 10+10만 정상값."
       },
       {
         "problem_number": 19,
-        "comment": ""
+        "comment": "집계 함수는 NULL 제외 후 계산. 모든 값이 NULL이면 결과도 NULL."
       },
       {
         "problem_number": 20,
-        "comment": ""
+        "comment": "LEFT=T1 전부(3), FULL=3+4-2=5, RIGHT=T2 전부(4)."
       },
       {
         "problem_number": 21,
-        "comment": ""
+        "comment": "LEFT JOIN으로 생긴 NULL 행이 뒤의 INNER JOIN 조건에 매칭 안 되어 제거됨."
       },
       {
         "problem_number": 22,
-        "comment": ""
+        "comment": "REGEXP_SUBSTR: 'b*c'는 'b 0회 이상 + c'. 'abcd'에서 'bc'에 매치."
       },
       {
         "problem_number": 23,
-        "comment": ""
+        "comment": "순방향(상위→하위): PRIOR 사원번호 = 관리자번호. 부모의 사원번호가 자식의 관리자."
       },
       {
         "problem_number": 24,
@@ -113,95 +113,95 @@
       },
       {
         "problem_number": 27,
-        "comment": ""
+        "comment": "ON절은 명시적 조건식 필요. 컬럼명만 쓰려면 USING."
       },
       {
         "problem_number": 28,
-        "comment": ""
+        "comment": "Oracle ORDER BY DESC 기본은 NULLS FIRST."
       },
       {
         "problem_number": 29,
-        "comment": ""
+        "comment": "WITH TIES는 마지막 행의 동순위만 포함. 첫 행 아님."
       },
       {
         "problem_number": 30,
-        "comment": ""
+        "comment": "고객 중 계약 테이블에 매칭 없는 행 → NOT EXISTS."
       },
       {
         "problem_number": 31,
-        "comment": ""
+        "comment": "UNION ALL 결과 컬럼명은 첫 번째 SELECT의 별칭 기준."
       },
       {
         "problem_number": 32,
-        "comment": ""
+        "comment": "그룹별 집계 결과를 필터링할 땐 WHERE 아닌 HAVING."
       },
       {
         "problem_number": 33,
-        "comment": ""
+        "comment": "부모 테이블에 'B' 없음 → 참조 무결성 위반(ORA-02291)."
       },
       {
         "problem_number": 34,
-        "comment": ""
+        "comment": "ROLLBACK TO SP_A → SP_A 이전 SQL만 보존. 가(이전), 라/마(이후 신규)는 유효, 나/다는 취소."
       },
       {
         "problem_number": 35,
-        "comment": ""
+        "comment": "COUNT(expr)는 NULL 제외, COUNT(*)만 전체 행 카운트."
       },
       {
         "problem_number": 36,
-        "comment": ""
+        "comment": "분석함수 SUM() OVER()로 전체합, OVER(PARTITION BY dept)로 부서합."
       },
       {
         "problem_number": 37,
-        "comment": ""
+        "comment": "UNION ALL = UNION ∪ INTERSECT. 중복을 1번 더 포함하므로."
       },
       {
         "problem_number": 38,
-        "comment": ""
+        "comment": "N/0은 ZERO_DIVIDE 에러. N/NULL은 NULL."
       },
       {
         "problem_number": 39,
-        "comment": ""
+        "comment": "DELETE/TRUNCATE는 구조 유지. DROP은 테이블 자체 삭제."
       },
       {
         "problem_number": 40,
-        "comment": ""
+        "comment": "'%학'은 '학'으로 끝나는 문자열. 물리학, 수학 모두 매치."
       },
       {
         "problem_number": 41,
-        "comment": ""
+        "comment": "NULL 비교는 IS NULL / IS NOT NULL만 가능. = NULL은 항상 UNKNOWN."
       },
       {
         "problem_number": 42,
-        "comment": ""
+        "comment": "컬럼 추가: ALTER TABLE … ADD (column type). MODIFY는 변경."
       },
       {
         "problem_number": 43,
-        "comment": ""
+        "comment": "참조 무결성은 FOREIGN KEY 제약으로 보장."
       },
       {
         "problem_number": 44,
-        "comment": ""
+        "comment": "PK 중복/NULL은 개체 무결성(entity integrity) 위반."
       },
       {
         "problem_number": 45,
-        "comment": ""
+        "comment": "BETWEEN은 양 끝 포함(>=, <=). > <는 경계 제외라서 결과 다름."
       },
       {
         "problem_number": 46,
-        "comment": ""
+        "comment": "Oracle DESC NULL 기본 위치는 NULLS FIRST."
       },
       {
         "problem_number": 47,
-        "comment": ""
+        "comment": "WITH TIES는 마지막 행의 동순위만 포함."
       },
       {
         "problem_number": 48,
-        "comment": ""
+        "comment": "COUNT(expr)는 NULL 제외."
       },
       {
         "problem_number": 49,
-        "comment": ""
+        "comment": "IN은 집합 비교라 중복 값이 있어도 결과에 영향 없음."
       },
       {
         "problem_number": 50,

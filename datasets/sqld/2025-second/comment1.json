@@ -8,31 +8,31 @@
       },
       {
         "problem_number": 2,
-        "comment": ""
+        "comment": "모델링은 업무 규칙(rule)을 반드시 반영. 규칙 누락 시 시스템이 업무를 담지 못함."
       },
       {
         "problem_number": 3,
-        "comment": ""
+        "comment": "발생 시점 분류: 기본/중심/행위 엔터티. '관계 엔터티'는 이 분류 항목 아님."
       },
       {
         "problem_number": 4,
-        "comment": ""
+        "comment": "파생 속성은 다른 속성에서 계산/도출된 값(예: 나이=오늘-생일, 합계 등)."
       },
       {
         "problem_number": 5,
-        "comment": ""
+        "comment": "주소=복합, 나이=단순, 주민번호=단일값, 연락처=다중값. 모두 옳음."
       },
       {
         "problem_number": 6,
-        "comment": ""
+        "comment": "관계 ㄷ은 ㄱ+ㄴ과 별개 관계. 단순 합쳐서 같다고 볼 수 없음."
       },
       {
         "problem_number": 7,
-        "comment": ""
+        "comment": "본질식별자=업무 본질에서 자연스럽게 도출. 인조식별자=시스템이 임의 부여(자동번호 등)."
       },
       {
         "problem_number": 8,
-        "comment": ""
+        "comment": "주식별자 전체에 일반속성이 종속(부분종속 제거)되는 정규형=제2정규형."
       },
       {
         "problem_number": 9,
@@ -40,7 +40,7 @@
       },
       {
         "problem_number": 10,
-        "comment": ""
+        "comment": "연산자 우선순위: 괄호 > 비교 > NOT > AND > OR. 괄호가 가장 우선."
       }
     ]
   },
@@ -49,11 +49,11 @@
     "comments": [
       {
         "problem_number": 11,
-        "comment": ""
+        "comment": "COL2='A'인 행은 (1,A)(1,A)(3,A) 총 3개. DISTINCT COL1 = {1,2,3,4} 총 4개."
       },
       {
         "problem_number": 12,
-        "comment": ""
+        "comment": "FULL OUTER JOIN은 양쪽 매칭 없는 행까지 포함 → 다른 JOIN보다 결과 행 수 많음."
       },
       {
         "problem_number": 13,
@@ -65,27 +65,27 @@
       },
       {
         "problem_number": 15,
-        "comment": ""
+        "comment": "COALESCE는 NULL이 아닌 첫 인자 반환. 'S'가 첫 non-null."
       },
       {
         "problem_number": 16,
-        "comment": ""
+        "comment": "CEIL=올림(9.36→10), ROUND=반올림(9.48→9), FLOOR=내림(9.72→9)."
       },
       {
         "problem_number": 17,
-        "comment": ""
+        "comment": "DISTINCT 물품=3종. IN ('p',NULL)은 'p'만 매칭(NULL 비교는 UNKNOWN으로 제외)."
       },
       {
         "problem_number": 18,
-        "comment": ""
+        "comment": "INTERSECT는 두 결과의 공통 행 반환(교집합)."
       },
       {
         "problem_number": 19,
-        "comment": ""
+        "comment": "TRUNCATE는 전체 삭제만 가능, WHERE로 부분 삭제 불가. DDL이라 ROLLBACK도 불가."
       },
       {
         "problem_number": 20,
-        "comment": ""
+        "comment": "LIKE 조건은 NULL을 제외. WHERE 없이 FROM만 써야 NULL 포함 4행 전부 카운트."
       },
       {
         "problem_number": 21,
@@ -93,71 +93,71 @@
       },
       {
         "problem_number": 22,
-        "comment": ""
+        "comment": "셀프조인은 한 테이블 내 컬럼 간 관계(예: 사원-관리자) 조인."
       },
       {
         "problem_number": 23,
-        "comment": ""
+        "comment": "조건 불일치 시 일반 SELECT는 0행(공집합), MAX는 NULL 한 행 반환."
       },
       {
         "problem_number": 24,
-        "comment": ""
+        "comment": "a{2,4}는 a 2~4회 greedy 매치. 'aaaaabbbb'에서 'aaaa' 매칭."
       },
       {
         "problem_number": 25,
-        "comment": ""
+        "comment": "UNION은 중복 제거, UNION ALL은 중복 그대로 포함."
       },
       {
         "problem_number": 26,
-        "comment": ""
+        "comment": "정렬 방향(ASC/DESC)은 ORDER BY절에서 지정."
       },
       {
         "problem_number": 27,
-        "comment": ""
+        "comment": "COMMIT된 트랜잭션은 ROLLBACK 불가. SAVEPOINT 또는 COMMIT 이전까지만 가능."
       },
       {
         "problem_number": 28,
-        "comment": ""
+        "comment": "논리적 실행 순서: FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY."
       },
       {
         "problem_number": 29,
-        "comment": ""
+        "comment": "DENSE_RANK: 동순위 후 순차(1,2,2,3). RANK는 건너뜀(1,2,2,4)."
       },
       {
         "problem_number": 30,
-        "comment": ""
+        "comment": "원자성(Atomicity)=All or Nothing. 전부 성공 또는 전부 실패."
       },
       {
         "problem_number": 31,
-        "comment": ""
+        "comment": "NOT IN 리스트에 NULL이 있으면 비교 결과가 UNKNOWN이 되어 결과 행이 0개."
       },
       {
         "problem_number": 32,
-        "comment": ""
+        "comment": "MAX(NULL)=NULL → 결과적으로 NULL 직접 대입과 동일."
       },
       {
         "problem_number": 33,
-        "comment": ""
+        "comment": "사원 A의 관리자(B)를 조인. 관리자 없는 사원도 표시하려면 LEFT JOIN A.MGR_ID=B.EMP_ID."
       },
       {
         "problem_number": 34,
-        "comment": ""
+        "comment": "카테시안 곱은 m×n. 10×10=100행."
       },
       {
         "problem_number": 35,
-        "comment": ""
+        "comment": "공통 컬럼이 없으면 NATURAL JOIN은 카테시안 곱과 동일. 3×5=15."
       },
       {
         "problem_number": 36,
-        "comment": ""
+        "comment": "COL2≤20 → (A,10),(A,20),(B,20). DISTINCT COL1 = {A,B} = 2개."
       },
       {
         "problem_number": 37,
-        "comment": ""
+        "comment": "한 테이블에 FK는 여러 개 가능 (각각 다른 부모 참조 가능)."
       },
       {
         "problem_number": 38,
-        "comment": ""
+        "comment": "REGEXP_INSTR: 패턴 시작 위치(정수) 반환. SUBSTR=문자열, REPLACE=치환, LIKE=불리언."
       },
       {
         "problem_number": 39,
@@ -165,19 +165,19 @@
       },
       {
         "problem_number": 40,
-        "comment": ""
+        "comment": "내림차순 정렬은 ORDER BY 컬럼 뒤에 DESC."
       },
       {
         "problem_number": 41,
-        "comment": ""
+        "comment": "ROLLUP: 그룹별 소계와 전체 총계를 자동 생성."
       },
       {
         "problem_number": 42,
-        "comment": ""
+        "comment": "CUBE: 모든 차원 조합의 소계를 생성."
       },
       {
         "problem_number": 43,
-        "comment": ""
+        "comment": "ROLLBACK TO SP2: SP2 이후 DELETE만 취소. UPDATE는 살아있음 → INSERT(4,1) 추가 후 COL1=4 행은 3개."
       },
       {
         "problem_number": 44,

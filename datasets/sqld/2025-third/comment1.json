@@ -4,7 +4,7 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": ""
+        "comment": "논리적 단계는 Key/속성/관계를 정확히 표현하고 정규화 수행. 물리는 인덱스/테이블스페이스."
       },
       {
         "problem_number": 2,
@@ -12,7 +12,7 @@
       },
       {
         "problem_number": 3,
-        "comment": ""
+        "comment": "설계 속성은 업무에 자연 발생하지 않은 것을 설계자가 만든 속성(예: 일련번호)."
       },
       {
         "problem_number": 4,
@@ -20,27 +20,27 @@
       },
       {
         "problem_number": 5,
-        "comment": ""
+        "comment": "주식별자 기준: 유일성, 최소성, 불변성. 가변성은 부적합."
       },
       {
         "problem_number": 6,
-        "comment": ""
+        "comment": "제3정규형: 일반속성 간 이행 함수 종속(A→B→C) 제거."
       },
       {
         "problem_number": 7,
-        "comment": ""
+        "comment": "부모는 주식별자(PK)를 가져야 자식이 FK로 참조 가능."
       },
       {
         "problem_number": 8,
-        "comment": ""
+        "comment": "데이터 모델링 단계: 개념 → 논리 → 물리."
       },
       {
         "problem_number": 9,
-        "comment": ""
+        "comment": "비식별자 관계: 부모 PK가 자식의 일반속성(FK)으로 들어가 자식이 독립 존재 가능."
       },
       {
         "problem_number": 10,
-        "comment": ""
+        "comment": "파생 속성은 중복·일관성 위험을 키움. 최소화가 원칙."
       }
     ]
   },
@@ -53,19 +53,19 @@
       },
       {
         "problem_number": 12,
-        "comment": ""
+        "comment": "IN은 값 목록 또는 서브쿼리 결과와 비교 가능."
       },
       {
         "problem_number": 13,
-        "comment": ""
+        "comment": "SUM은 NULL을 무시하고 non-NULL 행만 합산. 전부 NULL이면 결과는 NULL."
       },
       {
         "problem_number": 14,
-        "comment": ""
+        "comment": "스칼라 서브쿼리는 단일 행 + 단일 컬럼 = 한 값만 반환."
       },
       {
         "problem_number": 15,
-        "comment": ""
+        "comment": "(+)는 OUTER JOIN에서 NULL이 채워질 쪽에 표시(Oracle 전용 문법)."
       },
       {
         "problem_number": 16,
@@ -77,7 +77,7 @@
       },
       {
         "problem_number": 18,
-        "comment": ""
+        "comment": "PIVOT은 행을 열로 변환. UNPIVOT은 열을 행으로."
       },
       {
         "problem_number": 19,
@@ -85,15 +85,15 @@
       },
       {
         "problem_number": 20,
-        "comment": ""
+        "comment": "HAVING은 GROUP BY 후 집계 결과를 필터. WHERE는 그룹 전 행 필터."
       },
       {
         "problem_number": 21,
-        "comment": ""
+        "comment": "CHAR는 고정 길이(빈 공간 공백 채움), VARCHAR2는 가변 길이."
       },
       {
         "problem_number": 22,
-        "comment": ""
+        "comment": "TCL=트랜잭션 제어: COMMIT/ROLLBACK/SAVEPOINT. GRANT/REVOKE는 DCL."
       },
       {
         "problem_number": 23,
@@ -101,15 +101,15 @@
       },
       {
         "problem_number": 24,
-        "comment": ""
+        "comment": "GRANT=권한 부여, REVOKE=권한 회수. 둘 다 DCL."
       },
       {
         "problem_number": 25,
-        "comment": ""
+        "comment": "NVL2(a,b,c): a가 NOT NULL이면 b, NULL이면 c."
       },
       {
         "problem_number": 26,
-        "comment": ""
+        "comment": "PARTITION BY는 윈도우 함수의 그룹 분할 기준."
       },
       {
         "problem_number": 27,
@@ -117,31 +117,31 @@
       },
       {
         "problem_number": 28,
-        "comment": ""
+        "comment": "인라인 뷰=FROM절의 서브쿼리. 별칭으로 참조."
       },
       {
         "problem_number": 29,
-        "comment": ""
+        "comment": "FETCH FIRST N ROWS ONLY는 ANSI SQL 표준. ROWNUM은 Oracle 전용."
       },
       {
         "problem_number": 30,
-        "comment": ""
+        "comment": "LEVEL은 START WITH 행=1, 자식으로 갈수록 +1."
       },
       {
         "problem_number": 31,
-        "comment": ""
+        "comment": "RATIO_TO_REPORT(x) = x / SUM(x) OVER (PARTITION...)."
       },
       {
         "problem_number": 32,
-        "comment": ""
+        "comment": "상관 서브쿼리는 메인쿼리 행마다 재실행되어 성능 비용 큼."
       },
       {
         "problem_number": 33,
-        "comment": ""
+        "comment": "CROSS JOIN은 ON 조건 없이 m×n 카테시안 곱."
       },
       {
         "problem_number": 34,
-        "comment": ""
+        "comment": "NTILE(N)은 정렬 순서로 N개 그룹 분할, 1~N 번호 부여."
       },
       {
         "problem_number": 35,
@@ -149,19 +149,19 @@
       },
       {
         "problem_number": 36,
-        "comment": ""
+        "comment": "LEAD=다음 행 값, LAG=이전 행 값."
       },
       {
         "problem_number": 37,
-        "comment": ""
+        "comment": "뷰 변경은 CREATE OR REPLACE VIEW로 덮어쓰기. ALTER VIEW는 제한적."
       },
       {
         "problem_number": 38,
-        "comment": ""
+        "comment": "FIRST_VALUE/LAST_VALUE는 윈도우 정렬 기준 첫/마지막 행 값."
       },
       {
         "problem_number": 39,
-        "comment": ""
+        "comment": "INSERT ALL INTO t1 ... INTO t2 ... SELECT ... 로 다중 테이블 INSERT."
       },
       {
         "problem_number": 40,
@@ -169,11 +169,11 @@
       },
       {
         "problem_number": 41,
-        "comment": ""
+        "comment": "데이터 사전은 시스템이 관리하는 메타정보. 사용자 직접 수정 불가."
       },
       {
         "problem_number": 42,
-        "comment": ""
+        "comment": "TRIM([LEADING|TRAILING|BOTH] [char] FROM s). 기본은 양쪽 공백 제거."
       },
       {
         "problem_number": 43,
@@ -201,7 +201,7 @@
       },
       {
         "problem_number": 49,
-        "comment": ""
+        "comment": "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW = 파티션 시작부터 현재 행까지 누적."
       },
       {
         "problem_number": 50,
