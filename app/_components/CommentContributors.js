@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { Pencil } from 'lucide-react';
 
-export default function CommentContributors({ subject, sessionKey, problemNumber }) {
+export default function CommentContributors({ subject, sessionKey, problemNumber, onMyPendingChange }) {
   const [contributors, setContributors] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -15,11 +15,14 @@ export default function CommentContributors({ subject, sessionKey, problemNumber
       .then((r) => r.json())
       .then((data) => {
         if (cancelled) return;
-        if (data?.ok) setContributors(data.contributors || []);
+        if (data?.ok) {
+          setContributors(data.contributors || []);
+          onMyPendingChange?.(data.myPending || null);
+        }
       })
       .catch(() => {});
     return () => { cancelled = true; };
-  }, [subject, sessionKey, problemNumber]);
+  }, [subject, sessionKey, problemNumber, onMyPendingChange]);
 
   if (contributors.length === 0) return null;
 

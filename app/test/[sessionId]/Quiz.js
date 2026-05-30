@@ -210,6 +210,7 @@ export default function Quiz({
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [themeControlsOpen, setThemeControlsOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
+  const [myPending, setMyPending] = useState(null); // 본인이 이 문제에 제출한 pending edit (없으면 null)
 
   // Compute session context for comment-edit UI (null for legacy numeric sessions)
   const sessionCtx = parseSessionId(sessionId);
@@ -2223,7 +2224,13 @@ export default function Quiz({
                     {isCorrect ? T.correct : T.wrong}
                   </h3>
                   {sessionCtx && (
-                    <CommentEditButton onClick={() => setEditOpen(true)} />
+                    myPending ? (
+                      <span className="inline-flex items-center gap-1 rounded-md border border-sky-200 bg-sky-50 px-2 py-0.5 text-[0.75rem] font-medium text-sky-700 dark:border-sky-900 dark:bg-sky-950/30 dark:text-sky-300">
+                        ✎ 검토 중
+                      </span>
+                    ) : (
+                      <CommentEditButton onClick={() => setEditOpen(true)} />
+                    )
                   )}
                 </div>
                 <p className="text-lg font-semibold text-sky-900 mb-3">
@@ -2240,6 +2247,7 @@ export default function Quiz({
                     subject={sessionCtx.subject}
                     sessionKey={sessionCtx.sessionKey}
                     problemNumber={currentProblemNumber}
+                    onMyPendingChange={setMyPending}
                   />
                 )}
 
