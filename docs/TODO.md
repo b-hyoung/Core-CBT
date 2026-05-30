@@ -45,3 +45,5 @@
 ## ✅ 완료 (최근)
 
 - ✅ 해설 수정 제안/승인 시스템 — 21 task 구현 + 8 polish (develop 브랜치, 2026-05-30)
+- ✅ 숏츠 모드 MVP — `/shorts/[sessionId]` (2026-05-30)
+- ✅ GPT 해설 흐름 STT/TTS — 객관식/실기 GptHelpSection + GptChatModal에 마이크 + 읽기 버튼 (2026-05-30)

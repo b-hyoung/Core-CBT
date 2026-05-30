@@ -1,6 +1,8 @@
 'use client';
 
 import { ThumbsDown, ThumbsUp } from 'lucide-react';
+import VoiceInputButton from '@/app/_components/VoiceInputButton';
+import SpeakButton from '@/app/_components/SpeakButton';
 
 export function QuizSettingsPopover({
   isOpen,
@@ -93,13 +95,24 @@ export function GptHelpSection({
 
       {showGptHelp && (
         <div className="mt-3 space-y-3 rounded-lg border border-[color:var(--theme-border)] bg-white p-3 dark:bg-slate-800">
-          <textarea
-            value={gptQuestion}
-            onChange={(event) => onChangeGptQuestion(event.target.value)}
-            placeholder="추가로 궁금한 점이 있으면 적어주세요. (선택)"
-            className="w-full rounded-md border border-[color:var(--theme-border)] px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] dark:bg-slate-800 dark:text-slate-100"
-            rows={3}
-          />
+          <div className="relative">
+            <textarea
+              value={gptQuestion}
+              onChange={(event) => onChangeGptQuestion(event.target.value)}
+              placeholder="추가로 궁금한 점이 있으면 적어주세요. (선택)"
+              className="w-full rounded-md border border-[color:var(--theme-border)] px-3 py-2 pr-12 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] dark:bg-slate-800 dark:text-slate-100"
+              rows={3}
+            />
+            <div className="absolute right-2 top-2">
+              <VoiceInputButton
+                size="sm"
+                onTranscript={(text) => {
+                  const next = gptQuestion?.trim() ? `${gptQuestion.trim()} ${text}` : text;
+                  onChangeGptQuestion(next);
+                }}
+              />
+            </div>
+          </div>
           <div className="flex justify-end">
             <button
               type="button"
@@ -186,6 +199,7 @@ export function GptChatModal({
                 )}
                 {message.role === 'assistant' && (
                   <div className="mt-2 flex items-center justify-end gap-2">
+                    <SpeakButton text={message.content} size="sm" />
                     {message.cacheKey && gptVoteMap[String(message.cacheKey)] && (
                       <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">평가 완료</span>
                     )}
@@ -223,8 +237,14 @@ export function GptChatModal({
               type="text"
               value={gptQuestion}
               onChange={(event) => onChangeGptQuestion(event.target.value)}
-              placeholder="추가 질문 입력"
+              placeholder="추가 질문 입력 (마이크 버튼으로 음성도 가능)"
               className="flex-1 rounded-lg border border-[color:var(--theme-border)] bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-[color:var(--theme-ring)] dark:bg-slate-800 dark:text-slate-100"
+            />
+            <VoiceInputButton
+              onTranscript={(text) => {
+                const next = gptQuestion?.trim() ? `${gptQuestion.trim()} ${text}` : text;
+                onChangeGptQuestion(next);
+              }}
             />
             <button
               type="button"
