@@ -117,11 +117,11 @@
       },
       {
         "problem_number": 28,
-        "comment": ""
+        "comment": "정답: ② GRANT로 부여, REVOKE로 회수\n\n[핵심] ROLE의 권한 관리 방식.\n\n[풀이] ROLE은 권한 묶음으로 사용자에게 GRANT로 부여하고 REVOKE로 회수한다. DCL(Data Control Language) 영역. ROLE에 다른 ROLE을 부여하는 것도 가능 (계층화).\n\n[오답]\n① DDL: ROLE은 DCL\n③ 다른 ROLE에 부여 불가: 가능함\n④ 회수 불가: REVOKE로 가능\n\n[암기] ROLE = 권한 묶음, DCL, GRANT/REVOKE로 관리."
       },
       {
         "problem_number": 29,
-        "comment": ""
+        "comment": "정답: ③ 조건에 따라 UPDATE와 INSERT 수행\n\n[핵심] MERGE문(UPSERT)의 동작.\n\n[풀이] MERGE INTO target USING source ON 조건절을 평가해 매칭되면 UPDATE, 매칭 안 되면 INSERT. 한 문장으로 분기 처리해 효율적. ANSI SQL 표준.\n\n[오답]\n① INSERT만 수행: UPDATE도 가능\n② DDL: MERGE는 DML\n④ ROLLBACK 불가: 트랜잭션 단위라 가능\n\n[암기] MERGE = ON 조건으로 UPDATE/INSERT 분기 (UPSERT)."
       },
       {
         "problem_number": 30,
@@ -129,7 +129,7 @@
       },
       {
         "problem_number": 31,
-        "comment": ""
+        "comment": "정답: ② DISTINCT\n\n[핵심] SELECT 결과의 중복 제거 키워드.\n\n[풀이] SELECT DISTINCT col FROM ... 형태로 중복 행 제거. 기본은 ALL(중복 유지). UNIQUE는 일부 DBMS에서 DISTINCT의 동의어로 인정되지만 표준은 DISTINCT.\n\n[오답]\n① ALL: 중복 유지 (기본)\n③ UNIQUE: 비표준 (DISTINCT 권장)\n④ TOP: 상위 N건 제한 (SQL Server)\n\n[암기] 중복 제거 = DISTINCT (표준)."
       },
       {
         "problem_number": 32,
