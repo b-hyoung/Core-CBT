@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ChevronRight, Database } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Database, Film } from 'lucide-react';
 import { trackEvent } from '@/lib/analyticsClient';
 import UserQuickActions from '@/app/_components/UserQuickActions';
 import MyStudyButtons from '@/app/_components/MyStudyButtons';
@@ -133,14 +133,23 @@ export default function SqldSelectionPageClient({
                       <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
                     </Link>
                     <ResumeSlot>
-                      {resumeMap[session.id]?.problemNumber && (
+                      <div className="flex items-center gap-2">
                         <Link
-                          href={`/test/${session.id}?p=${resumeMap[session.id].problemNumber}&resume=1`}
-                          className="inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-bold text-sky-700 transition hover:bg-sky-100 dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-200 dark:hover:bg-sky-950/60"
+                          href={`/shorts/${session.id}`}
+                          className="inline-flex items-center gap-1 rounded-lg border border-violet-200 bg-violet-50 px-3 py-1.5 text-xs font-bold text-violet-700 transition hover:bg-violet-100 dark:border-violet-900/70 dark:bg-violet-950/40 dark:text-violet-200 dark:hover:bg-violet-950/60"
                         >
-                          이어풀기 {resumeMap[session.id].problemNumber}번
+                          <Film className="h-3.5 w-3.5" />
+                          숏츠
                         </Link>
-                      )}
+                        {resumeMap[session.id]?.problemNumber && (
+                          <Link
+                            href={`/test/${session.id}?p=${resumeMap[session.id].problemNumber}&resume=1`}
+                            className="inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-bold text-sky-700 transition hover:bg-sky-100 dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-200 dark:hover:bg-sky-950/60"
+                          >
+                            이어풀기 {resumeMap[session.id].problemNumber}번
+                          </Link>
+                        )}
+                      </div>
                     </ResumeSlot>
                   </div>
                 ))}
