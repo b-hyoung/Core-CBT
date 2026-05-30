@@ -145,6 +145,7 @@ export default function ShortsPlayer({ items, title, sessionId }) {
   const [volume, setVolume] = useState(1.0);            // TTS 음량 (0~1)
   const [speed, setSpeed] = useState(1.0);
   const [voice, setVoice] = useState(null);
+  const [availableVoices, setAvailableVoices] = useState([]); // OS/브라우저 한국어 음성 목록
   const [micEnabled, setMicEnabled] = useState(true);   // ask 페이즈에서 음성 입력 사용 여부
   const [pickerOpen, setPickerOpen] = useState(false);  // 문제 선택 모달
 
@@ -246,11 +247,34 @@ export default function ShortsPlayer({ items, title, sessionId }) {
   // ── 한국어 음성 ────────────────────────────────
   useEffect(() => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
-    const update = () => setVoice(pickKoreanVoice());
+    const update = () => {
+      const all = window.speechSynthesis.getVoices();
+      // ko-KR 우선, 그 다음 ko* 전체
+      const koreans = all.filter((v) => v.lang === 'ko-KR' || v.lang?.startsWith('ko'));
+      setAvailableVoices(koreans);
+
+      // 저장된 voiceURI 우선 복원, 없으면 기본 선택
+      let chosen = null;
+      try {
+        const saved = window.localStorage.getItem('shorts_voice_uri_v1');
+        if (saved) chosen = koreans.find((v) => v.voiceURI === saved) || null;
+      } catch {}
+      setVoice((prev) => {
+        if (prev && koreans.includes(prev)) return prev;
+        return chosen || pickKoreanVoice();
+      });
+    };
     update();
     window.speechSynthesis.addEventListener('voiceschanged', update);
     return () => window.speechSynthesis.removeEventListener('voiceschanged', update);
   }, []);
+
+  // 사용자가 voice 바꾸면 localStorage에 저장
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!voice?.voiceURI) return;
+    try { window.localStorage.setItem('shorts_voice_uri_v1', voice.voiceURI); } catch {}
+  }, [voice]);
 
   // ── 다음 문제로 ─────────────────────────────────
   const goNextItem = useCallback(() => {
@@ -734,6 +758,22 @@ export default function ShortsPlayer({ items, title, sessionId }) {
                 <option key={s} value={s}>{s.toFixed(s === 1 ? 0 : 2)}x</option>
               ))}
             </select>
+            {availableVoices.length > 0 && (
+              <select
+                value={voice?.voiceURI || ''}
+                onChange={(e) => {
+                  const v = availableVoices.find((av) => av.voiceURI === e.target.value);
+                  if (v) setVoice(v);
+                }}
+                onClick={(e) => e.stopPropagation()}
+                title={`음성: ${voice?.name || '기본'}`}
+                className="max-w-[140px] truncate rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[0.75rem] text-slate-200"
+              >
+                {availableVoices.map((v) => (
+                  <option key={v.voiceURI} value={v.voiceURI}>{v.name}</option>
+                ))}
+              </select>
+            )}
           </div>
 
           <div className="flex items-center gap-1">
