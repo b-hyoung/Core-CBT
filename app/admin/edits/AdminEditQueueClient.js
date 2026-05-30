@@ -58,6 +58,22 @@ export default function AdminEditQueueClient() {
   const selected = useMemo(() => edits.find((e) => e.id === selectedId) || null, [edits, selectedId]);
   useEffect(() => { setFinalComment(''); setAdminNote(''); }, [selectedId]);
 
+  // 선택 시 현재 디스크 해설을 fetch해 drift 감지
+  const [driftInfo, setDriftInfo] = useState(null); // { currentComment, hasDrift } | null
+  useEffect(() => {
+    setDriftInfo(null);
+    if (!selected || selected.status !== 'pending') return;
+    let cancelled = false;
+    fetch(`/api/admin/edits/${selected.id}/current-comment`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        if (data?.ok) setDriftInfo({ currentComment: data.currentComment, hasDrift: data.hasDrift });
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [selected]);
+
   async function decide(action) {
     if (!selected) return;
     setBusy(true);
@@ -188,12 +204,29 @@ export default function AdminEditQueueClient() {
                 </p>
               </div>
 
+              {driftInfo?.hasDrift && (
+                <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-[0.8125rem] text-amber-800 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+                  ⚠️ 제출 이후 원본 해설이 변경됐어요. 승인 전 현재값을 확인하세요.
+                </div>
+              )}
+
               <div>
-                <p className="mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">원본</p>
+                <p className="mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+                  {driftInfo?.hasDrift ? '원본 (제출 시점)' : '원본'}
+                </p>
                 <div className="rounded-md bg-[var(--surface-muted)] px-4 py-3 text-[0.9375rem] whitespace-pre-wrap text-slate-700 dark:text-slate-300">
                   {selected.originalComment || <span className="text-slate-400">(없음)</span>}
                 </div>
               </div>
+
+              {driftInfo?.hasDrift && (
+                <div>
+                  <p className="mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-amber-700 dark:text-amber-300">현재 디스크 값</p>
+                  <div className="rounded-md border border-amber-200 bg-amber-50/50 px-4 py-3 text-[0.9375rem] whitespace-pre-wrap text-slate-800 dark:border-amber-900 dark:bg-amber-950/20 dark:text-slate-200">
+                    {driftInfo.currentComment || <span className="text-slate-400">(없음)</span>}
+                  </div>
+                </div>
+              )}
 
               <div>
                 <p className="mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">제안</p>
