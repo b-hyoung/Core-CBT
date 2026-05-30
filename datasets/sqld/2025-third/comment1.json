@@ -4,43 +4,43 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": "논리적 단계는 Key/속성/관계를 정확히 표현하고 정규화 수행. 물리는 인덱스/테이블스페이스."
+        "comment": "정답: ② Key, 속성, 관계를 정확히 표현하고 정규화 수행\n\n[핵심] 개념→논리→물리 모델링 단계 중 '논리적 단계'가 하는 일.\n\n[풀이] 논리 모델링은 업무를 키·속성·관계로 정확히 표현하고 정규화를 수행해 데이터 구조의 일관성과 무결성을 확보. 물리적 성능 고려는 다음 단계인 물리 모델링의 영역.\n\n[오답]\n① 물리적 성능 고려: 물리 단계\n③ 추상화 수준 가장 높음: 개념 단계의 특징\n④ 테이블스페이스·인덱스 설계: 물리 단계\n\n[암기] 개념=추상, 논리=정규화/관계, 물리=성능/인덱스."
       },
       {
         "problem_number": 2,
-        "comment": "엔터티는 반드시 2개 이상의 인스턴스를 가져야 한다."
+        "comment": "정답: ④ 하나의 인스턴스만 가져도 된다 (적절하지 않음)\n\n[핵심] 엔터티의 기본 요건 중 인스턴스 수 조건.\n\n[풀이] 엔터티는 \"업무에서 관리해야 하는 데이터 집합\"으로 정의되며, 2개 이상의 인스턴스가 있을 때 의미가 있다. 하나뿐이면 굳이 엔터티로 모델링할 필요 없음(상수/설정으로 표현).\n\n[오답]\n① 업무에서 관리해야 하는 데이터 집합: 옳음 — 엔터티 정의\n② 반드시 2개 이상의 인스턴스: 옳음 — 위 설명\n③ 반드시 속성 보유: 옳음 — 엔터티는 속성을 가짐\n\n[암기] 엔터티 = 2+ 인스턴스 + 속성 + 업무 집합."
       },
       {
         "problem_number": 3,
-        "comment": "설계 속성은 업무에 자연 발생하지 않은 것을 설계자가 만든 속성(예: 일련번호)."
+        "comment": "정답: ③ 설계자가 새로 만든 속성\n\n[핵심] 설계 속성(Designed Attribute)의 정의.\n\n[풀이] 설계 속성은 업무에서 자연 발생하지 않은 속성을 설계자가 시스템 관리 편의를 위해 인위적으로 만든 것 — 일련번호, 코드값, 분류 키 등.\n\n[오답]\n① 업무에서 자연 발생: 기본 속성\n② 다른 속성에서 계산으로 도출: 파생 속성\n④ 다른 엔터티에서 상속: 관계 속성(FK)\n\n[암기] 기본=자연발생, 설계=인위생성, 파생=계산, 관계=상속."
       },
       {
         "problem_number": 4,
-        "comment": "반정규화는 데이터 중복을 허용하므로 오히려 일관성이 저하될 수 있다."
+        "comment": "정답: ③ 반정규화하면 데이터 일관성이 항상 보장 (옳지 않음)\n\n[핵심] 반정규화의 부작용 인지.\n\n[풀이] 반정규화는 성능을 위해 의도적으로 중복을 도입하므로 데이터 일관성이 위험해진다. 한쪽이 업데이트되고 다른 쪽이 누락되면 불일치 발생. 일관성 보장은 트리거·코드·캐시 갱신 등 추가 장치가 필요.\n\n[오답]\n① 성능 향상 위해 중복 허용: 옳음 — 반정규화 목적\n② 조인 횟수 감소 → 조회 성능 향상: 옳음\n④ 정규화 이후 수행: 옳음 — 정규화 후 트레이드오프로 적용\n\n[암기] 반정규화 = 중복 도입 → 일관성 위험 ↑."
       },
       {
         "problem_number": 5,
-        "comment": "주식별자 기준: 유일성, 최소성, 불변성. 가변성은 부적합."
+        "comment": "정답: ④ 가변성\n\n[핵심] 주식별자 선정 기준에 부적합한 특성.\n\n[풀이] 주식별자는 유일성(Unique), 최소성(Minimal), 불변성(Stable), 식별 가능성을 가져야 한다. '가변성'은 값이 자주 바뀌면 식별 일관성을 해쳐 부적합하다.\n\n[오답]\n① 유일성: 적합 — 행을 고유하게 식별\n② 최소성: 적합 — 가능한 최소 컬럼\n③ 불변성: 적합 — 값이 변하지 않아야\n\n[암기] PK 기준: 유일·최소·불변·식별성. 가변은 NO."
       },
       {
         "problem_number": 6,
-        "comment": "제3정규형: 일반속성 간 이행 함수 종속(A→B→C) 제거."
+        "comment": "정답: ③ 이행 함수 종속 제거\n\n[핵심] 제3정규형(3NF)의 핵심 조건.\n\n[풀이] 3NF는 일반 속성 간의 이행 함수 종속(A→B→C, 즉 A를 알면 B를 알고 B를 알면 C를 아는 관계)을 제거한 상태. PK가 아닌 컬럼이 다른 PK 아닌 컬럼에 종속되면 분리해야 함.\n\n[오답]\n① 원자값: 1NF 조건\n② 부분 함수 종속 제거: 2NF 조건\n④ 결정자가 후보키 아닌 종속 제거: BCNF 조건\n\n[암기] 1NF=원자값, 2NF=부분종속, 3NF=이행종속, BCNF=결정자."
       },
       {
         "problem_number": 7,
-        "comment": "부모는 주식별자(PK)를 가져야 자식이 FK로 참조 가능."
+        "comment": "정답: ② 주식별자\n\n[핵심] 관계 표현에서 부모 엔터티가 반드시 가져야 할 것.\n\n[풀이] 부모-자식 관계가 성립하려면 부모는 자기를 고유하게 식별할 주식별자(PK)를 가져야 한다. 자식은 그 PK를 외래키(FK)로 참조.\n\n[오답]\n① 외래키(FK): 자식이 가짐\n③ 파생 속성: 관계와 무관\n④ 인조식별자: 임의 부여한 키, 필수 X\n\n[암기] 부모=PK 보유, 자식=FK로 부모 PK 참조."
       },
       {
         "problem_number": 8,
-        "comment": "데이터 모델링 단계: 개념 → 논리 → 물리."
+        "comment": "정답: ③ 개념→논리→물리\n\n[핵심] 데이터 모델링 3단계의 순서.\n\n[풀이] 개념(Conceptual) → 논리(Logical) → 물리(Physical) 순으로 진행:\n- 개념: 핵심 엔터티/관계 식별, 추상도 최고\n- 논리: 키·속성·관계 정의, 정규화\n- 물리: DBMS·인덱스·테이블스페이스 등 구체적 설계\n\n[오답]\n①/②/④: 순서 뒤바뀜\n\n[암기] 개→논→물 (Concept → Logic → Physical)."
       },
       {
         "problem_number": 9,
-        "comment": "비식별자 관계: 부모 PK가 자식의 일반속성(FK)으로 들어가 자식이 독립 존재 가능."
+        "comment": "정답: ④ 독립적으로 존재 가능\n\n[핵심] 비식별자(Non-Identifying) 관계에서 자식 엔터티의 특징.\n\n[풀이] 비식별자 관계는 부모의 PK가 자식의 일반 속성(FK)으로 들어가며 자식 PK에는 포함되지 않음. 따라서 자식은 부모 없이도 자기 PK로 독립 존재 가능. 식별자 관계와의 핵심 차이.\n\n[오답]\n① 부모에 완전 종속: 식별자 관계의 특징\n② 부모 없이 존재 불가: 식별자 관계\n③ 부모 PK가 자식 PK에 포함: 식별자 관계\n\n[암기] 식별자=부모 PK가 자식 PK 일부, 비식별자=부모 PK가 자식 일반속성(독립 가능)."
       },
       {
         "problem_number": 10,
-        "comment": "파생 속성은 중복·일관성 위험을 키움. 최소화가 원칙."
+        "comment": "정답: ④ 파생 속성이 많을수록 좋다 (적절하지 않음)\n\n[핵심] 파생 속성 사용에 대한 잘못된 진술.\n\n[풀이] 파생 속성은 다른 속성에서 계산 가능하므로 저장 시 중복이 발생, 원본 변경 시 불일치 위험. 가능한 최소화하고 필요할 때만 저장(주로 성능 이유)하는 것이 원칙. 많을수록 좋다는 표현은 부적절.\n\n[오답]\n① 기본 속성=업무 자연 발생: 옳음\n② 설계 속성=설계자가 생성: 옳음\n③ 파생 속성=다른 속성에서 도출: 옳음\n\n[암기] 파생 속성은 최소화. 중복·불일치 위험."
       }
     ]
   },
@@ -49,163 +49,163 @@
     "comments": [
       {
         "problem_number": 11,
-        "comment": "DDL은 Auto Commit이므로 ROLLBACK 불가."
+        "comment": "정답: ④ DDL은 ROLLBACK으로 취소 가능 (적절하지 않음)\n\n[핵심] DDL은 Auto Commit이므로 ROLLBACK 불가.\n\n[풀이] CREATE/ALTER/DROP 같은 DDL은 실행 즉시 내부적으로 COMMIT을 수반(Auto Commit)한다. 따라서 ROLLBACK으로 되돌릴 수 없음. 트랜잭션 단위 처리가 불가능한 명령.\n\n[오답]\n① CREATE=객체 생성: 옳음\n② ALTER=객체 변경: 옳음\n③ DROP=객체 삭제: 옳음\n\n[암기] DDL = Auto Commit + ROLLBACK 불가."
       },
       {
         "problem_number": 12,
-        "comment": "IN은 값 목록 또는 서브쿼리 결과와 비교 가능."
+        "comment": "정답: ② 서브쿼리 결과와 비교 가능\n\n[핵심] IN 연산자의 사용 형태.\n\n[풀이] IN은 값 목록 (a, b, c) 또는 서브쿼리 결과 집합 (SELECT ...)과 비교 가능. 다중행 서브쿼리에 가장 자주 쓰인다.\n\n[오답]\n① 단일값만 비교: =, <, > 등의 단일행 연산자\n③ NULL과 비교 가능: IN에 NULL을 넣어도 매칭 안 됨 (NULL 비교는 UNKNOWN)\n④ BETWEEN과 동일: BETWEEN은 범위, IN은 멤버십\n\n[암기] IN은 목록/서브쿼리. NULL 매칭 안 됨."
       },
       {
         "problem_number": 13,
-        "comment": "SUM은 NULL을 무시하고 non-NULL 행만 합산. 전부 NULL이면 결과는 NULL."
+        "comment": "정답: ② NULL 행 제외하고 합산\n\n[핵심] 집계 함수 SUM의 NULL 처리.\n\n[풀이] SUM은 NULL 행을 무시한 후 non-NULL 값만 더한다. 입력이 전부 NULL이거나 행이 없으면 결과는 0이 아니라 NULL.\n\n[오답]\n① NULL→0 치환: 자동 치환 없음\n③ NULL 하나라도 있으면 NULL: 일부만 NULL이면 정상 합산\n④ NULL 포함 합산: NULL과 산술은 NULL이라 합산 불가\n\n[암기] SUM은 NULL 무시, 전부 NULL이면 결과도 NULL."
       },
       {
         "problem_number": 14,
-        "comment": "스칼라 서브쿼리는 단일 행 + 단일 컬럼 = 한 값만 반환."
+        "comment": "정답: ② SELECT절에서 반드시 하나의 값만 반환\n\n[핵심] 스칼라 서브쿼리(Scalar Subquery)의 정의.\n\n[풀이] 스칼라 서브쿼리는 단일 행, 단일 컬럼만 반환해야 하는 서브쿼리. SELECT절에 들어가 메인 SELECT의 각 행마다 한 값을 제공한다. 두 행 이상이 나오면 'too many rows' 에러.\n\n[오답]\n① 여러 행 반환 가능: 단일 값 원칙 위반\n③ WHERE절에서만 사용: SELECT/WHERE 둘 다 사용 가능 (정확히는 모든 컬럼 위치)\n④ FROM절 인라인 뷰: FROM절 서브쿼리는 인라인 뷰\n\n[암기] 스칼라 = 단일 행 + 단일 컬럼 = 한 값."
       },
       {
         "problem_number": 15,
-        "comment": "(+)는 OUTER JOIN에서 NULL이 채워질 쪽에 표시(Oracle 전용 문법)."
+        "comment": "정답: ② (+)는 데이터가 부족한(NULL이 생기는) 쪽에 표시\n\n[핵심] Oracle 전용 (+) 외부조인 기호의 위치.\n\n[풀이] (+)는 ANSI OUTER JOIN의 Oracle 구식 문법. 매칭이 없을 때 NULL로 채워질 쪽에 (+) 표시. 예: WHERE a.id = b.id(+) → b 쪽이 부족한 쪽 → LEFT OUTER JOIN (a 기준).\n\n[오답]\n① 데이터가 많은 쪽: 반대\n③ 양쪽 모두: FULL OUTER 표시 불가능 (Oracle 구식 문법 한계)\n④ INNER JOIN에서 사용: OUTER 전용\n\n[암기] (+) = NULL이 생기는 쪽(데이터 부족한 쪽)."
       },
       {
         "problem_number": 16,
-        "comment": "WHERE절에서는 집계함수를 사용할 수 없다."
+        "comment": "정답: ③ WHERE에서 집계함수를 사용할 수 있다 (적절하지 않음)\n\n[핵심] WHERE는 집계 이전 단계라 집계 함수 사용 불가.\n\n[풀이] SQL 평가 순서상 WHERE는 GROUP BY 이전. 집계 함수는 그룹화 후 계산되므로 WHERE에서 참조할 수 없음(아직 그룹이 만들어지지 않음). 그룹별 집계 결과에 조건을 걸려면 HAVING을 써야 한다.\n\n[오답]\n① SELECT에 집계+GROUP BY 컬럼만: 옳음 — 그 외 컬럼은 에러\n② HAVING에서 집계 필터: 옳음\n④ ORDER BY에서 집계 사용: 옳음 (정렬 기준으로 가능)\n\n[암기] WHERE=행 필터(집계 X), HAVING=그룹 필터(집계 OK)."
       },
       {
         "problem_number": 17,
-        "comment": "DECODE는 특수하게 NULL=NULL을 TRUE로 처리한다."
+        "comment": "정답: ② DECODE에서 NULL=NULL은 TRUE\n\n[핵심] DECODE의 특수성 — 일반 비교와 달리 NULL=NULL을 참으로 처리.\n\n[풀이] 일반 비교에서 NULL=NULL은 UNKNOWN. DECODE만 예외적으로 NULL=NULL을 TRUE로 처리한다. 그래서 DECODE(col, NULL, -1, 0)이 NULL 행을 잡아낼 수 있음.\n\n[오답]\n① NULL=NULL은 FALSE: 일반 SQL 비교의 동작(UNKNOWN)이지만 DECODE는 다름\n③ DECODE는 NULL을 무시: 처리 가능\n④ DECODE는 NVL과 동일: NVL은 단일 NULL 치환, DECODE는 다중 분기\n\n[암기] DECODE만 NULL=NULL=TRUE. CASE는 IS NULL 명시 필요."
       },
       {
         "problem_number": 18,
-        "comment": "PIVOT은 행을 열로 변환. UNPIVOT은 열을 행으로."
+        "comment": "정답: ② 행→열 변환\n\n[핵심] PIVOT의 역할.\n\n[풀이] PIVOT은 행으로 저장된 카테고리별 값을 열로 펼친다(transpose). 예: 월별 매출이 행으로 있던 데이터를 1월·2월·3월 컬럼으로 변환. UNPIVOT은 반대 — 열을 행으로.\n\n[오답]\n① 열→행 변환: UNPIVOT\n③ 중복 제거: DISTINCT 등\n④ 집계 없이 변환: PIVOT은 보통 집계 함수와 함께 사용\n\n[암기] PIVOT=행→열, UNPIVOT=열→행."
       },
       {
         "problem_number": 19,
-        "comment": "= 은 단일행 연산자. 다중행 연산자: IN, ANY, ALL, EXISTS."
+        "comment": "정답: ④ =\n\n[핵심] 다중행 서브쿼리 연산자가 아닌 것 — = 은 단일행 연산자.\n\n[풀이] 다중행 서브쿼리는 여러 행 결과와 비교하는 IN, ANY/SOME, ALL, EXISTS 등을 쓴다. = 은 단일 값과만 비교 가능 → 서브쿼리가 두 행 이상 반환하면 'too many rows' 에러.\n\n[오답]\n① IN: 다중행 (값 목록 매칭)\n② ANY: 다중행 (=ANY = IN과 동일)\n③ ALL: 다중행 (모든 값과 비교)\n\n[암기] 다중행 = IN, ANY, ALL, EXISTS. 단일행 = =, <, >."
       },
       {
         "problem_number": 20,
-        "comment": "HAVING은 GROUP BY 후 집계 결과를 필터. WHERE는 그룹 전 행 필터."
+        "comment": "정답: ③ 집계 결과에 대한 조건 필터링\n\n[핵심] HAVING절의 역할.\n\n[풀이] HAVING은 GROUP BY로 묶인 그룹의 집계 결과에 조건을 거는 절. 개별 행 조건은 WHERE, 그룹 결과 조건은 HAVING으로 구분.\n\n[오답]\n① GROUP BY 없이 단독 사용 가능: 보통 GROUP BY와 함께 (단독은 불일치 경고)\n② WHERE 전에 실행: 실제 평가 순서는 WHERE → GROUP → HAVING\n④ 단일행 함수만 사용 가능: 오히려 집계 함수를 주로 사용\n\n[암기] HAVING = 그룹화 후 집계 결과 필터."
       },
       {
         "problem_number": 21,
-        "comment": "CHAR는 고정 길이(빈 공간 공백 채움), VARCHAR2는 가변 길이."
+        "comment": "정답: ③ CHAR는 빈 공간을 공백으로 채운다\n\n[핵심] CHAR와 VARCHAR2의 길이 처리 차이.\n\n[풀이] CHAR(n)은 고정 길이로 입력값이 n보다 짧으면 오른쪽을 공백으로 채워 저장. VARCHAR2(n)은 가변 길이로 실제 입력 길이만큼만 저장.\n\n[오답]\n① VARCHAR2는 고정 길이: 반대\n② CHAR는 가변 길이: 반대\n④ VARCHAR2와 CHAR의 비교 결과는 항상 동일: 다름 — CHAR는 공백이 끝에 붙어 'A' vs 'A '가 다를 수 있음\n\n[암기] CHAR = 고정+공백 패딩, VARCHAR2 = 가변."
       },
       {
         "problem_number": 22,
-        "comment": "TCL=트랜잭션 제어: COMMIT/ROLLBACK/SAVEPOINT. GRANT/REVOKE는 DCL."
+        "comment": "정답: ④ COMMIT, ROLLBACK, SAVEPOINT\n\n[핵심] TCL(Transaction Control Language)에 속하는 명령.\n\n[풀이] TCL은 트랜잭션을 제어하는 명령어:\n- COMMIT: 변경 영구화\n- ROLLBACK: 변경 취소\n- SAVEPOINT: 부분 롤백 지점 설정\n\n[오답]\n① CREATE, DROP: DDL\n② INSERT, DELETE: DML\n③ GRANT, REVOKE: DCL\n\n[암기] TCL = COMMIT / ROLLBACK / SAVEPOINT."
       },
       {
         "problem_number": 23,
-        "comment": "서브쿼리 분류: 스칼라(SELECT), 인라인뷰(FROM), 중첩(WHERE)."
+        "comment": "정답: ④ 조인 서브쿼리 (JOIN절) — 분류 항목 아님\n\n[핵심] 서브쿼리를 \"사용 위치\"로 분류한 표준 명칭.\n\n[풀이] 표준 분류는 위치 기준:\n- 스칼라 서브쿼리: SELECT절\n- 인라인 뷰(Inline View): FROM절\n- 중첩(Nested) 서브쿼리: WHERE/HAVING절\n'조인 서브쿼리'라는 분류는 표준에 없음 (JOIN은 서브쿼리가 아니라 다른 테이블 결합 방식).\n\n[오답]\n①②③: 표준 분류 — 모두 옳음\n\n[암기] 위치별 분류: SELECT=스칼라, FROM=인라인뷰, WHERE=중첩."
       },
       {
         "problem_number": 24,
-        "comment": "GRANT=권한 부여, REVOKE=권한 회수. 둘 다 DCL."
+        "comment": "정답: ③ GRANT는 권한 부여, REVOKE는 권한 회수\n\n[핵심] DCL(Data Control Language)의 두 핵심 명령.\n\n[풀이]\n- GRANT 권한 ON 객체 TO 사용자: 권한 부여\n- REVOKE 권한 ON 객체 FROM 사용자: 권한 회수\n둘 다 DCL 분류.\n\n[오답]\n① GRANT는 권한 회수: 반대\n② REVOKE는 권한 부여: 반대\n④ 둘 다 DML: DCL이지 DML 아님\n\n[암기] GRANT=부여, REVOKE=회수. 둘 다 DCL."
       },
       {
         "problem_number": 25,
-        "comment": "NVL2(a,b,c): a가 NOT NULL이면 b, NULL이면 c."
+        "comment": "정답: ② expr1이 NOT NULL이면 expr2, NULL이면 expr3 반환\n\n[핵심] NVL2(a, b, c)의 동작.\n\n[풀이]\n- a가 NOT NULL → b 반환\n- a가 NULL → c 반환\nNVL(a, b)는 a가 NULL이면 b, 아니면 a 반환(단일 분기). NVL2는 NULL/NOT NULL에 따라 두 갈래로 분기.\n\n[오답]\n① a NULL이면 b: 반대 — 그건 NVL\n③ 세 값 중 NULL 아닌 첫 번째: COALESCE\n④ a와 b가 같으면 NULL 반환: NULLIF(a, b) 동작\n\n[암기] NVL2(a, b, c) = a not-null? b : c."
       },
       {
         "problem_number": 26,
-        "comment": "PARTITION BY는 윈도우 함수의 그룹 분할 기준."
+        "comment": "정답: ② 지정 컬럼 기준으로 그룹을 나눠 각 그룹별 연산\n\n[핵심] 윈도우 함수의 PARTITION BY 절 역할.\n\n[풀이] 윈도우 함수에서 PARTITION BY는 데이터를 그룹별로 나누어 윈도우를 형성. 각 그룹 내에서 집계·순위 등을 계산하지만 행 단위로 결과를 표시(GROUP BY와 다름).\n예: SUM(sal) OVER (PARTITION BY dept) → 부서별 합을 모든 행에 표시.\n\n[오답]\n① 전체 데이터에 대해 연산: PARTITION BY 없는 OVER()\n③ ORDER BY와 동일: 정렬용\n④ HAVING과 동일: 그룹 필터링용\n\n[암기] PARTITION BY = 윈도우 그룹화 기준."
       },
       {
         "problem_number": 27,
-        "comment": "EXISTS는 행의 존재 여부만 확인하므로 SELECT절의 내용은 무관."
+        "comment": "정답: ④ 위 모두 가능 (반환값이 아닌 존재 여부만 확인)\n\n[핵심] EXISTS 서브쿼리에서 SELECT절의 컬럼은 무의미.\n\n[풀이] EXISTS는 서브쿼리가 한 행이라도 반환하면 TRUE. SELECT 1, SELECT *, SELECT 컬럼명 어느 것을 쓰든 \"존재 여부\"만 본다. 관례로 SELECT 1을 자주 씀(성능/가독성).\n\n[오답]\n①②③ 단독으로는 옳지만 \"모두 가능\"이 정확한 답\n\n[암기] EXISTS는 SELECT 내용 무관. 행 유무만 본다."
       },
       {
         "problem_number": 28,
-        "comment": "인라인 뷰=FROM절의 서브쿼리. 별칭으로 참조."
+        "comment": "정답: ② FROM절에서 서브쿼리를 테이블처럼 사용\n\n[핵심] 인라인 뷰(Inline View)의 정의.\n\n[풀이] FROM절에 서브쿼리를 두고 임시 테이블처럼 사용하는 것. 별칭(alias)을 붙여 메인쿼리에서 컬럼을 참조. CREATE VIEW로 영구 뷰를 만들지 않고 일회성으로 쓰는 형태.\n\n[오답]\n① SELECT절: 스칼라 서브쿼리\n③ WHERE절: 중첩 서브쿼리\n④ HAVING절: 중첩 서브쿼리\n\n[암기] 인라인 뷰 = FROM절 서브쿼리 + 별칭."
       },
       {
         "problem_number": 29,
-        "comment": "FETCH FIRST N ROWS ONLY는 ANSI SQL 표준. ROWNUM은 Oracle 전용."
+        "comment": "정답: ② SQL 표준으로 상위 N건을 제한\n\n[핵심] FETCH FIRST N ROWS ONLY는 ANSI SQL 표준 Top-N 구문.\n\n[풀이] FETCH FIRST N ROWS ONLY는 ORDER BY 후 상위 N건을 가져오는 표준 구문(SQL:2008). Oracle, PostgreSQL, SQL Server(MS) 등이 채택. ROWNUM은 Oracle 전용으로 정렬 전 적용되어 다르게 동작.\n\n[오답]\n① Oracle 전용: 표준 구문이라 다양한 DBMS 지원\n③ ROWNUM과 동일하게 정렬 전 적용: FETCH는 정렬 후 적용\n④ ORDER BY 없이도 정확한 Top-N 보장: ORDER BY 없으면 순서 비결정적\n\n[암기] FETCH FIRST N ROWS = 표준 Top-N. 반드시 ORDER BY와 함께."
       },
       {
         "problem_number": 30,
-        "comment": "LEVEL은 START WITH 행=1, 자식으로 갈수록 +1."
+        "comment": "정답: ② 각 행의 계층 깊이를 나타낸다\n\n[핵심] 계층형 쿼리(CONNECT BY)의 LEVEL 가상 컬럼.\n\n[풀이] LEVEL은 START WITH 행을 1로 시작해, CONNECT BY로 자식 노드를 따라갈 때마다 +1 증가. 트리 구조의 깊이를 표현하는 데 사용. 예: LPAD로 들여쓰기 표현 등.\n\n[오답]\n① 정렬 순서: ORDER BY와 무관\n③ ROWNUM과 동일: ROWNUM은 결과 행 순번\n④ 파티션 번호: PARTITION 윈도우의 그룹과 다름\n\n[암기] LEVEL = 계층 깊이 (root=1, 자식++)."
       },
       {
         "problem_number": 31,
-        "comment": "RATIO_TO_REPORT(x) = x / SUM(x) OVER (PARTITION...)."
+        "comment": "정답: ② 파티션 내 합 대비 각 행 값의 비율\n\n[핵심] RATIO_TO_REPORT 윈도우 함수의 정의.\n\n[풀이] RATIO_TO_REPORT(x) OVER (PARTITION BY ...) = x / SUM(x) OVER (PARTITION BY ...). 각 행이 파티션 전체 합에서 차지하는 비율(0~1).\n\n[오답]\n① 순위 반환: RANK 계열\n③ 누적 백분율: CUME_DIST\n④ n개 그룹 분할: NTILE\n\n[암기] RATIO_TO_REPORT = x / SUM(x) (비율)."
       },
       {
         "problem_number": 32,
-        "comment": "상관 서브쿼리는 메인쿼리 행마다 재실행되어 성능 비용 큼."
+        "comment": "정답: ② 메인쿼리의 컬럼을 참조하며 행마다 반복 실행\n\n[핵심] 상관(Correlated) 서브쿼리의 특징.\n\n[풀이] 상관 서브쿼리는 메인쿼리의 컬럼을 내부에서 참조하므로 메인쿼리의 각 행마다 서브쿼리가 새로 실행된다. 결과적으로 성능 비용이 큼. 일반(독립) 서브쿼리는 한 번만 실행되어 결과 재사용.\n\n[오답]\n① 메인쿼리와 무관하게 독립 실행: 일반 서브쿼리\n③ 한 번만 실행되어 캐싱: 일반 서브쿼리\n④ FROM절에서만 사용: 위치 제한 없음\n\n[암기] 상관 = 메인 행마다 재실행 (성능 주의)."
       },
       {
         "problem_number": 33,
-        "comment": "CROSS JOIN은 ON 조건 없이 m×n 카테시안 곱."
+        "comment": "정답: ① 조인 조건 없이 카테시안 곱 생성\n\n[핵심] CROSS JOIN의 정의.\n\n[풀이] CROSS JOIN은 ON 조건 없이 좌우 테이블의 모든 행을 곱해 m×n 결과를 만드는 조인. INNER JOIN과 달리 조건 자체가 없다.\n\n[오답]\n② INNER JOIN과 동일: INNER는 ON 조건 필요\n③ NULL 행을 포함: OUTER JOIN 설명\n④ 셀프조인의 다른 이름: 셀프조인은 같은 테이블 조인\n\n[암기] CROSS JOIN = 카테시안 곱(조건 없음)."
       },
       {
         "problem_number": 34,
-        "comment": "NTILE(N)은 정렬 순서로 N개 그룹 분할, 1~N 번호 부여."
+        "comment": "정답: ② 데이터를 4개 그룹으로 균등 분할하여 그룹 번호 부여\n\n[핵심] NTILE(N) 윈도우 함수의 동작.\n\n[풀이] NTILE(4)는 정렬된 데이터를 (가능한) 균등하게 4개 그룹으로 나누고, 각 행에 그룹 번호 1~4 부여. 예: 12행이면 3행씩 4그룹. 홀수가 남으면 앞쪽 그룹에 한 행씩 더 들어감.\n\n[오답]\n① 4개 행만 반환: ROWNUM 또는 FETCH FIRST\n③ 상위 4순위만: RANK 계열 + 필터\n④ 4번째 값: NTH_VALUE\n\n[암기] NTILE(N) = N개 그룹 균등 분할, 번호 1~N."
       },
       {
         "problem_number": 35,
-        "comment": "각 SELECT의 컬럼 수와 데이터 타입이 일치해야 한다."
+        "comment": "정답: ② 에러 발생\n\n[핵심] UNION/INTERSECT/MINUS 등 집합 연산은 컬럼 수가 일치해야 함.\n\n[풀이] 집합 연산자는 좌우 SELECT의 컬럼 수와 자료형이 호환되어야 한다. 컬럼 수가 다르면 즉시 syntax/compile error 발생. NULL로 자동 채움은 일어나지 않음.\n\n[오답]\n① 자동으로 NULL로 채움: 자동 처리 없음\n③ 적은 쪽에 맞춤: 그런 동작 없음\n④ 많은 쪽에 맞춤: 마찬가지\n\n[암기] 집합 연산: 컬럼 수·타입 일치 필수."
       },
       {
         "problem_number": 36,
-        "comment": "LEAD=다음 행 값, LAG=이전 행 값."
+        "comment": "정답: ② 현재 행 이후 값\n\n[핵심] LEAD 함수의 정의.\n\n[풀이]\n- LEAD(col, n) OVER (ORDER BY ...): 현재 행에서 n행 뒤(이후)의 값\n- LAG(col, n) OVER (ORDER BY ...): n행 앞(이전)의 값\nn 생략 시 기본 1.\n\n[오답]\n① 현재 행 이전 값: LAG\n③ 파티션 첫 번째 값: FIRST_VALUE\n④ 파티션 마지막 값: LAST_VALUE\n\n[암기] LEAD=이후, LAG=이전."
       },
       {
         "problem_number": 37,
-        "comment": "뷰 변경은 CREATE OR REPLACE VIEW로 덮어쓰기. ALTER VIEW는 제한적."
+        "comment": "정답: ② CREATE OR REPLACE VIEW\n\n[핵심] 뷰의 정의를 변경할 때 쓰는 명령.\n\n[풀이] CREATE OR REPLACE VIEW vname AS SELECT ...로 기존 뷰를 덮어쓴다. ALTER VIEW는 일부 DBMS에서 컴파일 등 제한적 기능만 제공. MODIFY/UPDATE VIEW는 표준 SQL에 없음.\n\n[오답]\n① ALTER VIEW: 제한적 사용 (정의 변경엔 부적합)\n③ MODIFY VIEW: 존재하지 않는 명령\n④ UPDATE VIEW: 뷰의 데이터를 갱신(다른 의미)\n\n[암기] 뷰 정의 변경 = CREATE OR REPLACE VIEW."
       },
       {
         "problem_number": 38,
-        "comment": "FIRST_VALUE/LAST_VALUE는 윈도우 정렬 기준 첫/마지막 행 값."
+        "comment": "정답: ① 정렬 후 첫 번째/마지막 행의 값 반환\n\n[핵심] FIRST_VALUE/LAST_VALUE 윈도우 함수의 동작.\n\n[풀이] OVER (PARTITION BY ... ORDER BY ...)의 윈도우 안에서:\n- FIRST_VALUE(col): 정렬상 첫 행의 col\n- LAST_VALUE(col): 정렬상 마지막 행의 col (윈도우 frame 주의 — 기본은 현재 행까지)\n\n[오답]\n② 최소값/최대값: MIN/MAX와 다름 (정렬 순서 기반)\n③ NULL 첫 번째/마지막 반환: NULLS FIRST/LAST 같은 정렬 옵션과 혼동\n④ RANK와 동일: 순위 부여와 다름\n\n[암기] FIRST/LAST_VALUE = 정렬 첫/마지막 행 값."
       },
       {
         "problem_number": 39,
-        "comment": "INSERT ALL INTO t1 ... INTO t2 ... SELECT ... 로 다중 테이블 INSERT."
+        "comment": "정답: ② INSERT ALL로 여러 테이블에 동시 INSERT 가능\n\n[핵심] 다중 테이블 INSERT(Multi-Table Insert) 기능.\n\n[풀이] INSERT ALL INTO t1 VALUES(...) INTO t2 VALUES(...) SELECT ... 같은 형태로 한 번의 SELECT로 여러 테이블에 동시 INSERT. 조건부 분기도 가능(INSERT FIRST WHEN ...).\n\n[오답]\n① 하나의 테이블에만: 다중 INSERT 부정\n③ INSERT SELECT만 가능: 단일 테이블용\n④ VALUES절에서만: INSERT ALL은 SELECT와 결합\n\n[암기] INSERT ALL = 여러 테이블 동시 삽입."
       },
       {
         "problem_number": 40,
-        "comment": "ROLLUP(A,B,C): (A,B,C), (A,B), (A), () → 4개 그룹."
+        "comment": "정답: ② 4개\n[연산] ROLLUP(A, B, C)\n\n[핵심] ROLLUP(c1, c2, ..., cn)은 (n+1)개 grouping set 생성.\n\n[풀이] ROLLUP(A, B, C) = {(A,B,C), (A,B), (A), ()} — 오른쪽부터 한 컬럼씩 줄여가다 마지막에 전체 소계. 컬럼 3개니까 3+1=4개 그룹.\n\n[오답]\n① 3개: 마지막 () 누락\n③ 7개: 일부 조합 잘못 셈\n④ 8개: 2^3=8은 CUBE(A,B,C)의 그룹 수\n\n[암기] ROLLUP n컬럼 = n+1 그룹. CUBE = 2^n."
       },
       {
         "problem_number": 41,
-        "comment": "데이터 사전은 시스템이 관리하는 메타정보. 사용자 직접 수정 불가."
+        "comment": "정답: ② DB의 메타데이터를 저장하는 시스템 테이블\n\n[핵심] 데이터 사전(Data Dictionary)의 정의.\n\n[풀이] 데이터 사전은 DB의 객체·사용자·권한 등 메타정보를 저장하는 시스템 관리 테이블. Oracle의 USER_TABLES, ALL_COLUMNS 같은 뷰가 데이터 사전 접근 인터페이스. 사용자가 직접 DML로 수정하지 않음(시스템이 자동 유지).\n\n[오답]\n① 사용자가 직접 수정: 시스템 보호 — 직접 수정 불가\n③ DML로 변경 가능: 위와 동일\n④ 인덱스를 저장하는 공간: 인덱스 테이블스페이스와 혼동\n\n[암기] 데이터 사전 = 메타데이터 시스템 테이블 (읽기 전용)."
       },
       {
         "problem_number": 42,
-        "comment": "TRIM([LEADING|TRAILING|BOTH] [char] FROM s). 기본은 양쪽 공백 제거."
+        "comment": "정답: ③ 양쪽의 지정 문자를 제거 (기본: 공백)\n\n[핵심] TRIM 함수의 기본 동작.\n\n[풀이] TRIM(s) = 양쪽 끝의 공백 제거. 옵션:\n- TRIM(LEADING char FROM s): 왼쪽만\n- TRIM(TRAILING char FROM s): 오른쪽만\n- TRIM(BOTH char FROM s) = TRIM(char FROM s): 양쪽 (기본)\n\n[오답]\n① 왼쪽만: LTRIM\n② 오른쪽만: RTRIM\n④ 중간 문자 제거: REPLACE 등으로 처리\n\n[암기] TRIM = 양쪽, LTRIM=왼쪽, RTRIM=오른쪽."
       },
       {
         "problem_number": 43,
-        "comment": "CUBE(A,B): (A,B), (A), (B), () → 4개 (2^2)."
+        "comment": "정답: ③ 4개\n[연산] CUBE(A, B)\n\n[핵심] CUBE(n컬럼) = 2^n 그룹 생성.\n\n[풀이] CUBE(A, B) = {(A,B), (A), (B), ()} 모든 차원 조합 = 2^2 = 4그룹. 각 컬럼을 포함/제외하는 모든 부분집합 = 4개.\n\n[오답]\n① 2개: 단순 그룹\n② 3개: ROLLUP(A,B)의 3개와 혼동\n④ 8개: 2^3 — 3컬럼일 때\n\n[암기] CUBE = 2^n 그룹. ROLLUP = n+1 그룹."
       },
       {
         "problem_number": 44,
-        "comment": "SQL Server에서 ASC 시 NULL은 가장 작은 값으로 취급 → 먼저 출력."
+        "comment": "정답: ① NULLS FIRST (SQL Server)\n\n[핵심] SQL Server는 ASC 시 NULL을 가장 작은 값으로 취급.\n\n[풀이] SQL Server에서 ORDER BY col ASC 기본 동작은 NULL이 먼저 출력(NULLS FIRST). DESC에서는 마지막. Oracle은 반대(ASC=NULLS LAST, DESC=NULLS FIRST).\n\n[오답]\n② NULLS LAST: Oracle ASC 기본\n③ NULL 제외: 자동 제외 안 됨\n④ 에러: 정상 처리\n\n[암기] SQL Server: NULL=최소. ASC면 위, DESC면 아래."
       },
       {
         "problem_number": 45,
-        "comment": "둘 다 구조는 유지하고 데이터만 삭제. 구조 삭제는 DROP."
+        "comment": "정답: ④ DELETE와 TRUNCATE 모두 테이블 구조를 삭제한다 (적절하지 않음)\n\n[핵심] DELETE/TRUNCATE는 데이터만 삭제, 구조는 유지.\n\n[풀이] 둘 다 테이블 정의(컬럼·제약·인덱스)는 그대로 두고 데이터만 비운다. 구조까지 제거하려면 DROP TABLE.\n\n[오답]\n① DELETE=DML, TRUNCATE=DDL: 옳음\n② DELETE=ROLLBACK 가능, TRUNCATE=불가: 옳음\n③ DELETE=WHERE 가능, TRUNCATE=불가: 옳음\n\n[암기] DELETE/TRUNCATE=데이터, DROP=구조까지."
       },
       {
         "problem_number": 46,
-        "comment": "일반적으로 서브쿼리에서 ORDER BY는 인라인 뷰(FROM절)에서만 사용 가능."
+        "comment": "정답: ② 인라인 뷰(FROM절)에서만 사용 가능\n\n[핵심] 서브쿼리에서 ORDER BY 사용 제약.\n\n[풀이] 일반 서브쿼리(WHERE, EXISTS, IN 등)는 ORDER BY 사용 의미가 없어 보통 허용되지 않거나 무시된다. 단, FROM절의 인라인 뷰에서는 결과를 정렬해서 메인쿼리에서 사용할 때 (특히 TOP-N과 결합) 의미가 있어 허용된다.\n\n[오답]\n① 어디서든 사용: 위치 제약 있음\n③ 스칼라에서 사용: 단일 행 반환이라 정렬 의미 없음\n④ WHERE절 서브쿼리에서: 의미 없어 보통 제약\n\n[암기] 서브쿼리 ORDER BY = 인라인 뷰(FROM)에서만 유의미."
       },
       {
         "problem_number": 47,
-        "comment": "NULL과의 모든 비교는 UNKNOWN."
+        "comment": "정답: ② UNKNOWN, UNKNOWN, UNKNOWN\n[비교] 100 > NULL / NULL = NULL / NULL != NULL\n\n[핵심] NULL과의 모든 비교는 UNKNOWN을 반환.\n\n[풀이] NULL은 '알 수 없는 값'으로 어떤 연산자(=, !=, <, > 등)로 비교해도 결과가 UNKNOWN. TRUE/FALSE 어느 것도 아니다. WHERE 조건에서는 UNKNOWN 행이 제외된다.\n\n[오답]\n① TRUE/FALSE/TRUE: NULL이 일반 값처럼 처리된 잘못된 결과\n③ FALSE/TRUE/FALSE: 마찬가지\n④ 에러: 비교 자체는 에러 아닌 UNKNOWN\n\n[암기] NULL 비교 = UNKNOWN. WHERE에서 제외됨."
       },
       {
         "problem_number": 48,
-        "comment": "NOT IN에 NULL 포함 시 결과가 0건이 되지만, EXCEPT는 정상 동작."
+        "comment": "정답: ③ EXCEPT는 NULL 행도 처리, NOT IN은 NULL 포함 시 문제\n\n[핵심] EXCEPT(=MINUS)와 NOT IN의 NULL 처리 차이.\n\n[풀이]\n- NOT IN: 리스트에 NULL 있으면 모든 비교가 UNKNOWN → 결과 0행 (버그성 동작)\n- EXCEPT/MINUS: NULL을 NULL과 같은 값으로 취급해 정상 차집합 산출\n그래서 '없는 것 찾기'는 NOT EXISTS 또는 EXCEPT가 안전.\n\n[오답]\n① 완전히 동일: NULL 처리 다름\n② EXCEPT=중복 제거, NOT IN=중복 유지: NOT IN은 중복 개념 자체가 없음\n④ NOT IN이 더 빠름: 일반적 트렌드 아님\n\n[암기] NOT IN + NULL = 결과 0행. EXCEPT는 NULL 안전."
       },
       {
         "problem_number": 49,
-        "comment": "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW = 파티션 시작부터 현재 행까지 누적."
+        "comment": "정답: ① 파티션 처음부터 현재 행까지\n\n[핵심] ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW의 의미.\n\n[풀이] 윈도우 frame 지정에서:\n- UNBOUNDED PRECEDING: 파티션 시작(맨 앞)\n- CURRENT ROW: 현재 처리 중인 행\n→ 시작부터 현재까지의 누적 윈도우 (cumulative). 누적 합·평균 등을 만들 때 사용.\n\n[오답]\n② 현재 ~ 끝: UNBOUNDED FOLLOWING\n③ 전후 1행: 1 PRECEDING AND 1 FOLLOWING\n④ 전체 파티션: BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING\n\n[암기] UNBOUNDED PRECEDING ~ CURRENT ROW = 누적 윈도우."
       },
       {
         "problem_number": 50,
-        "comment": "과도한 인덱스는 DML 성능을 저하시킨다. 필요한 컬럼에만 생성해야 한다."
+        "comment": "정답: ③ 모든 컬럼에 인덱스를 생성하면 좋다 (적절하지 않음)\n\n[핵심] 인덱스의 트레이드오프.\n\n[풀이] 인덱스는 SELECT 성능을 높이지만 INSERT/UPDATE/DELETE 시 인덱스도 갱신해야 해서 DML 성능이 떨어진다. 또한 저장 공간을 추가로 사용. 따라서 모든 컬럼에 무분별하게 만들면 오히려 손해. 자주 검색·정렬하는 컬럼에만 선별적으로 만들어야 함.\n\n[오답]\n① 조회 성능 향상: 옳음\n② DML 성능 저하: 옳음\n④ B-Tree 인덱스가 일반적: 옳음 — 가장 흔한 구조\n\n[암기] 인덱스 = 조회↑, DML↓, 저장공간↑. 선별적으로."
       }
     ]
   }

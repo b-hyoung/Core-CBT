@@ -4,43 +4,43 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": "내부 스키마는 물리적 저장 구조 관점. 외부는 사용자, 개념은 조직 전체 통합 관점."
+        "comment": "정답: ③ 물리적 저장 구조를 표현\n\n[핵심] ANSI/SPARC 3계층 스키마 중 '내부 스키마'의 정의.\n\n[풀이] DB 3계층 구조에서 외부 스키마는 개별 사용자/응용이 보는 view, 개념 스키마는 조직 전체가 공유하는 통합 관점, 내부 스키마는 DBMS가 데이터를 실제 저장하는 물리적 구조(블록·인덱스·파일 배치 등)다. ③이 정확히 내부 스키마.\n\n[오답]\n① 개별 사용자 관점 → 외부 스키마\n② 조직 전체 통합 관점 → 개념 스키마\n④ 응용 인터페이스 정의 → 외부 스키마의 일면\n\n[암기] 외=사용자, 개=조직, 내=물리."
       },
       {
         "problem_number": 2,
-        "comment": "가능하면 약어를 사용하지 않는다가 원칙."
+        "comment": "정답: ② 가능하면 약어를 사용한다 (적절하지 않음)\n\n[핵심] 엔터티명(Entity Name) 명명 규칙 중 잘못된 것 찾기.\n\n[풀이] 엔터티명은 가독성과 일관성을 위해 풀어쓰는 것이 원칙이며 약어는 지양한다. 약어는 동음이의·해석 차이로 혼동을 유발한다. ②는 \"약어를 사용한다\"로 원칙과 반대.\n\n[오답]\n① 현업 용어 사용: 옳음 — 사용자가 이해할 수 있는 용어\n③ 단수 명사 사용: 옳음 — '고객' O, '고객들' X\n④ 유일하게 이름 부여: 옳음 — 동일 시스템 내 중복 금지\n\n[암기] 엔터티명 4원칙: 현업 용어, 단수, 유일, 약어 지양."
       },
       {
         "problem_number": 3,
-        "comment": "기본(독립) 엔터티는 주식별자를 자기가 정의. 상속받는 건 의존(자식) 엔터티 특성."
+        "comment": "정답: ③ 다른 엔터티로부터 주식별자를 상속받는다 (적절하지 않음)\n\n[핵심] 기본(독립) 엔터티의 특성 중 틀린 것 찾기.\n\n[풀이] 기본 엔터티(Independent Entity)는 자기 자신만으로 식별 가능하고 자신의 PK를 직접 정의한다. 다른 엔터티로부터 식별자를 상속받는 건 의존(Dependent) 또는 자식(Child) 엔터티의 특성이다.\n\n[오답]\n① 독립적 생성 가능: 옳음 — 기본의 핵심 특성\n② 타 엔터티의 부모 역할: 옳음 — 자식에게 PK를 물려줌\n④ 고유한 주식별자 보유: 옳음 — 자기 PK를 가짐\n\n[암기] 기본=독립+자기 PK. 상속받는 건 의존 엔터티."
       },
       {
         "problem_number": 4,
-        "comment": "주식별자 일부에만 종속되는 일반속성을 분리하는 게 제2정규형(부분함수 종속 제거)."
+        "comment": "정답: ② 제2정규형\n\n[핵심] 복합 주식별자에서 부분 함수 종속을 제거하는 정규화 단계.\n\n[풀이] PK가 (A, B) 같은 복합키일 때 일반 속성이 PK의 일부(A 또는 B)에만 종속되면 부분 종속. 이를 별도 테이블로 분리하는 게 제2정규형(2NF). 예: PK=(주문번호, 상품번호)에서 상품명이 상품번호에만 종속 → 상품 테이블로 분리.\n\n[오답]\n① 제1정규형: 원자값 보장·반복 그룹 제거\n③ 제3정규형: 일반 속성 간 이행 종속(A→B→C) 제거\n④ BCNF: 모든 결정자가 후보키인 강한 3NF\n\n[암기] PK 일부 종속 분리 = 2NF."
       },
       {
         "problem_number": 5,
-        "comment": "주식별자 전체 종속은 제2정규형 조건."
+        "comment": "정답: ③ 일반속성이 주식별자 전체에 종속적 (적절하지 않음)\n\n[핵심] 제1정규형의 조건이 아닌 것 — ③은 제2정규형 조건이다.\n\n[풀이] 1NF의 핵심은 \"속성 값이 더 이상 쪼갤 수 없는 원자값(atomic)\"이라는 것. 반복 그룹/다중값 분리도 1NF 영역. \"PK 전체에 종속\"은 부분 종속을 제거한 상태로 2NF의 조건.\n\n[오답]\n① 원자값: 1NF 핵심\n② 반복 그룹 제거: 1NF\n④ 다중값 속성 분리: 1NF\n\n[암기] 1NF=원자값, 2NF=부분종속 제거, 3NF=이행종속 제거."
       },
       {
         "problem_number": 6,
-        "comment": "식별자 관계도 1:M 가능. 한 부모의 PK를 자식 여러 행이 받을 수 있음."
+        "comment": "정답: ② 1:M도 가능\n\n[핵심] 식별자 관계의 차수(cardinality) 가능 범위.\n\n[풀이] 식별자 관계는 \"부모 PK가 자식 PK 일부에 포함\"되는 관계로 정의되며 차수와 무관하다. 한 부모가 여러 자식을 가지면 1:M, 단 하나면 1:1이 될 수 있다. 식별자/비식별자 구분의 기준은 'PK 포함 여부'지 '차수'가 아님을 기억할 것.\n\n[오답]\n① 항상 1:1: 차수 제약을 잘못 이해\n③ M:N만: M:N은 보통 중간 관계 엔터티로 분해\n④ 관계 없음: 정의 자체에 모순\n\n[암기] 식별자 vs 비식별자 = PK 포함 여부. 차수는 별개."
       },
       {
         "problem_number": 7,
-        "comment": "원자성(Atomicity): 트랜잭션은 전부 성공 또는 전부 실패. 부분 처리 없음."
+        "comment": "정답: ① 원자성 (Atomicity)\n\n[핵심] 트랜잭션 ACID 4대 특성 중 \"All or Nothing\".\n\n[풀이] 원자성은 트랜잭션이 더 이상 쪼갤 수 없는 작업 단위로, 모두 성공(COMMIT) 또는 모두 실패(ROLLBACK)만 가능하다는 성질. 중간 상태에서 끝날 수 없음. 부분적으로 반영되면 일관성 깨짐.\n\n[오답]\n② 일관성(Consistency): 트랜잭션 전후 DB가 무결한 상태\n③ 고립성(Isolation): 동시 실행되는 트랜잭션 간 간섭 없음\n④ 지속성(Durability): COMMIT 후 변경은 영구 보존\n\n[암기] ACID: 원자(All-or-Nothing), 일관(무결성), 고립(동시성), 지속(영구)."
       },
       {
         "problem_number": 8,
-        "comment": "계층형 모델도 1:M 관계 가능. 1:1만 되는 게 아님."
+        "comment": "정답: ② 아니다 — 1:M 가능\n\n[핵심] 계층형(Hierarchical) 데이터 모델이 표현 가능한 관계 차수.\n\n[풀이] 계층형은 부모-자식의 트리 구조로 한 부모가 여러 자식을 가질 수 있어 1:M이 자연스럽다. 단, 자식은 부모를 하나만 가질 수 있다는 제약이 있다. M:N은 직접 표현 못 함(네트워크형이 지원).\n\n[오답]\n① 그렇다 (1:1만): 잘못된 인식\n③ M:N만: 계층형이 못 표현하는 차수\n④ 관계 없음: 모델 정의에 모순\n\n[암기] 계층형 = 부모 1 → 자식 多 (1:M 가능)."
       },
       {
         "problem_number": 9,
-        "comment": "인스턴스는 엔터티 타입의 구체적 발생 사례(행 한 줄)."
+        "comment": "정답: ② 엔터티의 개별 사례이다\n\n[핵심] 인스턴스(Instance)의 정확한 정의.\n\n[풀이] 인스턴스는 엔터티 타입의 구체적 발생(occurrence)으로, 테이블로 치면 한 행(row)이다. 예) '고객' 엔터티의 인스턴스 = 홍길동, 김철수 같은 실제 데이터 한 명씩.\n\n[오답]\n① 속성값을 가진다: 인스턴스의 특징이지 정의가 아님\n③ 엔터티를 정의: 반대 — 엔터티 타입이 인스턴스를 정의\n④ 인스턴스에 비종속: 의미 불명, 틀림\n\n[암기] 엔터티 = 타입, 인스턴스 = 행 한 줄."
       },
       {
         "problem_number": 10,
-        "comment": "관계 차수(Cardinality)는 참여 인스턴스 수(1:1, 1:M, M:N)를 표현."
+        "comment": "정답: ① 참여자 수 표현\n\n[핵심] 관계 차수(Cardinality)의 정의.\n\n[풀이] 관계 차수는 관계에 참여 가능한 인스턴스 수를 나타내는 표기로, 1:1·1:M·M:N 같은 형태로 표현된다. 부모와 자식 각각의 참여 가능 개수를 명시.\n\n[오답]\n② 관계 선택성(Optionality): 필수/선택 여부 — 차수와 다른 개념\n③ 관계명: 관계의 명칭(예: '주문하다')\n④ 관계 페어링: 실제 연결되는 인스턴스 쌍\n\n[암기] 차수 = 1:1, 1:M, M:N. 선택성·관계명·페어링과는 별개."
       }
     ]
   },
@@ -49,163 +49,163 @@
     "comments": [
       {
         "problem_number": 11,
-        "comment": "IN절은 다중행도 가능."
+        "comment": "정답: ③ IN절은 단일행 서브쿼리만 사용 가능 (적절하지 않음)\n\n[핵심] 서브쿼리 종류·연산자 매칭 잘못된 진술 찾기.\n\n[풀이] IN은 다중행 서브쿼리와 함께 쓰는 대표 연산자. \"WHERE col IN (SELECT col FROM ...)\"처럼 여러 행 결과와 비교한다. 단일행만 가능하다는 ③은 명백한 오류.\n\n[오답]\n① WHERE절에서 사용 가능: 옳음 — 중첩 서브쿼리\n② 메인쿼리 컬럼 참조: 옳음 — 상관(correlated) 서브쿼리\n④ 스칼라 서브쿼리는 하나의 값 반환: 옳음 — 스칼라의 정의\n\n[암기] 다중행 연산자 = IN, ANY, ALL, EXISTS. 단일행 = =, <, >."
       },
       {
         "problem_number": 12,
-        "comment": "DML = INSERT/UPDATE/DELETE. CREATE/ALTER/DROP은 DDL."
+        "comment": "정답: ② INSERT, UPDATE, DELETE\n\n[핵심] SQL 명령어 4분류(DDL/DML/DCL/TCL) 중 DML 식별.\n\n[풀이] DML(Data Manipulation Language)은 데이터를 조작하는 명령어. INSERT(추가)·UPDATE(변경)·DELETE(삭제)·SELECT(조회)가 포함된다.\n\n[오답]\n① CREATE, ALTER, DROP: DDL — 객체 구조 정의/변경/삭제\n③ GRANT, REVOKE: DCL — 권한 부여/회수\n④ COMMIT, ROLLBACK: TCL — 트랜잭션 제어\n\n[암기] DML=I/U/D/S, DDL=C/A/D, DCL=G/R, TCL=C/R/SAVEPOINT."
       },
       {
         "problem_number": 13,
-        "comment": "DENSE_RANK는 동점이면 같은 순위 부여, 다음은 건너뛰지 않음(1,2,2,3)."
+        "comment": "정답: ② 동점 시 동일 순위 후 순차 번호\n\n[핵심] 순위 함수 DENSE_RANK의 동점 처리 방식.\n\n[풀이] 정렬 값이 100, 90, 90, 80일 때:\n- RANK(): 1, 2, 2, 4 (동점 후 건너뜀)\n- DENSE_RANK(): 1, 2, 2, 3 (동점 후 건너뛰지 않음)\n- ROW_NUMBER(): 1, 2, 3, 4 (동점 무시 고유)\nDENSE는 '조밀하게' 매기는 것.\n\n[오답]\n① 동점 시 건너뜀: RANK() 설명\n③ 고유 순번: ROW_NUMBER() 설명\n④ n개 그룹: NTILE(n) 설명\n\n[암기] DENSE = 조밀하게 (1,2,2,3). RANK는 건너뜀."
       },
       {
         "problem_number": 14,
-        "comment": "연결 그루핑: ROLLUP(c)={(c),()}에 col1을 더하면 (c,c)≡(c), (c) → 모두 col1 그루핑. 3개 값 × 2 = 6행."
+        "comment": "정답: ③ 6행\n[데이터] (A,100), (B,200), (C,300), (C,400)\n\n[핵심] GROUP BY ROLLUP(c), c 같은 '연결 그루핑(concatenated grouping)' 결과 행 수.\n\n[풀이]\n- ROLLUP(c)은 grouping sets {(c), ()} 생성\n- 뒤의 c와 연결 = 각 set에 c를 추가:\n  · (c) ⊕ c = (c, c) ≡ (c)\n  · () ⊕ c = (c)\n- 결과 grouping set: {(c), (c)} 두 번 생성\n- c의 distinct = {A, B, C} 3개\n- 3행 × 2 = 6행\n\n[오답]\n① 4행: ROLLUP(c) 단독 결과(distinct 3 + 총계 1) 오인\n② 5행: 데이터 행수에 의존한 오인\n④ 8행: distinct 무시(원본 4행 × 2)\n\n[암기] ROLLUP(c), c → (c) 그루핑 2회. distinct × 2."
       },
       {
         "problem_number": 15,
-        "comment": "테이블명은 영문자로 시작해야 함. 숫자 시작은 syntax error."
+        "comment": "정답: ② 에러\n\n[핵심] DBMS 식별자(테이블·컬럼명) 명명 규칙.\n\n[풀이] 대부분 DBMS(Oracle, MySQL, PostgreSQL)에서 식별자는 영문자, 한글 또는 일부 특수문자(_, $)로 시작해야 한다. 숫자로 시작하면 파싱 단계에서 syntax error. 큰따옴표로 감싸면 예외적으로 가능하지만 권장되지 않음.\n\n[오답]\n① 정상: 불가 — 표준 위반\n③ 자동 변환: DBMS는 임의로 이름을 바꾸지 않음\n④ 경고만: 실행 자체가 안 됨\n\n[암기] 식별자: 영문자/_/$로 시작. 숫자 시작 = error."
       },
       {
         "problem_number": 16,
-        "comment": "③에는 전체 소계()가 없음."
+        "comment": "정답: ③ GROUPING SETS((A,B),(A))\n\n[핵심] ROLLUP(A,B)을 GROUPING SETS로 풀어 쓸 때 동등성 확인.\n\n[풀이] ROLLUP(A,B) = {(A,B), (A), ()} — 오른쪽부터 컬럼을 하나씩 줄이며 마지막은 전체 소계(빈 그룹). ③은 () 즉 전체 소계 행이 빠져 있어 ROLLUP과 다르다.\n\n[오답]\n① GROUPING SETS((A,B), A, ()): ROLLUP(A,B)와 정확히 동일\n② A, ROLLUP(B): A는 (A), ROLLUP(B)={(B),()}를 연결 → (A,B), (A) → ROLLUP(A,B)와 동등\n④ '①번': 동등이므로 다름이 아님(중복 옵션)\n\n[암기] ROLLUP(A,B) = (A,B), (A), (). 마지막 () 빠지면 다름."
       },
       {
         "problem_number": 17,
-        "comment": "ROLLUP(A)={(A),()}, B={(B)}. 합치면 GROUPING SETS(A,B,())와 동일."
+        "comment": "정답: ① GROUPING SETS(A, B, ())\n\n[핵심] GROUPING SETS와 ROLLUP의 결합 분해.\n\n[풀이] GROUPING SETS의 인자는 각각 독립된 grouping 집합으로 풀어 합쳐진다.\n- ROLLUP(A) = {(A), ()}\n- B = {(B)}\n- 합치면 {(A), (), (B)} = GROUPING SETS(A, B, ())\n\n[오답]\n② GROUPING SETS((A,B), A, ()): (A,B) 같은 다중 컬럼 그룹이 없음\n③ ROLLUP(A,B) = {(A,B),(A),()}: (B) 단독 그룹이 없음\n④ CUBE(A,B) = {(A,B),(A),(B),()}: (A,B) 포함되어 다름\n\n[암기] GROUPING SETS(ROLLUP(A), B) = (A), (), (B)."
       },
       {
         "problem_number": 18,
-        "comment": "NULL과 연산하면 결과는 NULL. 10+10만 정상값."
+        "comment": "정답: ② NULL, 40, NULL\n[데이터] (NULL,10), (10,10), (10,NULL)\n\n[핵심] 산술 연산에서 NULL 처리 규칙.\n\n[풀이] 산술 연산자(+, -, *, /)에서 피연산자 중 하나라도 NULL이면 결과는 무조건 NULL.\n- NULL + 10 = NULL\n- 10 + 10 = 20 → 의문이지만 문제 답은 40으로 표기, 실제는 두 컬럼 합이 아닐 가능성 (출제 표기 유의)\n실제 SQLD 정형: 첫째·셋째 행은 NULL, 둘째 행만 정상 산출.\n\n[오답]\n① 20,40,20: NULL을 0으로 잘못 치환\n③ 0,40,0: NVL 등 처리 가정 — 기본 동작 아님\n④ 에러,40,에러: NULL 연산은 에러가 아니라 NULL\n\n[암기] NULL과 산술 = NULL (에러 아님)."
       },
       {
         "problem_number": 19,
-        "comment": "집계 함수는 NULL 제외 후 계산. 모든 값이 NULL이면 결과도 NULL."
+        "comment": "정답: ② NULL 행 제외, 전체 NULL→SUM=NULL\n\n[핵심] 집계 함수의 NULL 처리 표준.\n\n[풀이] SUM/AVG/MAX/MIN 같은 집계 함수는 입력에서 NULL을 제외한 후 계산. 단, 모든 행이 NULL이면(혹은 행이 없으면) 결과는 NULL이 된다. 0으로 치환하지 않음.\n\n[오답]\n① NULL→0 치환: 자동 치환되지 않음\n③ SUM(NULL)=0: 틀림 — NULL\n④ NVL은 무영향: NVL을 쓰면 명시적으로 NULL→대체값 가능\n\n[암기] SUM은 NULL 무시. 전부 NULL이면 결과도 NULL."
       },
       {
         "problem_number": 20,
-        "comment": "LEFT=T1 전부(3), FULL=3+4-2=5, RIGHT=T2 전부(4)."
+        "comment": "정답: ② 3, 5, 4\n[데이터] T1=3행, T2=4행, 매칭 2건\n\n[핵심] OUTER JOIN 종류별 결과 행 수 계산.\n\n[풀이]\n- LEFT OUTER: T1 전부(3) + 매칭 없는 T1 행에는 T2쪽 NULL → 3행\n- FULL OUTER: T1∪T2 (중복 매칭은 1회) = 3 + 4 − 2 = 5행\n- RIGHT OUTER: T2 전부(4) + 매칭 없는 T2 행에는 T1쪽 NULL → 4행\n\n[오답]\n① 3,5,3: RIGHT를 T1 기준으로 잘못 계산\n③ 2,5,2: 매칭 행만 표시한 INNER JOIN 결과\n④ 3,7,4: FULL을 3+4=7로 단순 더함(중복 제외 누락)\n\n[암기] FULL = |T1| + |T2| − 매칭."
       },
       {
         "problem_number": 21,
-        "comment": "LEFT JOIN으로 생긴 NULL 행이 뒤의 INNER JOIN 조건에 매칭 안 되어 제거됨."
+        "comment": "정답: ① 마지막 INNER JOIN이 NULL 행 제거\n\n[핵심] LEFT JOIN으로 생긴 NULL 행이 뒤따르는 INNER JOIN에서 어떻게 되는지.\n\n[풀이] LEFT JOIN은 매칭이 없어도 좌측 행을 NULL과 함께 남긴다. 그 결과를 다시 INNER JOIN하면 NULL 컬럼이 ON 조건과 매칭되지 않아 그 행은 결과에서 사라진다. 결국 INNER JOIN이 앞선 LEFT의 NULL 행을 걸러내는 효과.\n\n[오답]\n② LEFT JOIN만 영향: 마지막 INNER JOIN의 작용을 무시\n③ 순서 무관: JOIN 순서에 따라 결과 다름\n④ INNER JOIN 무시: 결과에 실제 영향 있음\n\n[암기] LEFT → INNER 체인은 NULL 행이 걸러져 INNER로 회귀."
       },
       {
         "problem_number": 22,
-        "comment": "REGEXP_SUBSTR: 'b*c'는 'b 0회 이상 + c'. 'abcd'에서 'bc'에 매치."
+        "comment": "정답: ② bc\n[입력] 'abcd', 패턴 'b*c'\n\n[핵심] 정규표현식 수량자 '*'(0회 이상)의 매칭.\n\n[풀이] 'b*c'는 \"b가 0번 이상 + c\"를 의미. 'abcd'에서:\n- 'a'에서 시작 매칭 시도: 'b*'=0개 + 'c'? 'a' 뒤가 c가 아니므로 실패\n- 'b'에서 매칭: 'b'(1번) + 'c' = 'bc' → 성공\n첫 매치 'bc' 반환.\n\n[오답]\n① NULL: 매칭됨\n③ c: 'b*'가 0개로 매칭되어도 첫 매치 위치는 'b'에서 시작\n④ bbc: 'b'가 1개뿐이라 'bb'는 없음\n\n[암기] 'b*c' = b 0~∞개 + c. greedy로 최대 매치."
       },
       {
         "problem_number": 23,
-        "comment": "순방향(상위→하위): PRIOR 사원번호 = 관리자번호. 부모의 사원번호가 자식의 관리자."
+        "comment": "정답: ② 사원번호, 관리자번호\n[구문] CONNECT BY PRIOR (ㄱ) = (ㄴ)\n\n[핵심] 계층형 쿼리에서 PRIOR의 위치와 순/역방향 구분.\n\n[풀이] PRIOR는 \"부모 행(이전 행)\"을 의미. 순방향(상위→하위)은 부모의 사원번호가 자식의 관리자번호와 일치해야 함:\n  CONNECT BY PRIOR 사원번호 = 관리자번호\n즉 부모(PRIOR)의 사원번호가 자식 행의 관리자번호. 반대로 PRIOR 관리자번호 = 사원번호는 역방향(하위→상위) 탐색.\n\n[오답]\n① 관리자번호, 사원번호: 역방향\n③ 사원번호, 사원번호: 매칭 안 됨\n④ 관리자번호, 관리자번호: 매칭 안 됨\n\n[암기] 순방향: PRIOR 사원번호 = 관리자번호."
       },
       {
         "problem_number": 24,
-        "comment": "별칭은 컬럼 뒤에만 사용 가능."
+        "comment": "정답: ③ 별칭은 컬럼 앞뒤 어디든 가능 (적절하지 않음)\n\n[핵심] SQL ALIAS(별칭) 사용 위치 규칙.\n\n[풀이] 별칭은 SELECT 컬럼 뒤에만 위치할 수 있다. \"SELECT col AS c FROM ...\" 또는 \"SELECT col c FROM ...\". 앞에 쓰면 syntax error.\n\n[오답]\n① SELECT에서 컬럼 뒤에 별칭: 옳음 — 표준 위치\n② ORDER BY에서 별칭 사용: 옳음 — ORDER BY는 별칭 인식\n④ AS 키워드로 지정: 옳음 — AS는 선택적이지만 가능\n\n[암기] 별칭은 항상 컬럼 뒤. AS는 생략 가능."
       },
       {
         "problem_number": 25,
-        "comment": "AND가 OR보다 우선."
+        "comment": "정답: ② A=1 OR (A=2 AND B=3 AND C=4)\n[조건] WHERE A=1 OR A=2 AND B=3 AND C=4\n\n[핵심] 논리 연산자 우선순위: AND가 OR보다 우선.\n\n[풀이] SQL에서 NOT > AND > OR 순으로 평가. 따라서 \"A=2 AND B=3 AND C=4\"가 먼저 묶이고, 그 결과와 A=1이 OR로 결합된다.\n\n[오답]\n① (A=1 OR A=2) AND B=3 AND C=4: OR을 먼저 평가 — 우선순위 반대\n③ (A=1 OR A=2) AND (B=3 AND C=4): 마찬가지로 우선순위 반대\n④ 에러: 정상 구문\n\n[암기] NOT > AND > OR. AND가 OR보다 강함."
       },
       {
         "problem_number": 26,
-        "comment": "손자=2단계 하위. A→B→C."
+        "comment": "정답: ② EMP A, EMP B, EMP C 3-테이블 셀프조인\n\n[핵심] 손자 노드 = 2단계 하위 = 셀프조인 3번.\n\n[풀이] 홍길동(A) → 직속부하(B) → 손자(C)의 경로를 표현하려면 EMP를 3번 셀프조인:\n  A.ENAME='홍길동' AND B.MGR=A.EMPNO AND C.MGR=B.EMPNO\nC가 최종 손자 노드들.\n\n[오답]\n① A,B 2-테이블: 직속부하만 (자식 1단계)\n③ A.MGR='홍길동': MGR는 EMPNO 외래키이지 이름이 아님\n④ A,B 2-테이블 + 홍길동 자식 한 단계만\n\n[암기] 자식=2테이블, 손자=3테이블, 증손=4테이블 셀프조인."
       },
       {
         "problem_number": 27,
-        "comment": "ON절은 명시적 조건식 필요. 컬럼명만 쓰려면 USING."
+        "comment": "정답: ② 에러: 조인 조건이 와야 함\n[구문] INNER JOIN B ON (DEPARTMENT_ID)\n\n[핵심] ON절 문법 — 명시적 조건식 필수.\n\n[풀이] ON절은 반드시 비교 조건식(예: A.id = B.id)을 가져야 한다. 컬럼명 하나만 적으면 비교 대상이 없어 syntax error. 컬럼명만 쓰려면 USING(컬럼) 형태를 써야 한다.\n\n[오답]\n① 정상: 구문 오류로 실행 불가\n③ USING과 동일: USING은 별도 문법, ON과 자동 치환 안 됨\n④ 경고만: 에러로 처리\n\n[암기] ON = 조건식, USING = 컬럼명만."
       },
       {
         "problem_number": 28,
-        "comment": "Oracle ORDER BY DESC 기본은 NULLS FIRST."
+        "comment": "정답: ② NULLS FIRST\n\n[핵심] Oracle의 ORDER BY DESC 시 NULL 기본 처리 위치.\n\n[풀이] Oracle은 ORDER BY DESC 기본을 NULLS FIRST로 처리(가장 위에 NULL 행이 옴). ASC 기본은 반대로 NULLS LAST. 변경하려면 명시적으로 NULLS LAST 또는 NULLS FIRST 키워드를 붙임.\n\n[오답]\n① NULLS LAST: ASC 기본 위치\n③ 중간: Oracle은 중간 배치 안 함\n④ 제외: NULL 행도 결과에 포함됨\n\n[암기] Oracle: ASC→NULLS LAST, DESC→NULLS FIRST. (SQL Server는 반대)"
       },
       {
         "problem_number": 29,
-        "comment": "WITH TIES는 마지막 행의 동순위만 포함. 첫 행 아님."
+        "comment": "정답: ③ 첫 번째 행의 동순위 포함 반환 (적절하지 않음)\n\n[핵심] ANSI SQL Row Limiting 절의 WITH TIES 동작 방향.\n\n[풀이] FETCH FIRST N ROWS WITH TIES는 \"상위 N건과 마지막 N번째 행의 동순위(tied)까지 포함\"하여 반환. '첫 번째 행의 동순위 포함'은 의미가 다른 표현으로 ③은 틀림.\n\n[오답]\n① 마지막 행의 동순위 포함 반환: 옳음 — WITH TIES의 정확한 정의\n② ONLY와 함께 사용 가능: 옳음 — FETCH ONLY 또는 WITH TIES 둘 중 선택\n④ ORDER BY와 함께 사용: 옳음 — WITH TIES는 정렬 기준이 있어야 의미\n\n[암기] WITH TIES = 마지막 동순위까지 포함."
       },
       {
         "problem_number": 30,
-        "comment": "고객 중 계약 테이블에 매칭 없는 행 → NOT EXISTS."
+        "comment": "정답: ② NOT EXISTS (...)\n\n[핵심] '서브쿼리에 매칭되지 않는' 행을 찾는 SQL 패턴.\n\n[풀이] '계약이 없는 고객' = 고객 테이블에서 계약 테이블에 매칭이 없는 행. NOT EXISTS가 가장 안전하고 표준적인 선택. NOT IN은 서브쿼리 결과에 NULL이 포함되면 결과가 0건이 되므로 위험.\n\n[오답]\n① EXISTS: 계약이 '있는' 고객을 찾음 — 반대\n③ IN: 매칭되는 고객 — 반대\n④ = (스칼라 서브쿼리): 다중행 비교 불가\n\n[암기] 없는 것 찾기 = NOT EXISTS (NOT IN보다 안전)."
       },
       {
         "problem_number": 31,
-        "comment": "UNION ALL 결과 컬럼명은 첫 번째 SELECT의 별칭 기준."
+        "comment": "정답: ② 첫 번째 SELECT\n\n[핵심] UNION ALL의 결과 컬럼명/별칭 결정 기준.\n\n[풀이] 집합 연산자(UNION, UNION ALL, INTERSECT, MINUS)는 결과 컬럼명을 첫 번째 SELECT의 컬럼명(또는 별칭)으로 결정한다. 이후 SELECT의 별칭은 무시된다.\n\n[오답]\n① 마지막 SELECT: 표준 동작이 아님\n③ 공통: 모든 SELECT의 별칭 일치를 강제하지 않음\n④ 에러: 정상 동작\n\n[암기] 집합 연산의 컬럼명 = 첫 SELECT 기준."
       },
       {
         "problem_number": 32,
-        "comment": "그룹별 집계 결과를 필터링할 땐 WHERE 아닌 HAVING."
+        "comment": "정답: ② HAVING COUNT(주문번호) >= 3\n\n[핵심] 집계 결과를 필터링하는 위치는 HAVING.\n\n[풀이] WHERE는 GROUP BY 이전, 즉 개별 행에 대해 평가되어 집계 함수를 쓸 수 없다. GROUP BY로 묶인 후 집계 결과를 필터링하려면 HAVING을 써야 한다.\n  SELECT 고객 FROM 주문 GROUP BY 고객 HAVING COUNT(주문번호) >= 3\n\n[오답]\n① WHERE COUNT(...): 집계 함수 사용 불가\n③ WHERE SUM >= 3: 집계 함수 사용 불가\n④ HAVING SUM >= 3: 주문 건수는 COUNT, SUM 아님\n\n[암기] 행 필터 = WHERE, 집계 결과 필터 = HAVING."
       },
       {
         "problem_number": 33,
-        "comment": "부모 테이블에 'B' 없음 → 참조 무결성 위반(ORA-02291)."
+        "comment": "정답: ② 에러: parent key not found\n[상황] UPDATE COL1='B' (부모 테이블에 'B' 없음)\n\n[핵심] 참조 무결성 위반 시 동작 — DBMS는 에러로 거부.\n\n[풀이] 자식의 FK 컬럼을 부모에 존재하지 않는 값으로 변경하려 하면 외래키 제약 조건이 거부한다. Oracle은 ORA-02291 \"integrity constraint violated - parent key not found\" 에러 발생, 트랜잭션은 ROLLBACK 가능 상태로 남는다.\n\n[오답]\n① 정상: 제약 위반\n③ NULL 변경: 자동 변환되지 않음\n④ 경고만: 실행 거부\n\n[암기] FK 위반 = 즉시 에러(parent key not found)."
       },
       {
         "problem_number": 34,
-        "comment": "ROLLBACK TO SP_A → SP_A 이전 SQL만 보존. 가(이전), 라/마(이후 신규)는 유효, 나/다는 취소."
+        "comment": "정답: ③ 가, 라, 마\n[시나리오] (가)SQL1 → SP_A → (나)SQL2 → SP_B → (다)SQL3 → ROLLBACK TO SP_A → (라)SQL4 → (마)SQL5\n\n[핵심] ROLLBACK TO SAVEPOINT의 의미와 그 후 새 작업의 처리.\n\n[풀이] ROLLBACK TO SP_A는 SP_A 시점 이후의 모든 변경(SQL2, SQL3)과 SP_B 자체를 무효화한다. SP_A 이전의 (가) SQL1은 그대로 유효. 이후 새로 실행하는 (라), (마)는 별도의 작업으로 유효하게 누적된다.\n\n[오답]\n① 전부: (나)(다)는 rollback됨\n② 가/나/라/마: (나)도 rollback됨\n④ 가만: (라)(마)는 새로 실행된 정상 작업\n\n[암기] ROLLBACK TO SP_X = X 이후 작업 취소, 이후 새 작업은 정상."
       },
       {
         "problem_number": 35,
-        "comment": "COUNT(expr)는 NULL 제외, COUNT(*)만 전체 행 카운트."
+        "comment": "정답: ② NULL 제외\n\n[핵심] COUNT 함수의 인자별 NULL 처리.\n\n[풀이] COUNT(expr)는 expr이 NULL인 행을 제외하고 카운트한다. 반면 COUNT(*)은 NULL 여부와 무관하게 전체 행을 센다. 예: 10행 중 3행이 NULL인 컬럼 col → COUNT(col)=7, COUNT(*)=10.\n\n[오답]\n① NULL 포함: COUNT(expr) 동작과 다름\n③ 에러: 정상 동작\n④ NULL→0 치환: 자동 치환 없음\n\n[암기] COUNT(*)=전체 행, COUNT(expr)=NULL 제외."
       },
       {
         "problem_number": 36,
-        "comment": "분석함수 SUM() OVER()로 전체합, OVER(PARTITION BY dept)로 부서합."
+        "comment": "정답: ① SUM(sal) OVER(), SUM(sal) OVER(PARTITION BY dept)\n\n[핵심] 분석함수(window function)로 전체 합계 + 부서별 합계를 한 쿼리에 표현.\n\n[풀이] OVER()는 PARTITION 없이 전체 데이터를 윈도우로 삼아 모든 행에 동일한 전체 합 표시. OVER(PARTITION BY dept)는 부서별로 윈도우를 나눠 각 부서 합을 해당 부서 행마다 표시. 두 컬럼을 한 SELECT에 나란히 둘 수 있음.\n\n[오답]\n② GROUP BY dept: 그룹별 한 행만 반환 — 전체합 동시 표시 불가\n③ OVER(ORDER BY dept): 누적합 같은 다른 의미\n④ COUNT(*) OVER(): 합계가 아닌 개수\n\n[암기] 전체 = OVER(), 그룹 = OVER(PARTITION BY ...)."
       },
       {
         "problem_number": 37,
-        "comment": "UNION ALL = UNION ∪ INTERSECT. 중복을 1번 더 포함하므로."
+        "comment": "정답: ② UNION + INTERSECT\n\n[핵심] UNION ALL을 다른 집합 연산자로 분해.\n\n[풀이] A UNION B = A∪B의 distinct 행. A INTERSECT B = 공통 행. A UNION ALL B는 중복 포함이므로 = (A∪B distinct) + (A∩B 한 번 더) = UNION + INTERSECT.\n\n[오답]\n① UNION + UNION: 같은 합집합을 두 번 = UNION 결과\n③ INTERSECT + MINUS: 공통 + 차집합 = 원본 일부만\n④ UNION + MINUS: 합집합 + 차집합 = UNION에 차집합 추가\n\n[암기] UNION ALL = UNION ∪ INTERSECT."
       },
       {
         "problem_number": 38,
-        "comment": "N/0은 ZERO_DIVIDE 에러. N/NULL은 NULL."
+        "comment": "정답: ② 에러, NULL\n\n[핵심] 0과 NULL로 나눌 때의 결과.\n\n[풀이]\n- N / 0: Oracle은 ZERO_DIVIDE 예외(ORA-01476). 정수가 0인 경우 즉시 에러.\n- N / NULL: 모든 NULL 산술은 NULL로 평가. 에러 아닌 NULL.\n\n[오답]\n① 0, NULL: 0 나눗셈이 0이 아님\n③ NULL, 에러: 반대\n④ 에러, 에러: NULL은 에러 아님\n\n[암기] /0 = 에러, /NULL = NULL."
       },
       {
         "problem_number": 39,
-        "comment": "DELETE/TRUNCATE는 구조 유지. DROP은 테이블 자체 삭제."
+        "comment": "정답: ③ DELETE 또는 TRUNCATE\n\n[핵심] 테이블 구조는 유지하면서 데이터만 삭제하는 명령.\n\n[풀이] DELETE는 WHERE 조건으로 일부/전체 삭제 가능하며 ROLLBACK 가능. TRUNCATE는 테이블 전체 데이터를 빠르게 삭제(DDL, ROLLBACK 불가). 둘 다 테이블 구조(컬럼 정의, 인덱스 등)는 유지된다. DROP은 구조까지 삭제.\n\n[오답]\n① DROP: 테이블 자체 제거\n② ALTER TABLE: 구조 변경\n④ REVOKE: 권한 회수, 데이터와 무관\n\n[암기] 구조 유지 + 데이터 삭제 = DELETE / TRUNCATE."
       },
       {
         "problem_number": 40,
-        "comment": "'%학'은 '학'으로 끝나는 문자열. 물리학, 수학 모두 매치."
+        "comment": "정답: ③ 2건\n[데이터] 물리학, 수학 → LIKE '%학'\n\n[핵심] LIKE 와일드카드 '%'와 위치별 의미.\n\n[풀이] '%학'은 \"임의 문자열 + '학'으로 끝남\". 두 단어 모두 끝이 '학'이므로 매치. → 2건.\n\n[오답]\n① 0건: 매치됨\n② 1건: 둘 다 매치\n④ 에러: 정상 구문\n\n[암기] '%문자' = 그 문자로 끝남, '문자%' = 그 문자로 시작."
       },
       {
         "problem_number": 41,
-        "comment": "NULL 비교는 IS NULL / IS NOT NULL만 가능. = NULL은 항상 UNKNOWN."
+        "comment": "정답: ③ IS NOT NULL이 올바르다\n\n[핵심] NULL 비교에는 IS / IS NOT NULL만 사용 가능.\n\n[풀이] NULL은 '알 수 없는 값'으로 일반 비교 연산자(=, !=, <>) 결과가 UNKNOWN이 된다. UNKNOWN은 WHERE 조건에서 FALSE처럼 처리되어 의도와 다르게 행이 누락. NULL 비교는 반드시 IS NULL / IS NOT NULL을 써야 한다.\n\n[오답]\n① !=NULL: UNKNOWN, 결과 거짓 처리\n② <>NULL: 마찬가지\n④ NOT COL = NULL: COL=NULL부터 UNKNOWN\n\n[암기] NULL 비교 = IS [NOT] NULL."
       },
       {
         "problem_number": 42,
-        "comment": "컬럼 추가: ALTER TABLE … ADD (column type). MODIFY는 변경."
+        "comment": "정답: ① ALTER TABLE ... ADD\n\n[핵심] 기존 테이블에 컬럼을 추가하는 DDL.\n\n[풀이] ALTER TABLE table_name ADD (column_name type [DEFAULT ...] [constraint])로 컬럼 추가. MODIFY는 기존 컬럼의 자료형/기본값을 변경. RENAME COLUMN은 이름 변경. DROP COLUMN은 삭제.\n\n[오답]\n② ALTER TABLE ... MODIFY: 기존 컬럼 변경 (추가 X)\n③ CREATE TABLE ... ADD: 신규 생성 명령에 ADD 없음\n④ INSERT INTO: 데이터 추가지 컬럼 추가가 아님\n\n[암기] 컬럼 추가 = ADD, 변경 = MODIFY."
       },
       {
         "problem_number": 43,
-        "comment": "참조 무결성은 FOREIGN KEY 제약으로 보장."
+        "comment": "정답: ② FK (Foreign Key)\n\n[핵심] 참조 무결성(referential integrity)을 보장하는 제약.\n\n[풀이] FK는 자식 테이블 컬럼이 부모 테이블 PK(또는 UK)를 참조하도록 강제. 부모에 없는 값을 자식에 넣으면 거부되어 참조 무결성이 유지된다.\n\n[오답]\n① PK: 개체 무결성(entity integrity) 보장 — 행 식별\n③ UK: 유일성 보장(중복 방지)\n④ CHECK: 컬럼 값의 조건 검증(예: age > 0)\n\n[암기] PK=개체, FK=참조, UK=유일, CHECK=값 조건, NOT NULL=NULL 금지."
       },
       {
         "problem_number": 44,
-        "comment": "PK 중복/NULL은 개체 무결성(entity integrity) 위반."
+        "comment": "정답: ② 개체 무결성 위반\n\n[핵심] PK 중복/NULL은 어떤 무결성을 위반하는가.\n\n[풀이] 개체 무결성(Entity Integrity)은 \"PK는 유일하고 NULL일 수 없다\"는 규칙. 같은 PK 값을 가진 행을 두 개 삽입하면 이 규칙 위반.\n\n[오답]\n① 참조 무결성: FK 관련 (부모-자식 일관성)\n③ 도메인 무결성: 컬럼 값이 정의된 도메인(자료형·CHECK) 안에 있어야 함\n④ 정상: 거부됨\n\n[암기] PK 중복/NULL = 개체(entity) 무결성 위반."
       },
       {
         "problem_number": 45,
-        "comment": "BETWEEN은 양 끝 포함(>=, <=). > <는 경계 제외라서 결과 다름."
+        "comment": "정답: ② > AND <\n\n[핵심] BETWEEN의 경계 포함 여부.\n\n[풀이] A BETWEEN x AND y = (A >= x AND A <= y) — 양 끝 포함(inclusive). 따라서 (A > x AND A < y)는 경계 제외라서 결과 다름.\n\n[오답]\n① >= AND <=: BETWEEN과 동등\n③ NOT(< OR >): NOT(A<x OR A>y) = A>=x AND A<=y — 동등\n④ >= AND < (다음 날짜): 날짜 컬럼에서 [start, start+1) 범위로 BETWEEN과 사실상 동등 처리되는 패턴\n\n[암기] BETWEEN = 양 끝 포함 (>=, <=)."
       },
       {
         "problem_number": 46,
-        "comment": "Oracle DESC NULL 기본 위치는 NULLS FIRST."
+        "comment": "정답: ② NULLS FIRST\n\n[핵심] (28번과 동일 유형) Oracle DESC 정렬 시 NULL 기본 위치.\n\n[풀이] Oracle은 DESC 기본을 NULLS FIRST로 처리. NULL 행이 결과 맨 위에 옴. ASC 기본은 NULLS LAST.\n\n[오답]\n① NULLS LAST: ASC 기본\n③ 중간: Oracle 미지원\n④ 제외: NULL 행도 결과에 포함\n\n[암기] Oracle DESC = NULLS FIRST."
       },
       {
         "problem_number": 47,
-        "comment": "WITH TIES는 마지막 행의 동순위만 포함."
+        "comment": "정답: ③ 첫 번째 행 동순위 포함 (적절하지 않음)\n\n[핵심] (29번과 동일) WITH TIES는 마지막 행의 동순위만 포함.\n\n[풀이] FETCH FIRST N ROWS WITH TIES는 상위 N건과 \"N번째 행의 동순위 행들\"까지 포함. '첫 번째 행 동순위'는 표현이 잘못됨.\n\n[오답]\n① 마지막 행 동순위 포함: 옳음\n② ONLY는 지정 수만: 옳음 (FETCH ONLY는 N건만)\n④ ORDER BY와 함께: 옳음 — 동순위 판정을 위해 정렬 필요\n\n[암기] WITH TIES = 마지막 N번째 행의 동순위 포함."
       },
       {
         "problem_number": 48,
-        "comment": "COUNT(expr)는 NULL 제외."
+        "comment": "정답: ② NULL 제외\n\n[핵심] (35번과 동일) COUNT(expr)의 NULL 처리.\n\n[풀이] COUNT(expr)은 expr이 NULL인 행을 제외하고 카운트. COUNT(*)만 NULL 무관 전체 행 카운트.\n\n[오답]\n① NULL 포함: 동작과 다름\n③ NULL→0: 자동 치환 없음\n④ 에러: 정상 동작\n\n[암기] COUNT(expr) = NULL 제외, COUNT(*) = 전체."
       },
       {
         "problem_number": 49,
-        "comment": "IN은 집합 비교라 중복 값이 있어도 결과에 영향 없음."
+        "comment": "정답: ② DISTINCT로 비교\n\n[핵심] IN 절에 중복 값이 있어도 에러나 부작용이 없는 이유.\n\n[풀이] IN은 \"col=v1 OR col=v2 OR ...\"의 집합 비교다. 중복된 값이 있어도 동등한 비교를 한 번 더 할 뿐 결과 집합에 영향 없음. 내부적으로 DISTINCT처럼 처리되어 의미적으로 중복 제거된 비교와 같다.\n\n[오답]\n① 에러 무시: 에러가 아예 발생 안 함\n③ 첫 번째만: 모든 값과 비교\n④ ALL과 동일: ALL은 다른 다중행 연산자\n\n[암기] IN은 OR 집합 비교 = 중복 무의미."
       },
       {
         "problem_number": 50,
-        "comment": "Oracle: ASC→NULLS LAST, DESC→NULLS FIRST."
+        "comment": "정답: ② NULLS LAST\n\n[핵심] Oracle의 ORDER BY ASC 시 NULL 기본 위치.\n\n[풀이] Oracle은 ASC 기본을 NULLS LAST로 처리 — NULL 행이 결과 맨 아래로. DESC는 반대로 NULLS FIRST. 변경하려면 명시적으로 NULLS FIRST/LAST 키워드 사용.\n\n[오답]\n① NULLS FIRST: DESC 기본\n③ 중간: Oracle 미지원\n④ 제외: NULL도 결과에 포함\n\n[암기] Oracle ASC = NULLS LAST, DESC = NULLS FIRST."
       }
     ]
   }

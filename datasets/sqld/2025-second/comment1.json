@@ -4,43 +4,43 @@
     "comments": [
       {
         "problem_number": 1,
-        "comment": "'응용 스키마'는 존재하지 않는다. 3계층: 외부, 개념, 내부."
+        "comment": "정답: ① 응용 스키마 (존재하지 않음)\n\n[핵심] ANSI/SPARC 3계층 데이터 스키마 종류 확인.\n\n[풀이] 표준 3계층은 외부 스키마(External), 개념 스키마(Conceptual), 내부 스키마(Internal). '응용 스키마'라는 용어는 표준에 없다.\n\n[오답]\n② 외부 스키마: 사용자/응용 관점의 view 정의\n③ 개념 스키마: 조직 전체 통합 관점\n④ 내부 스키마: 물리적 저장 구조\n\n[암기] 3계층 = 외부/개념/내부. '응용'은 없는 용어."
       },
       {
         "problem_number": 2,
-        "comment": "모델링은 업무 규칙(rule)을 반드시 반영. 규칙 누락 시 시스템이 업무를 담지 못함."
+        "comment": "정답: ④ 업무 규칙이 모델에 포함되지 않아도 된다 (옳지 않음)\n\n[핵심] 데이터 모델링의 필수 포함 요소.\n\n[풀이] 데이터 모델은 데이터 자체뿐 아니라 업무 규칙(constraint, cardinality, optionality 등)을 포함해야 한다. 규칙이 빠지면 모델로 시스템을 구축할 수 없고, 동일 데이터에 대해 다른 해석이 발생.\n\n[오답]\n① 모든 데이터를 포함해야: 옳음 — 모델의 범위는 업무 데이터 전체\n② 업무 분석 기초: 옳음 — 분석 결과를 모델로 표현\n③ 정보시스템 구축 기초: 옳음 — 설계의 출발점\n\n[암기] 모델 = 데이터 + 업무 규칙. 규칙 누락 불가."
       },
       {
         "problem_number": 3,
-        "comment": "발생 시점 분류: 기본/중심/행위 엔터티. '관계 엔터티'는 이 분류 항목 아님."
+        "comment": "정답: ① 관계 엔터티 (적절하지 않음)\n\n[핵심] '발생 시점(생성 시기)에 따른 엔터티 분류'에 속하지 않는 항목.\n\n[풀이] 발생 시점 분류는 기본(Basic, 다른 엔터티 없이 독립 발생) / 중심(Main, 기본에서 파생) / 행위(Active, 트랜잭션 행위로 발생) 세 가지. '관계 엔터티'는 다른 분류 축(관계 표현 목적의 분해 결과)에 속하므로 발생 시점 기준과 무관.\n\n[오답]\n② 행위 엔터티: 발생 시점 분류 — 주문, 결제 등\n③ 중심 엔터티: 발생 시점 분류 — 기본의 파생\n④ 기본 엔터티: 발생 시점 분류 — 독립 발생\n\n[암기] 발생시점 = 기본/중심/행위. 관계 엔터티는 별개 축."
       },
       {
         "problem_number": 4,
-        "comment": "파생 속성은 다른 속성에서 계산/도출된 값(예: 나이=오늘-생일, 합계 등)."
+        "comment": "정답: ③ 파생 속성\n\n[핵심] 다른 속성에서 계산/도출되는 속성의 명칭.\n\n[풀이] 파생 속성(Derived Attribute)은 다른 속성 값으로부터 계산되는 속성. 예: 나이 = 오늘 − 생년월일, 총액 = 단가 × 수량. 저장하지 않고 계산하거나, 성능을 위해 저장(중복 위험)할 수 있다.\n\n[오답]\n① 설계 속성: 업무에 없던 것을 설계자가 만든 속성(예: 일련번호)\n② 기본 속성: 업무에 자연 발생하는 속성\n④ 관계 속성: 다른 엔터티와의 관계로 생긴 속성(FK)\n\n[암기] 파생 = 계산 결과, 설계 = 인공 생성, 기본 = 자연 발생."
       },
       {
         "problem_number": 5,
-        "comment": "주소=복합, 나이=단순, 주민번호=단일값, 연락처=다중값. 모두 옳음."
+        "comment": "정답: ④ 가, 나, 다, 라 모두 옳음\n[보기] 가.주소=복합 / 나.나이=단순 / 다.주민번호=단일값 / 라.연락처=다중값\n\n[핵심] 속성 분류(복합/단순/단일값/다중값)의 정확한 정의.\n\n[풀이]\n- 복합 속성: 더 세분화 가능(주소→시·군·구·도로명). 주소 O\n- 단순 속성: 분해 불가, 원자값. 나이 O\n- 단일값 속성: 인스턴스당 하나의 값. 주민번호 O\n- 다중값 속성: 인스턴스당 여러 값 가능. 연락처(집/회사/휴대폰) O\n네 가지 모두 정확한 매칭.\n\n[오답]\n① 가/라: 나/다 누락\n② 가/나/다: 라 누락\n③ 나/다/라: 가 누락\n\n[암기] 복합/단순 = 분해 가능 여부, 단일/다중 = 값 개수."
       },
       {
         "problem_number": 6,
-        "comment": "관계 ㄷ은 ㄱ+ㄴ과 별개 관계. 단순 합쳐서 같다고 볼 수 없음."
+        "comment": "정답: ① ㄷ은 ㄱ과 ㄴ을 합한 것과 의미가 같다 (옳지 않음)\n[배경] 병원-의사-수술 ERD\n\n[핵심] 별도로 표현된 관계는 결합 관계와 다르다.\n\n[풀이] 관계 ㄷ이 따로 표현됐다면 ㄱ·ㄴ과는 별개의 의미를 가진 독립 관계로 봐야 한다. 단순히 ㄱ+ㄴ의 의미 합산이라면 ㄷ을 따로 표현할 이유가 없음. 따라서 ①은 잘못된 해석.\n\n[오답]\n② 의사 없는 병원 가능: 옳을 수 있음(병원 운영 초기 등)\n③ 수술 없는 의사 가능: 옳을 수 있음(타 진료과 의사)\n④ 의사 없는 수술 가능: 일반적으로는 불가 — 문제 의도에 따라 판단\n\n[암기] 별도 표현 관계 ≠ 다른 관계의 합."
       },
       {
         "problem_number": 7,
-        "comment": "본질식별자=업무 본질에서 자연스럽게 도출. 인조식별자=시스템이 임의 부여(자동번호 등)."
+        "comment": "정답: ③ 본질식별자\n\n[핵심] 업무에서 자연 발생한 식별자의 명칭.\n\n[풀이] 본질식별자(Natural Key)는 업무 본질에서 자연히 도출되는 식별자(예: 주민번호, 사업자번호). 인조식별자(Surrogate Key)는 시스템이 관리 편의상 임의 부여(예: 자동증가 ID).\n\n[오답]\n① 외부식별자: 외부 시스템에서 가져온 식별자 (잘 안 쓰는 표현)\n② 내부식별자: 시스템 내부 관리용\n④ 인조식별자: 업무와 무관하게 인공적으로 만든 식별자\n\n[암기] 본질=업무 자연 도출, 인조=시스템이 임의 부여."
       },
       {
         "problem_number": 8,
-        "comment": "주식별자 전체에 일반속성이 종속(부분종속 제거)되는 정규형=제2정규형."
+        "comment": "정답: ② 제2정규형\n\n[핵심] 일반 속성이 주식별자에 완전 함수 종속될 때의 정규형.\n\n[풀이] 제2정규형(2NF)은 \"부분 함수 종속이 없는 상태\" 즉 일반 속성이 주식별자(복합키 포함)의 전체에 종속되어야 한다. 1NF의 원자값 조건을 갖춘 다음 단계.\n\n[오답]\n① 제1정규형: 원자값 보장만 — 종속성 관련 X\n③ 제3정규형: 이행 종속(A→B→C) 제거 단계\n④ BCNF: 모든 결정자가 후보키\n\n[암기] 2NF = 일반 속성이 PK 전체에 완전 종속."
       },
       {
         "problem_number": 9,
-        "comment": "정규화는 유연성을 높인다."
+        "comment": "정답: ① 정규화 시 유연성이 떨어진다 (옳지 않음)\n\n[핵심] 정규화의 효과에 대한 잘못된 진술.\n\n[풀이] 정규화는 중복을 제거해 데이터 구조를 명확히 하고 변경 시 영향 범위를 좁혀 유연성과 일관성을 높인다. 반대로 반정규화는 중복 도입으로 일관성 위험 증가. \"유연성이 떨어진다\"는 거꾸로 된 설명.\n\n[오답]\n② 일반 속성 간 종속 제거 = 3NF: 옳음\n③ 반정규화 = 데이터 중복으로 독립성 저하: 옳음\n④ 정규화 ↑ → 조인 ↑ → 성능 저하 가능: 옳음 (트레이드오프)\n\n[암기] 정규화 = 유연성/일관성↑, 조인↑ (성능 트레이드오프)."
       },
       {
         "problem_number": 10,
-        "comment": "연산자 우선순위: 괄호 > 비교 > NOT > AND > OR. 괄호가 가장 우선."
+        "comment": "정답: ② 괄호\n\n[핵심] SQL 연산자 우선순위의 최상위.\n\n[풀이] 표현식에서 괄호()는 모든 연산자보다 먼저 평가된다. 다음은 산술/비교/논리 순. 논리는 NOT > AND > OR.\n\n[오답]\n① 비교(=, <, > 등): 산술 다음\n③ AND: 논리 중 두 번째\n④ OR: 논리 중 가장 낮음\n\n[암기] 우선순위: 괄호 > 산술 > 비교 > NOT > AND > OR."
       }
     ]
   },
@@ -49,135 +49,135 @@
     "comments": [
       {
         "problem_number": 11,
-        "comment": "COL2='A'인 행은 (1,A)(1,A)(3,A) 총 3개. DISTINCT COL1 = {1,2,3,4} 총 4개."
+        "comment": "정답: ③ 3, 4\n[데이터] (1,A), (2,B), (3,C), (4,D), (1,A), (2,B), (3,A)\n\n[핵심] COUNT(ALL), COUNT(DISTINCT)와 WHERE 조건의 결합.\n\n[풀이]\n- COUNT(ALL COL1) WHERE COL2='A': COL2가 'A'인 행만 골라 COL1을 모두(중복 포함) 카운트. 해당 행은 (1,A), (1,A), (3,A) 3개 → COL1 = {1,1,3} → COUNT=3\n- COUNT(DISTINCT COL1): 전체에서 COL1의 distinct 값 = {1,2,3,4} = 4\n결과: 3, 4\n\n[오답]\n① 2,3: A 행을 2개로 오인\n② 3,3: distinct 결과를 3으로 오인\n④ 4,4: COL2 조건 무시\n\n[암기] ALL=중복 포함 개수, DISTINCT=고유 값 개수."
       },
       {
         "problem_number": 12,
-        "comment": "FULL OUTER JOIN은 양쪽 매칭 없는 행까지 포함 → 다른 JOIN보다 결과 행 수 많음."
+        "comment": "정답: ④ FULL OUTER JOIN (다른 결과)\n\n[핵심] FULL OUTER JOIN은 양쪽 매칭 없는 행까지 포함하므로 일반적으로 INNER/LEFT/RIGHT 결과와 다르다.\n\n[풀이] 동일 데이터에 대해:\n- INNER: 매칭 행만\n- LEFT: 좌측 전부 + 매칭 우측\n- RIGHT: 우측 전부 + 매칭 좌측\n- FULL: 좌·우 전부 (매칭 없는 양쪽 모두 NULL로 표시)\n매칭만 있는 결과와 비교하면 FULL이 가장 행 수가 많다.\n\n[오답]\n① INNER JOIN: 동일 매칭 행만\n② LEFT OUTER JOIN: 좌측 보존\n③ RIGHT OUTER JOIN: 우측 보존\n\n[암기] FULL OUTER = 좌·우 전부 + NULL로 채움. 가장 행 수 많음."
       },
       {
         "problem_number": 13,
-        "comment": "①만 조건이 반대."
+        "comment": "정답: ① COL3 >= 200 AND COL4 <= 200\n\n[핵심] BETWEEN 200 AND COL3/COL4 같은 조건과 동등한 표현 비교.\n\n[풀이] '200 BETWEEN COL3 AND COL4'는 200이 [COL3, COL4] 구간에 있다는 의미 = COL3 <= 200 AND COL4 >= 200. ①은 부등호 방향이 반대(COL3 >= 200 AND COL4 <= 200)로 [200..200] 너머에서 200을 가두는 형태라 의미가 다름.\n\n[오답]\n② NOT(200 < COL3 OR 200 > COL4): 드모르간 → COL3<=200 AND COL4>=200 = BETWEEN 동등\n③ 200 BETWEEN COL3 AND COL4: 원본\n④ COL3 <= 200 AND COL4 >= 200: BETWEEN 200 AND ... 정확히 동등\n\n[암기] ①만 부등호 방향 반대 → 의미 다름."
       },
       {
         "problem_number": 14,
-        "comment": "FIRST=COL1 최소 그룹(1). MAX(10,20)=20."
+        "comment": "정답: ② 20\n[데이터] (1,10), (1,20), (2,30), (3,40), (3,50)\n[함수] MAX(COL2) KEEP (DENSE_RANK FIRST ORDER BY COL1)\n\n[핵심] KEEP FIRST/LAST 절은 ORDER BY로 순위 1위 그룹만 추려 그 안에서 집계.\n\n[풀이]\n- ORDER BY COL1: 정렬 시 COL1=1이 1위(가장 작은 값)\n- DENSE_RANK FIRST: 1위 그룹 행만 선택 → (1,10), (1,20)\n- MAX(COL2): 그 안의 COL2 최대 = MAX(10, 20) = 20\n\n[오답]\n① 10: 1위 그룹 중 MIN을 선택한 결과\n③ 40: COL1=3 그룹의 MAX (LAST 가정)\n④ 60: 잘못된 계산\n\n[암기] KEEP(DENSE_RANK FIRST ORDER BY x) = x 최소 그룹에서 집계."
       },
       {
         "problem_number": 15,
-        "comment": "COALESCE는 NULL이 아닌 첫 인자 반환. 'S'가 첫 non-null."
+        "comment": "정답: ① S\n[입력] COALESCE(NULL, NULL, 'S', NULL, 'QL')\n\n[핵심] COALESCE는 NULL이 아닌 첫 번째 인자를 반환.\n\n[풀이] 왼쪽부터 차례로 검사하다 첫 non-NULL을 만나면 그 값을 반환하고 나머지는 평가 안 함. 'S'가 첫 non-NULL → 결과 'S'.\n\n[오답]\n② SQL: 문자열 연결이 아님\n③ NULL: 첫 non-NULL을 반환하므로 NULL 아님\n④ 에러: 정상 동작\n\n[암기] COALESCE = 첫 non-NULL. (NVL을 다중 인자로 일반화한 함수)"
       },
       {
         "problem_number": 16,
-        "comment": "CEIL=올림(9.36→10), ROUND=반올림(9.48→9), FLOOR=내림(9.72→9)."
+        "comment": "정답: ② 10, 9, 9\n[함수] CEIL(9.36), ROUND(9.48), FLOOR(9.72)\n\n[핵심] 천장(CEIL)·반올림(ROUND)·바닥(FLOOR) 함수 동작.\n\n[풀이]\n- CEIL(9.36) = 10 (이상으로 올림)\n- ROUND(9.48) = 9 (소수 첫째 .48은 0.5 미만이므로 반올림 아래로)\n- FLOOR(9.72) = 9 (이하로 내림)\n\n[오답]\n① 9,9,9: CEIL 잘못\n③ 9,9,10: CEIL 잘못 + FLOOR 잘못\n④ 10,10,9: ROUND가 10이 되려면 .5 이상이어야\n\n[암기] CEIL=올림, ROUND=반올림, FLOOR=내림."
       },
       {
         "problem_number": 17,
-        "comment": "DISTINCT 물품=3종. IN ('p',NULL)은 'p'만 매칭(NULL 비교는 UNKNOWN으로 제외)."
+        "comment": "정답: ② 3, 30\n[문제] COUNT(DISTINCT 물품), COUNT(*) WHERE 물품 IN ('p', NULL)\n\n[핵심] DISTINCT 개수와 IN에 포함된 NULL의 무력성.\n\n[풀이]\n- COUNT(DISTINCT 물품): 전체 데이터의 distinct 물품 = 3종 (가정)\n- WHERE 물품 IN ('p', NULL): NULL과의 비교는 UNKNOWN이라 NULL 항목은 매칭에 기여 없음. 결국 물품='p'인 행만 카운트 → 30 (가정)\nIN 리스트의 NULL은 매칭을 추가하지 않는다는 게 핵심.\n\n[오답]\n① 3,0: 'p' 매칭 무시\n③ 3,에러: IN에 NULL은 에러 아님 (그냥 무시)\n④ 3,NULL: COUNT가 NULL 반환할 수 없음 (집계 결과는 NULL 또는 0/숫자)\n\n[암기] IN 리스트의 NULL은 매칭 없음(에러도 아님)."
       },
       {
         "problem_number": 18,
-        "comment": "INTERSECT는 두 결과의 공통 행 반환(교집합)."
+        "comment": "정답: ② INTERSECT\n\n[핵심] 집합 연산자 중 교집합.\n\n[풀이] INTERSECT는 두 SELECT 결과의 공통 행만 반환. 양쪽 모두에 존재하는 행이 결과에 포함되며 중복은 제거된다.\n\n[오답]\n① UNION: 합집합(중복 제거)\n③ MINUS: 차집합(첫 SELECT − 두 번째)\n④ EXCEPT: SQL Server의 MINUS와 동일 (Oracle은 MINUS 사용)\n\n[암기] UNION=합, INTERSECT=교, MINUS/EXCEPT=차."
       },
       {
         "problem_number": 19,
-        "comment": "TRUNCATE는 전체 삭제만 가능, WHERE로 부분 삭제 불가. DDL이라 ROLLBACK도 불가."
+        "comment": "정답: ③ 특정 행만 삭제 불가능\n\n[핵심] TRUNCATE의 핵심 특성.\n\n[풀이] TRUNCATE는 DDL이며 테이블 전체 데이터를 빠르게 삭제. WHERE를 받지 않아 조건부 삭제 불가. ROLLBACK 불가(Auto Commit). 일반적으로 DELETE보다 훨씬 빠름.\n\n[오답]\n① 구조+데이터 모두 삭제: DROP의 동작 (TRUNCATE는 구조 유지)\n② ROLLBACK 가능: DDL이라 불가\n④ DELETE보다 느림: 반대 — 빠름\n\n[암기] TRUNCATE = DDL + 전체 삭제 + ROLLBACK 불가 + WHERE 불가."
       },
       {
         "problem_number": 20,
-        "comment": "LIKE 조건은 NULL을 제외. WHERE 없이 FROM만 써야 NULL 포함 4행 전부 카운트."
+        "comment": "정답: ② FROM EMP (무조건)\n[데이터] Smith, Charlie, Alice, NULL (4행)\n\n[핵심] LIKE 비교 시 NULL은 항상 매칭 실패.\n\n[풀이] LIKE 조건은 NULL과 비교 시 UNKNOWN을 반환하여 WHERE 필터에서 제외된다. 따라서 WHERE 절을 어떻게 쓰든 NULL 행은 빠짐 → 최대 3행. COUNT=4를 만들려면 WHERE 없이 FROM만 사용.\n\n[오답]\n① LIKE '%%': NULL 제외 → 3행\n③ LIKE '%': NULL 제외 → 3행\n④ LIKE '_%': 최소 1글자 + NULL 제외 → 3행\n\n[암기] LIKE는 NULL 제외. 전체 카운트는 WHERE 없이."
       },
       {
         "problem_number": 21,
-        "comment": "①은 COL=NULL→항상 UNKNOWN→ELSE(0)만 반환."
+        "comment": "정답: ① CASE COL WHEN NULL THEN -1 ELSE 0 END (결과 다름)\n\n[핵심] CASE의 단순형(simple) WHEN은 = 비교를 쓰므로 NULL=NULL이 UNKNOWN.\n\n[풀이]\n- 단순 CASE: 'CASE COL WHEN NULL ...' = 'COL = NULL'으로 평가 → 항상 UNKNOWN → THEN 안 타고 ELSE(0) 반환. NULL인 행도 -1 못 받음.\n- 검색형 CASE: 'CASE WHEN COL IS NULL THEN -1 ELSE 0' = NULL이면 -1, 아니면 0 (정상)\n\n[오답]\n② CASE WHEN COL IS NULL THEN -1 ELSE 0: NULL이면 -1 (정상 동작)\n③ DECODE(COL, NULL, -1, 0): DECODE는 특수하게 NULL=NULL을 TRUE로 처리 → NULL이면 -1\n④ NVL2(COL, 0, -1): COL이 NOT NULL이면 0, NULL이면 -1\n\n[암기] 단순 CASE WHEN NULL은 항상 ELSE로 빠짐. NULL 비교는 IS 또는 DECODE."
       },
       {
         "problem_number": 22,
-        "comment": "셀프조인은 한 테이블 내 컬럼 간 관계(예: 사원-관리자) 조인."
+        "comment": "정답: ③ 한 테이블 컬럼 연관관계\n\n[핵심] 셀프조인(Self-Join)의 정의.\n\n[풀이] 셀프조인은 하나의 테이블을 자기 자신과 조인 — 같은 테이블의 다른 컬럼(또는 행)을 비교하기 위함. 대표 예: 사원 테이블에서 사원과 그 관리자(둘 다 같은 EMP 테이블) 조회.\n\n[오답]\n① 두 테이블 컬럼 연관: 일반 조인\n② 두 테이블 연관 없이: 카테시안\n④ 한 테이블 연관 없이: 의미 없음\n\n[암기] 셀프조인 = 같은 테이블의 다른 인스턴스/컬럼끼리 연결."
       },
       {
         "problem_number": 23,
-        "comment": "조건 불일치 시 일반 SELECT는 0행(공집합), MAX는 NULL 한 행 반환."
+        "comment": "정답: ③ 공집합, NULL\n\n[핵심] 조건에 맞는 행이 없을 때 일반 SELECT와 집계 함수의 결과 차이.\n\n[풀이]\n- 일반 SELECT col WHERE 조건: 행이 없으면 0행 반환(empty set/공집합)\n- SELECT MAX(col) WHERE 조건: 집계 함수는 항상 1행을 반환. 입력이 비면 MAX 결과는 NULL.\n이 차이는 집계 함수가 \"빈 입력도 한 행으로\" 처리하기 때문.\n\n[오답]\n① NULL, NULL: 일반 SELECT는 공집합\n② NULL, 공집합: 반대\n④ 공집합, 공집합: MAX는 한 행 반환\n\n[암기] 일반=공집합, 집계=한 행 NULL."
       },
       {
         "problem_number": 24,
-        "comment": "a{2,4}는 a 2~4회 greedy 매치. 'aaaaabbbb'에서 'aaaa' 매칭."
+        "comment": "정답: ② aaaa\n[입력] 'aaaaabbbb', 패턴 'a{2,4}'\n\n[핵심] 정규식 수량자 {n,m}은 최소 n번, 최대 m번 매칭 (greedy 기본).\n\n[풀이] 'a{2,4}'는 'a를 2~4번 연속'. 입력 'aaaaa'(a 5개) 부분에서 greedy로 최대인 4번 매칭 → 'aaaa' 반환.\n\n[오답]\n① aaa: 3번 매칭에서 멈춤 (greedy 위반)\n③ ab: a 다음 b는 패턴과 무관\n④ aab: 패턴과 매칭 안 됨\n\n[암기] {n,m} = n~m회. greedy 기본 → 최대 매칭."
       },
       {
         "problem_number": 25,
-        "comment": "UNION은 중복 제거, UNION ALL은 중복 그대로 포함."
+        "comment": "정답: ② UNION ALL\n\n[핵심] 중복을 그대로 보존하며 합치는 집합 연산자.\n\n[풀이]\n- UNION: 합집합 + 중복 제거 (정렬·DISTINCT 부담)\n- UNION ALL: 합집합 + 중복 그대로 (성능 빠름)\n중복 정보가 의미 있는 경우 UNION ALL이 필수.\n\n[오답]\n① UNION: 중복 제거\n③ INTERSECT: 교집합\n④ MINUS: 차집합\n\n[암기] UNION = 중복 제거(느림), UNION ALL = 중복 유지(빠름)."
       },
       {
         "problem_number": 26,
-        "comment": "정렬 방향(ASC/DESC)은 ORDER BY절에서 지정."
+        "comment": "정답: ④ ORDER BY절\n\n[핵심] 정렬 방향(DESC) 지정 위치.\n\n[풀이] DESC/ASC는 ORDER BY 컬럼명 뒤에 명시. 예: ORDER BY salary DESC, name ASC. 기본은 ASC (생략 시).\n\n[오답]\n① SELECT절: 컬럼/별칭 정의 영역\n② WHERE절: 행 필터링\n③ GROUP BY절: 집계 그룹 정의\n\n[암기] 정렬 방향은 ORDER BY에만."
       },
       {
         "problem_number": 27,
-        "comment": "COMMIT된 트랜잭션은 ROLLBACK 불가. SAVEPOINT 또는 COMMIT 이전까지만 가능."
+        "comment": "정답: ③ COMMIT 이전으로 롤백 가능 (옳지 않음)\n\n[핵심] COMMIT의 의미 — 변경 사항을 영구 확정.\n\n[풀이] COMMIT은 트랜잭션을 종료하고 모든 변경을 영구화. COMMIT된 변경은 ROLLBACK으로 되돌릴 수 없다. SAVEPOINT는 현재 트랜잭션 내부의 부분 롤백만 지원.\n\n[오답]\n① 변경사항 취소: 옳음 — ROLLBACK의 기본 기능\n② SP로 특정 지점까지 가능: 옳음 — ROLLBACK TO SAVEPOINT\n④ DML 결과 원복: 옳음 — DML(INSERT/UPDATE/DELETE) 변경 취소\n\n[암기] COMMIT 이후는 절대 ROLLBACK 불가. SAVEPOINT는 현재 트랜잭션 내만."
       },
       {
         "problem_number": 28,
-        "comment": "논리적 실행 순서: FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY."
+        "comment": "정답: ③ FROM-WHERE-GROUP BY-HAVING-SELECT-ORDER BY\n\n[핵심] SQL의 논리적(개념적) 실행 순서.\n\n[풀이] 작성 순서는 SELECT부터 시작하지만 평가 순서는 FROM이 먼저:\n1. FROM: 테이블/조인 처리\n2. WHERE: 행 필터\n3. GROUP BY: 그룹화\n4. HAVING: 그룹 필터\n5. SELECT: 컬럼/별칭/식 평가\n6. ORDER BY: 정렬\n이 때문에 WHERE에서는 SELECT의 별칭을 못 쓰고 ORDER BY에서는 쓸 수 있음.\n\n[오답]\n① SELECT 먼저: 실제 평가 순서 X\n② WHERE → FROM: FROM이 먼저\n④ HAVING → GROUP BY: GROUP BY가 먼저\n\n[암기] FROM → WHERE → GROUP → HAVING → SELECT → ORDER."
       },
       {
         "problem_number": 29,
-        "comment": "DENSE_RANK: 동순위 후 순차(1,2,2,3). RANK는 건너뜀(1,2,2,4)."
+        "comment": "정답: ① DENSE_RANK()\n\n[핵심] 동순위 후 다음을 건너뛰지 않는 순위 함수.\n\n[풀이] 정렬값 100,90,90,80일 때:\n- DENSE_RANK: 1,2,2,3 (조밀)\n- RANK: 1,2,2,4 (건너뜀)\n- ROW_NUMBER: 1,2,3,4 (고유)\n- PERCENT_RANK: 비율 (백분율)\n\n[오답]\n② RANK(): 동순위 후 건너뜀\n③ PERCENT_RANK: 누적 비율\n④ ROW_NUMBER: 고유 순번\n\n[암기] DENSE = 조밀(1,2,2,3), RANK = 건너뜀."
       },
       {
         "problem_number": 30,
-        "comment": "원자성(Atomicity)=All or Nothing. 전부 성공 또는 전부 실패."
+        "comment": "정답: ① 원자성\n\n[핵심] (7번 동형) ACID 중 'All or Nothing'.\n\n[풀이] 원자성은 트랜잭션이 더 이상 쪼개지지 않는 단위로, 부분 처리가 불가능하다는 성질. 모두 성공하거나 모두 실패만 가능.\n\n[오답]\n② 고립성: 동시 트랜잭션 간 간섭 없음\n③ 일관성: 트랜잭션 전후 무결 상태 유지\n④ 지속성: COMMIT 후 영구 보존\n\n[암기] ACID = 원자/일관/고립/지속."
       },
       {
         "problem_number": 31,
-        "comment": "NOT IN 리스트에 NULL이 있으면 비교 결과가 UNKNOWN이 되어 결과 행이 0개."
+        "comment": "정답: ① 0\n[데이터] TAB1=(A,10),(B,20),(C,30) / TAB2=(A,20),(B,20),(C,NULL)\n[쿼리] WHERE col NOT IN (TAB2의 값들 — NULL 포함)\n\n[핵심] NOT IN 리스트에 NULL이 있으면 모든 행이 결과에서 빠진다.\n\n[풀이] NOT IN은 \"col != v1 AND col != v2 AND ...\". 리스트에 NULL이 있으면 col != NULL이 UNKNOWN → 전체 AND 결과도 UNKNOWN. UNKNOWN 행은 WHERE에 의해 제외 → 결과 0행.\n\n[오답]\n② 10, ③ 20, ④ 40: NULL 효과 무시한 잘못된 계산\n\n[암기] NOT IN(...NULL...) = 결과 0행. 안전하게 NOT EXISTS 사용."
       },
       {
         "problem_number": 32,
-        "comment": "MAX(NULL)=NULL → 결과적으로 NULL 직접 대입과 동일."
+        "comment": "정답: ④ UPDATE SET COL1=NULL\n\n[핵심] MAX(NULL) = NULL이므로 결과적으로 NULL을 직접 대입하는 것과 동일.\n\n[풀이] 서브쿼리 MAX(NULL컬럼)이 NULL을 반환하면 UPDATE SET col1 = (서브쿼리)는 SET col1 = NULL과 같은 효과. NULL 대입은 정상 동작이며, 에러나지 않는다.\n\n[오답]\n① MAX(COL2) 서브쿼리: COL2 따라 결과 달라짐(반드시 동일 X)\n② COALESCE(MAX(NULL), 0): NULL을 0으로 치환 → 동일하지 않음\n③ MAX(0) 서브쿼리: 0 반환\n\n[암기] NULL 대입은 합법. SET col=NULL OK."
       },
       {
         "problem_number": 33,
-        "comment": "사원 A의 관리자(B)를 조인. 관리자 없는 사원도 표시하려면 LEFT JOIN A.MGR_ID=B.EMP_ID."
+        "comment": "정답: ③ LEFT JOIN A.MGR_ID = B.EMP_ID\n\n[핵심] 사원 A와 그의 관리자(B)를 셀프조인하되, 관리자 없는 사원도 포함하려면 LEFT JOIN.\n\n[풀이] A.MGR_ID(부장 ID) = B.EMP_ID(부장 자신)로 매칭. INNER JOIN이면 관리자 없는 최상위 직원(예: CEO)이 결과에서 누락. LEFT JOIN으로 좌측(사원) 전부를 보존하면 안전.\n\n[오답]\n① LEFT JOIN A.EMP_ID=B.EMP_ID: 자기 자신과 조인 (의미 없음)\n② INNER JOIN A.MGR_ID=B.EMP_ID: 관리자 없는 사원 누락\n④ LEFT JOIN A.EMP_ID=B.EMP_ID: 자기 자신과 매칭\n\n[암기] 관리자 조인: A.MGR = B.EMP, LEFT로 보존."
       },
       {
         "problem_number": 34,
-        "comment": "카테시안 곱은 m×n. 10×10=100행."
+        "comment": "정답: ③ 100\n[조합] 10행 × 10행 (조인 조건 없음)\n\n[핵심] 카테시안 곱(Cartesian Product) = 두 테이블의 모든 행 조합.\n\n[풀이] 조인 조건이 없으면 모든 좌측 행과 모든 우측 행이 곱해진다. m × n = 10 × 10 = 100행.\n\n[오답]\n① 10, ② 20: 조합 개념 무시\n④ 에러: 조인 조건 없는 SQL은 카테시안으로 정상 수행\n\n[암기] 조인 조건 없으면 m×n 카테시안."
       },
       {
         "problem_number": 35,
-        "comment": "공통 컬럼이 없으면 NATURAL JOIN은 카테시안 곱과 동일. 3×5=15."
+        "comment": "정답: ④ 15\n[데이터] TAB1(ID, CUSTOMER) / TAB2(C_ID, PHONE) (공통 컬럼명 없음)\n\n[핵심] NATURAL JOIN은 동일 컬럼명을 기준으로 매칭. 공통 컬럼명이 없으면 매칭 기준 자체가 없어 카테시안 곱이 된다.\n\n[풀이] TAB1과 TAB2는 컬럼명이 완전히 다르므로 NATURAL JOIN이 자동 매칭할 기준이 없음. → 카테시안. 가정 TAB1=3행, TAB2=5행이면 3×5=15.\n\n[오답]\n① 0, ② 3, ③ 5: 부분만 표현\n\n[암기] NATURAL JOIN + 공통 컬럼 없음 = 카테시안 곱."
       },
       {
         "problem_number": 36,
-        "comment": "COL2≤20 → (A,10),(A,20),(B,20). DISTINCT COL1 = {A,B} = 2개."
+        "comment": "정답: ① 2 ✓\n[데이터] (A,10), (A,20), (B,20), (C,30) [쿼리] COUNT(DISTINCT COL1) WHERE COL2<=20\n\n[핵심] WHERE로 행 필터링 → DISTINCT 개수 산출.\n\n[풀이] WHERE COL2<=20 → (A,10), (A,20), (B,20) 3행. COL1의 distinct = {A, B} = 2개.\n\n[오답]\n② 3: 행 수와 혼동\n③/④ GROUP BY 결과: 다른 형식 결과\n\n[암기] 필터 후 DISTINCT는 고유 값 개수만."
       },
       {
         "problem_number": 37,
-        "comment": "한 테이블에 FK는 여러 개 가능 (각각 다른 부모 참조 가능)."
+        "comment": "정답: ② FK는 여러 개 가능\n\n[핵심] 한 테이블에 외래키(FK)는 여러 개 설정 가능.\n\n[풀이] 한 테이블은 여러 부모 테이블을 동시에 참조할 수 있어 FK를 여러 개 가질 수 있음. 예: 주문 테이블이 고객 FK + 상품 FK 동시 보유.\n\n[오답]\n① PK는 한 컬럼에 하나만: PK는 테이블당 하나(복합키 포함 가능). 표현이 모호\n③ UNIQUE는 NULL 불허: UK는 NULL 허용(중복은 1개까지). 틀림\n④ FK는 하나만: 틀림\n\n[암기] FK는 여러 개 OK. PK는 테이블당 하나."
       },
       {
         "problem_number": 38,
-        "comment": "REGEXP_INSTR: 패턴 시작 위치(정수) 반환. SUBSTR=문자열, REPLACE=치환, LIKE=불리언."
+        "comment": "정답: ④ REGEXP_INSTR\n\n[핵심] 정규식 패턴의 시작 위치(정수)를 반환하는 함수.\n\n[풀이]\n- REGEXP_INSTR(string, pattern): 패턴 매칭 시작 위치 반환(없으면 0)\n- REGEXP_SUBSTR: 매칭된 문자열 반환\n- REGEXP_REPLACE: 매칭을 다른 문자열로 치환\n- REGEXP_LIKE: 매칭 여부 boolean (조건절용)\n- REGEXP_COUNT: 매칭 횟수\n\n[오답]\n① REGEXP_COUNT: 횟수 반환\n② REGEXP_LIKE: 조건절(true/false)\n③ REGEXP_REPLACE: 문자열 치환\n\n[암기] INSTR=위치, SUBSTR=문자열, LIKE=참거짓, COUNT=횟수, REPLACE=치환."
       },
       {
         "problem_number": 39,
-        "comment": "INNER JOIN이므로 미소속 사원 제외."
+        "comment": "정답: ② 부서 미소속 사원 제외\n[조건] INNER JOIN 부서.부서ID = 사원.부서ID AND 등급>=2\n\n[핵심] INNER JOIN은 매칭되는 행만 결과에 포함.\n\n[풀이] 부서.부서ID와 사원.부서ID가 매칭되어야 결과에 포함. 사원의 부서ID가 NULL이거나 부서 테이블에 없는 값이면 매칭 안 되어 결과에서 제외. 결과적으로 부서 미소속 사원은 출력되지 않음.\n\n[오답]\n① 2등급 이상 모두: INNER JOIN의 효과 무시\n③ 1등급 포함: 등급>=2 조건과 모순\n④ 모든 사원: 매칭 안 되는 행 제외\n\n[암기] INNER JOIN = 매칭 행만. 미매칭은 사라짐."
       },
       {
         "problem_number": 40,
-        "comment": "내림차순 정렬은 ORDER BY 컬럼 뒤에 DESC."
+        "comment": "정답: ④ ORDER BY에 DESC 추가\n\n[핵심] 내림차순 정렬은 ORDER BY 절에 DESC 키워드 추가.\n\n[풀이] ORDER BY col DESC. 생략 시 기본은 ASC. 여러 컬럼 정렬 시 각 컬럼마다 ASC/DESC 다르게 지정 가능.\n\n[오답]\n① SELECT절: 컬럼 정의 영역\n② FROM절: 테이블 지정\n③ WHERE절: 행 필터\n\n[암기] 내림차순 = ORDER BY col DESC."
       },
       {
         "problem_number": 41,
-        "comment": "ROLLUP: 그룹별 소계와 전체 총계를 자동 생성."
+        "comment": "정답: ② ROLLUP()\n\n[핵심] 그룹별 소계와 전체 총계를 자동 생성하는 grouping 절.\n\n[풀이] ROLLUP(A, B)은 grouping sets {(A,B), (A), ()}을 생성 — 오른쪽부터 컬럼을 줄여가며 마지막에 전체 소계(빈 그룹). 합계 보고서에 자주 쓰임.\n\n[오답]\n① GROUP BY: 일반 그룹화 (소계 자동 X)\n③ CUBE(): 모든 차원 조합 (ROLLUP보다 더 많은 그룹)\n④ GROUPING SETS(): 명시한 그룹만 생성\n\n[암기] ROLLUP = 계층적 소계 + 총계."
       },
       {
         "problem_number": 42,
-        "comment": "CUBE: 모든 차원 조합의 소계를 생성."
+        "comment": "정답: ④ CUBE()\n\n[핵심] 모든 가능한 차원 조합의 소계를 생성하는 grouping 절.\n\n[풀이] CUBE(A, B) = {(A,B), (A), (B), ()} 즉 2^2=4 그룹. n개 컬럼이면 2^n 그룹. ROLLUP은 계층적이고, CUBE는 완전 조합형.\n\n[오답]\n① GROUP BY: 단순 그룹\n② ROLLUP(): 계층적 소계만 (B 단독 그룹 없음)\n③ GROUPING SETS(): 명시적 지정만\n\n[암기] CUBE = 2^n 그룹 (모든 조합)."
       },
       {
         "problem_number": 43,
-        "comment": "ROLLBACK TO SP2: SP2 이후 DELETE만 취소. UPDATE는 살아있음 → INSERT(4,1) 추가 후 COL1=4 행은 3개."
+        "comment": "정답: ③ 3\n[시나리오] INSERT 3건 → SP1 → UPDATE COL1=4 WHERE COL2<=2 → SP2 → DELETE WHERE COL2=2 → ROLLBACK TO SP2 → INSERT (4,1) → COMMIT\n\n[핵심] ROLLBACK TO SP2는 SP2 이후의 변경(DELETE)만 취소. SP2 이전 UPDATE는 유지.\n\n[풀이] 가정 초기 INSERT가 (1,1),(2,2),(3,3)이라 하면:\n1. INSERT 3건 → (1,1),(2,2),(3,3)\n2. UPDATE COL1=4 WHERE COL2<=2 → (4,1),(4,2),(3,3) [SP2 시점 상태]\n3. DELETE WHERE COL2=2 → (4,1),(3,3)\n4. ROLLBACK TO SP2 → SP2 상태 회복: (4,1),(4,2),(3,3)\n5. INSERT (4,1) → (4,1),(4,2),(3,3),(4,1)\n6. COMMIT\n결과 COL1=4 행은 (4,1),(4,2),(4,1) = 3개.\n\n[오답]\n① 1, ② 2, ④ 4: 단계 trace 오류\n\n[암기] ROLLBACK TO SP는 SP 이후만 취소. SP 이전 작업은 유지."
       },
       {
         "problem_number": 44,

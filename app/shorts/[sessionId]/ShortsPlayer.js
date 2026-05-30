@@ -47,24 +47,77 @@ function speak(text, { rate = 1, onEnd, onError, voice }) {
   return u;
 }
 
+// TTS용 정제: 화면에는 구조화된 텍스트, 음성엔 자연스러운 본문만.
+// - [라벨] → "라벨." 평문화
+// - ①②③④ → "일번/이번/삼번/사번"
+// - 기호 정제 (→, ∪, ≡, ≥, ≤ 등)
+// - 연속 줄바꿈/공백 정리
+const TTS_LABEL_REPLACEMENTS = [
+  [/\[핵심\]/g, '핵심.'],
+  [/\[풀이\]/g, '풀이.'],
+  [/\[오답\]/g, '오답 정리.'],
+  [/\[암기\]/g, '암기 포인트.'],
+  [/\[데이터\]/g, '데이터.'],
+  [/\[입력\]/g, '입력.'],
+  [/\[보기\]/g, '보기.'],
+  [/\[배경\]/g, '배경.'],
+  [/\[상황\]/g, '상황.'],
+  [/\[조건\]/g, '조건.'],
+  [/\[조합\]/g, '조합.'],
+  [/\[연산\]/g, '연산.'],
+  [/\[비교\]/g, '비교.'],
+  [/\[함수\]/g, '함수.'],
+  [/\[구문\]/g, '구문.'],
+  [/\[문제\]/g, '문제.'],
+  [/\[쿼리\]/g, '쿼리.'],
+  [/\[시나리오\]/g, '시나리오.'],
+];
+
+const TTS_SYMBOL_REPLACEMENTS = [
+  [/①/g, '1번'],
+  [/②/g, '2번'],
+  [/③/g, '3번'],
+  [/④/g, '4번'],
+  [/⑤/g, '5번'],
+  [/⑥/g, '6번'],
+  [/→/g, ', '],
+  [/∪/g, ' 합 '],
+  [/∩/g, ' 교 '],
+  [/≡/g, ' 같음 '],
+  [/≥/g, ' 이상 '],
+  [/≤/g, ' 이하 '],
+  [/×/g, ' 곱하기 '],
+];
+
+function cleanForTts(text) {
+  let s = String(text || '');
+  for (const [re, rep] of TTS_LABEL_REPLACEMENTS) s = s.replace(re, rep);
+  for (const [re, rep] of TTS_SYMBOL_REPLACEMENTS) s = s.replace(re, rep);
+  // 남은 대괄호 라벨도 일반화 [임의] → "임의."
+  s = s.replace(/\[([^\]]+)\]/g, '$1.');
+  // 줄바꿈/연속공백 → 한 칸
+  s = s.replace(/\s*\n+\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  return s;
+}
+
 function buildQuestionScript(item) {
   const parts = [`${item.number}번.`, item.question];
   if (item.examples) parts.push(item.examples);
   item.options.forEach((opt, i) => {
     parts.push(`${OPTION_SYMBOLS[i] || `${i + 1}번`}. ${opt}.`);
   });
-  return parts.join(' ');
+  return cleanForTts(parts.join(' '));
 }
 
 function buildAnswerScript(item) {
   const n = item.correctIndex + 1;
   const sym = OPTION_SYMBOLS[item.correctIndex] || `${n}번`;
-  return `정답은 ${sym}. ${item.correctText}.`;
+  return cleanForTts(`정답은 ${sym}. ${item.correctText}.`);
 }
 
 function buildExplanationScript(item) {
   if (!item.comment) return '';
-  return `해설. ${item.comment}`;
+  return cleanForTts(`해설. ${item.comment}`);
 }
 
 export default function ShortsPlayer({ items, title, sessionId }) {
