@@ -1,20 +1,35 @@
 'use client';
 
 // app/shorts/[sessionId]/ShortsPlayer.js
-// 문제 → 정답 공개 → 해설 → 다음 문제 자동 진행 (TTS + 수동 컨트롤)
+// 자동 진행 흐름:
+//   question → answer → explanation → ask(10s) → (질문 시) gpt_loading → gpt_response → next
+//                                              → (10s 만료) → next
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Mic, Loader2 } from 'lucide-react';
 
 const STORAGE_KEY_PREFIX = 'shorts_progress_v1_';
 
-// 페이즈 사이 기본 대기 시간 (ms) — TTS 종료 후 자동 진행 전 살짝 멈춤
 const PHASE_GAP_MS = 600;
+const ASK_WINDOW_MS = 10_000;
 
-// 보기 번호 기호 매핑
 const OPTION_SYMBOLS = ['①', '②', '③', '④', '⑤', '⑥'];
-
 const SPEED_OPTIONS = [0.8, 1.0, 1.25, 1.5, 2.0];
+
+function getSpeechRecognition() {
+  if (typeof window === 'undefined') return null;
+  return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function pickKoreanVoice() {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return null;
+  const voices = window.speechSynthesis.getVoices();
+  return (
+    voices.find((v) => v.lang === 'ko-KR') ||
+    voices.find((v) => v.lang?.startsWith('ko')) ||
+    null
+  );
+}
 
 function speak(text, { rate = 1, onEnd, onError, voice }) {
   if (typeof window === 'undefined' || !window.speechSynthesis) {
@@ -30,16 +45,6 @@ function speak(text, { rate = 1, onEnd, onError, voice }) {
   u.onerror = (e) => onError?.(e);
   window.speechSynthesis.speak(u);
   return u;
-}
-
-function pickKoreanVoice() {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return null;
-  const voices = window.speechSynthesis.getVoices();
-  return (
-    voices.find((v) => v.lang === 'ko-KR') ||
-    voices.find((v) => v.lang?.startsWith('ko')) ||
-    null
-  );
 }
 
 function buildQuestionScript(item) {
@@ -64,18 +69,28 @@ function buildExplanationScript(item) {
 
 export default function ShortsPlayer({ items, title, sessionId }) {
   const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState('question'); // 'question' | 'answer' | 'explanation'
+  const [phase, setPhase] = useState('question');
   const [isPlaying, setIsPlaying] = useState(true);
   const [muted, setMuted] = useState(false);
   const [speed, setSpeed] = useState(1.0);
   const [voice, setVoice] = useState(null);
-  const phaseTimer = useRef(null);
-  const currentUtterance = useRef(null);
 
+  // ask 페이즈 관련
+  const [askRemainingMs, setAskRemainingMs] = useState(ASK_WINDOW_MS);
+  const [askListening, setAskListening] = useState(false);
+  const [askTranscript, setAskTranscript] = useState('');
+  const askTimerRef = useRef(null);
+  const recognitionRef = useRef(null);
+
+  // GPT 응답
+  const [gptAnswer, setGptAnswer] = useState('');
+  const [gptError, setGptError] = useState('');
+
+  const phaseTimer = useRef(null);
   const item = items[index];
   const storageKey = `${STORAGE_KEY_PREFIX}${sessionId}`;
 
-  // 진행 상황 복원
+  // ── 진행 상황 복원/저장 ────────────────────────
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
@@ -87,15 +102,12 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     } catch {}
   }, [storageKey, items.length]);
 
-  // 진행 상황 저장
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    try {
-      window.localStorage.setItem(storageKey, String(index));
-    } catch {}
+    try { window.localStorage.setItem(storageKey, String(index)); } catch {}
   }, [index, storageKey]);
 
-  // 한국어 음성 선택 (voices가 비동기 로드되는 브라우저 대응)
+  // ── 한국어 음성 ────────────────────────────────
   useEffect(() => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
     const update = () => setVoice(pickKoreanVoice());
@@ -104,7 +116,122 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     return () => window.speechSynthesis.removeEventListener('voiceschanged', update);
   }, []);
 
-  // 페이즈/문제 변경 시 TTS 재생
+  // ── 다음 문제로 ─────────────────────────────────
+  const goNextItem = useCallback(() => {
+    setGptAnswer('');
+    setGptError('');
+    setAskTranscript('');
+    setIndex((i) => (i >= items.length - 1 ? i : i + 1));
+    setPhase('question');
+  }, [items.length]);
+
+  // ── STT (ask 페이즈에서 자동 시작) ──────────────
+  const stopRecognition = useCallback(() => {
+    try { recognitionRef.current?.stop(); } catch {}
+    recognitionRef.current = null;
+    setAskListening(false);
+  }, []);
+
+  const startRecognition = useCallback(() => {
+    const SR = getSpeechRecognition();
+    if (!SR) return; // 미지원 브라우저는 타이머만으로 진행
+    try {
+      const r = new SR();
+      r.lang = 'ko-KR';
+      r.continuous = false;
+      r.interimResults = false;
+      r.maxAlternatives = 1;
+      r.onresult = (event) => {
+        const text = String(event.results?.[0]?.[0]?.transcript || '').trim();
+        if (text) {
+          setAskTranscript(text);
+          setAskListening(false);
+          setPhase('gpt_loading');
+        }
+      };
+      r.onerror = () => {
+        setAskListening(false);
+      };
+      r.onend = () => {
+        setAskListening(false);
+      };
+      r.start();
+      recognitionRef.current = r;
+      setAskListening(true);
+    } catch {
+      setAskListening(false);
+    }
+  }, []);
+
+  // ── ask 페이즈 타이머 ──────────────────────────
+  useEffect(() => {
+    if (phase !== 'ask' || !isPlaying) return;
+    setAskRemainingMs(ASK_WINDOW_MS);
+    startRecognition();
+    const startedAt = Date.now();
+    askTimerRef.current = setInterval(() => {
+      const elapsed = Date.now() - startedAt;
+      const remaining = ASK_WINDOW_MS - elapsed;
+      if (remaining <= 0) {
+        clearInterval(askTimerRef.current);
+        askTimerRef.current = null;
+        stopRecognition();
+        goNextItem();
+      } else {
+        setAskRemainingMs(remaining);
+      }
+    }, 100);
+    return () => {
+      if (askTimerRef.current) {
+        clearInterval(askTimerRef.current);
+        askTimerRef.current = null;
+      }
+      stopRecognition();
+    };
+  }, [phase, isPlaying, startRecognition, stopRecognition, goNextItem]);
+
+  // ── GPT 호출 (gpt_loading 페이즈) ──────────────
+  useEffect(() => {
+    if (phase !== 'gpt_loading' || !askTranscript || !item) return;
+    let cancelled = false;
+    setGptAnswer('');
+    setGptError('');
+
+    fetch('/api/gpt/objection', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sourceSessionId: sessionId,
+        sourceProblemNumber: item.number,
+        questionText: item.question,
+        examples: item.examples || '',
+        options: item.options,
+        selectedAnswer: '',
+        correctAnswer: item.correctText,
+        explanationText: item.comment || '',
+        history: [{ role: 'user', content: askTranscript }],
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        if (data?.ok) {
+          setGptAnswer(String(data.answer || '').trim() || '답변을 받지 못했어요.');
+        } else {
+          setGptError(data?.message || 'GPT 호출 실패');
+        }
+        setPhase('gpt_response');
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        setGptError(err?.message || '네트워크 오류');
+        setPhase('gpt_response');
+      });
+
+    return () => { cancelled = true; };
+  }, [phase, askTranscript, item, sessionId]);
+
+  // ── 페이즈별 TTS / 자동 진행 ────────────────────
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (phaseTimer.current) {
@@ -114,90 +241,86 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     window.speechSynthesis?.cancel();
 
     if (!isPlaying || !item) return;
+    if (phase === 'ask' || phase === 'gpt_loading') return; // 별도 effect에서 관리
 
     let script = '';
     if (phase === 'question') script = buildQuestionScript(item);
     else if (phase === 'answer') script = buildAnswerScript(item);
     else if (phase === 'explanation') script = buildExplanationScript(item);
+    else if (phase === 'gpt_response') script = gptAnswer || gptError || '응답이 없어요.';
 
-    const advanceFn = () => {
-      phaseTimer.current = setTimeout(() => goNextPhase(), PHASE_GAP_MS);
+    const advance = () => {
+      phaseTimer.current = setTimeout(() => {
+        if (phase === 'question') {
+          setPhase('answer');
+        } else if (phase === 'answer') {
+          setPhase(item?.comment ? 'explanation' : 'ask');
+        } else if (phase === 'explanation') {
+          setPhase('ask');
+        } else if (phase === 'gpt_response') {
+          goNextItem();
+        }
+      }, PHASE_GAP_MS);
     };
 
     if (!script || muted) {
-      // 스크립트 없거나 음소거 — 페이즈별 정적 대기 후 진행
-      const fallbackMs = phase === 'answer' ? 1800 : phase === 'explanation' ? 3000 : 4000;
-      phaseTimer.current = setTimeout(() => goNextPhase(), fallbackMs);
+      const fallbackMs =
+        phase === 'answer' ? 1800 :
+        phase === 'explanation' ? 3000 :
+        phase === 'gpt_response' ? 4000 : 4000;
+      phaseTimer.current = setTimeout(advance, fallbackMs);
       return;
     }
 
-    currentUtterance.current = speak(script, {
-      rate: speed,
-      voice,
-      onEnd: advanceFn,
-      onError: advanceFn,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, phase, isPlaying, muted, speed, voice]);
+    speak(script, { rate: speed, voice, onEnd: advance, onError: advance });
+  }, [index, phase, isPlaying, muted, speed, voice, item, gptAnswer, gptError, goNextItem]);
 
-  // 언마운트 시 cleanup
+  // ── 언마운트 cleanup ────────────────────────────
   useEffect(() => {
     return () => {
       if (typeof window !== 'undefined' && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
       if (phaseTimer.current) clearTimeout(phaseTimer.current);
+      if (askTimerRef.current) clearInterval(askTimerRef.current);
+      try { recognitionRef.current?.stop(); } catch {}
     };
   }, []);
 
-  const goNextPhase = useCallback(() => {
-    setPhase((p) => {
-      if (p === 'question') return 'answer';
-      if (p === 'answer') {
-        // 해설 없으면 바로 다음 문제로 점프
-        if (!item?.comment) {
-          setIndex((i) => Math.min(items.length - 1, i + 1));
-          return 'question';
-        }
-        return 'explanation';
-      }
-      // explanation → 다음 문제
-      setIndex((i) => {
-        if (i >= items.length - 1) return i; // 마지막이면 멈춤
-        return i + 1;
-      });
-      return 'question';
-    });
-  }, [item, items.length]);
+  // ── 컨트롤 ──────────────────────────────────────
+  const skipToNextPhase = useCallback(() => {
+    // 현재 페이즈 즉시 종료 → 다음으로
+    if (phase === 'question') setPhase('answer');
+    else if (phase === 'answer') setPhase(item?.comment ? 'explanation' : 'ask');
+    else if (phase === 'explanation') setPhase('ask');
+    else if (phase === 'ask') { stopRecognition(); goNextItem(); }
+    else if (phase === 'gpt_loading') { /* 무시 — 로딩 끝날 때까지 대기 */ }
+    else if (phase === 'gpt_response') goNextItem();
+  }, [phase, item, goNextItem, stopRecognition]);
 
   const goPrev = useCallback(() => {
-    if (phase === 'explanation') {
-      setPhase('answer');
+    if (phase === 'gpt_response' || phase === 'gpt_loading') {
+      setPhase('ask');
       return;
     }
-    if (phase === 'answer') {
-      setPhase('question');
-      return;
-    }
-    setIndex((i) => {
-      const prev = Math.max(0, i - 1);
-      setPhase('question');
-      return prev;
-    });
-  }, [phase]);
+    if (phase === 'ask') { stopRecognition(); setPhase(item?.comment ? 'explanation' : 'answer'); return; }
+    if (phase === 'explanation') { setPhase('answer'); return; }
+    if (phase === 'answer') { setPhase('question'); return; }
+    setIndex((i) => Math.max(0, i - 1));
+    setPhase('question');
+  }, [phase, item, stopRecognition]);
 
-  const goNext = useCallback(() => {
-    goNextPhase();
-  }, [goNextPhase]);
+  const togglePlay = useCallback(() => setIsPlaying((p) => !p), []);
 
-  const togglePlay = useCallback(() => {
-    setIsPlaying((p) => !p);
-  }, []);
-
+  // ── 파생 상태 ───────────────────────────────────
   const phaseLabel = useMemo(() => {
     if (phase === 'question') return '문제';
     if (phase === 'answer') return '정답';
-    return '해설';
+    if (phase === 'explanation') return '해설';
+    if (phase === 'ask') return '질문';
+    if (phase === 'gpt_loading') return 'GPT';
+    if (phase === 'gpt_response') return 'GPT 답변';
+    return phase;
   }, [phase]);
 
   if (!item) {
@@ -209,11 +332,12 @@ export default function ShortsPlayer({ items, title, sessionId }) {
   }
 
   const correctSym = OPTION_SYMBOLS[item.correctIndex] || `${item.correctIndex + 1}번`;
-  const showAnswer = phase === 'answer' || phase === 'explanation';
+  const showAnswer = phase === 'answer' || phase === 'explanation' || phase === 'ask' || phase === 'gpt_loading' || phase === 'gpt_response';
+  const showExplanation = (phase === 'explanation' || phase === 'ask' || phase === 'gpt_loading' || phase === 'gpt_response') && item.comment;
+  const askSecondsLeft = Math.ceil(askRemainingMs / 1000);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950 p-4 text-slate-100">
-      {/* 9:16 세로 카드 */}
       <div className="relative flex aspect-[9/16] w-full max-w-[420px] flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl ring-1 ring-slate-800">
 
         {/* progress bar */}
@@ -230,7 +354,6 @@ export default function ShortsPlayer({ items, title, sessionId }) {
           <span>{index + 1} / {items.length}</span>
         </div>
 
-        {/* phase chip */}
         <div className="mt-2 flex justify-center">
           <span
             className={`rounded-full px-3 py-1 text-[0.7rem] font-semibold tracking-[0.15em] uppercase ${
@@ -238,7 +361,11 @@ export default function ShortsPlayer({ items, title, sessionId }) {
                 ? 'bg-slate-800 text-slate-300'
                 : phase === 'answer'
                   ? 'bg-sky-600/30 text-sky-200'
-                  : 'bg-emerald-600/30 text-emerald-200'
+                  : phase === 'explanation'
+                    ? 'bg-emerald-600/30 text-emerald-200'
+                    : phase === 'ask'
+                      ? 'bg-amber-600/30 text-amber-200'
+                      : 'bg-violet-600/30 text-violet-200'
             }`}
           >
             {phaseLabel}
@@ -247,7 +374,7 @@ export default function ShortsPlayer({ items, title, sessionId }) {
 
         {/* body */}
         <div
-          onClick={goNext}
+          onClick={skipToNextPhase}
           className="flex-1 cursor-pointer overflow-y-auto px-5 py-4"
           aria-label="탭하면 다음 페이즈로 진행"
         >
@@ -294,11 +421,56 @@ export default function ShortsPlayer({ items, title, sessionId }) {
             </div>
           )}
 
-          {phase === 'explanation' && item.comment && (
+          {showExplanation && (
             <div className="mt-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-2.5">
               <div className="text-[0.7rem] uppercase tracking-[0.1em] text-emerald-300">해설</div>
               <p className="mt-1 whitespace-pre-wrap text-[0.9375rem] leading-relaxed text-slate-100">
                 {item.comment}
+              </p>
+            </div>
+          )}
+
+          {/* ask 페이즈 — 카운트다운 + 마이크 상태 */}
+          {phase === 'ask' && (
+            <div className="mt-4 flex flex-col items-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-4 text-center">
+              <div className={`flex h-12 w-12 items-center justify-center rounded-full ${askListening ? 'bg-rose-500/30 text-rose-200 animate-pulse' : 'bg-slate-700 text-slate-300'}`}>
+                <Mic className="h-6 w-6" />
+              </div>
+              <p className="text-[0.875rem] font-medium text-amber-100">
+                {askListening ? '듣는 중... 질문하세요' : '10초간 음성 질문 받습니다'}
+              </p>
+              <div className="flex items-center gap-2 text-[1.25rem] font-bold text-amber-200">
+                <span>{askSecondsLeft}</span>
+                <span className="text-[0.875rem] font-normal text-amber-300/70">초</span>
+              </div>
+              <p className="text-[0.7rem] text-amber-300/60">다음 ▶ 누르면 즉시 통과</p>
+            </div>
+          )}
+
+          {/* gpt_loading */}
+          {phase === 'gpt_loading' && (
+            <div className="mt-4 flex flex-col items-center gap-3 rounded-xl border border-violet-500/40 bg-violet-500/10 px-4 py-5 text-center">
+              <Loader2 className="h-8 w-8 animate-spin text-violet-300" />
+              <p className="text-[0.875rem] font-medium text-violet-100">GPT에게 묻는 중...</p>
+              {askTranscript && (
+                <p className="rounded-md bg-violet-950/40 px-3 py-1.5 text-[0.8125rem] text-violet-200">
+                  "{askTranscript}"
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* gpt_response */}
+          {phase === 'gpt_response' && (
+            <div className="mt-4 rounded-xl border border-violet-500/40 bg-violet-500/10 px-4 py-3">
+              <div className="text-[0.7rem] uppercase tracking-[0.1em] text-violet-300">GPT 답변</div>
+              {askTranscript && (
+                <p className="mt-1 text-[0.8125rem] italic text-violet-200/70">
+                  Q. {askTranscript}
+                </p>
+              )}
+              <p className="mt-2 whitespace-pre-wrap text-[0.9375rem] leading-relaxed text-slate-100">
+                {gptAnswer || gptError || '응답이 없어요.'}
               </p>
             </div>
           )}
@@ -346,7 +518,7 @@ export default function ShortsPlayer({ items, title, sessionId }) {
             </button>
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); goNext(); }}
+              onClick={(e) => { e.stopPropagation(); skipToNextPhase(); }}
               aria-label="다음"
               className="rounded-md p-2 text-slate-200 hover:bg-slate-800"
             >
