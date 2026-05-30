@@ -31,7 +31,7 @@ function pickKoreanVoice() {
   );
 }
 
-function speak(text, { rate = 1, onEnd, onError, voice }) {
+function speak(text, { rate = 1, volume = 1, onEnd, onError, voice }) {
   if (typeof window === 'undefined' || !window.speechSynthesis) {
     onEnd?.();
     return null;
@@ -40,6 +40,7 @@ function speak(text, { rate = 1, onEnd, onError, voice }) {
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'ko-KR';
   u.rate = rate;
+  u.volume = Math.max(0, Math.min(1, volume));
   if (voice) u.voice = voice;
   u.onend = () => onEnd?.();
   u.onerror = (e) => onError?.(e);
@@ -141,9 +142,11 @@ export default function ShortsPlayer({ items, title, sessionId }) {
   const [phase, setPhase] = useState('question');
   const [isPlaying, setIsPlaying] = useState(true);
   const [muted, setMuted] = useState(false);
+  const [volume, setVolume] = useState(1.0);            // TTS 음량 (0~1)
   const [speed, setSpeed] = useState(1.0);
   const [voice, setVoice] = useState(null);
-  const [micEnabled, setMicEnabled] = useState(true); // ask 페이즈에서 음성 입력 사용 여부
+  const [micEnabled, setMicEnabled] = useState(true);   // ask 페이즈에서 음성 입력 사용 여부
+  const [pickerOpen, setPickerOpen] = useState(false);  // 문제 선택 모달
 
   // ask 페이즈 관련
   const [askRemainingMs, setAskRemainingMs] = useState(ASK_WINDOW_MS);
@@ -196,6 +199,22 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     if (typeof window === 'undefined') return;
     try { window.localStorage.setItem('shorts_mic_enabled_v1', micEnabled ? '1' : '0'); } catch {}
   }, [micEnabled]);
+
+  // 음량 복원/저장
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const saved = window.localStorage.getItem('shorts_volume_v1');
+      if (saved != null) {
+        const v = Number(saved);
+        if (Number.isFinite(v) && v >= 0 && v <= 1) setVolume(v);
+      }
+    } catch {}
+  }, []);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try { window.localStorage.setItem('shorts_volume_v1', String(volume)); } catch {}
+  }, [volume]);
 
   // ask 페이즈 중 마이크를 끄면 즉시 다음 문제로
   useEffect(() => {
@@ -397,8 +416,8 @@ export default function ShortsPlayer({ items, title, sessionId }) {
       return;
     }
 
-    speak(script, { rate: speed, voice, onEnd: advance, onError: advance });
-  }, [index, phase, isPlaying, muted, speed, voice, item, gptAnswer, gptError, micEnabled, goNextItem]);
+    speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
+  }, [index, phase, isPlaying, muted, volume, speed, voice, item, gptAnswer, gptError, micEnabled, goNextItem]);
 
   // ── 언마운트 cleanup ────────────────────────────
   useEffect(() => {
@@ -481,7 +500,14 @@ export default function ShortsPlayer({ items, title, sessionId }) {
         {/* header */}
         <div className="flex items-center justify-between px-5 pt-5 text-[0.75rem] text-slate-400">
           <span className="font-medium text-slate-300">{title}</span>
-          <span>{index + 1} / {items.length}</span>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setPickerOpen(true); }}
+            className="rounded-md border border-slate-700 px-2 py-0.5 text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
+            title="문제 선택"
+          >
+            {index + 1} / {items.length}
+          </button>
         </div>
 
         <div className="mt-2 flex justify-center">
@@ -668,6 +694,23 @@ export default function ShortsPlayer({ items, title, sessionId }) {
             >
               {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
             </button>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.05}
+              value={muted ? 0 : volume}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                setVolume(v);
+                if (v > 0 && muted) setMuted(false);
+                if (v === 0 && !muted) setMuted(true);
+              }}
+              onClick={(e) => e.stopPropagation()}
+              aria-label="음량"
+              title={`음량 ${Math.round((muted ? 0 : volume) * 100)}%`}
+              className="h-1 w-16 cursor-pointer appearance-none rounded-full bg-slate-700 accent-sky-500 lg:w-20"
+            />
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); setMicEnabled((m) => !m); }}
@@ -721,6 +764,59 @@ export default function ShortsPlayer({ items, title, sessionId }) {
           </div>
         </div>
       </div>
+
+      {/* 문제 선택 모달 */}
+      {pickerOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+          onClick={() => setPickerOpen(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-[1rem] font-semibold text-slate-100">문제로 이동</h3>
+              <span className="text-[0.75rem] text-slate-400">{items.length}문제</span>
+            </div>
+            <div className="grid max-h-[60vh] grid-cols-5 gap-2 overflow-y-auto sm:grid-cols-8 lg:grid-cols-10">
+              {items.map((it, i) => {
+                const active = i === index;
+                return (
+                  <button
+                    key={it.number}
+                    type="button"
+                    onClick={() => {
+                      setIndex(i);
+                      setPhase('question');
+                      setGptAnswer('');
+                      setGptError('');
+                      setAskTranscript('');
+                      setPickerOpen(false);
+                    }}
+                    className={`rounded-md border px-2 py-2 text-[0.875rem] font-medium transition-colors ${
+                      active
+                        ? 'border-sky-400 bg-sky-500/20 text-sky-100'
+                        : 'border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500 hover:bg-slate-700'
+                    }`}
+                  >
+                    {it.number}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setPickerOpen(false)}
+                className="rounded-md border border-slate-700 px-3 py-1.5 text-[0.8125rem] text-slate-300 hover:bg-slate-800"
+              >
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
