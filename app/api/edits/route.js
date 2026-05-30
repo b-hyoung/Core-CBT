@@ -2,7 +2,8 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { isAllowedSubject, isAllowedSessionKey, readCommentFromDisk } from '@/lib/commentPath';
-import { insertEdit, countRecentByUser } from '@/lib/commentEditStore';
+import { insertEdit, countRecentByUser, updateEdit } from '@/lib/commentEditStore';
+import { notifyNewEdit } from '@/lib/discordNotify';
 
 export const dynamic = 'force-dynamic';
 
@@ -65,6 +66,17 @@ export async function POST(request) {
     isAnonymous,
   });
 
-  // Discord notify는 Task 13에서 추가. 지금은 그냥 id 반환.
+  const siteBase = process.env.SITE_BASE_URL || '';
+  const problemUrl = `${siteBase}/admin/edits?focus=${inserted.id}`; // Task 14 will swap this for real problem URL via buildProblemUrl
+
+  try {
+    const { messageId, channelId } = await notifyNewEdit(inserted, problemUrl);
+    if (messageId) {
+      await updateEdit(inserted.id, { discordMessageId: messageId, discordChannelId: channelId });
+    }
+  } catch {
+    // webhook 실패 시 DB는 저장 성공 — admin UI에서 재전송 가능 (후속)
+  }
+
   return NextResponse.json({ ok: true, id: inserted.id });
 }
