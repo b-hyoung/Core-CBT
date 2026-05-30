@@ -32,4 +32,15 @@ describe('parseSessionId', () => {
   it('returns null for empty string', () => {
     expect(parseSessionId('')).toBeNull();
   });
+
+  it('maps pdfpack-industrial-2025-1 → { subject: "pdfPacks", sessionKey: "industrial-2025-1" }', () => {
+    expect(parseSessionId('pdfpack-industrial-2025-1')).toEqual({
+      subject: 'pdfPacks',
+      sessionKey: 'industrial-2025-1',
+    });
+  });
+
+  it('returns null for "pdfpack-" prefix without sessionKey', () => {
+    expect(parseSessionId('pdfpack-')).toBeNull();
+  });
 });
