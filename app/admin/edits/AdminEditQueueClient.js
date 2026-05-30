@@ -39,6 +39,22 @@ export default function AdminEditQueueClient() {
 
   useEffect(() => { reload(); }, [reload]);
 
+  // ?focus=<id> 딥링크 처리 — Discord "사이트에서 편집" 버튼에서 진입 시
+  // 해당 항목이 자동 선택되도록. URL의 focus 값을 한 번 읽고 history.replaceState 로 제거.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const focusId = params.get('focus');
+    if (!focusId) return;
+    setSelectedId(focusId);
+    // focus가 status filter에 안 보이는 항목일 수도 있으니 'all'로 전환
+    setFilter('all');
+    // URL 정리
+    params.delete('focus');
+    const next = params.toString();
+    window.history.replaceState(null, '', next ? `?${next}` : window.location.pathname);
+  }, []);
+
   const selected = useMemo(() => edits.find((e) => e.id === selectedId) || null, [edits, selectedId]);
   useEffect(() => { setFinalComment(''); setAdminNote(''); }, [selectedId]);
 
@@ -185,6 +201,32 @@ export default function AdminEditQueueClient() {
                   {selected.proposedComment}
                 </div>
               </div>
+
+              {selected.status === 'pending' && !selected.discordMessageId && (
+                <div className="flex items-center justify-between rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-[0.8125rem] text-amber-800 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+                  <span>⚠️ Discord 알림이 발송되지 않았어요 (webhook 실패)</span>
+                  <button
+                    type="button"
+                    disabled={busy}
+                    onClick={async () => {
+                      setBusy(true);
+                      const res = await fetch(`/api/admin/edits/${selected.id}/resend-notify`, { method: 'POST' });
+                      const data = await res.json().catch(() => ({}));
+                      setBusy(false);
+                      if (data?.ok) {
+                        setToast('Discord 재전송 완료');
+                        await reload();
+                      } else {
+                        setToast(`재전송 실패: ${data?.message || res.status}`);
+                      }
+                      setTimeout(() => setToast(''), 2500);
+                    }}
+                    className="rounded border border-amber-300 bg-white px-2 py-1 text-[0.75rem] font-medium text-amber-800 hover:bg-amber-100 disabled:opacity-50 dark:border-amber-800 dark:bg-amber-950/60 dark:text-amber-200 dark:hover:bg-amber-900/40"
+                  >
+                    재전송
+                  </button>
+                </div>
+              )}
 
               {selected.status === 'pending' && (
                 <>
