@@ -197,6 +197,15 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     try { window.localStorage.setItem('shorts_mic_enabled_v1', micEnabled ? '1' : '0'); } catch {}
   }, [micEnabled]);
 
+  // ask 페이즈 중 마이크를 끄면 즉시 다음 문제로
+  useEffect(() => {
+    if (phase === 'ask' && !micEnabled) {
+      stopRecognition();
+      goNextItem();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [micEnabled]);
+
   // 페이즈 전환 시 해당 섹션으로 부드럽게 스크롤
   useEffect(() => {
     let target = null;
@@ -365,9 +374,12 @@ export default function ShortsPlayer({ items, title, sessionId }) {
         if (phase === 'question') {
           setPhase('answer');
         } else if (phase === 'answer') {
-          setPhase(item?.comment ? 'explanation' : 'ask');
+          if (item?.comment) setPhase('explanation');
+          else if (micEnabled) setPhase('ask');
+          else goNextItem();
         } else if (phase === 'explanation') {
-          setPhase('ask');
+          if (micEnabled) setPhase('ask');
+          else goNextItem();
         } else if (phase === 'gpt_response') {
           goNextItem();
         }
@@ -386,7 +398,7 @@ export default function ShortsPlayer({ items, title, sessionId }) {
     }
 
     speak(script, { rate: speed, voice, onEnd: advance, onError: advance });
-  }, [index, phase, isPlaying, muted, speed, voice, item, gptAnswer, gptError, goNextItem]);
+  }, [index, phase, isPlaying, muted, speed, voice, item, gptAnswer, gptError, micEnabled, goNextItem]);
 
   // ── 언마운트 cleanup ────────────────────────────
   useEffect(() => {
@@ -402,14 +414,19 @@ export default function ShortsPlayer({ items, title, sessionId }) {
 
   // ── 컨트롤 ──────────────────────────────────────
   const skipToNextPhase = useCallback(() => {
-    // 현재 페이즈 즉시 종료 → 다음으로
+    // 현재 페이즈 즉시 종료 → 다음으로 (mic OFF면 ask 페이즈 건너뜀)
     if (phase === 'question') setPhase('answer');
-    else if (phase === 'answer') setPhase(item?.comment ? 'explanation' : 'ask');
-    else if (phase === 'explanation') setPhase('ask');
-    else if (phase === 'ask') { stopRecognition(); goNextItem(); }
+    else if (phase === 'answer') {
+      if (item?.comment) setPhase('explanation');
+      else if (micEnabled) setPhase('ask');
+      else goNextItem();
+    } else if (phase === 'explanation') {
+      if (micEnabled) setPhase('ask');
+      else goNextItem();
+    } else if (phase === 'ask') { stopRecognition(); goNextItem(); }
     else if (phase === 'gpt_loading') { /* 무시 — 로딩 끝날 때까지 대기 */ }
     else if (phase === 'gpt_response') goNextItem();
-  }, [phase, item, goNextItem, stopRecognition]);
+  }, [phase, item, micEnabled, goNextItem, stopRecognition]);
 
   const goPrev = useCallback(() => {
     if (phase === 'gpt_response' || phase === 'gpt_loading') {
