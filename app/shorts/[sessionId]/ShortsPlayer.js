@@ -90,10 +90,142 @@ const TTS_SYMBOL_REPLACEMENTS = [
   [/×/g, ' 곱하기 '],
 ];
 
+// SQL 키워드 → 한글 발음 (Edge TTS가 영어 letter-by-letter로 읽지 않게).
+// 긴 표현을 먼저(NULLS FIRST 가 NULL 보다 먼저), 단어 경계 \b 사용.
+const TTS_KEYWORD_REPLACEMENTS = [
+  [/\bNULLS FIRST\b/gi, '널스 퍼스트'],
+  [/\bNULLS LAST\b/gi, '널스 라스트'],
+  [/\bIS NOT NULL\b/gi, '이즈 낫 널'],
+  [/\bIS NULL\b/gi, '이즈 널'],
+  [/\bNOT NULL\b/gi, '낫 널'],
+  [/\bNOT EXISTS\b/gi, '낫 익시스트'],
+  [/\bNOT IN\b/gi, '낫 인'],
+  [/\bGROUP BY\b/gi, '그룹 바이'],
+  [/\bORDER BY\b/gi, '오더 바이'],
+  [/\bPARTITION BY\b/gi, '파티션 바이'],
+  [/\bGROUPING SETS\b/gi, '그루핑 셋'],
+  [/\bFULL OUTER JOIN\b/gi, '풀 아우터 조인'],
+  [/\bLEFT OUTER JOIN\b/gi, '레프트 아우터 조인'],
+  [/\bRIGHT OUTER JOIN\b/gi, '라이트 아우터 조인'],
+  [/\bFULL JOIN\b/gi, '풀 조인'],
+  [/\bLEFT JOIN\b/gi, '레프트 조인'],
+  [/\bRIGHT JOIN\b/gi, '라이트 조인'],
+  [/\bINNER JOIN\b/gi, '이너 조인'],
+  [/\bOUTER JOIN\b/gi, '아우터 조인'],
+  [/\bCROSS JOIN\b/gi, '크로스 조인'],
+  [/\bNATURAL JOIN\b/gi, '네추럴 조인'],
+  [/\bSELF JOIN\b/gi, '셀프 조인'],
+  [/\bUNION ALL\b/gi, '유니언 올'],
+  [/\bWITH TIES\b/gi, '위드 타이스'],
+  [/\bFETCH FIRST\b/gi, '페치 퍼스트'],
+  [/\bUNBOUNDED PRECEDING\b/gi, '언바운디드 프리시딩'],
+  [/\bUNBOUNDED FOLLOWING\b/gi, '언바운디드 팔로잉'],
+  [/\bCURRENT ROW\b/gi, '커런트 로우'],
+  [/\bROWS BETWEEN\b/gi, '로우스 비트윈'],
+  [/\bDENSE_RANK\b/gi, '덴스랭크'],
+  [/\bROW_NUMBER\b/gi, '로우 넘버'],
+  [/\bFIRST_VALUE\b/gi, '퍼스트 밸류'],
+  [/\bLAST_VALUE\b/gi, '라스트 밸류'],
+  [/\bRATIO_TO_REPORT\b/gi, '레이시오 투 리포트'],
+  [/\bPERCENT_RANK\b/gi, '퍼센트 랭크'],
+  [/\bCUME_DIST\b/gi, '큠 디스트'],
+  [/\bREGEXP_SUBSTR\b/gi, '정규식 서브스트'],
+  [/\bREGEXP_INSTR\b/gi, '정규식 인스트'],
+  [/\bREGEXP_REPLACE\b/gi, '정규식 리플레이스'],
+  [/\bREGEXP_LIKE\b/gi, '정규식 라이크'],
+  [/\bREGEXP_COUNT\b/gi, '정규식 카운트'],
+  [/\bREGEXP\b/gi, '정규식'],
+  [/\bZERO_DIVIDE\b/gi, '제로 디바이드'],
+  [/\bSAVEPOINT\b/gi, '세이브포인트'],
+  [/\bSP_A\b/gi, '에스피 에이'],
+  [/\bSP_B\b/gi, '에스피 비'],
+  [/\bSP1\b/gi, '에스피원'],
+  [/\bSP2\b/gi, '에스피투'],
+  [/\bROLLBACK TO\b/gi, '롤백 투'],
+  [/\bROLLBACK\b/gi, '롤백'],
+  [/\bCOMMIT\b/gi, '커밋'],
+  [/\bTRUNCATE\b/gi, '트런케이트'],
+  [/\bGRANT\b/gi, '그랜트'],
+  [/\bREVOKE\b/gi, '리보크'],
+  [/\bALTER TABLE\b/gi, '알터 테이블'],
+  [/\bALTER\b/gi, '알터'],
+  [/\bCREATE TABLE\b/gi, '크리에이트 테이블'],
+  [/\bCREATE VIEW\b/gi, '크리에이트 뷰'],
+  [/\bCREATE\b/gi, '크리에이트'],
+  [/\bDELETE\b/gi, '딜리트'],
+  [/\bUPDATE\b/gi, '업데이트'],
+  [/\bINSERT ALL\b/gi, '인서트 올'],
+  [/\bINSERT INTO\b/gi, '인서트 인투'],
+  [/\bINSERT\b/gi, '인서트'],
+  [/\bDROP\b/gi, '드롭'],
+  [/\bBETWEEN\b/gi, '비트윈'],
+  [/\bDISTINCT\b/gi, '디스팅트'],
+  [/\bSELECT\b/gi, '셀렉트'],
+  [/\bFROM\b/gi, '프롬'],
+  [/\bWHERE\b/gi, '웨어'],
+  [/\bHAVING\b/gi, '해빙'],
+  [/\bUNION\b/gi, '유니언'],
+  [/\bINTERSECT\b/gi, '인터섹트'],
+  [/\bMINUS\b/gi, '마이너스'],
+  [/\bEXCEPT\b/gi, '익셉트'],
+  [/\bEXISTS\b/gi, '익시스트'],
+  [/\bROLLUP\b/gi, '롤업'],
+  [/\bCUBE\b/gi, '큐브'],
+  [/\bPIVOT\b/gi, '피봇'],
+  [/\bUNPIVOT\b/gi, '언피봇'],
+  [/\bDECODE\b/gi, '디코드'],
+  [/\bCOALESCE\b/gi, '코얼레스'],
+  [/\bNULLIF\b/gi, '널 이프'],
+  [/\bNVL2\b/gi, '엔브이엘 투'],
+  [/\bNVL\b/gi, '엔브이엘'],
+  [/\bRANK\b/gi, '랭크'],
+  [/\bNTILE\b/gi, '엔타일'],
+  [/\bLEAD\b/gi, '리드'],
+  [/\bLAG\b/gi, '래그'],
+  [/\bOVER\b/gi, '오버'],
+  [/\bCOUNT\b/gi, '카운트'],
+  [/\bMAX\b/gi, '맥스'],
+  [/\bMIN\b/gi, '민'],
+  [/\bSUM\b/gi, '썸'],
+  [/\bAVG\b/gi, '에이브이지'],
+  [/\bWHEN\b/gi, '웬'],
+  [/\bTHEN\b/gi, '덴'],
+  [/\bELSE\b/gi, '엘스'],
+  [/\bEND\b/gi, '엔드'],
+  [/\bCASE\b/gi, '케이스'],
+  [/\bASC\b/gi, '오름차순'],
+  [/\bDESC\b/gi, '내림차순'],
+  [/\bNULLS\b/gi, '널스'],
+  [/\bNULL\b/gi, '널'],
+  [/\bUSING\b/gi, '유징'],
+  [/\bCONNECT BY\b/gi, '커넥트 바이'],
+  [/\bPRIOR\b/gi, '프라이어'],
+  [/\bSTART WITH\b/gi, '스타트 위드'],
+  [/\bLEVEL\b/gi, '레벨'],
+  [/\bROWNUM\b/gi, '로우넘'],
+  [/\bROWS\b/gi, '로우스'],
+  [/\bONLY\b/gi, '온리'],
+  [/\bFETCH\b/gi, '페치'],
+  [/\bLIKE\b/gi, '라이크'],
+  [/\bSQL\b/gi, '에스큐엘'],
+  [/\bDDL\b/gi, '디디엘'],
+  [/\bDML\b/gi, '디엠엘'],
+  [/\bDCL\b/gi, '디씨엘'],
+  [/\bTCL\b/gi, '티씨엘'],
+  [/\bBCNF\b/gi, '비씨엔에프'],
+  [/\bORA-\b/gi, '오라 '],
+  [/\bROW LIMITING\b/gi, '로우 리미팅'],
+  [/\bTOP-N\b/gi, '톱 엔'],
+  [/\bUNKNOWN\b/gi, '언노운'],
+  [/\bTRUE\b/gi, '트루'],
+  [/\bFALSE\b/gi, '폴스'],
+];
+
 function cleanForTts(text) {
   let s = String(text || '');
   for (const [re, rep] of TTS_LABEL_REPLACEMENTS) s = s.replace(re, rep);
   for (const [re, rep] of TTS_SYMBOL_REPLACEMENTS) s = s.replace(re, rep);
+  for (const [re, rep] of TTS_KEYWORD_REPLACEMENTS) s = s.replace(re, rep);
   // 남은 대괄호 라벨도 일반화 [임의] → "임의."
   s = s.replace(/\[([^\]]+)\]/g, '$1.');
   // 줄바꿈/연속공백 → 한 칸
@@ -148,6 +280,7 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
   const [availableVoices, setAvailableVoices] = useState([]); // OS/브라우저 한국어 음성 목록
   const [micEnabled, setMicEnabled] = useState(true);   // ask 페이즈에서 음성 입력 사용 여부
   const [pickerOpen, setPickerOpen] = useState(false);  // 문제 선택 모달
+  const [finished, setFinished] = useState(false);     // 마지막 문제 완료
   // 캐시된 MP3 모드 (audioBasePath 있을 때만 사용 가능). 'cached' | 'native'
   const [audioMode, setAudioMode] = useState(audioBasePath ? 'cached' : 'native');
   const audioElRef = useRef(null);
@@ -284,9 +417,20 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
     setGptAnswer('');
     setGptError('');
     setAskTranscript('');
-    setIndex((i) => (i >= items.length - 1 ? i : i + 1));
+    setIndex((i) => {
+      if (i >= items.length - 1) {
+        setFinished(true);
+        return i;
+      }
+      return i + 1;
+    });
     setPhase('question');
   }, [items.length]);
+
+  // 문제 picker 또는 prev로 이동 시 finished 해제
+  useEffect(() => {
+    if (finished && index < items.length - 1) setFinished(false);
+  }, [index, items.length, finished]);
 
   // ── STT (ask 페이즈에서 자동 시작) ──────────────
   const stopRecognition = useCallback(() => {
@@ -328,7 +472,7 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
 
   // ── ask 페이즈 타이머 ──────────────────────────
   useEffect(() => {
-    if (phase !== 'ask' || !isPlaying) return;
+    if (phase !== 'ask' || !isPlaying || finished) return;
     // 속도에 맞춰 대기 시간도 짧아짐 (최소 3초 보장)
     const askWindow = Math.max(3000, Math.round(ASK_WINDOW_MS / speed));
     setAskRemainingMs(askWindow);
@@ -414,6 +558,7 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
       audioElRef.current = null;
     }
 
+    if (finished) return; // 완료 화면일 때는 TTS/audio 정지
     if (!isPlaying || !item) return;
     if (phase === 'ask' || phase === 'gpt_loading') return; // 별도 effect에서 관리
 
@@ -481,7 +626,7 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
     speak(script, { rate: speed, volume, voice, onEnd: advance, onError: advance });
   // 의도적으로 muted/volume/speed 는 deps에서 제외 — 아래 별도 effect로 라이브 적용
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, phase, isPlaying, voice, item, gptAnswer, gptError, micEnabled, audioMode, audioBasePath, goNextItem]);
+  }, [index, phase, isPlaying, voice, item, gptAnswer, gptError, micEnabled, audioMode, audioBasePath, finished, goNextItem]);
 
   // ── mute/volume/speed 라이브 적용 (재생 중간에 토글해도 즉시 반영) ─────
   useEffect(() => {
@@ -608,12 +753,40 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
           </span>
         </div>
 
-        {/* body: 모바일은 단일 스크롤, PC는 2-pane (좌=문제/보기, 우=정답/해설/ask/gpt) */}
+        {/* 마지막 문제까지 다 풀면 완료 화면 */}
+        {finished ? (
+          <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-12 text-center">
+            <div className="text-[3.5rem]">🎉</div>
+            <h2 className="text-[1.5rem] font-bold text-slate-100">{items.length}문제 완주!</h2>
+            <p className="text-[0.875rem] text-slate-400">{title} 전체 풀이를 마쳤어요.</p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => { setIndex(0); setPhase('question'); setFinished(false); }}
+                className="rounded-lg bg-sky-600 px-5 py-2.5 text-[0.875rem] font-semibold text-white hover:bg-sky-500"
+              >
+                처음부터 다시
+              </button>
+              <button
+                type="button"
+                onClick={() => setPickerOpen(true)}
+                className="rounded-lg border border-slate-700 bg-slate-800 px-5 py-2.5 text-[0.875rem] font-semibold text-slate-200 hover:bg-slate-700"
+              >
+                문제 선택
+              </button>
+            </div>
+          </div>
+        ) : (
+        /* body: 모바일은 단일 스크롤, PC는 2-pane (좌=문제/보기, 우=정답/해설/ask/gpt) */
         <div
           ref={bodyRef}
-          onClick={skipToNextPhase}
-          className="flex flex-1 cursor-pointer flex-col overflow-y-auto lg:flex-row lg:overflow-hidden"
-          aria-label="탭하면 다음 페이즈로 진행"
+          onClick={(e) => {
+            // PC(>=lg)에선 본문 클릭 스킵 비활성 (드래그/선택과 혼동 방지)
+            if (typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches) return;
+            skipToNextPhase();
+          }}
+          className="flex flex-1 cursor-pointer flex-col overflow-y-auto lg:cursor-default lg:flex-row lg:overflow-hidden"
+          aria-label="모바일에서 탭하면 다음 페이즈로 진행"
         >
           {/* LEFT pane — 문제 + 보기 */}
           <div className="px-5 py-4 lg:flex-1 lg:overflow-y-auto lg:border-r lg:border-slate-800 lg:py-5">
@@ -759,8 +932,9 @@ export default function ShortsPlayer({ items, title, sessionId, audioBasePath = 
               </p>
             </div>
           )}
-          </div>{/* RIGHT pane end */}
-        </div>{/* body end */}
+          </div>
+        </div>
+        )}
 
         {/* controls */}
         <div className="flex items-center justify-between border-t border-slate-800 bg-slate-950/80 px-4 py-3">
