@@ -80,7 +80,8 @@
       },
       {
         "problem_number": 20,
-        "comment": "정답은 ②입니다. Join은 유도 관계 연산(파생 연산)입니다.\n- ① Difference는 순수 관계 연산입니다.\n- ③ Select는 순수 관계 연산입니다.\n- ④ Project는 순수 관계 연산입니다."
+        "comment": "정답은 ②입니다. Join은 유도 관계 연산(파생 연산)입니다.\n- ① Difference는 순수 관계 연산입니다.\n- ③ Select는 순수 관계 연산입니다.\n- ④ Project는 순수 관계 연산입니다.",
+        "answer": 2
       }
     ]
   },
