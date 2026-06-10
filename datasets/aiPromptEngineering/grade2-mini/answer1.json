@@ -1,0 +1,1359 @@
+[
+  {
+    "title": "AI 프롬프트엔지니어링 2급 미니 모의고사 통합(1~7회차)",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 2,
+        "correct_answer_text": "A, C"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Generative Pre-trained Transformer",
+        "accepted_answers": [
+          "Generative Pre-trained Transformer",
+          "generative pre-trained transformer",
+          "Generative pre-trained transformer"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "생성자, 판별자",
+        "accepted_answers": [
+          "생성자, 판별자",
+          "생성자와 판별자",
+          "생성자 판별자",
+          "판별자, 생성자",
+          "생성자와판별자",
+          "생성자,판별자",
+          "판별자와 생성자"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "파운데이션 모델"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "파인튜닝",
+        "accepted_answers": [
+          "파인튜닝",
+          "미세조정",
+          "fine-tuning",
+          "Fine-tuning",
+          "파인 튜닝"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 3,
+        "correct_answer_text": "입력"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 3,
+        "correct_answer_text": "브레인 스토밍 및 아이디어 도출"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "보충 요청"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "BERT",
+        "accepted_answers": [
+          "BERT",
+          "bert"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Word2Vec"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "인용문 표기"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "-1",
+        "accepted_answers": [
+          "-1",
+          "－1"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "메타프롬프팅",
+        "accepted_answers": [
+          "메타프롬프팅",
+          "메타프롬프트",
+          "메타 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "인페인팅",
+        "accepted_answers": [
+          "인페인팅",
+          "inpainting",
+          "인 페인팅"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "소크라테스식 질문법 프롬프팅"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "imagine",
+        "accepted_answers": [
+          "imagine",
+          "/imagine",
+          "Imagine"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Veo 3.1 - Fast와 Veo 3.1 - Quality"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "stable diffusion",
+        "accepted_answers": [
+          "stable diffusion",
+          "Stable Diffusion"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "랭체인"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "api_key",
+        "accepted_answers": [
+          "api_key",
+          "API_KEY"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SDK"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "pytorch",
+        "accepted_answers": [
+          "pytorch",
+          "파이토치",
+          "PyTorch"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 0,
+        "correct_answer_text": "형태소분석&구문분석&의미분석&화용분석",
+        "accepted_answers": [
+          "형태소분석&구문분석&의미분석&화용분석",
+          "어휘분석&구문분석&의미분석&화용분석"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 2,
+        "correct_answer_text": "투명성"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "딥페이크",
+        "accepted_answers": [
+          "딥페이크",
+          "Deepfake",
+          "deepfake",
+          "딥 페이크"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 4,
+        "correct_answer_text": "CFG Scale"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 0,
+        "correct_answer_text": "업스케일링",
+        "accepted_answers": [
+          "업스케일링",
+          "upscaling",
+          "upscale",
+          "업스케일",
+          "업 스케일링"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "생성되는 영상의 품질을 480p로 생성한다."
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "def"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Top-p"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "RLHF",
+        "accepted_answers": [
+          "RLHF",
+          "인간피드백기반강화학습",
+          "인간 피드백 기반 강화학습",
+          "인간피드백강화학습"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "요약하기"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 0,
+        "correct_answer_text": "BPE",
+        "accepted_answers": [
+          "BPE",
+          "바이트 페어 인코딩",
+          "Byte Pair Encoding",
+          "바이트페어인코딩",
+          "BPE(Byte Pair Encoding)",
+          "bpe"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 2,
+        "correct_answer_text": "인지 검증자 패턴 프롬프팅"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기질문프롬프팅",
+        "accepted_answers": [
+          "자기질문프롬프팅",
+          "자기질문",
+          "자기 질문 프롬프팅",
+          "최소최대프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "잠재공간",
+        "accepted_answers": [
+          "잠재공간",
+          "latentspace",
+          "latent space",
+          "잠재 공간"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "--no"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 3,
+        "correct_answer_text": "학습"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "추론"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "적응"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 4,
+        "correct_answer_text": "aud2vid : 오디오 파형을 시각화하여 영상으로 직접 변환하는 표준 약어이다."
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "지식생성프롬프팅",
+        "accepted_answers": [
+          "지식생성프롬프팅",
+          "지식생성",
+          "지식 생성 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개요확장패턴프롬프팅",
+        "accepted_answers": [
+          "개요확장패턴프롬프팅",
+          "개요확장",
+          "개요확장패턴",
+          "개요확장프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프롬프트체이닝",
+        "accepted_answers": [
+          "프롬프트체이닝",
+          "promptchaining",
+          "프롬프트 체이닝",
+          "prompt chaining",
+          "체이닝"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 3,
+        "correct_answer_text": "각 데이터셋에는 상세한 설명과 메타데이터가 포함되어 있으며, 다른 사용자의 분석과 투표 시스템을 통해 데이터의 품질을 파악하기 용이하다."
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "'청자 지정'은 AI가 문제를 해결하는 우선순위와 강조점을 결정하는 역할을 하며, '관점 설정'은 설명에 사용되는 비유나 용어의 난이도를 조절하는 기능을 수행한다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기질문프롬프팅",
+        "accepted_answers": [
+          "자기질문프롬프팅",
+          "selfask",
+          "self-ask",
+          "자기질문",
+          "자기 질문 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "--chaos",
+        "accepted_answers": [
+          "--chaos",
+          "chaos"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 3,
+        "correct_answer_text": "요약하기"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 3,
+        "correct_answer_text": "참고 이미지"
+      },
+      {
+        "problem_number": 51,
+        "correct_answer_index": 4,
+        "correct_answer_text": "KSampler"
+      },
+      {
+        "problem_number": 52,
+        "correct_answer_index": 0,
+        "correct_answer_text": "API",
+        "accepted_answers": [
+          "API",
+          "api"
+        ]
+      },
+      {
+        "problem_number": 53,
+        "correct_answer_index": 0,
+        "correct_answer_text": "라이브러리",
+        "accepted_answers": [
+          "라이브러리",
+          "library"
+        ]
+      },
+      {
+        "problem_number": 54,
+        "correct_answer_index": 0,
+        "correct_answer_text": "오류!",
+        "accepted_answers": [
+          "오류!",
+          "\"오류!\"",
+          "오류"
+        ]
+      },
+      {
+        "problem_number": 55,
+        "correct_answer_index": 2,
+        "correct_answer_text": "토픽 모델링"
+      },
+      {
+        "problem_number": 56,
+        "correct_answer_index": 0,
+        "correct_answer_text": "형태소 분석",
+        "accepted_answers": [
+          "형태소 분석",
+          "형태소분석"
+        ]
+      },
+      {
+        "problem_number": 57,
+        "correct_answer_index": 3,
+        "correct_answer_text": "프롬프트 엔지니어, 프롬프트 엔지니어링"
+      },
+      {
+        "problem_number": 58,
+        "correct_answer_index": 4,
+        "correct_answer_text": "셀프 어텐션은 \"그것(It)이 무엇을 가리키는가?\"처럼 하나의 문장 안에서 단어들끼리의 문맥적 관계를 파악하는 기술이다."
+      },
+      {
+        "problem_number": 59,
+        "correct_answer_index": 0,
+        "correct_answer_text": "토픽모델링",
+        "accepted_answers": [
+          "토픽모델링",
+          "토픽 모델링",
+          "LDA",
+          "잠재디리클레할당",
+          "topic modeling",
+          "topicmodeling"
+        ]
+      },
+      {
+        "problem_number": 60,
+        "correct_answer_index": 0,
+        "correct_answer_text": "온디바이스AI",
+        "accepted_answers": [
+          "온디바이스AI",
+          "온디바이스",
+          "온디바이스인공지능",
+          "ondeviceai",
+          "on-deviceai",
+          "On-deviceAI"
+        ]
+      },
+      {
+        "problem_number": 61,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자연인"
+      },
+      {
+        "problem_number": 62,
+        "correct_answer_index": 0,
+        "correct_answer_text": "7"
+      },
+      {
+        "problem_number": 63,
+        "correct_answer_index": 0,
+        "correct_answer_text": "40",
+        "accepted_answers": [
+          "40",
+          "40장"
+        ]
+      },
+      {
+        "problem_number": 64,
+        "correct_answer_index": 0,
+        "correct_answer_text": "def&while&10"
+      },
+      {
+        "problem_number": 65,
+        "correct_answer_index": 0,
+        "correct_answer_text": "PNG Info",
+        "accepted_answers": [
+          "PNG Info",
+          "png info",
+          "PNG info"
+        ]
+      },
+      {
+        "problem_number": 66,
+        "correct_answer_index": 0,
+        "correct_answer_text": "태스크 특화 모델",
+        "accepted_answers": [
+          "태스크 특화 모델",
+          "태스크특화모델",
+          "특화모델",
+          "특화 모델",
+          "파인튜닝모델",
+          "파인튜닝 모델"
+        ]
+      },
+      {
+        "problem_number": 67,
+        "correct_answer_index": 0,
+        "correct_answer_text": "정확도&정밀도"
+      },
+      {
+        "problem_number": 68,
+        "correct_answer_index": 0,
+        "correct_answer_text": "NotebookLM",
+        "accepted_answers": [
+          "NotebookLM",
+          "Notebooklm",
+          "notebooklm",
+          "노트북LM",
+          "노트북엘엠"
+        ]
+      },
+      {
+        "problem_number": 69,
+        "correct_answer_index": 0,
+        "correct_answer_text": "대구"
+      },
+      {
+        "problem_number": 70,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Temperature",
+        "accepted_answers": [
+          "Temperature",
+          "temperature"
+        ]
+      },
+      {
+        "problem_number": 71,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기지도학습",
+        "accepted_answers": [
+          "자기지도학습",
+          "자기지도 학습",
+          "자기 지도 학습",
+          "self-supervised learning",
+          "self-supervised"
+        ]
+      },
+      {
+        "problem_number": 72,
+        "correct_answer_index": 0,
+        "correct_answer_text": "지도학습",
+        "accepted_answers": [
+          "지도학습",
+          "지도 학습",
+          "supervised learning"
+        ]
+      },
+      {
+        "problem_number": 73,
+        "correct_answer_index": 0,
+        "correct_answer_text": "비지도학습",
+        "accepted_answers": [
+          "비지도학습",
+          "비지도 학습",
+          "unsupervised learning"
+        ]
+      },
+      {
+        "problem_number": 74,
+        "correct_answer_index": 0,
+        "correct_answer_text": "파인튜닝",
+        "accepted_answers": [
+          "파인튜닝",
+          "미세조정",
+          "fine-tuning",
+          "파인 튜닝",
+          "Fine-tuning"
+        ]
+      },
+      {
+        "problem_number": 75,
+        "correct_answer_index": 0,
+        "correct_answer_text": "영진닷컴"
+      },
+      {
+        "problem_number": 76,
+        "correct_answer_index": 0,
+        "correct_answer_text": "퓨샷 프롬프팅",
+        "accepted_answers": [
+          "퓨샷 프롬프팅",
+          "퓨샷프롬프팅",
+          "퓨샷",
+          "few-shot",
+          "fewshot",
+          "few-shot prompting",
+          "퓨샷 러닝",
+          "퓨샷러닝"
+        ]
+      },
+      {
+        "problem_number": 77,
+        "correct_answer_index": 0,
+        "correct_answer_text": "20",
+        "accepted_answers": [
+          "20",
+          "20회"
+        ]
+      },
+      {
+        "problem_number": 78,
+        "correct_answer_index": 0,
+        "correct_answer_text": "크기가 커진다",
+        "accepted_answers": [
+          "크기가 커진다",
+          "크기가커진다"
+        ]
+      },
+      {
+        "problem_number": 79,
+        "correct_answer_index": 0,
+        "correct_answer_text": "GCP",
+        "accepted_answers": [
+          "GCP",
+          "구글 클라우드 플랫폼",
+          "구글클라우드플랫폼",
+          "Google Cloud Platform",
+          "gcp"
+        ]
+      },
+      {
+        "problem_number": 80,
+        "correct_answer_index": 0,
+        "correct_answer_text": "메타데이터",
+        "accepted_answers": [
+          "메타데이터",
+          "메타 데이터",
+          "metadata"
+        ]
+      },
+      {
+        "problem_number": 81,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Seed&-1",
+        "accepted_answers": [
+          "Seed&-1",
+          "seed&-1",
+          "시드&-1",
+          "SEED&-1"
+        ]
+      },
+      {
+        "problem_number": 82,
+        "correct_answer_index": 0,
+        "correct_answer_text": "OCR",
+        "accepted_answers": [
+          "OCR",
+          "ocr"
+        ]
+      },
+      {
+        "problem_number": 83,
+        "correct_answer_index": 0,
+        "correct_answer_text": "퍼셉트론",
+        "accepted_answers": [
+          "퍼셉트론",
+          "perceptron",
+          "Perceptron"
+        ]
+      },
+      {
+        "problem_number": 84,
+        "correct_answer_index": 0,
+        "correct_answer_text": "XOR 문제",
+        "accepted_answers": [
+          "XOR 문제",
+          "XOR",
+          "XOR문제",
+          "xor문제",
+          "xor 문제",
+          "배타적 논리합 문제",
+          "배타적논리합문제"
+        ]
+      },
+      {
+        "problem_number": 85,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ASI",
+        "accepted_answers": [
+          "ASI",
+          "Artificial Superintelligence",
+          "Artificial Super Intelligence",
+          "artificial superintelligence",
+          "asi"
+        ]
+      },
+      {
+        "problem_number": 86,
+        "correct_answer_index": 0,
+        "correct_answer_text": "딥러닝",
+        "accepted_answers": [
+          "딥러닝",
+          "딥 러닝",
+          "deep learning",
+          "Deep Learning",
+          "심층학습"
+        ]
+      },
+      {
+        "problem_number": 87,
+        "correct_answer_index": 0,
+        "correct_answer_text": "AGI",
+        "accepted_answers": [
+          "AGI",
+          "범용인공지능",
+          "범용 인공지능",
+          "일반인공지능",
+          "강인공지능",
+          "Artificial General Intelligence",
+          "agi"
+        ]
+      },
+      {
+        "problem_number": 88,
+        "correct_answer_index": 0,
+        "correct_answer_text": "과소적합",
+        "accepted_answers": [
+          "과소적합",
+          "언더피팅",
+          "underfitting",
+          "Underfitting",
+          "과소 적합"
+        ]
+      },
+      {
+        "problem_number": 89,
+        "correct_answer_index": 0,
+        "correct_answer_text": "과적합",
+        "accepted_answers": [
+          "과적합",
+          "오버피팅",
+          "overfitting",
+          "Overfitting",
+          "과대적합"
+        ]
+      },
+      {
+        "problem_number": 90,
+        "correct_answer_index": 0,
+        "correct_answer_text": "PhotoGuard",
+        "accepted_answers": [
+          "PhotoGuard",
+          "포토가드",
+          "photoguard",
+          "Photoguard"
+        ]
+      },
+      {
+        "problem_number": 91,
+        "correct_answer_index": 0,
+        "correct_answer_text": "트리거",
+        "accepted_answers": [
+          "트리거",
+          "trigger",
+          "Trigger",
+          "트리거(trigger)"
+        ]
+      },
+      {
+        "problem_number": 92,
+        "correct_answer_index": 0,
+        "correct_answer_text": "반복적 개선",
+        "accepted_answers": [
+          "반복적 개선",
+          "반복적개선",
+          "반복 개선",
+          "반복개선",
+          "반복적 정제",
+          "반복적정제",
+          "점진적 개선",
+          "점진적개선"
+        ]
+      },
+      {
+        "problem_number": 93,
+        "correct_answer_index": 0,
+        "correct_answer_text": "시드",
+        "accepted_answers": [
+          "시드",
+          "Seed",
+          "seed",
+          "시드값",
+          "시드 값",
+          "SEED"
+        ]
+      },
+      {
+        "problem_number": 94,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Beam width",
+        "accepted_answers": [
+          "Beam width",
+          "beam width",
+          "Beam Width",
+          "beamwidth",
+          "빔 너비",
+          "빔너비",
+          "beam size"
+        ]
+      },
+      {
+        "problem_number": 95,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Writing Style",
+        "accepted_answers": [
+          "Writing Style",
+          "writing style",
+          "Writing style",
+          "라이팅 스타일"
+        ]
+      },
+      {
+        "problem_number": 96,
+        "correct_answer_index": 0,
+        "correct_answer_text": "TensorFlow",
+        "accepted_answers": [
+          "TensorFlow",
+          "tensorflow",
+          "텐서플로",
+          "텐서플로우",
+          "Tensorflow"
+        ]
+      },
+      {
+        "problem_number": 97,
+        "correct_answer_index": 0,
+        "correct_answer_text": "큰따옴표",
+        "accepted_answers": [
+          "큰따옴표",
+          "따옴표",
+          "쌍따옴표",
+          "큰 따옴표",
+          "삼중따옴표",
+          "구분자"
+        ]
+      },
+      {
+        "problem_number": 98,
+        "correct_answer_index": 0,
+        "correct_answer_text": "예시",
+        "accepted_answers": [
+          "예시",
+          "예시(Example)",
+          "Example",
+          "출력형식",
+          "출력 형식",
+          "출력 지시자",
+          "출력지시자"
+        ]
+      },
+      {
+        "problem_number": 99,
+        "correct_answer_index": 0,
+        "correct_answer_text": "json",
+        "accepted_answers": [
+          "json",
+          "JSON"
+        ]
+      },
+      {
+        "problem_number": 100,
+        "correct_answer_index": 0,
+        "correct_answer_text": "datetime"
+      },
+      {
+        "problem_number": 101,
+        "correct_answer_index": 0,
+        "correct_answer_text": "RAG",
+        "accepted_answers": [
+          "RAG",
+          "검색증강생성",
+          "검색 증강 생성",
+          "rag",
+          "래그",
+          "Retrieval-Augmented Generation"
+        ]
+      },
+      {
+        "problem_number": 102,
+        "correct_answer_index": 0,
+        "correct_answer_text": "AI 에이전트",
+        "accepted_answers": [
+          "AI 에이전트",
+          "AI에이전트",
+          "에이전트AI",
+          "에이전트 AI",
+          "에이전틱AI",
+          "에이전틱 AI",
+          "AI Agent",
+          "Agentic AI",
+          "에이전트"
+        ]
+      },
+      {
+        "problem_number": 103,
+        "correct_answer_index": 0,
+        "correct_answer_text": "온디바이스AI",
+        "accepted_answers": [
+          "온디바이스AI",
+          "온디바이스 AI",
+          "온디바이스",
+          "on-device AI",
+          "ondevice ai",
+          "온디바이스인공지능"
+        ]
+      },
+      {
+        "problem_number": 104,
+        "correct_answer_index": 0,
+        "correct_answer_text": "차원의 저주",
+        "accepted_answers": [
+          "차원의 저주",
+          "차원의저주",
+          "curse of dimensionality",
+          "차원의 저주 현상"
+        ]
+      },
+      {
+        "problem_number": 105,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Physical AI",
+        "accepted_answers": [
+          "Physical AI",
+          "physical ai",
+          "physicalai",
+          "피지컬AI",
+          "피지컬 AI"
+        ]
+      },
+      {
+        "problem_number": 106,
+        "correct_answer_index": 0,
+        "correct_answer_text": "생성형 UI",
+        "accepted_answers": [
+          "생성형 UI",
+          "생성형UI",
+          "Generative UI",
+          "generative ui",
+          "제너레이티브UI",
+          "GenUI",
+          "생성형 사용자 인터페이스"
+        ]
+      },
+      {
+        "problem_number": 107,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자연어 이해",
+        "accepted_answers": [
+          "자연어 이해",
+          "자연어이해",
+          "NLU",
+          "nlu",
+          "Natural Language Understanding"
+        ]
+      },
+      {
+        "problem_number": 108,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프레임워크",
+        "accepted_answers": [
+          "프레임워크",
+          "framework",
+          "Framework",
+          "프레임웍"
+        ]
+      },
+      {
+        "problem_number": 109,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Large Language Model",
+        "accepted_answers": [
+          "Large Language Model",
+          "large language model",
+          "Large language model"
+        ]
+      },
+      {
+        "problem_number": 110,
+        "correct_answer_index": 0,
+        "correct_answer_text": "할루시네이션",
+        "accepted_answers": [
+          "할루시네이션",
+          "환각",
+          "환각 현상",
+          "환각현상",
+          "hallucination",
+          "Hallucination",
+          "할루시네이션 현상"
+        ]
+      },
+      {
+        "problem_number": 111,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프롬프트 해킹",
+        "accepted_answers": [
+          "프롬프트 해킹",
+          "프롬프트해킹",
+          "prompt hacking",
+          "Prompt Hacking"
+        ]
+      },
+      {
+        "problem_number": 112,
+        "correct_answer_index": 0,
+        "correct_answer_text": "다양성 존중",
+        "accepted_answers": [
+          "다양성 존중",
+          "다양성존중",
+          "다양성",
+          "공정성"
+        ]
+      },
+      {
+        "problem_number": 113,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프라이버시 보호",
+        "accepted_answers": [
+          "프라이버시 보호",
+          "프라이버시보호",
+          "개인정보 보호",
+          "개인정보보호",
+          "프라이버시"
+        ]
+      },
+      {
+        "problem_number": 114,
+        "correct_answer_index": 0,
+        "correct_answer_text": "제로샷 CoT",
+        "accepted_answers": [
+          "제로샷 CoT",
+          "제로샷CoT",
+          "Zero-shot CoT",
+          "zero-shot cot",
+          "제로샷 체인오브소트",
+          "제로샷 사고사슬",
+          "제로샷 연쇄적 사고",
+          "제로샷 체인 오브 소트",
+          "Zero-shot Chain-of-Thought"
+        ]
+      },
+      {
+        "problem_number": 115,
+        "correct_answer_index": 0,
+        "correct_answer_text": "워드 클라우드",
+        "accepted_answers": [
+          "워드 클라우드",
+          "워드클라우드",
+          "word cloud",
+          "wordcloud",
+          "Word Cloud"
+        ]
+      },
+      {
+        "problem_number": 116,
+        "correct_answer_index": 0,
+        "correct_answer_text": "워터마크",
+        "accepted_answers": [
+          "워터마크",
+          "워터마킹",
+          "watermark",
+          "디지털 워터마크",
+          "디지털워터마크",
+          "Watermark"
+        ]
+      },
+      {
+        "problem_number": 117,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Glaze",
+        "accepted_answers": [
+          "Glaze",
+          "glaze",
+          "글레이즈",
+          "GLAZE"
+        ]
+      },
+      {
+        "problem_number": 118,
+        "correct_answer_index": 0,
+        "correct_answer_text": "웹 크롤링",
+        "accepted_answers": [
+          "웹 크롤링",
+          "크롤링",
+          "웹크롤링",
+          "crawling",
+          "web crawling",
+          "웹 크롤러",
+          "크롤러"
+        ]
+      },
+      {
+        "problem_number": 119,
+        "correct_answer_index": 0,
+        "correct_answer_text": "싱글턴",
+        "accepted_answers": [
+          "싱글턴",
+          "싱글 턴",
+          "single-turn",
+          "싱글턴 대화",
+          "원턴",
+          "싱글턴 방식",
+          "single turn"
+        ]
+      },
+      {
+        "problem_number": 120,
+        "correct_answer_index": 0,
+        "correct_answer_text": "멀티턴",
+        "accepted_answers": [
+          "멀티턴",
+          "멀티 턴",
+          "multi-turn",
+          "멀티턴 대화",
+          "멀티턴 방식",
+          "multi turn"
+        ]
+      },
+      {
+        "problem_number": 121,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Sampler",
+        "accepted_answers": [
+          "Sampler",
+          "sampler",
+          "샘플러",
+          "Sampling method",
+          "sampling method",
+          "샘플링 메소드",
+          "샘플링 방법"
+        ]
+      },
+      {
+        "problem_number": 122,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Batch size",
+        "accepted_answers": [
+          "Batch size",
+          "batch size",
+          "batchsize",
+          "배치 사이즈",
+          "배치사이즈",
+          "배치 크기",
+          "Batch Size"
+        ]
+      },
+      {
+        "problem_number": 123,
+        "correct_answer_index": 0,
+        "correct_answer_text": "LoRA",
+        "accepted_answers": [
+          "LoRA",
+          "로라",
+          "lora",
+          "LoRA(Low-Rank Adaptation)"
+        ]
+      },
+      {
+        "problem_number": 124,
+        "correct_answer_index": 0,
+        "correct_answer_text": "캐글",
+        "accepted_answers": [
+          "캐글",
+          "Kaggle",
+          "kaggle"
+        ]
+      },
+      {
+        "problem_number": 125,
+        "correct_answer_index": 0,
+        "correct_answer_text": "네거티브 프롬프트",
+        "accepted_answers": [
+          "네거티브 프롬프트",
+          "네거티브프롬프트",
+          "negative prompt",
+          "Negative Prompt",
+          "부정 프롬프트",
+          "부정프롬프트"
+        ]
+      },
+      {
+        "problem_number": 126,
+        "correct_answer_index": 0,
+        "correct_answer_text": "함수",
+        "accepted_answers": [
+          "함수",
+          "function",
+          "Function",
+          "함수(function)"
+        ]
+      },
+      {
+        "problem_number": 127,
+        "correct_answer_index": 0,
+        "correct_answer_text": "DeepL",
+        "accepted_answers": [
+          "DeepL",
+          "딥엘",
+          "deepl",
+          "딥L",
+          "Deepl"
+        ]
+      },
+      {
+        "problem_number": 128,
+        "correct_answer_index": 0,
+        "correct_answer_text": "arXiv",
+        "accepted_answers": [
+          "arXiv",
+          "arxiv",
+          "아카이브",
+          "arXiv.org"
+        ]
+      },
+      {
+        "problem_number": 129,
+        "correct_answer_index": 1,
+        "correct_answer_text": "마크다운(Markdown)"
+      },
+      {
+        "problem_number": 130,
+        "correct_answer_index": 2,
+        "correct_answer_text": "레시피 패턴 프롬프팅"
+      },
+      {
+        "problem_number": 131,
+        "correct_answer_index": 4,
+        "correct_answer_text": "DBSCAN은 근처 K개의 데이터 포인트를 기준으로 클러스터를 형성하며, K값이 클수록 더 많은 데이터가 하나의 클러스터로 묶인다."
+      },
+      {
+        "problem_number": 132,
+        "correct_answer_index": 4,
+        "correct_answer_text": "템플릿 프롬프트"
+      },
+      {
+        "problem_number": 133,
+        "correct_answer_index": 1,
+        "correct_answer_text": "렌더링(Rendering)"
+      },
+      {
+        "problem_number": 134,
+        "correct_answer_index": 1,
+        "correct_answer_text": "GAN(생성적 적대 신경망)"
+      },
+      {
+        "problem_number": 135,
+        "correct_answer_index": 3,
+        "correct_answer_text": "행동(Action): 에이전트가 현재 상태를 바탕으로 다음에 처하게 될 환경의 상황을 예측하여 저장한 정보이다."
+      },
+      {
+        "problem_number": 136,
+        "correct_answer_index": 1,
+        "correct_answer_text": "정책(Policy): 에이전트가 보상을 받을 때마다 즉각적으로 갱신되는 값으로, 환경이 에이전트에게 직접 전달하는 행동 지침이다."
+      },
+      {
+        "problem_number": 137,
+        "correct_answer_index": 0,
+        "correct_answer_text": "PhotoGuard",
+        "accepted_answers": [
+          "PhotoGuard",
+          "포토가드",
+          "photoguard",
+          "Photoguard"
+        ]
+      },
+      {
+        "problem_number": 138,
+        "correct_answer_index": 1,
+        "correct_answer_text": "임베딩은 원래의 고차원 데이터를 저차원의 벡터 공간으로 압축하여 표현하므로, 텍스트 데이터에만 적용이 가능하다."
+      },
+      {
+        "problem_number": 139,
+        "correct_answer_index": 4,
+        "correct_answer_text": "의사결정트리(Decision Tree)"
+      },
+      {
+        "problem_number": 140,
+        "correct_answer_index": 4,
+        "correct_answer_text": "강화학습: 에이전트가 환경과 상호작용하며 보상을 최대화하는 방향으로 스스로 행동을 학습하며, 정답 레이블 없이 보상 신호만을 학습의 기준으로 삼는 방식이다."
+      },
+      {
+        "problem_number": 141,
+        "correct_answer_index": 2,
+        "correct_answer_text": "준지도학습"
+      },
+      {
+        "problem_number": 142,
+        "correct_answer_index": 1,
+        "correct_answer_text": "과적합(Overfitting): 학습 데이터에 대한 성능과 테스트 데이터에 대한 성능이 모두 높은 이상적인 상태로, 모델이 데이터의 일반적인 패턴을 완벽히 학습한 것을 의미한다."
+      },
+      {
+        "problem_number": 143,
+        "correct_answer_index": 4,
+        "correct_answer_text": "OCR"
+      },
+      {
+        "problem_number": 144,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자연인"
+      },
+      {
+        "problem_number": 145,
+        "correct_answer_index": 4,
+        "correct_answer_text": "인덱싱 - 수집하고 구조화한 데이터를 빠르게 검색할 수 있도록 색인을 생성하여 저장하는 작업으로, 검색 엔진이 검색 결과를 빠르게 반환할 수 있도록 돕는다."
+      },
+      {
+        "problem_number": 146,
+        "correct_answer_index": 3,
+        "correct_answer_text": "머신러닝"
+      },
+      {
+        "problem_number": 147,
+        "correct_answer_index": 4,
+        "correct_answer_text": "20"
+      },
+      {
+        "problem_number": 148,
+        "correct_answer_index": 1,
+        "correct_answer_text": "HyperCLOVA X (하이퍼클로바X)"
+      },
+      {
+        "problem_number": 149,
+        "correct_answer_index": 4,
+        "correct_answer_text": "Create secret key - 버튼을 클릭하여 API 키가 생성된 이후에도 OpenAI 플랫폼에서 언제든지 해당 키 값을 다시 확인하고 복사할 수 있다."
+      },
+      {
+        "problem_number": 150,
+        "correct_answer_index": 0,
+        "correct_answer_text": "AI 슬롭",
+        "accepted_answers": [
+          "AI 슬롭",
+          "AI슬롭",
+          "슬롭",
+          "AI slop",
+          "slop",
+          "에이아이 슬롭",
+          "Slop"
+        ]
+      }
+    ]
+  }
+]
