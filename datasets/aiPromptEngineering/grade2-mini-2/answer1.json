@@ -1,0 +1,506 @@
+[
+  {
+    "title": "AI 프롬프트엔지니어링 2급 미니 모의고사 통합 2회 (51~100번)",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 4,
+        "correct_answer_text": "KSampler"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "API",
+        "accepted_answers": [
+          "API",
+          "api"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "라이브러리",
+        "accepted_answers": [
+          "라이브러리",
+          "library"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "오류!",
+        "accepted_answers": [
+          "오류!",
+          "\"오류!\"",
+          "오류"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 2,
+        "correct_answer_text": "토픽 모델링"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "형태소 분석",
+        "accepted_answers": [
+          "형태소 분석",
+          "형태소분석"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 3,
+        "correct_answer_text": "프롬프트 엔지니어, 프롬프트 엔지니어링"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 4,
+        "correct_answer_text": "셀프 어텐션은 \"그것(It)이 무엇을 가리키는가?\"처럼 하나의 문장 안에서 단어들끼리의 문맥적 관계를 파악하는 기술이다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "토픽모델링",
+        "accepted_answers": [
+          "토픽모델링",
+          "토픽 모델링",
+          "LDA",
+          "잠재디리클레할당",
+          "topic modeling",
+          "topicmodeling"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "온디바이스AI",
+        "accepted_answers": [
+          "온디바이스AI",
+          "온디바이스",
+          "온디바이스인공지능",
+          "ondeviceai",
+          "on-deviceai",
+          "On-deviceAI"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자연인"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "7"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "40",
+        "accepted_answers": [
+          "40",
+          "40장"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "def&while&10"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "PNG Info",
+        "accepted_answers": [
+          "PNG Info",
+          "png info",
+          "PNG info"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "태스크 특화 모델",
+        "accepted_answers": [
+          "태스크 특화 모델",
+          "태스크특화모델",
+          "특화모델",
+          "특화 모델",
+          "파인튜닝모델",
+          "파인튜닝 모델"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "정확도&정밀도"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "NotebookLM",
+        "accepted_answers": [
+          "NotebookLM",
+          "Notebooklm",
+          "notebooklm",
+          "노트북LM",
+          "노트북엘엠"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "대구"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Temperature",
+        "accepted_answers": [
+          "Temperature",
+          "temperature"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기지도학습",
+        "accepted_answers": [
+          "자기지도학습",
+          "자기지도 학습",
+          "자기 지도 학습",
+          "self-supervised learning",
+          "self-supervised"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "지도학습",
+        "accepted_answers": [
+          "지도학습",
+          "지도 학습",
+          "supervised learning"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 0,
+        "correct_answer_text": "비지도학습",
+        "accepted_answers": [
+          "비지도학습",
+          "비지도 학습",
+          "unsupervised learning"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "파인튜닝",
+        "accepted_answers": [
+          "파인튜닝",
+          "미세조정",
+          "fine-tuning",
+          "파인 튜닝",
+          "Fine-tuning"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "영진닷컴"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "퓨샷 프롬프팅",
+        "accepted_answers": [
+          "퓨샷 프롬프팅",
+          "퓨샷프롬프팅",
+          "퓨샷",
+          "few-shot",
+          "fewshot",
+          "few-shot prompting",
+          "퓨샷 러닝",
+          "퓨샷러닝"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 0,
+        "correct_answer_text": "20",
+        "accepted_answers": [
+          "20",
+          "20회"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 0,
+        "correct_answer_text": "크기가 커진다",
+        "accepted_answers": [
+          "크기가 커진다",
+          "크기가커진다"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "GCP",
+        "accepted_answers": [
+          "GCP",
+          "구글 클라우드 플랫폼",
+          "구글클라우드플랫폼",
+          "Google Cloud Platform",
+          "gcp"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 0,
+        "correct_answer_text": "메타데이터",
+        "accepted_answers": [
+          "메타데이터",
+          "메타 데이터",
+          "metadata"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Seed&-1",
+        "accepted_answers": [
+          "Seed&-1",
+          "seed&-1",
+          "시드&-1",
+          "SEED&-1"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 0,
+        "correct_answer_text": "OCR",
+        "accepted_answers": [
+          "OCR",
+          "ocr"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 0,
+        "correct_answer_text": "퍼셉트론",
+        "accepted_answers": [
+          "퍼셉트론",
+          "perceptron",
+          "Perceptron"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 0,
+        "correct_answer_text": "XOR 문제",
+        "accepted_answers": [
+          "XOR 문제",
+          "XOR",
+          "XOR문제",
+          "xor문제",
+          "xor 문제",
+          "배타적 논리합 문제",
+          "배타적논리합문제"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ASI",
+        "accepted_answers": [
+          "ASI",
+          "Artificial Superintelligence",
+          "Artificial Super Intelligence",
+          "artificial superintelligence",
+          "asi"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "딥러닝",
+        "accepted_answers": [
+          "딥러닝",
+          "딥 러닝",
+          "deep learning",
+          "Deep Learning",
+          "심층학습"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 0,
+        "correct_answer_text": "AGI",
+        "accepted_answers": [
+          "AGI",
+          "범용인공지능",
+          "범용 인공지능",
+          "일반인공지능",
+          "강인공지능",
+          "Artificial General Intelligence",
+          "agi"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 0,
+        "correct_answer_text": "과소적합",
+        "accepted_answers": [
+          "과소적합",
+          "언더피팅",
+          "underfitting",
+          "Underfitting",
+          "과소 적합"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 0,
+        "correct_answer_text": "과적합",
+        "accepted_answers": [
+          "과적합",
+          "오버피팅",
+          "overfitting",
+          "Overfitting",
+          "과대적합"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 0,
+        "correct_answer_text": "PhotoGuard",
+        "accepted_answers": [
+          "PhotoGuard",
+          "포토가드",
+          "photoguard",
+          "Photoguard"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "트리거",
+        "accepted_answers": [
+          "트리거",
+          "trigger",
+          "Trigger",
+          "트리거(trigger)"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "반복적 개선",
+        "accepted_answers": [
+          "반복적 개선",
+          "반복적개선",
+          "반복 개선",
+          "반복개선",
+          "반복적 정제",
+          "반복적정제",
+          "점진적 개선",
+          "점진적개선"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 0,
+        "correct_answer_text": "시드",
+        "accepted_answers": [
+          "시드",
+          "Seed",
+          "seed",
+          "시드값",
+          "시드 값",
+          "SEED"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Beam width",
+        "accepted_answers": [
+          "Beam width",
+          "beam width",
+          "Beam Width",
+          "beamwidth",
+          "빔 너비",
+          "빔너비",
+          "beam size"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Writing Style",
+        "accepted_answers": [
+          "Writing Style",
+          "writing style",
+          "Writing style",
+          "라이팅 스타일"
+        ]
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 0,
+        "correct_answer_text": "TensorFlow",
+        "accepted_answers": [
+          "TensorFlow",
+          "tensorflow",
+          "텐서플로",
+          "텐서플로우",
+          "Tensorflow"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "큰따옴표",
+        "accepted_answers": [
+          "큰따옴표",
+          "따옴표",
+          "쌍따옴표",
+          "큰 따옴표",
+          "삼중따옴표",
+          "구분자"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "예시",
+        "accepted_answers": [
+          "예시",
+          "예시(Example)",
+          "Example",
+          "출력형식",
+          "출력 형식",
+          "출력 지시자",
+          "출력지시자"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 0,
+        "correct_answer_text": "json",
+        "accepted_answers": [
+          "json",
+          "JSON"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 0,
+        "correct_answer_text": "datetime"
+      }
+    ]
+  }
+]

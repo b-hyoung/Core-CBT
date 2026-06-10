@@ -1,0 +1,386 @@
+[
+  {
+    "title": "AI 프롬프트엔지니어링 2급 미니 모의고사 통합 1회 (1~50번)",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 2,
+        "correct_answer_text": "A, C"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Generative Pre-trained Transformer",
+        "accepted_answers": [
+          "Generative Pre-trained Transformer",
+          "generative pre-trained transformer",
+          "Generative pre-trained transformer"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 0,
+        "correct_answer_text": "생성자, 판별자",
+        "accepted_answers": [
+          "생성자, 판별자",
+          "생성자와 판별자",
+          "생성자 판별자",
+          "판별자, 생성자",
+          "생성자와판별자",
+          "생성자,판별자",
+          "판별자와 생성자"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "파운데이션 모델"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "파인튜닝",
+        "accepted_answers": [
+          "파인튜닝",
+          "미세조정",
+          "fine-tuning",
+          "Fine-tuning",
+          "파인 튜닝"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 3,
+        "correct_answer_text": "입력"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 3,
+        "correct_answer_text": "브레인 스토밍 및 아이디어 도출"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "보충 요청"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "BERT",
+        "accepted_answers": [
+          "BERT",
+          "bert"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Word2Vec"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "인용문 표기"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "-1",
+        "accepted_answers": [
+          "-1",
+          "－1"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "메타프롬프팅",
+        "accepted_answers": [
+          "메타프롬프팅",
+          "메타프롬프트",
+          "메타 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 0,
+        "correct_answer_text": "인페인팅",
+        "accepted_answers": [
+          "인페인팅",
+          "inpainting",
+          "인 페인팅"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "소크라테스식 질문법 프롬프팅"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 0,
+        "correct_answer_text": "imagine",
+        "accepted_answers": [
+          "imagine",
+          "/imagine",
+          "Imagine"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Veo 3.1 - Fast와 Veo 3.1 - Quality"
+      },
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "stable diffusion",
+        "accepted_answers": [
+          "stable diffusion",
+          "Stable Diffusion"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "랭체인"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "api_key",
+        "accepted_answers": [
+          "api_key",
+          "API_KEY"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SDK"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "pytorch",
+        "accepted_answers": [
+          "pytorch",
+          "파이토치",
+          "PyTorch"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 0,
+        "correct_answer_text": "형태소분석&구문분석&의미분석&화용분석",
+        "accepted_answers": [
+          "형태소분석&구문분석&의미분석&화용분석",
+          "어휘분석&구문분석&의미분석&화용분석"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 2,
+        "correct_answer_text": "투명성"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "딥페이크",
+        "accepted_answers": [
+          "딥페이크",
+          "Deepfake",
+          "deepfake",
+          "딥 페이크"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 4,
+        "correct_answer_text": "CFG Scale"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 0,
+        "correct_answer_text": "업스케일링",
+        "accepted_answers": [
+          "업스케일링",
+          "upscaling",
+          "upscale",
+          "업스케일",
+          "업 스케일링"
+        ]
+      },
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "생성되는 영상의 품질을 480p로 생성한다."
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "def"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Top-p"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "RLHF",
+        "accepted_answers": [
+          "RLHF",
+          "인간피드백기반강화학습",
+          "인간 피드백 기반 강화학습",
+          "인간피드백강화학습"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "요약하기"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 0,
+        "correct_answer_text": "BPE",
+        "accepted_answers": [
+          "BPE",
+          "바이트 페어 인코딩",
+          "Byte Pair Encoding",
+          "바이트페어인코딩",
+          "BPE(Byte Pair Encoding)",
+          "bpe"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 2,
+        "correct_answer_text": "인지 검증자 패턴 프롬프팅"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기질문프롬프팅",
+        "accepted_answers": [
+          "자기질문프롬프팅",
+          "자기질문",
+          "자기 질문 프롬프팅",
+          "최소최대프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "잠재공간",
+        "accepted_answers": [
+          "잠재공간",
+          "latentspace",
+          "latent space",
+          "잠재 공간"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "--no"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 3,
+        "correct_answer_text": "학습"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "추론"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "적응"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 4,
+        "correct_answer_text": "aud2vid : 오디오 파형을 시각화하여 영상으로 직접 변환하는 표준 약어이다."
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "지식생성프롬프팅",
+        "accepted_answers": [
+          "지식생성프롬프팅",
+          "지식생성",
+          "지식 생성 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 0,
+        "correct_answer_text": "개요확장패턴프롬프팅",
+        "accepted_answers": [
+          "개요확장패턴프롬프팅",
+          "개요확장",
+          "개요확장패턴",
+          "개요확장프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 0,
+        "correct_answer_text": "프롬프트체이닝",
+        "accepted_answers": [
+          "프롬프트체이닝",
+          "promptchaining",
+          "프롬프트 체이닝",
+          "prompt chaining",
+          "체이닝"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 3,
+        "correct_answer_text": "각 데이터셋에는 상세한 설명과 메타데이터가 포함되어 있으며, 다른 사용자의 분석과 투표 시스템을 통해 데이터의 품질을 파악하기 용이하다."
+      },
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "'청자 지정'은 AI가 문제를 해결하는 우선순위와 강조점을 결정하는 역할을 하며, '관점 설정'은 설명에 사용되는 비유나 용어의 난이도를 조절하는 기능을 수행한다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "자기질문프롬프팅",
+        "accepted_answers": [
+          "자기질문프롬프팅",
+          "selfask",
+          "self-ask",
+          "자기질문",
+          "자기 질문 프롬프팅"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "--chaos",
+        "accepted_answers": [
+          "--chaos",
+          "chaos"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 3,
+        "correct_answer_text": "요약하기"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 3,
+        "correct_answer_text": "참고 이미지"
+      }
+    ]
+  }
+]
