@@ -1,11 +1,15 @@
 ﻿import { NextResponse } from 'next/server';
 import { appendEvent } from '@/lib/analyticsStore';
 import { auth } from '@/auth';
+import { loadProblemFull } from '@/lib/reportEnrichment';
+import { classifySessionId } from '@/lib/examType';
 
 export const dynamic = 'force-dynamic';
 
 const DISCORD_REPORT_WEBHOOK_URL = process.env.DISCORD_REPORT_WEBHOOK_URL || '';
 const ADMIN_DASHBOARD_URL = process.env.ADMIN_DASHBOARD_URL || 'https://jvbhs.netlify.app/admin';
+const N8N_REPORT_WEBHOOK_URL = process.env.N8N_REPORT_WEBHOOK_URL || '';
+const N8N_REPORT_WEBHOOK_SECRET = process.env.N8N_REPORT_WEBHOOK_SECRET || '';
 const SESSION_LABELS = {
   '1': '2024년 1회차',
   '2': '2024년 2회차',
@@ -100,6 +104,55 @@ async function sendDiscordReport(event) {
   });
 }
 
+async function sendToN8n(event, enrichedProblem) {
+  if (!N8N_REPORT_WEBHOOK_URL || !N8N_REPORT_WEBHOOK_SECRET) return;
+  if (event.type !== 'report_problem') return;
+
+  const payload = event.payload ?? {};
+  const meta = (payload.__meta && typeof payload.__meta === 'object') ? payload.__meta : {};
+  const sessionId = String(payload.originSessionId || event.sessionId || '');
+  const problemNumber = Number(payload.originProblemNumber || payload.problemNumber || 0);
+  const examType = enrichedProblem?.exam_type || classifySessionId(sessionId) || null;
+
+  const body = {
+    report_id: event.id,
+    reported_at: event.timestamp,
+    reporter: {
+      email: meta.userEmail || null,
+      name: meta.userName || null,
+      ip: meta.ipAddress || null,
+    },
+    origin: {
+      session_id: sessionId || null,
+      problem_number: problemNumber || null,
+      exam_type: examType,
+    },
+    report: {
+      reason: payload.reason || null,
+      user_message: payload.userMessage || payload.message || null,
+    },
+    problem: enrichedProblem
+      ? {
+          question_text: enrichedProblem.question_text,
+          options: enrichedProblem.options,
+          correct_answer_index: enrichedProblem.correct_answer_index,
+          correct_answer_text: enrichedProblem.correct_answer_text,
+          current_comment: enrichedProblem.current_comment,
+        }
+      : null,
+    dataset_path: enrichedProblem?.dataset_path || null,
+  };
+
+  await fetch(N8N_REPORT_WEBHOOK_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Webhook-Secret': N8N_REPORT_WEBHOOK_SECRET,
+    },
+    body: JSON.stringify(body),
+  });
+}
+
 export async function POST(request) {
   try {
     const session = await auth();
@@ -141,6 +194,21 @@ export async function POST(request) {
     sendDiscordReport(event).catch(() => {
       // Report notifications should not break analytics ingestion.
     });
+
+    if (event.type === 'report_problem') {
+      const sessionIdForEnrich = String(
+        event.payload?.originSessionId || event.sessionId || ''
+      );
+      const problemNumberForEnrich = Number(
+        event.payload?.originProblemNumber || event.payload?.problemNumber || 0
+      );
+      (async () => {
+        const enriched = await loadProblemFull(sessionIdForEnrich, problemNumberForEnrich).catch(
+          () => null
+        );
+        await sendToN8n(event, enriched);
+      })().catch(() => {});
+    }
 
     return NextResponse.json({ ok: true });
   } catch {
