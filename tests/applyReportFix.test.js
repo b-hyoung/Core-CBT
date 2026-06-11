@@ -23,6 +23,16 @@ describe('applyFix', () => {
     expect(out[0].answers[0].correct_answer_text).toBe('C');
   });
 
+  it('Dify가 {value: ...}로 래핑한 comment를 벗겨서 적용한다', () => {
+    const out = applyFix(structuredClone(commentDoc), 'comment', 7, { value: '래핑된 해설' });
+    expect(out[0].comments[0].comment).toBe('래핑된 해설');
+  });
+
+  it('Dify가 {value: ...}로 래핑한 hint를 벗겨서 적용한다', () => {
+    const out = applyFix(structuredClone(hintDoc), 'hint', 7, { value: '래핑된 힌트' });
+    expect(out[0].hint_body).toBe('래핑된 힌트');
+  });
+
   it('problem_number가 없으면 throw', () => {
     expect(() => applyFix(structuredClone(commentDoc), 'comment', 99, 'x')).toThrow(/not found/);
   });

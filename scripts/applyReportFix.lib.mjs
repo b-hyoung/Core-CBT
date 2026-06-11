@@ -9,7 +9,17 @@ function findInNested(doc, listKey, problemNumber) {
   return null;
 }
 
+// Dify Code 노드는 Object 출력 타입 제약 때문에 문자열을 {value: "..."}로 래핑한다
+// (docs/dify/cbt-report-judge.md 참고) — 문자열 필드는 여기서 벗긴다.
+function unwrapDifyValue(newValue) {
+  if (newValue && typeof newValue === 'object' && Object.keys(newValue).length === 1 && 'value' in newValue) {
+    return newValue.value;
+  }
+  return newValue;
+}
+
 export function applyFix(doc, targetField, problemNumber, newValue) {
+  if (targetField === 'comment' || targetField === 'hint') newValue = unwrapDifyValue(newValue);
   if (targetField === 'comment') {
     if (typeof newValue !== 'string' || !newValue.trim()) throw new Error('comment new_value must be a non-empty string');
     const item = findInNested(doc, 'comments', problemNumber);
