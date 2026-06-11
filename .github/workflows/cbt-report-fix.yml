@@ -1,0 +1,45 @@
+name: CBT Report Fix
+on:
+  repository_dispatch:
+    types: [cbt-report-fix]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: cbt-report-fix-${{ github.event.client_payload.report_id }}
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Apply fix
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+          PR_BODY_PATH: /tmp/pr-body.md
+        run: node scripts/apply-report-fix.mjs
+
+      - name: Create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORT_ID: ${{ github.event.client_payload.report_id }}
+          TARGET_FIELD: ${{ github.event.client_payload.target_field }}
+          PROBLEM_NUMBER: ${{ github.event.client_payload.problem_number }}
+        run: |
+          BRANCH="report-fix/${REPORT_ID}"
+          git config user.name "cbt-report-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add datasets/
+          git commit -m "fix(report): ${TARGET_FIELD} 수정 — 문항 ${PROBLEM_NUMBER} (report ${REPORT_ID})"
+          git push -f origin "$BRANCH"
+          gh pr create --base master --head "$BRANCH" \
+            --title "fix(report): ${TARGET_FIELD} 수정 — 문항 ${PROBLEM_NUMBER}" \
+            --body-file /tmp/pr-body.md \
+            || echo "PR already exists for $BRANCH (updated by force-push)"
