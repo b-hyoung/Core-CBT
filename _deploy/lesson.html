@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>jchsanGi 만들기 · AI랑 협업하는 풀스택 강의</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --ink: #37352F;
+    --ink-strong: #1F1E1B;
+    --ink-mute: #787774;
+    --ink-fade: #9B9A97;
+    --bg: #ffffff;
+    --bg-soft: #F7F6F3;
+    --bg-code: #F1F1EF;
+    --line: #EBEBE9;
+    --line-soft: #F4F4F2;
+
+    --blue-bg: #DDEBF1;
+    --blue-ink: #183347;
+    --yellow-bg: #FBF3DB;
+    --yellow-ink: #5E460F;
+    --red-bg: #FBE4E4;
+    --red-ink: #5D1A1A;
+    --green-bg: #DDEDEA;
+    --green-ink: #15413D;
+    --purple-bg: #EAE4F2;
+    --purple-ink: #3F2F58;
+
+    --code-red: #EB5757;
+    --link: #2D75D9;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'ss01', 'tnum';
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 60px 120px;
+  }
+
+  /* === Main column === */
+  .main { min-width: 0; max-width: 720px; }
+
+  /* === TOC sidebar === */
+  .toc {
+    position: sticky;
+    top: 32px;
+    align-self: start;
+    font-size: 13px;
+    line-height: 1.55;
+    border-left: 1px solid var(--line);
+    padding-left: 16px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  .toc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .toc ol {
+    list-style: none; padding: 0; margin: 0;
+    counter-reset: tocl;
+  }
+  .toc li {
+    counter-increment: tocl;
+    padding: 4px 0;
+  }
+  .toc a {
+    color: var(--ink-mute); text-decoration: none;
+    display: block; padding: 2px 0;
+    border-radius: 3px;
+    transition: color 120ms ease;
+  }
+  .toc a:hover { color: var(--ink-strong); }
+  .toc a::before {
+    content: counter(tocl, decimal-leading-zero) ". ";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; color: var(--ink-fade);
+  }
+
+  /* === Doc header === */
+  .doc-header {
+    padding-bottom: 22px;
+    margin-bottom: 32px;
+  }
+  .emoji-badge {
+    font-size: 56px; line-height: 1;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 40px; font-weight: 700;
+    color: var(--ink-strong);
+    letter-spacing: -0.02em; line-height: 1.18;
+    margin: 0 0 14px;
+  }
+  .subtitle {
+    font-size: 15.5px;
+    color: var(--ink-mute);
+    margin: 0;
+  }
+  .meta-row {
+    margin-top: 22px;
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+  }
+  .meta-row .k { color: var(--ink-fade); margin-right: 6px; }
+  .meta-row .v { color: var(--ink); font-weight: 500; }
+
+  /* === Heading hierarchy === */
+  h2 {
+    font-size: 28px; font-weight: 700;
+    color: var(--ink-strong);
+    letter-spacing: -0.012em; line-height: 1.3;
+    margin: 64px 0 4px;
+    padding-top: 8px;
+  }
+  h2 .ch {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--blue-ink);
+    background: var(--blue-bg);
+    padding: 3px 10px; border-radius: 4px;
+    width: fit-content;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 19px; font-weight: 700;
+    color: var(--ink-strong);
+    letter-spacing: -0.005em; line-height: 1.4;
+    margin: 36px 0 8px;
+  }
+  h4 {
+    font-size: 16px; font-weight: 600;
+    color: var(--ink-strong);
+    margin: 24px 0 6px;
+  }
+
+  p { margin: 0 0 14px; }
+  p, li { color: var(--ink); }
+
+  ul, ol { padding-left: 22px; margin: 8px 0 16px; }
+  li { margin: 4px 0; line-height: 1.7; }
+  ul.checklist { list-style: none; padding: 0; }
+  ul.checklist li {
+    padding-left: 30px;
+    position: relative;
+    margin: 6px 0;
+  }
+  ul.checklist li::before {
+    content: "☐";
+    position: absolute; left: 4px; top: 0;
+    font-size: 16px; color: var(--ink-mute);
+  }
+  ul.checklist li.done::before { content: "☑"; color: var(--blue-ink); }
+
+  /* === Inline code === */
+  code:not(pre code) {
+    background: var(--bg-code);
+    color: var(--code-red);
+    padding: 1.5px 6px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88em;
+  }
+
+  /* === Code block === */
+  .code-block {
+    position: relative;
+    background: var(--bg-code);
+    border-radius: 5px;
+    padding: 14px 18px;
+    margin: 8px 0 18px;
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-strong);
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code-block.lang-bash::before { content: "bash"; }
+  .code-block.lang-prompt::before { content: "프롬프트"; color: var(--purple-ink); }
+  .code-block.lang-js::before { content: "javascript"; }
+  .code-block.lang-py::before { content: "python"; }
+  .code-block.lang-sql::before { content: "sql"; }
+  .code-block::before {
+    position: absolute;
+    top: 8px; right: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-fade);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Prompt block — bigger, soft purple tint */
+  .prompt-block {
+    background: #FAF7FF;
+    border: 1px solid #E8DEFB;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 10px 0 22px;
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-strong);
+    white-space: pre-wrap;
+    position: relative;
+  }
+  .prompt-block::before {
+    content: "💬 AI에게 보낼 메시지";
+    position: absolute;
+    top: -10px; left: 12px;
+    background: var(--bg);
+    padding: 0 8px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 11px;
+    color: var(--purple-ink);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Callout === */
+  .callout {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    background: var(--bg-soft);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  .callout .ico {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .callout-blue { background: var(--blue-bg); color: var(--blue-ink); }
+  .callout-yellow { background: var(--yellow-bg); color: var(--yellow-ink); }
+  .callout-red { background: var(--red-bg); color: var(--red-ink); }
+  .callout-green { background: var(--green-bg); color: var(--green-ink); }
+  .callout-purple { background: var(--purple-bg); color: var(--purple-ink); }
+  .callout strong { font-weight: 600; }
+
+  /* === Step block === */
+  .step-block {
+    border-left: 3px solid var(--line);
+    padding: 4px 0 4px 18px;
+    margin: 22px 0;
+  }
+  .step-block .step-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--blue-ink);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .step-block h4 {
+    margin: 0 0 10px;
+  }
+
+  /* === GitHub reference link === */
+  .gh-ref-row {
+    margin-top: 12px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .gh-ref {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px;
+    background: #F6F8FA;
+    border: 1px solid #D0D7DE;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    color: #24292F;
+    text-decoration: none;
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+  .gh-ref:hover {
+    background: #EAEEF2;
+    border-color: #8C959F;
+  }
+  .gh-ref::before {
+    content: "";
+    width: 14px; height: 14px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2324292F'><path d='M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.2.08 1.83 1.24 1.83 1.24 1.08 1.86 2.83 1.32 3.52 1.01.1-.78.42-1.32.76-1.62-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.3-1.23 3.3-1.23.64 1.66.23 2.88.11 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3'/></svg>") no-repeat center / contain;
+    opacity: 0.85;
+  }
+
+  /* === Toggle === */
+  details.toggle {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 14px 0;
+    padding: 6px 0;
+  }
+  details.toggle summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 6px 0;
+    font-weight: 500;
+    color: var(--ink);
+    user-select: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  details.toggle summary::-webkit-details-marker { display: none; }
+  details.toggle summary::before {
+    content: "▸";
+    color: var(--ink-mute);
+    transition: transform 150ms ease;
+    display: inline-block;
+    font-size: 10px;
+  }
+  details.toggle[open] summary::before { transform: rotate(90deg); }
+  details.toggle .toggle-body { padding: 6px 0 10px 18px; color: var(--ink-mute); font-size: 14.5px; }
+
+  /* === Table === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 14.5px;
+  }
+  th {
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1.5px solid var(--ink);
+    padding: 8px 10px 8px 0;
+    color: var(--ink-strong);
+  }
+  td {
+    border-bottom: 1px solid var(--line);
+    padding: 8px 10px 8px 0;
+    vertical-align: top;
+    color: var(--ink);
+  }
+  table code { font-size: 0.86em; }
+
+  /* === Divider === */
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 36px 0;
+  }
+
+  /* === Section TOC chapter mini === */
+  .chapter-summary {
+    background: var(--bg-soft);
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin: 16px 0 28px;
+    font-size: 14.5px;
+  }
+  .chapter-summary .cs-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .chapter-summary ul { padding-left: 20px; margin: 0; }
+  .chapter-summary li { margin: 3px 0; color: var(--ink); }
+
+  /* === Footer === */
+  .doc-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-mute);
+    font-size: 13px;
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 1023px) {
+    .shell { grid-template-columns: 1fr; padding: 36px 24px 80px; }
+    .toc { display: none; }
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 17px; }
+    .code-block, .prompt-block { font-size: 12px; padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <main class="main">
+
+    <header class="doc-header">
+      <div class="emoji-badge">📚</div>
+      <h1>jchsanGi 만들기</h1>
+      <p class="subtitle">AI랑 협업해서 시험 사이트 + 학습 코치 만드는 풀스택 강의</p>
+      <div class="meta-row">
+        <span><span class="k">난이도</span><span class="v">중급</span></span>
+        <span><span class="k">예상 기간</span><span class="v">6개월 (자율 진행)</span></span>
+        <span><span class="k">강의 수</span><span class="v">6 챕터 · 약 30 step</span></span>
+        <span><span class="k">스택</span><span class="v">Next.js · FastAPI · Supabase · GPT API</span></span>
+      </div>
+    </header>
+
+    <div class="callout callout-blue">
+      <span class="ico">💡</span>
+      <div>
+        <strong>이 강의는 무엇을 가르치나요?</strong><br>
+        "AI에게 일을 시켜서 진짜 서비스를 만드는 흐름"을 단계별로 보여드립니다.
+        AI가 코드를 짜준다고 끝이 아니라, <strong>어떤 순서로 무엇을 부탁해야 좋은 결과가 나오는지</strong>가 핵심입니다.
+        실제 jchsanGi 프로젝트의 250개 코드 변경을 6개 챕터로 정리했습니다.
+      </div>
+    </div>
+
+    <h3>🎯 강의 목표</h3>
+    <ul>
+      <li>AI에게 "결정 → 설계 → 구현"을 단계별로 요청하는 법을 익힌다</li>
+      <li>6가지 프롬프트 패턴(브래인스토밍 / 스펙 / 플랜 / 구현 / 디버깅 / 리뷰)을 실전에서 적용한다</li>
+      <li>작은 기능부터 AI 에이전트까지 누적적으로 키우는 법을 본다</li>
+    </ul>
+
+    <h3>📦 사전 준비</h3>
+    <ul class="checklist">
+      <li>Node.js 18+ 와 npm 설치</li>
+      <li>Python 3.11+ 설치 (Chapter 4부터 사용)</li>
+      <li>Supabase 무료 계정</li>
+      <li>OpenAI API 키 (Chapter 4부터)</li>
+      <li>AI 도구 (Claude Code / ChatGPT / Cursor 등)</li>
+    </ul>
+
+    <hr>
+
+    <!-- ============ CHAPTER 1 ============ -->
+    <h2 id="ch1"><span class="ch">CHAPTER 01</span>프로젝트 시작 — 시험지를 웹사이트로</h2>
+
+    <div class="chapter-summary">
+      <div class="cs-title">이번 챕터에서 만들 것</div>
+      <ul>
+        <li>Next.js 프로젝트 골격</li>
+        <li>회차별 문제 JSON 데이터</li>
+        <li>회차 선택 + 60문항 풀이 페이지</li>
+      </ul>
+    </div>
+
+    <h3>학습 목표</h3>
+    <ul>
+      <li>큰 결정을 작게 쪼개서 AI에게 묻는 방법</li>
+      <li>데이터 구조를 먼저 정하는 사고 순서</li>
+    </ul>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 1.1</div>
+      <h4>Next.js 프로젝트 만들기</h4>
+      <p>터미널에서 다음을 실행합니다.</p>
+      <div class="code-block lang-bash">npx create-next-app@latest jchsanGi
+cd jchsanGi
+npm run dev</div>
+      <div class="callout callout-green">
+        <span class="ico">✅</span>
+        <div><code>http://localhost:3000</code>에서 빈 페이지가 떠야 다음으로 갑니다.</div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT" target="_blank" rel="noopener">b-hyoung/Core-CBT (전체 리포)</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 1.2</div>
+      <h4>데이터 구조를 AI와 함께 정하기</h4>
+      <p>여기가 강의 전체에서 가장 중요한 패턴입니다. <strong>한 번에 하나씩 객관식으로</strong> 물어보세요.</p>
+      <div class="prompt-block">정보처리산업기사 기출문제 PDF를
+웹사이트에서 풀 수 있게 만들고 싶어.
+
+지금 갖고 있는 것:
+- 회차별 PDF 다섯 개
+- 막 만든 Next.js 프로젝트
+
+한꺼번에 정하지 말고, 한 번에 하나씩
+객관식으로 물어봐줘.
+
+먼저 이 3가지부터:
+
+1. 문제 JSON 구조는?
+   (회차 / 문항번호 / 지문 / 보기 4개 /
+    정답 / 해설 / 과목)
+2. 폴더링은?
+   /datasets/problem2022/{회차}.json vs ...
+3. 라우팅은?
+   /exam/[year]/[round] vs /exam?year=...
+
+각각 추천안 + 다른 후보 + 한 줄 장단점.</div>
+      <div class="callout callout-yellow">
+        <span class="ico">📝</span>
+        <div>
+          AI가 "이렇게 만드세요" 한 번에 답하지 않게 막는 게 핵심입니다.
+          "<strong>한 번에 하나씩 물어봐</strong>"라는 문장 하나로 답의 품질이 크게 달라집니다.
+        </div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/datasets" target="_blank" rel="noopener">datasets/ (전체 데이터 폴더 구조)</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 1.3</div>
+      <h4>PDF → JSON 데이터 변환</h4>
+      <p>PDF에서 텍스트를 추출해서 정한 구조로 옮깁니다. 도구는 자유롭게 — pdfplumber, AI에게 OCR 부탁, 수동 옮겨적기 모두 가능.</p>
+      <div class="code-block lang-js">// datasets/problem2022/1회.json (예시)
+{
+  "round": 1,             // 회차 번호 (1회, 2회 ...) — URL과 폴더 구분에 사용
+  "year": 2022,           // 시행 연도 — /exam/[year]/[round] 라우팅 키
+  "problems": [           // 한 회차의 문항 배열 (보통 80문항)
+    {
+      "no": 1,            // 문항 번호 — 채점/북마크/오답노트 식별자
+      "subject": "소프트웨어 설계", // 과목명 — 과목별 통계·필터링에 사용
+      "question": "...",  // 문제 지문 (본문 텍스트)
+      "options": ["...", "...", "...", "..."], // 4지선다 보기 (index 0~3)
+      "answer": 2,        // 정답 번호 (1~4) — 채점 비교용
+      "explain": "..."    // 해설 — 풀이 후 정답 페이지에서 노출
+    }
+  ]
+}</div>
+      <div class="callout callout-red">
+        <span class="ico">⚠️</span>
+        <div>PDF 추출은 글자 깨짐이 자주 발생합니다. 한 회분을 만들면 반드시 끝까지 한 번은 사람 눈으로 검수하세요.</div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/datasets/problem2022/first/problem1.json" target="_blank" rel="noopener">datasets/problem2022/first/problem1.json</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 1.4</div>
+      <h4>회차 선택 + 풀이 페이지 만들기</h4>
+      <div class="prompt-block">회차를 선택하면 60문항을 한 화면에서
+풀 수 있게 만들고 싶어.
+
+조건:
+- 키보드 1~4로 답 고르기
+- Enter로 다음 문제, Space로 해설 토글
+- 좌측 인덱스에 각 문항 상태(O / X / ?) 표시
+- 시험 끝나면 점수와 합격 여부 표시
+
+먼저 페이지 라우팅 / 상태 관리 / 키보드 핸들링
+세 부분으로 나눠 어떻게 구성할지 짚어줘.</div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/app/test" target="_blank" rel="noopener">app/test/ (필기 풀이 페이지)</a>
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/test/%5BsessionId%5D/Quiz.js" target="_blank" rel="noopener">app/test/[sessionId]/Quiz.js</a>
+      </div>
+    </div>
+
+    <details class="toggle">
+      <summary>여기서 자주 막히는 부분</summary>
+      <div class="toggle-body">
+        AI가 처음부터 완벽한 컴포넌트를 한 번에 만들려고 하는 경우가 많습니다.
+        "<strong>먼저 라우팅만 잡고, 그다음 상태 관리, 마지막에 키보드</strong>" 처럼 순서를 잘라서 지시하면 막힐 일이 줄어듭니다.
+      </div>
+    </details>
+
+    <div class="chapter-summary">
+      <div class="cs-title">CHAPTER 01 정리</div>
+      <ul>
+        <li>큰 결정 → 작게 쪼개기 → 객관식으로 묻기</li>
+        <li>데이터 구조부터 결정하기</li>
+        <li>한 step은 가능하면 30분 안에 끝나는 크기로</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============ CHAPTER 2 ============ -->
+    <h2 id="ch2"><span class="ch">CHAPTER 02</span>사용자 피드백 받기 — 신고 시스템과 대시보드</h2>
+
+    <div class="chapter-summary">
+      <div class="cs-title">이번 챕터에서 만들 것</div>
+      <ul>
+        <li>Supabase 무료 DB 연결</li>
+        <li>문제 신고 버튼 + Discord 알림</li>
+        <li>/admin 운영 대시보드 (방문/완료/합격률)</li>
+      </ul>
+    </div>
+
+    <h3>학습 목표</h3>
+    <ul>
+      <li>"제약 조건을 먼저 명시"하는 프롬프트 패턴</li>
+      <li>운영 데이터를 보고 다음 우선순위를 정하는 습관</li>
+    </ul>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 2.1</div>
+      <h4>Supabase 프로젝트 만들기</h4>
+      <ul class="checklist">
+        <li>supabase.com 가입 → 새 프로젝트 생성</li>
+        <li>Project URL과 anon key를 <code>.env.local</code>에 저장</li>
+        <li>SQL 에디터에서 테이블 두 개: <code>analytics_events</code>, <code>reports</code></li>
+      </ul>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/supabase/migrations" target="_blank" rel="noopener">supabase/migrations/</a>
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/.env.example" target="_blank" rel="noopener">.env.example</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 2.2</div>
+      <h4>신고 기능 설계를 AI에게 부탁</h4>
+      <div class="prompt-block">문제 신고 기능을 만들고 싶어.
+
+제약:
+- Supabase 무료 티어 (DB 한 개)
+- Discord Webhook으로 즉시 알림
+- /admin에서 한눈에 모아 보기
+
+결정해야 할 것 3개:
+A. 같은 문제에 여러 신고가 들어왔을 때
+   어떻게 묶을지
+B. Discord 알림 페이로드 형식
+C. /admin에 어떤 지표를 보여줄지
+
+각각 추천안 + 트레이드오프 표.</div>
+      <div class="callout callout-blue">
+        <span class="ico">🔑</span>
+        <div>
+          <strong>"제약"</strong>을 먼저 적는 게 포인트입니다.
+          "공짜로 / 빠르게 / 적게"라는 제약이 없으면 AI는 항상 가장 큰 솔루션을 추천합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 2.3</div>
+      <h4>Discord Webhook 연결</h4>
+      <ul>
+        <li>Discord 서버 설정 → 통합 → Webhook 생성</li>
+        <li>Webhook URL을 <code>.env.local</code>에 추가</li>
+        <li>신고 발생 시 fetch로 POST</li>
+      </ul>
+      <div class="code-block lang-js">await fetch(process.env.DISCORD_WEBHOOK, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    content: `🚨 신고 · ${round}회 ${no}번\n사유: ${reason}\n→ ${adminLink}`
+  })
+});</div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/app/api/feedback" target="_blank" rel="noopener">app/api/feedback/ (신고 API)</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 2.4</div>
+      <h4>/admin 대시보드</h4>
+      <p>관리자 페이지에서 일자별 방문/완료/합격률 + 신고 그룹을 봅니다.</p>
+      <table>
+        <thead>
+          <tr><th>지표</th><th>의미</th><th>왜 필요한가</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>방문</td><td>들어온 사람 수</td><td>유입 확인</td></tr>
+          <tr><td>완료</td><td>끝까지 푼 사람 수</td><td>UX 품질 확인</td></tr>
+          <tr><td>합격률</td><td>커트라인 통과 비율</td><td>난이도 체감 확인</td></tr>
+          <tr><td>신고</td><td>문제 신고 그룹</td><td>다음 수정 우선순위</td></tr>
+        </tbody>
+      </table>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/admin/page.js" target="_blank" rel="noopener">app/admin/page.js</a>
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/app/api/analytics" target="_blank" rel="noopener">app/api/analytics/</a>
+      </div>
+    </div>
+
+    <div class="chapter-summary">
+      <div class="cs-title">CHAPTER 02 정리</div>
+      <ul>
+        <li>제약을 먼저 적어야 AI가 적절한 규모로 답한다</li>
+        <li>기능보다 측정이 먼저 — 그래야 다음 할 일이 보인다</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============ CHAPTER 3 ============ -->
+    <h2 id="ch3"><span class="ch">CHAPTER 03</span>실기 채점 UX — 사용자가 결과를 믿게 만들기</h2>
+
+    <div class="chapter-summary">
+      <div class="cs-title">이번 챕터에서 만들 것</div>
+      <ul>
+        <li>실기 답 입력 형식 자동 힌트</li>
+        <li>채점 후 내 답 vs 정답 diff 보기</li>
+        <li>"이런 차이는 봐줬어요" 채점 근거 표시</li>
+      </ul>
+    </div>
+
+    <h3>학습 목표</h3>
+    <ul>
+      <li>스펙(설계 문서)을 형식 지정해서 받는 법</li>
+      <li>결정 테이블 + 아키텍처 + 데이터 흐름의 3구조</li>
+    </ul>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 3.1</div>
+      <h4>문제 정의</h4>
+      <p>실기는 직접 답을 타이핑합니다. <code>abc</code>, <code>ABC</code>, <code>a, b, c</code>가 다 같은 답인데, 사용자가 못 믿어서 같은 답을 반복 시도합니다. <strong>채점의 관대함을 사용자가 신뢰하게</strong> 만들어야 합니다.</p>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/app/practical" target="_blank" rel="noopener">app/practical/ (실기 페이지 전체)</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 3.2</div>
+      <h4>AI에게 설계서 부탁</h4>
+      <div class="prompt-block">실기 채점이 관대하지만
+사용자가 "왜 맞았는지" 못 믿어서 답답해해.
+
+원하는 것:
+1. 답 입력 전에 "이런 형식이 인정됨" 힌트
+2. 채점 후 내 답 vs 정답 비교(diff)
+3. "이런 사소한 차이는 봐줬어요" 근거 표시
+
+설계서로 정리해줘. 산문 X.
+다음 3구조로:
+① 결정 테이블 (결정 / 값 / 이유)
+② 아키텍처 (간단한 박스 다이어그램)
+③ 데이터 흐름 (순서대로)
+
+스펙 파일은 docs/specs/2026-04-15-practical-ux.md로.</div>
+      <div class="callout callout-purple">
+        <span class="ico">📋</span>
+        <div>
+          <strong>3구조 패턴</strong>을 외워두세요. 결정 테이블 + 다이어그램 + 데이터 흐름.
+          이 셋만 정해지면 다음 단계(구현 계획)로 넘어가도 됩니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 3.3</div>
+      <h4>채점 로직 구현</h4>
+      <p>채점 모듈을 따로 빼서 단위 테스트를 쓰기 쉽게 만듭니다.</p>
+      <div class="code-block lang-js">// app/practical/[sessionId]/_lib/gradePracticalAnswer.js
+export function gradePracticalAnswer(userInput, answer, type) {
+  // type: single / ordered_sequence / unordered_symbol_set /
+  //       multi_blank / textarea
+  // returns: { correct, reasons, diff }
+}</div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/practical/%5BsessionId%5D/_lib/gradePracticalAnswer.js" target="_blank" rel="noopener">_lib/gradePracticalAnswer.js</a>
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/practical/%5BsessionId%5D/_lib/computeDiff.js" target="_blank" rel="noopener">_lib/computeDiff.js</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 3.4</div>
+      <h4>UI에 결과 피드백 컴포넌트</h4>
+      <p>diff 시각화 + 채점 근거 카드를 화면에 표시합니다.</p>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/practical/%5BsessionId%5D/PracticalQuiz.js" target="_blank" rel="noopener">app/practical/[sessionId]/PracticalQuiz.js</a>
+      </div>
+    </div>
+
+    <div class="chapter-summary">
+      <div class="cs-title">CHAPTER 03 정리</div>
+      <ul>
+        <li>스펙은 결정표 + 다이어그램 + 데이터 흐름, 이 셋이면 충분</li>
+        <li>"산문 X"라고 명시하면 깔끔한 문서가 나온다</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============ CHAPTER 4 ============ -->
+    <h2 id="ch4"><span class="ch">CHAPTER 04</span>AI 해설 추가하기 — "왜 이게 정답이지?"에 답해주기</h2>
+
+    <div class="chapter-summary">
+      <div class="cs-title">이번 챕터에서 만들 것</div>
+      <ul>
+        <li>채점 후 "AI에게 물어보기" 버튼</li>
+        <li>OpenAI API 호출용 Next.js 라우트 (<code>/api/gpt/objection</code>)</li>
+        <li>같은 질문은 두 번 안 부르는 Supabase 캐시</li>
+        <li>👍/👎 피드백 + 신고 연결</li>
+      </ul>
+    </div>
+
+    <h3>학습 목표</h3>
+    <ul>
+      <li>외부 LLM API를 안전하게 부르는 라우트 패턴</li>
+      <li>"AI 호출은 비싸다" 전제로 캐시를 먼저 설계하는 습관</li>
+      <li>프롬프트에 컨텍스트(문제·내 답·정답)를 빠짐없이 넣는 법</li>
+    </ul>
+
+    <div class="callout callout-yellow">
+      <span class="ico">💡</span>
+      <div>
+        해설은 데이터에 이미 들어 있지만, 사용자는 종종 <strong>"이 해설이 왜 그렇게 되는지"</strong>를 더 묻고 싶어 합니다. 그 한 번의 추가 질문에 AI를 붙이는 게 이 챕터의 목표입니다.
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.1</div>
+      <h4>문제 정의 — 왜 필요한가</h4>
+      <p>풀이 후 정답을 봐도 <strong>"왜 1번이 답이지?"</strong>가 풀리지 않는 경우가 많습니다. 신고/이의제기로 들어오는 케이스를 보면 70%가 "해설 보충 요청"이었습니다.</p>
+      <ul class="checklist">
+        <li>해설 텍스트는 짧고 형식적</li>
+        <li>사용자는 본인 답이 왜 틀렸는지를 묻고 싶음</li>
+        <li>같은 문제에 같은 질문이 반복됨 → 캐시 가능</li>
+      </ul>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.2</div>
+      <h4>AI에게 설계 부탁</h4>
+      <div class="prompt-block">사용자가 문제 풀고 나서
+"왜 이게 정답이야?" 같은 추가 질문을
+AI에게 물을 수 있게 하고 싶어.
+
+제약:
+- 별도 서버 없이 Next.js API 라우트로만
+- OpenAI API 비용 줄이려면 캐시 필수
+- 같은 (문제번호, 내 답, 정답) 조합은 같은 응답 재사용
+
+설계만 단계별로:
+A. API 라우트 입출력 스키마
+B. 캐시 키를 어떻게 만들지
+   (sha256? 어떤 필드를 포함?)
+C. Supabase 테이블 형태
+D. 프론트에서 호출하는 흐름
+
+코드는 아직 쓰지 말고 표 + 다이어그램으로.</div>
+      <div class="callout callout-blue">
+        <span class="ico">🔑</span>
+        <div>
+          <strong>"제약: 캐시 필수"</strong>를 미리 적어두지 않으면, AI는 매번 OpenAI를 부르는 코드를 추천합니다. 사용자 100명이 같은 질문을 하면 100번 결제됩니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.3</div>
+      <h4>AI에게 캐시 저장소 만들어달라고 부탁</h4>
+      <p>같은 질문은 두 번 부르지 않게 하는 "기억 창고"가 필요합니다. Supabase에 테이블 하나만 만들면 됩니다.</p>
+      <div class="prompt-block">Supabase에 GPT 응답을 저장해두는
+캐시 테이블 하나 만들어줘.
+
+필요한 칸:
+- 캐시 키 (문제 + 내 답 + 정답을 합쳐 만든 고유값)
+- 회차 / 문항 번호
+- AI가 만들어준 해설 본문
+- 재사용된 횟수 (지표용)
+- 생성 시각
+
+Supabase SQL 에디터에 그대로 붙여넣을 수 있는
+한 덩어리 SQL로 보여줘.</div>
+      <div class="callout callout-purple">
+        <span class="ico">🗂️</span>
+        <div>
+          <strong>캐시 키</strong>는 같은 질문인지 판단하는 지문입니다. "ABC"와 "abc "가 같게 처리되도록 <strong>"공백 정리 + 소문자"</strong> 한 줄을 프롬프트에 꼭 넣어주세요.
+        </div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/tree/master/supabase/migrations" target="_blank" rel="noopener">supabase/migrations/</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.4</div>
+      <h4>AI에게 "API 라우트 만들어줘" 부탁</h4>
+      <p>프론트(웹페이지)와 GPT 사이를 중계해주는 작은 함수 하나입니다. 이것도 프롬프트 한 번이면 끝납니다.</p>
+      <div class="prompt-block">Next.js App Router로
+POST /api/gpt/objection 라우트 하나 만들어줘.
+
+이런 순서로 동작해야 해:
+1) 요청에서 (문제·내 답·정답)을 꺼내
+   캐시 키를 만든다 (sha256)
+2) 캐시 테이블에서 그 키를 찾는다
+3) 있으면 → 저장된 응답을 그대로 돌려준다
+   (cached: true 표시)
+4) 없으면 → OpenAI(gpt-4o-mini)에 보내고
+   응답을 캐시에 저장한 뒤 돌려준다
+
+파일 하나로 만들고, 에러 처리도 같이.</div>
+      <div class="callout callout-blue">
+        <span class="ico">💸</span>
+        <div>
+          이 라우트가 있으면 사용자 100명이 같은 질문을 해도 OpenAI는 <strong>딱 한 번만</strong> 결제됩니다. "캐시 먼저 → 없을 때만 호출"이 핵심.
+        </div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/api/gpt/objection/route.js" target="_blank" rel="noopener">app/api/gpt/objection/route.js ★</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.5</div>
+      <h4>핵심 — GPT에게 보낼 "해설 프롬프트" 만들기</h4>
+      <p>이 챕터에서 가장 중요한 부분입니다. <strong>아래 메시지가 사용자가 질문할 때마다 변수만 바꿔서 GPT한테 가는 본문</strong>입니다. 글이 곧 결과 품질입니다.</p>
+      <div class="prompt-block">다음 문제에 대해
+사용자가 가진 의문을 풀어줘.
+
+[문제] {문제 본문}
+[보기] {보기 4개}
+[정답] {정답 번호와 텍스트}
+[사용자가 고른 답] {사용자 선택}
+[기존 해설] {데이터에 있던 해설, 없으면 비워둠}
+
+요청:
+- 왜 정답인지 한 문단으로
+- 사용자가 고른 답이 왜 틀렸는지 한 문단으로
+- 비슷한 함정에 안 걸리는 팁 한 줄
+
+말투: 친근한 강사처럼.
+형식: 마크다운(**볼드**, - 리스트) 쓰지 말 것.
+       줄 바꿈만 써서 정리.</div>
+      <div class="callout callout-yellow">
+        <span class="ico">📝</span>
+        <div>
+          제일 마지막 두 줄 — "<strong>마크다운 X · 줄 바꿈만</strong>" — 이 빠지면 AI는 <code>**굵게**</code>나 <code>- 리스트</code>를 섞어서 답하고, 그 기호가 화면에 그대로 노출됩니다. 사용자는 "이게 뭐야?" 합니다.
+        </div>
+      </div>
+      <div class="callout callout-purple">
+        <span class="ico">🧪</span>
+        <div>
+          이 프롬프트는 한 번에 완성되지 않습니다. 실제 응답을 보면서 "더 짧게", "예시 하나만", "한국어 존댓말" 같은 한 줄씩 더해가며 다듬는 게 정석입니다.
+        </div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/api/gpt/objection/route.js" target="_blank" rel="noopener">objection/route.js (프롬프트 본문이 여기 안에)</a>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-tag">STEP 4.6</div>
+      <h4>AI에게 "물어보기 UI 붙여줘" 부탁</h4>
+      <p>마지막은 화면에 챗박스를 띄우는 일입니다. 디자인까지 한 프롬프트로 끝.</p>
+      <div class="prompt-block">풀이 결과 페이지 아래에
+"AI에게 물어보기" 챗박스를 붙여줘.
+
+구성:
+- 질문 입력칸 + [보내기] 버튼
+- 보내고 나면 "응답까지 5초쯤 걸려요" 안내
+- 응답 본문 박스
+- 응답 아래에 [👍] [👎] 버튼
+- 캐시에서 온 응답이면 "재사용" 작은 뱃지
+
+스타일:
+- 회색 배경, 둥근 모서리
+- 모바일에서도 자연스럽게
+- 같은 페이지에서 여러 번 질문 가능</div>
+      <div class="callout callout-green">
+        <span class="ico">👍</span>
+        <div>
+          <strong>👍/👎 버튼이 사실상 무료 운영 지표</strong>입니다. 👎가 많이 찍힌 응답은 캐시에서 지우고, 자주 등장하면 STEP 4.5 프롬프트를 손볼 신호로 씁니다.
+        </div>
+      </div>
+      <div class="gh-ref-row">
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/test/%5BsessionId%5D/Quiz.js" target="_blank" rel="noopener">app/test/[sessionId]/Quiz.js (gptChat 부분)</a>
+        <a class="gh-ref" href="https://github.com/b-hyoung/Core-CBT/blob/master/app/api/gpt/feedback/route.js" target="_blank" rel="noopener">app/api/gpt/feedback/route.js (👍/👎)</a>
+      </div>
+    </div>
+
+    <details class="toggle">
+      <summary>왜 LangChain을 안 쓰나요?</summary>
+      <div class="toggle-body">
+        해설 한 번 부르는 데 라이브러리 의존성을 깔면, 막혔을 때 디버깅이 두 배로 어려워집니다. OpenAI API는 단일 <code>fetch</code> 호출이라 직접 부르는 게 훨씬 단순합니다. 더 큰 에이전트가 필요해질 때 그때 가서 고민하면 됩니다.
+      </div>
+    </details>
+
+    <div class="chapter-summary">
+      <div class="cs-title">CHAPTER 04 정리</div>
+      <ul>
+        <li>AI 호출은 비싸다 → 캐시를 <strong>제일 먼저</strong> 설계</li>
+        <li>프롬프트에는 문제·보기·내 답·정답·기존 해설을 모두 포함</li>
+        <li>응답 아래 👍/👎 한 쌍 → 그게 다음 개선 신호</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============ TO BE CONTINUED ============ -->
+    <div class="callout callout-blue">
+      <span class="ico">🚧</span>
+      <div>
+        <strong>실기(주관식 채점 + AI 학습 코치 + 외부 검증) 파트는 나중에 추가하는 방향으로 하겠습니다.</strong><br>
+        지금까지의 4개 챕터로도 "AI에게 일을 시키는 흐름" — 브래인스토밍 → 스펙 → 구현 → 캐시 + 피드백 — 은 한 번씩 다 거치는 구성입니다.
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <span>jchsanGi · 2026.02 → 05</span>
+      <span>github.com/b-hyoung</span>
+    </footer>
+
+  </main>
+
+  <aside class="toc">
+    <div class="toc-label">목차</div>
+    <ol>
+      <li><a href="#ch1">프로젝트 시작</a></li>
+      <li><a href="#ch2">사용자 피드백 받기</a></li>
+      <li><a href="#ch3">실기 채점 UX</a></li>
+      <li><a href="#ch4">AI 해설 추가하기</a></li>
+    </ol>
+    <div class="toc-label" style="margin-top:14px; opacity:0.6;">예정</div>
+    <ol style="opacity:0.55;">
+      <li>실기 (주관식 채점·AI 코치·검증)</li>
+    </ol>
+  </aside>
+
+</div>
+
+</body>
+</html>

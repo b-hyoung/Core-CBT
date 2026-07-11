@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>jchsanGi · AI로 6개월간 키운 CBT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+<link rel="stylesheet" href="./styles.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1 · HERO -->
+    <section data-slide="hero">
+      <div class="hero-wrap">
+        <h1 class="hero-title">jchsanGi</h1>
+        <p class="hero-sub">AI와 함께 6개월 동안 키운<br>CBT 학습 서비스 만들기</p>
+        <p class="hero-meta">2026.02 — 05 · 250 commits · 4 specs · 1 dev</p>
+      </div>
+    </section>
+
+    <!-- 2 · 정의 + 스택 -->
+    <section>
+      <h2>한 줄 정의</h2>
+      <p class="lead">정보처리산업기사 필기·실기 + SQLD CBT 모의시험에<br><span style="color:var(--accent)">AI 학습 코치 에이전트</span>까지 붙인 풀스택 서비스</p>
+      <div class="chips">
+        <span class="chip">Next.js 16</span>
+        <span class="chip">React 19</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Supabase Postgres</span>
+        <span class="chip">OpenAI GPT-4o-mini</span>
+        <span class="chip">Function Calling</span>
+        <span class="chip">MySQL Validator</span>
+        <span class="chip">Discord Webhook</span>
+        <span class="chip">next-auth v5</span>
+        <span class="chip">Tailwind v4</span>
+        <span class="chip">Vitest · pytest</span>
+      </div>
+    </section>
+
+    <!-- 3 · STATS -->
+    <section>
+      <h2>데이터로 본 결과</h2>
+      <div class="stats">
+        <div class="stat"><span class="num" data-count="250">0</span><label>total commits</label></div>
+        <div class="stat"><span class="num" data-count="89">0</span><label>commits / 1day · 4-19</label></div>
+        <div class="stat"><span class="num" data-count="4">0</span><label>design specs</label></div>
+        <div class="stat"><span class="num" data-count="6">0</span><label>build phases</label></div>
+        <div class="stat"><span class="num" data-count="100">0</span><label>tagged problems</label></div>
+        <div class="stat"><span class="num" data-count="5">0</span><label>practical input types</label></div>
+      </div>
+      <p style="margin-top:2em; opacity:0.75; font-family:'JetBrains Mono',monospace; font-size:0.85em; color:var(--text-muted);">— 6개월 · 단 한 명. 사용자 피드백 → 측정 → 다음 기능의 운영 루프.</p>
+    </section>
+
+    <!-- 4 · TIMELINE -->
+    <section>
+      <h2>타임라인 — 일별 커밋</h2>
+      <div class="timeline-wrap">
+        <svg id="timeline-svg" viewBox="0 0 1100 380"></svg>
+        <p class="tl-caption">2/17 첫 커밋 · 2월 말 운영 루프 완성 · 4/19 하루 89커밋 (AI 코치) · 4월 말 실행 검증 · 5월 유지보수</p>
+      </div>
+    </section>
+
+    <!-- 5 · PHASE 0 -->
+    <section>
+      <h2>Phase 0 · 셋업과 데이터</h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-02-17 ~ 02-20</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>create-next-app 골격 시작</li>
+            <li>기출 PDF → 회차별 JSON 변환</li>
+            <li>회차 선택 → 60문항 풀이 라우팅</li>
+            <li>키보드 풀이 (1~4 / Enter / Space)</li>
+          </ul>
+          <div class="takeaway">큰 결정은 한꺼번에 묻지 말고 객관식으로 쪼개라.</div>
+        </div>
+        <div class="prompt-block">[목표]
+정보처리산업기사 필기 기출 PDF를 JSON으로 변환하고
+Next.js로 회차별 풀이 페이지 만들기.
+
+[지금 상태]
+- create-next-app 갓 생성, 라우팅 미설계
+- 기출 PDF 5회분 보유, 데이터 구조 미정
+
+[부탁 — 한 번에 하나씩 물어봐줘]
+1. JSON 스키마 제안
+   (회차 / 문항번호 / 지문 / 보기4 / 정답 / 해설 / 과목)
+2. /datasets/problem2022/{회차}.json 폴더링이 맞을지
+3. 풀이 페이지 라우팅
+   /exam/[year]/[round] vs /exam?year=...&round=...
+   트레이드오프 비교
+
+추천안은 맨 위에, 이유 한 줄씩.</div>
+      </div>
+    </section>
+
+    <!-- 6 · PHASE 1 -->
+    <section>
+      <h2>Phase 1 · 운영 루프</h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-02-22 ~ 03-09</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>신고 기능 + Discord Webhook 알림</li>
+            <li>Supabase analytics_events · reports 테이블</li>
+            <li>/admin 대시보드 — 방문 / 완료 / 합격률</li>
+            <li>같은 문항 반복 신고 그룹화</li>
+          </ul>
+          <div class="takeaway">기능 추가 전에 '관찰 가능한가'를 먼저 만들면 다음 우선순위가 보인다.</div>
+        </div>
+        <div class="prompt-block">[배경]
+사용자가 문제 오류를 발견해도 전달할 방법이 없음.
+운영자는 어떤 문항이 자주 신고되는지 한눈에 봐야 함.
+
+[제약]
+- DB 고정비 X → Supabase 무료 티어
+- 알림은 Discord Webhook
+- /admin 은 비공개 라우트
+
+[결정 3개 — 각각 추천안 + 트레이드오프]
+A. 신고 데이터 모델: 반복 신고를 어떻게 묶을지
+   (원본 회차+문항번호 group_key vs 별도 group 테이블)
+B. Discord 페이로드
+   (회차 / 문항 / 사유 / 요약 / 관리자 링크)
+C. /admin 최소 지표
+   (방문 / 시작 / 완료 / 합격률 / 신고)
+
+설계 후 supabase migration SQL 까지.</div>
+      </div>
+    </section>
+
+    <!-- 7 · PHASE 2 -->
+    <section>
+      <h2>Phase 2 · 실기 UX 투명성</h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-04-15 · 하루 16 커밋</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>answer_format_hint 자동 추론 + Supabase override</li>
+            <li>gradePracticalAnswer.js 채점 모듈 분리</li>
+            <li>ResultFeedback — diff + 관대 채점 이유 표시</li>
+            <li>관리자 힌트 override UI</li>
+          </ul>
+          <div class="takeaway">스펙은 결정 테이블이 본문이다. 산문은 줄여라.</div>
+        </div>
+        <div class="prompt-block">[문제]
+실기 입력 5종(single / ordered_sequence /
+unordered_symbol_set / multi_blank / textarea)
+채점이 관대하지만
+- answer_format_hint가 일부 문항만 → 사용자 추측
+- 관대 채점 이유가 안 보임 → 신뢰 못해 여러 번 시도
+- diff 없음 → 오답 학습 효율 ↓
+
+[원하는 것]
+입력 전 "무엇이 정답인지" 명시 +
+채점 후 내 답 vs 정답 비교 + 관대 채점 이유.
+
+[조건]
+- 힌트: 자동 추론 + Supabase override
+- 채점 분리: _lib/gradePracticalAnswer.js
+- 관리자 UI는 /admin 안에 탭 추가
+
+설계서 형식:
+① decisions table (결정 / 값 / 이유)
+② architecture diagram
+③ data flow 순서</div>
+      </div>
+    </section>
+
+    <!-- 8 · PHASE 3 -->
+    <section>
+      <h2>Phase 3 · AI 코치 에이전트 <span style="color:var(--accent); font-size:0.6em;">하루 89 커밋</span></h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-04-19 · single-day sprint</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>FastAPI 별도 서버 + shared secret 인증</li>
+            <li>Raw Function Calling (no LangChain)</li>
+            <li>Tool 5종 · Agent Runner 최대 10 iter</li>
+            <li>Postgres 영구 세션 + 의도 분류</li>
+          </ul>
+          <div class="takeaway">에이전트는 프레임워크 없이 직접 짜야 한 번에 디버깅 가능하다.</div>
+        </div>
+        <div class="prompt-block">실기 오답을 다시 볼 때 공식 해설만으론 부족해.
+자연어로 "왜 틀렸어?" 물으면
+사용자의 이 문제 오답 이력을 반영한 답을 줘야 함.
+SQL/Code는 유사 문제 자동 생성 → 다시 풀게.
+
+처음부터 같이 설계하자.
+한 번에 하나씩, 객관식으로 물어봐:
+
+1. 스택
+   FastAPI 별도 서버 vs Next.js API Route만
+2. LLM 추상화
+   LangChain vs Raw Function Calling
+3. 세션 저장
+   Postgres 영구 vs 휘발
+4. 인증 경계
+   직접 노출 vs Next 프록시 + shared secret
+5. Tool 셋
+   question / user_history / code_executor /
+   output_tools / dispatch 다섯 개로 시작?
+
+각 결정마다 트레이드오프 표. 추천안 맨 위에.</div>
+      </div>
+    </section>
+
+    <!-- 9 · PHASE 4 -->
+    <section>
+      <h2>Phase 4 · 실행 검증 + Critic AI</h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-04-23 ~ 04-27</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>SQL 유사 문제 → MySQL 실행 검증</li>
+            <li>Code → 컴파일러 실행 후 정답 비교</li>
+            <li>둘 다 실패 시 Critic AI 폴백</li>
+            <li>code-tags 83건 3단계 태깅</li>
+          </ul>
+          <div class="takeaway">AI 출력은 항상 외부 검증기를 통과시켜라. LLM-as-judge는 최후.</div>
+        </div>
+        <div class="prompt-block">[현재 문제]
+GPT-4o-mini가 생성한 유사 문제가
+- SQL: 문법 OK인데 의도와 다른 결과
+- Code: 정답 텍스트만 비교라
+        코드 구조 동일도 통과
+
+[원하는 것]
+1) SQL: 실제 MySQL에 SELECT 던져 결과로 검증
+2) Code: 컴파일러 실행 → 출력 비교
+3) 둘 다 실패 시 Critic AI(평가자 모델)
+   에게 점수 요청 → 폴백
+
+fastapi_app/tools/code_executor.py 설계:
+- 입력 / 출력 스키마
+- 타임아웃·메모리 제한
+- 컨테이너 격리 여부 (yes/no + 이유)
+- 정답 비교 normalize 규칙
+
+단계별로, 코드 X 설계만.</div>
+      </div>
+    </section>
+
+    <!-- 10 · PHASE 5 -->
+    <section>
+      <h2>Phase 5 · 파인튜닝 파이프라인 분리</h2>
+      <div class="phase-card">
+        <div class="phase-meta">
+          <span class="when">2026-04-19 · 별도 spec</span>
+          <h3>무엇을 만들었나</h3>
+          <ul>
+            <li>별도 프로젝트 teach_CBT 로 분리</li>
+            <li>4-Phase: 수집 → 쌍 생성 → 평가 → LoRA</li>
+            <li>gpt-oss:20b → ollama 등록 목표</li>
+            <li>10-task 실행 플랜 문서화</li>
+          </ul>
+          <div class="takeaway">큰 비전은 spec 한 장에 그리되, 실행은 Phase 1만 잘라서 들어가라.</div>
+        </div>
+        <div class="prompt-block">GPT-4o-mini API 비용을 줄이려면 결국 로컬 모델.
+별도 프로젝트 teach_CBT 로 파이프라인 분리.
+
+4-Phase 로 가자:
+P1. 데이터 수집 — 크롤링 + 정규화
+P2. 유사 문제 쌍 생성
+    GPT-4o-mini + gpt-oss:20b
+P3. 품질 평가 — Claude/GPT-4o 평가자 → 점수
+P4. LoRA 파인튜닝 → ollama 등록
+
+각 Phase 마다 표로:
+- 입력 / 출력 스키마
+- 평가 지표
+- 실패 케이스 처리
+
+스코프 너무 크면 P1만 먼저 잘라서
+sub-spec 으로 만들어줘.</div>
+      </div>
+    </section>
+
+    <!-- 11 · 진화 요약 -->
+    <section>
+      <h2>진화 요약</h2>
+      <ul style="font-size:1.1em; line-height:2.1;">
+        <li><b style="color:var(--accent)">Phase 0</b> &nbsp;셋업 — Next.js + JSON 데이터셋</li>
+        <li><b style="color:var(--accent)">Phase 1</b> &nbsp;운영 루프 — 신고 + 대시보드 + Discord</li>
+        <li><b style="color:var(--accent)">Phase 2</b> &nbsp;UX 투명성 — 힌트 + diff + override</li>
+        <li><b style="color:var(--accent)">Phase 3</b> &nbsp;AI 에이전트 — Function Calling 직접 구현</li>
+        <li><b style="color:var(--accent)">Phase 4</b> &nbsp;실행 검증 — MySQL · 컴파일러 · Critic AI</li>
+        <li><b style="color:var(--accent)">Phase 5</b> &nbsp;파인튜닝 파이프라인 — teach_CBT 분리</li>
+      </ul>
+      <p style="margin-top:1.6em; color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:0.85em;">기능을 늘리기 전에 측정 가능한가? 측정한 다음에 어떤 기능을 추가할지 정했다.</p>
+    </section>
+
+    <!-- 12 · Pattern 1 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ①</p>
+      <h2>브래인스토밍</h2>
+      <p class="lead" style="font-size:1.2em;">한 번에 하나씩 · 가능하면 객관식</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>왜 이렇게</h3>
+          <ul>
+            <li>한 번에 많이 물으면 답이 얕아짐</li>
+            <li>객관식이 추론보다 정확하고 빠름</li>
+            <li>각 결정의 트레이드오프가 명시됨</li>
+          </ul>
+          <div class="takeaway">Phase 3 에이전트 설계 — 5개 결정을 5번에 나눠 물음</div>
+        </div>
+        <div class="prompt-block">[지금 상태]
+- (관련 파일·문서·최근 커밋 1~3줄)
+
+[하고 싶은 것]
+- (1~2줄)
+
+[부탁]
+한 번에 하나씩, 가능하면 A / B / C 객관식으로 물어봐.
+각 결정의 트레이드오프 표 + 추천안 맨 위.
+설계 승인 전까지 코드 작성 금지.</div>
+      </div>
+    </section>
+
+    <!-- 13 · Pattern 2 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ②</p>
+      <h2>스펙 (설계서)</h2>
+      <p class="lead" style="font-size:1.2em;">결정 테이블 + 다이어그램 + 데이터 흐름</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>구조</h3>
+          <ul>
+            <li>배경 / 목표 / 범위 한정</li>
+            <li>스택 결정 표</li>
+            <li>아키텍처 ASCII 다이어그램</li>
+            <li>데이터 모델 + API 인터페이스</li>
+            <li>실패 모드 + V2+ 보류</li>
+          </ul>
+          <div class="takeaway">2026-04-19-ai-tutor-agent-design.md · 282줄 · 결정표 7개</div>
+        </div>
+        <div class="prompt-block">결과물:
+docs/superpowers/specs/YYYY-MM-DD-&lt;topic&gt;-design.md
+
+목차 그대로 채워줘:
+1. 배경 / 목표 / 범위 한정
+2. 스택 결정 (표)
+   | 항목 | 결정 | 근거 |
+3. 아키텍처 (ASCII 박스 다이어그램)
+4. 데이터 모델 + API 인터페이스
+5. 실패 모드
+6. V2+ 보류 항목
+
+산문은 줄이고, 표·박스·리스트로.
+모호한 단어 발견하면 다시 물어봐.</div>
+      </div>
+    </section>
+
+    <!-- 14 · Pattern 3 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ③</p>
+      <h2>플랜 (작업 분해)</h2>
+      <p class="lead" style="font-size:1.2em;">Task 단위 + 각 Task의 검증 기준</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>왜 이렇게</h3>
+          <ul>
+            <li>Task = 한 commit 단위</li>
+            <li>완료 기준 없는 Task는 끝나지 않음</li>
+            <li>의존 명시해야 병렬화 가능</li>
+          </ul>
+          <div class="takeaway">teach-cbt-pipeline · 10 Tasks 로 분해</div>
+        </div>
+        <div class="prompt-block">Spec: docs/superpowers/specs/&lt;file&gt;.md
+Plan: docs/superpowers/plans/YYYY-MM-DD-&lt;topic&gt;.md
+
+Task 형식 그대로:
+
+### Task N — &lt;한 줄 요약&gt;
+- 변경 파일: ...
+- 구현 핵심: 3줄 이내
+- 완료 기준:
+  - 테스트: ...
+  - 수동 확인: ...
+- 의존 Task: Task M
+
+규칙:
+- 10개 미만으로 쪼개
+- 너무 크면 sub-spec 으로 분리 제안
+- 각 Task diff 200줄 미만 목표</div>
+      </div>
+    </section>
+
+    <!-- 15 · Pattern 4 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ④</p>
+      <h2>구현 (TDD · 작은 diff)</h2>
+      <p class="lead" style="font-size:1.2em;">실패 테스트 먼저 · 한 Task = 한 commit</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>왜 이렇게</h3>
+          <ul>
+            <li>테스트 없이 짠 코드는 의도가 사라짐</li>
+            <li>작은 diff = 빠른 리뷰 = 빠른 머지</li>
+            <li>무관 리팩터 섞이면 롤백이 안 됨</li>
+          </ul>
+          <div class="takeaway">gradePracticalAnswer.js · 입력 5종 채점 + diff</div>
+        </div>
+        <div class="prompt-block">현재 Task: &lt;plan 의 Task N&gt;
+
+순서를 지켜:
+1. 실패 테스트 작성
+   (왜 실패해야 하는지 한 줄 코멘트)
+2. 최소 구현으로 통과
+3. 리팩터 (테스트는 그대로)
+
+제약:
+- diff 200줄 미만
+- 무관 리팩터 금지
+- 주석은 WHY 만 (WHAT 은 코드가 말함)
+- TypeScript 타입은 가장 좁게
+
+테스트 통과 출력 보여줘.
+verification 끝나기 전엔 "완료" 라는 말 금지.</div>
+      </div>
+    </section>
+
+    <!-- 16 · Pattern 5 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ⑤</p>
+      <h2>디버깅 (systematic)</h2>
+      <p class="lead" style="font-size:1.2em;">재현 → 가설 → 최소 변화 검증</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>왜 이렇게</h3>
+          <ul>
+            <li>"고쳐줘" 는 코드를 휘젓게 만듦</li>
+            <li>가설부터 적으면 비용 낮은 것부터 검증 가능</li>
+            <li>증상 ≠ 원인 — 분리해서 적어야 보임</li>
+          </ul>
+          <div class="takeaway">유사 문제 정답 중복 — _check_answer_duplicate 가 텍스트만 비교했던 케이스</div>
+        </div>
+        <div class="prompt-block">[증상]
+- 정확히 일어나는 것: ...
+- 일어나지 않는 것: ...
+
+[재현 단계]
+1. ...
+2. ...
+3. ...
+
+[가설 (우선순위 · 비용 낮은 순)]
+A. ...   검증 방법: ...   비용: 1분
+B. ...   검증 방법: ...   비용: 10분
+C. ...   검증 방법: ...   비용: 1시간
+
+먼저 A 검증부터.
+코드 수정 전에 가설부터 확정.
+원인 모르면 추가 가설 D 제안.</div>
+      </div>
+    </section>
+
+    <!-- 17 · Pattern 6 -->
+    <section>
+      <p style="color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.85em; letter-spacing:0.15em; margin:0 0 0.4em;">PROMPT PATTERN · ⑥</p>
+      <h2>리뷰 · 리팩터링</h2>
+      <p class="lead" style="font-size:1.2em;">변경 의도 vs 실제 diff 갭 확인</p>
+      <div class="phase-card" style="grid-template-columns: 1fr 1.4fr;">
+        <div class="phase-meta">
+          <h3>왜 이렇게</h3>
+          <ul>
+            <li>스펙과 diff 가 벌어지는 게 가장 흔한 버그</li>
+            <li>독립 검증자(서브 에이전트) 가 사각지대를 봄</li>
+            <li>PASS/WARN/FAIL 강제로 모호함 제거</li>
+          </ul>
+          <div class="takeaway">ultrareview · code-reviewer 서브에이전트로 독립 검증</div>
+        </div>
+        <div class="prompt-block">이 PR / 브랜치를 비판적으로 봐줘.
+컨텍스트는 알려주지 말고 코드만 봐.
+
+확인 포인트:
+1. 스펙의 결정 테이블과 코드가 일치하는가
+2. 무관한 변경이 섞였는가
+3. 테스트가 행위 아닌 구현을 검증하지 않는가
+4. 다음 사람이 5분 안에 흐름을 따라갈 수 있는가
+5. 에러 처리가 시스템 경계(외부)에만 있는가
+
+각 항목 PASS / WARN / FAIL + 한 줄 근거.
+가장 위험한 1개 골라서 fix 제안.</div>
+      </div>
+    </section>
+
+    <!-- 18 · OUTRO -->
+    <section>
+      <h2>교훈 5줄</h2>
+      <ol class="outro-list">
+        <li>스펙을 먼저 결정 테이블로 쓴다.</li>
+        <li>큰 결정은 한 번에 하나씩 객관식으로 묻는다.</li>
+        <li>에이전트는 프레임워크 없이 직접 짠다.</li>
+        <li>AI 출력은 외부 검증기를 통과시킨다.</li>
+        <li>운영 데이터가 다음 기능 우선순위를 정한다.</li>
+      </ol>
+      <p style="margin-top:2em; font-family:'JetBrains Mono',monospace; font-size:0.9em;">
+        <a href="https://github.com/b-hyoung" target="_blank" rel="noopener">github.com/b-hyoung</a>
+        &nbsp;·&nbsp;
+        <span style="color:var(--text-muted); opacity:0.7;">jchsanGi · 2026.02 → 05</span>
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<div class="nav-hint">← → · F · ESC · ?</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    controls: true,
+    progress: true,
+    transition: 'none',
+    backgroundTransition: 'none',
+    width: '100%',
+    height: '100%',
+    margin: 0.02,
+    minScale: 1,
+    maxScale: 1,
+  });
+</script>
+<script type="module" src="./three-bg.js"></script>
+<script type="module" src="./gsap-anim.js"></script>
+
+</body>
+</html>

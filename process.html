@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>jchsanGi · AI랑 6개월 동안 만든 과정</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --paper: #ffffff;
+    --bg: #ececf0;
+    --ink: #1a1a1f;
+    --ink-soft: #3a3a44;
+    --ink-mute: #7a7a84;
+    --line: #e3e3e8;
+    --line-soft: #f0f0f4;
+
+    --tag-ctx-bg: #fff4e0;
+    --tag-ctx-tx: #8a4b00;
+    --tag-prm-bg: #e8edff;
+    --tag-prm-tx: #1f3eaa;
+    --tag-res-bg: #e3f3e8;
+    --tag-res-tx: #1c6e3b;
+    --tag-les-bg: #fbe9e9;
+    --tag-les-tx: #952424;
+
+    --accent: #1f3eaa;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'ss01', 'tnum';
+    line-height: 1.65;
+  }
+
+  .doc {
+    max-width: 760px;
+    margin: 40px auto;
+    background: var(--paper);
+    padding: 64px 72px 80px;
+    box-shadow: 0 2px 36px rgba(20, 20, 30, 0.08),
+                0 1px 0 rgba(20, 20, 30, 0.04);
+    border-radius: 4px;
+  }
+
+  /* === Header === */
+  .doc-header {
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 28px;
+    margin-bottom: 14px;
+  }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    letter-spacing: 0.18em; font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 32px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.2;
+    margin: 0 0 14px;
+  }
+  .lede {
+    font-size: 16px; color: var(--ink-soft);
+    line-height: 1.7; max-width: 62ch;
+    margin: 0;
+  }
+  .meta-strip {
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .meta-strip strong { color: var(--ink); font-weight: 600; }
+
+  /* === Intro paragraph === */
+  .intro {
+    padding: 28px 0 8px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+  }
+  .intro p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin: 0 0 12px;
+  }
+  .intro p:last-child { margin-bottom: 0; }
+
+  /* === Step === */
+  .step {
+    padding: 44px 0 36px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .step:last-of-type { border-bottom: none; }
+  .step-head {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 4px;
+  }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700; color: var(--accent);
+    font-size: 13px; letter-spacing: 0.1em;
+  }
+  .step-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--ink-mute);
+    letter-spacing: 0.03em;
+  }
+  .step-title {
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.01em; line-height: 1.3;
+    margin: 6px 0 22px;
+  }
+
+  /* === Tag row === */
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 4px 9px; border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .tag-ctx { background: var(--tag-ctx-bg); color: var(--tag-ctx-tx); }
+  .tag-prm { background: var(--tag-prm-bg); color: var(--tag-prm-tx); }
+  .tag-res { background: var(--tag-res-bg); color: var(--tag-res-tx); }
+  .tag-les { background: var(--tag-les-bg); color: var(--tag-les-tx); }
+
+  /* === Body text === */
+  .body {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin: 0 0 18px;
+  }
+  .body strong { color: var(--ink); font-weight: 600; }
+
+  /* === Prompt box === */
+  .prompt {
+    background: #15171d;
+    color: #e6e7ec;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 0 0 18px;
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    white-space: pre-wrap;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+    position: relative;
+    overflow-x: auto;
+  }
+  .prompt::before {
+    content: "AI에게 보낸 메시지";
+    position: absolute;
+    top: -8px; left: 16px;
+    background: var(--paper);
+    padding: 0 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--accent);
+    letter-spacing: 0.16em; font-weight: 600;
+  }
+
+  /* === Lesson === */
+  .lesson {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: var(--line-soft);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .lesson b { color: var(--ink); font-weight: 600; }
+
+  /* === Glossary mini === */
+  .gloss {
+    font-size: 13px; color: var(--ink-mute);
+    background: var(--line-soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 0 0 18px;
+    line-height: 1.65;
+  }
+  .gloss strong { color: var(--ink); font-weight: 600; }
+
+  /* === Closing === */
+  .closing {
+    padding: 44px 0 0;
+    border-top: 1.5px solid var(--ink);
+    margin-top: 8px;
+  }
+  .closing h2 {
+    font-size: 20px; font-weight: 700;
+    margin: 0 0 22px;
+    letter-spacing: -0.01em;
+  }
+  .closing-list {
+    list-style: none; padding: 0; margin: 0;
+    counter-reset: lc;
+  }
+  .closing-list li {
+    counter-increment: lc;
+    padding: 12px 0 12px 36px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .closing-list li:last-child { border-bottom: none; }
+  .closing-list li::before {
+    content: counter(lc, decimal-leading-zero);
+    position: absolute; left: 0; top: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .footer {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 720px) {
+    .doc { margin: 0; padding: 40px 24px; border-radius: 0; }
+    h1 { font-size: 26px; }
+    .step-title { font-size: 19px; }
+    .prompt { font-size: 11.5px; padding: 18px 18px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .doc { box-shadow: none; margin: 0; padding: 18mm; max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<article class="doc">
+
+  <header class="doc-header">
+    <div class="kicker">MAKING PROCESS · 2026.02 → 05</div>
+    <h1>jchsanGi <br>— AI랑 6개월 동안 만든 과정</h1>
+    <p class="lede">
+      정보처리산업기사 기출문제 PDF 몇 회분만 갖고 있던 상태에서 시작해서,
+      혼자 AI한테 단계별로 물어가며 시험 문제풀이 사이트를 만들었습니다.
+      이 글은 그 6개월을 <strong>차례대로</strong>, 어떤 상황에서 AI에게 어떻게 부탁했는지 정리한 기록입니다.
+    </p>
+    <div class="meta-strip">
+      <span><strong>2026.02.17 → 05.22</strong></span>
+      <span>총 250개의 코드 변경</span>
+      <span>혼자 작업</span>
+      <span>6단계 진행</span>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>
+      <strong>이 글은 누구를 위한 글인가요?</strong>
+      코드를 잘 모르더라도 "AI로 뭔가를 만든다는 게 어떤 과정인지" 궁금한 분을 위한 글입니다.
+      각 단계에서 <em>실제로 AI에게 보낸 메시지</em>를 그대로 보여드립니다.
+      어려운 단어는 그 자리에서 한 줄로 풀어 적었습니다.
+    </p>
+  </section>
+
+  <!-- ============ STEP 1 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 01</span>
+      <span class="step-date">2026.02.17 → 02.20 · 첫 주</span>
+    </div>
+    <h2 class="step-title">PDF 시험지를, 화면에서 풀 수 있게</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      정보처리산업기사 기출문제 PDF 다섯 회분이 컴퓨터에 있었습니다.
+      이걸 사람들이 인터넷에서 회차를 골라 직접 풀 수 있는 사이트로 바꾸고 싶었습니다.
+      그런데 PDF 하나로는 아무것도 못 합니다. <strong>먼저 컴퓨터가 읽을 수 있는 모양</strong>으로 정리해야 했습니다.
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">정보처리산업기사 기출문제 PDF를
+웹사이트에서 풀 수 있게 만들고 싶어.
+
+지금 갖고 있는 것:
+- 회차별 PDF 다섯 개
+- 막 만들어 둔 빈 웹사이트 프로젝트
+
+한꺼번에 다 정하지 말고, 한 번에 하나씩
+객관식으로 물어봐줘.
+
+먼저 이 3가지부터:
+1. 문제 데이터를 컴퓨터가 읽기 쉬운 모양으로
+   어떻게 정리할까? (예: 회차 / 문항번호 / 보기 /
+   정답 / 해설 어떤 구조)
+2. 폴더를 어떻게 나눌까?
+3. 회차 고르는 화면은 어떻게 만들까?
+
+각각에 대해 추천 1번 + 다른 후보 1~2개,
+한 줄씩 장단점 적어줘.</div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      회차를 고르면 60문항을 키보드 숫자키로 풀 수 있는 모의시험 사이트가 됐습니다.
+      문제 데이터는 폴더별로 회차마다 한 파일씩 깔끔하게 정리됐고요.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      AI에게 "이거 다 만들어줘"라고 한 번에 던지지 말고,
+      "결정해야 할 걸 하나씩 골라서 물어봐줘"라고 부탁하면 훨씬 정확한 답이 옵니다.
+    </div>
+  </section>
+
+  <!-- ============ STEP 2 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 02</span>
+      <span class="step-date">2026.02.22 → 03.09 · 사람이 들어오기 시작</span>
+    </div>
+    <h2 class="step-title">"문제가 틀렸어요" 라는 말이 들리기 시작했다</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      사이트를 풀어보던 사람들에게서 "이 문제 답이 이상한 것 같아요" 같은 피드백이 카톡으로 들어오기 시작했습니다.
+      그런데 어떤 문제가 자주 신고되는지, 사이트에 사람이 얼마나 들어오는지
+      내가 한눈에 볼 방법이 전혀 없었습니다.
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">사용자가 문제 오류를 발견하면
+바로 신고할 수 있는 기능을 만들고 싶어.
+
+조건:
+- 데이터 저장에 돈 안 들이고 싶음 (무료 클라우드)
+- 신고가 들어오면 디스코드로 즉시 알림 받기
+- 관리자 페이지에서 어떤 문제가 자주
+  신고되는지 한눈에 보기
+
+각각 결정해야 할 것:
+A. 같은 문제에 여러 신고가 들어왔을 때
+   어떻게 묶어서 보여줄까?
+B. 디스코드 알림에는 어떤 정보가 들어가야
+   바로 확인이 될까?
+C. 관리자 페이지에 어떤 숫자를 보여줄까?
+   (방문 / 완료 / 합격률 / 신고 ...)
+
+각각 추천안 + 트레이드오프(장단점)
+표로 정리해줘.</div>
+
+    <div class="gloss">
+      <strong>잠깐 단어 풀이 ·</strong>
+      "무료 클라우드" → <strong>Supabase</strong>라는 서비스의 무료 등급. 데이터를 인터넷 어딘가에 안전하게 저장하고 꺼내 쓰는 곳입니다.
+    </div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      신고 버튼 → 디스코드 알림 → 관리자 페이지에서 모아 보기.
+      방문자 수, 시험 완료 수, 합격률까지 같이 보였고, 같은 문제에 여러 번 들어온 신고는 자동으로 묶여서 보였습니다.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      새 기능을 만들기 전에, <strong>지금 뭐가 일어나는지 볼 수 있는 도구</strong>를 먼저 만들면
+      다음에 뭘 고쳐야 할지 자동으로 보입니다.
+    </div>
+  </section>
+
+  <!-- ============ STEP 3 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 03</span>
+      <span class="step-date">2026.04.15 · 하루에 16번 코드 변경</span>
+    </div>
+    <h2 class="step-title">"맞다고 처리됐는데 왜 맞은 건지 모르겠어요"</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      실기 시험은 객관식이 아니라 답을 직접 타이핑해서 푸는 형태입니다.
+      "abc"라고 쳐도 "ABC"로 쳐도 같은 답으로 봐주는 식으로 채점을 너그럽게 만들어 두긴 했는데,
+      <strong>사용자가 그걸 못 믿어서</strong> 똑같은 답을 여러 형식으로 자꾸 다시 시도하는 일이 생겼습니다.
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">실기 채점이 답을 관대하게 맞춰주긴 하는데
+사용자가 "왜 맞다고 처리됐는지" 모르겠다고
+답답해해.
+
+원하는 것:
+1. 답을 치기 전에 "어떤 형식이 정답으로 인정되는지"
+   미리 보여주기
+2. 채점이 끝나면 내가 친 답이랑 모범 답이
+   어디가 같고 어디가 다른지 비교해서 보여주기
+3. "이런 사소한 차이는 봐줬어요" 같이 채점 근거도 보여주기
+
+이걸 설계서로 정리해줘.
+세 줄 산문으로 풀어쓰지 말고:
+- 결정해야 할 것을 표로
+- 화면이 어떤 흐름으로 움직이는지 그림으로
+- 데이터가 어디서 어디로 가는지 순서대로</div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      답 입력칸 위에 "이런 식으로 적어주세요" 힌트가 미리 떴고,
+      채점 후엔 내 답과 정답이 나란히 비교됐습니다.
+      "여기는 띄어쓰기 차이로 봐줬어요" 같은 채점 근거도 같이 보였습니다.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      AI에게 "설계서 써줘"라고 하면 두루뭉술한 글이 나오지만,
+      <strong>"결정 표 / 흐름도 / 데이터 순서로 정리해줘"</strong>라고 형식을 정해주면 다음에 그대로 따라 만들 수 있는 문서가 나옵니다.
+    </div>
+  </section>
+
+  <!-- ============ STEP 4 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 04</span>
+      <span class="step-date">2026.04.19 · 하루에 89번 코드 변경 (단일 최다)</span>
+    </div>
+    <h2 class="step-title">AI 학습 코치를 만든 날</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      틀린 문제를 다시 봐도 공식 해설만 가지고는 이해가 안 되는 경우가 많았습니다.
+      "이 문제 왜 틀렸어?"라고 자연어로 물어볼 수 있는 AI 코치가 있으면 좋겠다고 생각했습니다.
+      그리고 비슷한 유형의 문제도 AI가 직접 만들어서 다시 풀어보게 했으면 했습니다.
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">실기 오답에 대해 사용자가 자연어로 질문하면
+사용자의 과거 풀이 이력을 보고
+맞춤 설명을 해주는 AI 코치를 만들고 싶어.
+
+SQL이나 코드 문제는 비슷한 문제도
+자동으로 만들어서 다시 풀게 해주고 싶어.
+
+처음부터 같이 설계하자.
+객관식으로 하나씩 물어봐:
+
+1. AI 처리 서버를 어디에 둘까?
+   A) 지금 사이트 안에서 같이
+   B) 따로 만들어서 분리
+
+2. AI에게 도구(문제 조회, 코드 실행 등)를
+   어떻게 쓰게 할까?
+   A) 큰 도서관(LangChain) 갖다 쓰기
+   B) 처음부터 직접 만들기
+
+3. 대화 내용을 저장할까 휘발할까?
+
+4. 관리자만 부를 수 있게 어떻게 막을까?
+
+각각 추천안 + 다른 후보, 장단점 한 줄씩.</div>
+
+    <div class="gloss">
+      <strong>잠깐 단어 풀이 ·</strong>
+      <strong>도구(Tool)</strong>란 AI가 직접 호출할 수 있는 작은 기능들. 예: "이 문제의 정답을 가져와", "이 SQL을 실제로 실행해봐".
+      AI가 사람처럼 "잠깐, 답을 좀 찾아볼게"하고 도구를 부르는 구조입니다.
+    </div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      AI 코치 챗봇이 화면 우측에 떠서, 오답에 대해 자유롭게 물어볼 수 있게 됐습니다.
+      AI는 사용자의 풀이 이력을 보고 약점에 맞춰 설명했고,
+      SQL/코드 문제는 비슷한 새 문제를 만들어서 풀게 했습니다.
+      <strong>이날 하루에만 89번의 코드 변경</strong>이 일어났는데, 며칠 동안 설계만 꼼꼼히 해뒀더니
+      구현은 거의 따라 적기만 하면 되는 수준이 됐기 때문이었습니다.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      "AI에게 도구를 주는 일"은 큰 라이브러리에 맡기지 말고 직접 만드는 게 낫습니다.
+      문제가 생겼을 때 어디서 막혔는지 바로 보입니다.
+    </div>
+  </section>
+
+  <!-- ============ STEP 5 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 05</span>
+      <span class="step-date">2026.04.23 → 04.27 · AI가 만든 걸 의심하기 시작</span>
+    </div>
+    <h2 class="step-title">AI가 만든 문제가 멀쩡한지 검사하는 검사기</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      AI 코치가 비슷한 문제를 자동으로 만들어주긴 했는데, 가끔 이상한 문제가 섞여 나왔습니다.
+      문법은 맞는데 의도와 다른 답이 나오는 SQL 문제,
+      원본과 정답만 다를 뿐 거의 똑같은 코드 문제 같은 것들이요.
+      <strong>AI 출력물을 그대로 믿을 수 없었습니다.</strong>
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">AI가 만든 SQL 문제는
+실제로 데이터베이스에서 돌려서 결과를 비교하고
+코드 문제는 실제로 컴파일러로 돌려서
+정답과 일치하는지 확인하고 싶어.
+
+그래도 안 되면 다른 AI에게 채점을 요청하고
+그게 마지막 수단.
+
+검사기를 어떻게 설계할지 단계별로:
+- 입력으로 뭘 받고, 뭘 출력할지
+- 시간이 너무 오래 걸리면 어떻게 끊을지
+- 안전하게 격리해서 돌릴 필요가 있을지
+- 정답과 출력이 다르게 보이는 사소한 차이를
+  어떻게 무시할지 (공백, 줄바꿈 등)
+
+코드는 아직 쓰지 말고 설계만.</div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      AI가 문제를 만들면 → 검사기가 실제로 돌려서 정답과 비교 → 통과 못 한 건 다른 AI에게 의견 묻기,
+      이런 3단계 검증 흐름이 생겼습니다. 이상한 문제가 사용자에게 보이는 일이 거의 사라졌습니다.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      AI 출력물은 그대로 믿지 말고, 항상 <strong>다른 도구로 한 번 더 검사</strong>해야 합니다.
+      "다른 AI에게 채점 부탁하기"는 검사할 도구가 정말 없을 때만 쓰는 마지막 수단입니다.
+    </div>
+  </section>
+
+  <!-- ============ STEP 6 ============ -->
+  <section class="step">
+    <div class="step-head">
+      <span class="step-num">STEP 06</span>
+      <span class="step-date">2026.04.19 → 05.22 · 다음 단계의 설계</span>
+    </div>
+    <h2 class="step-title">"AI 호출 비용을 어떻게 줄일까"를 풀려고 시작한 새 프로젝트</h2>
+
+    <div class="tag tag-ctx">상황</div>
+    <p class="body">
+      AI 코치를 자주 부르다 보니 한 달 비용이 점점 부담스러워졌습니다.
+      외부 AI 서비스를 매번 부르는 대신, <strong>우리만 쓰는 작은 AI를 직접 학습시켜서 쓰면 어떨까?</strong>
+      이 큰 그림은 한 페이지에 그려두되, 실제 작업은 1단계만 잘라서 시작하기로 했습니다.
+    </p>
+
+    <div class="tag tag-prm">AI에게 어떻게 부탁했나</div>
+<div class="prompt">외부 AI API 비용을 줄이려면
+결국 우리 모델이 필요해.
+
+큰 그림 4단계:
+1. 문제 데이터 더 모으기 (크롤링 + 정리)
+2. AI 두 개로 비슷한 문제 쌍 만들기
+3. 또 다른 AI가 품질 평가해서 점수 매기기
+4. 그 데이터로 우리 모델 미세조정
+
+이 4단계를 한 페이지짜리 설계서로.
+표에 들어갈 것:
+- 각 단계의 입력 / 출력
+- 잘 됐는지 어떻게 잴 건지
+- 실패하면 어떻게 처리할지
+
+너무 크면 1단계만 잘라서
+별도 문서로 만들어줘. 그게 더 현실적이야.</div>
+
+    <div class="tag tag-res">그 결과 만들어진 것</div>
+    <p class="body">
+      <strong>teach_CBT</strong>라는 별도 프로젝트로 분리됐고,
+      4단계 큰 그림 + 1단계만의 상세 실행 계획 문서가 따로 생겼습니다.
+      이로써 jchsanGi 본체는 계속 안정적으로 굴러가면서,
+      미래 작업은 따로 한 단계씩 차분히 진행할 수 있게 됐습니다.
+    </p>
+
+    <div class="lesson">
+      <b>이때 배운 것 ·</b>
+      비전이 너무 크면 <strong>1단계만 잘라서 따로 문서 만들기</strong>가 답입니다.
+      한 번에 다 끝내려고 하면 아무것도 안 끝납니다.
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <h2>6개월에 배운 것 5가지</h2>
+    <ol class="closing-list">
+      <li>AI에게 일을 시키기 전에, 먼저 <strong>"결정해야 할 걸 표로 만들어줘"</strong>라고 부탁하세요.</li>
+      <li>큰 결정은 한꺼번에 묻지 말고, <strong>한 번에 하나씩 객관식으로</strong> 물어보세요.</li>
+      <li>AI가 쓸 "도구"는 <strong>처음부터 직접 만드세요.</strong> 큰 라이브러리는 막혔을 때 안 보입니다.</li>
+      <li>AI 출력물은 그대로 믿지 말고, <strong>외부 검사기로 한 번 더 확인</strong>하세요.</li>
+      <li>새 기능을 만들기 전에 <strong>지금 뭐가 일어나는지 보는 도구</strong>부터 만드세요. 다음 할 일이 거기서 나옵니다.</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <span>jchsanGi · 2026.02 → 05</span>
+    <span>github.com/b-hyoung</span>
+  </footer>
+
+</article>
+
+</body>
+</html>
