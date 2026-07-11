@@ -8,8 +8,10 @@ import {
 import {
   readEvents,
   readProblemOutcomes,
+  readProblemOutcomeStats,
   aggregateProblemWrongRates,
   aggregateProblemWrongRatesFromOutcomes,
+  rankProblemWrongRatesFromStats,
 } from '@/lib/analyticsStore';
 
 export const dynamic = 'force-dynamic';
@@ -20,13 +22,24 @@ export default async function PracticalHighWrongPage({ searchParams }) {
   const initialProblemNumber = Number.isNaN(initialProblemNumberRaw) ? null : initialProblemNumberRaw;
   const shouldResume = String(sp?.resume || '') === '1';
 
-  const problemOutcomes = await readProblemOutcomes();
-  const fromOutcomesMin2 = aggregateProblemWrongRatesFromOutcomes(problemOutcomes, { minAttempts: 2 });
-  let usingMinAttempts = fromOutcomesMin2.length > 0 ? 2 : 1;
-  let stats =
-    fromOutcomesMin2.length > 0
-      ? fromOutcomesMin2
-      : aggregateProblemWrongRatesFromOutcomes(problemOutcomes, { minAttempts: 1 });
+  // 사전 집계 뷰 우선 — 뷰가 없으면(null) 기존 원본 전체 다운로드로 폴백
+  const statsRows = await readProblemOutcomeStats();
+  let usingMinAttempts;
+  let stats;
+
+  if (statsRows) {
+    const statsMin2 = rankProblemWrongRatesFromStats(statsRows, { minAttempts: 2 });
+    usingMinAttempts = statsMin2.length > 0 ? 2 : 1;
+    stats = statsMin2.length > 0 ? statsMin2 : rankProblemWrongRatesFromStats(statsRows, { minAttempts: 1 });
+  } else {
+    const problemOutcomes = await readProblemOutcomes();
+    const fromOutcomesMin2 = aggregateProblemWrongRatesFromOutcomes(problemOutcomes, { minAttempts: 2 });
+    usingMinAttempts = fromOutcomesMin2.length > 0 ? 2 : 1;
+    stats =
+      fromOutcomesMin2.length > 0
+        ? fromOutcomesMin2
+        : aggregateProblemWrongRatesFromOutcomes(problemOutcomes, { minAttempts: 1 });
+  }
 
   if (stats.length === 0) {
     const events = await readEvents();
