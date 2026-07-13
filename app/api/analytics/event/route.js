@@ -3,6 +3,7 @@ import { appendEvent } from '@/lib/analyticsStore';
 import { auth } from '@/auth';
 import { loadProblemFull } from '@/lib/reportEnrichment';
 import { classifySessionId } from '@/lib/examType';
+import { applyDailyReviewOutcomes, discardPendingByOrigin } from '@/lib/generatedProblemsStore';
 
 export const dynamic = 'force-dynamic';
 
@@ -191,6 +192,28 @@ export async function POST(request) {
     };
 
     await appendEvent(event);
+
+    // 오늘의 복습: 풀이 결과 반영 (맞힘→done, 틀림→내일 재출제)
+    if (event.type === 'finish_exam' && String(event.sessionId) === 'practical-daily-review') {
+      const outcomes = Array.isArray(event.payload?.problemOutcomes) ? event.payload.problemOutcomes : [];
+      const email = String(event.payload?.__meta?.userEmail || '').trim().toLowerCase();
+      if (email && outcomes.length > 0) {
+        applyDailyReviewOutcomes(email, outcomes).catch(() => {
+          // 복습 상태 갱신 실패가 이벤트 기록을 막으면 안 됨
+        });
+      }
+    }
+
+    // 오늘의 복습: "문제 이상해요" 신고 → 해당 변형 폐기 (다음 생성 때 새 변형)
+    if (event.type === 'report_problem' && String(event.sessionId) === 'practical-daily-review') {
+      const email = String(event.payload?.__meta?.userEmail || '').trim().toLowerCase();
+      const sid = String(event.payload?.originSessionId || '');
+      const num = Number(event.payload?.originProblemNumber || 0);
+      if (email && sid && num > 0) {
+        discardPendingByOrigin(email, sid, num).catch(() => {});
+      }
+    }
+
     sendDiscordReport(event).catch(() => {
       // Report notifications should not break analytics ingestion.
     });
