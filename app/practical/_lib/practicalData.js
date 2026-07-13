@@ -13,6 +13,7 @@ const SYNTHETIC_SESSIONS = new Set([
   'high-unknown',
   'my-wrong',
   'my-unknown',
+  'daily-review',
 ]);
 
 export { PRACTICAL_SESSION_CONFIG, isPracticalSessionId, practicalSessionLabel };
