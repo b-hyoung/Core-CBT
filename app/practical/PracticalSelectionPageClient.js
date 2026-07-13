@@ -20,6 +20,16 @@ const resumeChipColors = {
 
 const utilityModes = [
   {
+    href: '/practical/daily-review',
+    title: '오늘의 복습',
+    desc: '틀린 문제의 변형을 매일 다시 — 맞히면 졸업, 틀리면 새 변형',
+    colorClass: 'bg-emerald-50 text-emerald-700 dark:bg-slate-800 dark:text-slate-300',
+    resumeKey: 'practical-daily-review',
+    resumeColor: 'amber',
+    availabilityKey: null,
+    buildResumeHref: (resume) => `/practical/daily-review?p=${resume.problemNumber}&resume=1`,
+  },
+  {
     href: '/practical/high-wrong',
     title: '오답률 높은 문제 풀기',
     desc: '전체 통계 기반 오답률 상위 실기 문제 모음',
@@ -155,6 +165,7 @@ export default function PracticalSelectionPageClient({
   useEffect(() => {
     const refresh = () => {
       const ids = [
+        'practical-daily-review',
         'practical-high-wrong',
         'practical-high-unknown',
         'practical-random',
