@@ -5,6 +5,7 @@ import { auth } from '@/auth';
 import PracticalQuizV2 from '../[sessionId]/PracticalQuizV2';
 import {
   fetchDueGeneratedProblems,
+  fetchDoneGeneratedProblems,
   fetchPendingSummary,
   toQuizProblem,
 } from '@/lib/generatedProblemsStore';
@@ -23,8 +24,9 @@ export default async function DailyReviewPage({ searchParams }) {
   const initialProblemNumber = Number.isNaN(initialProblemNumberRaw) ? null : initialProblemNumberRaw;
   const shouldResume = String(sp?.resume || '') === '1';
   const rawSet = String(sp?.set || '');
-  // 유효한 세트: review(오답 복습) 또는 카테고리. 이상한 값은 허브로.
-  const setKey = rawSet === 'review' || SET_CATEGORIES.has(rawSet) ? rawSet : null;
+  // 유효한 세트: review(오답 복습), archive(졸업 문제 다시 풀기), 카테고리. 이상한 값은 허브로.
+  const setKey =
+    rawSet === 'review' || rawSet === 'archive' || SET_CATEGORIES.has(rawSet) ? rawSet : null;
 
   const session = await auth();
   const userEmail = String(session?.user?.email || '').trim().toLowerCase();
@@ -64,7 +66,8 @@ export default async function DailyReviewPage({ searchParams }) {
       );
     }
 
-    const dueToday = summary.filter((r) => String(r.due_date) <= today);
+    const pending = summary.filter((r) => r.status === 'pending');
+    const dueToday = pending.filter((r) => String(r.due_date) <= today);
     const reviewCount = dueToday.filter((r) => r.kind !== 'coverage').length;
     const setCounts = {};
     for (const r of dueToday) {
@@ -73,15 +76,25 @@ export default async function DailyReviewPage({ searchParams }) {
       if (!SET_CATEGORIES.has(cat)) continue;
       setCounts[cat] = (setCounts[cat] || 0) + 1;
     }
-    const tomorrowCount = summary.filter((r) => String(r.due_date) > today).length;
+    const tomorrowCount = pending.filter((r) => String(r.due_date) > today).length;
+    const doneCount = summary.filter((r) => r.status === 'done').length;
 
-    return <DailyReviewHub reviewCount={reviewCount} setCounts={setCounts} tomorrowCount={tomorrowCount} />;
+    return (
+      <DailyReviewHub
+        reviewCount={reviewCount}
+        setCounts={setCounts}
+        tomorrowCount={tomorrowCount}
+        doneCount={doneCount}
+      />
+    );
   }
 
-  // ---------- 퀴즈 (오답 복습 or 집중 세트) ----------
+  // ---------- 퀴즈 (오답 복습 / 집중 세트 / 아카이브) ----------
   let allRows;
   try {
-    allRows = await fetchDueGeneratedProblems(userEmail, today);
+    allRows = setKey === 'archive'
+      ? await fetchDoneGeneratedProblems(userEmail)
+      : await fetchDueGeneratedProblems(userEmail, today);
   } catch {
     return (
       <Shell title="오늘의 복습">
@@ -94,16 +107,21 @@ export default async function DailyReviewPage({ searchParams }) {
   }
 
   const rows =
-    setKey === 'review'
-      ? allRows.filter((r) => r.kind !== 'coverage')
-      : allRows.filter((r) => r.kind === 'coverage' && String(r.problem?.category || '') === setKey);
-  const title = setKey === 'review' ? '오답 복습' : `${setKey} 집중 세트`;
+    setKey === 'archive'
+      ? allRows
+      : setKey === 'review'
+        ? allRows.filter((r) => r.kind !== 'coverage')
+        : allRows.filter((r) => r.kind === 'coverage' && String(r.problem?.category || '') === setKey);
+  const title =
+    setKey === 'archive' ? '졸업 문제 다시 풀기' : setKey === 'review' ? '오답 복습' : `${setKey} 집중 세트`;
 
   if (rows.length === 0) {
     return (
       <Shell title={title}>
-        <p className="mb-2 text-2xl">🎉</p>
-        <p className="mb-4 text-slate-600">이 세트의 오늘 분량을 모두 끝냈어요!</p>
+        <p className="mb-2 text-2xl">{setKey === 'archive' ? '🗂' : '🎉'}</p>
+        <p className="mb-4 text-slate-600">
+          {setKey === 'archive' ? '아직 졸업한 문제가 없어요 — 맞힌 문제가 여기에 쌓입니다.' : '이 세트의 오늘 분량을 모두 끝냈어요!'}
+        </p>
         <Link
           href="/practical/daily-review"
           className="inline-flex rounded-lg bg-emerald-600 px-4 py-2 font-bold text-white hover:bg-emerald-700"
@@ -139,9 +157,11 @@ export default async function DailyReviewPage({ searchParams }) {
         title: `${title} (${picked.length}문제)`,
         reviewOnly: true,
         lobbySubtitle:
-          setKey === 'review'
-            ? '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형'
-            : `안 풀어본 ${setKey} 유형 위주 기출 변형 · 맞히면 졸업`,
+          setKey === 'archive'
+            ? '한 번 맞혀 졸업한 문제들 · 다시 틀리면 복습함으로 재소환'
+            : setKey === 'review'
+              ? '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형'
+              : `안 풀어본 ${setKey} 유형 위주 기출 변형 · 맞히면 졸업`,
         backHref: '/practical/daily-review',
       }}
       sessionId={setKey === 'review' ? 'practical-daily-review' : `practical-daily-review-${setKey}`}

@@ -14,7 +14,7 @@ function sessionIdOf(setKey) {
   return setKey === 'review' ? 'practical-daily-review' : `practical-daily-review-${setKey}`;
 }
 
-export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount }) {
+export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, doneCount = 0 }) {
   const { runBatches, loadingKey, progress, summary, error, busy } = useBatchGenerate();
   const [resumeMap, setResumeMap] = useState({});
 
@@ -147,6 +147,16 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount }
           <p className="mt-4 rounded-lg bg-sky-50 px-4 py-2.5 text-center text-sm text-sky-800">
             📅 내일 출제 예정 {tomorrowCount}문제가 준비돼 있어요
           </p>
+        )}
+
+        {doneCount > 0 && (
+          <Link
+            href="/practical/daily-review?set=archive"
+            className="mt-3 flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-sm hover:border-emerald-300"
+          >
+            <span className="text-sm font-bold text-slate-700">🗂 졸업한 문제 {doneCount}개</span>
+            <span className="text-sm font-semibold text-emerald-700">다시 풀어보기 →</span>
+          </Link>
         )}
 
         <div className="mt-6 flex items-center justify-center gap-4">

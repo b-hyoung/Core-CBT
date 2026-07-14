@@ -89,8 +89,9 @@ async function generateOne(anchor, datasetCache) {
           input_type: String(gen.input_type || 'single'),
           input_labels: Array.isArray(gen.input_labels) ? gen.input_labels : undefined,
           answer_format_hint: gen.answer_format_hint ? String(gen.answer_format_hint) : null,
-          category: String(gen.category || original.category || ''),
-          subcategory: String(gen.subcategory || original.subcategory || ''),
+          // category/subcategory는 LLM 출력을 신뢰하지 않는다 — 원본의 정규 분류(SQL/Code/이론)를 그대로
+          category: String(original.category || ''),
+          subcategory: String(original.subcategory || ''),
         },
         answer: String(gen.answer),
         accepted_answers: [String(gen.answer), ...(Array.isArray(gen.accepted_answers) ? gen.accepted_answers.map(String) : [])]
