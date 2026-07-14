@@ -158,10 +158,10 @@ export default async function DailyReviewPage({ searchParams }) {
         reviewOnly: true,
         lobbySubtitle:
           setKey === 'archive'
-            ? '한 번 맞혀 졸업한 문제들 · 다시 틀리면 복습함으로 재소환'
+            ? '3연속 정답으로 졸업한 문제들 · 다시 틀리면 복습함으로 재소환'
             : setKey === 'review'
-              ? '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형'
-              : `안 풀어본 ${setKey} 유형 위주 기출 변형 · 맞히면 졸업`,
+              ? '틀린 문제의 변형 · 맞히면 3일 뒤 재점검, 3연속이면 졸업'
+              : `안 풀어본 ${setKey} 유형 위주 기출 변형 · 맞히면 3일 뒤 재점검`,
         backHref: '/practical/daily-review',
       }}
       sessionId={setKey === 'review' ? 'practical-daily-review' : `practical-daily-review-${setKey}`}

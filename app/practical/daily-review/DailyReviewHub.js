@@ -73,7 +73,7 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
           <h1 className="text-2xl font-extrabold text-slate-900">오늘의 복습</h1>
           <p className="mt-1 text-sm text-slate-500">
             {totalToday > 0
-              ? `오늘 풀 문제 ${totalToday}개 — 맞히면 졸업, 틀리면 내일 새 변형`
+              ? `오늘 풀 문제 ${totalToday}개 — 맞히면 3일 뒤 재점검, 3연속 정답이면 졸업`
               : '풀 문제가 없어요 — 아래 카드에서 바로 만들 수 있습니다'}
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
 
         {tomorrowCount > 0 && (
           <p className="mt-4 rounded-lg bg-sky-50 px-4 py-2.5 text-center text-sm text-sky-800">
-            📅 내일 출제 예정 {tomorrowCount}문제가 준비돼 있어요
+            📅 예정된 문제 {tomorrowCount}개 (내일 이후 자동 재등장)
           </p>
         )}
 
@@ -154,7 +154,7 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
             href="/practical/daily-review?set=archive"
             className="mt-3 flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-sm hover:border-emerald-300"
           >
-            <span className="text-sm font-bold text-slate-700">🗂 졸업한 문제 {doneCount}개</span>
+            <span className="text-sm font-bold text-slate-700">🗂 졸업한 문제 {doneCount}개 (3연속 정답)</span>
             <span className="text-sm font-semibold text-emerald-700">다시 풀어보기 →</span>
           </Link>
         )}
