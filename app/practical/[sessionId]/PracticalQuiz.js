@@ -645,6 +645,8 @@ function buildFlexibleFieldVariants(value) {
 
   if (tail) {
     const tailNorm = normalizePracticalAnswer(tail);
+    // 정답 필드가 "SMTP: 25"처럼 라벨을 포함해도 값("25")만 입력하면 인정
+    if (tailNorm) variants.add(tailNorm);
     if (headNorm && tailNorm) variants.add(`${headNorm}: ${tailNorm}`);
   }
 
