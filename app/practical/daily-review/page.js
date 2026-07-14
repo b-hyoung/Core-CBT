@@ -5,7 +5,7 @@ import PracticalQuizV2 from '../[sessionId]/PracticalQuizV2';
 import { fetchDueGeneratedProblems, toQuizProblem } from '@/lib/generatedProblemsStore';
 import { interleaveByCategory } from '@/lib/variantGeneration';
 import { kstTodayString } from '@/lib/kstDate';
-import GenerateButton from './GenerateButton';
+import GeneratePanel from './GeneratePanel';
 import LoginButton from './LoginButton';
 
 export const dynamic = 'force-dynamic';
@@ -40,9 +40,9 @@ export default async function DailyReviewPage({ searchParams }) {
       <EmptyShell title="오늘의 복습">
         <p className="mb-2 text-slate-600">오늘 복습할 문제가 없습니다.</p>
         <p className="mb-4 text-sm text-slate-500">
-          기출을 풀어 오답이 쌓이면, 아래 버튼으로 변형 문제를 만들 수 있어요. 만든 문제는 다음날 여기에 나옵니다.
+          오답 변형(내일 출제)을 만들거나, 카테고리 집중 세트를 만들어 바로 풀 수 있어요.
         </p>
-        <GenerateButton />
+        <GeneratePanel />
         <div className="mt-6">
           <Link href="/practical" className="text-sm font-semibold text-emerald-700 hover:underline">
             ← 실기 회차 선택으로

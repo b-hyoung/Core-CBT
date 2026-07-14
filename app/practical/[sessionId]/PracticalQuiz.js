@@ -3187,15 +3187,59 @@ export default function PracticalQuiz({
                     </div>
                   )}
                   {currentProblem.examples && (() => {
-                    const lines = currentProblem.examples.split('\n');
-                    const nonEmpty = lines.filter((l) => l.trim());
-                    const isTable = nonEmpty.length > 1 && nonEmpty.every((l) => l.includes('|'));
-                    const isCodeLike = !isTable && isCodeLikeText(currentProblem.examples);
-                    if (!isTable) {
-                      if (isCodeLike) {
+                    // 블록(빈 줄 구분) 단위로 표/코드/텍스트를 판별해 각각 시각화.
+                    // 표 블록이 하나도 없으면 기존 동작(전체 코드 or 전체 텍스트) 유지.
+                    const isTableBlock = (blockLines) => {
+                      const pipeLines = blockLines.filter((l) => l.includes('|'));
+                      return pipeLines.length >= 2 && pipeLines.length >= blockLines.length - 1;
+                    };
+                    const renderTable = (blockLines, key) => {
+                      const captions = blockLines.filter((l) => !l.includes('|'));
+                      const rows = blockLines
+                        .filter((l) => l.includes('|'))
+                        .filter((l) => !/^[\s|:\-—─]+$/.test(l)) // |---| 구분선 제거
+                        .map((l) => {
+                          let cells = l.split('|').map((c) => c.trim());
+                          if (cells.length > 1 && cells[0] === '') cells = cells.slice(1);
+                          if (cells.length > 1 && cells[cells.length - 1] === '') cells = cells.slice(0, -1);
+                          return cells;
+                        });
+                      return (
+                        <div key={key}>
+                          {captions.map((c, ci) => (
+                            <p key={`cap-${ci}`} className="mb-2 text-sm font-bold text-slate-700 dark:text-slate-300">{c}</p>
+                          ))}
+                          <div className="overflow-x-auto rounded-lg border border-[color:var(--theme-border)]">
+                            <table className="w-full border-collapse text-sm sm:text-[0.95rem]">
+                              <tbody>
+                                {rows.map((cells, ri) => {
+                                  const Tag = ri === 0 ? 'th' : 'td';
+                                  return (
+                                    <tr key={ri} className={ri === 0 ? 'bg-sky-100 dark:bg-slate-800' : ri % 2 === 0 ? 'bg-sky-50 dark:bg-slate-800/90' : 'bg-white dark:bg-slate-900'}>
+                                      {cells.map((cell, ci) => (
+                                        <Tag key={ci} className="border border-[color:var(--theme-border)] px-3 py-2 text-center font-medium text-gray-800 dark:text-slate-200">
+                                          {cell}
+                                        </Tag>
+                                      ))}
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      );
+                    };
+
+                    const blocks = currentProblem.examples.split(/\n\s*\n/).filter((b) => b.trim());
+                    const blockLinesList = blocks.map((b) => b.split('\n').filter((l) => l.trim()));
+                    const hasTableBlock = blockLinesList.some((bl) => bl.length > 1 && isTableBlock(bl));
+
+                    if (!hasTableBlock) {
+                      if (isCodeLikeText(currentProblem.examples)) {
                         return (
                           <div className="overflow-x-auto rounded-lg border border-[color:var(--theme-border)] bg-white dark:bg-slate-900">
-                            <pre className="m-0 whitespace-pre-wrap break-words p-3 text-xs leading-5 text-gray-900 dark:text-slate-100 sm:text-sm sm:leading-6">
+                            <pre className="m-0 whitespace-pre-wrap break-words p-3 font-mono text-sm leading-6 text-gray-900 dark:text-slate-100 sm:text-[0.95rem] sm:leading-7">
                               {formatCodeForDisplay(currentProblem.examples)}
                             </pre>
                           </div>
@@ -3207,28 +3251,27 @@ export default function PracticalQuiz({
                         </p>
                       );
                     }
-                    const tables = currentProblem.examples.split('\n\n').filter(Boolean);
+
                     return (
-                      <div className="space-y-3">
-                        {tables.map((tbl, ti) => (
-                          <table key={ti} className="w-full text-sm border-collapse">
-                            <tbody>
-                              {tbl.split('\n').filter(Boolean).map((row, ri) => {
-                                const cells = row.split('|').map((c) => c.trim());
-                                const Tag = ri === 0 ? 'th' : 'td';
-                                return (
-                                  <tr key={ri} className={ri === 0 ? 'bg-sky-100 dark:bg-slate-800' : ri % 2 === 0 ? 'bg-sky-50 dark:bg-slate-800/90' : 'bg-white dark:bg-slate-900'}>
-                                    {cells.map((cell, ci) => (
-                                      <Tag key={ci} className="border border-[color:var(--theme-border)] px-3 py-2 text-center font-medium text-gray-800 dark:text-slate-200">
-                                        {cell}
-                                      </Tag>
-                                    ))}
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
-                        ))}
+                      <div className="space-y-4">
+                        {blocks.map((block, bi) => {
+                          const bl = blockLinesList[bi];
+                          if (bl.length > 1 && isTableBlock(bl)) return renderTable(bl, bi);
+                          if (isCodeLikeText(block)) {
+                            return (
+                              <div key={bi} className="overflow-x-auto rounded-lg border border-[color:var(--theme-border)] bg-white dark:bg-slate-900">
+                                <pre className="m-0 whitespace-pre-wrap break-words p-3 font-mono text-sm leading-6 text-gray-900 dark:text-slate-100 sm:text-[0.95rem] sm:leading-7">
+                                  {formatCodeForDisplay(block)}
+                                </pre>
+                              </div>
+                            );
+                          }
+                          return (
+                            <p key={bi} className="text-sm leading-7 text-gray-800 whitespace-pre-line break-keep [overflow-wrap:anywhere] dark:text-slate-200 sm:text-[0.95rem]">
+                              {block}
+                            </p>
+                          );
+                        })}
                       </div>
                     );
                   })()}

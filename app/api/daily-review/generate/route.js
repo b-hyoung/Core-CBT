@@ -124,9 +124,22 @@ export async function POST(request) {
   // 2) 배치 계획
   const [tagsMap, pendingKeys] = await Promise.all([loadConceptTags(), fetchPendingOriginKeys(email)]);
   const problemIndex = await buildProblemIndex(tagsMap);
-  const anchors = planGenerationBatch({
-    wrongs: practicalWrongs, pendingKeys, tagsMap, problemIndex, attemptedKeys,
-  });
+
+  // 카테고리 집중 모드: 오답과 무관하게 해당 카테고리 기출을 앵커로 변형 생성 (미시도 우선)
+  const CATEGORY_SET = new Set(['SQL', 'Code', '이론']);
+  const category = String(body?.category || '');
+  let anchors;
+  if (CATEGORY_SET.has(category)) {
+    const count = Math.min(Math.max(Number(body?.count) || 20, 1), 20);
+    const pool = problemIndex.filter((p) => p.category === category && !pendingKeys.has(p.key));
+    const untried = pool.filter((p) => !attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
+    const tried = pool.filter((p) => attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
+    anchors = [...untried, ...tried].slice(0, count).map((p) => ({ ...p, kind: 'coverage' }));
+  } else {
+    anchors = planGenerationBatch({
+      wrongs: practicalWrongs, pendingKeys, tagsMap, problemIndex, attemptedKeys,
+    });
+  }
   if (anchors.length === 0) {
     return Response.json({ generated: 0, rejected: 0, message: '생성할 오답이 없거나 모두 pending 상태입니다.' });
   }
