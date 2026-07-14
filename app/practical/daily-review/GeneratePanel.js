@@ -7,16 +7,21 @@ import { useBatchGenerate } from './useBatchGenerate';
 
 const CATEGORY_BUTTONS = [
   { category: 'SQL', label: 'SQL 집중 20문제' },
-  { category: 'Code', label: '코드 집중 20문제' },
+  { category: 'Code', label: '코드 집중 20문제', languages: ['C', 'Java', 'Python', '혼합'] },
   { category: '이론', label: '이론(네트워크 등) 20문제' },
 ];
 
 export default function GeneratePanel() {
   const { runBatches, loadingKey, progress, summary, error, busy } = useBatchGenerate();
 
+  const summaryCategory = summary
+    ? CATEGORY_BUTTONS.map((b) => b.category).find(
+        (c) => summary.key === c || String(summary.key || '').startsWith(`${c}-`),
+      )
+    : null;
   const solveHref = summary
-    ? CATEGORY_BUTTONS.some((b) => b.category === summary.key)
-      ? `/practical/daily-review?set=${encodeURIComponent(summary.key)}`
+    ? summaryCategory
+      ? `/practical/daily-review?set=${encodeURIComponent(summaryCategory)}`
       : '/practical/daily-review?set=review'
     : '';
 
@@ -36,16 +41,47 @@ export default function GeneratePanel() {
       <div>
         <p className="mb-2 text-sm font-bold text-slate-700">집중 세트 — 지금 바로 풀기</p>
         <div className="grid gap-2">
-          {CATEGORY_BUTTONS.map(({ category, label }) => (
-            <button
-              key={category}
-              onClick={() => runBatches(category, (n) => ({ category, count: n, dueToday: true }), 20)}
-              disabled={busy}
-              className="inline-flex w-full items-center justify-center rounded-lg border border-emerald-600 bg-white px-4 py-2.5 font-bold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
-            >
-              {loadingKey === category ? progress || `${category} 세트 생성 중...` : label}
-            </button>
-          ))}
+          {CATEGORY_BUTTONS.map(({ category, label, languages }) =>
+            languages ? (
+              <div key={category} className="rounded-lg border border-emerald-600 bg-white px-4 py-2.5">
+                <p className="mb-1.5 text-center text-sm font-bold text-emerald-700">
+                  {String(loadingKey || '').startsWith(`${category}-`) ? progress || `${category} 세트 생성 중...` : label}
+                </p>
+                <div className="flex justify-center gap-1.5">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() =>
+                        runBatches(
+                          `${category}-${lang}`,
+                          (n) => ({
+                            category,
+                            count: n,
+                            dueToday: true,
+                            ...(lang !== '혼합' ? { language: lang } : {}),
+                          }),
+                          20,
+                        )
+                      }
+                      disabled={busy}
+                      className="inline-flex rounded-md border border-emerald-300 px-3 py-1 text-xs font-bold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
+                    >
+                      {lang}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <button
+                key={category}
+                onClick={() => runBatches(category, (n) => ({ category, count: n, dueToday: true }), 20)}
+                disabled={busy}
+                className="inline-flex w-full items-center justify-center rounded-lg border border-emerald-600 bg-white px-4 py-2.5 font-bold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
+              >
+                {loadingKey === category ? progress || `${category} 세트 생성 중...` : label}
+              </button>
+            ),
+          )}
         </div>
         <p className="mt-2 text-xs text-slate-500">
           안 풀어본 유형 우선으로 기출 변형을 만듭니다. 3문제씩 진행되며 5분 안팎 걸려요.

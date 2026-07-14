@@ -77,7 +77,8 @@
       {
         "problem_number": 8,
         "question_text": "다음은 애플리케이션 테스트와 소프트웨어 개발 단계를 연결하여 표현한 소프트웨어 생명 주기의 V-모델이다. 괄호에 들어갈 알맞은 용어를 <보기>에서 찾아 쓰시오.",
-        "examples": "소프트웨어 V모델 빈칸 채우기\n<img src=\"/24-1-8.jpg\" alt=\"V-모델 다이어그램\" />",
+        "examples": "소프트웨어 V모델 빈칸 채우기",
+        "example_image_url": "/24-1-8.jpg",
         "input_type": "multi_blank",
         "answer_format_hint": "예: 항목별 답을 함께 입력",
         "category": "이론",

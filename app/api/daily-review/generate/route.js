@@ -139,11 +139,19 @@ export async function POST(request) {
 
     // 카테고리 집중 모드: 오답과 무관하게 해당 카테고리 기출을 앵커로 변형 생성 (미시도 우선)
     const CATEGORY_SET = new Set(['SQL', 'Code', '이론']);
+    const CODE_LANGUAGES = new Set(['C', 'Java', 'Python']);
     const category = String(body?.category || '');
+    // Code 집중 세트의 언어 선택 (C/Java/Python) — 미지정·'혼합'이면 전체
+    const language = String(body?.language || '');
     let anchors;
     if (CATEGORY_SET.has(category)) {
       const count = Math.min(Math.max(Number(body?.count) || 20, 1), maxAnchors);
-      const pool = problemIndex.filter((p) => p.category === category && !pendingKeys.has(p.key));
+      const pool = problemIndex.filter(
+        (p) =>
+          p.category === category &&
+          !pendingKeys.has(p.key) &&
+          (category !== 'Code' || !CODE_LANGUAGES.has(language) || p.subcategory === language),
+      );
       const untried = pool.filter((p) => !attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
       const tried = pool.filter((p) => attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
       anchors = [...untried, ...tried].slice(0, count).map((p) => ({ ...p, kind: 'coverage' }));

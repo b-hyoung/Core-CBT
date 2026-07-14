@@ -34,7 +34,7 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
     ...CATEGORIES.map((category) => ({
       setKey: category,
       title: `${category} 집중 세트`,
-      desc: '안 풀어본 유형 위주 기출 변형',
+      desc: category === 'Code' ? '언어를 골라 기출 변형 생성' : '안 풀어본 유형 위주 기출 변형',
       count: setCounts[category] || 0,
       accent: false,
       emptyAction: {
@@ -42,8 +42,25 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
         target: 20,
         makePayload: (n) => ({ category, count: n, dueToday: true }),
       },
+      // Code는 언어 선택 버튼으로 대체
+      languages: category === 'Code' ? ['C', 'Java', 'Python', '혼합'] : null,
     })),
   ];
+
+  function codeLangAction(lang) {
+    const key = `Code-${lang}`;
+    return () =>
+      runBatches(
+        key,
+        (n) => ({
+          category: 'Code',
+          count: n,
+          dueToday: true,
+          ...(lang !== '혼합' ? { language: lang } : {}),
+        }),
+        20,
+      );
+  }
 
   useEffect(() => {
     const next = {};
@@ -83,8 +100,9 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
             const resumeAt = resumeMap[card.setKey];
             const baseHref = `/practical/daily-review?set=${encodeURIComponent(card.setKey)}`;
             const isEmpty = card.count === 0;
-            const isGenerating = loadingKey === card.setKey;
-            const justGenerated = summary?.key === card.setKey && summary.generated > 0;
+            const keyMatches = (k) => k === card.setKey || String(k || '').startsWith(`${card.setKey}-`);
+            const isGenerating = keyMatches(loadingKey);
+            const justGenerated = summary && keyMatches(summary.key) && summary.generated > 0;
             return (
               <div
                 key={card.setKey}
@@ -125,6 +143,28 @@ export default function DailyReviewHub({ reviewCount, setCounts, tomorrowCount, 
                           </Link>
                         ) : null}
                       </>
+                    ) : card.languages ? (
+                      <div className="flex flex-col items-end gap-1">
+                        {isGenerating ? (
+                          <span className="text-xs font-bold text-emerald-700">{progress || '생성 중...'}</span>
+                        ) : (
+                          <>
+                            <span className="text-[11px] text-slate-400">20문제 만들고 바로 풀기</span>
+                            <div className="flex flex-wrap justify-end gap-1">
+                              {card.languages.map((lang) => (
+                                <button
+                                  key={lang}
+                                  onClick={codeLangAction(lang)}
+                                  disabled={busy}
+                                  className="inline-flex rounded-lg border border-emerald-600 bg-white px-2.5 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
+                                >
+                                  {lang}
+                                </button>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
                     ) : (
                       <button
                         onClick={() => runBatches(card.setKey, card.emptyAction.makePayload, card.emptyAction.target)}

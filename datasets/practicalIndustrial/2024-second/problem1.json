@@ -98,7 +98,7 @@
         "question_text": "처리조건에 부합하는 SQL문 빈칸 채우기",
         "examples": "<처리조건>\n- <사원> 테이블에 이름이 \"윤정희\", 부서가 \"영업부\", 주소가 \"마포구\"인 사원의 정보를 입력하시오.\n- <사원> 테이블에서 이름이 \"임선호\"인 사원의 부서를 \"기획부\"로 변경하시오.\n\n<SQL문>\n- INSERT (1) 사원 (이름, 부서, 주소) (2) ('윤정희', '영업부', '마포구');\n- UPDATE 사원 (3) 부서 = '기획부' WHERE 이름 = '임선호';",
         "input_type": "textarea",
-        "answer_format_hint": "예: SQL문 전체를 입력하세요.",
+        "answer_format_hint": "예: ① SELECT ② FROM ③ WHERE 형식으로 빈칸의 예약어만 입력",
         "category": "SQL",
         "subcategory": "query"
       },
@@ -163,9 +163,16 @@
         "question_text": "다음 라우터 그래프에서 RIP 기준으로 A에서 F까지의 최단 경로를 쓰시오.",
         "examples": "<보기>\n라우터: A, B, C, D, E, F\n간선 가중치\nA-B: 2\nA-D: 1\nB-D: 2\nD-C: 2\nC-E: 1\nE-F: 2\nC-F: 5",
         "input_type": "sequence",
-        "answer_format_hint": "예: A-B-C-D",
+        "answer_format_hint": "예: A-B-C-D-E",
         "category": "이론",
-        "subcategory": "네트워크"
+        "subcategory": "네트워크",
+        "input_labels": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
       }
     ]
   }
