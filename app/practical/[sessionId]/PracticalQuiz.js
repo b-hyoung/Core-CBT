@@ -844,6 +844,17 @@ function isPracticalAnswerMatch(userAnswer, correctAnswer, problem = null) {
     }
   }
 
+  // 최후 관용 비교: 내용은 같고 구분 기호(공백·쉼표·슬래시·가운뎃점·세미콜론)만 다른 경우 정답 처리
+  // 예: "블랙박스: 가,다,바 화이트박스: 나,라,마" vs "블랙박스: 가, 다, 바 / 화이트박스: 나, 라, 마"
+  const stripSeparators = (s) =>
+    String(s ?? '').normalize('NFKC').toLowerCase().replace(/[\s,/·;]+/g, '');
+  const separatorFreeUser = stripSeparators(userAnswer);
+  if (separatorFreeUser) {
+    for (const candidate of [String(correctAnswer ?? ''), ...buildAcceptedPracticalAnswers(correctAnswer, problem)]) {
+      if (stripSeparators(candidate) === separatorFreeUser) return true;
+    }
+  }
+
   return false;
 }
 
