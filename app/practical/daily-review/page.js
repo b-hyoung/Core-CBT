@@ -10,11 +10,15 @@ import LoginButton from './LoginButton';
 
 export const dynamic = 'force-dynamic';
 
+const SET_CATEGORIES = new Set(['SQL', 'Code', '이론']);
+
 export default async function DailyReviewPage({ searchParams }) {
   const sp = (await searchParams) || {};
   const initialProblemNumberRaw = Number(sp?.p);
   const initialProblemNumber = Number.isNaN(initialProblemNumberRaw) ? null : initialProblemNumberRaw;
   const shouldResume = String(sp?.resume || '') === '1';
+  // ?set=SQL|Code|이론 → 카테고리 집중 세트만 / 없으면 오답 복습(변형·확장)만
+  const setCategory = SET_CATEGORIES.has(String(sp?.set || '')) ? String(sp.set) : null;
 
   const session = await auth();
   const userEmail = String(session?.user?.email || '').trim().toLowerCase();
@@ -33,13 +37,29 @@ export default async function DailyReviewPage({ searchParams }) {
     );
   }
 
-  const rows = await fetchDueGeneratedProblems(userEmail, kstTodayString());
+  const allRows = await fetchDueGeneratedProblems(userEmail, kstTodayString());
+  const reviewRows = allRows.filter((r) => r.kind !== 'coverage');
+  const setRowsByCategory = new Map();
+  for (const r of allRows) {
+    if (r.kind !== 'coverage') continue;
+    const cat = String(r.problem?.category || '');
+    if (!setRowsByCategory.has(cat)) setRowsByCategory.set(cat, []);
+    setRowsByCategory.get(cat).push(r);
+  }
+
+  const rows = setCategory ? (setRowsByCategory.get(setCategory) || []) : reviewRows;
+  const title = setCategory ? `${setCategory} 집중 세트` : '오늘의 복습';
 
   if (rows.length === 0) {
     return (
-      <EmptyShell title="오늘의 복습">
-        <p className="mb-2 text-slate-600">오늘 복습할 문제가 없습니다.</p>
-        <p className="mb-4 text-sm text-slate-500">
+      <EmptyShell title={title}>
+        {setCategory ? (
+          <p className="mb-2 text-slate-600">{setCategory} 집중 세트에 풀 문제가 없습니다.</p>
+        ) : (
+          <p className="mb-2 text-slate-600">오늘 복습할 오답 변형이 없습니다.</p>
+        )}
+        <SetLinks setRowsByCategory={setRowsByCategory} reviewCount={reviewRows.length} current={setCategory} />
+        <p className="mb-4 mt-3 text-sm text-slate-500">
           오답 변형(내일 출제)을 만들거나, 카테고리 집중 세트를 만들어 바로 풀 수 있어요.
         </p>
         <GeneratePanel />
@@ -74,14 +94,41 @@ export default async function DailyReviewPage({ searchParams }) {
       answersMap={answersMap}
       commentsMap={commentsMap}
       session={{
-        title: `오늘의 복습 (${picked.length}문제)`,
+        title: `${title} (${picked.length}문제)`,
         reviewOnly: true,
-        lobbySubtitle: '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형',
+        lobbySubtitle: setCategory
+          ? `안 풀어본 ${setCategory} 유형 위주 기출 변형 · 맞히면 졸업`
+          : '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형',
       }}
-      sessionId="practical-daily-review"
+      sessionId={setCategory ? `practical-daily-review-${setCategory}` : 'practical-daily-review'}
       initialProblemNumber={initialProblemNumber}
       shouldResume={shouldResume}
     />
+  );
+}
+
+function SetLinks({ setRowsByCategory, reviewCount, current }) {
+  const links = [];
+  if (current && reviewCount > 0) {
+    links.push({ href: '/practical/daily-review', label: `오답 복습 (${reviewCount}문제)` });
+  }
+  for (const [cat, list] of setRowsByCategory.entries()) {
+    if (cat === current) continue;
+    links.push({ href: `/practical/daily-review?set=${encodeURIComponent(cat)}`, label: `${cat} 집중 세트 (${list.length}문제)` });
+  }
+  if (links.length === 0) return null;
+  return (
+    <div className="mb-2 flex flex-wrap justify-center gap-2">
+      {links.map((l) => (
+        <Link
+          key={l.href}
+          href={l.href}
+          className="inline-flex rounded-full border border-emerald-600 px-3 py-1 text-sm font-bold text-emerald-700 hover:bg-emerald-50"
+        >
+          {l.label} →
+        </Link>
+      ))}
+    </div>
   );
 }
 

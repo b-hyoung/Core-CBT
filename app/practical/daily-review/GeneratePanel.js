@@ -51,7 +51,10 @@ export default function GeneratePanel() {
         dueDate = data.dueDate || dueDate;
         if (data.exhausted || ((Number(data.generated) || 0) === 0 && (Number(data.rejected) || 0) === 0)) break;
       }
-      setSummary({ key, generated, rejected, dueDate });
+      const solveHref = CATEGORY_BUTTONS.some((b) => b.category === key)
+        ? `/practical/daily-review?set=${encodeURIComponent(key)}`
+        : '/practical/daily-review';
+      setSummary({ key, generated, rejected, dueDate, solveHref });
       router.refresh();
     } catch (e) {
       // 이미 생성된 분량은 저장돼 있음 — 부분 성공을 알려줌
@@ -102,7 +105,7 @@ export default function GeneratePanel() {
             ✅ {summary.generated}문제 생성 완료 ({summary.dueDate}에 출제)
             {summary.rejected > 0 ? ` · ${summary.rejected}건 품질 미달로 제외` : ''}
           </p>
-          <Link href="/practical/daily-review" className="mt-1 inline-block font-bold underline">
+          <Link href={summary.solveHref || '/practical/daily-review'} className="mt-1 inline-block font-bold underline">
             지금 풀러 가기 →
           </Link>
         </div>

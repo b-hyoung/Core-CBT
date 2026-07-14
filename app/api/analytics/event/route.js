@@ -194,7 +194,8 @@ export async function POST(request) {
     await appendEvent(event);
 
     // 오늘의 복습: 풀이 결과 반영 (맞힘→done, 틀림→내일 재출제)
-    if (event.type === 'finish_exam' && String(event.sessionId) === 'practical-daily-review') {
+    // sessionId는 'practical-daily-review' 또는 집중 세트 'practical-daily-review-SQL' 등
+    if (event.type === 'finish_exam' && String(event.sessionId || '').startsWith('practical-daily-review')) {
       const outcomes = Array.isArray(event.payload?.problemOutcomes) ? event.payload.problemOutcomes : [];
       const email = String(event.payload?.__meta?.userEmail || '').trim().toLowerCase();
       if (email && outcomes.length > 0) {
@@ -205,7 +206,7 @@ export async function POST(request) {
     }
 
     // 오늘의 복습: "문제 이상해요" 신고 → 해당 변형 폐기 (다음 생성 때 새 변형)
-    if (event.type === 'report_problem' && String(event.sessionId) === 'practical-daily-review') {
+    if (event.type === 'report_problem' && String(event.sessionId || '').startsWith('practical-daily-review')) {
       const email = String(event.payload?.__meta?.userEmail || '').trim().toLowerCase();
       const sid = String(event.payload?.originSessionId || '');
       const num = Number(event.payload?.originProblemNumber || 0);
