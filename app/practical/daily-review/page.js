@@ -6,6 +6,7 @@ import { fetchDueGeneratedProblems, toQuizProblem } from '@/lib/generatedProblem
 import { interleaveByCategory } from '@/lib/variantGeneration';
 import { kstTodayString } from '@/lib/kstDate';
 import GenerateButton from './GenerateButton';
+import LoginButton from './LoginButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,9 +23,12 @@ export default async function DailyReviewPage({ searchParams }) {
     return (
       <EmptyShell title="오늘의 복습">
         <p className="mb-6 text-slate-600">로그인하면 어제 틀린 문제의 변형을 복습할 수 있습니다.</p>
-        <Link href="/practical" className="inline-flex rounded-lg bg-emerald-600 px-4 py-2 font-bold text-white hover:bg-emerald-700">
-          실기 회차 선택으로 돌아가기
-        </Link>
+        <LoginButton />
+        <div className="mt-4">
+          <Link href="/practical" className="text-sm font-semibold text-emerald-700 hover:underline">
+            ← 실기 회차 선택으로
+          </Link>
+        </div>
       </EmptyShell>
     );
   }
