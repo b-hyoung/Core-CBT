@@ -49,6 +49,13 @@ describe('validateGeneratedProblem', () => {
     const dup = { ...GOOD_GEN, question_text: ORIGINAL.question_text, examples: ORIGINAL.examples };
     expect(validateGeneratedProblem(dup, ORIGINAL).ok).toBe(false);
   });
+
+  it('여러 줄 정답은 거부한다 (한 줄 입력 원칙)', () => {
+    const multiline = { ...GOOD_GEN, answer: '7\n89\n1011', accepted_answers: [] };
+    const r = validateGeneratedProblem(multiline, ORIGINAL);
+    expect(r.ok).toBe(false);
+    expect(r.reason).toContain('newline');
+  });
 });
 
 describe('isNearDuplicate', () => {
