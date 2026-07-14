@@ -27,7 +27,7 @@ const utilityModes = [
     resumeKey: 'practical-daily-review',
     resumeColor: 'amber',
     availabilityKey: null,
-    buildResumeHref: (resume) => `/practical/daily-review?p=${resume.problemNumber}&resume=1`,
+    buildResumeHref: (resume) => `/practical/daily-review?set=review&p=${resume.problemNumber}&resume=1`,
   },
   {
     href: '/practical/high-wrong',

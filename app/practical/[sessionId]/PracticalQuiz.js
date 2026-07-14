@@ -2050,7 +2050,8 @@ export default function PracticalQuiz({
     );
     clearResumeSnapshot();
     markResumeDiscardOnRestore();
-    router.push('/practical');
+    // 세션 설정이 복귀 경로를 지정하면 그리로 (예: 오늘의 복습 허브)
+    router.push(String(session?.backHref || '/practical'));
   };
 
   const getProblemStatus = (problem) => {

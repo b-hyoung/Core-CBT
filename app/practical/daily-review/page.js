@@ -1,11 +1,16 @@
 // app/practical/daily-review/page.js
+// ?set 없음 → 허브(세트 목록·생성) / ?set=review → 오답 복습 퀴즈 / ?set=SQL|Code|이론 → 집중 세트 퀴즈
 import Link from 'next/link';
 import { auth } from '@/auth';
 import PracticalQuizV2 from '../[sessionId]/PracticalQuizV2';
-import { fetchDueGeneratedProblems, toQuizProblem } from '@/lib/generatedProblemsStore';
+import {
+  fetchDueGeneratedProblems,
+  fetchPendingSummary,
+  toQuizProblem,
+} from '@/lib/generatedProblemsStore';
 import { interleaveByCategory } from '@/lib/variantGeneration';
 import { kstTodayString } from '@/lib/kstDate';
-import GeneratePanel from './GeneratePanel';
+import DailyReviewHub from './DailyReviewHub';
 import LoginButton from './LoginButton';
 
 export const dynamic = 'force-dynamic';
@@ -17,15 +22,16 @@ export default async function DailyReviewPage({ searchParams }) {
   const initialProblemNumberRaw = Number(sp?.p);
   const initialProblemNumber = Number.isNaN(initialProblemNumberRaw) ? null : initialProblemNumberRaw;
   const shouldResume = String(sp?.resume || '') === '1';
-  // ?set=SQL|Code|이론 → 카테고리 집중 세트만 / 없으면 오답 복습(변형·확장)만
-  const setCategory = SET_CATEGORIES.has(String(sp?.set || '')) ? String(sp.set) : null;
+  const rawSet = String(sp?.set || '');
+  // 유효한 세트: review(오답 복습) 또는 카테고리. 이상한 값은 허브로.
+  const setKey = rawSet === 'review' || SET_CATEGORIES.has(rawSet) ? rawSet : null;
 
   const session = await auth();
   const userEmail = String(session?.user?.email || '').trim().toLowerCase();
 
   if (!userEmail) {
     return (
-      <EmptyShell title="오늘의 복습">
+      <Shell title="오늘의 복습">
         <p className="mb-6 text-slate-600">로그인하면 어제 틀린 문제의 변형을 복습할 수 있습니다.</p>
         <LoginButton />
         <div className="mt-4">
@@ -33,42 +39,78 @@ export default async function DailyReviewPage({ searchParams }) {
             ← 실기 회차 선택으로
           </Link>
         </div>
-      </EmptyShell>
+      </Shell>
     );
   }
 
-  const allRows = await fetchDueGeneratedProblems(userEmail, kstTodayString());
-  const reviewRows = allRows.filter((r) => r.kind !== 'coverage');
-  const setRowsByCategory = new Map();
-  for (const r of allRows) {
-    if (r.kind !== 'coverage') continue;
-    const cat = String(r.problem?.category || '');
-    if (!setRowsByCategory.has(cat)) setRowsByCategory.set(cat, []);
-    setRowsByCategory.get(cat).push(r);
+  const today = kstTodayString();
+
+  // ---------- 허브 ----------
+  if (!setKey) {
+    let summary;
+    try {
+      summary = await fetchPendingSummary(userEmail);
+    } catch {
+      return (
+        <Shell title="오늘의 복습">
+          <p className="mb-4 text-slate-600">복습 데이터를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.</p>
+          <Link
+            href="/practical/daily-review"
+            className="inline-flex rounded-lg bg-emerald-600 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+          >
+            다시 시도
+          </Link>
+        </Shell>
+      );
+    }
+
+    const dueToday = summary.filter((r) => String(r.due_date) <= today);
+    const reviewCount = dueToday.filter((r) => r.kind !== 'coverage').length;
+    const setCounts = {};
+    for (const r of dueToday) {
+      if (r.kind !== 'coverage') continue;
+      const cat = String(r.category || '');
+      if (!SET_CATEGORIES.has(cat)) continue;
+      setCounts[cat] = (setCounts[cat] || 0) + 1;
+    }
+    const tomorrowCount = summary.filter((r) => String(r.due_date) > today).length;
+
+    return <DailyReviewHub reviewCount={reviewCount} setCounts={setCounts} tomorrowCount={tomorrowCount} />;
   }
 
-  const rows = setCategory ? (setRowsByCategory.get(setCategory) || []) : reviewRows;
-  const title = setCategory ? `${setCategory} 집중 세트` : '오늘의 복습';
+  // ---------- 퀴즈 (오답 복습 or 집중 세트) ----------
+  let allRows;
+  try {
+    allRows = await fetchDueGeneratedProblems(userEmail, today);
+  } catch {
+    return (
+      <Shell title="오늘의 복습">
+        <p className="mb-4 text-slate-600">문제를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.</p>
+        <Link href="/practical/daily-review" className="inline-flex rounded-lg bg-emerald-600 px-4 py-2 font-bold text-white hover:bg-emerald-700">
+          허브로 돌아가기
+        </Link>
+      </Shell>
+    );
+  }
+
+  const rows =
+    setKey === 'review'
+      ? allRows.filter((r) => r.kind !== 'coverage')
+      : allRows.filter((r) => r.kind === 'coverage' && String(r.problem?.category || '') === setKey);
+  const title = setKey === 'review' ? '오답 복습' : `${setKey} 집중 세트`;
 
   if (rows.length === 0) {
     return (
-      <EmptyShell title={title}>
-        {setCategory ? (
-          <p className="mb-2 text-slate-600">{setCategory} 집중 세트에 풀 문제가 없습니다.</p>
-        ) : (
-          <p className="mb-2 text-slate-600">오늘 복습할 오답 변형이 없습니다.</p>
-        )}
-        <SetLinks setRowsByCategory={setRowsByCategory} reviewCount={reviewRows.length} current={setCategory} />
-        <p className="mb-4 mt-3 text-sm text-slate-500">
-          오답 변형(내일 출제)을 만들거나, 카테고리 집중 세트를 만들어 바로 풀 수 있어요.
-        </p>
-        <GeneratePanel />
-        <div className="mt-6">
-          <Link href="/practical" className="text-sm font-semibold text-emerald-700 hover:underline">
-            ← 실기 회차 선택으로
-          </Link>
-        </div>
-      </EmptyShell>
+      <Shell title={title}>
+        <p className="mb-2 text-2xl">🎉</p>
+        <p className="mb-4 text-slate-600">이 세트의 오늘 분량을 모두 끝냈어요!</p>
+        <Link
+          href="/practical/daily-review"
+          className="inline-flex rounded-lg bg-emerald-600 px-4 py-2 font-bold text-white hover:bg-emerald-700"
+        >
+          허브로 — 다른 세트 보기
+        </Link>
+      </Shell>
     );
   }
 
@@ -96,43 +138,20 @@ export default async function DailyReviewPage({ searchParams }) {
       session={{
         title: `${title} (${picked.length}문제)`,
         reviewOnly: true,
-        lobbySubtitle: setCategory
-          ? `안 풀어본 ${setCategory} 유형 위주 기출 변형 · 맞히면 졸업`
-          : '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형',
+        lobbySubtitle:
+          setKey === 'review'
+            ? '어제 틀린 문제의 변형 · 맞히면 졸업, 틀리면 내일 새 변형'
+            : `안 풀어본 ${setKey} 유형 위주 기출 변형 · 맞히면 졸업`,
+        backHref: '/practical/daily-review',
       }}
-      sessionId={setCategory ? `practical-daily-review-${setCategory}` : 'practical-daily-review'}
+      sessionId={setKey === 'review' ? 'practical-daily-review' : `practical-daily-review-${setKey}`}
       initialProblemNumber={initialProblemNumber}
       shouldResume={shouldResume}
     />
   );
 }
 
-function SetLinks({ setRowsByCategory, reviewCount, current }) {
-  const links = [];
-  if (current && reviewCount > 0) {
-    links.push({ href: '/practical/daily-review', label: `오답 복습 (${reviewCount}문제)` });
-  }
-  for (const [cat, list] of setRowsByCategory.entries()) {
-    if (cat === current) continue;
-    links.push({ href: `/practical/daily-review?set=${encodeURIComponent(cat)}`, label: `${cat} 집중 세트 (${list.length}문제)` });
-  }
-  if (links.length === 0) return null;
-  return (
-    <div className="mb-2 flex flex-wrap justify-center gap-2">
-      {links.map((l) => (
-        <Link
-          key={l.href}
-          href={l.href}
-          className="inline-flex rounded-full border border-emerald-600 px-3 py-1 text-sm font-bold text-emerald-700 hover:bg-emerald-50"
-        >
-          {l.label} →
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-function EmptyShell({ title, children }) {
+function Shell({ title, children }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-xl rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm">
