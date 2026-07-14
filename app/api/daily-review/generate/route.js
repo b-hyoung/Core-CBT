@@ -106,63 +106,72 @@ async function generateOne(anchor, datasetCache) {
 }
 
 export async function POST(request) {
-  const session = await auth();
-  const email = String(session?.user?.email || '').trim().toLowerCase();
-  if (!email) return Response.json({ error: 'unauthorized' }, { status: 401 });
-  if (!OPENAI_API_KEY) return Response.json({ error: 'OPENAI_API_KEY not set' }, { status: 500 });
-  if (!hasGeneratedProblemsConfig()) return Response.json({ error: 'supabase not configured' }, { status: 500 });
+  try {
+    const session = await auth();
+    const email = String(session?.user?.email || '').trim().toLowerCase();
+    if (!email) return Response.json({ error: 'unauthorized' }, { status: 401 });
+    if (!OPENAI_API_KEY) return Response.json({ error: 'OPENAI_API_KEY not set' }, { status: 500 });
+    if (!hasGeneratedProblemsConfig()) return Response.json({ error: 'supabase not configured' }, { status: 500 });
 
-  const body = await request.json().catch(() => ({}));
-  const dueDate = body?.dueToday ? kstTodayString() : kstTomorrowString(); // dueToday는 수동 테스트용
+    const body = await request.json().catch(() => ({}));
+    const dueDate = body?.dueToday ? kstTodayString() : kstTomorrowString(); // dueToday는 수동 테스트용
+    // 한 요청당 앵커 상한 — 클라이언트가 작은 배치로 반복 호출 (연결 드랍·서버리스 타임아웃 대비)
+    const maxAnchors = Math.min(Math.max(Number(body?.maxAnchors) || 20, 1), 20);
 
-  // 1) 오답 + 시도 이력 (로컬 dev에서도 Supabase 강제)
-  const { wrongProblems, attemptedKeys } = await getUserOutcomeSummary(email, { forceRemote: true });
-  const practicalWrongs = wrongProblems.filter(
-    (w) => classifySessionId(w.sourceSessionId) === 'practical',
-  );
+    // 1) 오답 + 시도 이력 (로컬 dev에서도 Supabase 강제)
+    const { wrongProblems, attemptedKeys } = await getUserOutcomeSummary(email, { forceRemote: true });
+    const practicalWrongs = wrongProblems.filter(
+      (w) => classifySessionId(w.sourceSessionId) === 'practical',
+    );
 
-  // 2) 배치 계획
-  const [tagsMap, pendingKeys] = await Promise.all([loadConceptTags(), fetchPendingOriginKeys(email)]);
-  const problemIndex = await buildProblemIndex(tagsMap);
+    // 2) 배치 계획
+    const [tagsMap, pendingKeys] = await Promise.all([loadConceptTags(), fetchPendingOriginKeys(email)]);
+    const problemIndex = await buildProblemIndex(tagsMap);
 
-  // 카테고리 집중 모드: 오답과 무관하게 해당 카테고리 기출을 앵커로 변형 생성 (미시도 우선)
-  const CATEGORY_SET = new Set(['SQL', 'Code', '이론']);
-  const category = String(body?.category || '');
-  let anchors;
-  if (CATEGORY_SET.has(category)) {
-    const count = Math.min(Math.max(Number(body?.count) || 20, 1), 20);
-    const pool = problemIndex.filter((p) => p.category === category && !pendingKeys.has(p.key));
-    const untried = pool.filter((p) => !attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
-    const tried = pool.filter((p) => attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
-    anchors = [...untried, ...tried].slice(0, count).map((p) => ({ ...p, kind: 'coverage' }));
-  } else {
-    anchors = planGenerationBatch({
-      wrongs: practicalWrongs, pendingKeys, tagsMap, problemIndex, attemptedKeys,
-    });
-  }
-  if (anchors.length === 0) {
-    return Response.json({ generated: 0, rejected: 0, message: '생성할 오답이 없거나 모두 pending 상태입니다.' });
-  }
-
-  // 3) 순차 생성 (rate limit 배려) + 요약
-  const datasetCache = new Map();
-  const rows = [];
-  const rejectedReasons = [];
-  for (const anchor of anchors) {
-    const { row, reasons } = await generateOne(anchor, datasetCache);
-    if (row) {
-      rows.push({ ...row, user_email: email, due_date: dueDate });
+    // 카테고리 집중 모드: 오답과 무관하게 해당 카테고리 기출을 앵커로 변형 생성 (미시도 우선)
+    const CATEGORY_SET = new Set(['SQL', 'Code', '이론']);
+    const category = String(body?.category || '');
+    let anchors;
+    if (CATEGORY_SET.has(category)) {
+      const count = Math.min(Math.max(Number(body?.count) || 20, 1), maxAnchors);
+      const pool = problemIndex.filter((p) => p.category === category && !pendingKeys.has(p.key));
+      const untried = pool.filter((p) => !attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
+      const tried = pool.filter((p) => attemptedKeys.has(p.key)).sort(() => Math.random() - 0.5);
+      anchors = [...untried, ...tried].slice(0, count).map((p) => ({ ...p, kind: 'coverage' }));
     } else {
-      rejectedReasons.push({ anchor: anchor.key, reasons });
+      anchors = planGenerationBatch({
+        wrongs: practicalWrongs, pendingKeys, tagsMap, problemIndex, attemptedKeys, maxAnchors,
+      });
     }
-  }
+    if (anchors.length === 0) {
+      return Response.json({ generated: 0, rejected: 0, exhausted: true, dueDate, message: '생성할 앵커가 없습니다 (모두 pending이거나 풀 소진).' });
+    }
 
-  await insertGeneratedProblems(rows);
-  return Response.json({
-    generated: rows.length,
-    rejected: rejectedReasons.length,
-    dueDate,
-    byKind: rows.reduce((acc, r) => ({ ...acc, [r.kind]: (acc[r.kind] || 0) + 1 }), {}),
-    rejectedReasons,
-  });
+    // 3) 순차 생성 + 생성 즉시 저장 (연결이 끊겨도 진행분 보존)
+    const datasetCache = new Map();
+    let generated = 0;
+    const byKind = {};
+    const rejectedReasons = [];
+    for (const anchor of anchors) {
+      const { row, reasons } = await generateOne(anchor, datasetCache);
+      if (row) {
+        await insertGeneratedProblems([{ ...row, user_email: email, due_date: dueDate }]);
+        generated += 1;
+        byKind[row.kind] = (byKind[row.kind] || 0) + 1;
+      } else {
+        rejectedReasons.push({ anchor: anchor.key, reasons });
+      }
+    }
+
+    return Response.json({
+      generated,
+      rejected: rejectedReasons.length,
+      dueDate,
+      byKind,
+      rejectedReasons,
+    });
+  } catch (err) {
+    console.error('[daily-review/generate] error:', err?.message || err);
+    return Response.json({ error: 'generate failed', detail: String(err?.message || '') }, { status: 500 });
+  }
 }

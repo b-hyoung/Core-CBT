@@ -11,30 +11,54 @@ const CATEGORY_BUTTONS = [
   { category: '이론', label: '이론(네트워크 등) 20문제' },
 ];
 
+// 한 요청에 3문제씩 — 요청이 짧아야 연결 드랍·서버리스 타임아웃에 안전
+const BATCH_SIZE = 3;
+const MAX_ITERATIONS = 10;
+
 export default function GeneratePanel() {
   const router = useRouter();
   const [loadingKey, setLoadingKey] = useState('');
+  const [progress, setProgress] = useState('');
   const [summary, setSummary] = useState(null);
   const [error, setError] = useState('');
 
-  async function generate(key, payload) {
+  async function callGenerate(payload) {
+    const response = await fetch('/api/daily-review/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json().catch(() => null);
+    if (!response.ok || !data) throw new Error(data?.error || '생성 요청 실패');
+    return data;
+  }
+
+  // 작은 배치를 반복 호출해 target까지 채움 — 중간에 끊겨도 진행분은 저장돼 있음
+  async function runBatches(key, makePayload, target) {
     setLoadingKey(key);
     setError('');
     setSummary(null);
+    let generated = 0;
+    let rejected = 0;
+    let dueDate = '';
     try {
-      const response = await fetch('/api/daily-review/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data?.error || '생성 실패');
-      setSummary({ ...data, key });
+      for (let i = 0; i < MAX_ITERATIONS && generated < target; i += 1) {
+        setProgress(`${generated}/${target} 생성됨...`);
+        const batch = Math.min(BATCH_SIZE, target - generated);
+        const data = await callGenerate(makePayload(batch));
+        generated += Number(data.generated) || 0;
+        rejected += Number(data.rejected) || 0;
+        dueDate = data.dueDate || dueDate;
+        if (data.exhausted || ((Number(data.generated) || 0) === 0 && (Number(data.rejected) || 0) === 0)) break;
+      }
+      setSummary({ key, generated, rejected, dueDate });
       router.refresh();
     } catch (e) {
-      setError(String(e?.message || e));
+      // 이미 생성된 분량은 저장돼 있음 — 부분 성공을 알려줌
+      setError(`${String(e?.message || e)}${generated > 0 ? ` (${generated}문제는 저장됨 — 새로고침해 보세요)` : ''}`);
     } finally {
       setLoadingKey('');
+      setProgress('');
     }
   }
 
@@ -45,11 +69,11 @@ export default function GeneratePanel() {
       <div>
         <p className="mb-2 text-sm font-bold text-slate-700">내 오답 변형 만들기</p>
         <button
-          onClick={() => generate('wrong', {})}
+          onClick={() => runBatches('wrong', (n) => ({ maxAnchors: n }), 25)}
           disabled={busy}
           className="inline-flex w-full items-center justify-center rounded-lg bg-emerald-600 px-4 py-2.5 font-bold text-white hover:bg-emerald-700 disabled:opacity-50"
         >
-          {loadingKey === 'wrong' ? '변형 생성 중... (1~3분)' : '오답 변형 생성 (내일 출제)'}
+          {loadingKey === 'wrong' ? progress || '변형 생성 중...' : '오답 변형 생성 (내일 출제)'}
         </button>
       </div>
 
@@ -59,16 +83,16 @@ export default function GeneratePanel() {
           {CATEGORY_BUTTONS.map(({ category, label }) => (
             <button
               key={category}
-              onClick={() => generate(category, { category, count: 20, dueToday: true })}
+              onClick={() => runBatches(category, (n) => ({ category, count: n, dueToday: true }), 20)}
               disabled={busy}
               className="inline-flex w-full items-center justify-center rounded-lg border border-emerald-600 bg-white px-4 py-2.5 font-bold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
             >
-              {loadingKey === category ? `${category} 세트 생성 중... (3~5분 소요)` : label}
+              {loadingKey === category ? progress || `${category} 세트 생성 중...` : label}
             </button>
           ))}
         </div>
         <p className="mt-2 text-xs text-slate-500">
-          안 풀어본 유형 우선으로 기출 변형을 만듭니다. 생성 후 이 페이지에 바로 출제돼요.
+          안 풀어본 유형 우선으로 기출 변형을 만듭니다. 3문제씩 진행되며 5분 안팎 걸려요.
         </p>
       </div>
 
