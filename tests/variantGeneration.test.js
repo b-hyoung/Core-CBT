@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   validateGeneratedProblem,
+  sanitizeAcceptedAnswers,
   isNearDuplicate,
   interleaveByCategory,
   planGenerationBatch,
@@ -55,6 +56,26 @@ describe('validateGeneratedProblem', () => {
     const r = validateGeneratedProblem(multiline, ORIGINAL);
     expect(r.ok).toBe(false);
     expect(r.reason).toContain('newline');
+  });
+});
+
+describe('sanitizeAcceptedAnswers', () => {
+  it('Code 문제는 정답과 정규화 동치인 표기만 남긴다 (지어낸 오답 변형 제거)', () => {
+    const out = sanitizeAcceptedAnswers({
+      answer: '7 89 101112 13141516',
+      acceptedAnswers: ['7  89 101112 13141516', '7 8 9 10 11 12 13 14 15'],
+      category: 'Code',
+    });
+    expect(out).toEqual(['7 89 101112 13141516', '7  89 101112 13141516']);
+  });
+
+  it('이론 문제는 동의어를 유지한다', () => {
+    const out = sanitizeAcceptedAnswers({
+      answer: 'WAF',
+      acceptedAnswers: ['Web Application Firewall', 'waf'],
+      category: '이론',
+    });
+    expect(out).toEqual(['WAF', 'Web Application Firewall', 'waf']);
   });
 });
 

@@ -6,7 +6,7 @@ import { getUserOutcomeSummary } from '@/lib/userProblemsStore';
 import { loadConceptTags, buildProblemIndex } from '@/lib/conceptTags';
 import { loadPracticalDatasetMaps } from '@/app/practical/_lib/practicalData';
 import {
-  planGenerationBatch, validateGeneratedProblem,
+  planGenerationBatch, validateGeneratedProblem, sanitizeAcceptedAnswers,
   buildGeneratorPrompt, buildJudgePrompt, parseModelJson,
 } from '@/lib/variantGeneration';
 import {
@@ -19,8 +19,13 @@ export const maxDuration = 300; // 배치 생성이라 길게
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const GENERATOR_MODEL = 'gpt-4.1';        // 생성
-const JUDGE_MODEL = 'gpt-4.1-mini';       // 심판 (자기선호 편향 회피용 별도 모델)
+const JUDGE_MODEL_LIGHT = 'gpt-4.1-mini'; // 심판(이론·용어) — 별도 인스턴스 rubric 채점
+const JUDGE_MODEL_HEAVY = 'gpt-4.1';      // 심판(Code/SQL) — mini는 코드 트레이스 실패 전례
 const MAX_REGEN = 2;                      // 재생성 예산 (초기 1회 + 재생성 2회)
+
+function judgeModelFor(category) {
+  return category === 'Code' || category === 'SQL' ? JUDGE_MODEL_HEAVY : JUDGE_MODEL_LIGHT;
+}
 
 async function callOpenAI(model, input, maxTokens) {
   const response = await fetch('https://api.openai.com/v1/responses', {
@@ -66,11 +71,11 @@ async function generateOne(anchor, datasetCache) {
     const gate = validateGeneratedProblem(gen, original);
     if (!gate.ok) { reasons.push(gate.reason); continue; }
 
-    // 게이트 2: 별도 모델 rubric 심판
+    // 게이트 2: 별도 인스턴스 rubric 심판 (Code/SQL은 강한 모델 — 코드 트레이스 필요)
     let verdict = null;
     try {
       verdict = parseModelJson(
-        await callOpenAI(JUDGE_MODEL, buildJudgePrompt({ gen, original, answer }), 300),
+        await callOpenAI(judgeModelFor(String(original.category || '')), buildJudgePrompt({ gen, original, answer }), 600),
       );
     } catch { /* 심판 호출 실패 → 아래 null 처리 */ }
     if (!verdict) { reasons.push('judge output unparsable'); continue; }
@@ -94,9 +99,12 @@ async function generateOne(anchor, datasetCache) {
           subcategory: String(original.subcategory || ''),
         },
         answer: String(gen.answer),
-        accepted_answers: [String(gen.answer), ...(Array.isArray(gen.accepted_answers) ? gen.accepted_answers.map(String) : [])]
-          .filter(Boolean)
-          .filter((v, i, arr) => arr.indexOf(v) === i),
+        // Code/SQL 출력엔 동의어가 없다 — 정답과 정규화 동치인 표기만 허용 (지어낸 오답 변형 차단)
+        accepted_answers: sanitizeAcceptedAnswers({
+          answer: gen.answer,
+          acceptedAnswers: gen.accepted_answers,
+          category: String(original.category || ''),
+        }),
         comment: String(gen.comment || ''),
         status: 'pending',
       },
