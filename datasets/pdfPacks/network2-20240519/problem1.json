@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "네트워크 계층에서 IP(Internet Protocol)는 핵심 프로토콜이\n다. 단편화 작업 중 분할되는 Data를 구별하기 위한 것은?",
+        "options": [
+          "DF Flag",
+          "Type of Service",
+          "Offset",
+          "TTL"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "TLS를 통해 Application 계층 데이터를 암호화하여 보호해\n주고 기본포트가 443으로 지정된 프로토콜은?",
+        "options": [
+          "HTTPS",
+          "HTTP",
+          "FTP",
+          "SSH"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "IGMP(Internet Group Management Protocol)에 대한 설명으\n로 올바른 것은?",
+        "options": [
+          "OSI 모델 중 4계층 프로토콜이다.",
+          "비대칭 프로토콜로서 TTL(Time to Live)를 제공하지 않는 다.",
+          "로컬 네트워크상의 멀티캐스팅 그룹제어를 수행하기 위한 프로토콜이다.",
+          "데이터의 유니캐스팅에 적합한 프로토콜이다."
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "TCP 헤더의 플래그 비트로 옳지 않은 것은?",
+        "options": [
+          "URG",
+          "UTC",
+          "ACK",
+          "RST"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "네트워크주소가 ′192.168.100.128′이며, 서브넷마스크가 ′\n255.255.255.192′인 네트워크가 있다. 이 네트워크에서 사용\n가능한 마지막 IP주소는?",
+        "options": [
+          "192.168.100.129",
+          "192.168.100.190",
+          "192.168.100.191",
+          "192.168.100.255"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "높은 신뢰도나 제어용 메시지를 필요로 하지 않고, 비연결형\n서비스에 사용되는 프로토콜은?",
+        "options": [
+          "UDP",
+          "TCP",
+          "ARP",
+          "ICMP"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "SNMP의 설명으로 옳지 않은 것은?",
+        "options": [
+          "SNMP는 주기적으로 폴링(Polling)하여 네트워크 상태 정 보를 수집하고 분석하는 기능을 제공한다.",
+          "네트워크 확장을 용이하게 해준다.",
+          "SNMP는 일반적으로 TCP 세션을 이용한다.",
+          "폴링으로 인해 네트워크 트래픽이 많이 발생될 수 있는 단점이 있다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "ICMP의 Message Type에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "0 - Echo Reply",
+          "5 - Echo Request",
+          "13 - Timestamp Request",
+          "17 - Address Mask Request"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "TCP를 사용하는 프로토콜로 옳지 않은 것은?",
+        "options": [
+          "FTP",
+          "TFTP",
+          "Telnet",
+          "SMTP"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "OSPF 프로토콜이 최단경로 탐색에 사용하는 기본 알고리즘\n은?\n최강 자격",
+        "options": [
+          "Bellman-Ford 알고리즘",
+          "Dijkstra 알고리즘",
+          "거리 벡터 라우팅 알고리즘",
+          "Floyd-Warshall 알고리즘"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "IP의 체크섬(Checksum)에 대한 설명으로 올바른 것은?",
+        "options": [
+          "IP Header의 완전성을 검사한다.",
+          "IP Header와 데이터의 완전성을 검사한다.",
+          "데이터의 완전성을 검사한다.",
+          "TCP 계층에서만 체크섬 계산 및 검증 서비스가 제공된 다."
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "네트워크를 관리하는 Lee 사원은 사내에서 잦은 IP 충돌로\n인하여 장애신고를 많이 받고 있어 기존 IP정책을 DHCP로\n변경하려고 한다. 다음 중 DHCP를 적용해야 하는 장비로\n가장 적합한 것은?",
+        "options": [
+          "웹서버",
+          "Access point",
+          "교육장용 PC",
+          "네트워크 프린터"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "다음 중에서 IPv6의 특징이 아닌 것은?",
+        "options": [
+          "128bit로 구성된다.",
+          "Broadcast를 사용한다.",
+          "모바일 IP, IPsec 프로토콜 사용이 가능하다.",
+          "IP가 1234::12FB:3:89A0:034C처럼 표시된다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "TCP/IP 프로토콜 계층 모델 중 응용 계층에 해당되며 원격\n장치의 설정 및 네트워크 사용을 감시 관리하기 위해 사용\n하는 프로토콜은?",
+        "options": [
+          "SMTP",
+          "SNMP",
+          "FTP",
+          "HTTP"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "SNMP (Simple Network Management Protocol)",
+          "SNTP (Simple Network Time Protocol)",
+          "SMTP (Simple Mail Transfer Protocol)",
+          "HTTP (HyperText Transfer Protocol)"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 지문에 따른 프로토콜과 포트가 올바르게 연결된 것\n은?",
+        "options": [
+          "Telnet(Telecommunication network) - 23번",
+          "SMTP(Simple Mail Transfer Protocol) - 25번",
+          "SSH(Secure Shell) - 22번",
+          "FTP(File Transfer Protocol) - 21번"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "/etc/deny",
+          "/etc/hosts",
+          "/etc/allow",
+          "/etc/services"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "네트워크의 구성(Topology)에서 성형(Star)에 관한 설명으로\n옳지 않은 것은?",
+        "options": [
+          "point-to-point 방식으로 회선을 연결한다.",
+          "단말장치의 추가와 제거가 쉽다.",
+          "하나의 단말장치가 고장나면 전체 통신망에 영향을 줄 수 있다.",
+          "각 단말 장치는 중앙 컴퓨터를 통하여 데이터를 교환한 다."
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "다음에서 설명하는 전송 방식은?",
+        "options": [
+          "Token Ring",
+          "Token Bus",
+          "CSMA/CD",
+          "Slotted Ring"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "100BASE-T라고도 불리는 이더넷의 고속 버전으로서 100\nMbps의 전송속도를 지원하는 근거리통신망의 표준은?",
+        "options": [
+          "Ethernet",
+          "Gigabit Ethernet",
+          "10Giga Ethernet",
+          "Fast Ethernet"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "패킷 교환망의 특징으로 옳지 않은 것은?",
+        "options": [
+          "연결설정에 따라 가상회선과 데이터그램으로 분류된다.",
+          "메시지를 보다 짧은 길이의 패킷으로 나누어 전송한다.",
+          "망에 유입되는 데이터의 양이 많아질수록 전송속도가 빠 르다.",
+          "블록킹 현상이 없다."
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "VPN(Virtual Private Network)의 구현 기술 중 인터넷 네트\n워크 상에서 두 호스트 지점 간에 외부의 영향을 받지 않고\n가상 경로를 설정해 주는 것은?",
+        "options": [
+          "Tunneling",
+          "Authentication",
+          "Encryption",
+          "Access Control"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "데이터 흐름 제어(Flow Control)와 관련 없는 것은?",
+        "options": [
+          "Stop and Wait",
+          "XON/XOFF",
+          "Loop/Echo",
+          "Sliding Window"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "OSI 참조 모델의 계층별 기능에 대한 설명으로 적절하지 않\n은 것은?",
+        "options": [
+          "Session Layer : 통신시스템 간의 상호대화를 허용하여",
+          "Presentation Layer : 서로 다른 컴퓨터에 의해 다양한 형식으로 표현된 정보를 송·수신하기 위해 표준형식으로 변환한다.",
+          "Transport Layer : 통신망의 양단에서 시스템 간에 전체 메시지가 올바른 순서로 도착하는 것을 보장한다.",
+          "DataLink Layer : 응용 프로그램의 인터페이스와 통신을 실행하기 위한 응용 기능을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "현장에서 발생한 데이터를 원거리의 데이터 센터로 보내는\n대신 데이터 발생 지점 주변에서 선별적으로 분석, 활용 가\n능한 컴퓨팅 아키텍처는?",
+        "options": [
+          "포그 컴퓨팅 (Fog Computing)",
+          "그리드 컴퓨팅 (Grid Computing)",
+          "병렬 컴퓨팅 (Parallel Computing)",
+          "직렬 컴퓨팅 (Serial Computing)"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "NFV(Network Function Virtualization)에 대한 설명으로 옳\n지 않은 것은?",
+        "options": [
+          "소프트웨어가 아닌 하드웨어로 제어되는 네트워킹 기술 로서, 네트워크를 마치 컴퓨터처럼 구성하거나 조작하는 네트워킹 기술이다.",
+          "NFVs(Network Function Virtualization Functions)는 SW 로 개발된 네트워크 기능들의 집합이다.",
+          "NFVI(Network Function Virtualization Infrastructure)는 물리적 H/W 자원, 가상화 지원기능 및 VNF(Virtualized Network Functions) 실행지원기능 등을 제공한다.",
+          "가상화 기술 기반으로 통신망 운용에 필요한 다양한 네 트워크 장비 내 여러 기능들을 분리시켜 S/W로 제어 및 관리 가능하도록 하는 네트워크 가상화 기술이다."
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "무선네트워크 담당자 Oh 사원은 사내 일정범위 내의 사용\n자들이 어느 곳에서든지 어떠한 물리적인 연결 없이도 네트\n워크에 접속이 가능하도록 무선 랜(LAN) 네트워크를 구성하\n라는 지시를 받았다. IEEE 802.11 무선랜(LAN) 기술표준의\n설명이 옳지 않은 것은?",
+        "options": [
+          "IEEE 802.11a 기술표준은 OFDM이라는 방식을 이용하 여 최소 6Mbps에서 최대 54Mbps까지 데이터 전송 가 능하다.",
+          "IEEE 802.11b 기술표준은 기존 2.4GHz 대역을 사용하 는 무선 LAN의 낮은 전송률(1Mbps와 2Mbps의 전송률) 을 보완한 규격이다.",
+          "IEEE 802.11g 기술표준은 2.4GHz 대역(IEEE 802.11b에 서 사용하는 대역)에서 OFDM 방식을 사용하여 기존의 IEEE 802.11b와 공존할 수 있으면서 IEEE 802.11a의 높은 전송률 가능하다.",
+          "IEEE의 802.11ac 기술표준은 802.11n을 기반으로 60GHz의 밀리미터파 스펙트럼에서 동작하는 802.11 네 트워크에 대한 새로운 물리 계층을 정의한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "서버 관리자 Kim 사원은 DNS 서버를 구축하고자 ′yum′ 을\n이용하여 bind를 설치하였으나 설치가 되지 않았다. 이에 ′\nping′를 이용하여 외부 네트워크 상태 여부를 확인하였으나\n정상이었다. 이에 DNS 서버 주소가 잘못되어 있을 것으로\n판단하여 ′cat /etc/( A )′ 내용을 확인하고 수정하였다. ( A\n)에 해당하는 파일 이름은?",
+        "options": [
+          "resolv.conf",
+          "networks",
+          "protocols",
+          "services"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "서버관리자 Kim씨는 서버에 대한 상태를 확인하기 위해 ′\n/etc/check.sh′ 스크립트를 작성하였다. 해당 스크립트를 매\n주 월요일 오전 10시에 실행시키려고 할때, crontab 파일\n설정으로 알맞은 것은?",
+        "options": [
+          "10 0 * * 1 /etc/check.sh",
+          "0 10 * * 1 /etc/check.sh",
+          "10 0 * * 0 /etc/check.sh",
+          "0 10 * * 0 /etc/check.sh"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "Linux 디렉터리에 대한 소유자와 소유그룹을 변경할 수 있\n는 명령어는?",
+        "options": [
+          "chmod",
+          "chown",
+          "useradd",
+          "chage"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux Apache 웹서버에 사용자가 접속 후, 80초간 사용자\n의 요청이 없을 경우 세션을 종료시키도록 ′httpd.conf′ 파\n일에서 설정하는 옵션값은?",
+        "options": [
+          "Exec-timeout 80",
+          "Listen 80",
+          "KeepAliveTimeout 80",
+          "NameVirtualHost 80"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux에서 열려있는 port 정보를 확인하는 명령어로 옳은 것\n은?",
+        "options": [
+          "ps",
+          "pstree",
+          "getenforce",
+          "netstat"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Windows Server 2016의 그룹계정에 대한 설명이다. 옳지\n않은 것은?",
+        "options": [
+          "Administrators 그룹은 모든 권한을 가지는 그룹으로서 일반사용자를 이 그룹에 소속시키면 Administrator와 동 일한 권한을 갖는다.",
+          "Backup Operators 그룹은 파일을 백업하고 복구할 수 있는 권한을 갖는다.",
+          "Guests 그룹은 로그인할 때 임시 프로필을 만들고 로그 아웃하면 삭제되고, 기본적으로는 사용하지 않도록 설정 하는 그룹이다.",
+          "Users 그룹은 사용자 계정을 생성하면 기본적으로 소속 되는 그룹으로 시스템 수준의 변경의 권한을 갖는다."
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "서버 담당자 Park 사원은 Active Directory를 구성하여 다음\n과 같은 설정을 하고자 한다. 도메인을 두 개 이상 포함하\n는 대부분의 조직에서 사용자가 다른 도메인에 있는 공유\n리소스에 액세스할 수 있어야 하며, 이 액세스를 제어 하려\n면 한 도메인의 사용자를 인증하고 다른 도메인의 리소스를\n사용할 수 있는 권한을 부여해야 한다. 서로 다른 도메인의\n클라이언트와 서버 간에 인증 및 권한 부여 기능을 제공하\n기 위해 두 도메인 간에 설정해야 하는 것은?",
+        "options": [
+          "도메인",
+          "트리",
+          "포리스트",
+          "트러스트"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "Linux의 VI편집기를 이용하여 파일의 내용을 수정할 때, 다\n최강 자격",
+        "options": [
+          ":10,20s/old/new",
+          ":10,20s/old/new/g",
+          ":10,20r/old/new",
+          ":10,20r/old/new/a"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음과 같이 파일의 원래 권한은 유지한 채로 모든 사용자\n들에게 쓰기 가능한 권한을 추가 부여할 때, 결과가 다른\n명령어는?",
+        "options": [
+          "chmod 666 file",
+          "chmod a+w file",
+          "chmod ugo+w file",
+          "chmod go=w file"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "Linux의 가상 파일시스템으로 동작 중인 프로세스의 상태\n정보, 하드웨어 정보, 시스템 정보 등을 확인할 수 있는 디\n렉터리로 올바른 것은?",
+        "options": [
+          "/boot",
+          "/etc",
+          "/proc",
+          "/lib"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "네트워크를 관리하는 Kim 사원은 네트워크 연결을 구축하거\n나 문제를 해결할 때 패킷이 출발지에서 목적지까지 가는\n경로를 살펴볼 수 있도록 네트워크 명령어를 사용하고자 한\n다. 이 명령은 ′tracert′에서 수행하는 동일한 정보를 보여주\n면서 홉과 다른 세부 정보사이의 시간에 관한 정보를 출력\n이 끝날 때까지 저장한다. Kim 사원이 사용할 명령어는?",
+        "options": [
+          "ping",
+          "nslookup",
+          "pathping",
+          "nbtstat"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "Linux 시스템에서 특정 서비스를 제공하는 Daemon이 살아\n있는지 확인할 때 사용하는 명령어는?",
+        "options": [
+          "daemon",
+          "fsck",
+          "men",
+          "ps"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "아래 지문의 내용은 Linux의 BIND 시스템 운영을 위한′\n/etc/named.conf′의 option 지시자의 내용이다. 다음 중 옳\n지 않은 것은?",
+        "options": [
+          "외부에서 오는 query에 대한 IP 대역을 모두 허용한다.",
+          "유효성 검사 시 오류가 발생하지 않는다.",
+          "53번 포트에 대해서 외부 접근을 허용한다.",
+          "slave에서 zone파일이 동기화 될때 text 형태로 변환한 다."
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "Linux 시스템에서 Apache 웹서버를 구동 시 Well-known\nport를 사용할 때의 주의사항으로 옳지 않은 것은?",
+        "options": [
+          "Well-known port를 통해 Apache 웹서버를 실행할 시 관리자 권한이 필요하다.",
+          "일반 사용자 계정에서 Apache 웹서버를 실행할 때, 실 행 명령어 앞에 ′su′를 추가한다.",
+          "Well-known port를 변경할 때, 다른 서비스와 충돌되지 않는 번호를 사용하여야 한다.",
+          "Well-known port는 1부터 1023 까지의 숫자를 사용한 다."
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "Linux Shell에서 아래 지문의 요구사항을 만족하는 명령어로\n옳은 것은?",
+        "options": [
+          "ls -al >output.txt",
+          "ls -al <output.txt",
+          "ls -al <<output.txt",
+          "ls -al >>output.txt"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "아래 지문의 ping 명령어의 결과로 옳지 않은 것은?",
+        "options": [
+          "ICMP 패킷을 전송한 곳은 icqa.or.kr이다.",
+          "ICMP 패킷을 3번 송신하고 수신하였다.",
+          "ICMP 패킷이 왕복한 시간 중 가장 짧은 시간은 7.085ms 이다.",
+          "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "보안담당자 Kim 사원은 내부망의 보안을 위해 외부에서의\n접근을 통제하려고 한다. 외부에서의 Telnet 접근을 금지하\n려고 할때, 다음 중 알맞은 것은?",
+        "options": [
+          "iptables -A OUTPUT -p tcp --dport 23 -j DROP",
+          "iptables -A INPUT -p udp --dport 23 -j DROP",
+          "iptables -A INPUT -p tcp --dport 23 -j DROP",
+          "iptables -A INPUT -p tcp --dport 21 -j DROP"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "Linux 로그인 시 다중사용자 및 GUI모드를 지원하는\nrunlevel로 옳은 것은?",
+        "options": [
+          "runlevel 0",
+          "runlevel 3",
+          "runlevel 5",
+          "runlevel 6"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "L2 LAN 스위치가 이더넷 프레임을 중계 처리할 때 사용하\n는 주소는?",
+        "options": [
+          "MAC 주소",
+          "IP 주소",
+          "Post 주소",
+          "URL 주소"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "내부 통신에는 사설 IP 주소를 사용하고 외부와의 통신에는\n공인 IP 주소를 사용할 수 있도록 하는 기술은?",
+        "options": [
+          "ARP",
+          "NAT",
+          "ICMP",
+          "DHCP"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "내부에 코어(Core)와 이를 감싸는, 굴절률이 다른 유리나 플\n라스틱으로 된 외부 클래딩(Cladding)으로 구성된 전송 매\n체는?",
+        "options": [
+          "이중 나선(Twisted Pair)",
+          "동축 케이블(Coaxial Cable)",
+          "2선식 개방 선로(Two-Wire Open Lines)",
+          "광 케이블(Optical Cable)"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "아래 지문에 해당하는 RAID 방식은?",
+        "options": [
+          "Linear RAID",
+          "RAID 0",
+          "RAID 1",
+          "RAID 5"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "L2 Switch",
+          "IP 공유기",
+          "UPS",
+          "POE Switch"
+        ]
+      }
+    ]
+  }
+]

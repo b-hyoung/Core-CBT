@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP 패킷은 네트워크상에서 영원히 존재할 수 있다."
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "191.234.149.32"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 2,
+        "correct_answer_text": "255.255.255.224"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Hop Limit"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 1,
+        "correct_answer_text": "한 번에 많은 데이터의 전송에 유리하기 때문에 화상 통 신과 같은 실시간 통신에 사용된다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "확인 응답 번호(Acknowledgment Number)"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "3 - Echo Request 질의 메시지에 응답하는데 사용된다."
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Broadcast"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 0,
+        "correct_answer_text": "TCP를 이용하여 신뢰성 있는 통신을 한다."
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "3ffe:1900:4545:0003:0200:f8ff:ffff:1105"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "2계층 : 프레임"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 3,
+        "correct_answer_text": "루프백(Loopback) 주소"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SMTP"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 3,
+        "correct_answer_text": "프로토콜의 기본 기능인 파일 복사 작업은 복잡하지 않 기 때문에 UDP프로토콜을 사용하는 것이 효율적이고 69 번 포트를 통해 데이터를 전송한다."
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 2,
+        "correct_answer_text": "방화벽과 같은 보안 장비 중 하나다."
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 2,
+        "correct_answer_text": "(A) 캡슐화, (B) 역캡슐화"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 2,
+        "correct_answer_text": "각 시스템에 Address Resolution Protocol Cache가 있 고 Cache 정보를 보관한다."
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Loop/Echo"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Text의 압축, 암호화 기능"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 2,
+        "correct_answer_text": "하나의 단말장치가 고장나면 전체 통신망에 영향을 줄 수 있다."
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 2,
+        "correct_answer_text": "CSMA/CD"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "타이밍(Timing)"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Optical Fiber Cable"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "MIMO(Multiple-Input and Multiple-Output)"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 2,
+        "correct_answer_text": "사설 클라우드(private cloud)는 서버, 저장장치, 네트워 크 데이터 그리고 응용프로그램 등을 함께 묶어서 회사 내·외부의 모든 이용자들이 공유할 수 있도록 하는 클라 우드이다."
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Wireless mesh networks"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Transport Layer"
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 1,
+        "correct_answer_text": "TCP 포트: 웹서버 시스템의 물리적인 시리얼 포트 번호 를 지정"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 3,
+        "correct_answer_text": "NS - 주어진 사서함에 도달할 수 있는 라우팅 정보를 제공"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 1,
+        "correct_answer_text": "서버 가용성이 줄어든다."
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 3,
+        "correct_answer_text": "시스템 부팅 때만 시작될 수 있다."
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "chmod 644 manager"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "pwd"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 1,
+        "correct_answer_text": "패스워드는 ′x′ 이다."
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SYN_RECEIVED"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Round Robin"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "init 6"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "ipconfig /flushdns"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 3,
+        "correct_answer_text": "netstat"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 1,
+        "correct_answer_text": "LimitRequestBody"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SSH(Secure Shell)"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 2,
+        "correct_answer_text": "OU(Organizational Unit)"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Home Directory"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "DHCP 서버에서 주소를 분배할 때, 적용할 지연시간은 ms 단위로 지정한다."
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 3,
+        "correct_answer_text": "fdisk : 파일시스템 점검"
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 2,
+        "correct_answer_text": "MAC 주소"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 3,
+        "correct_answer_text": "IEEE 802.11ax"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "전혀 다른 프로토콜을 채용한 네트워크 간의 인터페이스 이다."
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 0,
+        "correct_answer_text": "NAC(Network Access Control)"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 3,
+        "correct_answer_text": "운영체제에서 여러 개의 논리적 드라이브를 하나의 물리 적 드라이브로 활용한다."
+      }
+    ]
+  }
+]

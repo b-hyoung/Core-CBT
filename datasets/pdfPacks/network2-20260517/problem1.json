@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "TCP/IP에서 데이터 링크층의 데이터 단위는?",
+        "options": [
+          "메시지",
+          "세그먼트",
+          "데이터그램",
+          "프레임"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "DNS에서 TTL(Time to Live)에 대한 설명으로 올바른 것은?",
+        "options": [
+          "데이터가 DNS 서버 존(zone) 으로부터 나오기 전에 현재 남은 시간이다.",
+          "데이터가 DNS 서버 캐시에서 만료되기까지 남은 시간이 다.",
+          "패킷이 DNS 서버 존으로부터 나오기 전에 현재 남은 시 간이다.",
+          "패킷이 DNS 서버 네임 서버 레코드로부터 나오기 전에 현재 남은 시간이다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "IP Address 중 Class가 다른 주소는?",
+        "options": [
+          "191.234.149.32",
+          "198.236.115.33",
+          "222.236.138.34",
+          "195.236.126.35"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "C Class의 네트워크를 서브넷으로 나누어 각 서브넷에 4~5\n대의 PC를 접속해야 할 때, 서브넷 마스크 값으로 올바른 것\n은?",
+        "options": [
+          "255.255.255.240",
+          "255.255.0.192",
+          "255.255.255.248",
+          "255.255.255.0"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "IPv6 헤더 형식에서 네트워크 내에서 데이터그램의 생존 기\n간과 관련되는 필드는?",
+        "options": [
+          "Version",
+          "Priority",
+          "Next Header",
+          "Hop Limit"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "TCP 헤더의 플래그 비트로 옳지 않은 것은?",
+        "options": [
+          "URG",
+          "UTC",
+          "ACK",
+          "RST"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "IGMP 프로토콜의 주된 기능은?",
+        "options": [
+          "네트워크 내에 발생된 오류에 관한 보고 기능",
+          "대용량 파일을 전송하는 기능",
+          "멀티 캐스트 그룹에 가입한 네트워크 내의 호스트 관리 기능",
+          "호스트의 IP Address에 해당하는 호스트의 물리주소를 알 려주는 기능"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "TCP/IP에서 Unicast의 의미는?",
+        "options": [
+          "메시지가 한 호스트에서 다른 여러 호스트로 전송되는 패 킷",
+          "메시지가 한 호스트에서 다른 한 호스트로 전송되는 패킷",
+          "메시지가 한 호스트에서 망상의 다른 모든 호스트로 전송 되는 패킷",
+          "메시지가 한 호스트에서 망상의 특정 그룹 호스트들로 전 송되는 패킷"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "IPv6의 주소 표기법으로 올바른 것은?",
+        "options": [
+          "192.168.1.30",
+          "3ffe:1900:4545:0003:0200:f8ff:ffff:1105",
+          "00:A0:C3:4B:21:33",
+          "0000:002A:0080:c703:3c75"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "다음 출력물에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "ping 명령어를 이용하여 목적지(www.icqa.or.kr)와 정상 적으로 통신되었을 확인하였다.",
+          "ping 명령어를 이용하여 요청하고 응답받은 데이터의 사 이즈는 32바이트이다.",
+          "ping 명령어를 이용하여 요청하고 응답받은 시간은 평균 2ms 이다.",
+          "패킷의 살아 있는 시간(TTL, Time to Live)은 55초이다."
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 응용계층 프로토콜 중에 전송계층의 프로토콜 TCP,\nUDP를 모두 사용하는 프로토콜은?",
+        "options": [
+          "FTP",
+          "SMTP",
+          "DNS",
+          "SNMP"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "TCP 헤더를 구성하는 필드의 길이(비트수)가 적절하지 않은\n것은?",
+        "options": [
+          "Source port address : 16비트",
+          "Sequence Number : 32비트",
+          "Flags : 9비트",
+          "Checksum : 32비트"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "OSPF(Open Shortest Path First)에 대한 설명으로 옳지 않\n은 것은?",
+        "options": [
+          "AS 내부 경로 정보 교환에 사용되는 링크 스테이트 라우 팅 프로토콜이다.",
+          "Hello 패킷으로 이웃 라우터의 정상 동작을 확인한다.",
+          "비용이 가장 낮은 단일 경로만 사용하며 다른 경로는 배 제한다.",
+          "일반적으로 IP 버전에 따라 사용하는 OSPF 버전이 다르 다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "ARP(Address Resolution Protocol)에 대한 설명으로 옳은\n것은?",
+        "options": [
+          "ARP는 수신 측의 IP 주소를 알 수 없을 때 브로드캐스 트를 통해 IP 주소를 요청하는 프로토콜이다.",
+          "ARP 요청을 수신한 호스트는 송신 측과 수신 측의 MAC 주소를 비교하여 응답 여부를 결정한다.",
+          "각 시스템은 ARP 캐시를 사용하여 IP 주소와 MAC 주소 의 매핑 정보를 일정 시간 동안 보관한다.",
+          "ARP는 MAC 주소를 기반으로 해당 장비의 IP 주소를 알 아내는 프로토콜이다."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 중 서브넷 마스크(Subnet Mask)에 대한 설명으로 옳\n은 것은?",
+        "options": [
+          "라우터 간 최단 경로를 계산하기 위한 거리 지표이다.",
+          "전송 계층에서 포트 번호를 결정하기 위해 사용하는 값 이다.",
+          "IP 주소에서 네트워크 부분과 호스트 부분을 구분하기 위해 사용하는 값이다.",
+          "데이터 링크 계층에서 프레임의 오류를 검출하기 위해 사용하는 비트 집합이다."
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 중 POP3와 IMAP에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "POP3는 메일을 서버에 계속 보관한 상태로 여러 클라이 언트에서 동기화하여 사용하는 데 최적화된 프로토콜이 며, IMAP은 메일을 내려받은 후 서버에서 삭제하는 방식 으로 동작한다.",
+          "POP3는 메일 클라이언트가 메일 서버로부터 전자 우편 을 내려받기 위해 사용하는 프로토콜이다.",
+          "POP3는 메일 클라이언트가 메일 서버에 접속하여 서버 에 저장된 메일을 내려받아 확인하는 방식으로 동작한 다.",
+          "IMAP은 메일 서버에 저장된 전자 우편을 클라이언트가 서버에 그대로 둔 채, 여러 기기에서 접근하고 검색할 수 있게 해주는 프로토콜이다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "TCP/IP 환경에서 전자 우편을 송신할 때 사용하는 SMTP의\n기본 포트 번호로 옳은 것은?",
+        "options": [
+          "SMTP – 25",
+          "SMTP - 110",
+          "SMTP – 23",
+          "SMTP – 443"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "OSI 7 Layer에서 Data Link 계층의 기능으로 옳지 않은 것\n은?",
+        "options": [
+          "전송 오류제어 기능",
+          "Flow 제어 기능",
+          "Text의 압축, 암호화 기능",
+          "Link의 관리 기능"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "프로토콜의 기본적인 기능 중 정보의 신뢰성을 부여하는 것\n으로, 데이터를 전송한 개체가 보낸 PDU(Protocol Data\nUnit)에 대한 애크널러지먼트(ACK)를 특정시간 동안 받지\n못하면 재전송하는 기능은?",
+        "options": [
+          "Flow Control",
+          "Error Control",
+          "Sequence Control",
+          "Connection Control"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "파장분할다중화방식(WDM)의 특징으로 옳은 것은?",
+        "options": [
+          "선로의 증설 없이 회선의 증설이 어렵다.",
+          "광증폭기를 사용해 무중계 장거리 전송이 가능하다.",
+          "광학적인 방법에 의해 신호를 시간축에서 다중화하는 방 식이다.",
+          "각각의 채널은 같은 전송 형식, 전송 속도, 프로토콜 형 식을 가진다."
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "다음 지문에서 ( ) 안에 들어갈 기술로 옳은 것은?\n최강 자격",
+        "options": [
+          "VPN",
+          "NAT",
+          "PPP",
+          "PPPoE"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "IEEE 802 프로토콜의 연결이 올바른 것은?",
+        "options": [
+          "IEEE 802.3 : 토큰 버스",
+          "IEEE 802.4 : 토큰 링",
+          "IEEE 802.11 : 무선 LAN",
+          "IEEE 802.5 : CSMA/CD"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음은 네트워크 구축에 필요한 매체에 관한 내용이다. (A)\n안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "U/UTP CAT.3",
+          "Thin Coaxial Cable",
+          "U/FTP CAT.5",
+          "Optical Fiber Cable"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "다음의 (A)에 들어갈 알맞은 용어는?",
+        "options": [
+          "Wireless sensor networks",
+          "Wireless mesh networks",
+          "Software defined networks",
+          "Content delivery networks"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "NAT(Network Address Translation)의 주요 역할로 옳은 것\n은?",
+        "options": [
+          "사설 IP 주소와 공인 IP 주소를 변환하여 공인 IP 주소 사용을 효율화한다.",
+          "포트 포워딩을 통해 여러 웹 서버의 부하를 자동으로 분 산한다.",
+          "암호화된 VPN 터널을 생성하여 원격 접속을 제공한다.",
+          "MAC 주소를 기준으로 네트워크 접속을 허용하거나 차단 한다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "다음 중 BGP(Border Gateway Protocol)의 핵심 기능으로\n가장 적합한 것은?",
+        "options": [
+          "거리 벡터 방식으로 동일 AS 내부의 최단 경로 계산에 최적화되어 있다.",
+          "경로 벡터 방식으로 동작하며, 경로 선택 시 정책 기반 필터링을 적용할 수 있다.",
+          "실시간 트래픽 전송 속도를 직접 제어한다.",
+          "내부망을 논리적으로 분할하기 위한 VLAN 설정 기능을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "무선 통신에서 채널에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "무선 채널은 번호로 구분된다.",
+          "두 채널이 사용하는 주파수 대역이 겹칠 경우 간섭이 발 생할 수 있다.",
+          "채널은 장비가 자동으로 선택할 수도 있고, 관리자가 수 동으로 지정할 수도 있다.",
+          "무선 호스트는 AP와 통신할 때 채널을 이용할 수 없다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "다음 중 Linux 환경에서 ′netstat′ 명령어에 사용하는 옵션\n설명으로 옳지 않은 것은?",
+        "options": [
+          "-r : 라우팅 테이블을 표시한다.",
+          "-p : PID와 사용 중인 프로그램명을 출력한다.",
+          "-t : 연결된 이후 시간 정보를 표시한다.",
+          "-a : 모든 연결 및 수신 대기 포트를 표시한다."
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2022에서 가상\n화 기반의 애플리케이션 운영 환경을 구축하고자 한다. 다\n음 지문 내용 중 (A)에 공통으로 들어갈 내용으로 옳은 것\n은?",
+        "options": [
+          "Virtual Machine",
+          "Internet Information Services",
+          "Windows Containers",
+          "Nano Server"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "Linux 시스템에서 기존에 설정된 ′crontab′을 삭제하려고 할\n때 올바른 명령어는?",
+        "options": [
+          "crontab –u",
+          "crontab -e",
+          "crontab –l",
+          "crontab -r"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "네트워크를 관리하는 Kim 사원은 네트워크 연결을 구축하거\n나 문제를 해결할 때 패킷이 출발지에서 목적지까지 가는\n경로를 살펴볼 수 있도록 네트워크 명령어를 사용하고자 한\n다. 이 명령은 ′tracert′에서 수행하는 동일한 정보를 보여주\n면서 홉과 다른 세부 정보 사이의 시간에 관한 정보를 출력\n이 끝날 때까지 저장한다. Kim 사원이 사용할 명령어는?",
+        "options": [
+          "ping",
+          "nslookup",
+          "pathping",
+          "nbtstat"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "TCP 3Way-HandShaking 과정 중 클라이언트가 보낸 연결\n요청에서 패킷을 수신한 서버는 LISTEN 상태에서 무슨 상\n태로 변경되는가?",
+        "options": [
+          "SYN_SENT",
+          "SYN_RECEIVED",
+          "ESTABLISHED",
+          "CLOSE"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux 시스템에서 특정 서비스를 제공하는 Daemon이 살아\n있는지 확인할 때 사용하는 명령어는?",
+        "options": [
+          "daemon",
+          "fsck",
+          "men",
+          "ps"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "Linux 시스템 명령어 중 root만 사용 가능한 명령은?",
+        "options": [
+          "chown",
+          "pwd",
+          "Is",
+          "rm"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "Linux 시스템에서 vi 에디터를 사용하여 텍스트를 입력한 후\n저장하지 않은 상태에서 종료하려고 할 때, 바로 종료되지\n않는 명령어는?",
+        "options": [
+          ":wq",
+          ":wq!",
+          ":q!",
+          ":q"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "Linux 시스템에서 특정 파일의 권한이 ′-rwxr-x--x′ 이다.\n이 파일에 대한 설명 중 옳지 않은 것은?",
+        "options": [
+          "소유자는 읽기 권한, 쓰기 권한, 실행 권한을 갖는다.",
+          "소유자와 같은 그룹을 제외한 다른 모든 사용자는 실행 권한만을 갖는다.",
+          "이 파일의 모드는 ′751′ 이다.",
+          "동일한 그룹에 속한 사용자는 실행 권한만을 갖는다."
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "Windows Server 2022의 DNS 서버에 DNS 레코드를 추가\n할 때 옳지 않은 것은?",
+        "options": [
+          "새 호스트(A or AAA)는 호스트 이름에 대한 IP 주소를 등록하는 것이다.",
+          "새 포인터(PTR)는 IP 주소에 대한 FQDN을 등록하는 것 이다.",
+          "새 별칭(CNAME)은 서브 도메인을 등록하는 것이다.",
+          "새 메일 교환기(MX)는 메일서버를 등록하는 것이다."
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "Windows Server 2022에서 클라이언트의 Host Name, IP\n주소, 서브넷 마스크, DNS Server, 기본 게이트웨이 등의\n설정 사항을 볼 수 있는 명령어는?",
+        "options": [
+          "arp –a",
+          "ipconfig /all",
+          "convert",
+          "netstat"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "다음 중 Linux의 명령어 해석기는?",
+        "options": [
+          "Shell",
+          "Kernel",
+          "Utility Program",
+          "Hierarchical File System"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "Linux Shell에서 아래 지문의 요구사항을 만족하는 명령어로\n옳은 것은?",
+        "options": [
+          "ls -al >output.txt",
+          "ls -al <output.txt",
+          "ls -al <<output.txt",
+          "ls -al >>output.txt"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "아래 지문에서 설명하는 부하분산 방식은?",
+        "options": [
+          "Least Connection Method",
+          "IP Hash Method",
+          "Least Response Time Method",
+          "Round Robin Method"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "다음 운영 상황을 고려할 때, Windows Server 2022 DHCP\nFailover 환경의 MCLT(Maximum Client Lead Time) 역할로\n가장 알맞은 것은?",
+        "options": [
+          "두 DHCP 서버 간 인증에 사용하는 최대 시간",
+          "장애 조치 파트너 DHCP 서버가 기존 임대를 임시로 갱 신할 수 있는 최대 시간",
+          "DHCP Discover 메시지의 재전송 간격",
+          "장애 조치 후 DHCP 스코프를 비활성화하는 유예 시간"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "Windows Server 2022에서 Active Directory의 주요 역할로\n올바른 것은?",
+        "options": [
+          "클라이언트에 IP 주소를 자동으로 할당한다.",
+          "사용자 인증과 디렉터리 기반의 자원 관리를 수행한다.",
+          "DNS 영역의 동적 업데이트를 기본적으로 차단한다.",
+          "서버의 방화벽 규칙을 자동으로 구성한다."
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "네트워크관리사 Kim 사원은 Windows Server 2022에서\nFTP 서버를 설치하려고 한다. 다음 중 FTP 서버 설치에 대\n한 설명으로 옳은 것은?",
+        "options": [
+          "서버 관리자에서 역할 및 기능 추가를 실행한 뒤 Web Server (IIS)의 FTP Server 역할 서비스를 선택하여 설치 할 수 있다.",
+          "FTP 서버는 Windows Server의 역할 및 기능에 포함되 어 있지 않으므로 서드파티 소프트웨어를 사용해야 한 다.",
+          "IIS의 FTP 서버 기능만으로 SSH 기반 SFTP를 구성할 수 있다.",
+          "FTP 서버 설치는 PowerShell로 수행할 수 없다."
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "아래 지문의 괄호 (A)에 들어갈 내용으로 옳은 것은?\n최강 자격",
+        "options": [
+          "가상 스위치",
+          "새로 고침",
+          "내보내기",
+          "검사점"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "RAID 방식 중 미러링(Mirroring)이라고 하며, 최고의 성능과\n고장대비 능력을 발휘하는 것은?",
+        "options": [
+          "RAID 0",
+          "RAID 1",
+          "RAID 3",
+          "RAID 5"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "게이트웨이(Gateway)의 역할로 올바른 것은?",
+        "options": [
+          "전혀 다른 프로토콜을 채용한 네트워크 간의 인터페이스 이다.",
+          "트위스트 페어 케이블 사용 시 이용되는 네트워크 케이 블 집선 장치이다.",
+          "케이블의 중계점에서 신호를 전기적으로 증폭한다.",
+          "피지컬 어드레스의 캐시 테이블을 갖는다."
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "웹서버를 보호하는 전용 보안장비로 HTTP, HTTPS 처럼 웹\n서버에서 동작하는 웹 프로토콜의 공격을 방어하는데 사용\n되는 보안장비는?",
+        "options": [
+          "IDS",
+          "IPS",
+          "Fire Wall",
+          "WAF"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "다음 지문에서 설명하는 네트워크 장비 또는 기술로 옳은\n것은?",
+        "options": [
+          "네트워크 가상화(Network Virtualization)",
+          "분산 네트워크(Distributed Network)",
+          "게이트웨이 이중화(Gateway Redundancy)",
+          "로드 밸런서(Load Balancer)"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 중 네트워크 카드를 통해 컴퓨터를 부팅할 수 있도록\n하는 기술로 옳은 것은?",
+        "options": [
+          "PnP(Plug and Play)",
+          "PoE(Power over Ethernet)",
+          "PXE(Pre-boot eXecution Environment)",
+          "PE(Portable Executable)"
+        ]
+      }
+    ]
+  }
+]

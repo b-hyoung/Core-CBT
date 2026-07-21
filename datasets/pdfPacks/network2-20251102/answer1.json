@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "HTTPS"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 1,
+        "correct_answer_text": "a184:a01::cd8c:1000:317b:ff"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SNMP"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "네트워크 간 장비들의 오류 상황에 대해 공유할 수 있는 기능이 있다."
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SYN"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 1,
+        "correct_answer_text": "210.212.100.31"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 3,
+        "correct_answer_text": "자동 설정(Autoconfiguration, SLAAC)"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 3,
+        "correct_answer_text": "루프백(Loopback) 테스트용이다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "슬라이딩 윈도우(Sliding Window)"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ACK(확인 응답)"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 1,
+        "correct_answer_text": "데이터가 DNS 서버 캐시에서 만료되기까지 남은 시간이 다."
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "UDP가 제공하는 오류검사는 홀수 패리티와 짝수 패리티 가 있다."
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 3,
+        "correct_answer_text": "DHCP"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 2,
+        "correct_answer_text": "메시지를 한 호스트에서 망상의 모든 호스트들로 전송하 는 것"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 2,
+        "correct_answer_text": "비용이 가장 낮은 단일 경로만 사용하며 다른 경로는 배 제한다."
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "IGMP"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 2,
+        "correct_answer_text": "원격 호스트의 네트워크 오류를 확인하고 오류를 정정해 준다."
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "통신 프로토콜을 정의한 OSI 7계층 중 세 번째 계층에 해당한다."
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "망에 유입되는 데이터의 양이 많아질수록 전송 속도가 빨라진다."
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 3,
+        "correct_answer_text": "SIP (Session Initiation Protocol)"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 1,
+        "correct_answer_text": "패킷"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "IPsec"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Forward Error Correction(FEC)"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 3,
+        "correct_answer_text": "VLAN"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 3,
+        "correct_answer_text": "IEEE 802.11ax"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "최대 전송 속도는 1000 Kb/s이다."
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 3,
+        "correct_answer_text": "서버리스 컴퓨팅에서는 사용자가 서버 인스턴스 프로비 저닝과 OS 패치를 직접 관리해야 한다."
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 3,
+        "correct_answer_text": "′-exec′은 찾은 파일에 대한 삭제 등의 추가적인 명령을 실행할 수 있다."
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 1,
+        "correct_answer_text": "가상 하드 디스크를 실행 중에도 다른 저장소로 이동할 수 있다."
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 2,
+        "correct_answer_text": "lsattr"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 3,
+        "correct_answer_text": "crontab -r"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "/proc"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "PTR"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 2,
+        "correct_answer_text": "KeepAliveTimeout 80"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 1,
+        "correct_answer_text": "일반 사용자 계정에서 Apache 웹서버를 실행할 때, 실 행 명령어 앞에 ′su′를 추가한다."
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 1,
+        "correct_answer_text": "chmod 774 sample"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "ㄱ: 20, ㄴ : 21"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "이벤트뷰어"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 3,
+        "correct_answer_text": "cd ~"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 2,
+        "correct_answer_text": "pathping"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "요청 필터링(Request Filtering)을 통해 특정 요청을 차 단할 수 있다."
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 1,
+        "correct_answer_text": "DNSSEC를 사용하면 DNS 쿼리 응답의 무결성과 출처 인증을 제공할 수 있다."
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 2,
+        "correct_answer_text": "DHCP 클라이언트는 부팅 시 IP 할당을 위해 DHCP 서 버를 찾는 브로드캐스트를 전송한다."
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 1,
+        "correct_answer_text": "ps -ef | grep python"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 0,
+        "correct_answer_text": "netstat –b"
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "RAID 0"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "게이트웨이는 L2 스위치와 같이 프레임만 중계한다."
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 3,
+        "correct_answer_text": "애플리케이션(Application) 계층의 보안 기능 제공"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NAT는 프레임 단위로 처리되는 데이터 링크 계층(L2)의 주소 변환 기술이다."
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 3,
+        "correct_answer_text": "PoE Switch"
+      }
+    ]
+  }
+]

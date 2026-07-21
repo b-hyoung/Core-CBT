@@ -1,0 +1,36 @@
+{
+  "slug": "network2-20260517",
+  "title": "2026년 5월 17일 네트워크관리사 2급 필기",
+  "kind": "pdf_exam",
+  "examType": "network-admin-2",
+  "totalProblems": 50,
+  "pdfFileName": "네트워크관리사2급20260517(교사용).pdf",
+  "answerSource": "body_black_circle+answer_table",
+  "answerCount": 50,
+  "sections": [
+    {
+      "title": "1과목 : TCP/IP",
+      "start": 1,
+      "end": 17
+    },
+    {
+      "title": "2과목 : 네트워크 일반",
+      "start": 18,
+      "end": 27
+    },
+    {
+      "title": "3과목 : NOS",
+      "start": 28,
+      "end": 45
+    },
+    {
+      "title": "4과목 : 네트워크 운용기기",
+      "start": 46,
+      "end": 50
+    }
+  ],
+  "explanationExtraction": {
+    "status": "none",
+    "reason": "pdf_has_no_explanation"
+  }
+}

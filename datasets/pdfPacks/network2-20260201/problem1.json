@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "/etc/deny",
+          "/etc/hosts",
+          "/etc/allow",
+          "/etc/services"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "다음 중 SSH(secure shell) 보안 프로토콜의 특징으로 옳지\n않은 것은?",
+        "options": [
+          "데이터를 암호화하여 전송",
+          "데이터 무결성 제공",
+          "리눅스, 유닉스에서만 사용 가능",
+          "공개키 암호화 기법 사용"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "다음 중 아래 지문에 따라 서브네팅할 경우 서브넷 마스크\n(subnet mask)로 옳은 것은?",
+        "options": [
+          "255.255.255.128",
+          "255.255.255.192",
+          "255.255.255.224",
+          "255.255.255.240"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "FTP 및 TFTP의 특징으로 옳은 것은?",
+        "options": [
+          "TFTP는 단순화된 파일의 전송을 위한 프로토콜이며 기본 포트는 25번이다.",
+          "FTP의 접속에는 계정 접속만 가능하다.",
+          "TFTP의 단점은 UDP방식으로 Data 전송 시 데이터 손실 가능성이 있다.",
+          "FTP는 대량의 데이터를 고속 전송하기 위해 UDP를 사용 한다."
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "ICMP(Internet Control Message Protocol)에 대한 설명 중\n틀린 것은?",
+        "options": [
+          "비대칭 프로토콜이고 TTL(Time To Live)를 제공한다.",
+          "ICMPv4(Internet Control Message Protocol) 메시지의 특 징은 질의메시지가 있다.",
+          "ICMP(Internet Control Message Protocol)의 주된 기능은 IP 데이터그램의 프로세싱을 동작하는 동안 오류를 보고 한다.",
+          "호스트간 신뢰성을 확보하기 위해 반향과 회답메시지를 지원한다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "(A) 안에 들어가는 용어 중 옳은 것은?\n최강 자격",
+        "options": [
+          "L1 스위치",
+          "L2 스위치",
+          "L3 스위치",
+          "L4 스위치"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "DNS 서비스에서 사용되는 레코드의 설명으로 올바른 것은?",
+        "options": [
+          "A 레코드",
+          "PTR 레코드",
+          "SOA 레코드",
+          "MX 레코드"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "OSI 7 layer 참조 모델에서 사용되는 Protocols 중 TCP와\nUDP port를 함께 사용하는 프로토콜은?",
+        "options": [
+          "SMTP",
+          "FTP",
+          "DNS",
+          "Telnet"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "아래에서 설명하는 기술의 명칭은?",
+        "options": [
+          "Bluetooth Low Energy(BLE)",
+          "Z-Wave",
+          "Zigbee",
+          "Wi-Fi HaLow(802.11ah)"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "회사 내 네트워크를 구축하면서 IPv6를 적용하려고 한다.\nIPv4에 비해 IPv6에서 새롭게 도입된 기능은?",
+        "options": [
+          "체크섬(Checksums)",
+          "복잡한 헤더(Complicated header)",
+          "선택적 IPsec(Optional IPsec)",
+          "자동 설정(Autoconfiguration, SLAAC)"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "IPv4 Address 중 네트워크 ID가 ′127′로 시작하는 주소의\n용도는?",
+        "options": [
+          "제한적 브로드캐스트 주소",
+          "B Class의 멀티캐스트 주소",
+          "C Class의 사설(Private) IP 주소",
+          "루프백(Loopback) 주소"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "서버를 관리하는 Kim 사원은 기존 홈페이지를 http방식에서\nhttps방식으로 변경하라는 회사의 지침에 따라 https의 특징\n에 대하여 알아보고 있는 중이다. 다음 보기 중에서 https의\n특징으로 옳은 것은?",
+        "options": [
+          "기존 http보다 암호화된 SSL/TLS를 전달한다.",
+          "tcp/80번 포트를 사용한다.",
+          "udp/443번 포트를 사용한다.",
+          "인증이 필요하지 않아 사용하기가 간편하다."
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "다음 TCP 패킷의 플래그 중에서 연결이 정상적으로 끝남을\n의미하는 것은?",
+        "options": [
+          "FIN",
+          "URG",
+          "ACK",
+          "RST"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "보기의 프로토콜 중에서 지문에 제시된 내용과 같은 일을\n수행하는 프로토콜은?",
+        "options": [
+          "DHCP",
+          "IP",
+          "RIP",
+          "ARP"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 중 사설IP 주소(Private address) 대역에 해당하지 않\n는 것은?",
+        "options": [
+          "10.168.24.2",
+          "172.17.210.21",
+          "182.0.2.1",
+          "192.168.177.7"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "사내 스트리밍 서비스가 IPv4 멀티캐스트로 배포된다. 클라\n이언트 PC가 채널을 바꿀 때마다 스위치/라우터에 그룹 가\n입·탈퇴 신호가 전달되어 트래픽이 즉시 조정된다. 이때 사\n용되는 프로토콜은?",
+        "options": [
+          "ICMP",
+          "IGMP",
+          "ARP",
+          "RARP"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "UDP에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "한 컴퓨터에서 다른 컴퓨터로 데이터그램이라고 불리는 실제 데이터 단위를 받기 위해 IP를 사용한다.",
+          "메시지를 패킷으로 나누고, 반대편에서 재조립하는 서비 스는 제공하지 않는다.",
+          "도착하는 데이터 패킷들의 순서를 제공하지 않는다.",
+          "FTP는 UDP를 사용하는 대표적인 프로토콜이다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "컴퓨터 추가 설정이 용이하고, 중앙관리가 가능한 네트워크\n토폴로지는?",
+        "options": [
+          "Bus",
+          "Star",
+          "Ring",
+          "Mesh"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "VPN(Virtual Private Network)의 구현 기술 중 인터넷 네트\n최강 자격",
+        "options": [
+          "Tunneling",
+          "Authentication",
+          "Encryption",
+          "Access Control"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "OSI 7 Layer 중에서 아래에서 설명하는 계층은?",
+        "options": [
+          "물리적 계층(Physical Layer)",
+          "데이터 링크 계층(Data Link Layer)",
+          "네트워크 계층(Network Layer)",
+          "트랜스포트 계층(Transport Layer)"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "전송효율을 최대로 하기 위해 프레임의 길이를 동적으로 변\n경시킬 수 있는 ARQ(Automatic Repeat Request)방식은?",
+        "options": [
+          "Adaptive ARQ",
+          "Go back-N ARQ",
+          "Selective-Repeat ARQ",
+          "Stop and Wait ARQ"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "데이터 흐름 제어(Flow Control)와 관련 없는 것은?",
+        "options": [
+          "Stop and Wait",
+          "XON/XOFF",
+          "Loop/Echo",
+          "Sliding Window"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음 중 여러 주파수 성분을 갖는 신호 전송에서 각 주파수\n성분이 서로 다른 지연 시간으로 도달할 때 발생하는 전송\n왜곡은?",
+        "options": [
+          "감쇠 현상(Attenuation)",
+          "위상 왜곡(Phase Distortion)",
+          "누화(Crosstalk)",
+          "충격성 잡음(Impulse Noise)"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "클라우드 컴퓨팅의 특징으로 옳지 않은 것은?",
+        "options": [
+          "사용자는 필요한 만큼의 서버, 네트워크, 저장장치 등과 같은 컴퓨팅 능력을 활용할 수 있다.",
+          "사용자 요구에 따라 물리 자원과 가상 자원들이 동적으 로 할당/재할당 된다.",
+          "서비스 형태에 따라 적절한 미터링을 활용하여 자동으로 자원의 사용을 제어하고 최적화한다.",
+          "제공자의 컴퓨팅 자원들은 다수의 사용자들을 지원하기 위하여 단일 임차인(single-tenant) 모델의 자원 풀 (pool) 형태로 운영된다."
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "기가비트 이더넷(Gigabit Ethernet, 1 Gbps)에서 광케이블\n을 사용하는 전송 규격은?",
+        "options": [
+          "1000BASE-SX",
+          "1000BASE-T",
+          "10GBASE-T",
+          "2.5GBASE-T"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "VTP(VLAN Trunking Protocol)에는 3가지 모드가 있다. 이\n에 해당하지 않는 것은?",
+        "options": [
+          "server mode",
+          "client mode",
+          "transparent mode",
+          "interface mode"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "한 사무실의 802.11ax 무선 LAN에서 충돌을 줄이기 위해\n송신 전 채널을 탐색하고, 필요 시 랜덤 백오프를 수행하며,\nRTS/CTS를 옵션으로 사용하는 매체 접근 제어 방식은?",
+        "options": [
+          "CSMA/CD",
+          "CSMA/CA",
+          "TDMA",
+          "토큰 패싱"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "서버 담당자 Kim 사원은 아래의 Linux 시스템 작업지시서를\n확인하고 작업하고자 한다. Kim 사원이 입력할 명령어로 올\n바른 것은?",
+        "options": [
+          "chmod -R 755 /var/www/upload",
+          "chmod 775 /var/www/upload",
+          "chmod -R 777 /var/www/upload",
+          "chmod 555 /var/www/upload"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "다음 중 2 TB 이상의 신규 디스크를 GPT로 파티셔닝하기\n에 가장 적절한 명령어는?",
+        "options": [
+          "fdisk",
+          "mkfs",
+          "gdisk",
+          "mount"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "아래 지문의 내용은 Linux의 BIND 시스템 운영을 위한 ′\n/etc/named.conf′의 option 지시자의 내용이다. 다음 중 옳\n지 않은 것은?\n최강 자격",
+        "options": [
+          "외부에서 오는 query에 대한 IP 대역을 모두 허용한다.",
+          "유효성 검사 시 오류가 발생하지 않는다.",
+          "53번 포트에 대해서 외부 접근을 허용한다.",
+          "slave에서 zone파일이 동기화 될때 text 형태로 변환한 다."
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux Apache 웹 서버에서 사용자가 POST Request 메시\n지를 전송 시 일정 크기 이상 전송하지 못하도록 ′\nhttpd.conf′ 파일에서 설정하는 지시자로 옳은 것은?",
+        "options": [
+          "KeepRequestSize",
+          "LimitRequestBody",
+          "RestrictBodyRequest",
+          "PostRequestSize"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "아래 지문의 ping 명령어의 결과로 옳지 않은 것은?",
+        "options": [
+          "ICMP 패킷의 대상(host)은 ′icqa.or.kr′이다.",
+          "ICMP 패킷을 3번 송신하고 수신하였다.",
+          "ICMP 패킷이 왕복한 시간 중 가장 짧은 시간은 7.085ms 이다.",
+          "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Windows Server 2022의 Hyper-V에 대한 특징으로 옳은\n것은?",
+        "options": [
+          "가상 컴퓨터를 다른 서버로 복제할 수 없다.",
+          "가상 하드 디스크를 실행 중에도 다른 저장소로 이동할 수 있다.",
+          "하나의 물리 서버에는 하나의 가상 컴퓨터만 사용할 수 있다.",
+          "가상 컴퓨터를 사용할수록 물리 서버의 하드웨어 자원 사용률은 낮아진다."
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "Linux 시스템 운영 중 비인가자의 로그인 시도 이력을 확인\n하기 위한 명령어로 옳은 것은?",
+        "options": [
+          "lastb",
+          "xferlog",
+          "history",
+          "pkill"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "Linux 시스템 관리자는 John 사원의 계정인 ′John′의 암호\n정책을 변경하기 위해 아래 지문과 같이 입력하였다. 10일\n전 암호 변경 경고를 위한 명령으로 ( )안에 알맞은 옵션은?",
+        "options": [
+          "-m 10",
+          "-L 10",
+          "-i 10",
+          "-W 10"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "Linux 시스템에 있는 부트 로더로서 Linux 뿐만 아니라 다\n른 운영체제와의 멀티부팅 기능도 지원해주는 것은?",
+        "options": [
+          "CMOS",
+          "BASH",
+          "GRUB",
+          "ROOT"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "Linux에서 사용자가 현재 작업 중인 디렉터리의 경로를 절\n대경로 방식으로 보여주는 명령어는?",
+        "options": [
+          "cd",
+          "man",
+          "pwd",
+          "cron"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "Linux 시스템에서 'exam.txt' 파일의 내용을 보려고 하는데,\n내용이 많아서 한 페이지를 넘어가 버린다. 한 페이지씩 차\n례대로 보기 위한 명령은?",
+        "options": [
+          "cat exam.txt | more",
+          "cat exam.txt | grep",
+          "find exam.txt | grep",
+          "tar exam.txt | grep"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "Linux 시스템에서 사용자가 내린 명령어를 Kernel에 전달해\n주는 역할을 하는 것은?",
+        "options": [
+          "System Program",
+          "Loader",
+          "Shell",
+          "Directory"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "Windows Server 2022에 설치된 DNS에서 지원하는 레코드\n형식 중 실제 도메인 이름과 연결되는 가상 도메인 이름의\n레코드 형식은?",
+        "options": [
+          "CNAME",
+          "MX",
+          "A",
+          "PTR"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "DHCP로부터 새로운 IP 주소를 갱신(재할당) 받기 위해 사\n용하는 Windows 명령어 옵션은?",
+        "options": [
+          "ipconfig /renew",
+          "ipconfig /release",
+          "ipconfig /flushdns",
+          "ipconfig /setclassid"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "시스템 관리자 Kim은 Windows Server 2022에서 CPU, 메\n모리, 네트워크, 디스크 사용량을 실시간으로 모니터링하고\n자 한다. 이 목적에 가장 적절한 도구는?",
+        "options": [
+          "Server Manager",
+          "System Hardware Monitor",
+          "Resource Monitor",
+          "Event Viewer"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "다음 지문에서 설명하는 Windows Server 2022의 Active\nDirectory 그룹으로 옳은 것은?",
+        "options": [
+          "글로벌 그룹(Global Group)",
+          "유니버설 그룹(Universal Group)",
+          "도메인 로컬 그룹(Domain Local Group)",
+          "로컬 그룹(Local Group)"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "Windows Server 2022에서 DNS 서버 설정 시, TTL(Time\nTo Live) 설정값에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "TTL 값을 짧게 설정할 경우, 잦은 DNS 쿼리로 인해 서 버에 부하를 줄 수 있다.",
+          "TTL 값을 설정하지 않을 경우, 정방향 조회 서비스가 불 가능하다.",
+          "DNS record의 캐싱 주기를 의미한다.",
+          "TTL 값을 길게 설정할 경우, 쿼리를 요청하는 서버의 IP 가 변경 시 갱신이 늦어져 서비스에 불편함을 줄 수 있 다."
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "네트워크관리사 Park 사원은 Windows Server 2022에서 IIS\n를 이용하여 웹 사이트를 운영하고 있다. 다음 중 IIS의 로\n그 설정에 대한 설명으로 올바른 것은?",
+        "options": [
+          "로그 파일의 저장 위치는 변경할 수 있다.",
+          "IIS는 로그 형식을 W3C 형식만 지원한다.",
+          "로그는 기본적으로 실시간으로 업데이트된다.",
+          "로그 크기가 최대치에 도달하면 자동으로 이전 로그를 삭제한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "L2 스위치에서 프레임을 전송 시 목적지의 어떤 주소를 확\n인 후 전송하는가?",
+        "options": [
+          "IP 주소",
+          "Port 주소",
+          "MAC 주소",
+          "URL 주소"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "로드밸런서(Load Balancer)가 사전에 설정한 분산 알고리즘\n을 통해 부하분산이 이루어지는데, 부하분산 방식 중 특별\n한 규칙 없이 현재 구성된 장비에 순차적으로 돌아가면서\n트래픽을 분산하는 방식은?",
+        "options": [
+          "Least Connection",
+          "Round Robin",
+          "Weighted Round Robin",
+          "Weighted Least Connection"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "내부 통신에는 사설 IP를 사용하고, 외부 인터넷 접속 시 엣\n지 장비가 사설 IP를 공인 IP로 변환해 나가도록 하는 기술\n은?",
+        "options": [
+          "정책 기반 라우팅(PBR)",
+          "NAT(네트워크 주소 변환)",
+          "프록시 ARP(Proxy ARP)",
+          "스플릿 DNS(Split-Horizon DNS)"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "다음 중 L7 스위치에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "OSI 7계층(응용 계층)에서 동작하는 네트워크 스위치이 다.",
+          "TCP/UDP 헤더만을 기반으로 로드 밸런싱을 수행한다.",
+          "IP 주소, 포트 번호와 더불어 L5~L7 패킷 정보까지 보고 데이터를 처리한다.",
+          "L7 스위치는 L2/L3/L4 기능을 포괄하여 제공할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "OSI 7계층 중 네트워크 계층, 그리고 TCP/IP 4계층 중 인\n터넷 계층에서 동작하는 네트워크 장비는?",
+        "options": [
+          "리피터(Repeater)",
+          "L2 스위치(Layer2 switch)",
+          "라우터(Router)",
+          "허브(Hub)"
+        ]
+      }
+    ]
+  }
+]

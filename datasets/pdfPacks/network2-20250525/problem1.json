@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "프로토콜의 기본적인 기능 중, 송신기에서 발생된 정보의 정\n확한 전송을 위해 사용자 정보의 앞, 뒤 부분에 헤더와 트레\n일러를 부가하는 과정은?",
+        "options": [
+          "캡슐화(Encapsulation)",
+          "동기화(Synchronization)",
+          "다중화(Multiplexing)",
+          "주소지정(Addressing)"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "서브넷 마스크에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "IP Address 체계에서 Network ID와 Host ID로 구분한다.",
+          "목적지 호스트가 동일한 네트워크상에 있는지 확인한다.",
+          "Class A는 기본 서브넷 마스크로 ′254.0.0.0′을 이용한다.",
+          "서브넷 마스크의 Network ID 필드는 이진수 ′1′로, Host ID의 필드는 이진수 ′0′으로 채운다."
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "IGMP(Internet Group Management Protocol)의 특징으로 옳\n지 않은 것은?",
+        "options": [
+          "TTL(Time to Live)이 제공된다.",
+          "유니캐스트 통신을 위한 프로토콜로 적합하다.",
+          "IGMPv1에서는 첫 보고 메시지 손실 시 재전송되지 않는 다.",
+          "호스트와 라우터 간의 비대칭 통신 구조를 가진다."
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "C Class인 네트워크의 서브넷 마스크가 ′255.255.255.192′\n이라면 둘 수 있는 서브넷의 개수는?",
+        "options": [
+          "2",
+          "4",
+          "192",
+          "1024"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "TCP를 사용하는 프로토콜로 옳지 않은 것은?",
+        "options": [
+          "FTP",
+          "TFTP",
+          "Telnet",
+          "SMTP"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "ICMP의 Message Type에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "0 - Echo Reply",
+          "5 - Echo Request",
+          "13 - Timestamp Request",
+          "17 - Address Mask Request"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "IPv6에 대한 설명으로 올바른 것은?",
+        "options": [
+          "IETF(Internet Engineering Task Force)에서 IP Address 부족에 대한 해결 방안으로 만들었다.",
+          "IPv6 보다는 IPv4가 더 다양한 옵션 설정이 가능하다.",
+          "주소 유형은 유니캐스트, 멀티캐스트, 브로드캐스트 3가지 이다.",
+          "Broadcasting 기능을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "UDP 패킷의 헤더에 속하지 않는 것은?",
+        "options": [
+          "Source Port",
+          "Destination Port",
+          "Window",
+          "Checksum"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "다음 중 IP 프로토콜의 역할로 올바른 것은?",
+        "options": [
+          "호스트 간 패킷 전달의 신뢰성을 보장한다.",
+          "손실된 패킷의 재전송을 요청할 수 있다.",
+          "호스트 간에 패킷 교환에서 흐름 제어를 할 수 있다.",
+          "MTU(Maximum Transmission Unit) 값보다 큰 Datagram"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "다음 중 ARP(Address Resolution Protocol) 캐시 유지 방\n식에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "새로 등록된 주소는 생존 시간(TTL: Time To Live) 값을 가진다.",
+          "등록된 주소는 일정 시간(예: 1~2분) 동안 사용되지 않 으면 ARP 캐시에서 삭제될 수 있다.",
+          "일부 TCP/IP 시스템에서는 ARP 캐시에 등록된 주소가 재사용될 경우 TTL 값이 초기값으로 재설정된다.",
+          "ARP는 ARP 캐시를 사용하더라도, 서버와 통신할 때마다 매번 MAC 주소를 다시 요청해야 한다."
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "TCP/IP protocol stack에서 사용하는 Application 중에 연\n결 제어와 정보 전송용 포트를 구분하여 사용하는 것은?",
+        "options": [
+          "DNS",
+          "SMTP",
+          "TFTP",
+          "FTP"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "다음 중 사설 IP주소로 옳지 않은 것은?",
+        "options": [
+          "10.100.12.5",
+          "128.52.10.6",
+          "172.25.30.5",
+          "192.168.200.128"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "다음 중 Ping 유틸리티와 관련이 없는 것은?",
+        "options": [
+          "ICMP 메시지를 이용한다.",
+          "Echo Request 메시지를 보내고 해당 컴퓨터로부터 ICMP Echo Reply 메시지를 기다린다.",
+          "TCP/IP 구성 파라미터를 확인할 수 있다.",
+          "TCP/IP 연결성을 테스트할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "SMTP(Simple Mail Transfer Protocol)와 POP3(Post Office\nProtocol version 3)의 차이점에 대한 설명으로 올바른 것\n은?",
+        "options": [
+          "SMTP는 전송 프로토콜로 메일을 송신하는 데 사용되며, POP3는 수신 프로토콜로 메일을 수신하는 데 사용된다.",
+          "SMTP와 POP3는 모두 메일을 실시간 동기화하여 서버 에 메일을 보관한다.",
+          "SMTP는 전자 메일 시스템과 관련이 있지만 POP3는 상 관없는 프로토콜이다.",
+          "전자 메일은 SMTP, POP3, IMAP 서버를 통해 메일의 송수신이 동시에 처리된다."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음은 무엇에 관한 설명인가?",
+        "options": [
+          "OSPF",
+          "RIP",
+          "EGP",
+          "BGP"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "TLS 프로토콜을 통해 Application Layer의 Data를 암호화하\n여 보호하는 프로토콜은?",
+        "options": [
+          "SMTP",
+          "FTP",
+          "Telnet",
+          "HTTPS"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "DNS에 대한 설명 중 옳지 않은 것은?",
+        "options": [
+          "다른 호스트에 접근하고자 할 때 기억하기 어려운 IP Address 대신에 좀 더 이해하기 쉬운 계층적인 호스트 이름을 사용할 수 있도록 하는 기반 서비스이자 프로토 콜이다.",
+          "호스트 이름에 대한 분산 데이터베이스이다.",
+          "호스트 이름은 단순한 나열이 아닌 논리적 구조를 형성 하며, 하나의 도메인으로 그룹화되어 있고, 내부에 하위 도메인을 포함할 수 있다.",
+          "호스트 이름은 영문자와 숫자 그리고 ′@′, ′#′과 같은 특수 문자로 구성된다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "전송효율을 최대로 하기 위해 프레임의 길이를 동적으로 변\n경시킬 수 있는 ARQ(Automatic Repeat Request)방식은?",
+        "options": [
+          "Adaptive ARQ",
+          "Go back-N ARQ",
+          "Selective-Repeat ARQ",
+          "Stop and Wait ARQ"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "Multiplexing 방법 중에서 다중화 시 전송할 데이터가 없더\n라도 타임 슬롯이 할당되어 대역폭의 낭비를 가져오는 다중\n화 방식은?",
+        "options": [
+          "TDM(Time Division Multiplexer)",
+          "STDM(Statistical Time Division Multiplexer)",
+          "FDM(Frequency Division Multiplex)",
+          "FDMA(Frequency Division Multiple Access)"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "컴퓨터 추가 설정이 용이하고, 중앙관리가 가능한 네트워크\n최강 자격",
+        "options": [
+          "Bus",
+          "Star",
+          "Ring",
+          "Mesh"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "100BASE-T라고도 불리는 이더넷의 고속 버전으로서 100\nMbps의 전송속도를 지원하는 근거리통신망의 표준은?",
+        "options": [
+          "Ethernet",
+          "Gigabit Ethernet",
+          "10Giga Ethernet",
+          "Fast Ethernet"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "파장분할다중화방식(WDM)의 특징으로 옳은 것은?",
+        "options": [
+          "선로의 증설 없이 회선의 증설이 어렵다.",
+          "광증폭기를 사용해 무중계 장거리 전송이 가능하다.",
+          "광학적인 방법에 의해 신호를 시간축에서 다중화하는 방 식이다.",
+          "각각의 채널은 같은 전송 형식, 전송 속도, 프로토콜 형 식을 가진다."
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "(A)안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "WPAN",
+          "LTE-M",
+          "NB-IoT",
+          "LAN"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "모바일 멀티미디어 데이터의 폭증과 데이터 트래픽의 동적\n특성 변화에 효율적으로 대처하기 위해, 구조적 유연성과\n개방성을 제공하며 하드웨어가 아닌 소프트웨어로 제어되는\n네트워킹 기술은?",
+        "options": [
+          "SDS (Software Defined Storage)",
+          "SDN (Software Defined Networking)",
+          "SNMP (Simple Network Management Protocol)",
+          "CLI (Command Line Interface)"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "클라우드 컴퓨팅 모델에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "통신환경에 따라 서비스에 영향을 받으며, 개별 정보가 물리적으로 어디에 위치하고 있는지 알기 어려운 단점이 있다.",
+          "공용 클라우드(public cloud)는 아마존 웹 서비스와 같은 외부 서비스 제공자가 관리하며, 인터넷을 통해 접근하 기도 하고, 일반적인 공적 업무를 위해 이용된다.",
+          "사설 클라우드(private cloud)는 서버, 저장장치, 네트워 크 데이터 그리고 응용프로그램 등을 함께 묶어서 회사 내·외부의 모든 이용자들이 공유할 수 있도록 하는 클라 우드이다.",
+          "하이브리드 클라우드(hybrid cloud)는 공용 클라우드와 사설 클라우드가 혼용되어 있는 서비스로, 사설 클라우 드를 구축하여 사용 중인 특정 기업이 클라우드서비스 중의 일부를 공용 클라우드업체로부터 서비스를 제공받 으면서, 동시에 사설 클라우드와 연동하여 사용하는 방 식이다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "다음 중 TCP/IP와 OSI 7 Layer의 비교로서 옳지 않은 것",
+        "options": [
+          "TCP 프로토콜은 OSI 7 Layer의 전송계층에 해당한다.",
+          "IP 프로토콜은 OSI 7 Layer의 네트워크계층에 해당한다.",
+          "파일 전송 프로토콜인 FTP는 OSI 7 Layer의 응용계층에 해당한다.",
+          "HTTP 프로토콜은 OSI 7 Layer의 표현계층에 해당한다."
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "MAC(Media Access Control)방식 중, 네트워크에 연결된\n각 노드에게 전송 기회를 순차적으로 부여하여, 모든 노드\n가 공평하게 데이터를 전송할 수 있도록 하는 방식은?",
+        "options": [
+          "CSMA/CD",
+          "Token Ring",
+          "CSMA",
+          "DQDB"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "Linux 시스템에서 사용자가 내린 명령어를 Kernel에 전달해\n주는 역할을 하는 것은?",
+        "options": [
+          "System Program",
+          "Loader",
+          "Shell",
+          "Directory"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "Linux 디렉터리 구성에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "/tmp - 임시파일이 저장되는 디렉터리",
+          "/boot - 시스템이 부팅될 때 부팅 가능한 커널 이미지 파일을 담고 있는 디렉터리",
+          "/var - 시스템의 로그 파일과 메일이 저장되는 위치",
+          "/usr - 사용자 계정이 위치하는 파티션 위치"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "Linux에서 DNS의 SOA(Start Of Authority) 레코드에 대한\n설명으로 옳지 않은 것은?",
+        "options": [
+          "Zone 파일은 항상 SOA로 시작한다.",
+          "해당 Zone에 대한 네임서버를 유지하기 위한 기본적인 자료가 저장된다.",
+          "Refresh는 주 서버와 보조 서버의 동기 주기를 설정한 다.",
+          "TTL 값이 길면 DNS의 부하가 늘어난다."
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux 시스템에서 모든 사용자에게 'sample' 파일의 쓰기\n권한을 금지시키고자 할 때 명령어로 올바른 것은?",
+        "options": [
+          "chmod a-w sample",
+          "chmod u-w sample",
+          "chmod g+rw sample",
+          "chmod a-r sample"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux 시스템에 새로운 사용자를 등록하려고 한다. 유저 이\n름은 ′network′로 하고, ′icqa′라는 기본 그룹에 편입시키는\n명령은?",
+        "options": [
+          "useradd -g icqa network",
+          "useradd -g network icqa",
+          "adduser -g network icqa",
+          "adduser -G icqa network"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux 시스템에서 사용되고 있는 메모리 양과 사용 가능한\n메모리 양, 공유 메모리와 가상 메모리에 대한 정보를 볼\n수 있는 명령어는?",
+        "options": [
+          "mem",
+          "free",
+          "du",
+          "cat"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "Windows Server 2016 DHCP 서버의 주요 역할의 설명으로\n최강 자격",
+        "options": [
+          "동적 콘텐츠의 HTTP 압축을 구성하는 인프라를 제공한 다.",
+          "TCP/IP 네트워크에 대한 이름을 확인한다.",
+          "IP 자원의 효율적인 관리 및 IP 자동 할당한다.",
+          "사설 IP주소를 공인 IP 주소로 변환해 준다."
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016에서 성능\n모니터를 사용하여 서버 성능을 분석하려 한다. 일정 주기\n로 데이터를 수집하기 위해 성능 모니터를 시작하는 명령어\n는?",
+        "options": [
+          "perfmon",
+          "msconfig",
+          "dfrg",
+          "secpol"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "서버 담당자 Park 사원은 1대의 서버가 아니라 여러 대의\n웹 서버를 운영해서, 웹 클라이언트가 서비스를 요청할 경\n우에 교대로 서비스를 실행하는 방법으로 웹 서버의 부하를\n여러 대가 공평하게 나눌 수 있도록 설계하고자 한다. 이에\n적절한 서비스 방식은?",
+        "options": [
+          "Round Robin",
+          "Heartbeat",
+          "Failover Cluster",
+          "Non-Repudiation"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016에서 사용\n할 수 있는 네트워크 스토리지를 구현하고자 한다. 다음 조\n건에서 설명하는 방식의 네트워크 스토리지로 알맞은 것은?",
+        "options": [
+          "NAS(Network Attached Storage)",
+          "SAN(Storage Area Network)",
+          "RAID(Redundant Array of Inexpensive Disks)",
+          "SSD(Solid State Drive)"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016에서 가상\n화 운영을 위한 Hyper-V를 운영하고자 한다. 다음 지문 내\n용 중 (A)에 공통으로 들어갈 내용으로 올바른 것은?",
+        "options": [
+          "Virtual Machine",
+          "Internet Information Services",
+          "Windows Containers",
+          "NanoServer"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "네트워크 담당자 Kim 사원은 Windows Server 2016에서 원\n격 액세스 서비스를 운용하고자 한다. Windows Server\n2016 내에 있는 이 기능은 DirectAccess나 VPN과 달리 원",
+        "options": [
+          "WAP(Web Application Proxy)",
+          "PPTP(Point-to-Point Tunneling Protocol)",
+          "L2TP(Layer 2 Tunneling Protocol)",
+          "SSTP(Secure Socket Tunneling Protocol)"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016에서 사용\n자 및 그룹을 관리하는 업무를 부여받았다. 다음 중\nWindows Server 2016에 해당하는 그룹 계정 중 컴퓨터 자\n원에 대한 인증 속성을 관리하는 권한을 갖는 그룹은?",
+        "options": [
+          "Replicator",
+          "Power Users",
+          "Backup Operators",
+          "Access Control Assistance Operators"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "다음 중 Linux 시스템에서 새로운 하드디스크를 추가하고\n사용할 수 있도록 설정하는 과정과 관계가 가장 적은 것은?",
+        "options": [
+          "fdisk",
+          "mkfs",
+          "mount",
+          "cal"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "다음 중 Linux의 BIND 설치 및 운영 시 수행해야 할 업무로\n적절하지 않은 것은?",
+        "options": [
+          "방화벽에서 UDP의 53번 포트만 열면 된다.",
+          "방화벽 설정은 ′iptables′ 명령어를 통해 설정할 수 있다.",
+          "BIND 설치여부는 ′rpm -qa | grep bind′ 로 확인할 수 있다.",
+          "′/etc/named.conf′ 파일의 오류를 체크하는 명령어는 ′ named-checkconf′ 이다."
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "서버 관리자 Lee 사원은 Windows Server 2016에서 DNS\n서버를 설치 하던 중 다음과 같은 문제를 발견하였다. Lee\n사원이 해당 문제를 해결하기 위한 방법으로 가장 적절하지\n않은 것은?",
+        "options": [
+          "명령어 프롬프트 창에서 ′ipconfig /renew′를 입력하였 다.",
+          "IP 주소의 할당방식을 고정할당방식으로 변경한다.",
+          "이더넷의 IP 속성에서 ′다음 IP 주소 사용′을 선택하고 IP 주소를 입력하였다.",
+          "이더넷의 IP 속성에서 ′다음 DNS 서버 주소 사용′을 선 택하고 DNS 서버 주소를 입력하였다."
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "사용자가 웹사이트에 접속했지만 다음과 같은 메시지가 출\n력되었다. 이 오류 상황에 해당하는 HTTP 상태 코드는?",
+        "options": [
+          "400",
+          "200",
+          "403",
+          "203"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "Linux Apache 웹서버 httpd.conf 설정값 중 Directory\nIndexing 공격에 취약할 수 있는 옵션은?",
+        "options": [
+          "Options FollowSymLinks Indexes",
+          "ServerAdmin : root@localhost",
+          "DocumentRoot : ′/var/www/html′",
+          "ServerRoot : ′/etc/httpd′"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "RAID는 Redundant Array of Independent Disk 혹은\nRedundant Array of Inexpensive Disk의 약자로, 말 그대로\n여러 개의 디스크를 묶어 하나의 디스크처럼 사용하는 기술\n이다. 그러면 다음에서 RAID Level 0(영)의 설명으로 옳지\n않은 것은?",
+        "options": [
+          "최소 2개의 디스크에 데이터를 동시에 분산 저장한다.",
+          "디스크에 데이터를 분산 저장하기 때문에 처리속도가 향 상된다.",
+          "스트라이핑(Striping)이라고도 부르는 방식이다.",
+          "2개의 디스크 중 하나만 손상돼도 전체 데이터 복구가 가능하다."
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "로드밸런싱(Load Balancing)에 대한 설명으로 옳은 것은?",
+        "options": [
+          "물리적인 망 구성과는 상관없이 가상적으로 구성된 근거 리 통신망 기술",
+          "사용량과 처리량을 증가시키고 지연율을 낮추며 응답시 간을 감소시키고 시스템 부하를 피할 수 있게 하는 최적 화 기술",
+          "가상머신이 실행되고 있는 물리적 컴퓨터로부터 분리된 또 하나의 컴퓨터",
+          "웹 브라우저와 서버 간의 통신에서 정보를 암호화하는 기술"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "IP Address의 부족과 내부 네트워크 주소의 보안을 위해 사\n용하는 방법 중 하나로, 내부에서는 사설 IP Address를 사\n용하고 외부 네트워크로 나가는 주소는 공인 IP Address를\n사용하도록 하는 IP Address 변환 방식은?",
+        "options": [
+          "DHCP 방식",
+          "IPv6 방식",
+          "NAT 방식",
+          "MAC Address 방식"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "웹서버를 보호하는 전용 보안장비로 HTTP, HTTPS 처럼 웹\n서버에서 동작하는 웹 프로토콜의 공격을 방어하는데 사용\n되는 보안장비는?",
+        "options": [
+          "IDS",
+          "IPS",
+          "Fire Wall",
+          "WAF"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 ( )에 해당하는 용어는?\n네트워크관리사 2급 ◐ 2025년 05월 25일 필기 기출",
+        "options": [
+          "포트(Port)",
+          "트렁크(Trunk)",
+          "소켓(Socket)",
+          "플러그(Plug)"
+        ]
+      }
+    ]
+  }
+]
