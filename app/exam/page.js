@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText } from 'lucide-react';
+import { ArrowLeft, Bot, ChevronRight, Database, FilePenLine, FileText, Network } from 'lucide-react';
 import { auth } from '@/auth';
 import ExamBackGuard from '@/app/_components/ExamBackGuard';
 import ThemeControls from '@/app/_components/ThemeControls';
@@ -49,6 +49,17 @@ const extraTracks = [
       'border-rose-300 bg-white hover:border-rose-500 dark:border-rose-700 dark:bg-slate-800 dark:hover:border-rose-500',
     badgeClass: 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300',
     iconClass: 'bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300',
+  },
+  {
+    href: '/network2',
+    badge: '네트워크 자격',
+    title: '네트워크관리사 2급',
+    subtitle: '객관식 CBT · 필기 기출',
+    icon: Network,
+    wrapClass:
+      'border-teal-300 bg-white hover:border-teal-500 dark:border-teal-700 dark:bg-slate-800 dark:hover:border-teal-500',
+    badgeClass: 'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300',
+    iconClass: 'bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-300',
   },
 ];
 
@@ -144,6 +155,7 @@ export default async function ExamTypeSelectionPage() {
             <div className="mt-2 flex flex-wrap gap-2 text-xs font-bold">
               <span className="rounded-full bg-amber-100 px-2.5 py-1 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">#SQLD</span>
               <span className="rounded-full bg-rose-100 px-2.5 py-1 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300">#AI프롬프트</span>
+              <span className="rounded-full bg-teal-100 px-2.5 py-1 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300">#네트워크관리사2급</span>
             </div>
           </div>
 

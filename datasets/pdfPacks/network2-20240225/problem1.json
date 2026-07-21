@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "IP 헤더에 포함이 되지 않는 필드는?",
+        "options": [
+          "ACK",
+          "Version",
+          "Header checksum",
+          "Header length"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "TCP 프로토콜에서 사용하는 흐름제어 방식은?",
+        "options": [
+          "GO-Back-N",
+          "선택적 재전송",
+          "Sliding Window",
+          "Idle-RQ"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "′255.255.255.224′인 서브넷에 최대 할당 가능한 호스트 수\n는?",
+        "options": [
+          "2개",
+          "6개",
+          "14개",
+          "30개"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "Link State 알고리즘을 이용해 서로에게 자신의 현재 상태를\n알려주며 네트워크 내 통신을 위해 사용하는 프로토콜은?",
+        "options": [
+          "OSPF",
+          "IDRP",
+          "EGP",
+          "BGP"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "DNS에서 사용될 때 TTL(Time to Live)의 설명으로 올바른\n것은?",
+        "options": [
+          "데이터가 DNS서버 존으로부터 나오기 전에 현재 남은 시 간이다.",
+          "데이터가 DNS서버 캐시로부터 나오기 전에 현재 남은 시 간이다.",
+          "패킷이 DNS서버 존으로부터 나오기 전에 현재 남은 시간 이다.",
+          "패킷이 DNS서버 네임서버 레코드로부터 나오기 전에 현 재 남은 시간이다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "서브넷 마스크(Subnet Mask)에 대한 설명으로 옳지 않은 것\n은?",
+        "options": [
+          "A, B, C Class 대역의 IP Address는 모두 같은 서브넷 마스크를 사용한다.",
+          "하나의 네트워크 클래스를 여러 개의 네트워크로 분리하 여 IP Address를 효율적으로 사용할 수 있다.",
+          "서브넷 마스크는 목적지 호스트의 IP Address가 동일 네 트워크상에 있는지 확인한다.",
+          "서브넷 마스크를 이용하면, Traffic 관리 및 제어가 가능 하다."
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "SMTP에 대한 설명 중 올바른 것은?",
+        "options": [
+          "인터넷을 통해 파일을 송/수신하기 위한 프로토콜",
+          "인터넷 전자 우편을 위한 프로토콜",
+          "하이퍼 텍스트 문서를 전송하기 위한 프로토콜",
+          "원격 접속을 위한 프로토콜"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "TFTP 프로토콜에 대한 설명 중 옳지 않은 것은?",
+        "options": [
+          "Trivial File Transfer Protocol의 약어이다.",
+          "네트워크를 통한 파일 전송 서비스이다.",
+          "3방향 핸드셰이킹 방법인 TCP 세션을 통해 전송한다.",
+          "신속한 파일의 전송을 원할 경우에는 FTP보다 훨씬 큰 효과를 얻을 수 있다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "RIP(Routing Information Protocol)의 특징에 대한 설명으로\n최강 자격",
+        "options": [
+          "서브넷 주소를 인식하여 정보를 처리할 수 있다.",
+          "링크 상태 알고리즘을 사용하므로, 링크 상태에 대한 변 화가 빠르다.",
+          "메트릭으로 유일하게 Hop Count만을 고려한다.",
+          "대규모 네트워크에서 주로 사용되며, 기본 라우팅 업데이 트 주기는 1초이다."
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "보기의 프로토콜 중에서 지문에 제시된 내용과 같은 일을\n수행하는 프로토콜은?",
+        "options": [
+          "DHCP",
+          "IP",
+          "RIP",
+          "ARP"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "OSI 7 계층의 통신 계층별 PDU(Protocol Data Unit)의 명\n칭으로 올바른 것은?",
+        "options": [
+          "7계층 : 세그먼트",
+          "4계층 : 패킷",
+          "3계층 : 비트",
+          "2계층 : 프레임"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "CSMA/CD의 특징으로 옳지 않은 것은?",
+        "options": [
+          "충돌 도메인이 작을수록 좋다.",
+          "충돌이 발생하면 임의의 시간 동안 대기하므로 지연 시 간을 예측하기 어렵다.",
+          "네트워크상의 컴퓨터들이 데이터 전송을 개시하기 위해 서는 반드시 '토큰'이라는 권한을 가지고 있어야 한다.",
+          "컴퓨터들은 케이블의 데이터 흐름 유무를 감시하기 위해 특정 신호를 주기적으로 보낸다."
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "RARP(Reverse Address Resolution Protocol)에 대한 설명\n중 옳지 않은 것은?",
+        "options": [
+          "IP Address를 하드웨어 주소로 변환하기 위해서 사용한 다.",
+          "RFC 903에 명시되어 있고, RFC 951에 기술된 BOOTP 에 의해 대체되고 있다.",
+          "디스크를 소유하지 않으면 RARP를 이용하여 인터넷 주 소를 먼저 알아내야 한다.",
+          "Ethernet, FDDI, Token Ring 등의 근거리 통신망에서 사용할 수 있는 프로토콜이다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "IPv6 주소 ′a184:0a01:0000:0000:cd8c:1000:317b:00ff′ 를\n생략하여 표기한 것으로 알맞은 것은?",
+        "options": [
+          "a184:a1::cd8c:1:317b:ff",
+          "a184:a01::cd8c:1000:317b:ff",
+          "a184:a01:0:0:cd8c:10:317b:0ff",
+          "a184:a01:cd8c:1000:317b:ff"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 보기 중 공인 IP로 설정 시 공중망(Public Network)에\n서 통신의 문제가 발생할 수 있는 것은?",
+        "options": [
+          "209.37.4.11",
+          "172.29.130.78",
+          "9.3.3.8",
+          "31.255.255.224"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "DNS",
+          "Proxy",
+          "DB",
+          "TTS"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "ICMP(Internet Control Message Protocol)에 대한 설명 중\n틀린 것은?",
+        "options": [
+          "비대칭 프로토콜이고 TTL(Time To Live)를 제공한다.",
+          "ICMPv4(Internet Control Message Protocol) 메시지의 특징은 질의메시지가 있다.",
+          "ICMP(Internet Control Message Protocol)의 주된 기능 은 IP 데이터그램의 프로세싱을 동작 하는동안 오류를 보고한다.",
+          "호스트간 신뢰성을 확보하기 위해 반향과 회답메시지를 지원한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "다음 내용 중 (A)에 들어갈 내용은?",
+        "options": [
+          "IDC (Internet Data Center)",
+          "IPS (Intrusion Prevention System)",
+          "IDS (Intrusion Detection System)",
+          "IOS (International Organization for Standardization)"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "네트워크의 구성(Topology)에서 링형(Ring)에 관한 설명으\n로 옳지 않은 것은?",
+        "options": [
+          "장애발생시 쉽게 발견할 수 있다.",
+          "노드간의 연결을 최소화하는 목적으로 설계되었다.",
+          "한 통신장치의 오류가 전체 네트워크에 영향을 준다.",
+          "확장성이 뛰어나다."
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?\n최강 자격",
+        "options": [
+          "NIC",
+          "F/W",
+          "IPS",
+          "NAC"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "ARQ 방식 중 에러가 발생한 블록으로 되돌아가 모든 블록\n을 재전송하는 것은?",
+        "options": [
+          "Go-back-N ARQ",
+          "Selective ARQ",
+          "Adaptive ARQ",
+          "Stop-and-Wait ARQ"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "아래 내용에서 IPv6의 일반적인 특징만을 나열한 것은?",
+        "options": [
+          "A, B, C, D",
+          "A, C, D, E",
+          "B, C, D, E",
+          "B, D, E, F"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "OSI 7 Layer에서 Data Link 계층의 기능으로 옳지 않은 것\n은?",
+        "options": [
+          "전송 오류 제어기능",
+          "Flow 제어기능",
+          "Text의 압축, 암호기능",
+          "Link의 관리기능"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "프로토콜의 기본적인 기능 중 정보의 신뢰성을 부여하는 것\n으로, 데이터를 전송한 개체가 보낸 PDU(Protocol Data\nUnit)에 대한 애크널러지먼트(ACK)를 특정시간 동안 받지\n못하면 재전송하는 기능은?",
+        "options": [
+          "Flow Control",
+          "Error Control",
+          "Sequence Control",
+          "Connection Control"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "FTTH(Fiber-To-The-Home) 망구조는 PTP(Point To\nPoint), AON(Active Optical Network), PON(Passive\nOptical Network) 등으로 구분할 수 있다. 다음 지문에서\n(A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "AON",
+          "PON",
+          "PTP",
+          "Home Run"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "채널부호화는 원천 부호화된 원래의 정보에 에러 검출 및\n정정을 위한 비트들을 추가해서 전송하는 기술이다. 수신측\n에서는 에러를 검사하여 송신측으로 데이터 재전송을 요청\n하거나 자체적으로 에러를 검출해서 정정하는데 목적이 있\n다. 다음 항목 중 채널부호화에 해당하는 기술로 옳은 것\n은?",
+        "options": [
+          "Convolutional Code",
+          "ADPCM",
+          "ADM",
+          "PCM"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "다음의 설명의 (A)에 들어갈 알맞은 용어는 무엇인가?",
+        "options": [
+          "Bluetooth",
+          "NFC (Near Field Communication)",
+          "Wi-Fi",
+          "CR (Cognitive Radio)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "Linux 시스템에서 일반적으로 사용자 암호 정보를 가지는\n디렉터리는?",
+        "options": [
+          "/etc",
+          "/sbin",
+          "/home",
+          "/lib"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "TCP 3Way-HandShaking 과정 중 클라이언트가 보낸 연결\n요청에서 패킷을 수신한 서버는 LISTEN 상태에서 무슨 상\n태로 변경되는가?",
+        "options": [
+          "SYN_SENT",
+          "SYN_RECEIVED",
+          "ESTABLISHED",
+          "CLOSE"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "Linux 명령어 중에 init(초기화 프로세스)를 이용하여 재부팅\n하는 옵션은?",
+        "options": [
+          "init 0",
+          "init 1",
+          "init 5",
+          "init 6"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux 시스템 명령어 중 root만 사용 가능한 명령은?",
+        "options": [
+          "chown",
+          "pwd",
+          "Is",
+          "rm"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux에서 ′ls -al′의 결과 맨 앞에 나오는 항목이 파일 혹\n은 디렉터리의 권한을 나타내준다. 즉, [파일타입] [소유자\n권한] [그룹 권한] [그 외의 유저에 대한 권한]을 표시한\n다. 만약 [파일타입]부분에 ′-′표시가 되어 있다면 이것의\n의미는?",
+        "options": [
+          "파일 시스템과 관련된 특수 파일",
+          "디렉터리",
+          "일반 파일",
+          "심볼릭/하드링크 파일"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux에서 사용되는 ′free′ 명령어에 대한 설명 중 올바른\n최강 자격",
+        "options": [
+          "사용 중인 메모리, 사용 가능한 메모리 용량을 알 수 있 다.",
+          "패스워드 없이 사용하는 유저를 알 수 있다.",
+          "디렉터리의 사용량을 알 수 있다.",
+          "사용 가능한 파일 시스템의 양을 알 수 있다."
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "다음 중 Linux의 명령어 해석기는?",
+        "options": [
+          "Shell",
+          "Kernel",
+          "Utility Program",
+          "Hierarchical File System"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다른 운영체제와 Linux가 공존하는 하나의 시스템에서 멀티\n부팅을 지원할 때 사용되며, Linux 로더를 의미하는 것은?",
+        "options": [
+          "MBR",
+          "RAS",
+          "NetBEUI",
+          "GRUB"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "Linux 시스템에서 특정 파일의 권한이 ′-rwxr-x--x′ 이다.\n이 파일에 대한 설명 중 옳지 않은 것은?",
+        "options": [
+          "소유자는 읽기 권한, 쓰기 권한, 실행 권한을 갖는다.",
+          "소유자와 같은 그룹을 제외한 다른 모든 사용자는 실행 권한만을 갖는다.",
+          "이 파일의 모드는 ′751′ 이다.",
+          "동일한 그룹에 속한 사용자는 실행 권한만을 갖는다."
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "Windows Server 2016에서 ′netstat′ 명령이 제공하는 정보\n로 옳지 않은 것은?",
+        "options": [
+          "인터페이스의 구성 정보",
+          "라우팅 테이블",
+          "IP 패킷이 목적지에 도착하기 위해 방문하는 게이트웨이 의 순서 정보",
+          "네트워크 인터페이스의 상태 정보"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "Windows Server 2016의 DNS Server 역할에서 지원하는 ′\n역방향 조회′에 대한 설명으로 옳은 것은?",
+        "options": [
+          "클라이언트가 정규화된 도메인 이름을 제공하면 IP주소 를 반환하는 것",
+          "클라이언트가 IP주소를 제공하면 도메인을 반환하는 것",
+          "클라이언트가 도메인을 제공하면 라운드로빈 방식으로 IP를 반환하는 것",
+          "클라이언트가 도메인을 제공하면 하위 도메인을 반환하 는 것"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "서버 관리자 Kang 사원은 Windows Server 2016 시스템의\n보안을 위해 EFS(암호화 파일 시스템)을 사용하려고 한다.\nEFS에 대한 설명으로 올바른 것은?",
+        "options": [
+          "EFS는 윈도우즈 시스템의 파일에만 암호화 기술을 적용 한다.",
+          "EFS는 인증서 파일의 확장자로 CER, P7B, PFX, SST 형식을 지원한다.",
+          "EFS는 개인키를 보호하는 방법으로 암호만을 사용할 수 있다.",
+          "EFS는 사용자만 동일하면 윈도우즈 시스템을 다시 설치 해도 암호화된 파일을 열 수 있다."
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "서버 관리자 Park 사원은 Linux 서버를 관리하면서 특정 조\n건에 맞는 파일 및 디렉터리를 검색하기 위해 ′find′ 명령어\n를 사용하려고 한다. ′find′ 명령어의 주요 옵션에 대한 설",
+        "options": [
+          "′-name′은 지정한 사용자 이름에 해당하는 파일이나 디 렉터리를 찾는다.",
+          "′-type′은 지정한 디렉터리 종류에 해당하는 디렉터리 유형을 찾는다.",
+          "′-perm′은 지정한 소유자의 권한만을 고려하여 파일이나 디렉터리를 찾는다.",
+          "′-exec′은 찾은 파일에 대한 삭제 등의 추가적인 명령을 실행할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "서버 관리자 Choi 사원은 Windows Server의 사용자들을 특\n정한 그룹으로 분류하려고 한다. Windows Server 2016 시\n스템의 로컬 그룹에 대한 설명으로 올바른 것은?",
+        "options": [
+          "′Power Users′는 ′Administrator′와 같은 권한을 가지는 그룹이다.",
+          "′RDS Endpoint Servers′는 ′Remote Desktop Service′ 와 관련한 권한을 가지는 그룹이다.",
+          "′Remote Management Users′는 ′WMI′ 자원과 관련된 권한을 가지는 그룹이다.",
+          "′Performance Monitor Users′는 성능 카운터, 로그 등을 관리하는 권한을 가지는 그룹이다."
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "다음의 지문이 설명하고 있는 DNS 질의 과정을 무엇이라고\n하는가?",
+        "options": [
+          "재귀적 질의",
+          "반복적 질의",
+          "순환적 질의",
+          "로컬 질의"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016를 구축하\n여 더 많은 위치와 더 다양한 유형의 장치에서 데이터를 액\n세스할 수 있도록 설계하려고 한다. 이에 알맞은 서비스는?",
+        "options": [
+          "클라우드 폴더",
+          "서버 코어",
+          "VPN",
+          "DirectAccess Server"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016에서 가상\n화 운영을 위한 Hyper-V를 운영하고자 한다. 다음 지문 내\n용 중 ( )에 공통으로 들어갈 내용으로 올바른 것은?",
+        "options": [
+          "Hyper-V",
+          "IIS",
+          "Windows 컨테이너",
+          "NanoServer"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "Linux 설치 시 Swap 영역에 대한 설명 중 옳지 않은 것은?",
+        "options": [
+          "RAM의 부족한 용량을 보충하기 위해 하드디스크의 일정 부분을 지정하여 RAM처럼 사용한다.",
+          "일반적으로 실제 메모리의 두 배 정도면 적당하다.",
+          "시스템을 모니터링 한 결과 Swap이 많이 일어나면 메모 리를 증설해야 한다.",
+          "한번 설정한 Swap은 추가가 불가능하므로 신중을 기해 크기를 결정해야 한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "RAID 방식 중 미러링(Mirroring)이라고 하며, 최고의 성능과\n고장대비 능력을 발휘하는 것은?",
+        "options": [
+          "RAID 0",
+          "RAID 1",
+          "RAID 3",
+          "RAID 5"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "로드밸런싱(Load Balancing)에 대한 설명이 맞는 것은?",
+        "options": [
+          "물리적인 망 구성과는 상관없이 가상적으로 구성된 근거 리 통신망 기술",
+          "사용량과 처리량을 증가시키고 지연율을 낮추며 응답시 간을 감소시키고 시스템 부하를 피할 수 있게 하는 최적 화 기술",
+          "가상머신이 실행되고 있는 물리적 컴퓨터로부터 분리된 또 하나의 컴퓨터",
+          "웹 브라우저와 서버 간의 통신에서 정보를 암호화하는 기술"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "게이트웨이(Gateway)에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "OSI 참조 모델에서 전송계층만 연결하는 네트워크 장비 이다.",
+          "두 개의 완전히 다른 네트워크 사이의 데이터 형식을 변 환하는 장치이다.",
+          "데이터 변환의 기능을 가지고 있어 네트워크내의 병목 현상을 일으키는 지점이 될 수 있다.",
+          "프로토콜이 다른 네트워크 환경들을 연결할 수 있는 기 능을 제공한다."
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "IEEE 802.11 무선랜의 전송 방식에 대한 설명 중 올바른\n것은?",
+        "options": [
+          "적외선 방식 : 장비 구성이 간편하고 빛의 성질로 인해 중간에 장애물이 있어도 통신이 가능하다. 저렴한 비용 때문에 상업적으로 많이 사용된다.",
+          "레이저 방식 : 레이저가 가지는 고도의 점 지향성과 직 진성을 이용해서 멀리 떨어진 지점 간(예를 들면 섬과 섬 사이) 네트워킹에 사용하는 방식. 주로 케이블 가설이 어려운 지역에 설치하나 통신 속도면에서 10Mbps이상은 지원되지 않는다.",
+          "주파수 방식 : 전파를 사용하는 방식으로 스프레드 스펙 트럼(Spread Spectrum) 방식이 가장 많이 사용되는 무 선 네트워크 방식. 일반적으로 무선랜이라고 하면 이 방 식을 의미한다.",
+          "협대역 방식 : 특정 라디오 주파수를 사용하며 사용자는 동일한 주파수 채널을 사용하여 송수신한다."
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "광케이블에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "멀티 모드형과 싱글 모드형이 있다.",
+          "동축케이블과 마찬가지로 단선이 되었을 경우, 별도의",
+          "광섬유는 코어(Core)와 클래드(Clad)로 구성된다.",
+          "보안 및 잡음 등에 강한 것이 특징이다."
+        ]
+      }
+    ]
+  }
+]

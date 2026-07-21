@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "′B Class′를 6개의 네트워크로 구분하여 사용하고 싶을 때,\n가장 적절한 서브넷 마스크 값은?",
+        "options": [
+          "255.255.224.0",
+          "255.255.240.0",
+          "255.255.248.0",
+          "255.255.255.0"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "UDP 패킷의 헤더에 속하지 않는 것은?",
+        "options": [
+          "Source Port",
+          "Destination Port",
+          "Window",
+          "Checksum"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "IPv6의 주소 표기법으로 올바른 것은?",
+        "options": [
+          "192.168.1.30",
+          "3ffe:1900:4545:0003:0200:f8ff:ffff:1105",
+          "00:A0:C3:4B:21:33",
+          "0000:002A:0080:c703:3c75"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "Ethernet 같은 네트워크가 제공하는 브로드캐스트 기능을 사\n용하여 목적지 IP Address에 물리적 하드웨어 주소를 매핑시\n키는 것은?",
+        "options": [
+          "ARP",
+          "RARP",
+          "DNS",
+          "DHCP"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "다음 TCP 패킷의 플래그 중에서 연결이 정상적으로 끝남을\n의미하는 것은?",
+        "options": [
+          "FIN",
+          "URG",
+          "ACK",
+          "RST"
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "다음 중 사설 IP주소로 옳지 않은 것은?",
+        "options": [
+          "10.100.12.5",
+          "128.52.10.6",
+          "172.25.30.5",
+          "192.168.200.128"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "ICMP 메시지의 타입번호와 설명으로 옳지 않은 것은?",
+        "options": [
+          "타입 0 : Echo Request (에코 요청)",
+          "타입 3 : Destination Unreachable (목적지 도달 불가)",
+          "타입 5 : Redirect (경로 재지정)",
+          "타입 11 : Time Exceeded (시간 초과)"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "서버를 관리하는 Kim 사원은 기존 홈페이지를 http방식에서\nhttps방식으로 변경하라는 회사의 지침에 따라 https의 특징\n에 대하여 알아보고 있는 중이다. 다음 보기 중에서 https의\n특징으로 옳은 것은?",
+        "options": [
+          "기존 http보다 암호화된 SSL/TLS를 전달한다.",
+          "tcp/80번 포트를 사용한다.",
+          "udp/443번 포트를 사용한다.",
+          "인증이 필요하지 않아 사용하기가 간편하다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "TCP/IP 프로토콜의 응용계층에서 제공하는 응용서비스 프로\n토콜로, 컴퓨터 사용자들 사이에 전자우편 교환 서비스를 제\n공하는 것은?",
+        "options": [
+          "SNMP",
+          "SMTP",
+          "VT",
+          "FTP"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "TCP/IP 계층 중 다른 계층에서 동작하는 계층은?",
+        "options": [
+          "IP",
+          "NNTP",
+          "ICMP",
+          "RARP"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "네트워크를 관리하는 Kim은 사내 네트워크의 성능 향상을\n위하여 MTU(Maximum Transmission Unit)를 고려하고 있\n다. 다음 MTU에 대한 설명 중 옳은 것은?",
+        "options": [
+          "인터넷 IPv4기준시 최소 1280 바이트의 값을 가진다.",
+          "인터넷 IPv6기준시 최소 68 바이트의 값을 가진다.",
+          "Ethernet 구현에서 대부분의 IP는 Ethernet V2 프레임의 형식이며 1500 바이트의 값을 가진다.",
+          "MTU의 크기는 항상 1500 바이트로 고정되어 있다."
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "FTP 및 TFTP의 특징으로 옳은 것은?",
+        "options": [
+          "TFTP는 단순화된 파일의 전송을 위한 프로토콜이며 기 본포트는 25번이다.",
+          "FTP의 접속에는 계정 접속만 가능하다.",
+          "TFTP의 단점은 UDP방식으로 Data 전송 시 데이터 손실 가능성이 있다.",
+          "FTP는 대량의 데이터를 고속 전송하기 위해 UDP을 사 용한다."
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "라우팅 기술 중 정적 라우팅(Static Routing)에 대한 설명으\n로 옳은 것은?",
+        "options": [
+          "라우터에 부하가 적게 걸려 메모리 관리에 유리하며, 우 선순위가 높다.",
+          "데이터의 출발지에서 목적지까지의 경로가 네트워크 환 경 변화에 능동적으로 대처하므로 실시간으로 변화한다.",
+          "다수의 네트워크가 연결되어 수시로 통신환경이 변화하 는 최근의 대부분의 네트워크에 적합하다.",
+          "라우터 간의 프로토콜을 바탕으로 라우팅 알고리즘을 통 해 자동으로 경로 설정된다."
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "다음 중 SSH(secure shell) 보안 프로토콜의 특징으로 옳지\n않은 것은?",
+        "options": [
+          "데이터를 암호화하여 전송",
+          "데이터 무결성 제공",
+          "리눅스, 유닉스에서만 사용 가능",
+          "공개키 암호화 기법 사용"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "다음 중 (A)에 들어갈 내용으로 알맞은 것은?",
+        "options": [
+          "IGMP(Internet Group Management Protocol)",
+          "ICMP(Internet Control Message Protocol)",
+          "SMTP(simple Mail Transfer Protocol)",
+          "SNMP(simple Network Management Protocol)"
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "회사 내 네트워크 환경 구축 시 IPv6 기술을 적용하고자 한\n다. IPv4 기술에서 제공하는 기능과 함께 IPv6에서는 많은\n기능이 추가되었다. 보기에서 제시하는 TCP/IP 기술의 기능\n중 IPv6 기술에서 새롭게 제공하는 것은?",
+        "options": [
+          "Checksums",
+          "Complicated header",
+          "Optional Ipsec",
+          "Autoconfiguration"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "′ping 210.223.112.9′ 이라는 명령을 사용했을 때 로컬 IP\nAddress의 분석 수순으로 올바른 것은?",
+        "options": [
+          "ARP Broadcast -> ARP Cache확인 -> 자체 IP Address와 일치 여부 확인 -> ARP Reply 발송",
+          "ARP Broadcast -> 자체 IP Address와 일치 여부 확인 -> ARP Cache확인 -> ARP Reply 발송",
+          "ARP Cache확인 -> ARP Broadcast -> 자체 IP 와 일 치 여부 확인 -> ARP Reply 발송",
+          "ARP Cache확인 -> 자체 IP Address와 일치 여부 확인 -> ARP Broadcast -> ARP Reply 발송"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "Bus 토폴로지(Topology)에 대한 설명으로 올바른 것은?",
+        "options": [
+          "스타 토폴로지보다 네트워크를 구축하는데 더 많은 케이 블이 필요하기 때문에, 배선에 더 많은 비용이 소요된다.",
+          "각 스테이션이 중앙 스위치에 연결된다.",
+          "터미네이터(Terminator)가 시그널의 반사를 방지하기 위 하여 사용된다.",
+          "토큰이라는 비트의 패턴이 원형을 이루며 한 컴퓨터에서 다른 컴퓨터로 순차적으로 전달된다."
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "다음 내용이 나타내는 매체 방식은?",
+        "options": [
+          "Token Passing",
+          "Demand Priority",
+          "CSMA/CA",
+          "CSMA/CD"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "전기신호는 구리선을 통하여 전송되며, 이는 먼 거리를 이\n동하면서 크기가 약해진다. 이러한 현상을 뜻하는 것은?",
+        "options": [
+          "감쇠(Attenuation)",
+          "임피던스(Impedance)",
+          "간섭(Interference)",
+          "진폭(Amplitude)"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "전송효율을 최대로 하기 위해 프레임의 길이를 동적으로 변\n경시킬 수 있는 ARQ(Automatic Repeat Request)방식은?",
+        "options": [
+          "Adaptive ARQ",
+          "Go back-N ARQ",
+          "Selective-Repeat ARQ",
+          "Stop and Wait ARQ"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "다음은 Home Network에 사용되는 기술 중 WPAN(Wireless\nPersonal Area Network)에 대한 설명이다. (A),(B),(C) 안에\n들어갈 표준을 순서대로 나열한 것은?\n최강 자격",
+        "options": [
+          "802.11.1 – 802.11.3 – 802.11.4",
+          "802.11a – 802.11b – 802.11c",
+          "802.15.1 – 802.15.3 – 802.15.4",
+          "802.16.1 – 802.16.3 – 802.16.4"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음 지문에서 설명하는 모바일 셀룰러시스템의 동작을 무\n엇이라고 하는가?",
+        "options": [
+          "채널체인징",
+          "페이징",
+          "핸드오프",
+          "핸드쉐이크"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "프로토콜 계층 구조상의 기본 구성요소 중 실체(Entity) 간\n의 통신 속도 및 메시지 순서를 위한 제어정보는?",
+        "options": [
+          "타이밍(Timing)",
+          "의미(Semantics)",
+          "구문(Syntax)",
+          "처리(Process)"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "네트워크 담당자 Kim 사원은 고속 전송률과 대용량 전송 데\n이터가 가능한 멀티미디어 서비스에 적합한 기술 적용을 검\n토하라는 지시를 받았다. 이동통신 환경에서 다수의 안테나\n를 사용하여 데이터를 전송하는 다중 안테나 신호 처리 기\n술로 올바른 것은?",
+        "options": [
+          "MIMO(Multiple-Input and Multiple-Output)",
+          "M2M(Machine to Machine)",
+          "MQTT(Massage Queue Telemetry Transport)",
+          "OFDM(Orthogonal Frequency Division Multiplexing)"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "OSI 7 Layer 중에서 아래에서 설명하는 계층은?",
+        "options": [
+          "물리적 계층(Physical Layer)",
+          "데이터 링크 계층(Data Link Layer)",
+          "네트워크 계층(Network Layer)",
+          "트랜스포트 계층(Transport Layer)"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "데이터 전송 전에 목적지까지의 경로를 설정한 후 전송 데\n이터를 정해진 단위별로 전송하되, 규정된 시간 내에 전송\n데이터가 없으면 현재 설정된 경로를 해제하는 교환방식은?",
+        "options": [
+          "회선교환 방식",
+          "데이터그램 방식",
+          "가상회선교환 방식",
+          "메시지교환 방식"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "시스템 담당자 Alex는 하드디스크의 정보 유출을 우려하여,\n하드디스크가 도난당해도 암호화키 없이는 데이터를 읽지\n못하도록 하드디스크 자체를 암호화하는 기술을 적용하려고\n한다. 해당 기술은?",
+        "options": [
+          "BitLocker",
+          "EFS(Encrypting File System)",
+          "AD(Active Directory)",
+          "FileVault"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "Linux 시스템 관리자는 John사원의 계정인 ′John′의 패스워\n드 정책을 변경하기 위해 아래 지문과 같이 입력하였다. 10\n일 전 암호변경 경고를 위한 명령으로 ( )안에 알맞은 옵션\n은?",
+        "options": [
+          "-m 10",
+          "- L 10",
+          "- i 10",
+          "- W 10"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "다음 (A)에 해당하는 것은?",
+        "options": [
+          "사이트(Site)",
+          "트러스트(Trust)",
+          "조직 구성 단위(OU)",
+          "도메인 컨트롤러(DC)"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux 운영체제에서 하드웨어 메모리가 가득차게 되면 논리\n적인 메모리 저장공간 역할을 수행하게 되는 파티션의 이름\n은?",
+        "options": [
+          "SWAP",
+          "FAT32",
+          "RAID",
+          "LVM"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux 서버 운영 중 불필요한 service port가 열려있는지 확\n인하는 명령어로 옳은 것은?",
+        "options": [
+          "ps -ef | grep tcp",
+          "netstat –antp",
+          "netstat –rn",
+          "cat /etc/services"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux 시스템에서 환경설정과 사용자 정보 등을 가진 디렉\n터리로 옳은 것은?",
+        "options": [
+          "/bin",
+          "/root",
+          "/etc",
+          "/proc"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "네트워크관리자 Kim사원은 Active Directory의 ′icqa.or.kr′\n도메인의 그룹정책을 설정하여 회사 내 PC사용자들의 컴퓨\n터를 관리하고자 한다. 이 때 Kim사원이 작업할 수 있는 그\n룹정책 설정으로 옳지 않은 것은?",
+        "options": [
+          "보안 강화를 위해 사용자의 암호 및 계정 잠금 등을 강",
+          "사용자 계정의 암호 길이, 복잡성 조건 등을 지정할 수 있다.",
+          "사용자가 ′icqa.or.kr′ 도메인 내 어느 PC에서 로그온 하 더라도 기존 자신의 PC와 동일한 환경을 제공해 줄 수 있다.",
+          "사용자가 사용할 소프트웨어를 배포할 수 없다."
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "Linux 시스템 담당자 Park 사원은 Linux 시스템 운영관리를\n위해 시스템이 부팅할 때 생성된 시스템 로그를 살펴보고자\n한다. 하드웨어적인 이상 유무나 디스크, 메모리, CPU, 커\n널 등의 이상 유무를 확인할 수 있는 로그파일은?",
+        "options": [
+          "/var/log/cron",
+          "/var/log/lastlog",
+          "/var/log/dmesg",
+          "/var/log/btmp"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "웹서버 담당자 Kim은 디렉터리 리스팅 방지, 심볼릭 링크\n사용방지, SSI(Server-Side Includes)사용 제한, CGI실행 디\n렉터리 제한 등의 보안 설정을 진행하려고 한다. Apache\n서버의 설정 파일 이름은?",
+        "options": [
+          "httpd.conf",
+          "httpd-default.conf",
+          "httpd-vhosts.conf",
+          "httpd-mpm.conf"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "서버 담당자 Park 사원은 Windows Server 2016의 장애를\n대비하여 인증서 키를 백업해 놓았다. 이 인증서 키를 실행\n창에서 명령어를 통해 복원시키고자 하는데 인증서 관리자\n를 호출할 수 있는 명령어는 무엇인가?",
+        "options": [
+          "eventvwr.msc",
+          "compmgmt.msc",
+          "secpol.msc",
+          "certmgr.msc"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "네트워크 담당자 Kim 사원은 Windows Server 2016에서 원\n격 액세스 서비스를 운용하고자 한다. Windows Server\n2016 내에 있는 이 기능은 DirectAccess나 VPN과 달리 원\n격 컴퓨터를 네트워크에 연결하는 데 사용되지 않는다. 이\n기능은 오히려 내부 웹 리소스를 인터넷에 게시하는 데 사\n용된다. 이 기능은 무엇인가?",
+        "options": [
+          "WAP(Web Application Proxy)",
+          "PPTP(Point-to-Point Tunneling Protocol)",
+          "L2TP(Layer 2 Tunneling Protocol)",
+          "SSTP(Secure Socket Tunneling Protocol)"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "Windows Server 2016가 설치된 컴퓨터는 항상 가동하는\n것이 일반적인 용도이기 때문에 서버 담당자 Park 사원은\n시스템을 종료할 때마다 그 이유를 명확히 하여 시스템을\n좀 더 안정적으로 운영하고자 한다. 다음 중 이전에 종료\n또는 재부팅된 기록을 확인할 수 있는 항목은?",
+        "options": [
+          "성능모니터",
+          "이벤트뷰어",
+          "로컬보안정책",
+          "그룹정책편집기"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "다음은 Linux 시스템의 계정정보가 담긴 ′/etc/passwd′ 의\n내용이다. 다음의 설명 중 옳지 않은 것은?",
+        "options": [
+          "사용자 계정의 ID는 ′user1′ 이다.",
+          "패스워드는 ′x′ 이다.",
+          "사용자의 UID와 GID는 500번이다.",
+          "사용자의 기본 Shell은 ′/bin/bash′ 이다."
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "서버 담당자 Kim 사원은 아래의 Linux 시스템 작업지시서를\n확인하고 작업하고자 한다. Kim 사원이 입력할 명령어로 올",
+        "options": [
+          "chmod -R 755 /var/www/upload",
+          "chmod 775 /var/www/upload",
+          "chmod -R 777 /var/www/upload",
+          "chmod 555 /var/www/upload"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "아래 지문은 Linux 시스템에서 구동 중인 프로세스를 검색\n한 결과이다. 옳지 않은 것은?",
+        "options": [
+          "입력한 명령어는 ′ps -ef | grep /bin/sh′ 이다.",
+          "네번째 프로세스의 PPID는 1869이다.",
+          "python 프로세스가 실행되고 있다.",
+          "목록에서 다섯번째 프로세스를 종료하는 명령어는 ′kill 1902′이다."
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "Windows Server 2016의 Hyper-V에 대한 특징으로 옳은\n것은?",
+        "options": [
+          "가상 컴퓨터를 다른 서버로 복제할 수 없음",
+          "가상 하드디스크를 실행하는 상황에서도 다른 저장소로 이동할 수 있음",
+          "하나의 물리서버에는 하나의 가상 컴퓨터만 사용할 수 있음",
+          "가상 컴퓨터를 사용할수록 물리서버의 하드웨어 자원사 용률은 낮아짐"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "Linux를 설치 가이드에 따라 별도의 설정 없이 기본설치를\n실시한 후, 디스크 및 파티션 정보를 확인해보니 ′/′ 디렉터\n리가 ′/dev/sda5′ 에 설치되었다. ′/dev/sda5′ 의 해석으로\n옳지 않은 것은?",
+        "options": [
+          "SATA 인터페이스로 연결된 디스크를 사용한다.",
+          "디스크의 다섯 번째 파티션에 설치되었다.",
+          "Hardware 장치를 파일 형식으로 나타낸다.",
+          "다섯 번째 연결된 물리 디스크에 설치되었다."
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "Linux에서 명령어 ′mv -i file1 file2′의 의미는?",
+        "options": [
+          "파일이 지워지기 전에 백업파일을 만든다.",
+          "′file2′가 존재 하더라도 강제로 삭제한다.",
+          "′file2′가 존재할 경우 덮어 쓸 것인가를 물어본다.",
+          "파일 옮기기 전의 과정을 보여준다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "전송 매체의 특성 중 Fiber Optics에 해당하는 것은?",
+        "options": [
+          "여러 라인의 묶음으로 사용하면 간섭 현상을 줄일 수 있 다.",
+          "신호 손실이 적고, 전자기적 간섭이 없다.",
+          "송수신에 사용되는 구리 핀은 8개 중 4개만 사용한다.",
+          "수 Km이상 전송 시 Repeater를 반드시 사용해야 한다."
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "RAID의 특징으로 옳지 않은 것은?",
+        "options": [
+          "여러 개의 Disk에 일부 중복된 데이터를 나누어 저장",
+          "read/write 속도를 증가",
+          "Memory 용량 증가",
+          "데이터를 안전하게 백업"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "가상 근거리 네트워크(VLAN, Virtual Local Area Network)\n은 물리적인 케이블이 아닌 소프트웨어에 의해 구성된 LAN\n으로 정의할 수 있는데, VLAN의 특징으로 맞지 않는 것은?",
+        "options": [
+          "데이터링크 계층에서 브로드캐스트 도메인(Broadcast Domain)을 나누기 위해 사용하는 기술이다.",
+          "각 스위치는 하나의 브로드캐스트 프레임에 대하여 동일 브로드캐스트 그룹이 아닌 곳에는 전달하지 않는다는 조 건을 바탕으로 하고 있다.",
+          "VLAN은 관리자가 서로 다른 논리적 그룹에 대하여 서로 다른 보안정책을 적용할 수 없다.",
+          "스위치는 VLAN 태그가 상이한 네트워크로의 접근을 근 본적으로 차단하여 보안성을 유지하게 된다."
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "로드밸런서(Load Balancer)가 사전에 설정한 분산 알고리즘\n을 통해 부하분산이 이루어지는데, 부하분산 방식 중 특별\n한 규칙 없이 현재 구성된 장비에 순차적으로 돌아가면서\n트래픽을 분산하는 방식은?",
+        "options": [
+          "Least Connection",
+          "Round Robin",
+          "Weighted Round Robin",
+          "Weighted Least Connection"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "L2 스위치에서 프레임을 전송 시 목적지의 어떤 주소를 확\n인 후 전송하는가?",
+        "options": [
+          "IP 주소",
+          "Port 주소",
+          "MAC 주소",
+          "URL 주소"
+        ]
+      }
+    ]
+  }
+]

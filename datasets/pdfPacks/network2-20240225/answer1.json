@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ACK"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Sliding Window"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 3,
+        "correct_answer_text": "30개"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "OSPF"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 1,
+        "correct_answer_text": "데이터가 DNS서버 캐시로부터 나오기 전에 현재 남은 시 간이다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "A, B, C Class 대역의 IP Address는 모두 같은 서브넷 마스크를 사용한다."
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 1,
+        "correct_answer_text": "인터넷 전자 우편을 위한 프로토콜"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 2,
+        "correct_answer_text": "3방향 핸드셰이킹 방법인 TCP 세션을 통해 전송한다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "메트릭으로 유일하게 Hop Count만을 고려한다."
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ARP"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "2계층 : 프레임"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "네트워크상의 컴퓨터들이 데이터 전송을 개시하기 위해 서는 반드시 '토큰'이라는 권한을 가지고 있어야 한다."
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP Address를 하드웨어 주소로 변환하기 위해서 사용한 다."
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 1,
+        "correct_answer_text": "a184:a01::cd8c:1000:317b:ff"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "172.29.130.78"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Proxy"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 0,
+        "correct_answer_text": "비대칭 프로토콜이고 TTL(Time To Live)를 제공한다."
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IDC (Internet Data Center)"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 3,
+        "correct_answer_text": "확장성이 뛰어나다."
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 3,
+        "correct_answer_text": "NAC"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Go-back-N ARQ"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 1,
+        "correct_answer_text": "A, C, D, E"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Text의 압축, 암호기능"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Error Control"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 1,
+        "correct_answer_text": "PON"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Convolutional Code"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 3,
+        "correct_answer_text": "CR (Cognitive Radio)"
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 0,
+        "correct_answer_text": "/etc"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SYN_RECEIVED"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 3,
+        "correct_answer_text": "init 6"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "chown"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 2,
+        "correct_answer_text": "일반 파일"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 0,
+        "correct_answer_text": "사용 중인 메모리, 사용 가능한 메모리 용량을 알 수 있 다."
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Shell"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 3,
+        "correct_answer_text": "GRUB"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 3,
+        "correct_answer_text": "동일한 그룹에 속한 사용자는 실행 권한만을 갖는다."
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "IP 패킷이 목적지에 도착하기 위해 방문하는 게이트웨이 의 순서 정보"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 1,
+        "correct_answer_text": "클라이언트가 IP주소를 제공하면 도메인을 반환하는 것"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 1,
+        "correct_answer_text": "EFS는 인증서 파일의 확장자로 CER, P7B, PFX, SST 형식을 지원한다."
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "′-exec′은 찾은 파일에 대한 삭제 등의 추가적인 명령을 실행할 수 있다."
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 2,
+        "correct_answer_text": "′Remote Management Users′는 ′WMI′ 자원과 관련된 권한을 가지는 그룹이다."
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "재귀적 질의"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 0,
+        "correct_answer_text": "클라우드 폴더"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Windows 컨테이너"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 3,
+        "correct_answer_text": "한번 설정한 Swap은 추가가 불가능하므로 신중을 기해 크기를 결정해야 한다."
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "RAID 1"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 1,
+        "correct_answer_text": "사용량과 처리량을 증가시키고 지연율을 낮추며 응답시 간을 감소시키고 시스템 부하를 피할 수 있게 하는 최적 화 기술"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 0,
+        "correct_answer_text": "OSI 참조 모델에서 전송계층만 연결하는 네트워크 장비 이다."
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 2,
+        "correct_answer_text": "주파수 방식 : 전파를 사용하는 방식으로 스프레드 스펙 트럼(Spread Spectrum) 방식이 가장 많이 사용되는 무 선 네트워크 방식. 일반적으로 무선랜이라고 하면 이 방 식을 의미한다."
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 1,
+        "correct_answer_text": "동축케이블과 마찬가지로 단선이 되었을 경우, 별도의"
+      }
+    ]
+  }
+]

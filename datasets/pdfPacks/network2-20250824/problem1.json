@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "C Class의 네트워크 주소가 ′192.168.10.0′ 이고, 서브넷 마\n스크가 ′255.255.255.240′ 일 때, 최대 사용 가능한 호스트\n수는?(단, 네트워크 주소와 브로드캐스트 호스트는 제외한\n다.)",
+        "options": [
+          "10개",
+          "14개",
+          "26개",
+          "32개"
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "Link State 알고리즘을 이용해 서로에게 자신의 현재 상태를\n알려주며 네트워크 내 통신을 위해 사용하는 프로토콜은?",
+        "options": [
+          "OSPF",
+          "IDR",
+          "EG",
+          "BGP"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "ICMPv6에서 IPv4의 ARP 역할 및 특정 호스트로의 전달 가\n능 여부 검사 기능을 하는 메시지는?",
+        "options": [
+          "재지정 메시지(Redirection)",
+          "에코 요청 메시지(Echo request)",
+          "이웃 요청과 광고 메시지(Neighbor Solicitation and Advertisement)",
+          "목적지 도달 불가 메시지(Destination unreachable)"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "IPv6에서 6000Byte의 패킷이 이더넷 LAN을 통과해야 하는\n경우 사용할 확장 헤더는?",
+        "options": [
+          "Source Routing",
+          "Fragmentation",
+          "Authentication",
+          "Destination Option"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "IP 프로토콜에 관한 설명으로 올바른 것은?",
+        "options": [
+          "IP 프로토콜은 프로세서 간의 신뢰성 있는 통신기능을 수 행한다.",
+          "네트워크계층에 속하는 프로토콜로 실제 패킷을 전달하는 역할을 한다.",
+          "IP 프로토콜의 오류제어는 세그먼트의 오류감지 기능과 오류정정 메커니즘을 포함한다.",
+          "흐름제어로는 주로 슬라이딩 윈도우 방식이 쓰인다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "TCP(Transmission Control Protocol)에 대한 설명으로 옳지\n않은 것은?",
+        "options": [
+          "연결 위주의 전송방식이다.",
+          "신뢰성 있는 전송방식이다.",
+          "능동적인 흐름 제어 기능을 가지고 있다.",
+          "일부 데이터가 손실되어도 치명적이지 않은 프로그램 등 에 적합하다."
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "OSI 7 Layer에 따라 프로토콜을 분류하였을 때, 다음 보기들\n중 같은 계층에서 동작하지 않는 것은?",
+        "options": [
+          "SMTP",
+          "RARP",
+          "ICMP",
+          "IGMP"
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "ARP에 대한 설명으로 올바른 것은?",
+        "options": [
+          "IP Address를 장치의 하드웨어 주소로 매핑하는 기능을 제공한다.",
+          "Dynamic으로 설정된 내용을 Static 상태로 변경하는 ARP 명령어 옵션은 '-d'이다.",
+          "ARP가 IP Address를 알기 위해 특정 호스트에게 메시지 를 전송하고 이에 대한 응답을 기다린다.",
+          "ARP Cache는 IP Address를 도메인(Domain) 주소로 매 핑한 모든 정보를 유지하고 있다."
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "TCP/IP에서 Unicast의 의미는?",
+        "options": [
+          "메시지가 한 호스트에서 다른 여러 호스트로 전송되는 패 킷",
+          "메시지가 한 호스트에서 다른 한 호스트로 전송되는 패킷",
+          "메시지가 한 호스트에서 망상의 다른 모든 호스트로 전송 되는 패킷",
+          "메시지가 한 호스트에서 망상의 특정 그룹 호스트들로 전 송되는 패킷"
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "사설 IP주소를 공인 IP주소로 바꿔주는데 사용하는 통신망\n의 주소 변환 기술로, 공인 IP주소를 절약하고, 내부 사설망\n을 이용하여 인터넷에 연결하므로 보안을 강화할 수 있는\n것은?",
+        "options": [
+          "DHCP",
+          "ARP",
+          "BOOTP",
+          "NAT"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "다음 TCP 패킷의 플래그 중에서 연결이 정상적으로 끝남을\n의미하는 것은?",
+        "options": [
+          "FIN",
+          "URG",
+          "ACK",
+          "RST"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "다음 지문에 표기된 IPv6 주소는 요약된 표현이다. 보기 중\n요약되기 전 상태는?",
+        "options": [
+          "2000:00AB:0001:0000:0001:0002",
+          "2000:00AB:0001:0000:0000:0000:0001:0002",
+          "2000:AB00:1000:0000:1000:2000",
+          "2000:AB00:1000:0000:0000:0000:1000:2000"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "네트워크를 관리하는 Lee 사원은 사내에서 잦은 IP 충돌로\n인하여 장애신고를 많이 받고 있어 기존 IP정책을 DHCP로\n변경하려고 한다. 다음 중 DHCP를 적용해야 하는 장비로\n가장 적합한 것은?",
+        "options": [
+          "웹서버",
+          "Access point",
+          "교육장용 PC",
+          "네트워크 프린터"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "TCP 헤더를 구성하는 필드의 길이(비트수)가 적절하지 않은\n것은?",
+        "options": [
+          "Source port address : 16비트",
+          "Sequence Number : 32비트",
+          "Flags : 9비트",
+          "Checksum : 32비트"
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "HTTP에 대한 설명으로 적절하지 않은 것은?",
+        "options": [
+          "애플리케이션 계층에서 동작하는 프로토콜이다.",
+          "HTTP/2는 SPDY 프로토콜을 기반으로 TCP 연결을 사용 한다.",
+          "HTTP 기본 포트는 80이고, HTTPS 기본포트는 443이다.",
+          "HTTP/3은 QUIC 프로토콜을 기반으로 TCP 연결을 사용 한다."
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 중 SNMP(Simple Network Management Protocol)의\n설명으로 옳은 것은?",
+        "options": [
+          "포트번호는 181번을 사용한다.",
+          "네트워크 관리를 위해 관리 정보 및 정보 운반을 위한 프로토콜이다.",
+          "대부분의 네트워킹 공급업체에서 광범위하게 지원되나 기존 네트워크와는 통합이 어렵다.",
+          "SNMPv2c는 암호화와 인증 기능을 기본으로 제공하므로 보안성이 매우 높다."
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "SNMP (Simple Network Management Protocol)",
+          "SNTP (Simple Network Time Protocol)",
+          "SMTP (Simple Mail Transfer Protocol)",
+          "HTTP (HyperText Transfer Protocol)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "NFV(Network Function Virtualization)에 대한 설명으로 옳\n지 않은 것은?",
+        "options": [
+          "소프트웨어가 아닌 하드웨어로 제어되는 네트워킹 기술 로서, 네트워크를 마치 컴퓨터처럼 구성하거나 조작하는 네트워킹 기술이다.",
+          "NFV(Network Functions Virtualization)는 소프트웨어로 개발된 네트워크 기능의 가상화된 형태를 의미한다.",
+          "NFVI(Network Function Virtualization Infrastructure)는 물리적 H/W 자원, 가상화 지원기능 및 VNF(Virtualized Network Functions) 실행지원기능 등을 제공한다.",
+          "가상화 기술 기반으로 통신망 운용에 필요한 다양한 네 트워크 장비 내 여러 기능들을 분리시켜 S/W로 제어 및 관리 가능하도록 하는 네트워크 가상화 기술이다."
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "메시 네트워크(Mesh Network)의 특징으로 옳지 않은 것은?",
+        "options": [
+          "노드의 이동이 자유롭기 때문에 네트워크 토폴로지가 동 적으로 변한다.",
+          "일대일 다중 홉 라우팅(Multihop Routing) 방식으로 전 달한다.",
+          "중앙 제어나 표준 서비스 없이 네트워크를 구성할 수 없 다.",
+          "하나의 연결이 끊어져도 네트워크는 자동으로 다른 연결 로 메시지를 전송할 수 있다."
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "데이터 전송 전에 목적지까지의 경로를 설정한 후 전송 데\n이터를 정해진 단위별로 전송하되, 규정된 시간 내에 전송\n데이터가 없으면 현재 설정된 경로를 해제하는 교환방식은?",
+        "options": [
+          "회선교환 방식",
+          "데이터그램 방식",
+          "가상회선교환 방식",
+          "메시지교환 방식"
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "송신측에서 여러 개의 터미널이 하나의 통신 회선을 통하여\n신호를 전송하고, 전송된 신호를 수신측에서 다시 여러 개\n의 신호로 분리하는 것은?",
+        "options": [
+          "Multiplexing",
+          "MODEM",
+          "DSU",
+          "CODEC"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "LAN의 구성형태 중 중앙의 제어점으로부터 모든 기기가 점\n대 점(Point to Point) 방식으로 연결된 구성형태는?",
+        "options": [
+          "링형 구성",
+          "스타형 구성",
+          "버스형 구성",
+          "트리형 구성"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "전송을 받는 개체에서 발송지로부터 오는 데이터의 양이나\n속도를 제한하는 프로토콜의 기능을 나타내는 용어는?",
+        "options": [
+          "에러 제어",
+          "순서 제어",
+          "흐름 제어",
+          "접속 제어"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "ARQ 방식 중 에러가 발생한 블록으로 되돌아가 모든 블록\n을 재전송하는 것은?",
+        "options": [
+          "Go-back-N ARQ",
+          "Selective ARQ",
+          "Adaptive ARQ",
+          "Stop-and-Wait ARQ"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "다음 중 여러 가지 주파수 성분을 갖는 신호의 전송에서 각\n주파수 성분이 다른 지연시간을 가지고 도달하는 경우 발생\n하는 전송손실은?",
+        "options": [
+          "감쇠 현상(Attenuation)",
+          "위상 왜곡(Phase Distortion)",
+          "누화(Crosstalk)",
+          "충격성잡음(Impulse Noise)"
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "100BASE-T라고도 불리는 이더넷의 고속 버전으로\nCSMA/CD 방식을 사용하며, 100Mbps의 전송 속도를 지원\n하는 이더넷은?",
+        "options": [
+          "Fast Ethernet",
+          "10Gigabit Ethernet",
+          "Gigabit Ethernet",
+          "Thick Ethernet"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "다음 중 클라우드 환경 모델(Cloud Deployment Model)로\n옳지 않은 것은?",
+        "options": [
+          "public",
+          "on-premises",
+          "hybrid",
+          "private"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "아래 지문의 ping 명령어의 결과로 옳지 않은 것은?",
+        "options": [
+          "ICMP 패킷의 대상(host)은 ′icqa.or.kr′이다.",
+          "ICMP 패킷을 3번 송신하고 수신하였다.",
+          "ICMP 패킷이 왕복한 시간 중 가장 짧은 시간은 7.085ms 이다.",
+          "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "Linux Shell에서 아래 지문의 요구사항을 만족하는 명령어로\n옳은 것은?",
+        "options": [
+          "ls -al ＞ output.txt",
+          "ls -al ＜ output.txt",
+          "ls -al ＜＜ output.txt",
+          "ls -al ＞＞ output.txt"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "서버 담당자 Seo 사원은 Windows Server 2022의 이벤트\n뷰어를 통해 서버의 상태를 점검하려고 한다. Windows 로\n그에 해당하는 항목으로 올바른 것은?",
+        "options": [
+          "하드웨어 이벤트",
+          "인터넷 익스플로러",
+          "Windows PowerShell",
+          "응용 프로그램"
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "서버관리자 Kim씨는 서버에 대한 상태를 확인하기 위해 ′\n/etc/check.sh′ 스크립트를 작성하였다. 해당 스크립트를 매\n주 월요일 오전 10시에 실행시키려고 할때, crontab 파일\n설정으로 알맞은 것은?",
+        "options": [
+          "10 0 * * 1 /etc/check.sh",
+          "0 10 * * 1 /etc/check.sh",
+          "10 0 * * 0 /etc/check.sh",
+          "0 10 * * 0 /etc/check.sh"
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux 디렉터리에 대한 소유자와 소유그룹을 변경할 수 있\n는 명령어는?",
+        "options": [
+          "chmod",
+          "chown",
+          "useradd",
+          "chage"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux 시스템에서 환경설정과 사용자 정보 등을 가진 디렉\n터리로 옳은 것은?",
+        "options": [
+          "/bin",
+          "/root",
+          "/etc",
+          "/proc"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "서버 담당자 Park 사원은 Active Directory를 구성하여 다음\n과 같은 설정을 하고자 한다. 도메인을 두 개 이상 포함하\n는 대부분의 조직에서 사용자가 다른 도메인에 있는 공유\n리소스에 액세스할 수 있어야 하며, 이 액세스를 제어 하려\n면 한 도메인의 사용자를 인증하고 다른 도메인의 리소스를\n사용할 수 있는 권한을 부여해야 한다. 서로 다른 도메인의\n클라이언트와 서버 간에 인증 및 권한 부여 기능을 제공하\n기 위해 두 도메인 간에 설정해야 하는 것은?",
+        "options": [
+          "도메인",
+          "트리",
+          "포리스트",
+          "트러스트"
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "다음 중 Linux 환경에서 ′netstat′ 명령어에 사용하는 옵션\n설명으로 옳지 않은 것은?",
+        "options": [
+          "-r : 라우팅 테이블을 표시한다.",
+          "-p : PID와 사용 중인 프로그램명을 출력한다.",
+          "-t : 연결된 이후 시간 정보를 표시한다.",
+          "-a : 모든 연결 및 수신 대기 포트를 표시한다."
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "다음과 같이 파일의 원래 권한은 유지한 채로 모든 사용자\n들에게 쓰기 가능한 권한을 추가 부여할 때, 결과가 다른\n명령어는?",
+        "options": [
+          "chmod 666 file",
+          "chmod a+w file",
+          "chmod ugo+w file",
+          "chmod go=w file"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "Linux의 vi(Visual Interface) 명령어 중 문자 하나를 삭제할\n때 사용하는 명령어는?",
+        "options": [
+          "dd",
+          "x",
+          "D",
+          "dw"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "서버 관리자 Park 사원은 Windows Server 2022의 Active\nDirectory에서 도메인 사용자 계정을 관리하기 위해 도메인\n사용자 계정을 생성/수정/삭제하려고 한다. 다음 중 도메인\n사용자 계정을 관리하기 위한 명령어가 아닌 것은?",
+        "options": [
+          "dsadd",
+          "dsmod",
+          "dsrm",
+          "net user"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "Windows Server 2022의 DNS 서버에서 정방향 조회 영역\n설정에서 SOA 레코드의 각 필드에 대한 설명으로 옳지 않\n은 것은?",
+        "options": [
+          "일련번호 : 해당 영역 파일의 개정 번호다.",
+          "주 서버 : 해당 영역이 초기에 설정되는 서버다.",
+          "책임자 : 해당 영역을 관리하는 사람의 전자 메일 주소 다. webmaster@icqa.or.kr 형식으로 기입한다.",
+          "새로 고침 간격 : 보조 서버에게 주 서버의 변경을 검사 하기 전에 대기하는 시간이다."
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "Linux 시스템에서 특정 서비스를 제공하는 Daemon이 살아\n있는지 확인할 때 사용하는 명령어는?",
+        "options": [
+          "daemon",
+          "fsck",
+          "men",
+          "ps"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "다음 중 Windows Server 2022에서 명령 프롬프트(cmd) 또\n는 실행창(단축키: Win+R)에 입력했을 때, 실행되지 않거나\n해당 프로그램과 연결이 올바르지 않은 명령어는?",
+        "options": [
+          "compmgmt – 컴퓨터 관리",
+          "devmgmt.msc – 장치 관리자",
+          "gpedit.msc – 로컬 그룹 정책 편집기",
+          "perfmon – 성능 모니터"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "네트워크 담당자 Kim 과장은 Windows Server의 명령 프롬\n프트(cmd) 환경에서 ping 명령어를 사용하여 목적지(IP 주\n소: 192.168.100.1)와의 네트워크 연결 상태를 지속적으로\n확인하고자 한다. 사용자가 중단하기 전까지 에코 요청 메\n시지를 반복 전송하는 ping 명령어 옵션으로 옳은 것은?",
+        "options": [
+          "ping –t 192.168.100.1",
+          "ping -a 192.168.100.1",
+          "ping –f 192.168.100.1",
+          "ping -n 192.168.100.1"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "서버 관리자 Gang 차장은 Linux 기반 Apache 웹 서버\n(Apache HTTPD)의 기본 포트를 8081번으로 변경하려고\n한다. 다음 중 ′httpd.conf′ 설정 파일에서 기본 포트를 설\n정하기 위한 올바른 옵션은?",
+        "options": [
+          "Port 8081",
+          "Default Port 8081",
+          "Listening 8081",
+          "Listen 8081"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "FTP(File Transfer Protocol)는 파일 전송을 위한 표준 네트\n워크 프로토콜이다. 이 중 사용자 인증과 명령 제어용으로\n사용되는 기본 포트번호로 옳은 것은?",
+        "options": [
+          "20번",
+          "21번",
+          "22번",
+          "23번"
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "아래 지문에서 설명하는 부하분산 방식은?",
+        "options": [
+          "Least Connection Method",
+          "IP Hash Method",
+          "Least Response Time Method",
+          "Round Robin Method"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "RAID의 레벨 중에서 회전 패리티 방식으로 병목현상을 줄이\n는 것은?",
+        "options": [
+          "RAID-2",
+          "RAID-3",
+          "RAID-4",
+          "RAID-5"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "네트워크에서 신호가 약해질 경우 이를 단순 증폭·재생성하\n여 전송 거리를 늘려주는 장비가 있다. OSI 7계층 중 이 장\n비가 속하는 계층은?",
+        "options": [
+          "물리 계층 (Physical Layer)",
+          "네트워크 계층 (Network Layer)",
+          "전송 계층 (Transport Layer)",
+          "응용 계층 (Application Layer)"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "내부에 코어(Core)와, 이를 감싸는 유리나 플라스틱 등 굴절\n률이 다른 외부 클래딩(Cladding)으로 구성된 전송 매체는?",
+        "options": [
+          "이중 나선(Twisted Pair)",
+          "동축 케이블(Coaxial Cable)",
+          "2선식 개방 선로(Two-Wire Open Lines)",
+          "광 케이블(Optical Cable)"
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "다음 지문처럼 VLAN 식별을 위해 이더넷 프레임에 태그 정\n보를 추가하여 스위치 간 VLAN 트래픽을 전달하는 방식은?",
+        "options": [
+          "STP",
+          "Native VLAN",
+          "태그(Tagged) 포트",
+          "LOOP"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "다음 중 Layer 4 스위치(Layer 4 Switch, L4)의 기능 또는\n특징으로 옳지 않은 것은?",
+        "options": [
+          "서버의 부하를 분산하여 효율적으로 처리한다.",
+          "OSI 7계층 중 네트워크 계층에 해당하는 장비이다.",
+          "TCP, UDP, HTTP 등의 헤더를 분석해 부하 분산을 수행 한다.",
+          "외부 요청은 모두 L4 스위치를 거쳐 각 서버로 분산된 다. 무료 기출문제 학습 프로그램으로 최신 수정된(오타, 오답, 규정변경) 자료와 해설은"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "255.255.224.0"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Window"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 1,
+        "correct_answer_text": "3ffe:1900:4545:0003:0200:f8ff:ffff:1105"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ARP"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "FIN"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 1,
+        "correct_answer_text": "128.52.10.6"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "타입 0 : Echo Request (에코 요청)"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "기존 http보다 암호화된 SSL/TLS를 전달한다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SMTP"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NNTP"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Ethernet 구현에서 대부분의 IP는 Ethernet V2 프레임의 형식이며 1500 바이트의 값을 가진다."
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "TFTP의 단점은 UDP방식으로 Data 전송 시 데이터 손실 가능성이 있다."
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "라우터에 부하가 적게 걸려 메모리 관리에 유리하며, 우 선순위가 높다."
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 2,
+        "correct_answer_text": "리눅스, 유닉스에서만 사용 가능"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IGMP(Internet Group Management Protocol)"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Autoconfiguration"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 2,
+        "correct_answer_text": "ARP Cache확인 -> ARP Broadcast -> 자체 IP 와 일 치 여부 확인 -> ARP Reply 발송"
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 2,
+        "correct_answer_text": "터미네이터(Terminator)가 시그널의 반사를 방지하기 위 하여 사용된다."
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 3,
+        "correct_answer_text": "CSMA/CD"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 0,
+        "correct_answer_text": "감쇠(Attenuation)"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Adaptive ARQ"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "802.15.1 – 802.15.3 – 802.15.4"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "핸드오프"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "타이밍(Timing)"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "MIMO(Multiple-Input and Multiple-Output)"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 1,
+        "correct_answer_text": "데이터 링크 계층(Data Link Layer)"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 2,
+        "correct_answer_text": "가상회선교환 방식"
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 0,
+        "correct_answer_text": "BitLocker"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 3,
+        "correct_answer_text": "- W 10"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 1,
+        "correct_answer_text": "트러스트(Trust)"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SWAP"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 1,
+        "correct_answer_text": "netstat –antp"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "/etc"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 3,
+        "correct_answer_text": "사용자가 사용할 소프트웨어를 배포할 수 없다."
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 2,
+        "correct_answer_text": "/var/log/dmesg"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 0,
+        "correct_answer_text": "httpd.conf"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 3,
+        "correct_answer_text": "certmgr.msc"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 0,
+        "correct_answer_text": "WAP(Web Application Proxy)"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 1,
+        "correct_answer_text": "이벤트뷰어"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 1,
+        "correct_answer_text": "패스워드는 ′x′ 이다."
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "chmod -R 755 /var/www/upload"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 1,
+        "correct_answer_text": "네번째 프로세스의 PPID는 1869이다."
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "가상 하드디스크를 실행하는 상황에서도 다른 저장소로 이동할 수 있음"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 3,
+        "correct_answer_text": "다섯 번째 연결된 물리 디스크에 설치되었다."
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 2,
+        "correct_answer_text": "′file2′가 존재할 경우 덮어 쓸 것인가를 물어본다."
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 1,
+        "correct_answer_text": "신호 손실이 적고, 전자기적 간섭이 없다."
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Memory 용량 증가"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 2,
+        "correct_answer_text": "VLAN은 관리자가 서로 다른 논리적 그룹에 대하여 서로 다른 보안정책을 적용할 수 없다."
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Round Robin"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 2,
+        "correct_answer_text": "MAC 주소"
+      }
+    ]
+  }
+]

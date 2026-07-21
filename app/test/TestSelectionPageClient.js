@@ -49,6 +49,21 @@ const sessionsByYear = [
     ],
   },
   {
+    year: '네트워크관리사 2급',
+    sessions: [
+      { id: 'pdfpack-network2-20240225', title: '2024년 2월 25일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20240519', title: '2024년 5월 19일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20240825', title: '2024년 8월 25일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20241103', title: '2024년 11월 3일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20250223', title: '2025년 2월 23일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20250525', title: '2025년 5월 25일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20250824', title: '2025년 8월 24일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20251102', title: '2025년 11월 2일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20260201', title: '2026년 2월 1일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+      { id: 'pdfpack-network2-20260517', title: '2026년 5월 17일', description: '네트워크관리사 2급 필기 기출 (50문항 / 4과목)' },
+    ],
+  },
+  {
     year: '실기',
     sessions: [
       { id: 'practical-industrial-2022-1', title: '2022년 1회', description: '정보처리산업기사 실기 문제 제작용 세트입니다. (해설 미작성)' },

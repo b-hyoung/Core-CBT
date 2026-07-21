@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 0,
+        "correct_answer_text": "DF Flag"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "HTTPS"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 2,
+        "correct_answer_text": "로컬 네트워크상의 멀티캐스팅 그룹제어를 수행하기 위한 프로토콜이다."
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 1,
+        "correct_answer_text": "UTC"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 1,
+        "correct_answer_text": "192.168.100.190"
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 0,
+        "correct_answer_text": "UDP"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 2,
+        "correct_answer_text": "SNMP는 일반적으로 TCP 세션을 이용한다."
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 1,
+        "correct_answer_text": "5 - Echo Request"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 1,
+        "correct_answer_text": "TFTP"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Dijkstra 알고리즘"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP Header의 완전성을 검사한다."
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 2,
+        "correct_answer_text": "교육장용 PC"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Broadcast를 사용한다."
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SNMP"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SNTP (Simple Network Time Protocol)"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SMTP(Simple Mail Transfer Protocol) - 25번"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 1,
+        "correct_answer_text": "/etc/hosts"
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 2,
+        "correct_answer_text": "하나의 단말장치가 고장나면 전체 통신망에 영향을 줄 수 있다."
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "CSMA/CD"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Fast Ethernet"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 2,
+        "correct_answer_text": "망에 유입되는 데이터의 양이 많아질수록 전송속도가 빠 르다."
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Tunneling"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Loop/Echo"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 3,
+        "correct_answer_text": "DataLink Layer : 응용 프로그램의 인터페이스와 통신을 실행하기 위한 응용 기능을 제공한다."
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "포그 컴퓨팅 (Fog Computing)"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "소프트웨어가 아닌 하드웨어로 제어되는 네트워킹 기술 로서, 네트워크를 마치 컴퓨터처럼 구성하거나 조작하는 네트워킹 기술이다."
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 3,
+        "correct_answer_text": "IEEE의 802.11ac 기술표준은 802.11n을 기반으로 60GHz의 밀리미터파 스펙트럼에서 동작하는 802.11 네 트워크에 대한 새로운 물리 계층을 정의한다."
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 0,
+        "correct_answer_text": "resolv.conf"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 1,
+        "correct_answer_text": "0 10 * * 1 /etc/check.sh"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 1,
+        "correct_answer_text": "chown"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 2,
+        "correct_answer_text": "KeepAliveTimeout 80"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "netstat"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Users 그룹은 사용자 계정을 생성하면 기본적으로 소속 되는 그룹으로 시스템 수준의 변경의 권한을 갖는다."
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 3,
+        "correct_answer_text": "트러스트"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 1,
+        "correct_answer_text": ":10,20s/old/new/g"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 3,
+        "correct_answer_text": "chmod go=w file"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "/proc"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 2,
+        "correct_answer_text": "pathping"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ps"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 1,
+        "correct_answer_text": "유효성 검사 시 오류가 발생하지 않는다."
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 1,
+        "correct_answer_text": "일반 사용자 계정에서 Apache 웹서버를 실행할 때, 실 행 명령어 앞에 ′su′를 추가한다."
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ls -al >output.txt"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 2,
+        "correct_answer_text": "iptables -A INPUT -p tcp --dport 23 -j DROP"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 2,
+        "correct_answer_text": "runlevel 5"
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 0,
+        "correct_answer_text": "MAC 주소"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NAT"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 3,
+        "correct_answer_text": "광 케이블(Optical Cable)"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 1,
+        "correct_answer_text": "RAID 0"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 3,
+        "correct_answer_text": "POE Switch"
+      }
+    ]
+  }
+]

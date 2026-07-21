@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 1,
+        "correct_answer_text": "/etc/hosts"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 2,
+        "correct_answer_text": "리눅스, 유닉스에서만 사용 가능"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 1,
+        "correct_answer_text": "255.255.255.192"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 2,
+        "correct_answer_text": "TFTP의 단점은 UDP방식으로 Data 전송 시 데이터 손실 가능성이 있다."
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 0,
+        "correct_answer_text": "비대칭 프로토콜이고 TTL(Time To Live)를 제공한다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 3,
+        "correct_answer_text": "L4 스위치"
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 2,
+        "correct_answer_text": "SOA 레코드"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 2,
+        "correct_answer_text": "DNS"
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Zigbee"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 3,
+        "correct_answer_text": "자동 설정(Autoconfiguration, SLAAC)"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 3,
+        "correct_answer_text": "루프백(Loopback) 주소"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 0,
+        "correct_answer_text": "기존 http보다 암호화된 SSL/TLS를 전달한다."
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 0,
+        "correct_answer_text": "FIN"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ARP"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 2,
+        "correct_answer_text": "182.0.2.1"
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "IGMP"
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 3,
+        "correct_answer_text": "FTP는 UDP를 사용하는 대표적인 프로토콜이다."
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Star"
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Tunneling"
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 1,
+        "correct_answer_text": "데이터 링크 계층(Data Link Layer)"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Adaptive ARQ"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Loop/Echo"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 1,
+        "correct_answer_text": "위상 왜곡(Phase Distortion)"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 3,
+        "correct_answer_text": "제공자의 컴퓨팅 자원들은 다수의 사용자들을 지원하기 위하여 단일 임차인(single-tenant) 모델의 자원 풀 (pool) 형태로 운영된다."
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 0,
+        "correct_answer_text": "1000BASE-SX"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 3,
+        "correct_answer_text": "interface mode"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 1,
+        "correct_answer_text": "CSMA/CA"
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 0,
+        "correct_answer_text": "chmod -R 755 /var/www/upload"
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 2,
+        "correct_answer_text": "gdisk"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 1,
+        "correct_answer_text": "유효성 검사 시 오류가 발생하지 않는다."
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 1,
+        "correct_answer_text": "LimitRequestBody"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 1,
+        "correct_answer_text": "가상 하드 디스크를 실행 중에도 다른 저장소로 이동할 수 있다."
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 0,
+        "correct_answer_text": "lastb"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 3,
+        "correct_answer_text": "-W 10"
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 2,
+        "correct_answer_text": "GRUB"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 2,
+        "correct_answer_text": "pwd"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 0,
+        "correct_answer_text": "cat exam.txt | more"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Shell"
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 0,
+        "correct_answer_text": "CNAME"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ipconfig /renew"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 2,
+        "correct_answer_text": "Resource Monitor"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 1,
+        "correct_answer_text": "유니버설 그룹(Universal Group)"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 1,
+        "correct_answer_text": "TTL 값을 설정하지 않을 경우, 정방향 조회 서비스가 불 가능하다."
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 0,
+        "correct_answer_text": "로그 파일의 저장 위치는 변경할 수 있다."
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 2,
+        "correct_answer_text": "MAC 주소"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Round Robin"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 1,
+        "correct_answer_text": "NAT(네트워크 주소 변환)"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 1,
+        "correct_answer_text": "TCP/UDP 헤더만을 기반으로 로드 밸런싱을 수행한다."
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 2,
+        "correct_answer_text": "라우터(Router)"
+      }
+    ]
+  }
+]

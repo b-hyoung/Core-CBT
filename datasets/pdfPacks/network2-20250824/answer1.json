@@ -1,0 +1,272 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "answers": [
+      {
+        "problem_number": 1,
+        "correct_answer_index": 1,
+        "correct_answer_text": "14개"
+      },
+      {
+        "problem_number": 2,
+        "correct_answer_index": 0,
+        "correct_answer_text": "OSPF"
+      },
+      {
+        "problem_number": 3,
+        "correct_answer_index": 2,
+        "correct_answer_text": "이웃 요청과 광고 메시지(Neighbor Solicitation and Advertisement)"
+      },
+      {
+        "problem_number": 4,
+        "correct_answer_index": 1,
+        "correct_answer_text": "Fragmentation"
+      },
+      {
+        "problem_number": 5,
+        "correct_answer_index": 1,
+        "correct_answer_text": "네트워크계층에 속하는 프로토콜로 실제 패킷을 전달하는 역할을 한다."
+      },
+      {
+        "problem_number": 6,
+        "correct_answer_index": 3,
+        "correct_answer_text": "일부 데이터가 손실되어도 치명적이지 않은 프로그램 등 에 적합하다."
+      },
+      {
+        "problem_number": 7,
+        "correct_answer_index": 0,
+        "correct_answer_text": "SMTP"
+      },
+      {
+        "problem_number": 8,
+        "correct_answer_index": 0,
+        "correct_answer_text": "IP Address를 장치의 하드웨어 주소로 매핑하는 기능을 제공한다."
+      },
+      {
+        "problem_number": 9,
+        "correct_answer_index": 1,
+        "correct_answer_text": "메시지가 한 호스트에서 다른 한 호스트로 전송되는 패킷"
+      },
+      {
+        "problem_number": 10,
+        "correct_answer_index": 3,
+        "correct_answer_text": "NAT"
+      },
+      {
+        "problem_number": 11,
+        "correct_answer_index": 0,
+        "correct_answer_text": "FIN"
+      },
+      {
+        "problem_number": 12,
+        "correct_answer_index": 1,
+        "correct_answer_text": "2000:00AB:0001:0000:0000:0000:0001:0002"
+      },
+      {
+        "problem_number": 13,
+        "correct_answer_index": 2,
+        "correct_answer_text": "교육장용 PC"
+      },
+      {
+        "problem_number": 14,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Checksum : 32비트"
+      },
+      {
+        "problem_number": 15,
+        "correct_answer_index": 3,
+        "correct_answer_text": "HTTP/3은 QUIC 프로토콜을 기반으로 TCP 연결을 사용 한다."
+      },
+      {
+        "problem_number": 16,
+        "correct_answer_index": 1,
+        "correct_answer_text": "네트워크 관리를 위해 관리 정보 및 정보 운반을 위한 프로토콜이다."
+      },
+      {
+        "problem_number": 17,
+        "correct_answer_index": 1,
+        "correct_answer_text": "SNTP (Simple Network Time Protocol)"
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "answers": [
+      {
+        "problem_number": 18,
+        "correct_answer_index": 0,
+        "correct_answer_text": "소프트웨어가 아닌 하드웨어로 제어되는 네트워킹 기술 로서, 네트워크를 마치 컴퓨터처럼 구성하거나 조작하는 네트워킹 기술이다."
+      },
+      {
+        "problem_number": 19,
+        "correct_answer_index": 2,
+        "correct_answer_text": "중앙 제어나 표준 서비스 없이 네트워크를 구성할 수 없 다."
+      },
+      {
+        "problem_number": 20,
+        "correct_answer_index": 2,
+        "correct_answer_text": "가상회선교환 방식"
+      },
+      {
+        "problem_number": 21,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Multiplexing"
+      },
+      {
+        "problem_number": 22,
+        "correct_answer_index": 1,
+        "correct_answer_text": "스타형 구성"
+      },
+      {
+        "problem_number": 23,
+        "correct_answer_index": 2,
+        "correct_answer_text": "흐름 제어"
+      },
+      {
+        "problem_number": 24,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Go-back-N ARQ"
+      },
+      {
+        "problem_number": 25,
+        "correct_answer_index": 1,
+        "correct_answer_text": "위상 왜곡(Phase Distortion)"
+      },
+      {
+        "problem_number": 26,
+        "correct_answer_index": 0,
+        "correct_answer_text": "Fast Ethernet"
+      },
+      {
+        "problem_number": 27,
+        "correct_answer_index": 1,
+        "correct_answer_text": "on-premises"
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "answers": [
+      {
+        "problem_number": 28,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ICMP 패킷이 왕복한 평균 시간은 7.450ms 이다."
+      },
+      {
+        "problem_number": 29,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ls -al ＞ output.txt"
+      },
+      {
+        "problem_number": 30,
+        "correct_answer_index": 3,
+        "correct_answer_text": "응용 프로그램"
+      },
+      {
+        "problem_number": 31,
+        "correct_answer_index": 1,
+        "correct_answer_text": "0 10 * * 1 /etc/check.sh"
+      },
+      {
+        "problem_number": 32,
+        "correct_answer_index": 1,
+        "correct_answer_text": "chown"
+      },
+      {
+        "problem_number": 33,
+        "correct_answer_index": 2,
+        "correct_answer_text": "/etc"
+      },
+      {
+        "problem_number": 34,
+        "correct_answer_index": 3,
+        "correct_answer_text": "트러스트"
+      },
+      {
+        "problem_number": 35,
+        "correct_answer_index": 2,
+        "correct_answer_text": "-t : 연결된 이후 시간 정보를 표시한다."
+      },
+      {
+        "problem_number": 36,
+        "correct_answer_index": 3,
+        "correct_answer_text": "chmod go=w file"
+      },
+      {
+        "problem_number": 37,
+        "correct_answer_index": 1,
+        "correct_answer_text": "x"
+      },
+      {
+        "problem_number": 38,
+        "correct_answer_index": 3,
+        "correct_answer_text": "net user"
+      },
+      {
+        "problem_number": 39,
+        "correct_answer_index": 2,
+        "correct_answer_text": "책임자 : 해당 영역을 관리하는 사람의 전자 메일 주소 다. webmaster@icqa.or.kr 형식으로 기입한다."
+      },
+      {
+        "problem_number": 40,
+        "correct_answer_index": 3,
+        "correct_answer_text": "ps"
+      },
+      {
+        "problem_number": 41,
+        "correct_answer_index": 0,
+        "correct_answer_text": "compmgmt – 컴퓨터 관리"
+      },
+      {
+        "problem_number": 42,
+        "correct_answer_index": 0,
+        "correct_answer_text": "ping –t 192.168.100.1"
+      },
+      {
+        "problem_number": 43,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Listen 8081"
+      },
+      {
+        "problem_number": 44,
+        "correct_answer_index": 1,
+        "correct_answer_text": "21번"
+      },
+      {
+        "problem_number": 45,
+        "correct_answer_index": 3,
+        "correct_answer_text": "Round Robin Method"
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "answers": [
+      {
+        "problem_number": 46,
+        "correct_answer_index": 3,
+        "correct_answer_text": "RAID-5"
+      },
+      {
+        "problem_number": 47,
+        "correct_answer_index": 0,
+        "correct_answer_text": "물리 계층 (Physical Layer)"
+      },
+      {
+        "problem_number": 48,
+        "correct_answer_index": 3,
+        "correct_answer_text": "광 케이블(Optical Cable)"
+      },
+      {
+        "problem_number": 49,
+        "correct_answer_index": 2,
+        "correct_answer_text": "태그(Tagged) 포트"
+      },
+      {
+        "problem_number": 50,
+        "correct_answer_index": 1,
+        "correct_answer_text": "OSI 7계층 중 네트워크 계층에 해당하는 장비이다."
+      }
+    ]
+  }
+]

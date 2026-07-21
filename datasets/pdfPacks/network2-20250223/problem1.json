@@ -1,0 +1,522 @@
+[
+  {
+    "title": "1과목 : TCP/IP",
+    "problems": [
+      {
+        "problem_number": 1,
+        "question_text": "IP Header의 내용 중 TTL(Time To Live)의 기능을 설명한\n것으로 옳지 않은 것은?",
+        "options": [
+          "IP 패킷은 네트워크상에서 영원히 존재할 수 있다.",
+          "일반적으로 라우터의 한 홉(Hop)을 통과할 때마다 TTL 값이 ′1′씩 감소한다.",
+          "Ping과 Tracert 유틸리티는 특정 호스트 컴퓨터에 접근을 시도하거나 그 호스트까지의 경로를 추적할 때 TTL 값을 사용한다.",
+          "IP 패킷이 네트워크상에서 얼마동안 존재할 수 있는가를 나타낸다."
+        ]
+      },
+      {
+        "problem_number": 2,
+        "question_text": "IP Address 중 Class가 다른 주소는?",
+        "options": [
+          "191.234.149.32",
+          "198.236.115.33",
+          "222.236.138.34",
+          "195.236.126.35"
+        ]
+      },
+      {
+        "problem_number": 3,
+        "question_text": "C Class 네트워크에서 6개의 서브넷이 필요하다고 할 때 가\n장 적당한 서브넷 마스크는?",
+        "options": [
+          "255.255.255.0",
+          "255.255.255.192",
+          "255.255.255.224",
+          "255.255.255.240"
+        ]
+      },
+      {
+        "problem_number": 4,
+        "question_text": "IPv6 헤더 형식에서 네트워크 내에서 데이터그램의 생존 기\n간과 관련되는 필드는?",
+        "options": [
+          "Version",
+          "Priority",
+          "Next Header",
+          "Hop Limit"
+        ]
+      },
+      {
+        "problem_number": 5,
+        "question_text": "TCP가 제공하는 기능으로 옳지 않은 것은?",
+        "options": [
+          "종단 간 흐름 제어를 위해 동적 윈도우(Dynamic Sliding Window) 방식을 사용한다.",
+          "한 번에 많은 데이터의 전송에 유리하기 때문에 화상 통 신과 같은 실시간 통신에 사용된다.",
+          "송수신되는 데이터의 에러를 제어함으로써 신뢰성 있는 데이터 전송을 보장한다.",
+          "Three Way Handshaking 과정을 통해 데이터를 주고받는 다."
+        ]
+      },
+      {
+        "problem_number": 6,
+        "question_text": "UDP 헤더에 포함이 되지 않는 항목은?",
+        "options": [
+          "확인 응답 번호(Acknowledgment Number)",
+          "소스 포트(Source Port) 주소",
+          "체크섬(Checksum) 필드",
+          "목적지 포트(Destination Port) 주소"
+        ]
+      },
+      {
+        "problem_number": 7,
+        "question_text": "ICMP의 Message Type필드의 유형과 질의 메시지 내용을 나\n타낸 것이다. 타입에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "3 - Echo Request 질의 메시지에 응답하는데 사용된다.",
+          "4 - 흐름제어 및 폭주제어를 위해 사용된다.",
+          "5 - 대체경로(Redirect)를 알리기 위해 라우터가 호스트 에 사용한다.",
+          "17 - Address Mask Request 장비의 서브넷 마스크를 요구하는데 사용된다."
+        ]
+      },
+      {
+        "problem_number": 8,
+        "question_text": "인터넷 전송 방식 중, 특정 호스트로부터 같은 네트워크상의\n모든 호스트에게 데이터를 전송하는 방식은?",
+        "options": [
+          "Unicast",
+          "Broadcast",
+          "Multicast",
+          "User Datagram Protocol"
+        ]
+      },
+      {
+        "problem_number": 9,
+        "question_text": "SNMP에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "TCP를 이용하여 신뢰성 있는 통신을 한다.",
+          "네트워크 관리를 위한 표준 프로토콜이다.",
+          "응용 계층 프로토콜이다.",
+          "RFC 1157에 규정되어 있다."
+        ]
+      },
+      {
+        "problem_number": 10,
+        "question_text": "IPv6의 주소 표기법으로 올바른 것은?",
+        "options": [
+          "192.168.1.30",
+          "3ffe:1900:4545:0003:0200:f8ff:ffff:1105",
+          "00:A0:C3:4B:21:33",
+          "0000:002A:0080:c703:3c75"
+        ]
+      },
+      {
+        "problem_number": 11,
+        "question_text": "OSI 7 계층의 통신 계층별 PDU(Protocol Data Unit)의 명\n칭으로 올바른 것은?",
+        "options": [
+          "7계층 : 세그먼트",
+          "4계층 : 패킷",
+          "3계층 : 비트",
+          "2계층 : 프레임"
+        ]
+      },
+      {
+        "problem_number": 12,
+        "question_text": "IPv4 Address 중 네트워크 ID가 ′127′로 시작하는 주소의\n용도는?",
+        "options": [
+          "제한적 브로드캐스트 주소",
+          "B Class의 멀티캐스트 주소",
+          "C Class의 사설(Private) IP 주소",
+          "루프백(Loopback) 주소"
+        ]
+      },
+      {
+        "problem_number": 13,
+        "question_text": "TCP/IP 프로토콜의 응용계층에서 제공하는 응용서비스 프로\n토콜로, 컴퓨터 사용자들 사이에 전자우편 교환 서비스를\n제공하는 것은?",
+        "options": [
+          "SNMP",
+          "SMTP",
+          "VT",
+          "FTP"
+        ]
+      },
+      {
+        "problem_number": 14,
+        "question_text": "FTP 프로토콜에 대한 설명으로 올바르지 않은 것은?",
+        "options": [
+          "FTP 세션이 설정되면 파일 송수신 기능을 사용해 원격 파일을 복사할 수 있다.",
+          "데이터 채널을 설정하기 위해 FTP 서버가 자신의 Well-known 포트인 20번으로 FTP 클라이언트와 데이터 채널 연결을 시도한다.",
+          "데이터 채널은 파일 송수신 요구가 발생할 때마다 새로 설정되고, 해당 파일의 송수신이 완료되면 즉시 연결이 해제된다.",
+          "프로토콜의 기본 기능인 파일 복사 작업은 복잡하지 않 기 때문에 UDP프로토콜을 사용하는 것이 효율적이고 69 번 포트를 통해 데이터를 전송한다."
+        ]
+      },
+      {
+        "problem_number": 15,
+        "question_text": "DNS 역할에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "DNS는 사용자가 도메인 이름을 입력하면 해당 도메인 이름을 해당하는 IP 주소로 변환한다.",
+          "DNS는 여러 개의 IP 주소를 가진 도메인 이름에 대해 로드 밸런싱 기능을 제공, IP 주소를 반환하여 트래픽을 분산시키는 방식으로 서버 부하를 분산시킨다.",
+          "방화벽과 같은 보안 장비 중 하나다.",
+          "DNS는 이전에 접근한 도메인 이름과 IP 주소의 대응을 캐싱하여 저장한다."
+        ]
+      },
+      {
+        "problem_number": 16,
+        "question_text": "다음 중 (A), (B)에 들어갈 내용으로 알맞은 용어로 옳은 것\n은?",
+        "options": [
+          "(A) 암호화, (B) 복호화",
+          "(A) 복호화, (B) 암호화",
+          "(A) 캡슐화, (B) 역캡슐화",
+          "(A) 역캡슐화, (B) 캡슐화"
+        ]
+      },
+      {
+        "problem_number": 17,
+        "question_text": "ARP(Address Resolution Protocol)에 대한 설명 중 올바른\n것은?",
+        "options": [
+          "수신측의 논리주소 정보가 없기 때문에 브로드캐스트를 통해 전송한다.",
+          "수신측 물리주소와 송신측 물리주소를 검사하여 자신에 대해 물리주소를 요구하는 경우라면 ARP를 전송한다.",
+          "각 시스템에 Address Resolution Protocol Cache가 있 고 Cache 정보를 보관한다.",
+          "H/W 주소 기반으로 IP주소로 변환한다."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2과목 : 네트워크 일반",
+    "problems": [
+      {
+        "problem_number": 18,
+        "question_text": "데이터 흐름 제어(Flow Control)와 관련 없는 것은?",
+        "options": [
+          "Stop and Wait",
+          "XON/XOFF",
+          "Loop/Echo",
+          "Sliding Window"
+        ]
+      },
+      {
+        "problem_number": 19,
+        "question_text": "OSI 7 Layer에서 Data Link 계층의 기능으로 옳지 않은 것\n은?",
+        "options": [
+          "전송 오류제어 기능",
+          "Flow 제어 기능",
+          "Text의 압축, 암호화 기능",
+          "Link의 관리 기능"
+        ]
+      },
+      {
+        "problem_number": 20,
+        "question_text": "네트워크의 구성(Topology)에서 성형(Star)에 관한 설명으로\n옳지 않은 것은?",
+        "options": [
+          "point-to-point 방식으로 회선을 연결한다.",
+          "단말장치의 추가와 제거가 쉽다.",
+          "하나의 단말장치가 고장나면 전체 통신망에 영향을 줄 수 있다.",
+          "각 단말 장치는 중앙 컴퓨터를 통하여 데이터를 교환한 다."
+        ]
+      },
+      {
+        "problem_number": 21,
+        "question_text": "다음에서 설명하는 전송 방식은?",
+        "options": [
+          "Token Ring",
+          "Token Bus",
+          "CSMA/CD",
+          "Slotted Ring"
+        ]
+      },
+      {
+        "problem_number": 22,
+        "question_text": "프로토콜 계층 구조상의 기본 구성요소 중 실체(Entity) 간\n의 통신 속도 및 메시지 순서를 위한 제어정보는?",
+        "options": [
+          "타이밍(Timing)",
+          "의미(Semantics)",
+          "구문(Syntax)",
+          "처리(Process)"
+        ]
+      },
+      {
+        "problem_number": 23,
+        "question_text": "다음은 네트워크 구축에 필요한 매체에 관한 내용이다. (A)\n안에 들어가는 용어 중 옳은 것은?",
+        "options": [
+          "U/UTP CAT.3",
+          "Thin Coaxial Cable",
+          "U/FTP CAT.5",
+          "Optical Fiber Cable"
+        ]
+      },
+      {
+        "problem_number": 24,
+        "question_text": "네트워크관리사 Kim 사원은 고속 대용량 전송이 가능한 멀\n티미디어 서비스에 적합한 기술 적용을 검토하라는 지시를\n받았다. 이동통신 환경에서 다수의 안테나를 사용하여 데이\n터를 전송하는 다중 안테나 신호 처리 기술로 올바른 것은?",
+        "options": [
+          "MIMO(Multiple-Input and Multiple-Output)",
+          "M2M(Machine to Machine)",
+          "MQTT(Massage Queue Telemetry Transport)",
+          "OFDM(Orthogonal Frequency Division Multiplexing)"
+        ]
+      },
+      {
+        "problem_number": 25,
+        "question_text": "클라우드 컴퓨팅 모델에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "통신환경에 따라 서비스에 영향을 받으며, 개별 정보가 물리적으로 어디에 위치하고 있는지 알기 어려운 단점이 있다.",
+          "공용 클라우드(public cloud)는 아마존 웹 서비스와 같은 외부 서비스 제공자가 관리하며, 인터넷을 통해 접근하 기도 하고, 일반적인 공적 업무를 위해 이용된다.",
+          "사설 클라우드(private cloud)는 서버, 저장장치, 네트워 크 데이터 그리고 응용프로그램 등을 함께 묶어서 회사 내·외부의 모든 이용자들이 공유할 수 있도록 하는 클라 우드이다.",
+          "하이브리드 클라우드(hybrid cloud)는 공용 클라우드와 사설 클라우드가 혼용되어 있는 서비스로, 사설 클라우 드를 구축하여 사용 중인 특정 기업이 클라우드서비스 중의 일부를 공용 클라우드업체로부터 서비스를 제공받 으면서, 동시에 사설 클라우드와 연동하여 사용하는 방 식이다."
+        ]
+      },
+      {
+        "problem_number": 26,
+        "question_text": "다음의 (A)에 들어갈 알맞은 용어는?",
+        "options": [
+          "Wireless sensor networks",
+          "Wireless mesh networks",
+          "Software defined networks",
+          "Content delivery networks"
+        ]
+      },
+      {
+        "problem_number": 27,
+        "question_text": "OSI 7 Layer 모델 중, 흐름 제어 및 오류 없는 전송을 보장\n하는 계층은?",
+        "options": [
+          "Session Layer",
+          "Physical Layer",
+          "Network Layer",
+          "Transport Layer"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "3과목 : NOS",
+    "problems": [
+      {
+        "problem_number": 28,
+        "question_text": "Windows Server 2016의 IIS 기본 웹사이트 등록 정보의 필\n드에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "IP 주소: 사이트가 사용할 IP 주소를 기록하며, 한 컴퓨 터에 2개 이상의 IP가 할당된 경우는 IP의 접속 순서를 지정",
+          "TCP 포트: 웹서버 시스템의 물리적인 시리얼 포트 번호 를 지정",
+          "연결 수 제한: 웹서버에 연결할 수 있는 연결 수 제한을 지정",
+          "연결 시간 제한: 웹서버에 접속한 후 일정 시간 동안 움 직임이 없으면 세션을 끊도록 지정"
+        ]
+      },
+      {
+        "problem_number": 29,
+        "question_text": "Windows Server 2016의 DNS 서버 역할에서 지원하는 레\n코드의 형식과 기능의 설명이다. 이 중 잘못 연결된 것은?",
+        "options": [
+          "A - 정규화된 도메인 이름을 32비트 IPv4 주소와 연결",
+          "AAAA - 정규화된 도메인 이름을 128비트 IPv6 주소와 연결",
+          "CNAME - 실제 도메인 이름과 연결되는 가상 도메인 이 름",
+          "NS - 주어진 사서함에 도달할 수 있는 라우팅 정보를 제공"
+        ]
+      },
+      {
+        "problem_number": 30,
+        "question_text": "Windows Server 2016에서 지원하는 Hyper-V에 대한 설명\n으로 옳지 않은 것은?",
+        "options": [
+          "하드웨어 사용률을 높여준다.",
+          "서버 가용성이 줄어든다.",
+          "유지비용을 줄일 수 있다.",
+          "개발 및 테스트의 효율성을 향상시킨다."
+        ]
+      },
+      {
+        "problem_number": 31,
+        "question_text": "Linux 시스템에서 데몬(Daemon)에 관한 설명 중 옳지 않은\n최강 자격",
+        "options": [
+          "백그라운드(Background)로 실행된다.",
+          "′ps afx′ 명령어를 실행시켜 보면 데몬 프로그램의 활동 을 확인할 수 있다.",
+          "시스템 서비스를 지원하는 프로세스이다.",
+          "시스템 부팅 때만 시작될 수 있다."
+        ]
+      },
+      {
+        "problem_number": 32,
+        "question_text": "Linux에서 ′manager′라는 파일을, 파일의 소유자가 아닌 사\n람도 볼 수는 있지만 수정을 못하도록 하는 명령어는?",
+        "options": [
+          "chmod 777 manager",
+          "chmod 666 manager",
+          "chmod 646 manager",
+          "chmod 644 manager"
+        ]
+      },
+      {
+        "problem_number": 33,
+        "question_text": "Linux에서 사용자가 현재 작업 중인 디렉터리의 경로를 절\n대경로 방식으로 보여주는 명령어는?",
+        "options": [
+          "cd",
+          "man",
+          "pwd",
+          "cron"
+        ]
+      },
+      {
+        "problem_number": 34,
+        "question_text": "다음은 Linux 시스템의 계정정보가 담긴 ′/etc/passwd′ 의\n내용이다. 다음의 설명 중 옳지 않은 것은?",
+        "options": [
+          "사용자 계정의 ID는 ′user1′ 이다.",
+          "패스워드는 ′x′ 이다.",
+          "사용자의 UID와 GID는 500번이다.",
+          "사용자의 기본 Shell은 ′/bin/bash′ 이다."
+        ]
+      },
+      {
+        "problem_number": 35,
+        "question_text": "TCP 3Way-HandShaking 과정 중 클라이언트가 보낸 연결\n요청에서 패킷을 수신한 서버는 LISTEN 상태에서 무슨 상\n태로 변경되는가?",
+        "options": [
+          "SYN_SENT",
+          "SYN_RECEIVED",
+          "ESTABLISHED",
+          "CLOSE"
+        ]
+      },
+      {
+        "problem_number": 36,
+        "question_text": "Windows Server 2016의 DNS관리에서 아래 지문과 같은\nDNS 설정 방식은?",
+        "options": [
+          "Round Robin",
+          "Cache Plugin",
+          "Cache Server",
+          "Azure AutoScaling"
+        ]
+      },
+      {
+        "problem_number": 37,
+        "question_text": "네트워크관리사 Kim 사원이 Linux 서버(하드웨어)의 HDD\n증설을 위해 서버를 종료하기로 하였다. 이에 Linux 서버를\n종료하기 위한 명령어가 아닌 것은?",
+        "options": [
+          "shutdown –h now",
+          "poweroff",
+          "init 6",
+          "halt"
+        ]
+      },
+      {
+        "problem_number": 38,
+        "question_text": "네임서버 레코드 정보를 변경한 지 충분한 시간이 지났지\n만, 특정 기기에서 여전히 이전 도메인으로 접속되는 경우\n가 있다. 이는 컴퓨터의 DNS 캐시가 갱신되지 않아 발생할\n수 있다. DNS 캐시를 초기화하는 명령어는?",
+        "options": [
+          "ipconfig /displydns",
+          "ipconfig /flushdns",
+          "ipconfig /release",
+          "ipconfig /renew"
+        ]
+      },
+      {
+        "problem_number": 39,
+        "question_text": "Linux에서 열려있는 port 정보를 확인하는 명령어로 옳은 것\n은?",
+        "options": [
+          "ps",
+          "pstree",
+          "getenforce",
+          "netstat"
+        ]
+      },
+      {
+        "problem_number": 40,
+        "question_text": "Linux Apache 웹 서버에서 사용자가 POST Request 메시\n지를 전송 시 일정 크기 이상 전송하지 못하도록 ′\nhttpd.conf′ 파일에서 설정하는 지시자로 옳은 것은?",
+        "options": [
+          "KeepRequestSize",
+          "LimitRequestBody",
+          "RestrictBodyRequest",
+          "PostRequestSize"
+        ]
+      },
+      {
+        "problem_number": 41,
+        "question_text": "다음 지문에서 설명하는 Linux 시스템의 구성요소로 옳은\n것은?",
+        "options": [
+          "SSL(Secure Sockets Layer)",
+          "SSH(Secure Shell)",
+          "TLS(Transport Layer Security)",
+          "RDP(Remote Desktop Protocol)"
+        ]
+      },
+      {
+        "problem_number": 42,
+        "question_text": "네트워크관리사 Park 사원은 Windows Server 2016에서\nActive Directory를 구성 중에 있다. 이때 한 도메인 안에서\n세부적인 단위로 나누어 관리부, 회계부, 기술부 등의 부서\n로 구성하고자 한다. 서버 담당자가 설정해야 하는 항목은?",
+        "options": [
+          "DC(Domain Controller)",
+          "RDC(Read Only Domain Controller)",
+          "OU(Organizational Unit)",
+          "Site"
+        ]
+      },
+      {
+        "problem_number": 43,
+        "question_text": "Linux 시스템에서 사용자에게 할당되어 있는 디렉터리로, 사\n용자가 임의로 사용할 수 있는 디렉터리 영역은?",
+        "options": [
+          "Root Directory",
+          "Home Directory",
+          "Temporary Directory",
+          "Public Directory"
+        ]
+      },
+      {
+        "problem_number": 44,
+        "question_text": "Windows Server 2016에서 DHCP 구성에 대한 설명으로 올\n바른 것은?",
+        "options": [
+          "DHCP에서 새 범위 구성 시 임대 기간은 일, 시간, 분, 초단위로 설정할 수 있다.",
+          "DHCP에서 새 범위 구성 시 더 이상 WINS 서버를 구성 하지 않는다.",
+          "새 예약 구성 시 지원되는 유형은 BOOTP 없이 DHCP만 가능하다.",
+          "DHCP 서버에서 주소를 분배할 때, 적용할 지연시간은 ms 단위로 지정한다."
+        ]
+      },
+      {
+        "problem_number": 45,
+        "question_text": "다음 중 Linux 명령어에 대한 설명으로 옳지 않은 것은?",
+        "options": [
+          "mkfs : 파일시스템 생성",
+          "du : 디스크 사용량 확인",
+          "mount : 외부장치 등을 디렉터리에 연결",
+          "fdisk : 파일시스템 점검"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "4과목 : 네트워크 운용기기",
+    "problems": [
+      {
+        "problem_number": 46,
+        "question_text": "L2 스위치에서 프레임을 전송 시 목적지의 어떤 주소를 확\n인 후 전송하는가?",
+        "options": [
+          "IP 주소",
+          "Port 주소",
+          "MAC 주소",
+          "URL 주소"
+        ]
+      },
+      {
+        "problem_number": 47,
+        "question_text": "무선랜(LAN)은 무선신호 전달방식을 이용하여 두 대 이상의\n장치를 연결하는 기술이다. 이를 이용하여 사용자는 근거리\n지역에서 이동하면서 지속적으로 네트워크에 접근할 수 있\n게 된다. 다음의 지문에서 설명하는 와이파이 IEEE 802.11\n규격은?",
+        "options": [
+          "IEEE 802.11n",
+          "IEEE 802.11ac",
+          "IEEE 802.11be",
+          "IEEE 802.11ax"
+        ]
+      },
+      {
+        "problem_number": 48,
+        "question_text": "게이트웨이(Gateway)의 역할로 올바른 것은?",
+        "options": [
+          "전혀 다른 프로토콜을 채용한 네트워크 간의 인터페이스 이다.",
+          "트위스트 페어 케이블 사용 시 이용되는 네트워크 케이 블 집선 장치이다.",
+          "케이블의 중계점에서 신호를 전기적으로 증폭한다.",
+          "피지컬 어드레스의 캐시 테이블을 갖는다."
+        ]
+      },
+      {
+        "problem_number": 49,
+        "question_text": "아래 지문이 설명하는 용어는?",
+        "options": [
+          "NAC(Network Access Control)",
+          "NAT(Network Access Translation)",
+          "IP제어",
+          "WAF(Web Application Firewall)"
+        ]
+      },
+      {
+        "problem_number": 50,
+        "question_text": "RAID에 대한 특징 중 옳지 않은 것은?",
+        "options": [
+          "데이터를 다수의 하드디스크에 병렬 전송하여 가상 하드 디스크의 전송속도가 향상된다.",
+          "동일한 데이터를 하드디스크의 서로 다른 위치에 중복 저장할 수 있다.",
+          "가동 중에 하드디스크에 장애가 발생하더라도 시스템의 정지 없이 새로운 하드디스크를 교체할 수 있다.",
+          "운영체제에서 여러 개의 논리적 드라이브를 하나의 물리 적 드라이브로 활용한다."
+        ]
+      }
+    ]
+  }
+]
